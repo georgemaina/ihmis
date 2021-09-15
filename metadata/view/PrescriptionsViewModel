@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "prescriptions",
+        "designer|userClassName": "PrescriptionsViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyPanelViewModel",
+    "designerId": "7e2fb2a5-c459-48b5-86d9-7074d2cd6eea"
+}

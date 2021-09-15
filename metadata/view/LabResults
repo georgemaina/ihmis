@@ -1,0 +1,186 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "labresults",
+        "designer|userClassName": "LabResults",
+        "header": [
+            "{style:'background:#1b5f87;color:white;font-weight:bold;'}"
+        ],
+        "height": 650,
+        "itemId": "LabResults",
+        "layout": "hbox",
+        "title": "Laboratory Module: Lab Results",
+        "width": 1149
+    },
+    "configAlternates": {
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "itemId": "string",
+        "layout": "string",
+        "title": "string",
+        "width": "auto",
+        "header": "object"
+    },
+    "name": "MyPanel1",
+    "designerId": "75f1160f-cbf3-493b-b858-a21ffab2861b",
+    "viewControllerInstanceId": "992db992-e857-4eb3-9e9e-b376d89f8e2d",
+    "viewModelInstanceId": "a5a74a8c-64e6-401b-8d6f-ce6961e329cd",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "frame": true,
+                "height": 650
+            },
+            "configAlternates": {
+                "frame": "boolean",
+                "height": "auto"
+            },
+            "name": "patientlists2",
+            "designerId": "8ea33b56-bfe3-4877-8b71-5ef98e01ba82",
+            "masterInstanceId": "396edbc5-4270-4317-96aa-1b2008cef8aa"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "anchor",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "layout": "string",
+                "layout|flex": "number"
+            },
+            "name": "MyContainer6",
+            "designerId": "9a720db4-504d-41fe-b233-906947707b28",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "patientdetailslab2",
+                    "designerId": "4d7a0ece-b04d-4822-8483-7e388d30b3c5",
+                    "masterInstanceId": "0ff5cd8e-e6fb-4576-85fa-cf2081545706"
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 5,
+                        "height": 46,
+                        "layout": "absolute",
+                        "margin": "0 0 2 0",
+                        "padding": 0
+                    },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "margin": "auto",
+                        "padding": "auto"
+                    },
+                    "name": "MyFieldSet11",
+                    "designerId": "9f2d4415-d52c-4fc9-b923-a16ce335967a",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 40,
+                                "iconCls": "x-fa fa-print",
+                                "itemId": "cmdPrintReport",
+                                "layout|x": 20,
+                                "layout|y": -1,
+                                "text": "Print Report"
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton11",
+                            "designerId": "d029a85f-4e24-484b-84c2-8350750b638b"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 40,
+                                "iconCls": "x-fa fa-print",
+                                "itemId": "cmdPrintResults",
+                                "layout|x": 145,
+                                "layout|y": -2,
+                                "text": "Print Lab Results"
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string"
+                            },
+                            "name": "MyButton12",
+                            "designerId": "90f0a5ba-c679-496e-8d3f-404b39aa2d36"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 600,
+                        "itemId": "resultsPanel",
+                        "scrollable": "both"
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "itemId": "string",
+                        "scrollable": "auto"
+                    },
+                    "name": "MyPanel1",
+                    "designerId": "5a2e55aa-c5d4-4e0c-8a2b-bd5397c2c2d8"
+                }
+            ]
+        }
+    ]
+}

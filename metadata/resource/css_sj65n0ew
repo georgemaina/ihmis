@@ -1,0 +1,18 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css_sj65n0ew",
+        "url": "resources/css/pharmacy.css"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "url": "uri"
+    },
+    "name": "css1",
+    "designerId": "4fa9b795-6eae-49b9-84b8-35cd8082b645"
+}

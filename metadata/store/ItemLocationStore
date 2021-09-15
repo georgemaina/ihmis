@@ -1,0 +1,66 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "itemlocationstore",
+        "designer|userClassName": "ItemLocationStore",
+        "model": "ItemLocations",
+        "pageSize": 100,
+        "storeId": "ItemLocationStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "autoLoad": "boolean",
+        "pageSize": "number"
+    },
+    "name": "UnitsMeasureStore2",
+    "designerId": "a4f3b88d-3941-494e-beed-b0ddd1ffa819",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "idParam": "ID",
+                "url": "data/getProductsFunctions.php?task=getItemLocation",
+                "useDefaultXhrHeader": false
+            },
+            "configAlternates": {
+                "url": "string",
+                "idParam": "string",
+                "useDefaultXhrHeader": "boolean"
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "11a1e8eb-a65b-4e2b-aa3b-2c1ef02c9a56",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "itemLocations"
+                    },
+                    "configAlternates": {
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader",
+                    "designerId": "a092ef88-d05a-4732-a885-ac7394ddf593"
+                }
+            ]
+        }
+    ]
+}

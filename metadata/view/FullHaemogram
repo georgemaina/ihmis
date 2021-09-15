@@ -1,0 +1,1955 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": "background:#629670;",
+        "container|align": "stretch",
+        "designer|userAlias": "fullhaemogram",
+        "designer|userClassName": "FullHaemogram",
+        "itemId": "fullHaemogram",
+        "layout": "vbox",
+        "width": 544
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "title": "string",
+        "width": "auto",
+        "itemId": "string",
+        "bodyStyle": "string"
+    },
+    "name": "MyForm",
+    "designerId": "614e75bb-90f3-4d34-b094-98dad112e86d",
+    "viewControllerInstanceId": "e8a5cd67-fc91-4e0a-969f-b58519e3e279",
+    "viewModelInstanceId": "bf5a1eb6-cb21-43af-a11e-191f639e9633",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 5,
+                "height": 30,
+                "layout": "absolute",
+                "layout|flex": 1,
+                "width": 525
+            },
+            "configAlternates": {
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "width": "auto"
+            },
+            "name": "MyContainer4",
+            "designerId": "7d1e08a5-eff0-4014-8834-36d132c6154d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldStyle": "font-size: 14px;font-weight: bold;color: white;",
+                        "layout|x": 10,
+                        "layout|y": 0,
+                        "value": "Full Haemogram",
+                        "width": 215
+                    },
+                    "configAlternates": {
+                        "fieldStyle": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "value": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyDisplayField12",
+                    "designerId": "e1f2fee8-adaa-449a-8a36-af9959674a29"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number"
+            },
+            "name": "MyContainer3",
+            "designerId": "b0a36167-7571-411e-a711-e403973572d1",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "frame": true,
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "frame": "boolean",
+                        "layout": "string",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyFieldSet4",
+                    "designerId": "000ad1a0-8c55-4182-ad26-4be9b14d65e3",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "WBC",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-123"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField20",
+                            "designerId": "4253e012-5903-45a9-b518-e7868727cf0a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Neu%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-124"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField26",
+                            "designerId": "31293994-d150-4430-b131-d37863869cf7"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Lym%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-125"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField29",
+                            "designerId": "e96eace8-567f-4ffc-a74f-6e91a1e4a93d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Mon%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-126"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField28",
+                            "designerId": "fa9c13a7-eb7c-45be-b2dd-23f211173cb5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Eos%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-127"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField27",
+                            "designerId": "26d89203-7726-4edb-9480-84fcad1cbb44"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Bas%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-128"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField21",
+                            "designerId": "76da8101-5a6d-42df-b25a-fd249e1a4555"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Neu#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-129"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField30",
+                            "designerId": "ff4b7973-cfb6-4318-8a06-1f046a533dde"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Lym#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-130"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField33",
+                            "designerId": "fc759ed6-94e6-4039-9735-7da74c193e77"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Mon#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-131"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField37",
+                            "designerId": "ac27137a-cf87-4262-8945-139358c08d89"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Eos#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-132"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField36",
+                            "designerId": "078a537a-0467-48d1-a24b-390c1217d2f5"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Bas#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-133"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField35",
+                            "designerId": "c1c4a608-c3c6-4e0f-8f10-7ea16d3c5759"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "RBC",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-134"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField34",
+                            "designerId": "c6d382a5-bdd8-4ed7-9c90-61e3f37b9535"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "HGB",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-135"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField32",
+                            "designerId": "216afc94-b248-4a98-bb96-bb766e469161"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "HCT",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-136"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField31",
+                            "designerId": "6a16908e-3aca-4c0e-8aae-26de9621bda0"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "MCV",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-137"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField38",
+                            "designerId": "e94d4e87-34f5-4a00-ad5b-9b097bff7675"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "MCH",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-138"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField39",
+                            "designerId": "19b9bc14-c557-4372-96cc-a727b6f1f156"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "MCHC",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-139"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField40",
+                            "designerId": "a7005e10-4c60-4f0a-aafe-e2903c4b4d37"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "RDW-CV",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-140"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField41",
+                            "designerId": "62d18da5-ca50-40c8-9aa7-a5a49aa959fb"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "RDW-SD",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-141"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField42",
+                            "designerId": "43c68b0b-aaa2-4599-8a0e-b8deb98e29d4"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "PLT",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-142"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField43",
+                            "designerId": "3c128d36-bc51-45ff-8907-d464a916feb6"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "MPV",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-143"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField2",
+                            "designerId": "9bf7d9fc-a747-489b-b99d-3ee100b475cc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "PDW",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-144"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField98",
+                            "designerId": "ffcaafe1-f74d-4860-a253-4c3198b8d11d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "PCT",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-145"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField99",
+                            "designerId": "c67017ef-6ad1-46dd-8258-c7da428d3a62"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "* ALY%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-146"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField92",
+                            "designerId": "d5e076a7-552b-44c3-ba6c-e0737e2c7893"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "*LIC%",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-147"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField85",
+                            "designerId": "18c054b2-c93b-4582-9dbb-9d8eac47f291"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "*ALY#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-148"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField84",
+                            "designerId": "94583ba2-2835-4bbb-91cf-8183e330a786"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "*LIC#",
+                                "labelAlign": "right",
+                                "labelWidth": 60,
+                                "layout|anchor": "100%",
+                                "margin": "0 0 3 0",
+                                "name": "group-ltest70-149"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelWidth": "number",
+                                "layout|anchor": "string",
+                                "margin": "auto",
+                                "name": "string",
+                                "labelAlign": "string"
+                            },
+                            "name": "MyTextField83",
+                            "designerId": "7ce079d0-b15c-48a9-a438-356fbac243b4"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "width": 104
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "container|align": "string",
+                        "layout": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyFieldSet5",
+                    "designerId": "d6ba5350-89aa-4fc7-b05b-40a4fe0014c8",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_WBC",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField22",
+                            "designerId": "92505a36-849d-44f1-b85c-e24f32761c5b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Neu2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField24",
+                            "designerId": "46d4c9c5-fb72-45c3-bb31-7984f8658205"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Lym2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField45",
+                            "designerId": "b90c54ed-1ace-404f-858e-38e8a3144d83"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Mon1",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField44",
+                            "designerId": "a72a887e-9cd6-4aa8-b7e6-f8ceec8e6f4b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Eos1",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField50",
+                            "designerId": "e630325f-1a6e-4c7f-a0e8-6b295bfb22de"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Bas1",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField54",
+                            "designerId": "117a9d05-e04b-42c3-b7f4-b6f7d6875006"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Neu2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField53",
+                            "designerId": "5d19219c-d180-4ebe-8af5-44c9728baacb"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Lym2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField52",
+                            "designerId": "0e40aebf-e596-42ea-8064-c9f6d708a9bc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Mon2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField51",
+                            "designerId": "81263e2b-d00b-413a-8716-e52991d18e30"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Eos2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField49",
+                            "designerId": "df912dcc-996f-46c8-9ef0-e7e31da1cb02"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_Bas2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField48",
+                            "designerId": "5c2fea3d-ae59-440d-a95b-a462ae57df99"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_RBC",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField47",
+                            "designerId": "f03964f7-0b3b-4c5c-9e5d-a5446e471cde"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_HGB",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField46",
+                            "designerId": "28ab50da-7e47-4e04-bf26-9de8f4315828"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_HCT",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField56",
+                            "designerId": "bb0648d4-2442-4b25-bc60-e23bab0dfb70"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_MCV",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField59",
+                            "designerId": "e7212053-609e-4769-8c79-63720b9fc0d1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_MCH",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField58",
+                            "designerId": "b78bb848-85c3-437b-b741-683096467cef"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_MCHC",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField60",
+                            "designerId": "45fce469-eb72-4468-a336-557d526acc1f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_RDW-CV",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField57",
+                            "designerId": "2e3587bb-346d-488f-a35c-c04ae6da83a1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_RDW-SD",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField55",
+                            "designerId": "eefa9cf7-1add-44bc-832f-b6c10013bf59"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_PLT",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField61",
+                            "designerId": "5762b7a1-21fc-4673-be16-b2adc4f5642f"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_MPV",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField100",
+                            "designerId": "65dd8ff6-ca5e-4f89-ad26-a083fd54b5b1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_PDW",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField101",
+                            "designerId": "c75a70b7-9738-4c19-aef6-408dd7f880c2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_PCT",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField102",
+                            "designerId": "ff396b86-96ad-4121-9f85-85a33fbfda01"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_ALY1",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField103",
+                            "designerId": "ae5bff4b-5b72-4d0a-9a88-36836e5d58e7"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_LIC1",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField104",
+                            "designerId": "cca1520e-cdbe-4398-a31d-198a46d67956"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_ALY2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField105",
+                            "designerId": "eb4bbe49-9ed9-4855-bcc8-2a138f759ac9"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "lower_LIC2",
+                                "width": 69
+                            },
+                            "configAlternates": {
+                                "width": "auto",
+                                "margin": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField106",
+                            "designerId": "79a4a70b-432e-4b01-b157-3889018075a3"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "container|align": "string",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldSet6",
+                    "designerId": "faeaff4a-1753-415a-92a6-634363926509",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_WBC",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField23",
+                            "designerId": "2f0b3ec9-040f-46c0-9129-b6a48f608cef"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Neu1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField73",
+                            "designerId": "b5aaa51c-6fb9-4a83-b313-be82e589040b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Lym1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField72",
+                            "designerId": "595b1d7c-6e0e-4b10-aff1-fcfddb796940"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Mon1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField71",
+                            "designerId": "6d70fe41-6e95-4042-be70-c6317aab07bc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Eos1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField70",
+                            "designerId": "d9f3ac4c-25e1-4650-9e8c-2d5120305031"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Bas1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField69",
+                            "designerId": "58382aaf-7ac7-46c7-8097-1384f6a8151e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Neu2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField68",
+                            "designerId": "b15ecc2e-a675-4932-a8d9-4b8a00ed4804"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Lym2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField67",
+                            "designerId": "0e519768-a304-4ce7-9edc-136cbce05de0"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Mon2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField66",
+                            "designerId": "57dcf7e6-daf2-4edb-91cc-bc26c218ec4c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Mon2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField65",
+                            "designerId": "5543e734-5bfe-46b0-b181-22b25c3f05bc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_Bas2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField64",
+                            "designerId": "293bec10-7364-4ebf-b03b-830e1dd2e351"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_RBC",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField63",
+                            "designerId": "e52923bd-2793-46a3-9d20-cf629d992e0e"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_HGB",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField62",
+                            "designerId": "7c60838b-948a-48d0-a766-3e9b1bf5aabc"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_HCT",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField74",
+                            "designerId": "32b1ebe9-a8c6-449f-896b-e6f28c5e2dbd"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_MCV",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField75",
+                            "designerId": "2e85382b-6e9a-4d02-89b6-dddb839e9ce6"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_MCH",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField76",
+                            "designerId": "c561c997-8007-47e3-b90f-832e3f74bb1a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_MCHC",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField25",
+                            "designerId": "6506edce-6e8a-4166-b410-4b24fb1fc015"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_RDW-CV",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField77",
+                            "designerId": "162d1045-a39e-48c6-94cf-ce7c31766e94"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_RDW-SD",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField79",
+                            "designerId": "211fac30-3251-4b6d-b4c1-f39037314880"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_PLT",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField78",
+                            "designerId": "74b2c7c0-bf3a-49b5-84d2-364d31d3b738"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_MPV",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField107",
+                            "designerId": "10a25ab2-5066-4928-b85c-b88b160482f4"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_PDW",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField110",
+                            "designerId": "088497c2-80c0-4ddb-99fd-663e5d7840ee"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_PCT",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField111",
+                            "designerId": "84353ff9-5b00-4b59-88c0-db8038c2b50a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_ALY1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField109",
+                            "designerId": "194f74ed-7926-46fa-b889-09900f59c70c"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_LIC1",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField108",
+                            "designerId": "8c38ecd0-5cdd-4230-ba28-e00ad5201027"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_ALY2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField112",
+                            "designerId": "2721504e-9659-4c7d-85f0-55d4eff81f96"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "margin": "0 0 3 0",
+                                "name": "upper_LIC2",
+                                "width": 71
+                            },
+                            "configAlternates": {
+                                "margin": "auto",
+                                "width": "auto",
+                                "name": "string"
+                            },
+                            "name": "MyTextField113",
+                            "designerId": "af859fda-84cd-4227-9bf6-1b2c5e26a1da"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

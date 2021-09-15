@@ -1,0 +1,56 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "radiologyliststore",
+        "designer|userClassName": "RadiologyListStore",
+        "model": "ServicesList",
+        "pageSize": 1000,
+        "storeId": "RadiologyListStore"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "pageSize": "number"
+    },
+    "name": "ServicesStore1",
+    "designerId": "a1f8e5b2-46ea-4e34-8e74-f98698469c8c",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getRadiologyList"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy16",
+            "designerId": "e864a711-9295-4ff7-bf5f-69ebd155da6f",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader15",
+                    "designerId": "a3ec9004-7753-45aa-8f9d-7dea802afa63"
+                }
+            ]
+        }
+    ]
+}

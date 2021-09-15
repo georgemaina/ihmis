@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ancprofile",
+        "designer|userClassName": "UrinalysisViewController1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "UrinalysisViewController1",
+    "designerId": "6dd8546b-fe96-46a3-9caa-163ce64c4ec1"
+}

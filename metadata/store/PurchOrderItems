@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "purchorderitems",
+        "designer|userClassName": "PurchOrderItems",
+        "model": "PurchOrderItems",
+        "storeId": "PurchOrderItems"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "8c400ae9-b43f-403e-8a64-4d56b14d79fe",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getPurchOrderDetails"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy14",
+            "designerId": "bca2a568-f2d0-4a5a-bc9d-c32294ebe16d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader13",
+                    "designerId": "790f81c4-8ae9-4fbd-90aa-a078b0bdcc0a"
+                }
+            ]
+        }
+    ]
+}

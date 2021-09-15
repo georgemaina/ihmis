@@ -1,0 +1,84 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "notesmodel",
+        "designer|userClassName": "MyModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "b92cba23-034d-450a-94ab-80b0ff5d7314",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "CreateTime"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField63",
+            "designerId": "03e8957c-4a17-4fa2-99d4-8ead190c4019"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "NotesType"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField61",
+            "designerId": "e56e1f5a-28df-48df-8eba-1d4d151e9795"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Notes"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField62",
+            "designerId": "630d371f-744e-4f9b-b1d3-5741d344620a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "TreatedBy"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField64",
+            "designerId": "b1392d58-c571-455c-a665-6727e16b965f"
+        }
+    ]
+}

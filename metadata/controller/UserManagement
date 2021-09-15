@@ -1,0 +1,406 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "usermanagement",
+        "designer|userClassName": "UserManagement",
+        "views": [
+            "UserManagement"
+        ]
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "views": "typedarray"
+    },
+    "name": "UserManagement1",
+    "designerId": "b1067e97-986a-43bf-81be-a05da0b1ae41",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel, record, item, index, e, eOpts"
+                ],
+                "fn": "loadUserRoles",
+                "implHandler": [
+                    "var ids=record.get('Roles');",
+                    "",
+                    "var userRoles=Ext.data.StoreManager.lookup('UserRolesStore');",
+                    "userRoles.load({",
+                    "    params: {",
+                    "        ids: ids,",
+                    "        userName:record.get('UserName')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadUserRoles",
+            "designerId": "c36f0f12-00b6-4a0f-922f-f3e44d2909e6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openUserForm",
+                "implHandler": [
+                    "userform= Ext.create('CarePortal.view.NewUserForm', {});",
+                    "var usersWin=Ext.create('Ext.window.Window', {",
+                    "    title: 'New User Form',",
+                    "    animCollapse: true,",
+                    "    collapsible: true,",
+                    "    tools: [",
+                    "    {",
+                    "        xtype: 'tool',",
+                    "        type: 'minimize'",
+                    "    },",
+                    "    {",
+                    "        xtype: 'tool',",
+                    "        type: 'maximize'",
+                    "    }",
+                    "    ]",
+                    "});",
+                    "",
+                    "",
+                    "userform.query('textfield[name=\"formStatus\"]')[0].setValue('insert');",
+                    "",
+                    "",
+                    "usersWin.add(userform);",
+                    "usersWin.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openUserForm",
+            "designerId": "3ac108ba-31bd-4e09-99c1-7c38f3375b5b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "newuserform",
+                "selector": "newuserform",
+                "xtype": "newuserform"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "newuserform",
+            "designerId": "8e514239-b3d9-4acb-b08d-a536533343e5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "usermanagement",
+                "selector": "usermanagement",
+                "xtype": "usermanagement"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "usermanagement",
+            "designerId": "a572ecb6-f450-4f66-bf44-c2f84ce7d12c"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control({",
+                    "    '#usersGrid':{",
+                    "        itemclick:this.loadUserRoles,",
+                    "        itemdblclick:this.viewUserDetails",
+                    "    },",
+                    "    '#cmdNewUser':{",
+                    "        click:this.openUserForm",
+                    "    },",
+                    "    '#cmdSaveUser':{",
+                    "        click:this.saveUser",
+                    "    },",
+                    "    //'#usersGrid':{",
+                    "     //   itemdblclick:this.viewUserDetails",
+                    "   //},",
+                    "    'usermanagement actioncolumn[id=deleteUser]':{",
+                    "        click:this.deleteUser",
+                    "    },",
+                    "    '#updateRoles':{",
+                    "        click:this.updateRoles",
+                    "    }",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "init",
+            "designerId": "672cb1e0-b97a-46d7-a5d1-81f638a62735"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveUser",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form\r",
+                    "var pass1=button.up('form').getForm().findField('password1').getValue();\r",
+                    "var pass2=button.up('form').getForm().findField('password2').getValue();\r",
+                    "\r",
+                    "if(pass1!=pass2){\r",
+                    "    Ext.Msg.alert('Confirm Password','Sorry the two passwords do not match <br>'+pass1);\r",
+                    "}else{\r",
+                    "    if (form.isValid()) { // make sure the form contains valid data before submitting\r",
+                    "    form.submit({\r",
+                    "        params:{\r",
+                    "            //password:CryptoJS.MD5(pass1)\r",
+                    "            password:pass1\r",
+                    "        },\r",
+                    "        success: function(form, action) {\r",
+                    "            Ext.Msg.alert('Success', 'Saved new Item successfully.');\r",
+                    "\r",
+                    "            var win = button.up('window');\r",
+                    "            win.removeAll();\r",
+                    "            win.close();\r",
+                    "\r",
+                    "            var userInfo=Ext.data.StoreManager.lookup('UsersListStore');\r",
+                    "            userInfo.load({});\r",
+                    "\r",
+                    "        },\r",
+                    "        failure: function(form, action) {\r",
+                    "                Ext.Msg.alert('Failed', 'Error updating company please check your input values');\r",
+                    "        }\r",
+                    "    });\r",
+                    "} else { // display error alert if the data is invalid\r",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');\r",
+                    "}\r",
+                    "}\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveUser",
+            "designerId": "f15c0a85-e1a7-4f8e-8e5f-8ffbc55cc679"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel, record, item, index, e, eOpts"
+                ],
+                "fn": "viewUserDetails",
+                "implHandler": [
+                    "userform= Ext.create('PayrollApp.view.NewUserForm', {});\r",
+                    "var usersWin=Ext.create('Ext.window.Window', {\r",
+                    "    title: 'User Details Form',\r",
+                    "    animCollapse: true,\r",
+                    "    collapsible: true,\r",
+                    "    tools: [\r",
+                    "    {\r",
+                    "        xtype: 'tool',\r",
+                    "        type: 'minimize'\r",
+                    "    },\r",
+                    "    {\r",
+                    "        xtype: 'tool',\r",
+                    "        type: 'maximize'\r",
+                    "    }\r",
+                    "    ]\r",
+                    "});\r",
+                    "\r",
+                    "\r",
+                    "userform.query('textfield[name=\"formStatus\"]')[0].setValue('update');\r",
+                    "\r",
+                    "usersWin.add(userform);\r",
+                    "usersWin.show();\r",
+                    "\r",
+                    "userform.getForm().loadRecord(record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "viewUserDetails",
+            "designerId": "a6c79dd1-d60e-4d5a-a38f-2a91f34c97d2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "deleteUser",
+                "implHandler": [
+                    "\r",
+                    "var username=record.get('Username');\r",
+                    "\r",
+                    "    Ext.Msg.show({\r",
+                    "        title:'Delete User?',\r",
+                    "        msg: 'Are you sure you want to delete '+username,\r",
+                    "        buttons: Ext.Msg.YESNOCANCEL,\r",
+                    "        icon: Ext.Msg.QUESTION,\r",
+                    "        fn: function(rec) {\r",
+                    "            if (rec === \"yes\") {\r",
+                    "                Ext.Ajax.request({\r",
+                    "                    url: 'data/UserManagement.php?task=deleteUser',\r",
+                    "                    params: {\r",
+                    "                        userName:username\r",
+                    "                    },\r",
+                    "                    waitMsg: 'Deleting User ...',\r",
+                    "                    success: function(response){\r",
+                    "                        var text = response.responseText;\r",
+                    "                        Ext.Msg.alert('Delete','Record Successfully deleted');\r",
+                    "                        var userslist=Ext.data.StoreManager.lookup('UsersListStore');\r",
+                    "                        userslist.load({});\r",
+                    "\r",
+                    "                    },\r",
+                    "                    failure:function(response){\r",
+                    "                        var resp = JSON.parseJSON(response);\r",
+                    "                        Ext.Msg.alert('Error','There was a problem deleting the User, Contact System Administrator');\r",
+                    "                    }\r",
+                    "                });\r",
+                    "\r",
+                    "            }\r",
+                    "        }\r",
+                    "    });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "deleteUser",
+            "designerId": "5791b223-d2a1-4cbe-bb9d-6caa291845ab"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "updateRoles",
+                "implHandler": [
+                    "var rolesStore=Ext.data.StoreManager.lookup('UserRolesStore');",
+                    "",
+                    "var updatedRecords = this.getUsermanagement().down('#rolesGrid').getStore().getUpdatedRecords();",
+                    "params=[];",
+                    "Ext.each(updatedRecords,function(record){",
+                    " params.push(record.data);",
+                    "});",
+                    "",
+                    "",
+                    "rolesStore.proxy.extraParams = {",
+                    "    selectedCount:params.length //,",
+                    "    //UserName:this.getBills().down('#txtSearch').getValue()",
+                    "};",
+                    "",
+                    "rolesStore.sync({",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        Ext.Msg.alert('Update','Successfully updated Roles');",
+                    "        var rolesStore=Ext.data.StoreManager.lookup('UserRolesStore');",
+                    "        rolesStore.load({});",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response.responseText);",
+                    "        Ext.Msg.alert('Error','Error Updating User Roles');",
+                    "",
+                    "    }",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "updateRoles",
+            "designerId": "04974135-55d9-453a-8928-d0f903b4be60"
+        }
+    ]
+}

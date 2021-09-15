@@ -1,0 +1,119 @@
+{
+    "type": "Ext.tab.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "activeTab": 0,
+        "designer|userAlias": "systemadmin",
+        "designer|userClassName": "SystemAdmin"
+    },
+    "configAlternates": {
+        "activeTab": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyTabPanel3",
+    "designerId": "f0b512cc-7dfd-4d5c-93de-1455bb53d277",
+    "viewControllerInstanceId": "47e4b34e-f30a-4287-b322-e94d28865bbb",
+    "viewModelInstanceId": "02195f85-c955-4cbf-9572-085f2bf2f194",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "User Management"
+            },
+            "configAlternates": {
+                "title": "string"
+            },
+            "name": "MyPanel15",
+            "designerId": "3a6eabbd-933c-4da1-be95-a30454ccbec1",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig9",
+                    "designerId": "ec3030f3-5580-4d37-9140-38fe4ebc5e29"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "usermanagement",
+                    "designerId": "3d391333-9750-4267-8571-9357a25f3dbe",
+                    "masterInstanceId": "3d384f7e-4b40-45f4-b8c3-3730ce30c885"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Data Management"
+            },
+            "configAlternates": {
+                "title": "string"
+            },
+            "name": "MyPanel16",
+            "designerId": "b6559d22-ebfe-45a6-a0b7-9e7b417ff6df",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig10",
+                    "designerId": "aedb9f60-7e67-4af4-8d4d-d23dba80d9aa"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Company Details"
+            },
+            "configAlternates": {
+                "title": "string"
+            },
+            "name": "MyPanel17",
+            "designerId": "abeb6202-5a85-416d-8ce0-44045bc19a8b",
+            "cn": [
+                {
+                    "type": "Ext.tab.Tab",
+                    "reference": {
+                        "name": "tabConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "TabConfig11",
+                    "designerId": "28c94874-53b7-4162-86d4-5a5b59e284df"
+                }
+            ]
+        }
+    ]
+}

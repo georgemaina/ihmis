@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "labtests",
+        "designer|userClassName": "PrescriptionFormViewController1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PrescriptionFormViewController1",
+    "designerId": "ba2980dd-0412-40e7-90c2-343e5c222b28"
+}

@@ -1,0 +1,68 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "generalledger",
+        "designer|userClassName": "GeneralLedger"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "UnitsMeasure2",
+    "designerId": "5e806a50-79ab-46bb-a9e7-e34ab3f4cb16",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "AccountCode"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField25",
+            "designerId": "c2acee7f-9d9e-4c37-b954-c7127fac0e62"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "AccountName"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField26",
+            "designerId": "a32ea24a-7a91-4522-84cd-c10c1886e0e5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "AccountGroups"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField143",
+            "designerId": "8dda2173-165e-4070-988c-e3543f8d2ea9"
+        }
+    ]
+}

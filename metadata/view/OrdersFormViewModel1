@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordersfromsuppliers",
+        "designer|userClassName": "OrdersFormViewModel1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OrdersFormViewModel1",
+    "designerId": "84be8f24-3c17-404d-9a89-c2dec5786898"
+}

@@ -1,0 +1,3655 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "reports",
+        "designer|userClassName": "Reports",
+        "models": [
+            "LabTests",
+            "ItemsList"
+        ],
+        "stores": [
+            "ItemsListStore",
+            "ClinicsStore",
+            "LocationsStore"
+        ],
+        "views": [
+            "OpMobidity",
+            "LabTests",
+            "LabResults",
+            "OpVisits"
+        ]
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "models": "typedarray",
+        "stores": "typedarray",
+        "views": "typedarray"
+    },
+    "name": "Reports",
+    "designerId": "0f4e7432-48b2-42ac-ba60-309ac890b194",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control({",
+                    "    '#cmdSearch':{",
+                    "        click:this.searchlabTests",
+                    "    },",
+                    "    '#cmdPrint':{",
+                    "        click:this.printLabTests",
+                    "    },",
+                    "    '#cmdExportToExcel':{",
+                    "        click:this.ExportLabTests",
+                    "    },",
+                    "    '#mnuOPMobidity':{",
+                    "        click:this.openOpMobidity",
+                    "    },",
+                    "    '#mnuLabSummaries':{",
+                    "        click:this.openLabSummaries",
+                    "    },",
+                    "    '#mnuOpRevenue':{",
+                    "        click:this.openRevenue",
+                    "    },",
+                    "    '#cmdPreview':{",
+                    "        click:this.getMobidity",
+                    "    },",
+                    "    '#cmdExport':{",
+                    "        click:this.exportToExcel",
+                    "    },",
+                    "    '#mnuOpVisits':{",
+                    "        click:this.openOpVisits",
+                    "    },",
+                    "    '#cmdPreviewVisits':{",
+                    "        click:this.getVisits",
+                    "    },",
+                    "    '#mnuIpMobidity':{",
+                    "        click:this.openIpMobidity",
+                    "    },",
+                    "    '#cmdPreviewMobidity':{",
+                    "        click:this.getIpMobidity",
+                    "    },",
+                    "    '#mnuDischarges':{",
+                    "        click:this.getDischarges",
+                    "    },",
+                    "    '#mnuAdmissions':{",
+                    "        click:this.getAdmissions",
+                    "    },",
+                    "    '#cmdPreviewAdmDis':{",
+                    "        click:this.getAdmDis",
+                    "    },",
+                    "    '#mnuDiagnosisReports':{",
+                    "        click:this.getDiagnosisReports",
+                    "    },",
+                    "    '#cmdPreviewDiagnosis':{",
+                    "        click:this.previewDiagnosis",
+                    "    },",
+                    "    '#mnuTopDiseases':{",
+                    "        click:this.getTopDiseases",
+                    "    },",
+                    "    '#cmdPreviewTopDiseases':{",
+                    "        click:this.previewTopDiseases",
+                    "    },",
+                    "    '#mnuPharmacyRevenue':{",
+                    "        click:this.openPharmacyRevenue",
+                    "    },",
+                    "    '#cmdPreviewPharmacyrevenue':{",
+                    "        click:this.previewPharmacyRevenue",
+                    "    },",
+                    "    '#mnuLabActivities':{",
+                    "        click:this.openLabActivities",
+                    "    },",
+                    "    '#cmdPreviewLabActivites':{",
+                    "        click:this.previewLabActivies",
+                    "    },",
+                    "    '#mnuXrayActivities':{",
+                    "        click:this.openXrayActivities",
+                    "    },",
+                    "    '#cmdPreviewXrayActivites':{",
+                    "        click:this.previewXrayActivities",
+                    "    },",
+                    "    '#mnuLabRevenue':{",
+                    "        click:this.openLabRevenue",
+                    "    },",
+                    "    '#cmdPreviewLabRevenue':{",
+                    "        click:this.previewLabRevenue",
+                    "    },",
+                    "    '#mnuXrayRevenue':{",
+                    "        click:this.openXrayRevenue",
+                    "    },",
+                    "    '#cmdPreviewXrayRevenue':{",
+                    "        click:this.previewXrayRevenue",
+                    "    },",
+                    "    '#mnuPatientDrugStatement':{",
+                    "        click:this.openDrugStatement",
+                    "    },",
+                    "    '#mnuSingleDrugStatement':{",
+                    "        click:this.openSingleDrugStatement",
+                    "    },",
+                    "    '#cmdPreviewDrugsStatement':{",
+                    "        click:this.previewDrugStatement",
+                    "    },",
+                    "    '#cmdExportPharmacyrevenue':{",
+                    "        click:this.exportPharmacyRevenue",
+                    "    },",
+                    "    '#cmdExportLabActivities':{",
+                    "        click:this.exportLabActivities",
+                    "    },",
+                    "    '#cmdExportLabRevenue':{",
+                    "        click:this.exportLabRevenue",
+                    "    },",
+                    "    '#cmdPreviewRevenue':{",
+                    "        click:this.getRevenue",
+                    "    },",
+                    "    '#revenueByItem':{",
+                    "        itemdblclick:this.getDrugStatement",
+                    "    },",
+                    "    '#cmdSearchDrug':{",
+                    "        click:this.searchDrugStatement",
+                    "    },",
+                    "    '#mnuClinics':{",
+                    "        click:this.openClinicsWindow",
+                    "    },",
+                    "    '#cmdSearchClinics':{",
+                    "        click:this.searchClinicsReport",
+                    "    },",
+                    "    '#cmdExportDoctorsWorkload':{",
+                    "        click:this.exportClinics",
+                    "    },",
+                    "    '#NhifCredits':{",
+                    "        click:this.NhifCredits",
+                    "    },",
+                    "    '#cmdSearchNhif':{",
+                    "        click:this.searchNhif",
+                    "    },",
+                    "    '#cmdExportNhif':{",
+                    "        click:this.cmdExportNhif",
+                    "    },",
+                    "    '#mnuFinalised':{",
+                    "        click:this.openFinalisedInvoices",
+                    "    },",
+                    "    '#cmdSearchFinalised':{",
+                    "        click:this.searchFinalised",
+                    "    },",
+                    "    '#cmdExportFinalised':{",
+                    "        click:this.exportFinalised",
+                    "    },",
+                    "    '#cmdExportAdmDis':{",
+                    "        click:this.exportAdmsDis",
+                    "    },",
+                    "    '#cmdPreviewMovement':{",
+                    "        click:this.previewMovememt",
+                    "    },",
+                    "    '#mnuStocksMovement':{",
+                    "        click:this.openStockMovement",
+                    "    },",
+                    "    '#cmdPrintMovement':{",
+                    "        click:this.printStockMovement",
+                    "    },",
+                    "    '#mnuOccupancyReport':{",
+                    "        click:this.openOccupancy",
+                    "    },",
+                    "    '#mnuHtc':{",
+                    "        click:this.openHtc",
+                    "    },",
+                    "    '#cmdSearchHtc':{",
+                    "        click:this.searchHtc",
+                    "    },",
+                    "    '#mnuWorkload':{",
+                    "        click:this.openWorkLoad",
+                    "    },",
+                    "    '#cmdSearchWorkload':{",
+                    "        click:this.previewWorkLoad",
+                    "    },",
+                    "    '#cmdExportDiagnosis':{",
+                    "        click:this.exportDiagnosis",
+                    "    },",
+                    "    '#mnuInventoryUsage':{",
+                    "        click:this.openInventoryUsage",
+                    "    },",
+                    "    '#mnuPharmRevenueCategory':{",
+                    "        click:this.openRevenueByCat",
+                    "    },",
+                    "    '#cmdPreviewCatRevenue':{",
+                    "        click:this.openPharmacyRevByCat",
+                    "    },",
+                    "    '#mnuOpInvoices':{",
+                    "        click:this.openOpInvoices",
+                    "    },",
+                    "    '#cmdPreviewInvoice':{",
+                    "        click:this.previewOpInvoices",
+                    "    },",
+                    "    '#cmdExportMovement':{",
+                    "        click:this.exportMovement",
+                    "    },",
+                    "    '#cmdExportDrugStatement':{",
+                    "        click:this.exportDrugStatement",
+                    "    },",
+                    "    '#cmdPrintStatement':{",
+                    "        click:this.printStatement",
+                    "    },",
+                    "    '#cmdExportInvoices':{",
+                    "        click:this.exportOPInvoices",
+                    "    },",
+                    "    '#cmdExportPatientStatement':{",
+                    "        click:this.exportPatientStatement",
+                    "    },",
+                    "    '#cmdExportTopDiseases':{",
+                    "        click:this.exportTopDiseases",
+                    "    },",
+                    "    '#cmdExportHtc':{",
+                    "        click:this.exportHtc",
+                    "    },",
+                    "    '#cmdExportXrayRevenue':{",
+                    "        click:this.exportXrayRevenue",
+                    "    },",
+                    "    '#mnuTreatmentReport':{",
+                    "        click:this.openTreatmentRegister",
+                    "    },",
+                    "    '#cmdPreviewRegister':{",
+                    "        click:this.previewTreatment",
+                    "    },",
+                    "    '#cmdExportRegister':{",
+                    "        click:this.exportTreatment",
+                    "    },",
+                    "    '#cmdPreviewDentalClinics':{",
+                    "        click:this.previewDentalServices",
+                    "    },",
+                    "    '#mnuDentalClinic':{",
+                    "        click:this.openDentalClinic",
+                    "    },",
+                    "    '#mnuLabresultsummaries':{",
+                    "        click:this.openLabResults",
+                    "    },",
+                    "    '#cmdUpdateReport':{",
+                    "        click:this.updateOpWorkload",
+                    "    }",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "init",
+            "designerId": "0c428039-5070-4efc-8476-3735fbf54ee0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "tabpanel",
+                "designer|targetType": "RevenuePanel",
+                "fn": "onTabpanelTabChange",
+                "implHandler": [
+                    "//alert(newCard.id);",
+                    "",
+                    "date1= tabPanel.down('#startDate').getValue();",
+                    "date2= tabPanel.down('#endDate').getValue();",
+                    "",
+                    "//Ext.Msg.alert('Test',date2);",
+                    "",
+                    "if(newCard.id==\"oprevenue\"){",
+                    "    newCard.removeAll();",
+                    "    resultsGrid = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "    //revenueChart = Ext.create('Reports.view.RevenueChart', {});",
+                    "",
+                    "    var revenueStore=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "    revenueStore.load({",
+                    "        params: {",
+                    "            rptType: 'oprevenue',",
+                    "            startDate:date1,",
+                    "            endDate:date2",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "            this.getResultsgrid().down('#txtTotal').setValue('');",
+                    "            var totalPrice = parseInt(revenueStore.sum('Amount'));",
+                    "            var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "            this.getResultsgrid().down('#txtTotal').setValue(total);",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "",
+                    "    newCard.add(resultsGrid);",
+                    "",
+                    "}else if(newCard.id==\"iprevenue\"){",
+                    "    newCard.removeAll();",
+                    "    resultsGrid2 = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "    var revenueStore2=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "    revenueStore2.load({",
+                    "        params: {",
+                    "            rptType: 'iprevenue',",
+                    "            startDate:date1,",
+                    "            endDate:date2",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "                this.getResultsgrid().down('#txtTotal').setValue('');",
+                    "                var totalPrice = parseInt(revenueStore2.sum('Amount'));",
+                    "                var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "                this.getResultsgrid().down('#txtTotal').setValue(total);",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "",
+                    "    newCard.add(resultsGrid2);",
+                    "}else if(newCard.id==\"opdebtorsrevenue\"){",
+                    "            newCard.removeAll();",
+                    "            resultsGrid3 = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "            var revenueStore3=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "            revenueStore3.load({",
+                    "                params: {",
+                    "                    rptType: 'opDebtorsRevenue',",
+                    "                    startDate:date1,",
+                    "                    endDate:date2",
+                    "                },",
+                    "                callback: function(records, operation, success) {",
+                    "                    this.getResultsgrid().down('#txtTotal').setValue('');",
+                    "                        var totalPrice = parseInt(revenueStore3.sum('Amount'));",
+                    "                        var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "                        this.getResultsgrid().down('#txtTotal').setValue(total);",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "",
+                    "            newCard.add(resultsGrid3);",
+                    "   }"
+                ],
+                "name": "tabchange",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onTabpanelTabChange",
+            "designerId": "6677b3a2-7e14-44d4-9994-e2961c1adc23"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchlabTests",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "var labTestsStore=Ext.data.StoreManager.lookup('LabTestsStore');",
+                    "labTestsStore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchlabTests",
+            "designerId": "8d38c6ab-8b60-4c0c-bb07-3c55d09f5699"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "ExportLabTests",
+                "implHandler": [
+                    "var date1=button.up('grid').down('#startDate').getValue();",
+                    "var date2=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "strDate=date1.toLocaleDateString('en-US');",
+                    "strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "window.open('reports/exportLabSummaries.php?startDate='+strDate+'&endDate='+strDate2,",
+                    "            \"Lab Summaries Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "ExportLabTests",
+            "designerId": "05123e5f-95d5-4038-8bcb-06fa74ec23f3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "printLabTests",
+                "implHandler": [
+                    "var date1=button.up('grid').down('#startDate').getValue();",
+                    "var date2=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "window.open('reports/exportLabTestsPDF.php?startDate='+date1+'&endDate='+date2,",
+                    "            \"Lab Summaries Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "printLabTests",
+            "designerId": "a0cf3f2e-e780-4fac-8dda-4a22f6c9cdb1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "revenuepanel",
+                "selector": "revenuepanel",
+                "xtype": "revenuepanel"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "revenuepanel",
+            "designerId": "fcd8c628-eeb1-4bc4-83b3-8f06dc8a56ae"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openOpMobidity",
+                "implHandler": [
+                    "opmodity = Ext.create('CarePortal.view.OpMobidity', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(opmodity);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openOpMobidity",
+            "designerId": "84a5d326-03e7-4617-8cd5-0e5f45f623e8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "labtests",
+                "selector": "labtests",
+                "xtype": "labtests"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "labtests",
+            "designerId": "bd6efb16-ac54-4992-9cf5-331baed1ade2"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "opmobidity",
+                "selector": "opmobidity",
+                "xtype": "opmobidity"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "opmobidity",
+            "designerId": "8effcb66-fbb3-4bd9-b785-50ad0c4a67e6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openLabSummaries",
+                "implHandler": [
+                    "// Ext.Msg.alert('Test','Test');",
+                    "labsummaries = Ext.create('CarePortal.view.LabTests', {});",
+                    "        center_container = this.getViewport().down('container[region=center]');",
+                    "        center_container.removeAll();",
+                    "",
+                    "        center_container.add(labsummaries);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLabSummaries",
+            "designerId": "dd546577-9a1a-4f00-8151-0191490ac042"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "viewport",
+                "selector": "reportsmain",
+                "xtype": "reportsmain"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "viewport",
+            "designerId": "f2deba9e-d594-434a-be16-937ac4f0c6cc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openRevenue",
+                "implHandler": [
+                    "revenues = Ext.create('CarePortal.view.RevenuePanel', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(revenues);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openRevenue",
+            "designerId": "cde9b7dc-ac39-495a-8c99-37f78a4009c6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getMobidity",
+                "implHandler": [
+                    "var startDate=this.getOpmobidity().down(\"#startDate\").getValue();",
+                    "var endDate=this.getOpmobidity().down(\"#endDate\").getValue();",
+                    "var reportType=this.getOpmobidity().down('#reportType').getValue();",
+                    "",
+                    "//alert(reportMonth);",
+                    "",
+                    "var opmobiditystore=Ext.data.StoreManager.lookup(\"OpMobidityStore\");",
+                    "",
+                    "opmobiditystore.load({",
+                    "    params:{",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        reportType:reportType",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getMobidity",
+            "designerId": "34b28b2a-3ac5-4c4d-b79e-5f22dbdb9ad7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportToExcel",
+                "implHandler": [
+                    "var startDate=Ext.Date.format(new Date(this.getOpmobidity().down('#startDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getOpmobidity().down('#endDate').getValue()), 'Y-m-d');",
+                    "",
+                    "var reportType=this.getOpmobidity().down('#reportType').getValue();",
+                    "window.open('reports/exportOpMobidity3.php?date1='+startDate+'&date2='+endDate+'&reportType='+reportType,",
+                    "            \"OpMobidity Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportToExcel",
+            "designerId": "098f8dfc-51c1-4ca3-b40a-56c5929912c1"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "resultsgrid",
+                "selector": "resultsgrid",
+                "xtype": "resultsgrid"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "resultsgrid",
+            "designerId": "ce33a094-a2e5-43e2-97d2-52f759829ce0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openOpVisits",
+                "implHandler": [
+                    " // Ext.Msg.alert('Test','Test');",
+                    "        opvisits = Ext.create('CarePortal.view.OpVisits', {});",
+                    "                center_container = this.getViewport().down('container[region=center]');",
+                    "                center_container.removeAll();",
+                    "",
+                    "                center_container.add(opvisits);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openOpVisits",
+            "designerId": "bcd6e2d8-c9c3-4773-82e0-d921b08f9966"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "opvisits",
+                "selector": "opvisits",
+                "xtype": "opvisits"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "opvisits",
+            "designerId": "3f365fc7-4e9a-45f2-9e4a-ae2681d2bd65"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getVisits",
+                "implHandler": [
+                    " var startDate=button.up('grid').down('#startDate').getValue();",
+                    " var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "        var opvisitstore=Ext.data.StoreManager.lookup('OpVisitsStore');",
+                    "        opvisitstore.load({",
+                    "            params: {",
+                    "                startDate:startDate,",
+                    "                endDate:endDate",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getVisits",
+            "designerId": "502a74b7-3cb4-4147-8c2f-448fb8e2d99f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ipmobidity",
+                "selector": "ipmobidity",
+                "xtype": "ipmobidity"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "ipmobidity",
+            "designerId": "80296944-db46-4cec-932c-5fa25d931c56"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openIpMobidity",
+                "implHandler": [
+                    "ipmobidity = Ext.create('CarePortal.view.IpMobidity', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(ipmobidity);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openIpMobidity",
+            "designerId": "5fd41c36-ccff-42b5-be16-5a2616dde6fc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getIpMobidity",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "var ipmobiditystore=Ext.data.StoreManager.lookup('IpMobidityStore');",
+                    "ipmobiditystore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getIpMobidity",
+            "designerId": "dbdf45a7-521f-4905-907e-06b0d0893f82"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "admdis",
+                "selector": "admdis",
+                "xtype": "admdis"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "admdis",
+            "designerId": "01de7550-9c68-43dd-bb35-1f365a055357"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "item"
+                ],
+                "fn": "getAdmissions",
+                "implHandler": [
+                    "",
+                    "",
+                    "// Ext.Msg.alert('test',item.itemId);",
+                    "",
+                    "if(item.itemId==='mnuAdmissions'){",
+                    "    admdis='adm';",
+                    "}else{",
+                    "    admdis='dis';",
+                    "}",
+                    "",
+                    "",
+                    "",
+                    "var admdisstore=Ext.data.StoreManager.lookup('AdmDisStore');",
+                    "admdisstore.load({",
+                    "    params: {",
+                    "        admdis:admdis",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "admissions = Ext.create('CarePortal.view.AdmDis', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(admissions);",
+                    "",
+                    "admissions.setTitle('Admissions');",
+                    "",
+                    "admissions.down('#txtAdmDis').setValue('adm');"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getAdmissions",
+            "designerId": "53610cf7-85ed-47a3-9f37-aa4702319401"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "item"
+                ],
+                "fn": "getDischarges",
+                "implHandler": [
+                    "if(item.itemId==='mnuDischarges'){",
+                    "    admdis='adm';",
+                    "}else{",
+                    "    admdis='dis';",
+                    "}",
+                    "",
+                    "",
+                    "",
+                    "var admdisstore=Ext.data.StoreManager.lookup('AdmDisStore');",
+                    "admdisstore.load({",
+                    "    params: {",
+                    "        admdis:admdis",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        var totalPatients = parseFloat(admdisstore.count('Pid'));",
+                    "        this.getAdmdis().down('#totalDischarges').setValue(totalPatients);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "discharges = Ext.create('CarePortal.view.AdmDis', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(discharges);",
+                    "discharges.setTitle('Discharges');",
+                    "",
+                    "discharges.down('#txtAdmDis').setValue('dis');"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getDischarges",
+            "designerId": "3cb5e696-4ac6-4a12-af03-4c076604ba77"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getAdmDis",
+                "implHandler": [
+                    "var currForm=this.getAdmdis().down('#txtAdmDis').getValue();",
+                    "var startDate=this.getAdmdis().down('#startDate').getValue();",
+                    "var endDate=this.getAdmdis().down('#endDate').getValue();",
+                    "var ward=this.getAdmdis().down('#ward').getValue();",
+                    "var disType=this.getAdmdis().down('#disType').getValue();",
+                    "var grpWards=this.getAdmdis().down('#groupWards').getValue();",
+                    "var sex=this.getAdmdis().down('#sex').getValue();",
+                    "var age1=this.getAdmdis().down('#age1').getValue();",
+                    "var age2=this.getAdmdis().down('#age2').getValue();",
+                    "",
+                    "if(currForm==='adm'){",
+                    "    admdis='adm';",
+                    "}else{",
+                    "    admdis='dis';",
+                    "}",
+                    "",
+                    "",
+                    "",
+                    "var admdisstore=Ext.data.StoreManager.lookup('AdmDisStore');",
+                    "admdisstore.load({",
+                    "    params: {",
+                    "        admdis:admdis,",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        ward:ward,",
+                    "        disType:disType,",
+                    "        grpWards:grpWards,",
+                    "        sex:sex,",
+                    "        age1:age1,",
+                    "        age2:age2",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        var totalPatients = parseFloat(admdisstore.count('Pid'));",
+                    "        this.getAdmdis().down('#totalDischarges').setValue(totalPatients);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getAdmDis",
+            "designerId": "20621468-b0c9-4f2b-a5e8-8d16b734a306"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getDiagnosisReports",
+                "implHandler": [
+                    "diagnosis = Ext.create('CarePortal.view.DiagnosisReports', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(diagnosis);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getDiagnosisReports",
+            "designerId": "827c1220-7bc9-4033-ba6f-3b42998cd6bf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "diagnosisreports",
+                "selector": "diagnosisreports",
+                "xtype": "diagnosisreports"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "diagnosisreports",
+            "designerId": "c4d5c55a-c941-4cb1-a516-b994a086f656"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewDiagnosis",
+                "implHandler": [
+                    "",
+                    "",
+                    "var diagnosisStore=Ext.data.StoreManager.lookup('DiagnosisReportStore');",
+                    "diagnosisStore.load({",
+                    "    params: {",
+                    "        startDate:this.getDiagnosisreports().down('#startDate').getValue(),",
+                    "        endDate:this.getDiagnosisreports().down('#endDate').getValue(),",
+                    "        age1:this.getDiagnosisreports().down('#age1').getValue(),",
+                    "        age2:this.getDiagnosisreports().down('#age2').getValue(),",
+                    "        pid:this.getDiagnosisreports().down('#pid').getValue(),",
+                    "        status:this.getDiagnosisreports().down('#status').getValue(),",
+                    "        gender:this.getDiagnosisreports().down('#gender').getValue(),",
+                    "        icd10:this.getDiagnosisreports().down('#icd10').getValue(),",
+                    "        visits:this.getDiagnosisreports().down('#visits').getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewDiagnosis",
+            "designerId": "8d3912d2-2f4e-4218-b320-b0c42b145d3e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getTopDiseases",
+                "implHandler": [
+                    "topDiagnosis = Ext.create('CarePortal.view.TopDiseases2', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(topDiagnosis);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getTopDiseases",
+            "designerId": "d458722d-f443-4ee6-97e8-ddba7aac61f4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "topdiseases",
+                "selector": "topdiseases",
+                "xtype": "topdiseases"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "topdiseases",
+            "designerId": "b529640c-08c7-4ee6-93c5-603569cc628e"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "topdiseases2",
+                "selector": "topdiseases2",
+                "xtype": "topdiseases2"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "topdiseases2",
+            "designerId": "29cdde0a-7fd6-400d-80a2-204605a56aa8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewTopDiseases",
+                "implHandler": [
+                    "var diseasesstore=Ext.data.StoreManager.lookup('TopDiseasesStore');",
+                    " var startDate=this.getTopdiseases2().down('#StartDate').getValue();",
+                    " var endDate=this.getTopdiseases2().down('#EndDate').getValue();",
+                    "var admission=this.getTopdiseases2().down('#cmbAdmission').getValue();",
+                    "",
+                    "diseasesstore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        adm:admission",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewTopDiseases",
+            "designerId": "276c9b59-1747-46da-aea4-edb3ed77becd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "pharmacyrevenue",
+                "selector": "pharmacyrevenue",
+                "xtype": "pharmacyrevenue"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "pharmacyrevenue",
+            "designerId": "4d1c2566-a66a-4ce7-8bd8-c231a15801aa"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "item"
+                ],
+                "fn": "openPharmacyRevenue",
+                "implHandler": [
+                    "pharmRevenue = Ext.create('CarePortal.view.PharmacyRevenue', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(pharmRevenue);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPharmacyRevenue",
+            "designerId": "f304b2a5-fc71-459f-8aef-d249332c2b7f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewPharmacyRevenue",
+                "implHandler": [
+                    "var startDate=this.getPharmacyrevenue().down('#StartDate').getValue();",
+                    "var endDate=this.getPharmacyrevenue().down('#EndDate').getValue();",
+                    "",
+                    "var pharmRevenueStore=Ext.data.StoreManager.lookup('PharmacyRevenueStore');",
+                    "pharmRevenueStore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "        var txtTotals=parseFloat(pharmRevenueStore.sum('TotalAmount'));",
+                    "        var total=Ext.util.Format.number(txtTotals,'0,000.00');",
+                    "        //Ext.Msg.alert('test',txtTotals);",
+                    "        this.getPharmacyrevenue().down('#txtTotals').setValue('Ksh. '+total);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewPharmacyRevenue",
+            "designerId": "4b6fdbbb-2352-4297-aaad-2415316c81a8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewLabActivies",
+                "implHandler": [
+                    "var labActivities=Ext.data.StoreManager.lookup('LabActivitiesStore');",
+                    "labActivities.load({",
+                    "    params: {",
+                    "        startDate:this.getLaboratoryactivities().down('#StartDate').getValue(),",
+                    "        endDate:this.getLaboratoryactivities().down('#EndDate').getValue(),",
+                    "        age1:this.getLaboratoryactivities().down('#age1').getValue(),",
+                    "        age2:this.getLaboratoryactivities().down('#age2').getValue(),",
+                    "        pid:this.getLaboratoryactivities().down('#pid').getValue(),",
+                    "        gender:this.getLaboratoryactivities().down('#gender').getValue(),",
+                    "        status:this.getLaboratoryactivities().down('#status').getValue(),",
+                    "        labTest:this.getLaboratoryactivities().down('#labTest').getValue(),",
+                    "        staffName:this.getLaboratoryactivities().down('#RequestedBy').getValue(),",
+                    "        partcode:this.getLaboratoryactivities().down('#labTest').getValue(),",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "        var txtTotals=parseFloat(labActivities.sum('Total'));",
+                    "        var total=Ext.util.Format.number(txtTotals,'0,000.00');",
+                    "        //Ext.Msg.alert('test',txtTotals);",
+                    "        this.getLaboratoryactivities().down('#txtTotals').setValue('Ksh. '+total);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewLabActivies",
+            "designerId": "1ab149ec-7971-4c65-94df-21afb48291c4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openLabActivities",
+                "implHandler": [
+                    "labActivities = Ext.create('CarePortal.view.LaboratoryActivities', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(labActivities);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLabActivities",
+            "designerId": "5bbd87f6-c3c1-4d11-b5d3-1d860af0180a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "laboratoryactivities",
+                "selector": "laboratoryactivities",
+                "xtype": "laboratoryactivities"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "laboratoryactivities",
+            "designerId": "7a5ce9d9-947a-48c4-9adb-6abe9e172d2e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openXrayActivities",
+                "implHandler": [
+                    "xrayActivities = Ext.create('CarePortal.view.XrayActivities', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(xrayActivities);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openXrayActivities",
+            "designerId": "e5b907d5-3462-4829-86c2-6c0ed40fa57a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewXrayActivities",
+                "implHandler": [
+                    "var xrayActivities=Ext.data.StoreManager.lookup('XrayActivitiesStore');",
+                    "xrayActivities.load({",
+                    "    params: {",
+                    "        startDate:this.getXrayactivities().down('#strDate1').getValue(),",
+                    "        endDate:this.getXrayactivities().down('#strDate2').getValue(),",
+                    "        age1:this.getXrayactivities().down('#age1').getValue(),",
+                    "        age2:this.getXrayactivities().down('#age2').getValue(),",
+                    "        pid:this.getXrayactivities().down('#pid').getValue(),",
+                    "        admission:this.getXrayactivities().down('#admission').getValue(),",
+                    "        xrayTest:this.getXrayactivities().down('#labTest').getValue()",
+                    "        ",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "         var totalPrice = parseFloat(xrayActivities.sum('Total'));",
+                    "        //Ext.Msg.alert('Totals','Total is '+totalPrice);",
+                    "        var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "        this.getXrayactivities().down('#Totals').setValue(total);",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewXrayActivities",
+            "designerId": "beacc45c-4e61-4654-8eac-d7fd68d5926f"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "xrayactivities",
+                "selector": "xrayactivities",
+                "xtype": "xrayactivities"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "xrayactivities",
+            "designerId": "f17be2c4-2fbd-4d3a-93c0-fb14717cc6d0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openLabRevenue",
+                "implHandler": [
+                    "labRevenue = Ext.create('CarePortal.view.LaboratoryRevenue', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(labRevenue);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLabRevenue",
+            "designerId": "359400e1-775b-4282-a36b-3f4617fb17a7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "laboratoryrevenue",
+                "selector": "laboratoryrevenue",
+                "xtype": "laboratoryrevenue"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "laboratoryrevenue",
+            "designerId": "d2f20d56-cbf2-4971-a09f-c453a838debc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewLabRevenue",
+                "implHandler": [
+                    " var labRevenueStore=Ext.data.StoreManager.lookup('LabRevenueStore');",
+                    "labRevenueStore.load({",
+                    "    params: {",
+                    "        startDate:this.getLaboratoryrevenue().down('#strDate1').getValue(),",
+                    "        endDate:this.getLaboratoryrevenue().down('#strDate2').getValue(),",
+                    "        revType:this.getLaboratoryrevenue().down('#revenueType').getValue()",
+                    "",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        var totalPrice = parseFloat(labRevenueStore.sum('TotalCost'));",
+                    "        //Ext.Msg.alert('Totals','Total is '+totalPrice);",
+                    "        var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "        this.getLaboratoryrevenue().down('#txtTotal').setValue(total);",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewLabRevenue",
+            "designerId": "e70c10be-82f2-49b8-950f-673c6be6cc27"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openXrayRevenue",
+                "implHandler": [
+                    "xrayRevenue = Ext.create('CarePortal.view.XrayRevenue', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(xrayRevenue);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openXrayRevenue",
+            "designerId": "c5a2939f-6b4b-47a0-86af-69d36357454d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewXrayRevenue",
+                "implHandler": [
+                    "      var xrayRevenueStore=Ext.data.StoreManager.lookup('XrayRevenueStore');",
+                    "        xrayRevenueStore.load({",
+                    "            params: {",
+                    "                startDate:this.getXrayrevenue().down('#strDate1').getValue(),",
+                    "                endDate:this.getXrayrevenue().down('#strDate2').getValue()",
+                    "",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewXrayRevenue",
+            "designerId": "cc79c8ec-7843-44ea-937f-e16cf3509c61"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "xrayrevenue",
+                "selector": "xrayrevenue",
+                "xtype": "xrayrevenue"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "xrayrevenue",
+            "designerId": "1524bb79-47c3-46d4-b93c-ae7449a94d2d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openDrugStatement",
+                "implHandler": [
+                    "patientDrugStatement = Ext.create('CarePortal.view.PatientDrugStatement', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(patientDrugStatement);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDrugStatement",
+            "designerId": "f498d43d-d846-452c-b8b1-4aa5b4688aaa"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewDrugStatement",
+                "implHandler": [
+                    "var strDate=button.up('grid').down('#StartDate').getValue();",
+                    "var strDate2=button.up('grid').down('#EndDate').getValue();",
+                    "var pid=button.up('grid').down('#pid').getValue();",
+                    "",
+                    "// strDate=date1.toLocaleDateString('en-US');",
+                    "// strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "var drugStatementStore=Ext.data.StoreManager.lookup('PatientStatementStore');",
+                    "drugStatementStore.load({",
+                    "    params: {",
+                    "        startDate:strDate,",
+                    "        endDate:strDate2,",
+                    "        pid:pid",
+                    "",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewDrugStatement",
+            "designerId": "ecb997dc-ff92-4bfd-adc8-ab716a4d615d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "drugsstatement",
+                "selector": "drugsstatement",
+                "xtype": "drugsstatement"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "drugsstatement",
+            "designerId": "51b8cb1b-fc15-48a5-a905-e5f685e4fbdd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportPharmacyRevenue",
+                "implHandler": [
+                    "var strDate=button.up('grid').down('#StartDate').getValue();",
+                    "var strDate2=button.up('grid').down('#EndDate').getValue();",
+                    "",
+                    "strDate=strDate.toLocaleDateString('en-US');",
+                    "strDate2=strDate2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "window.open('reports/exportNewDrugsRevenue.php?startDate='+strDate+'&endDate='+strDate2,",
+                    "            \"Pharmacy Revenue Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportPharmacyRevenue",
+            "designerId": "9662754f-9457-4150-a8ab-611c50422363"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportLabRevenue",
+                "implHandler": [
+                    "var date1=button.up('grid').down('#strDate1').getValue();",
+                    "var date2=button.up('grid').down('#strDate2').getValue();",
+                    "",
+                    "strDate=date1.toLocaleDateString('en-US');",
+                    "strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "window.open('reports/exportNewLabRevenue.php?startDate='+strDate+'&endDate='+strDate2,",
+                    "            \"Pharmacy Revenue Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportLabRevenue",
+            "designerId": "17570b2f-c02d-4990-ae33-82af43e2076c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportLabActivities",
+                "implHandler": [
+                    "        var date1=button.up('grid').down('#StartDate').getValue();",
+                    "        var date2=button.up('grid').down('#EndDate').getValue();",
+                    "",
+                    "        strDate=date1.toLocaleDateString('en-US');",
+                    "        strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "        window.open('reports/exportLabActivities.php?startDate='+strDate+'&endDate='+strDate2,",
+                    "                    \"Pharmacy Revenue Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportLabActivities",
+            "designerId": "b7e8f9d9-10db-479f-a3c4-6c9c8b183046"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getRevenue",
+                "implHandler": [
+                    "var tabpanel=button.up('tabpanel');",
+                    "var activeTab = tabpanel.getActiveTab();",
+                    "var activeTabIndex = tabpanel.items.indexOf(activeTab);",
+                    "// alert(activeTabIndex);",
+                    "",
+                    "        date1= tabpanel.down('#startDate').getValue();",
+                    "        date2= tabpanel.down('#endDate').getValue();",
+                    "",
+                    "        //Ext.Msg.alert('Test',date2);",
+                    "",
+                    "        if(activeTabIndex==\"1\"){",
+                    "            activeTab.removeAll();",
+                    "            resultsGrid = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "            //revenueChart = Ext.create('Reports.view.RevenueChart', {});",
+                    "",
+                    "            var revenueStore=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "            revenueStore.load({",
+                    "                params: {",
+                    "                    rptType: 'oprevenue',",
+                    "                    startDate:date1,",
+                    "                    endDate:date2",
+                    "                },",
+                    "                callback: function(records, operation, success) {",
+                    "                     var totalPrice =parseInt(revenueStore.sum('Amount'));",
+                    "                     var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "                     this.getResultsgrid().down('#txtTotal').setValue(totalPrice);",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "",
+                    "            activeTab.add(resultsGrid);",
+                    "",
+                    "        }else if(activeTabIndex==\"0\"){",
+                    "            activeTab.removeAll();",
+                    "            resultsGrid2 = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "            var revenueStore2=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "            revenueStore2.load({",
+                    "                params: {",
+                    "                    rptType: 'iprevenue',",
+                    "                    startDate:date1,",
+                    "                    endDate:date2",
+                    "                },",
+                    "                callback: function(records, operation, success) {",
+                    "                        var totalPrice = parseInt(revenueStore3.sum('Amount'));",
+                    "                        var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "                        this.getResultsgrid().down('#txtTotal').setValue(total);",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "",
+                    "            activeTab.add(resultsGrid2);",
+                    "        }else if(activeTabIndex==\"2\"){",
+                    "            activeTab.removeAll();",
+                    "            resultsGrid3 = Ext.create('CarePortal.view.ResultsGrid', {});",
+                    "            var revenueStore3=Ext.data.StoreManager.lookup('RevenueStore');",
+                    "            revenueStore3.load({",
+                    "                params: {",
+                    "                    rptType: 'opDebtorsRevenue',",
+                    "                    startDate:date1,",
+                    "                    endDate:date2",
+                    "                },",
+                    "                callback: function(records, operation, success) {",
+                    "                        var totalPrice = parseInt(revenueStore3.sum('Amount'));",
+                    "                        var total=Ext.util.Format.number(totalPrice,'0,000.00');",
+                    "                        this.getResultsgrid().down('#txtTotal').setValue(total);",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "",
+                    "            activeTab.add(resultsGrid3);",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getRevenue",
+            "designerId": "b79756e7-d742-4b3c-8c4d-be33e82e26e2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "getDrugStatement",
+                "implHandler": [
+                    "date1=this.getPharmacyrevenue().down('#StartDate').getValue();",
+                    "date2=this.getPharmacyrevenue().down('#EndDate').getValue();",
+                    "",
+                    "",
+                    "singleDrugStatement = Ext.create('CarePortal.view.SingleDrugStatement', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "this.getSingledrugstatement().down('#txtDrugParam').setValue(record.get('Description'));",
+                    "",
+                    "center_container.add(singleDrugStatement);",
+                    "",
+                    "var drugStatementStore=Ext.data.StoreManager.lookup('DrugStatementStore');",
+                    "drugStatementStore.load({",
+                    "    params: {",
+                    "        partcode: record.get('ItemNo'),",
+                    "        startDate:date1,",
+                    "        endDate:date2",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getDrugStatement",
+            "designerId": "19c0c117-61da-412a-b091-404026345028"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "singledrugstatement",
+                "selector": "singledrugstatement",
+                "xtype": "singledrugstatement"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "singledrugstatement",
+            "designerId": "01ab84cb-0356-4467-8ed6-ae61f36d8ec2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchDrugStatement",
+                "implHandler": [
+                    "date1=this.getSingledrugstatement().down('#StartDate').getValue();",
+                    "date2=this.getSingledrugstatement().down('#EndDate').getValue();",
+                    "param=this.getSingledrugstatement().down('#cmbDrugStatement').getValue();",
+                    "",
+                    "",
+                    "var drugStatementStore=Ext.data.StoreManager.lookup('DrugStatementStore');",
+                    "        drugStatementStore.load({",
+                    "            params: {",
+                    "                searchParam:param,",
+                    "                startDate:date1,",
+                    "                endDate:date2",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "                var totalQty = parseFloat(drugStatementStore.sum('Issued'));",
+                    "                var totalCost = parseFloat(drugStatementStore.sum('TotalCost'));",
+                    "                var total=Ext.util.Format.number(totalCost,'0,000.00');",
+                    "                var totalPatients = parseFloat(drugStatementStore.count('Pid'));",
+                    "",
+                    "                this.getSingledrugstatement().down('#totalPatients').setValue(totalPatients);",
+                    "                this.getSingledrugstatement().down('#totalQty').setValue(totalQty);",
+                    "                this.getSingledrugstatement().down('#totalCost').setValue(total);",
+                    "            },",
+                    "            scope: this",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchDrugStatement",
+            "designerId": "1577d8ff-25cb-4545-bbbf-44cf1d76340a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openSingleDrugStatement",
+                "implHandler": [
+                    "singleDrugStatement = Ext.create('CarePortal.view.SingleDrugStatement', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(singleDrugStatement);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openSingleDrugStatement",
+            "designerId": "f23e98a2-3c9a-44ed-9892-9ddb09ad67f8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openClinicsWindow",
+                "implHandler": [
+                    "clinics = Ext.create('CarePortal.view.Clinics', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(clinics);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openClinicsWindow",
+            "designerId": "1bbdff2d-7d0e-45fa-9f8f-87347a043153"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchClinicsReport",
+                "implHandler": [
+                    "var startDate=this.getClinics().down(\"#startDate\").getValue();",
+                    "var endDate=this.getClinics().down(\"#endDate\").getValue();",
+                    "",
+                    "//alert(reportMonth);",
+                    "",
+                    "var clinicsStore=Ext.data.StoreManager.lookup(\"ClinicsStore\");",
+                    "",
+                    "clinicsStore.load({",
+                    "    params:{",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "}); "
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchClinicsReport",
+            "designerId": "419c2d7e-7678-4e7a-ba28-efba3b4270be"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "clinics",
+                "selector": "clinics",
+                "xtype": "clinics"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "clinics",
+            "designerId": "6be62fb5-cc1f-468a-b909-9ab8daf0a5fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportHtc",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "var startDate=Ext.Date.format(new Date(this.getHtc().down('#startDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getHtc().down('#endDate').getValue()), 'Y-m-d');",
+                    "",
+                    "",
+                    "window.open('reports/exportHtc.php?startDate='+startDate+'&endDate='+endDate,",
+                    "            \"Htc Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportHtc",
+            "designerId": "8d695f2f-11d8-40f6-9547-49d2859adb8e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "NhifCredits",
+                "implHandler": [
+                    "nhifclaims = Ext.create('CarePortal.view.NhifCredits', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(nhifclaims);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "NhifCredits",
+            "designerId": "1e90849a-e310-4719-bbda-4dd5597c5b1b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchNhif",
+                "implHandler": [
+                    "var startDate=this.getNhifcredits().down(\"#startDate\").getValue();",
+                    "var endDate=this.getNhifcredits().down(\"#endDate\").getValue();",
+                    "",
+                    "//alert(reportMonth);",
+                    "",
+                    "var NhifStore=Ext.data.StoreManager.lookup(\"NhifClaimStore\");",
+                    "",
+                    "NhifStore.load({",
+                    "    params:{",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchNhif",
+            "designerId": "92d258e3-5c2e-454a-9c86-b2765c7bf9c0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nhifcredits",
+                "selector": "nhifcredits",
+                "xtype": "nhifcredits"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "nhifcredits",
+            "designerId": "e2da09eb-8951-45bb-88b6-18ac598d7eb6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "cmdExportNhif",
+                "implHandler": [
+                    "var startDate=Ext.Date.format(new Date(this.getNhifcredits().down('#startDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getNhifcredits().down('#endDate').getValue()), 'Y-m-d');",
+                    "",
+                    "",
+                    "window.open('reports/exportNHIF.php?startDate='+startDate+'&endDate='+endDate,",
+                    "            \"NHIF Claims Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "cmdExportNhif",
+            "designerId": "1089a4b9-190b-4522-87cc-8eef0868866b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openFinalisedInvoices",
+                "implHandler": [
+                    "finalised = Ext.create('CarePortal.view.FinalisedInvoices', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(finalised);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openFinalisedInvoices",
+            "designerId": "3bd0c45d-76b2-4110-9453-29f9d6a90940"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchFinalised",
+                "implHandler": [
+                    "var startDate=this.getFinalisedinvoices().down(\"#startDate\").getValue();",
+                    "var endDate=this.getFinalisedinvoices().down(\"#endDate\").getValue();",
+                    "var wardNo=this.getFinalisedinvoices().down(\"#wardNo\").getValue();",
+                    "//alert(reportMonth);",
+                    "",
+                    "var finalisedStore=Ext.data.StoreManager.lookup(\"FinalisedStore\");",
+                    "",
+                    "finalisedStore.load({",
+                    "    params:{",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        wardNo:wardNo",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchFinalised",
+            "designerId": "c66c20c0-13ad-4fd2-bdf4-ef66ffab4068"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportFinalised",
+                "implHandler": [
+                    "var startDate=Ext.Date.format(new Date(this.getFinalisedinvoices().down('#startDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getFinalisedinvoices().down('#endDate').getValue()), 'Y-m-d');",
+                    "var wardNo=this.getFinalisedinvoices().down(\"#wardNo\").getValue();",
+                    "window.open('reports/exportFinalised.php?startDate='+startDate+'&endDate='+endDate+'&wardNo='+wardNo,",
+                    "                    \"Finalised Invoices\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportFinalised",
+            "designerId": "ad58a8e3-7ae1-49ac-84b6-b3607c6b6b16"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "finalisedinvoices",
+                "selector": "finalisedinvoices",
+                "xtype": "finalisedinvoices"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "finalisedinvoices",
+            "designerId": "02c1dfcd-2300-404d-adf0-1d07c7bebc20"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportAdmsDis",
+                "implHandler": [
+                    "",
+                    "",
+                    "",
+                    "var reportType=this.getAdmdis().down('#txtAdmDis').getValue();",
+                    "//Ext.Msg.alert(\"test\",reportType);",
+                    "",
+                    "if(reportType==='adm'){",
+                    "    var disType=this.getAdmdis().down('#disType').getValue();",
+                    "    var startDate=Ext.Date.format(new Date(this.getAdmdis().down('#startDate').getValue()), 'Y-m-d');",
+                    "    var endDate=Ext.Date.format(new Date(this.getAdmdis().down('#endDate').getValue()), 'Y-m-d');",
+                    "    var wardNo=this.getAdmdis().down(\"#ward\").getValue();",
+                    "    var sex=this.getAdmdis().down(\"#sex\").getValue();",
+                    "    var groupWard=this.getAdmdis().down(\"#groupWards\").getValue();",
+                    "",
+                    "",
+                    "    window.open('reports/exportAdmissions2.php?startDate='+startDate+'&endDate='+endDate+'&wardNo='+wardNo+'&disType='+disType+'&sex='+sex+'&groupWard='+groupWard,",
+                    "                \"Finalised Invoices\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    "",
+                    "}else if(reportType==='dis') {",
+                    "    var disType=this.getAdmdis().down('#disType').getValue();",
+                    "    var startDate=Ext.Date.format(new Date(this.getAdmdis().down('#startDate').getValue()), 'Y-m-d');",
+                    "    var endDate=Ext.Date.format(new Date(this.getAdmdis().down('#endDate').getValue()), 'Y-m-d');",
+                    "    var wardNo=this.getAdmdis().down(\"#ward\").getValue();",
+                    "    var sex=this.getAdmdis().down(\"#sex\").getValue();",
+                    "    var groupWard=this.getAdmdis().down(\"#groupWards\").getValue();",
+                    "",
+                    "",
+                    "    window.open('reports/exportDischarges.php?startDate='+startDate+'&endDate='+endDate+'&wardNo='+wardNo+'&disType='+disType+'&sex='+sex+'&groupWard='+groupWard,",
+                    "                \"Finalised Invoices\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    "",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportAdmsDis",
+            "designerId": "1c7bc413-09e3-4871-bf07-1301657b52d8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewMovememt",
+                "implHandler": [
+                    "var date1=button.up('grid').down('#startDate').getValue();",
+                    "var date2=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "var PartCode=button.up('grid').down('#PartCode').getValue();",
+                    "var Category=button.up('grid').down('#Category').getValue();",
+                    "var location=button.up('grid').down('#Location').getValue();",
+                    "var location2=button.up('grid').down('#Location2').getValue();",
+                    "var transType=button.up('grid').down('#TransTypes').getValue();",
+                    "",
+                    "var moveStore=Ext.data.StoreManager.lookup('StockMovementStore');",
+                    "",
+                    "moveStore.load({",
+                    "    params:{",
+                    "        startDate:date1,",
+                    "        endDate:date2,",
+                    "        partCode:PartCode,",
+                    "        category:Category,",
+                    "        location:location,",
+                    "        location2:location2,",
+                    "        transType:transType",
+                    "    },",
+                    "    callback:function(records,operation,success){",
+                    "",
+                    "    },",
+                    "    scope:this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewMovememt",
+            "designerId": "ac3940e0-0072-4e9b-bb0d-5f298dedf562"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openStockMovement",
+                "implHandler": [
+                    "var movement = Ext.create('CarePortal.view.StocksMovement', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(movement);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "designer|params": "typedarray"
+            },
+            "name": "openStockMovement",
+            "designerId": "c70f84ee-2e78-483b-b666-574961dd1bb5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "printStockMovement",
+                "implHandler": [
+                    "        var date1=button.up('grid').down('#StartDate').getValue();",
+                    "        var date2=button.up('grid').down('#EndDate').getValue();",
+                    "",
+                    "        strDate=date1.toLocaleDateString('en-US');",
+                    "        strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "        var PartCode=button.up('grid').down('#PartCode').getValue();",
+                    "",
+                    "",
+                    "        window.open('reports/stocksMovement_PDF.php?startDate='+strDate+'&endDate='+strDate2+'&PartCode='+PartCode,",
+                    "                    \"Stock Movement Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "printStockMovement",
+            "designerId": "304cdca5-76e9-4157-bea9-8ee5580515e8"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openOccupancy",
+                "implHandler": [
+                    "     var occupancy = Ext.create('CarePortal.view.Occupancy', {});",
+                    "        center_container = this.getViewport().down('container[region=center]');",
+                    "        center_container.removeAll();",
+                    "",
+                    "        center_container.add(occupancy);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openOccupancy",
+            "designerId": "a08a8092-f9b5-4f21-b9f3-998aedfe4b8a"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "occupancy",
+                "selector": "occupancy",
+                "xtype": "occupancy"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "occupancy",
+            "designerId": "205b8027-f0ce-4cbf-a363-0c5de175b487"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "htc",
+                "selector": "htc",
+                "xtype": "htc"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "htc",
+            "designerId": "e9242322-a6d9-4039-8956-a0ed8d85225c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openHtc",
+                "implHandler": [
+                    "var htc = Ext.create('CarePortal.view.Htc', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(htc);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openHtc",
+            "designerId": "7a02211d-ffab-45aa-937c-2d7dc56999da"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchHtc",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "var htcs=button.up('grid').down('#htcs').getValue();",
+                    "var htcReason=button.up('grid').down('#htcReason').getValue();",
+                    "",
+                    "var htcStore=Ext.data.StoreManager.lookup('HtcStore');",
+                    "htcStore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        htcs:htcs,",
+                    "        htcReason:htcReason",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchHtc",
+            "designerId": "c44646cf-97ca-4361-b2a3-642d2575bb52"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openWorkLoad",
+                "implHandler": [
+                    "var workload = Ext.create('CarePortal.view.Workload', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(workload);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openWorkLoad",
+            "designerId": "f15d4e90-0146-499c-9c6d-378d01e76045"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "workload",
+                "selector": "workload",
+                "xtype": "workload"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "workload",
+            "designerId": "106e223e-9975-4b41-a415-4579553c669e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewWorkLoad",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "var workLoadStore=Ext.data.StoreManager.lookup('WorkloadStore');",
+                    "workLoadStore.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewWorkLoad",
+            "designerId": "4e281f17-dad8-4591-8b65-c0808d0a01b9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportDiagnosis",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "var startDate=Ext.Date.format(new Date(this.getDiagnosisreports().down('#startDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getDiagnosisreports().down('#endDate').getValue()), 'Y-m-d');",
+                    "",
+                    "if(!this.getDiagnosisreports().down('#age1').getValue()){",
+                    "    var age1=\"\";",
+                    "}else{",
+                    "    var age1=this.getDiagnosisreports().down('#age1').getValue();",
+                    "}",
+                    "",
+                    "if(!this.getDiagnosisreports().down('#age2').getValue()){",
+                    "    var age2=\"\";",
+                    "}else{",
+                    "    var age2=this.getDiagnosisreports().down('#age2').getValue();",
+                    "}",
+                    "",
+                    "var pid=this.getDiagnosisreports().down('#pid').getValue();",
+                    "var status=this.getDiagnosisreports().down('#status').getValue();",
+                    "var gender=this.getDiagnosisreports().down('#gender').getValue();",
+                    "var icd10=this.getDiagnosisreports().down('#icd10').getValue();",
+                    "var visits=this.getDiagnosisreports().down('#visits').getValue();",
+                    "",
+                    "",
+                    "window.open('reports/exportDiagnosis2.php?startDate='+startDate+'&endDate='+endDate+'&age1='+age1+'&age2='+age2+'&pid='+pid+'&status='+status+'&gender='+gender+'&icd10='+icd10+'&visits='+visits,",
+                    "            \"Export Diagnosis Report\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportDiagnosis",
+            "designerId": "25936948-847b-452a-ac4a-9f305b48a0f0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openInventoryUsage",
+                "implHandler": [
+                    "var usage = Ext.create('CarePortal.view.InventoryUsage', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(usage);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openInventoryUsage",
+            "designerId": "ee80db96-f032-4a47-b8f8-5490327e09e3"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openRevenueByCat",
+                "implHandler": [
+                    "revenueByCat = Ext.create('CarePortal.view.PharmacyRevenueCat', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(revenueByCat);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openRevenueByCat",
+            "designerId": "bbcc061b-6825-48ec-a577-9b866a843411"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "pharmacyrevenuecat",
+                "selector": "pharmacyrevenuecat",
+                "xtype": "pharmacyrevenuecat"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "pharmacyrevenuecat",
+            "designerId": "aa8e7450-8bf4-4d23-b843-8a6503cbdbd1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openPharmacyRevByCat",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#StartDate').getValue();",
+                    "var endDate=button.up('grid').down('#EndDate').getValue();",
+                    "var category=button.up('grid').down('#drugCategory').getValue();",
+                    "",
+                    "var revenueCat=Ext.data.StoreManager.lookup('RevenueByCatStore');",
+                    "revenueCat.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        category:category",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPharmacyRevByCat",
+            "designerId": "88f239e0-34df-478f-ba6b-70b205eb483d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outpatientinvoices",
+                "selector": "outpatientinvoices",
+                "xtype": "outpatientinvoices"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "outpatientinvoices",
+            "designerId": "b5d344e0-6077-4773-af59-4209ee4fb926"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openOpInvoices",
+                "implHandler": [
+                    "var opInvoices = Ext.create('CarePortal.view.OutpatientInvoices', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "center_container.add(opInvoices);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openOpInvoices",
+            "designerId": "8a16766c-9a48-46f1-a299-f0ea73518d4c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewOpInvoices",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#StartDate').getValue();",
+                    "var endDate=button.up('grid').down('#EndDate').getValue();",
+                    "var pid=button.up('grid').down('#txtPid').getValue();",
+                    "var paymentPlan=button.up('grid').down('#paymentPlan').getValue();",
+                    "var debtorCat=button.up('grid').down('#debtorCat').getValue();",
+                    "",
+                    "var opInvoice=Ext.data.StoreManager.lookup('OpInvoicesStore');",
+                    "opInvoice.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        pid:pid,",
+                    "        paymentPlan:paymentPlan,",
+                    "        debtorCat:debtorCat",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewOpInvoices",
+            "designerId": "88912acd-0c9b-400e-9815-56b8560fb830"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportMovement",
+                "implHandler": [
+                    "var date1=Ext.Date.format(new Date(button.up('grid').down('#startDate').getValue()), 'Y-m-d');",
+                    "var date2=Ext.Date.format(new Date(button.up('grid').down('#endDate').getValue()), 'Y-m-d');",
+                    "var PartCode=button.up('grid').down('#PartCode').getValue();",
+                    "var Category=button.up('grid').down('#Category').getValue();",
+                    "var location=button.up('grid').down('#Location').getValue();",
+                    "var location2=button.up('grid').down('#Location2').getValue();",
+                    "",
+                    "if(!button.up('grid').down('#TransTypes').getValue()){",
+                    "    var transType=\"\";",
+                    "}else{",
+                    "    var transType=button.up('grid').down('#TransTypes').getValue();",
+                    "}",
+                    "",
+                    "window.open('reports/exportStockMovement.php?startDate='+date1+'&endDate='+date2+'&PartCode='+PartCode+'&Category='+Category+'&location='+location+'&location2='+location2+'&transType='+transType,",
+                    "            \"Export Stock Movement\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportMovement",
+            "designerId": "cfa58412-734a-4fe9-8c9c-9b7167f5118a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportDrugStatement",
+                "implHandler": [
+                    "var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
+                    "var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "var PartCode=button.up('grid').down('#cmbDrugStatement').getValue();",
+                    "",
+                    "",
+                    "window.open('reports/exportSingleDrugStatement.php?startDate='+date1+'&endDate='+date2+'&PartCode='+PartCode,",
+                    "            \"Export Single Drug Statement\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportDrugStatement",
+            "designerId": "1b6c829f-9b62-4668-b1d4-5791bc4488ee"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportOPInvoices",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "        var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
+                    "        var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "",
+                    "",
+                    "",
+                    "        window.open('reports/exportOPInvoices.php?startDate='+date1+'&endDate='+date2,",
+                    "                    \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportOPInvoices",
+            "designerId": "2f420599-5430-41d5-9095-268710a2b12d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportPatientStatement",
+                "implHandler": [
+                    "var startDate=Ext.Date.format(new Date(this.getPatientdrugstatement().down('#StartDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getPatientdrugstatement().down('#EndDate').getValue()), 'Y-m-d');",
+                    "var pid=this.getPatientdrugstatement().down('#pid').getValue();",
+                    "",
+                    "",
+                    "window.open('reports/exportPatientDrugStatement.php?startDate='+startDate+'&endDate='+endDate+'&pid='+pid,",
+                    "            \"Export Diagnosis Report\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportPatientStatement",
+            "designerId": "a17975f6-a81b-487a-964b-450427e70dfa"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "patientdrugstatement",
+                "selector": "patientdrugstatement",
+                "xtype": "patientdrugstatement"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "patientdrugstatement",
+            "designerId": "8e9176b8-beca-46ad-acb0-77b31a0981dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportTopDiseases",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "        var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
+                    "        var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "",
+                    "",
+                    "",
+                    "        window.open('reports/exportTopDiseases.php?startDate='+date1+'&endDate='+date2,",
+                    "                    \"Export Top Diseases\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportTopDiseases",
+            "designerId": "f4d56c73-3832-4b4c-86fd-349b0d07b083"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportDoctorsWorkload",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "        var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
+                    "        var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "",
+                    "",
+                    "",
+                    "        window.open('reports/exportDoctorsWorkload.php?startDate='+date1+'&endDate='+date2,",
+                    "                    \"Export Clinics\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportDoctorsWorkload",
+            "designerId": "1530e21f-6ed4-4c42-bea7-62dce9187aa5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportXrayRevenue",
+                "implHandler": [
+                    " var date1=button.up('grid').down('#strDate1').getValue();",
+                    "var date2=button.up('grid').down('#strDate2').getValue();",
+                    "",
+                    "strDate=date1.toLocaleDateString('en-US');",
+                    "strDate2=date2.toLocaleDateString('en-US');",
+                    "",
+                    "",
+                    "window.open('reports/exportXrayRevenue.php?startDate='+strDate+'&endDate='+strDate2,",
+                    "            \"Xray Revenue Reports\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportXrayRevenue",
+            "designerId": "ab1cfd28-e5f9-484e-9c2c-bb342da12911"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openTreatmentRegister",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "",
+                    "var tregister = Ext.create('CarePortal.view.HtnTreatmentRegister', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(tregister);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openTreatmentRegister",
+            "designerId": "e6ccd2a3-8190-49fd-bf1f-ba66bdd7d0ab"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "htntreatmentregister",
+                "selector": "htntreatmentregister",
+                "xtype": "htntreatmentregister"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "htntreatmentregister",
+            "designerId": "f5f498c6-c12b-42eb-9bca-6d2861e22a91"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewTreatment",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#StartDate').getValue();",
+                    "var endDate=button.up('grid').down('#EndDate').getValue();",
+                    "",
+                    "var treatmentRegister=Ext.data.StoreManager.lookup('HtnTreatmentStore');",
+                    "",
+                    "treatmentRegister.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewTreatment",
+            "designerId": "bf6838bb-d13e-41f4-ba7b-14161d09c96a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "exportTreatment",
+                "implHandler": [
+                    "var startDate=Ext.Date.format(new Date(this.getHtntreatmentregister().down('#StartDate').getValue()), 'Y-m-d');",
+                    "var endDate=Ext.Date.format(new Date(this.getHtntreatmentregister().down('#EndDate').getValue()), 'Y-m-d');",
+                    "",
+                    "var reportType=this.getHtntreatmentregister().down('#htnReportType').getValue();",
+                    "",
+                    "window.open('reports/exportRegister2.php?strDate1='+startDate+'&strDate2='+endDate+'&reportType='+reportType,",
+                    "            \"HTN Reports\",\"menubar=yes,toolbar=yes,width=500,height=250,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportTreatment",
+            "designerId": "d68e694c-e58a-4391-8ae8-59032325e32b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dentalservices",
+                "selector": "dentalservices",
+                "xtype": "dentalservices"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "dentalservices",
+            "designerId": "db76ae62-34aa-4492-b5f9-0db6a3afc9dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewDentalServices",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "//Ext.Msg.alert('Test',startDate);",
+                    "",
+                    "var dentalservices=Ext.data.StoreManager.lookup('DentalClinicStore');",
+                    "",
+                    "dentalservices.load({",
+                    "    params: {",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewDentalServices",
+            "designerId": "c7ec6c6c-9a78-4203-9903-c5a324f92eb1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openDentalClinic",
+                "implHandler": [
+                    "var dental = Ext.create('CarePortal.view.DentalServices', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(dental);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDentalClinic",
+            "designerId": "7b282c5c-342c-45d4-a479-a0e9aee3d5c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "labresults",
+                "selector": "labresults",
+                "xtype": "labresults"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "labresults",
+            "designerId": "bbbe3ccd-4f81-4312-b9d9-15b28c9686e1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openLabResults",
+                "implHandler": [
+                    "var labResults = Ext.create('CarePortal.view.LabResults', {});",
+                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(labResults);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLabResults",
+            "designerId": "93f875fa-7c82-492d-b62d-b91bfbcd95b0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "updateOpWorkload",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "Ext.Ajax.request({",
+                    "     url: 'data/getReportsData.php?task=updateOpWorkload',",
+                    "     params:{",
+                    "         startDate:startDate,",
+                    "         endDate:endDate",
+                    "     },",
+                    "     success: function(response, opts) {",
+                    "         var obj = Ext.decode(response.responseText);",
+                    "         console.dir(obj);",
+                    "     },",
+                    "",
+                    "     failure: function(response, opts) {",
+                    "         console.log('server-side failure with status code ' + response.status);",
+                    "     }",
+                    " });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "updateOpWorkload",
+            "designerId": "eaa09124-1dab-49e5-a313-5d6addd54998"
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": "background-color:maroon;",
+        "designer|userAlias": "home",
+        "designer|userClassName": "Home",
+        "style": "background-color:maroon;"
+    },
+    "configAlternates": {
+        "bodyStyle": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "style": "string"
+    },
+    "name": "MyPanel8",
+    "designerId": "53b9878c-8969-4209-922f-62cbfcce9928",
+    "viewControllerInstanceId": "0050dc6d-8ff0-4fcd-819c-8e4df0ae2cdf",
+    "viewModelInstanceId": "24f6a2d9-5137-43c7-8367-25fdfe8604e8"
+}

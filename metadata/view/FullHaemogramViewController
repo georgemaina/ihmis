@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "fullhaemogram",
+        "designer|userClassName": "FullHaemogramViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyFormViewController",
+    "designerId": "e8a5cd67-fc91-4e0a-969f-b58519e3e279"
+}

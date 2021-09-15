@@ -1,0 +1,300 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|snapToGrid": 5,
+        "designer|userAlias": "patientdetails",
+        "designer|userClassName": "PatientDetails",
+        "height": 90,
+        "layout": "absolute"
+    },
+    "configAlternates": {
+        "designer|snapToGrid": "number",
+        "height": "auto",
+        "layout": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyPanel1",
+    "designerId": "6b75b1a4-e5ee-4786-9a35-ade2146b30a8",
+    "viewControllerInstanceId": "bda5f7e9-18f7-4933-a549-879681ca026a",
+    "viewModelInstanceId": "b9491750-c653-41af-a05b-a82c514ca7bc",
+    "cn": [
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Pid",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "pid",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 25,
+                "layout|y": -1,
+                "margin": 0,
+                "padding": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "margin": "auto",
+                "padding": "auto"
+            },
+            "name": "MyDisplayField1",
+            "designerId": "1679c3b2-42c9-4d25-8bf6-489c38d6aa89"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Encounter No",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "encounterno",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 260,
+                "layout|y": -1
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "fieldStyle": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField10",
+            "designerId": "c2f23b2c-842e-42ca-accc-acc54e83664d"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "PaymentMethod",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "paymode",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 260,
+                "layout|y": 60
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField5",
+            "designerId": "c4d00940-3949-4cbc-b886-c5bd3e76c682"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Lab No",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "labno",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 455,
+                "layout|y": 20
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField8",
+            "designerId": "a7d33bea-7e9f-4500-b644-737c08048a65"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Priority",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "priority",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 260,
+                "layout|y": 20
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField9",
+            "designerId": "3e8c8a47-4531-419a-9562-615735011d7b"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Requested By",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "createid",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 260,
+                "layout|y": 40
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField6",
+            "designerId": "ea32365e-f6b2-4f10-921e-6c530120afdd"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Names",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "names",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 25,
+                "layout|y": 15
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField2",
+            "designerId": "d80a7e1e-c105-4a73-b58c-3ebe05006f15"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Date of Birth",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "dob",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 25,
+                "layout|y": 35
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField3",
+            "designerId": "537e4d8a-7b49-46a9-9958-8dae1749e675"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Gender",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "sex",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 25,
+                "layout|y": 55
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField7",
+            "designerId": "852c92ee-50c8-4a39-9afa-de1478c25c26"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Hospital File",
+                "fieldStyle": "font-size: 10px;font-weight: bold;color: red;",
+                "itemId": "fileno",
+                "labelStyle": "font-size: 12px;font-weight: bold;color: green;",
+                "layout|x": 455,
+                "layout|y": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDisplayField4",
+            "designerId": "34026048-613b-4c18-ba93-2734cd713583"
+        }
+    ]
+}

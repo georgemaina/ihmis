@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "pendingpatientbills",
+        "designer|userClassName": "PendingPatientBills",
+        "model": "PendingPatientsBills",
+        "storeId": "PendingPatientBills"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "3206a5e7-5af1-4637-8c50-4398de71cec1",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getPendingOpPatients"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy18",
+            "designerId": "793236e3-29a7-4dc3-9b59-d3d3e9605ca2",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader17",
+                    "designerId": "6db25a6b-faeb-4d4a-a5eb-a8d7a75f4cdc"
+                }
+            ]
+        }
+    ]
+}

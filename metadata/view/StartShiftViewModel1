@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "endshift",
+        "designer|userClassName": "StartShiftViewModel1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "StartShiftViewModel1",
+    "designerId": "4c1df085-74e9-43d4-adab-89f32c8e6427"
+}

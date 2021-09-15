@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "serviceorders",
+        "designer|userClassName": "ServiceOrdersViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyForm2ViewController",
+    "designerId": "720e0cf9-b7e3-4251-bff7-b236b1e0e912"
+}

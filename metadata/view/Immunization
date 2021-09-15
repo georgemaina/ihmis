@@ -1,0 +1,450 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 1,
+        "designer|userAlias": "immunization",
+        "designer|userClassName": "Immunization",
+        "height": 525,
+        "itemId": "Immunization",
+        "layout": "vbox"
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "itemId": "string",
+        "layout": "string"
+    },
+    "name": "Services1",
+    "designerId": "54881fb0-f81e-411c-96fd-66c7dbfa6570",
+    "viewControllerInstanceId": "4a9a1c61-11e5-4878-8fc1-56de5d52c1a7",
+    "viewModelInstanceId": "59158f5e-56a1-4d77-a082-49303a8b2fbf",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "dock": "string",
+                "layout|flex": "number"
+            },
+            "name": "patientdetais",
+            "designerId": "b886b51e-54b0-4843-b43f-dafd685e0d6e",
+            "masterInstanceId": "3d257ecb-2ca1-40bf-b7ca-31282ca4bf4d"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0,
+                "width": 726
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyFieldSet16",
+            "designerId": "5e7d45a5-14ec-433f-9d1f-0e585691afd5",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "Description",
+                        "emptyText": "Type",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Services",
+                        "layout|flex": 0,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "minChars": 2,
+                        "name": "Immunization",
+                        "queryMode": "local",
+                        "store": "ServicesStore",
+                        "typeAhead": true,
+                        "valueField": "PartCode",
+                        "width": 282
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "width": "auto"
+                    },
+                    "name": "MyComboBox12",
+                    "designerId": "9de94803-5c2e-4a54-8ef8-c52c4698b253"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Application Type",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Qty",
+                        "layout|flex": 0,
+                        "margin": "2 5 2 2",
+                        "name": "Qty",
+                        "width": 186
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "name": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyComboBox1",
+                    "designerId": "7a8c1207-6274-4eae-9ae1-13c090ab814d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0,
+                "width": 726
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyFieldSet2",
+            "designerId": "a7e80dca-9064-4dbc-92b4-b10ee4c0fd74",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "Description",
+                        "emptyText": "Immunization Medicine",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Services",
+                        "layout|flex": 2,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "minChars": 2,
+                        "name": "Immunization",
+                        "queryMode": "local",
+                        "store": "ServicesStore",
+                        "typeAhead": true,
+                        "valueField": "PartCode"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox12",
+                    "designerId": "de89b2f1-7778-4ee4-9290-33999f171f49"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Frequency",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Qty",
+                        "layout|flex": 0,
+                        "margin": "2 5 2 2",
+                        "name": "Qty",
+                        "width": 97
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "name": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField53",
+                    "designerId": "a841bf19-4f1a-4c43-a0b2-9d3b59450264"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Price",
+                        "fieldLabel": "Price",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Price",
+                        "labelAlign": "right",
+                        "labelStyle": "color:maroon; font-weight:bold;",
+                        "labelWidth": 50,
+                        "layout|flex": 0,
+                        "margin": "2 5 2 2",
+                        "name": "Price"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyTextField54",
+                    "designerId": "f512d6d7-b123-4b27-96a1-914a10f02750"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0,
+                "width": 726
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyFieldSet3",
+            "designerId": "09aa3f85-d61e-4fac-b482-6f944b5f6219",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Next Immunization Date",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Services",
+                        "layout|flex": 0,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "name": "Immunization",
+                        "width": 281
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "width": "auto"
+                    },
+                    "name": "MyDateField",
+                    "designerId": "0fd0cad2-611a-409d-9d32-b05bb24fdce8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0,
+                "width": 726
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "padding": "auto",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyFieldSet18",
+            "designerId": "bc24ec8c-2dbf-478d-bf6b-5b3a5add0f09",
+            "cn": [
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Comments",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Comments",
+                        "layout|flex": 2,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "name": "Comments"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextArea5",
+                    "designerId": "cdddd0a8-74bd-453c-b419-1ee3ca51c032"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "cmdAddServices",
+                        "layout|flex": 1,
+                        "text": "Add Immunization"
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton31",
+                    "designerId": "324434c9-1d0b-4d6d-b71e-ea8734b6596f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|uiInterfaceName": "default-framed",
+                "frame": true,
+                "itemId": "servicesPanel",
+                "layout|flex": 1,
+                "ui": "default-framed",
+                "width": 730
+            },
+            "configAlternates": {
+                "designer|uiInterfaceName": "string",
+                "frame": "boolean",
+                "layout|flex": "number",
+                "ui": "string",
+                "width": "auto",
+                "itemId": "string"
+            },
+            "name": "MyFieldSet17",
+            "designerId": "f9f1be1c-df88-429e-be2f-d3cb68a706bd"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "paramsform",
+        "designer|userClassName": "ParamsFormViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyForm1ViewController",
+    "designerId": "c1c1897e-2a4e-497f-994f-2edb198b3b0c"
+}

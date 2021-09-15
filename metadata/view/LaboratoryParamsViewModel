@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "laboratoryparams",
+        "designer|userClassName": "LaboratoryParamsViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyGridPanel1ViewModel",
+    "designerId": "0b1d52b0-1c71-4c07-90c8-b4e4efeedb62"
+}

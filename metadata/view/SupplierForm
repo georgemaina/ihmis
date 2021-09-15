@@ -1,0 +1,192 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|snapToGrid": 5,
+        "designer|userAlias": "supplierform",
+        "designer|userClassName": "SupplierForm",
+        "height": 231,
+        "layout": "absolute",
+        "url": "data/getDataFunctions.php?task=saveSupplier",
+        "width": 336
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|snapToGrid": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "url": "string",
+        "width": "auto"
+    },
+    "name": "MyForm3",
+    "designerId": "1d2ec5cc-60a8-46d8-a84c-6a9de5f7bf68",
+    "viewControllerInstanceId": "0e3523ba-c810-4b48-b6e0-83d012f84f06",
+    "viewModelInstanceId": "8e69c384-6891-400a-b899-c7fd5e1c5cb1",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "ID",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "layout|x": 15,
+                "layout|y": 10,
+                "name": "SupID"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string"
+            },
+            "name": "MyTextField21",
+            "designerId": "e7e57da3-6d41-48b4-9590-5933e5030521"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Supplier Name",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "layout|x": 15,
+                "layout|y": 50,
+                "name": "Description"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string"
+            },
+            "name": "MyTextField47",
+            "designerId": "5b794ccd-274f-4748-9646-299860551816"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "fieldLabel": "Phone",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "layout|x": 15,
+                "layout|y": 90,
+                "name": "Phone"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string",
+                "allowBlank": "boolean"
+            },
+            "name": "MyTextField49",
+            "designerId": "caacd846-d96a-4df8-8e0a-f48c7442cf93"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Email",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "layout|x": 15,
+                "layout|y": 125,
+                "name": "Email"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string"
+            },
+            "name": "MyTextField50",
+            "designerId": "75f40dae-a6bf-49d8-a46b-53ad707ccc45"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-save",
+                "itemId": "cmdSaveSuppler",
+                "layout|x": 25,
+                "layout|y": 175,
+                "text": "Save",
+                "width": 90
+            },
+            "configAlternates": {
+                "iconCls": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyButton29",
+            "designerId": "6779c781-c6dd-4116-8224-a5ec94f94d7d"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-close",
+                "itemId": "cmdClose",
+                "layout|x": 205,
+                "layout|y": 175,
+                "text": "Close",
+                "width": 90
+            },
+            "configAlternates": {
+                "iconCls": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "itemId": "string"
+            },
+            "name": "MyButton30",
+            "designerId": "9865a877-6989-4030-80bd-44ad3b02f7fb"
+        }
+    ]
+}

@@ -1,0 +1,3103 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cashbook",
+        "designer|userClassName": "CashBook",
+        "models": [
+            "PendingPrescription",
+            "ItemsList",
+            "PendingPatientsBills",
+            "ledger",
+            "Suppliers",
+            "ReceiptModel"
+        ],
+        "stores": [
+            "PendingPrescription",
+            "OrderStocksStore",
+            "ItemsListStore",
+            "PendingPatientBills",
+            "SuppliersStore",
+            "PaidReceiptsStore",
+            "DebtorsList",
+            "GeneralLedgerStore"
+        ],
+        "views": [
+            "ItemsList",
+            "PendingBills",
+            "CashSales",
+            "Receipts",
+            "Payments",
+            "ReceiptsAdj",
+            "PaymentsAdj",
+            "PrescriptionForm",
+            "Dosage",
+            "ShiftReport",
+            "EndShift",
+            "StartShift",
+            "SupplierForm",
+            "Suppliers",
+            "CashSalesAdj",
+            "Debtors",
+            "GeneralLedger"
+        ]
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "models": "typedarray",
+        "stores": "typedarray",
+        "views": "typedarray"
+    },
+    "name": "MyController",
+    "designerId": "d3c597f7-d8d2-4cc7-84fd-d722f46c6aa5",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control({",
+                    "    '#openItemsList':{",
+                    "        click:this.opeItemsList",
+                    "    },",
+                    "    '#mnuStartShift':{",
+                    "        click:this.openShiftsForm",
+                    "    },",
+                    "    '#mnuEndShift':{",
+                    "        click:this.openShiftsForm",
+                    "    },",
+                    "    '#mnuCashSaleAdj':{",
+                    "        click:this.openCashSaleAdj",
+                    "    },",
+                    "    '#cmdGetCashItems':{",
+                    "        click:this.openCashItemsList",
+                    "    },",
+                    "    '#txtSearchItems':{",
+                    "        change:this.filterItems",
+                    "    },",
+                    "    '#mnuReceipts':{",
+                    "        click:this.openReceipts",
+                    "    },",
+                    "    '#itemsList':{",
+                    "        itemdblclick:this.addSelectedItems2",
+                    "    },",
+                    "    '#cmdSaveSales':{",
+                    "        click:this.saveSales",
+                    "    },",
+                    "    '#cmdSaveReceipt':{",
+                    "        click:this.saveReceipt",
+                    "    },",
+                    "    '#department':{",
+                    "        select:this.setDeptName",
+                    "    },",
+                    "    '#mnuReceiptsAdj':{",
+                    "        click:this.openReceiptsAdj",
+                    "    },",
+                    "    '#mnuPayments':{",
+                    "        click:this.openPayments",
+                    "    },",
+                    "    '#mnuPaymentsAdj':{",
+                    "        click:this.openPaymentsAdj",
+                    "    },",
+                    "    '#levelsGrid':{",
+                    "        itemclick:this.loadLevelsForm",
+                    "    },",
+                    "    '#saveStockAdjustments':{",
+                    "        click:this.saveStockAdjustments",
+                    "    },",
+                    "    '#mnuPrescriptions':{",
+                    "        click:this.openPrescriptions",
+                    "    },",
+                    "    '#pendingPrescGrid':{",
+                    "        itemclick:this.showPrescriptions",
+                    "    },",
+                    "    '#cmdDispensDrugs':{",
+                    "        click:this.openDispensWindow",
+                    "    },",
+                    "    '#mnuCashSale':{",
+                    "        click:this.displayCashSale",
+                    "    },",
+                    "    '#drugsList':{",
+                    "        click:this.loadSelectedDrugs",
+                    "    },",
+                    "    '#cmdRemoveDose':{",
+                    "        click:this.removeDose",
+                    "    },",
+                    "    '#days':{",
+                    "        change:this.getTotalDosage",
+                    "    },",
+                    "    '#Pid':{",
+                    "        blur:this.loadPatientDetails",
+                    "    },",
+                    "    '#store':{",
+                    "        select:this.loadPrescriptionOrder",
+                    "    },",
+                    "    '#issueDrugs':{",
+                    "        click:this.issueDrugs",
+                    "    },",
+                    "    '#mnuPatientReturns':{",
+                    "        click:this.openReturnOrders",
+                    "    },",
+                    "    '#cmdReturnDrugs':{",
+                    "        click:this.returnDrugs",
+                    "    },",
+                    "    '#cmdPreviewPrescriptions':{",
+                    "        click:this.previewDrugsToReturn",
+                    "    },",
+                    "    '#mnuIssuedDrugs':{",
+                    "        click:this.previewIssuedDrugs",
+                    "    },",
+                    "    '#mnuInternalOrders':{",
+                    "        click:this.previewInteralOrders",
+                    "    },",
+                    "    '#mnuStockAdjustments':{",
+                    "        click:this.previewStockAdjustments",
+                    "    },",
+                    "    '#mnuStockMovements':{",
+                    "        click:this.previewMovements",
+                    "    },",
+                    "    '#mnuStockValuation':{",
+                    "        click:this.previewValuations",
+                    "    },",
+                    "    '#cmdPreviewValuation':{",
+                    "        click:this.loadValuation",
+                    "    },",
+                    "    '#cancelOrder':{",
+                    "        click:this.cancelOrder",
+                    "    },",
+                    "    '#issueType':{",
+                    "        change:this.setIssueNo",
+                    "    },",
+                    "    '#prescParams':{",
+                    "        //  specialkey:this.getPressedKey,",
+                    "        change:this.filterPrescriptions",
+                    "    },",
+                    "    '#salesType':{",
+                    "        change:this.getSalesType",
+                    "    },",
+                    "    '#pendingBills':{",
+                    "        itemClick:this.loadBill",
+                    "    },",
+                    "    '#salesGrid':{",
+                    "        itemClick:this.loadBill",
+                    "    },",
+                    "    '#startShift':{",
+                    "        click:this.startShift",
+                    "    },",
+                    "    '#endShift':{",
+                    "        click:this.endShift",
+                    "    },",
+                    "    '#reprint':{",
+                    "        click:this.reprintReceipt",
+                    "    },",
+                    "    '#selectShifts':{",
+                    "        click:this.openShifts",
+                    "    },",
+                    "    '#shiftsGrid':{",
+                    "        itemdblclick:this.loadReceipts",
+                    "    },",
+                    "    \"#cashSales\":{",
+                    "        afterrender:this.setReceiptNo",
+                    "    },",
+                    "    '#cmdPreviewReport':{",
+                    "        click:this.previewCashReport",
+                    "    },",
+                    "    '#deleteSelectedItem':{",
+                    "        click:this.deleteSelectedItem",
+                    "    },",
+                    "    '#cashPoint':{",
+                    "        change:this.setPaymentDetails",
+                    "    },",
+                    "    '#cmdSuppliers':{",
+                    "        click:this.getSuppliers",
+                    "    },",
+                    "    '#cmdGLs':{",
+                    "        click:this.openGlAccounts",
+                    "    },",
+                    "    '#cmdSaveSalesAdj':{",
+                    "        click:this.saveSalesAdj",
+                    "    },",
+                    "    '#cmdPrintCashReport':{",
+                    "        click:this.printCashReport",
+                    "    },",
+                    "    '#cmdReprint':{",
+                    "        click:this.reprintReceipt",
+                    "    },",
+                    "    '#reprintParams':{",
+                    "        change:this.filterReceipts",
+                    "    },",
+                    "    '#cmdGetDebtors':{",
+                    "        click:this.openDebtors",
+                    "    },",
+                    "    '#cmdGetSuppliers':{",
+                    "        click:this.openSuppliers",
+                    "    },",
+                    "    '#cmdGetLedgers':{",
+                    "        click:this.openLedgers",
+                    "    },",
+                    "    '#debtorslist':{",
+                    "        itemdblclick:this.addReceiptItems",
+                    "    },",
+                    "    '#supplierslist':{",
+                    "        itemdblclick:this.addReceiptItems",
+                    "    },",
+                    "    '#generalledgers':{",
+                    "        itemdblclick:this.addReceiptItems",
+                    "    },",
+                    "    '#cmdSavePayment':{",
+                    "        click:this.savePayments",
+                    "    }",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "init",
+            "designerId": "299355b4-8133-4486-bc02-05f07f12a623"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openShiftsForm",
+                "implHandler": [
+                    "var shiftsForm=Ext.create(\"CarePortal.view.ShiftsForm\",{});",
+                    "",
+                    " var shiftsWindow=Ext.create('Ext.window.Window', {",
+                    "     title: 'Start Shift',",
+                    "     resizable:false",
+                    " });",
+                    "",
+                    " shiftsWindow.add(shiftsForm);",
+                    " shiftsWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openShiftsForm",
+            "designerId": "5f22124e-3ff7-4fd3-bc4e-403e26a073ad"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mainview",
+                "selector": "mainview",
+                "xtype": "mainview"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "mainview",
+            "designerId": "6e526ec1-bd5c-4638-b131-13d0120c5113"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openCashSaleAdj",
+                "implHandler": [
+                    "var cashSaleAdj=Ext.create(\"CarePortal.view.CashSalesAdj\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(cashSaleAdj);",
+                    "        //Ext.Msg.alert('Test',centerContainer.getItemId());"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openCashSaleAdj",
+            "designerId": "d74d1971-675d-4e10-934b-69345e5f6716"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "stocklevels",
+                "selector": "stocklevels",
+                "xtype": "stocklevels"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "stocklevels",
+            "designerId": "e6648c52-8275-48fe-b831-ca909697cd90"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openReceipts",
+                "implHandler": [
+                    "var receipts=Ext.create(\"CarePortal.view.Receipts\",{});",
+                    "centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(receipts);",
+                    "//Ext.Msg.alert('Test',centerContainer.getItemId());"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openReceipts",
+            "designerId": "5d322162-dd8e-430f-9ec2-ad14cd5af7bf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openCashItemsList",
+                "implHandler": [
+                    "",
+                    "Ext.Msg.alert('Test','test');",
+                    "var itesmStore=Ext.data.StoreManager.lookup(\"ItemsListStore\");",
+                    "itesmStore.load({",
+                    "    params: {",
+                    "        storeLoc:'Dispens'",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "//var storeLoc=button.up(\"panel\").down('#suppStore').getValue();",
+                    "var itemsList=Ext.create(\"CarePortal.view.ItemsList\",{});",
+                    "var ordersWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Items List',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "",
+                    "",
+                    "ordersWindow.add(itemsList);",
+                    "ordersWindow.show();",
+                    "itemsList.down('#sourceID').setValue('Cashbook');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openCashItemsList",
+            "designerId": "d2f504a3-8dbb-4955-a5b9-8254c0ecc050"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemslist",
+                "selector": "itemslist",
+                "xtype": "itemslist"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "itemslist",
+            "designerId": "814c9bf0-9961-4d23-a397-c41aded718bc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterItems",
+                "implHandler": [
+                    "var grid = field.up('grid');",
+                    "grid.store.clearFilter();",
+                    "if (newValue) {",
+                    "    var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "    grid.store.filter({",
+                    "        filterFn: function(item) {",
+                    "            return matcher.test(item.get('item_description')) ||",
+                    "                matcher.test(item.get('partcode'));",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterItems",
+            "designerId": "e4ec1619-0079-40ef-bfd3-30c210f2f59e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "setOrderNo",
+                "implHandler": [
+                    "var orderNo=this.getOrderNo('4');",
+                    "",
+                    "this.getOrdersform().down('#orderDate').setValue(new Date());"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setOrderNo",
+            "designerId": "0e58e2ab-996a-4789-bcc4-8b63cc898d9c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "typeID"
+                ],
+                "fn": "getOrderNo",
+                "implHandler": [
+                    "var transNo=0;",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getTransNos',",
+                    "    params: {",
+                    "        typeID:typeID",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        transNo=resp[0].transNo;",
+                    "       if(typeID==4){",
+                    "           this.getOrdersform().down('#orderNo').setValue(transNo);",
+                    "       }else if(typeID==3){",
+                    "           //Ext.Msg.alert('Test',transNo);",
+                    "           this.getIssuedrugs().down('#issuenumber').setValue(transNo);",
+                    "       }",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response);",
+                    "        Ext.Msg.alert('Error',resp.Error);",
+                    "     },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "return transNo;"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getOrderNo",
+            "designerId": "72706efa-b977-4487-b177-4d73b4133bde"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "addSelectedItems2",
+                "implHandler": [
+                    "var sourceID=this.getItemslist().down('#sourceID').getValue();",
+                    "if(sourceID=='Orders'){",
+                    "    var store =Ext.data.StoreManager.lookup('ItemsListStore');",
+                    "    var store1 =Ext.data.StoreManager.lookup('OrderStocksStore');",
+                    "    store.remove(record);",
+                    "    store1.add(record);",
+                    "}else if(sourceID=='Cashbook'){",
+                    "    var store =Ext.data.StoreManager.lookup('ItemsListStore');",
+                    "    var store1 =Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "    store.remove(record);",
+                    "    store1.add(record);",
+                    "}",
+                    "// else{",
+                    "//     var counter=this.getPrescriptionform().down(\"#counter\").getValue();",
+                    "//     var dosage=Ext.create(\"CarePortal.view.Dosage\",{});",
+                    "//     dosage.itemId=record.get('partcode');",
+                    "",
+                    "",
+                    "//     dosage.down('#partCode').setValue(record.get('partcode'));",
+                    "//     dosage.down('#description').setValue(record.get('item_description'));",
+                    "//     dosage.down('#qty').setValue(record.get('qty'));",
+                    "//     dosage.down('#unitCost').setValue(record.get('unit_price'));",
+                    "//     dosage.down('#dose').setValue(1);",
+                    "//     dosage.down('#itemNumber').setValue(counter);",
+                    "",
+                    "//     var i=counter;",
+                    "//     dosage.down('#partCode').name='partCode'+ i;",
+                    "//     dosage.down('#description').name='description'+ i;",
+                    "//     dosage.down('#dose').name='dose'+ i ;",
+                    "//     dosage.down('#timesperday').name='timesperday'+ i;",
+                    "//     dosage.down('#days').name='days'+ i ;",
+                    "//     dosage.down('#total').name='total'+ i ;",
+                    "//     dosage.down('#comment').name='comment'+ i;",
+                    "",
+                    "",
+                    "//     newVar=parseInt(counter)+1;",
+                    "",
+                    "//     this.getPrescriptionform().down('#dosageList').add(dosage);",
+                    "//     this.getPrescriptionform().down(\"#counter\").setValue(newVar);",
+                    "// }",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "addSelectedItems2",
+            "designerId": "e38d6480-fbc2-4455-8a1d-445ea87ce0e6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveOrder",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var orderStore =Ext.data.StoreManager.lookup('OrderStocksStore');",
+                    "var ordersRecord = orderStore.getRange();",
+                    "",
+                    "var gridData = Array();",
+                    "",
+                    "Ext.each(ordersRecord, function (record) {",
+                    "    gridData.push(record.data);",
+                    "});",
+                    "",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            gridData: Ext.util.JSON.encode(gridData)",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert(\"Orders\",\"Internal Order Saved Successfully\");",
+                    "            form.reset();",
+                    "            //orderStore.load({});",
+                    "            orderStore.removeAll();",
+                    "            orderStore.sync();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed', 'Could not save Order. Error='+action.result.errors.clientNo);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveOrder",
+            "designerId": "c4422e91-3268-47bd-94b4-8c40f3c701dd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "record"
+                ],
+                "fn": "setDeptName",
+                "implHandler": [
+                    "// Ext.Msg.alert('test',record.get('Description'));",
+                    "field.up('form').down('#deptName').setValue(record.get('Description'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setDeptName",
+            "designerId": "f94d4b59-bbc8-44b9-b2de-025262ea5811"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "record"
+                ],
+                "fn": "setSuppName",
+                "implHandler": [
+                    "field.up('form').down('#suppName').setValue(record.get('Description'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setSuppName",
+            "designerId": "93601426-e4fd-4e3e-a2e8-9315a40a8028"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "record"
+                ],
+                "fn": "selectPendingOrders",
+                "implHandler": [
+                    "var pendingOrders =Ext.data.StoreManager.lookup('ServiceOrderStore');",
+                    "pendingOrders.load({",
+                    "    params:{",
+                    "        store:record.get('ID')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "selectPendingOrders",
+            "designerId": "a420439d-29dc-4b9d-9b68-808d4f8354d1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadDetailedOrder",
+                "implHandler": [
+                    "var pendingOrders =Ext.data.StoreManager.lookup('OrderDetailStore');",
+                    "pendingOrders.load({",
+                    "    params:{",
+                    "        store:record.get('sup_storeid'),",
+                    "        req_no:record.get('req_no')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        gridpanel.up('form').loadRecord(record);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadDetailedOrder",
+            "designerId": "90d41bd5-24d9-4550-b58e-1678337113f6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveSales",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var salesStore =Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "var salesRecord = salesStore.getRange();",
+                    "",
+                    "var patientsList=Ext.data.StoreManager.lookup('PendingPatientBills');",
+                    "",
+                    "var receiptNo=button.up('form').down('#ReceiptNo').getValue();",
+                    "var payMode=button.up('form').down('#PayMode').getValue();",
+                    "var payer=button.up('form').down('#Payer').getValue();",
+                    "var pid=button.up('form').down('#Pid').getValue();",
+                    "var patient=button.up('form').down('#Pid').getValue();",
+                    "var cashpoint=button.up('form').down('#CashPoint').getValue();",
+                    "var names=button.up('form').down('#Names').getValue();",
+                    "var cashier='Admin';",
+                    "var salesType=button.up('form').down('#salesType').getValue().salesType;",
+                    "",
+                    "var gridData = Array();",
+                    "",
+                    "Ext.each(salesRecord, function (record) {",
+                    "    gridData.push(record.data);",
+                    "});",
+                    "",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            gridData: Ext.util.JSON.encode(gridData)",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "//             Ext.Msg.alert(\"Sale\",\"Sale Successful\");",
+                    "",
+                    "            if(salesType=='cashSale'){",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }else if(salesType=='bill'){",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }",
+                    "",
+                    "            form.reset();",
+                    "            salesStore.load({});",
+                    "            patientsList.load({});",
+                    "",
+                    "            this.setReceiptNo();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);",
+                    "        },",
+                    "        scope:this",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveSales",
+            "designerId": "041a44c0-c50f-4ae5-80ed-0034a4d2701c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveSalesAdj",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var salesStore =Ext.data.StoreManager.lookup('PaidReceiptsStore');",
+                    "var salesRecord = salesStore.getRange();",
+                    "",
+                    "var patientsList=Ext.data.StoreManager.lookup('CashSalesStore');",
+                    "",
+                    "var receiptNo=button.up('form').down('#ReceiptNo').getValue();",
+                    "var payMode=button.up('form').down('#PayMode').getValue();",
+                    "var payer=button.up('form').down('#Payer').getValue();",
+                    "var pid=button.up('form').down('#Pid').getValue();",
+                    "var patient=button.up('form').down('#Pid').getValue();",
+                    "var cashpoint=button.up('form').down('#CashPoint').getValue();",
+                    "var names=button.up('form').down('#Names').getValue();",
+                    "var cashier='Admin';",
+                    "var salesType=button.up('form').down('#salesType').getValue().salesType;",
+                    "",
+                    "var gridData = Array();",
+                    "",
+                    "Ext.each(salesRecord, function (record) {",
+                    "    gridData.push(record.data);",
+                    "});",
+                    "",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            gridData: Ext.util.JSON.encode(gridData)",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "//             Ext.Msg.alert(\"Sale\",\"Sale Successful\");",
+                    "",
+                    "            if(salesType=='cashSale'){",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }else if(salesType=='bill'){",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }",
+                    "",
+                    "            form.reset();",
+                    "            salesStore.load({});",
+                    "            patientsList.load({});",
+                    "",
+                    "            this.setReceiptNo();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);",
+                    "        },",
+                    "        scope:this",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveSalesAdj",
+            "designerId": "4ebfec1f-dfbf-404b-8ab4-ab73326db3a5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadLevelsForm",
+                "implHandler": [
+                    "gridpanel.up('form').loadRecord(record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadLevelsForm",
+            "designerId": "32b33900-8137-48e8-b57a-781af09e2949"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveStockAdjustments",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var levelsStore =Ext.data.StoreManager.lookup('StockLevelsStore');",
+                    "",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert(\"Orders\",\"Stock level Updated Successfully\");",
+                    "            form.reset();",
+                    "            levelsStore.load({});",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed', 'Could not Stock levels. Error='+action.result.errors.clientNo);",
+                    "        },",
+                    "        scope:this",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveStockAdjustments",
+            "designerId": "3d3689a6-d0bc-4341-aaa9-71e80b7cf265"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openReceiptsAdj",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test','Test');",
+                    "var receiptAdj=Ext.create(\"CarePortal.view.ReceiptsAdj\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(receiptAdj);",
+                    "",
+                    "// var pendingPresc =Ext.data.StoreManager.lookup('PendingPrescriptions');",
+                    "// pendingPresc.load({});"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openReceiptsAdj",
+            "designerId": "20053bca-623e-4b18-9b31-9bfbd081742b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "showPrescriptions",
+                "implHandler": [
+                    "// Ext.Msg.alert('Selections','You selected '+ record.get('Names'));",
+                    "gridpanel.up('panel').up('panel').down('#Pid').setValue(record.get('Pid'));",
+                    "gridpanel.up('panel').up('panel').down('#Names').setValue(record.get('Names'));",
+                    "gridpanel.up('panel').up('panel').down('#EncounterNo').setValue(record.get('EncounterNo'));",
+                    "gridpanel.up('panel').up('panel').down('#PrescribeDate').setValue(record.get('PrescribeDate'));",
+                    "var prescDetails=gridpanel.up('panel').up('panel').down('#prescDetails');",
+                    "",
+                    "//**************************************************************************",
+                    "//Populate the prescription items",
+                    "//**************************************************************************",
+                    "",
+                    " var precStore=Ext.data.StoreManager.lookup(\"PrescriptionItemStore\");",
+                    "",
+                    "        var billSum=0;",
+                    "        var data = [];",
+                    "        precStore.load({",
+                    "            params: {",
+                    "                pid:record.get('Pid'),",
+                    "                encNr:record.get('EncounterNo'),",
+                    "                prescSource:\"Prescription\"",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "                var tpl=new Ext.XTemplate(",
+                    "                    '<Table id=pharmDetails>',",
+                    "                    '<tr><td id=titles colspan=6>Prescriptions</td></tr>',",
+                    "                    '<tr><th>Prescription No</th><th>Date</th><th>Description</th>',",
+                    "                    ' <th>Dosage</th><th>Times Per Day</th><th>Days</th></tr>',",
+                    "                    '<tpl for=\".\">',",
+                    "                    '<tr><td>{Nr}</td><td>{PrescribeDate}</td><td>{Description}</td>',",
+                    "                    '<td>{Dosage}</td><td>{TimesPerDay}</td><td>{Days}</td></tr>',",
+                    "                    '<tr><td id=notes>Notes</td><td colspan=3 id=notes>{Notes}</td><td>Prescribed By:{Prescriber}</td><td><button id=edit>Edit</button><button id=delete>Delete</button></td></tr>',",
+                    "                    '</tpl>',",
+                    "                    '</table>'",
+                    "                  );",
+                    "",
+                    "                    precStore.each(function(record) {",
+                    "                        data.push(record.getData());",
+                    "                        //billSum += record.get('Total');",
+                    "                    });",
+                    "",
+                    "                    tpl.overwrite(prescDetails.body,data);",
+                    "            },",
+                    "            scope: this",
+                    "        });",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "showPrescriptions",
+            "designerId": "f89a2cb0-23b9-4782-b408-32e56250938e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openPaymentsAdj",
+                "implHandler": [
+                    "var paymentsAdj = Ext.create('CarePortal.view.PaymentsAdj', {});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(paymentsAdj);",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPaymentsAdj",
+            "designerId": "cb7a064c-342f-441f-9783-a24f5cde5a57"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "displayCashSale",
+                "implHandler": [
+                    "var salesForm = Ext.create('CarePortal.view.CashSales', {});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(salesForm);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "displayCashSale",
+            "designerId": "65ec05fd-5d71-4487-a421-2aa8a6db097c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadSelectedDrugs",
+                "implHandler": [
+                    "Ext.Msg.alert('Test',record.get('Pid'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadSelectedDrugs",
+            "designerId": "93168676-a364-49b7-be28-ecbad79d2c7f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "removeDose",
+                "implHandler": [
+                    "button.up('fieldset').destroy();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "removeDose",
+            "designerId": "7bcc2a9d-3f9d-4e1d-9ab0-9533f169b304"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "getTotalDosage",
+                "implHandler": [
+                    "var dose=field.up('fieldset').down('#dose').getValue();",
+                    "var timesperday=field.up('fieldset').down('#timesperday').getValue();",
+                    "var days=field.up('fieldset').down('#days').getValue();",
+                    "var total=parseInt(dose)*parseInt(timesperday)*parseInt(days);",
+                    "",
+                    "field.up('fieldset').down('#total').setValue(total);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getTotalDosage",
+            "designerId": "b9ea1ead-2f3f-40d9-b08f-2fbdaa10c08d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadPatientDetails",
+                "implHandler": [
+                    "var patientStore=Ext.data.StoreManager.lookup(\"PatientDetaila\");",
+                    "",
+                    "patientStore.load({",
+                    "    params: {",
+                    "        pid:field.getValue()",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "       // var resp = Ext.JSON.decode(response.responseText);",
+                    "        names= records[0].data.Names;",
+                    "        prescriber=records[0].data.Prescriber;",
+                    "        prescdate=records[0].data.PrescribeDate;",
+                    "        age=records[0].data.Age;",
+                    "        payMode=records[0].data.Payment;",
+                    "        encNr=records[0].data.EncounterNo;",
+                    "",
+                    "        this.getCashsales().down('#Names').setValue(names);",
+                    "        this.getCashsales().down('#doctor').setValue(prescriber);",
+                    "        this.getCashsales().down('#prescribeDate').setValue(prescdate);",
+                    "        this.getCashsales().down('#age').setValue(age);",
+                    "        this.getCashsales().down('#payMode').setValue(payMode);",
+                    "        this.getCashsales().down('#encNr').setValue(encNr);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadPatientDetails",
+            "designerId": "85024ca8-8ca3-4f7b-a5a3-d2ee04082620"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "combo",
+                    "record",
+                    "eOpts"
+                ],
+                "fn": "loadPrescriptionOrder",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',record.get('ID'));",
+                    "var prescStore=Ext.data.StoreManager.lookup(\"PrescriptionItemStore\");",
+                    "var encNr=this.getIssuedrugs().down('#encNr').getValue();",
+                    "",
+                    "prescStore.load({",
+                    "    params: {",
+                    "        encNr:encNr,",
+                    "        store:record.get('ID'),",
+                    "        prescSource:'Prescription'",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadPrescriptionOrder",
+            "designerId": "efc5e4b8-b0c7-4f6c-ad08-4b1780b7d530"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "issueDrugs",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var orderStore =Ext.data.StoreManager.lookup('PrescriptionItemStore');",
+                    "var ordersRecord = orderStore.getRange();",
+                    "",
+                    "var gridData = Array();",
+                    "",
+                    "Ext.each(ordersRecord, function (record) {",
+                    "    gridData.push(record.data);",
+                    "});",
+                    "",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            gridData: Ext.util.JSON.encode(gridData)",
+                    "        },",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert(\"Prescription Order\",\"Drugs Issued Successfully\");",
+                    "            form.reset();",
+                    "            orderStore.removeAll();",
+                    "            orderStore.sync();",
+                    "            ",
+                    "            var peddingPrescStore=Ext.data.StoreManager.lookup(\"PendingPrescriptions\");",
+                    "            peddingPrescStore.load({});",
+                    "",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed', 'Could not save Order. Error='+action.result.errors.clientNo);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "issueDrugs",
+            "designerId": "ac31bea4-78bc-4762-aa68-526808409b7e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "openPayments",
+                "implHandler": [
+                    "var payments = Ext.create('CarePortal.view.Payments', {});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(payments);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPayments",
+            "designerId": "b1660acc-3b0b-4acc-a03f-fecb2353fcd1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "returnDrugs",
+                "implHandler": [
+                    "//Ext.Msg.alert('test','test');",
+                    "var returnsStore=Ext.data.StoreManager.lookup('ReturnOrdersStore');",
+                    "//var ordersRecord = returnsStore.getRange();",
+                    "var requestparam=this.getReturnorders().down('#returnsparam').getValue();",
+                    "var sourcePresc=this.getReturnorders().down('#prescSource').getValue();",
+                    "var gridData = Array();",
+                    "",
+                    "var updatedRecords = this.getReturnorders().getStore().getUpdatedRecords();",
+                    "params=[];",
+                    "Ext.each(updatedRecords,function(record){",
+                    " params.push(record.data);",
+                    "});",
+                    "",
+                    "",
+                    "returnsStore.proxy.extraParams = {",
+                    "    selectedCount:params.length,",
+                    "    pid:this.getReturnorders().down('#returnsparam').getValue()",
+                    "",
+                    "};",
+                    "",
+                    "returnsStore.sync({",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        Ext.Msg.alert('Update','Successfully returned drugs');",
+                    "       // var returnsStore=Ext.data.StoreManager.lookup('BillStore');",
+                    "        returnsStore.load({});",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response.responseText);",
+                    "        Ext.Msg.alert('Error','Error Updating Bill');",
+                    "",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "returnDrugs",
+            "designerId": "7f507c1e-0c9c-4d32-9efc-484ca00baf4e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewDrugsToReturn",
+                "implHandler": [
+                    "var returnsStore =Ext.data.StoreManager.lookup('ReturnOrdersStore');",
+                    "var requestparam=this.getReturnorders().down('#returnsparam').getValue();",
+                    "var sourcePresc=this.getReturnorders().down('#prescSource').getValue();",
+                    "var storeLoc=this.getReturnorders().down('#storeLoc').getValue();",
+                    "returnsStore.load({",
+                    "    params: {",
+                    "        requestparam:requestparam,",
+                    "        sourcePresc:sourcePresc,",
+                    "        storeLoc:storeLoc",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewDrugsToReturn",
+            "designerId": "a3519e6e-dd59-49f7-bb93-8d38eea5a58e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "previewIssuedDrugs",
+                "implHandler": [
+                    "var formsContainer=Ext.create(\"CarePortal.view.DrugIssuesReports\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(formsContainer);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewIssuedDrugs",
+            "designerId": "ac75c498-201f-493f-9de0-884c9e05722c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "previewInteralOrders",
+                "implHandler": [
+                    "        var formsContainer=Ext.create(\"CarePortal.view.InternalOrdersReport\",{});",
+                    "        var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "        centerContainer.removeAll();",
+                    "        centerContainer.add(formsContainer);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewInteralOrders",
+            "designerId": "926b3a6a-4a6a-4d76-9c48-5fa084cbbb2e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "previewStockAdjustments",
+                "implHandler": [
+                    "var formsContainer=Ext.create(\"CarePortal.view.StockAdjustmentsReport\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(formsContainer);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewStockAdjustments",
+            "designerId": "85bdeb02-255a-4739-8428-9fdac643f07c"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "onLaunch",
+                "implHandler": null
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onLaunch",
+            "designerId": "583f5258-d586-425a-8d0d-656de4d89dc6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "previewMovements",
+                "implHandler": [
+                    "var formsContainer=Ext.create(\"CarePortal.view.StockMovementsReport\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(formsContainer);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewMovements",
+            "designerId": "d75ce5a7-e097-47f2-ab4a-a6b7a54d256b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "previewValuations",
+                "implHandler": [
+                    "var formsContainer=Ext.create(\"CarePortal.view.ValuationsReport\",{});",
+                    "var centerContainer=this.getMainview().down(\"container[region=center]\");",
+                    "centerContainer.removeAll();",
+                    "centerContainer.add(formsContainer);"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewValuations",
+            "designerId": "fada13c3-bd20-4937-81be-85c4740703cf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "loadValuation",
+                "implHandler": [
+                    "Ext.Msg.alert('Test','test');",
+                    "var valuationStore =Ext.data.StoreManager.lookup('ValuationStore');",
+                    "var category=this.getDrugissuesreports().down('#itemCategory').getValue();",
+                    "",
+                    "valuationStore.load({",
+                    "    params: {",
+                    "        category:category",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadValuation",
+            "designerId": "3345f889-9895-4618-b3a8-12ab1c0d8f62"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "cancelOrder",
+                "implHandler": [
+                    "       var reqno=button.up('panel').down('#requisionnumber').getValue();",
+                    "        Ext.Ajax.request({",
+                    "            url: 'data/getDataFunctions.php?task=cancelOrder',",
+                    "            params: {",
+                    "                reqno:reqno",
+                    "            },",
+                    "            success: function(response){",
+                    "                var resp = Ext.JSON.decode(response.responseText);",
+                    "                Ext.Msg.alert('Order','Order No '+reqno+' Cancelled successfully');",
+                    "            },",
+                    "            failure:function(response){",
+                    "                var resp = JSON.parse(response);",
+                    "                Ext.Msg.alert('Error',resp.Error);",
+                    "             },",
+                    "            scope: this",
+                    "        });",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "cancelOrder",
+            "designerId": "e122a979-4a15-4f15-8f48-a8728b1530b9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "setIssueNo",
+                "implHandler": [
+                    " var orderNo=this.getOrderNo('3');",
+                    "",
+                    " this.getIssuedrugs().down('#issuenumber').setValue(orderNo);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setIssueNo",
+            "designerId": "2a2180e7-99c2-4fd3-adc1-e0d98041fbeb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "e",
+                    "options"
+                ],
+                "fn": "getPressedKey",
+                "implHandler": [
+                    "    if (e.getKey() == e.ENTER && field.getItemId()==='prescParams') {",
+                    "     //   Ext.Msg.alert('Test',field.getItemId());",
+                    "       this.searchPrescription();",
+                    "    }else  if (e.getKey() == e.ENTER && field.getItemId()==='searchParam') {",
+                    "     //   Ext.Msg.alert('Test',field.getItemId());",
+                    "        this.searchItems();",
+                    "    }else  if (e.getKey() == e.ENTER && field.getItemId()==='txtSearchReceipt') {",
+                    "     //   Ext.Msg.alert('Test',field.getItemId());",
+                    "        this.searchReceipt();",
+                    "    }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getPressedKey",
+            "designerId": "35df7df1-6a57-4d26-9211-688ec3ec12b1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "searchPrescription",
+                "implHandler": [
+                    "var searchParam=this.getBills().down('#prescParams').getValue();",
+                    "var admSource=this.getBills().down('#admSource').getValue();",
+                    "var prescStore =Ext.data.StoreManager.lookup('PendingPrescriptions');",
+                    "",
+                    "if(admSource=='1'){",
+                    "    encounterClass=1;",
+                    "}else{",
+                    "    encounterClass=2;",
+                    "}",
+                    "",
+                    "",
+                    "prescStore.load({",
+                    "    params: {",
+                    "        prescParams: prescParams,",
+                    "        encounterClass:encounterClass",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchPrescription",
+            "designerId": "3643ddae-7b00-4e46-bbde-0af12d31077a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field, newValue, oldValue, eOpts"
+                ],
+                "fn": "filterPrescriptions",
+                "implHandler": [
+                    "var grid = field.up('grid');",
+                    "grid.store.clearFilter();",
+                    "if (newValue) {",
+                    "    var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "    grid.store.filter({",
+                    "        filterFn: function(item) {",
+                    "            return matcher.test(item.get('Names')) ||",
+                    "                matcher.test(item.get('Pid'));",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterPrescriptions",
+            "designerId": "57c74a97-bae0-46e5-9da1-c28fc38a076c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cashsales",
+                "selector": "cashsales",
+                "xtype": "cashsales"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "cashsales",
+            "designerId": "72bac799-37bb-4c73-98b5-e44cd398ab74"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cashsalesadj",
+                "selector": "cashsalesadj",
+                "xtype": "cashsalesadj"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "cashsalesadj",
+            "designerId": "448bd5ee-a248-4965-a6da-8f4faa33e963"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "receipts",
+                "selector": "receipts",
+                "xtype": "receipts"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "receipts",
+            "designerId": "e58eb865-04b1-4f30-8584-3024589d84c7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "receiptsadj",
+                "selector": "receiptsadj",
+                "xtype": "receiptsadj"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "receiptsadj",
+            "designerId": "d227e45c-da7b-4311-a077-78541bd59cb8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "payments",
+                "selector": "payments",
+                "xtype": "payments"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "payments",
+            "designerId": "41786394-d448-4c99-a434-e686d7d251c4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "paymentsadj",
+                "selector": "paymentsadj",
+                "xtype": "paymentsadj"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "paymentsadj",
+            "designerId": "da557a26-3e1c-4b97-ab97-4fc8a5909073"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "shiftsform",
+                "selector": "shiftsform",
+                "xtype": "shiftsform"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "shiftsform",
+            "designerId": "67078103-db62-4191-bd43-cd749316e822"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "getSalesType",
+                "implHandler": [
+                    " //Ext.Msg.alert('Radio Selection',field.getValue().salesType);",
+                    "if(field.getValue().salesType=='bill'){",
+                    "    this.getCashsales().down('#patientDetails').show();",
+                    "    this.getCashsales().down('#pendingBills').show();",
+                    "",
+                    "}else if(field.getValue().salesType=='cashSale'){",
+                    "    this.getCashsales().down('#patientDetails').hide();",
+                    "    this.getCashsales().down('#pendingBills').hide();",
+                    "    this.getCashsales().down('#Payer').setValue('Walkin Patient');",
+                    "}",
+                    "this.setReceiptNo();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getSalesType",
+            "designerId": "a8ae7aad-bba5-4306-b4c0-a479281f8ded"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "prescriptionform",
+                "selector": "prescriptionform",
+                "xtype": "prescriptionform"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "prescriptionform",
+            "designerId": "1bbe4818-e25a-47e7-9b0a-87541c2900eb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dosage",
+                "selector": "dosage",
+                "xtype": "dosage"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "dosage",
+            "designerId": "91c73031-3d76-4c4c-b0ca-c35d98a39a11"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadBill",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test', gridpanel.getItemId());",
+                    "pid=record.get('Pid');",
+                    "names= record.get('Names');",
+                    "",
+                    "",
+                    "if(gridpanel.getItemId()=='pendingBills'){",
+                    "    this.getCashsales().down('#Names').setValue(names);",
+                    "    this.getCashsales().down('#Pid').setValue(pid);",
+                    "    this.getCashsales().down('#Payer').setValue(names);",
+                    "    billNumber=record.get('Pid');",
+                    "",
+                    "    CashPoint=this.getCashsales().down('#CashPoint').getValue();",
+                    "    ShiftNo=this.getCashsales().down('#ShiftNo').getValue();",
+                    "    ReceiptNo=this.getCashsales().down('#ReceiptNo').getValue();",
+                    "    var cashSaleStore =Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "",
+                    "    cashSaleStore.load({",
+                    "        params: {",
+                    "            pid: pid,",
+                    "            cashpoint:CashPoint,",
+                    "            shiftNo:ShiftNo",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "        },",
+                    "        scope: this",
+                    "",
+                    "    });",
+                    "}else{",
+                    "    billNumber=record.get('Pid');",
+                    "    ShiftNo=record.get('ShiftNo');",
+                    "    CashPoint=record.get('CashPoint');",
+                    "    ReceiptNo=record.get('ReceiptNo');",
+                    "    this.getCashsalesadj().down('#Names').setValue(names);",
+                    "    this.getCashsalesadj().down('#Payer').setValue(names);",
+                    "    this.getCashsalesadj().down('#Pid').setValue(pid);",
+                    "    this.getCashsalesadj().down('#ReceiptNo').setValue(record.get('ReceiptNo'));",
+                    "    this.getCashsalesadj().down('#CurrDate').setValue(record.get('CurrDate'));",
+                    "    this.getCashsalesadj().down('#ShiftNo').setValue(record.get('ShiftNo'));",
+                    "",
+                    "    var cashStore =Ext.data.StoreManager.lookup('PaidReceiptsStore');",
+                    "",
+                    "    cashStore.load({",
+                    "        params: {",
+                    "            cashpoint:CashPoint,",
+                    "            shiftNo:ShiftNo,",
+                    "            receipt:ReceiptNo",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadBill",
+            "designerId": "0501f36c-c629-43fb-86aa-573484825468"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "startshift",
+                "selector": "startshift",
+                "xtype": "startshift"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "startshift",
+            "designerId": "8208d19a-09ba-4803-8975-710dda5ebc13"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "shiftreport",
+                "selector": "shiftreport",
+                "xtype": "shiftreport"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "shiftreport",
+            "designerId": "bbbf74dd-ec2b-4748-89a7-6c8195a6c526"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "endshift",
+                "selector": "endshift",
+                "xtype": "endshift"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "endshift",
+            "designerId": "162728f5-3b65-45eb-afa3-a852f2092597"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "startShift",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',button.up('form').down('#cashpoint').getValue());",
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "",
+                    "        success: function(form, action) {",
+                    "            button.up('window').close();",
+                    "             var jsonResp = Ext.decode(action.response.responseText);",
+                    "            localStorage.setItem('ShiftNo',jsonResp.ShiftNo);",
+                    "            localStorage.setItem('shiftStatus','Opened');",
+                    "",
+                    "            centerDetails=Ext.create(\"CarePortal.view.CashSales\",{});",
+                    "            centerContainer.removeAll();",
+                    "",
+                    "            centerContainer.add(centerDetails);",
+                    "            centerContainer.setTitle(\"Cash Sale\");",
+                    "            this.setReceiptNo();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            var jsonResp = Ext.decode(action.response.responseText);",
+                    "            if(jsonResp.ShiftStatus=='Active'){",
+                    "",
+                    "                button.up('window').close();",
+                    "                Ext.Msg.alert('Failed', 'Could not start shift. Shift already started \\n Proceed to Cash Sales');",
+                    "                centerDetails=Ext.create(\"CarePortal.view.CashSales\",{});",
+                    "                centerContainer.removeAll();",
+                    "",
+                    "                centerContainer.add(centerDetails);",
+                    "                centerContainer.setTitle(\"Cash Sale\");",
+                    "                this.setReceiptNo();",
+                    "",
+                    "",
+                    "",
+                    "            }",
+                    "",
+                    "        },",
+                    "        scope:this",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "startShift",
+            "designerId": "a3adb3d1-bba6-4936-a933-52e816a7cc3b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "endShift",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "        form.submit({",
+                    "            success: function(form, action) {",
+                    "                Ext.Msg.alert(\"End Shift\",\"Shift Ended Successfully\");",
+                    "                centerDetails=Ext.create(\"CarePortal.view.Home\",{});",
+                    "                centerContainer.removeAll();",
+                    "",
+                    "                centerContainer.add(centerDetails);",
+                    "                centerContainer.setTitle(\"HMIS Dashboard\");",
+                    "",
+                    "                localStorage.setItem('shiftStatus','Closed');",
+                    "                ",
+                    "                button.up('window').close();",
+                    "",
+                    "",
+                    "            },",
+                    "            failure: function(form, action) {",
+                    "                Ext.Msg.alert('Failed', 'Could not End Shift.');",
+                    "            }",
+                    "        });",
+                    "    } else { // display error alert if the data is invalid",
+                    "        Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "    }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "endShift",
+            "designerId": "3c9623d4-9f64-480b-8c9c-53e2b369dfe7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "reprintReceipt",
+                "implHandler": [
+                    "var grid=button.up('grid');",
+                    "var reprintType=grid.down('#reprintType').getValue().reprintType;",
+                    "if(reprintType===''){",
+                    "    Ext.Msg.alert('Sales Type','Please select a Sales Type');",
+                    "}else{",
+                    "",
+                    "    var srecords=grid.getSelectionModel().getSelection();",
+                    "",
+                    "    var selectedRowIndexes = [];",
+                    "    var pids='';",
+                    "",
+                    "    Ext.iterate(srecords,function(record,index){",
+                    "",
+                    "        selectedRowIndexes.push(grid.getStore().indexOf(record));",
+                    "",
+                    "        if(grid.getSelectionModel().hasSelection()){",
+                    "            var receiptNo=record.get('ReceiptNo');",
+                    "            var payMode=record.get('PayMode');",
+                    "            var payer=record.get('Payer');",
+                    "            var pid=record.get('Pid');",
+                    "            var cashpoint=record.get('CashPoint');",
+                    "            var names=record.get('Names');",
+                    "            var shiftNo=record.get('ShiftNo');",
+                    "            var cashier=record.get('Cashier');",
+                    "",
+                    "",
+                    "            if(reprintType=='CashSale'){",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }else if(reprintType=='Receipt'){",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "            }",
+                    "",
+                    "        }else{",
+                    "            Ext.Msg.alert('Test','You have not Selected any Item to Remove');",
+                    "        }",
+                    "",
+                    "    });",
+                    "}",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "reprintReceipt",
+            "designerId": "05616e8d-2411-4954-bf88-4e0e37349f33"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "setReceiptNo",
+                "implHandler": [
+                    "var transNo=0;",
+                    "var cashPoint=this.getCashsales().down('#CashPoint').getValue();",
+                    "//Ext.Msg.alert('set Receipt',cashPoint);",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getNextReceiptNo',",
+                    "    params: {",
+                    "        cashpoint:cashPoint",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "",
+                    "        this.getCashsales().down('#ReceiptNo').setValue(resp.nextReceipt);",
+                    "        this.getCashsales().down('#ShiftNo').setValue(resp.shiftNo);",
+                    "        this.getCashsales().down('#CurrDate').setValue(resp.currDate);",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        // var resp = JSON.parse(response);",
+                    "         Ext.Msg.alert('Error',resp.Error);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "return transNo;"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setReceiptNo",
+            "designerId": "7dde505d-9552-4a3c-a54b-c07fff7f32c6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openShifts",
+                "implHandler": [
+                    "var shiftStore =Ext.data.StoreManager.lookup('ShiftsStore');",
+                    "shiftStore.load({});",
+                    "",
+                    "shifts=Ext.create(\"CarePortal.view.Shifts\",{});",
+                    "//centerContainer.removeAll();",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Shifts\",",
+                    "    resizable:true,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "containterWindows.add(shifts);",
+                    "containterWindows.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openShifts",
+            "designerId": "6e58776f-0848-4798-9951-df968179f64d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadReceipts",
+                "implHandler": [
+                    "this.getShiftreport().down('#cashPoint').setValue(record.get('CashPoint'));",
+                    "this.getShiftreport().down('#shiftNo').setValue(record.get('ShiftNo'));",
+                    "",
+                    "var receiptsStore =Ext.data.StoreManager.lookup('ReceiptsStore');",
+                    "receiptsStore.load({",
+                    "    params:{",
+                    "        cashpoint:record.get('CashPoint'),",
+                    "        shiftNo:record.get('ShiftNo')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "        gridpanel.up('window').close();",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadReceipts",
+            "designerId": "76205dba-52c7-4576-a023-65912f315ca7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewCashReport",
+                "implHandler": [
+                    "var cashpoint=button.up('gridpanel').down('#cashPoint').getValue();",
+                    "var shiftNo=button.up('gridpanel').down('#shiftNo').getValue();",
+                    "",
+                    "",
+                    "var receiptsStore =Ext.data.StoreManager.lookup('ReceiptsStore');",
+                    "receiptsStore.load({",
+                    "    params:{",
+                    "        cashpoint:cashpoint,",
+                    "        shiftNo:shiftNo",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "//         gridpanel.up('window').close();",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewCashReport",
+            "designerId": "5345ff24-a920-4963-a97e-3f596f01537b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "deleteSelectedItem",
+                "implHandler": [
+                    "var itemsGrid=button.up('form').down('#itemsGrid');",
+                    "itemToDelete=itemsGrid.getView().getSelectionModel().getSelection();",
+                    "//itemsStore=Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "itemsStore=itemsGrid.getStore();",
+                    "",
+                    "itemsStore.remove(itemToDelete);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "deleteSelectedItem",
+            "designerId": "21453013-1fbd-4793-b7ee-fb8d58466c4a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "setPaymentDetails",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',newValue);",
+                    "field.up('form').down('#paymentDate').setValue(new Date());",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getCashPoints',",
+                    "    params: {",
+                    "        cashpoint:newValue",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        //transNo=resp[0].transNo;",
+                    "       // field.up('form').down('#description').setValue(resp[0].Description);",
+                    "        field.up('form').down('#voucherNo').setValue(resp[0].NextReceiptNo);",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response);",
+                    "        Ext.Msg.alert('Error',resp.Error);",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setPaymentDetails",
+            "designerId": "dc454291-f132-4bae-ba25-39c4952e059c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "getSuppliers",
+                "implHandler": [
+                    "var suppliers=Ext.create(\"CarePortal.view.Suppliers\",{});",
+                    "",
+                    "var suppliersWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Suppliers List',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "suppliersWindow.add(suppliers);",
+                    "suppliersWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getSuppliers",
+            "designerId": "0214f47c-2305-47ec-8a7e-d252c78df928"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openGlAccounts",
+                "implHandler": [
+                    "//Ext.Msg.alert('Tes','Test');",
+                    "var glsForm=Ext.create(\"CarePortal.view.GlAccounts\",{});",
+                    "",
+                    "var glsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Chart of Accounts',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "glsWindow.add(glsForm);",
+                    "glsWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openGlAccounts",
+            "designerId": "eb1009b0-7caf-4891-abd8-c00898cc424d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterReceipts",
+                "implHandler": [
+                    "var grid = field.up('grid');",
+                    "grid.store.clearFilter();",
+                    "if (newValue) {",
+                    "    var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "    grid.store.filter({",
+                    "        filterFn: function(item) {",
+                    "            return matcher.test(item.get('Names')) ||",
+                    "                matcher.test(item.get('Pid'));",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterReceipts",
+            "designerId": "e50940d8-91c5-4ad0-afba-1707bc6edabf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openDebtors",
+                "implHandler": [
+                    "var debtorsForm=Ext.create(\"CarePortal.view.Debtors\",{});",
+                    "",
+                    "var debtorsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Debtors List',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "debtorsWindow.add(debtorsForm);",
+                    "debtorsWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDebtors",
+            "designerId": "2e704d05-75d3-4345-9298-491d44b242a6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openSuppliers",
+                "implHandler": [
+                    "var suppliersForm=Ext.create(\"CarePortal.view.Suppliers\",{});",
+                    "",
+                    "var suppliersWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Suppliers List',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "suppliersWindow.add(suppliersForm);",
+                    "suppliersWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openSuppliers",
+            "designerId": "499ce137-0fe0-4c62-b3b5-31703ea83920"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openLedgers",
+                "implHandler": [
+                    "var glsForm=Ext.create(\"CarePortal.view.GeneralLedger\",{});",
+                    "",
+                    "var glsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Chart of Accounts',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "glsWindow.add(glsForm);",
+                    "glsWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLedgers",
+            "designerId": "6a2884dd-f397-4bea-8af0-6ea8b06a04d4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "debtors",
+                "selector": "debtors",
+                "xtype": "debtors"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "debtors",
+            "designerId": "0dbca096-648f-4824-8b97-ded8af3cbb46"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "generalledger",
+                "selector": "generalledger",
+                "xtype": "generalledger"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "generalledger",
+            "designerId": "15cc290f-2910-44e8-8e7e-df0638dda229"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "addReceiptItems",
+                "implHandler": [
+                    "//Ext.Msg.alert('test',gridpanel.up('grid').getItemId());",
+                    "var sourcePanel=gridpanel.up('grid').getItemId();",
+                    "var store1 =Ext.data.StoreManager.lookup('LedgersStore');",
+                    "",
+                    "if(sourcePanel=='debtorslist'){",
+                    "    var store =Ext.data.StoreManager.lookup('DebtorsList');",
+                    "    store1.add([",
+                    "        {ledger: 'DB',code: record.get('accno') ,Name: record.get('name'),Amount: ''}",
+                    "    ]);",
+                    "    store.remove(record);",
+                    "}else if(sourcePanel=='supplierslist'){",
+                    "    var store =Ext.data.StoreManager.lookup('SuppliersStore');",
+                    "    store1.add([",
+                    "        {ledger: 'SUP',code: record.get('SupID') ,Name: record.get('Description'),Amount: ''}",
+                    "    ]);",
+                    "    store.remove(record);",
+                    "}else if(sourcePanel=='generalledgers'){",
+                    "    var store =Ext.data.StoreManager.lookup('GeneralLedgerStore');",
+                    "    store1.add([",
+                    "        {ledger: 'GL',code: record.get('AccountCode') ,Name: record.get('AccountName'),Amount: ''}",
+                    "    ]);",
+                    "    store.remove(record);",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "addReceiptItems",
+            "designerId": "532e57d9-63d6-4bb6-b145-469f2918a381"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveReceipt",
+                "implHandler": [
+                    "  var form = button.up('form').getForm(); // get the basic form",
+                    "        var ledgerStore =Ext.data.StoreManager.lookup('LedgerStore');",
+                    "        var ledgerRecord = ledgerStore.getRange();",
+                    "",
+                    "",
+                    "        var gridData = Array();",
+                    "",
+                    "        Ext.each(ledgerRecord, function (record) {",
+                    "            gridData.push(record.data);",
+                    "        });",
+                    "",
+                    "        if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "            form.submit({",
+                    "                params:{",
+                    "                    gridData: Ext.util.JSON.encode(gridData)",
+                    "                },",
+                    "                success: function(form, action) {",
+                    "                        window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "",
+                    "                    form.reset();",
+                    "                    ledgerStore.load({});",
+                    "",
+                    "                    this.setReceiptNo();",
+                    "",
+                    "                },",
+                    "                failure: function(form, action) {",
+                    "                    Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);",
+                    "                },",
+                    "                scope:this",
+                    "            });",
+                    "        } else { // display error alert if the data is invalid",
+                    "            Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveReceipt",
+            "designerId": "4ee63bb2-2e67-41dd-ac26-d4980b6a92cf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "savePayments",
+                "implHandler": [
+                    "  var form = button.up('form').getForm(); // get the basic form",
+                    "        var ledgerStore =Ext.data.StoreManager.lookup('LedgerStore');",
+                    "        var ledgerRecord = ledgerStore.getRange();",
+                    "",
+                    "",
+                    "        var gridData = Array();",
+                    "",
+                    "        Ext.each(ledgerRecord, function (record) {",
+                    "            gridData.push(record.data);",
+                    "        });",
+                    "",
+                    "        if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "            form.submit({",
+                    "                params:{",
+                    "                    gridData: Ext.util.JSON.encode(gridData)",
+                    "                },",
+                    "                success: function(form, action) {",
+                    "                        window.open('reports/payment_voucher.php?cashpoint='+CashPoint+'&voucherNo'+voucherNo+'&payMode='+payMode+'&pno='+pno+'&PatientName='+PatientName ,\"Payments\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "",
+                    "                    form.reset();",
+                    "                    ledgerStore.load({});",
+                    "",
+                    "                    this.setReceiptNo();",
+                    "",
+                    "                },",
+                    "                failure: function(form, action) {",
+                    "                    Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);",
+                    "                },",
+                    "                scope:this",
+                    "            });",
+                    "        } else { // display error alert if the data is invalid",
+                    "            Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "savePayments",
+            "designerId": "7cc10b78-607a-441b-acb8-3c2dff3f0238"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "printCashReport",
+                "implHandler": [
+                    "    var cashpoint=button.up('gridpanel').down('#cashPoint').getValue();",
+                    "        var shiftNo=button.up('gridpanel').down('#shiftNo').getValue();",
+                    "",
+                    "        window.open('reports/shift_report_pdf.php?cashpoint=' + cashpoint + '&shiftno=' + shiftNo, \"Shift Report\",",
+                    "                    \"menubar=no,toolbar=no,width=600,height=800,location=yes,resizable=yes,scrollbars=yes,status=yes\");"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "printCashReport",
+            "designerId": "99f127d7-8cd6-40f9-b843-a9ea946ab884"
+        }
+    ]
+}
