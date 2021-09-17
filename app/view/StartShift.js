@@ -28,7 +28,7 @@ Ext.define('CarePortal.view.StartShift', {
     viewModel: {
         type: 'startshift'
     },
-    height: 247,
+    height: 261,
     padding: 5,
     width: 382,
     layout: 'absolute',
@@ -126,6 +126,7 @@ Ext.define('CarePortal.view.StartShift', {
             x: 140,
             y: 210,
             itemId: 'startShift',
+            iconCls: 'x-fa fa-plus',
             text: 'Start Shift'
         }
     ],

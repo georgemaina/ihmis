@@ -113,7 +113,6 @@ Ext.define('CarePortal.view.CashSales', {
                                             labelStyle: 'color:green; font-weight:bold;',
                                             labelWidth: 80,
                                             name: 'cashPoint',
-                                            value: 'R01',
                                             fieldStyle: 'color:red; font-weight:bold;',
                                             allowBlank: false,
                                             emptyText: 'Cash Point'
@@ -127,10 +126,9 @@ Ext.define('CarePortal.view.CashSales', {
                                             labelStyle: 'color:green; font-weight:bold;',
                                             labelWidth: 80,
                                             name: 'shiftNo',
-                                            value: 0,
                                             fieldStyle: 'color:red; font-weight:bold;',
                                             allowBlank: false,
-                                            emptyText: 'Cash Point'
+                                            emptyText: 'Shift No'
                                         },
                                         {
                                             xtype: 'textfield',

@@ -10,7 +10,7 @@
         "designer|snapToGrid": 5,
         "designer|userAlias": "startshift",
         "designer|userClassName": "StartShift",
-        "height": 247,
+        "height": 261,
         "layout": "absolute",
         "padding": 5,
         "url": "data/getDataFunctions.php?task=startShift",
@@ -338,6 +338,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "startshift",
+                "iconCls": "x-fa fa-plus",
                 "itemId": "startShift",
                 "layout|x": 140,
                 "layout|y": 210,
@@ -348,7 +349,8 @@
                 "layout|y": "number",
                 "text": "string",
                 "designer|displayName": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "iconCls": "string"
             },
             "name": "MyButton",
             "designerId": "561c4f6b-1d3b-47dd-8846-a7acaea13bd5"

@@ -1403,8 +1403,7 @@ function startShift(){
     global $db;
     $debug=false;
 
-
-    $sql="select pcode,next_shift_no,current_shift,active from `care_ke_cashpoints` where pcode='R01'";
+    $sql="select pcode,next_shift_no,current_shift,active from `care_ke_cashpoints` where pcode='".$_POST['CashPoint']."'";
     $results=$db->Execute($sql);
     $row=$results->FetchRow();
 
@@ -1445,8 +1444,7 @@ function endShift(){
     global $db;
     $debug=false;
 
-
-    $sql="select pcode,next_shift_no,current_shift from `care_ke_cashpoints` where pcode='R01'";
+    $sql="select pcode,next_shift_no,current_shift from `care_ke_cashpoints` where pcode='".$_POST['CashPoint']."'";
     $results=$db->Execute($sql);
     $row=$results->FetchRow();
 

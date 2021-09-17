@@ -222,9 +222,6 @@
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "cashPoint",
-                                                "value": [
-                                                    "R01"
-                                                ],
                                                 "width": 205
                                             },
                                             "configAlternates": {
@@ -254,7 +251,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "allowBlank": false,
-                                                "emptyText": "Cash Point",
+                                                "emptyText": "Shift No",
                                                 "fieldLabel": "Shift No",
                                                 "fieldStyle": "color:red; font-weight:bold;",
                                                 "itemId": "ShiftNo",
@@ -262,9 +259,6 @@
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "shiftNo",
-                                                "value": [
-                                                    "0"
-                                                ],
                                                 "width": 205
                                             },
                                             "configAlternates": {

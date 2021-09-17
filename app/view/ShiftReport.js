@@ -20,8 +20,8 @@ Ext.define('CarePortal.view.ShiftReport', {
     requires: [
         'CarePortal.view.ShiftReportViewModel',
         'Ext.view.Table',
-        'Ext.form.field.Date',
         'Ext.button.Button',
+        'Ext.form.field.Text',
         'Ext.grid.column.Column',
         'Ext.toolbar.Paging'
     ],
@@ -42,24 +42,6 @@ Ext.define('CarePortal.view.ShiftReport', {
             width: 100,
             layout: 'absolute',
             items: [
-                {
-                    xtype: 'datefield',
-                    x: 400,
-                    y: 5,
-                    width: 195,
-                    fieldLabel: 'Start Date',
-                    labelStyle: 'color:green; font-weight:bold;',
-                    labelWidth: 80
-                },
-                {
-                    xtype: 'datefield',
-                    x: 600,
-                    y: 5,
-                    width: 195,
-                    fieldLabel: 'End Date',
-                    labelStyle: 'color:green; font-weight:bold;',
-                    labelWidth: 70
-                },
                 {
                     xtype: 'button',
                     x: 805,

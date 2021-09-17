@@ -61,58 +61,6 @@
             "designerId": "bd59a3bd-3502-4dd0-93da-d0c33e1d449d",
             "cn": [
                 {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Start Date",
-                        "labelStyle": "color:green; font-weight:bold;",
-                        "labelWidth": 80,
-                        "layout|x": 400,
-                        "layout|y": 5,
-                        "width": 195
-                    },
-                    "configAlternates": {
-                        "fieldLabel": "string",
-                        "labelStyle": "string",
-                        "labelWidth": "number",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "width": "auto"
-                    },
-                    "name": "MyDateField3",
-                    "designerId": "f43fbb38-5aa4-4c6f-9594-eb752ed9d3cf"
-                },
-                {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "End Date",
-                        "labelStyle": "color:green; font-weight:bold;",
-                        "labelWidth": 70,
-                        "layout|x": 600,
-                        "layout|y": 5,
-                        "width": 195
-                    },
-                    "configAlternates": {
-                        "fieldLabel": "string",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "labelStyle": "string",
-                        "labelWidth": "number",
-                        "width": "auto"
-                    },
-                    "name": "MyDateField4",
-                    "designerId": "b2c64955-2199-4cf8-b52f-ab4b271908da"
-                },
-                {
                     "type": "Ext.button.Button",
                     "reference": {
                         "name": "items",

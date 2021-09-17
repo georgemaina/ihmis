@@ -1125,16 +1125,17 @@ Ext.define('CarePortal.controller.CashBook', {
     },
 
     startShift: function(button) {
-        //Ext.Msg.alert('Test',button.up('form').down('#cashpoint').getValue());
+        var cashpoint=button.up('form').down('#cashpoint').getValue();
+        // Ext.Msg.alert('Test',cashpoint);
         var form = button.up('form').getForm(); // get the basic form
         if (form.isValid()) { // make sure the form contains valid data before submitting
             form.submit({
-
                 success: function(form, action) {
                     button.up('window').close();
                      var jsonResp = Ext.decode(action.response.responseText);
                     localStorage.setItem('ShiftNo',jsonResp.ShiftNo);
                     localStorage.setItem('shiftStatus','Opened');
+                    localStorage.setItem('CashPoint',cashpoint);
 
                     centerDetails=Ext.create("CarePortal.view.CashSales",{});
                     centerContainer.removeAll();
@@ -1183,6 +1184,8 @@ Ext.define('CarePortal.controller.CashBook', {
                         centerContainer.setTitle("HMIS Dashboard");
 
                         localStorage.setItem('shiftStatus','Closed');
+                         localStorage.setItem('ShiftNo','');
+                        localStorage.setItem('CashPoint','');
 
                         button.up('window').close();
 
@@ -1242,7 +1245,8 @@ Ext.define('CarePortal.controller.CashBook', {
 
     setReceiptNo: function() {
         var transNo=0;
-        var cashPoint=this.getCashsales().down('#CashPoint').getValue();
+        //var cashPoint=this.getCashsales().down('#CashPoint').getValue();
+        var cashPoint=localStorage.getItem('CashPoint');
         //Ext.Msg.alert('set Receipt',cashPoint);
         Ext.Ajax.request({
             url: 'data/getDataFunctions.php?task=getNextReceiptNo',
@@ -1255,6 +1259,7 @@ Ext.define('CarePortal.controller.CashBook', {
                 this.getCashsales().down('#ReceiptNo').setValue(resp.nextReceipt);
                 this.getCashsales().down('#ShiftNo').setValue(resp.shiftNo);
                 this.getCashsales().down('#CurrDate').setValue(resp.currDate);
+                this.getCashsales().down('#CashPoint').setValue(cashPoint);
 
             },
             failure:function(response){
