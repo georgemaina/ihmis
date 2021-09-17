@@ -166,9 +166,9 @@ switch ($caller) {
     case "getWardInfoDetails":
         getWardInfoDetails($wrdNo,$ward_obj);
         break;
-	case "getTreatmentData":
-		getTreatmentData($encNo);
-		break;
+	// case "getTreatmentData":
+	// 	getTreatmentData($encNo);
+	// 	break;
     case "dischargePatients":
         dischargePatients($enc_obj,$person,$encoder);
         break;
@@ -313,67 +313,67 @@ function getVitals($encNo)
 
 
 
-function getTreatmentData($encNo){
-    global $db;
-    $debug=false;
+// function getTreatmentData($encNo){
+//     global $db;
+//     $debug=false;
 
-    $sql="SELECT m.nr,m.value,m.msr_date,m.msr_time,m.unit_nr,m.encounter_nr,m.msr_type_nr,m.create_time, m.notes
-            FROM care_encounter_measurement m LEFT JOIN	care_encounter AS e
-            ON m.`encounter_nr`=e.`encounter_nr`                       
-            WHERE e.encounter_nr=$encNo 
-                    AND e.encounter_nr=m.encounter_nr  
-                    AND (m.msr_type_nr=3 OR m.msr_type_nr=2 OR m.msr_type_nr=6 OR m.msr_type_nr=7 OR m.msr_type_nr=1
-                    OR m.msr_type_nr=8 OR m.msr_type_nr=9 OR m.msr_type_nr=10
-                    OR m.msr_type_nr=11  OR m.msr_type_nr=12 OR m.msr_type_nr=13 OR m.msr_type_nr=14)
-                    AND m.create_time>'2019-01-01'
-            ORDER BY m.msr_date DESC";
+//     $sql="SELECT m.nr,m.value,m.msr_date,m.msr_time,m.unit_nr,m.encounter_nr,m.msr_type_nr,m.create_time, m.notes
+//             FROM care_encounter_measurement m LEFT JOIN	care_encounter AS e
+//             ON m.`encounter_nr`=e.`encounter_nr`                       
+//             WHERE e.encounter_nr=$encNo 
+//                     AND e.encounter_nr=m.encounter_nr  
+//                     AND (m.msr_type_nr=3 OR m.msr_type_nr=2 OR m.msr_type_nr=6 OR m.msr_type_nr=7 OR m.msr_type_nr=1
+//                     OR m.msr_type_nr=8 OR m.msr_type_nr=9 OR m.msr_type_nr=10
+//                     OR m.msr_type_nr=11  OR m.msr_type_nr=12 OR m.msr_type_nr=13 OR m.msr_type_nr=14)
+//                     AND m.create_time>'2019-01-01'
+//             ORDER BY m.msr_date DESC";
 
-    if($debug) echo $sql;
-    if($result=$db->Execute($sql)){
-        if($rows=$result->RecordCount()){
-            while($msr_row=$result->FetchRow()){
-                # group the elements
-                $msr_comp[$msr_row['create_time']]['encounter_nr']=$msr_row['encounter_nr'];
-                $msr_comp[$msr_row['create_time']]['msr_date']=$msr_row['msr_date'];
-                $msr_comp[$msr_row['create_time']]['msr_time']=$msr_row['msr_time'];
-                $msr_comp[$msr_row['create_time']][$msr_row['msr_type_nr']]=$msr_row;
-            }
-        }
-    }
+//     if($debug) echo $sql;
+//     if($result=$db->Execute($sql)){
+//         if($rows=$result->RecordCount()){
+//             while($msr_row=$result->FetchRow()){
+//                 # group the elements
+//                 $msr_comp[$msr_row['create_time']]['encounter_nr']=$msr_row['encounter_nr'];
+//                 $msr_comp[$msr_row['create_time']]['msr_date']=$msr_row['msr_date'];
+//                 $msr_comp[$msr_row['create_time']]['msr_time']=$msr_row['msr_time'];
+//                 $msr_comp[$msr_row['create_time']][$msr_row['msr_type_nr']]=$msr_row;
+//             }
+//         }
+//     }
 
-    $strout="<table border=1 width=100%><tr><td colspan=6 ALIGN=center> VITALS</td></tr><tr><td>Weight</td><td>Height</td><td>Temperature</td><td>BP</td><td>Pulse</td><td>Respiratory</td></tr>";
-//    foreach ()
-    while (list($x, $row) = each($msr_comp)) {
+//     $strout="<table border=1 width=100%><tr><td colspan=6 ALIGN=center> VITALS</td></tr><tr><td>Weight</td><td>Height</td><td>Temperature</td><td>BP</td><td>Pulse</td><td>Respiratory</td></tr>";
+// //    foreach ()
+//     while (list($x, $row) = each($msr_comp)) {
 
-            $strout.="<tr><td>".$row[6]['value']
-                        ."</td><td>".$row[7]['value']
-                        ."</td><td>".$row[3]['value']
-                        ."</td><td>".$row[1]['value'] . '/' . $row[2]['value']
-                        ."</td><td>".$row[10]['value']
-                        ."</td><td>".$row[11]['value']."</td></tr>";
-        }
-    $strout.="</table>";
-
-
-    $sql="SELECT `ID`,`encounter_nr`,`batch_nr`,`updateTime`,`statusType`,`status`,`statusDesc`,`inputby`
-FROM `care_test_request_status` where encounter_nr='$encNo'";
-    if ($debug) echo $sql;
-
-    $result = $db->Execute($sql);
-
-    $status="<table border=1 width=100%><td colspan=6 ALIGN=center> ENCOUNTER STATUS</td></tr><td> Batch No</td><td>Time</td><td>Department</td><td>Status</td><td>InputBy</td>";
-//    foreach ()
-    while ($row = $result->FetchRow()) {
-        $status.="<tr><td>$row[batch_nr]</td><td>$row[updateTime]</td><td>$row[statusType]</td><td>$row[status]</td><td>$row[inputby]</td></tr>";
-
-    }
-    $status.="</table>";
+//             $strout.="<tr><td>".$row[6]['value']
+//                         ."</td><td>".$row[7]['value']
+//                         ."</td><td>".$row[3]['value']
+//                         ."</td><td>".$row[1]['value'] . '/' . $row[2]['value']
+//                         ."</td><td>".$row[10]['value']
+//                         ."</td><td>".$row[11]['value']."</td></tr>";
+//         }
+//     $strout.="</table>";
 
 
+//     $sql="SELECT `ID`,`encounter_nr`,`batch_nr`,`updateTime`,`statusType`,`status`,`statusDesc`,`inputby`
+// FROM `care_test_request_status` where encounter_nr='$encNo'";
+//     if ($debug) echo $sql;
 
-	echo '{"treatment":"'.$strout.'","status":"'.$status.'"}';
+//     $result = $db->Execute($sql);
 
-}
+//     $status="<table border=1 width=100%><td colspan=6 ALIGN=center> ENCOUNTER STATUS</td></tr><td> Batch No</td><td>Time</td><td>Department</td><td>Status</td><td>InputBy</td>";
+// //    foreach ()
+//     while ($row = $result->FetchRow()) {
+//         $status.="<tr><td>$row[batch_nr]</td><td>$row[updateTime]</td><td>$row[statusType]</td><td>$row[status]</td><td>$row[inputby]</td></tr>";
+
+//     }
+//     $status.="</table>";
+
+
+
+// 	echo '{"treatment":"'.$strout.'","status":"'.$status.'"}';
+
+// }
 
 function getWardInfoDetails($wrdNO,$ward_obj) {
     global $db;
