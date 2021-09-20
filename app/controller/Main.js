@@ -351,7 +351,7 @@ Ext.define('CarePortal.controller.Main', {
                 click:this.getSelectedMenu
             },
             '#searchBox':{
-                specialkey:this.getPressedKey2,
+                specialkey:this.getPressedKey,
                 //change:this.searchPatientRegister
             },
             '#cmdRegister':{
