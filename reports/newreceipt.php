@@ -87,7 +87,7 @@ require($root_path . 'include/inc_environment_global.php');
           <td class='invDetails' align='center'>".$row['proc_qty']."</td>
           <td class='invDetails' align='r'>".number_format($row['total'],2)."</td>";
 		$total=$total+$row['total'];
-        $mpesaRef=$row[mpesaRef];
+        $mpesaRef=$row['mpesaRef'];
     }
 
     echo "<tr><td colspan='3'><hr></td></tr>";
@@ -97,7 +97,7 @@ require($root_path . 'include/inc_environment_global.php');
     $result = $db->Execute($sql);
     //echo $sql;
     $row = $result->FetchRow();
-    echo"<tr><td class='itemTitles'>".substr($row['Prec_desc'])."</td>
+    echo"<tr><td class='itemTitles'>".$row['Prec_desc']."</td>
           <td class='itemTitles'>TOTAL</td>
           <td class='itemTitles'>".number_format($total,2)."</td>";
 

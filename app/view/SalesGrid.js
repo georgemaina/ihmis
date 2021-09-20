@@ -81,17 +81,17 @@ Ext.define('CarePortal.view.SalesGrid', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'ReceiptNo',
+            dataIndex: 'ref_no',
             text: 'Receipt No'
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'CashPoint',
+            dataIndex: 'cash_point',
             text: 'Cash Point'
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'Total',
+            dataIndex: 'total',
             text: 'Total'
         },
         {
@@ -101,7 +101,7 @@ Ext.define('CarePortal.view.SalesGrid', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'ShiftNo',
+            dataIndex: 'Shift_no',
             text: 'Shift No'
         }
     ]

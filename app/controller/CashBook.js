@@ -269,7 +269,7 @@ Ext.define('CarePortal.controller.CashBook', {
             },
             "#cashSales":{
                 afterrender:this.setReceiptNo
-            },
+            }    ,
             '#cmdPreviewReport':{
                 click:this.previewCashReport
             },
@@ -558,7 +558,7 @@ Ext.define('CarePortal.controller.CashBook', {
         var patient=button.up('form').down('#Pid').getValue();
         var cashpoint=button.up('form').down('#CashPoint').getValue();
         var names=button.up('form').down('#Names').getValue();
-        var cashier='Admin';
+        var cashier=localStorage.getItem('UserName');
         var salesType=button.up('form').down('#salesType').getValue().salesType;
 
         var gridData = Array();
@@ -612,7 +612,7 @@ Ext.define('CarePortal.controller.CashBook', {
         var patient=button.up('form').down('#Pid').getValue();
         var cashpoint=button.up('form').down('#CashPoint').getValue();
         var names=button.up('form').down('#Names').getValue();
-        var cashier='Admin';
+        var cashier=localStorage.getItem('UserName');
         var salesType=button.up('form').down('#salesType').getValue().salesType;
 
         var gridData = Array();
@@ -643,7 +643,7 @@ Ext.define('CarePortal.controller.CashBook', {
 
                 },
                 failure: function(form, action) {
-                    Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);
+                    Ext.Msg.alert('Failed', 'Could not Service Order.');
                 },
                 scope:this
             });
@@ -1096,15 +1096,16 @@ Ext.define('CarePortal.controller.CashBook', {
             });
         }else{
             billNumber=record.get('Pid');
-            ShiftNo=record.get('ShiftNo');
-            CashPoint=record.get('CashPoint');
-            ReceiptNo=record.get('ReceiptNo');
+            ShiftNo=record.get('Shift_no');
+            CashPoint=record.get('cash_point');
+            ReceiptNo=record.get('ref_no');
             this.getCashsalesadj().down('#Names').setValue(names);
             this.getCashsalesadj().down('#Payer').setValue(names);
             this.getCashsalesadj().down('#Pid').setValue(pid);
-            this.getCashsalesadj().down('#ReceiptNo').setValue(record.get('ReceiptNo'));
-            this.getCashsalesadj().down('#CurrDate').setValue(record.get('CurrDate'));
-            this.getCashsalesadj().down('#ShiftNo').setValue(record.get('ShiftNo'));
+            this.getCashsalesadj().down('#ReceiptNo').setValue(record.get('ref_no'));
+            this.getCashsalesadj().down('#CurrDate').setValue(record.get('currdate'));
+            this.getCashsalesadj().down('#ShiftNo').setValue(record.get('Shift_no'));
+            this.getCashsalesadj().down('#CashPoint').setValue(record.get('cash_point'));
 
             var cashStore =Ext.data.StoreManager.lookup('PaidReceiptsStore');
 
@@ -1217,14 +1218,14 @@ Ext.define('CarePortal.controller.CashBook', {
                 selectedRowIndexes.push(grid.getStore().indexOf(record));
 
                 if(grid.getSelectionModel().hasSelection()){
-                    var receiptNo=record.get('ReceiptNo');
-                    var payMode=record.get('PayMode');
-                    var payer=record.get('Payer');
+                    var receiptNo=record.get('ref_no');
+                    var payMode=record.get('pay_mode');
+                    var payer=record.get('payer');
                     var pid=record.get('Pid');
-                    var cashpoint=record.get('CashPoint');
+                    var cashpoint=record.get('cash_point');
                     var names=record.get('Names');
-                    var shiftNo=record.get('ShiftNo');
-                    var cashier=record.get('Cashier');
+                    var shiftNo=record.get('Shift_no');
+                    var cashier=record.get('cashier');
 
 
                     if(reprintType=='CashSale'){

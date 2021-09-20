@@ -11,15 +11,15 @@ error_reporting(E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR);
 require_once('roots.php');
 require ($root_path . 'include/inc_environment_global.php');
 
-$limit = $_REQUEST[limit];
-$start = $_REQUEST[start];
+$limit = $_REQUEST['limit'];
+$start = $_REQUEST['start'];
 
 $task = ($_REQUEST['task']) ? ($_REQUEST['task']) : '';
 
-$ID=$_POST[ID];
-$tableName=$_POST[tableName];
-$formStatus = $_POST[formStatus];
-$userName=$_POST[userName];
+$ID=$_POST['ID'];
+$tableName=$_POST['tableName'];
+$formStatus = $_POST['formStatus'];
+$userName=$_POST['userName'];
 
 switch($task){
     case "updateUser":
@@ -180,7 +180,7 @@ function getUserRoles() {
 
 function updateRoles($strData, $UserName) {
     global $db;
-    $debug = true;
+    $debug = false;
     $UpdateRowsCount = $_POST['selectedCount'];
     $json_data = $_POST['updateRoles']; // file_get_contents('php://input');
     $strData = json_decode($json_data);
@@ -194,6 +194,10 @@ function updateRoles($strData, $UserName) {
                 //echo "<br> Items in second loop  $k and Value $strVal";
                 if ($k == 'ID') {
                     $id = $strVal;
+                }
+
+                if ($k == 'View' && $strVal==false) {
+                    $strVal = '0';
                 }
                 
                 $sql .= $k . '="' . $strVal . '", ';

@@ -116,13 +116,17 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "container|align": "stretch",
+                                        "height": 37,
                                         "layout": "hbox",
+                                        "padding": 0,
                                         "style": "background-color: #d9f2e6;"
                                     },
                                     "configAlternates": {
                                         "container|align": "string",
                                         "layout": "string",
-                                        "style": "string"
+                                        "style": "string",
+                                        "height": "auto",
+                                        "padding": "auto"
                                     },
                                     "name": "MyFieldSet20",
                                     "designerId": "f61dc114-3008-400b-8c70-93c8e83b9b19",
@@ -140,7 +144,8 @@
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "layout|flex": 1,
-                                                "padding": 0
+                                                "padding": 0,
+                                                "width": 339
                                             },
                                             "configAlternates": {
                                                 "fieldLabel": "string",
@@ -148,7 +153,8 @@
                                                 "labelStyle": "string",
                                                 "labelWidth": "number",
                                                 "layout|flex": "number",
-                                                "padding": "auto"
+                                                "padding": "auto",
+                                                "width": "auto"
                                             },
                                             "name": "MyRadioGroup2",
                                             "designerId": "ac6b3619-1f9e-477b-b93f-e71f7e5b0c77",
@@ -187,7 +193,7 @@
                                                     },
                                                     "codeClass": null,
                                                     "userConfig": {
-                                                        "boxLabel": "<b>Cash Sale / Walk IN</>",
+                                                        "boxLabel": "<b>Walk IN</>",
                                                         "fieldLabel": null,
                                                         "inputValue": "cashSale",
                                                         "itemId": "cashSale",
@@ -225,10 +231,7 @@
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "cashPoint",
-                                                "value": [
-                                                    "R01"
-                                                ],
-                                                "width": 205
+                                                "width": 187
                                             },
                                             "configAlternates": {
                                                 "fieldLabel": "string",
@@ -257,7 +260,7 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "allowBlank": false,
-                                                "emptyText": "Cash Point",
+                                                "emptyText": "Shift No",
                                                 "fieldLabel": "Shift No",
                                                 "fieldStyle": "color:red; font-weight:bold;",
                                                 "itemId": "ShiftNo",
@@ -265,10 +268,7 @@
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "shiftNo",
-                                                "value": [
-                                                    "0"
-                                                ],
-                                                "width": 205
+                                                "width": 175
                                             },
                                             "configAlternates": {
                                                 "fieldLabel": "string",
@@ -302,7 +302,8 @@
                                                 "itemId": "ReceiptNo",
                                                 "labelAlign": "right",
                                                 "labelStyle": "color:green; font-weight:bold;",
-                                                "name": "receiptNo"
+                                                "name": "receiptNo",
+                                                "width": 231
                                             },
                                             "configAlternates": {
                                                 "fieldLabel": "string",
@@ -314,7 +315,8 @@
                                                 "emptyText": "string",
                                                 "itemId": "string",
                                                 "fieldStyle": "string",
-                                                "labelStyle": "string"
+                                                "labelStyle": "string",
+                                                "width": "auto"
                                             },
                                             "name": "MyTextField3",
                                             "designerId": "7dd8cbd0-b263-44af-8e97-4ff26f25bd11"
@@ -765,7 +767,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "columnLines": true,
-                                        "height": 148,
+                                        "height": 193,
                                         "itemId": "itemsGrid",
                                         "resizable": true,
                                         "store": "PaidReceiptsStore"
@@ -864,7 +866,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Payer",
+                                                "dataIndex": "payer",
                                                 "hidden": true,
                                                 "text": "Payer"
                                             },
@@ -904,7 +906,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "ReceiptNo",
+                                                "dataIndex": "ref_no",
                                                 "hidden": true,
                                                 "text": "Receipt No"
                                             },
@@ -924,7 +926,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "ServiceType",
+                                                "dataIndex": "rev_desc",
                                                 "text": "Service Type",
                                                 "width": 164
                                             },
@@ -962,7 +964,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Description",
+                                                "dataIndex": "prec_desc",
                                                 "text": "Description",
                                                 "width": 166
                                             },
@@ -982,7 +984,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Amount",
+                                                "dataIndex": "amount",
                                                 "text": "Amount"
                                             },
                                             "configAlternates": {
@@ -1012,7 +1014,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Qty",
+                                                "dataIndex": "proc_qty",
                                                 "text": "Qty"
                                             },
                                             "configAlternates": {
@@ -1042,7 +1044,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Total",
+                                                "dataIndex": "total",
                                                 "text": "Total"
                                             },
                                             "configAlternates": {
@@ -1084,12 +1086,12 @@
                                                             "var strSum=0;",
                                                             "store.getRange().forEach(function(rec) {",
                                                             "    // console.log(rec.get('unit_price'));",
-                                                            "    strSum += (rec.get('Amount')*rec.get('Qty'));",
+                                                            "    strSum += (rec.get('amount')*rec.get('proc_qty'));",
                                                             "    console.log(rec.get('strSum'));",
                                                             "} );",
                                                             "view.up('grid').up('panel').down('#total').setValue(strSum);",
                                                             "",
-                                                            "var totalPrice=record.get('Amount')*record.get('Qty');",
+                                                            "var totalPrice=record.get('amount')*record.get('proc_qty');",
                                                             "",
                                                             "return totalPrice;"
                                                         ]
@@ -1112,7 +1114,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "ReceiptDate",
+                                                "dataIndex": "currdate",
                                                 "format": "m/j/Y",
                                                 "text": "Receipt Date"
                                             },
@@ -1132,7 +1134,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "InputTime",
+                                                "dataIndex": "input_time",
                                                 "text": "Input Time"
                                             },
                                             "configAlternates": {
@@ -1150,7 +1152,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "Cashier",
+                                                "dataIndex": "cashier",
                                                 "text": "Cashier"
                                             },
                                             "configAlternates": {
@@ -1168,7 +1170,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "CashPoint",
+                                                "dataIndex": "cash_point",
                                                 "hidden": true,
                                                 "text": "Cash Point"
                                             },
@@ -1188,7 +1190,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "ShiftNo",
+                                                "dataIndex": "Shift_no",
                                                 "hidden": true,
                                                 "text": "Shift No"
                                             },
@@ -1208,7 +1210,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "PayMode",
+                                                "dataIndex": "pay_mode",
                                                 "hidden": true,
                                                 "text": "Pay Mode"
                                             },

@@ -58,7 +58,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Payer"
+                "name": "payer"
             },
             "configAlternates": {
                 "name": "string"
@@ -90,7 +90,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ReceiptNo"
+                "name": "ref_no"
             },
             "configAlternates": {
                 "name": "string"
@@ -106,7 +106,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "PayMode"
+                "name": "pay_mode"
             },
             "configAlternates": {
                 "name": "string"
@@ -122,7 +122,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ReceiptDate",
+                "name": "currdate",
                 "sortType": "asDate"
             },
             "configAlternates": {
@@ -140,7 +140,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "InputTime"
+                "name": "input_time"
             },
             "configAlternates": {
                 "name": "string"
@@ -156,7 +156,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "CashPoint"
+                "name": "cash_point"
             },
             "configAlternates": {
                 "name": "string"
@@ -172,7 +172,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ShiftNo"
+                "name": "Shift_no"
             },
             "configAlternates": {
                 "name": "string"
@@ -204,7 +204,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Description"
+                "name": "prec_desc"
             },
             "configAlternates": {
                 "name": "string"
@@ -220,7 +220,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "ServiceType"
+                "name": "rev_desc"
             },
             "configAlternates": {
                 "name": "string"
@@ -236,7 +236,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Amount"
+                "name": "amount"
             },
             "configAlternates": {
                 "name": "string"
@@ -252,7 +252,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Qty"
+                "name": "proc_qty"
             },
             "configAlternates": {
                 "name": "string"
@@ -268,7 +268,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Total"
+                "name": "total"
             },
             "configAlternates": {
                 "name": "string"
@@ -284,7 +284,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Cashier"
+                "name": "cashier"
             },
             "configAlternates": {
                 "name": "string"

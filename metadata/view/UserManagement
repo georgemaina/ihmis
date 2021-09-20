@@ -494,10 +494,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "inputValue": "1"
+                                "inputValue": "1",
+                                "uncheckedValue": "0"
                             },
                             "configAlternates": {
-                                "inputValue": "string"
+                                "inputValue": "string",
+                                "uncheckedValue": "string"
                             },
                             "name": "MyCheckbox3",
                             "designerId": "5a83e091-1d81-4e13-a0e1-a83d56ae5087"

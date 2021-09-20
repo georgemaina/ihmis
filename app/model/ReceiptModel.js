@@ -31,51 +31,51 @@ Ext.define('CarePortal.model.ReceiptModel', {
             name: 'Pid'
         },
         {
-            name: 'Payer'
+            name: 'payer'
         },
         {
             name: 'Names'
         },
         {
-            name: 'ReceiptNo'
+            name: 'ref_no'
         },
         {
-            name: 'PayMode'
+            name: 'pay_mode'
         },
         {
             type: 'date',
-            name: 'ReceiptDate',
+            name: 'currdate',
             sortType: 'asDate'
         },
         {
-            name: 'InputTime'
+            name: 'input_time'
         },
         {
-            name: 'CashPoint'
+            name: 'cash_point'
         },
         {
-            name: 'ShiftNo'
+            name: 'Shift_no'
         },
         {
             name: 'PartCode'
         },
         {
-            name: 'Description'
+            name: 'prec_desc'
         },
         {
-            name: 'ServiceType'
+            name: 'rev_desc'
         },
         {
-            name: 'Amount'
+            name: 'amount'
         },
         {
-            name: 'Qty'
+            name: 'proc_qty'
         },
         {
-            name: 'Total'
+            name: 'total'
         },
         {
-            name: 'Cashier'
+            name: 'cashier'
         }
     ]
 });

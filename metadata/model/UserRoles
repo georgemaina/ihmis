@@ -7,11 +7,13 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "userroles",
-        "designer|userClassName": "UserRoles"
+        "designer|userClassName": "UserRoles",
+        "idProperty": "ID"
     },
     "configAlternates": {
         "designer|userAlias": "string",
-        "designer|userClassName": "string"
+        "designer|userClassName": "string",
+        "idProperty": "string"
     },
     "name": "MyModel1",
     "designerId": "48b02929-2938-457e-8e15-a8a9fd18af91",

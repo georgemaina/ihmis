@@ -1054,9 +1054,9 @@ function getCashSales(){
     $counter=0;
     while($row=$request->FetchRow()){
 
-            echo '{"Pid":"' .  $row['patient'] . '","Names":"' . $row['name']. '","ReceiptNo":"' . $row['ref_no']
-                . '","CashPoint":"' . $row['cash_point']. '","Total":"' . $row['Total']
-                . '","CurrDate":"' . $row['currdate']. '","ShiftNo":"' . $row['shift_no'].'"}';
+            echo '{"Pid":"' .  $row['patient'] . '","Names":"' . $row['name']. '","ref_no":"' . $row['ref_no']
+                . '","cash_point":"' . $row['cash_point']. '","Total":"' . $row['Total']
+                . '","currdate":"' . $row['currdate']. '","Shift_no":"' . $row['shift_no'].'"}';
 
         $counter++;
         if ($counter <> $total) {
@@ -1262,7 +1262,7 @@ function getMainMenus() {
     //$user="admin";
 
     $sql = "SELECT nr,`name`,url,s_image FROM menus WHERE `type`=1 AND nr IN 
-            (SELECT role FROM user_roles WHERE `view`='1' AND username='Admin') order by nr asc";
+            (SELECT role FROM user_roles WHERE `view`='1' AND username='$user') order by nr asc";
     if($debug) echo $sql;
     $request = $db->Execute($sql);
 
@@ -1275,7 +1275,7 @@ function getMainMenus() {
         echo '{"nr":"' . $row['nr'] . '","menuName":"' . $row['name'] . '","url":"' . $row['url'] . '","sImage":"' . $row['s_image'].'","subMenus":[';
 
         $sql2="SELECT nr,`name`,url,s_image,`groupID`,dispType FROM menus WHERE `type`=2 and groupID='$row[nr]' and is_visible=1
-              AND nr IN (SELECT role FROM user_roles WHERE `view`='1' AND username='Admin')";
+              AND nr IN (SELECT role FROM user_roles WHERE `view`='1' AND username='$user')";
         if($debug) echo $sql2;
         $request2 = $db->Execute($sql2);
         $total2=$request2->RecordCount();
@@ -1479,13 +1479,13 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
     b.proc_code,b.prec_desc,b.payer,b.location,b.pay_mode,b.amount,b.proc_qty,b.total,
     a.start_date,a.start_time,b.currdate,
     b.pay_mode ,b.towards,b.`cash`,b.`mpesa`,a.cashier FROM care_ke_receipts b 
-    LEFT JOIN care_ke_shifts a  ON b.shift_no=a.shift_no WHERE b.ref_no<>'' ";
+    LEFT JOIN care_ke_shifts a  ON b.shift_no=a.shift_no WHERE b.ref_no<>'' AND a.active='1' ";
 
-    if($searchparams==''){
-        " AND a.active='1'";
-    }else{
-        " AND b.name like %'$searchparams'% OR ref_no='$searchparams' or b.patient='$searchparams'";
-    }
+    // if($searchparams==''){
+        // " AND a.active='1'";
+    // }else{
+    //     " AND b.name like %'$searchparams'% OR ref_no='$searchparams' or b.patient='$searchparams'";
+    // }
         
 
     if($cashpoint<>'' && $shiftNo<>''){
@@ -3772,12 +3772,12 @@ function saveCashSalesAdj(){
     $error=0;
     foreach ($data as $row) {
         $partcode = $row['PartCode'];
-        $description = $row['Description'];
-        $qty = $row['Qty'];
-        $price = $row['Amount'];
-        $catID = $row['CatID'];
-        $Category= $row['ServiceType'];
-        $total= -$row['Amount']*$row['Qty'];
+        $description = $row['prec_desc'];
+        $qty = $row['proc_qty'];
+        $price = $row['amount'];
+        $catID = $row['rev_code'];
+        $Category= $row['rev_desc'];
+        $total= -$row['amount']*$row['proc_qty'];
         $billDate=date('Y-m-d'); // $row['Bill_date'];
         $billTime= date('H:i:s'); //$row['Bill_time'];
         $ID=$row['ID'];
@@ -6834,12 +6834,12 @@ function getPatientDetails($searchParam,$person,$dept_obj,$ward_obj,$enc_obj,$it
       //  echo 'Second Name='.$strNames[1].'<br>';
        if (is_numeric($searchParam)) {
            $sql .= "WHERE pid=$searchParam or selian_pid='$searchParam' or nat_id_nr='$searchParam' or phone_1_nr='$searchParam'";
-       }else if($strCount>0){
-           $sql.=" WHERE name_first like '".$strNames[0]."%' and name_2 like '". $strNames[1]."%' and name_last like  '". $strNames[2]."%'";
-       } else {
-             $sql.=" WHERE name_first like'%$searchParam%' or name_last like'%$searchParam%' or name_2 like'%$searchParam%'
-                or citizenship like '%$searchParam%'";
-       }
+        }else if($strCount>0){
+            $sql.=" WHERE name_first like '%".$strNames[0]."%' and name_last like '%". $strNames[1]."%' and name_2 like  '%". $strNames[2]."%'";
+        } else {
+              $sql.=" WHERE name_first like '%".$strNames[0]."%'  or name_last like '%".$strNames[1]."%'  or name_2 like '%".$strNames[2]."%' 
+                 or citizenship like '%$searchParam%'";
+        }
    }
 
     if (isset($start) && isset($limit)) {

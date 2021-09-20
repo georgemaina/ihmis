@@ -175,7 +175,8 @@ Ext.define('CarePortal.view.UserManagement', {
                                 text: 'View',
                                 editor: {
                                     xtype: 'checkboxfield',
-                                    inputValue: '1'
+                                    inputValue: '1',
+                                    uncheckedValue: '0'
                                 }
                             },
                             {

@@ -40,6 +40,7 @@ Ext.define('CarePortal.store.UserRolesStore', {
                 },
                 writer: {
                     type: 'json',
+                    clientIdProperty: 'ID',
                     encode: true,
                     rootProperty: 'updateRoles'
                 }

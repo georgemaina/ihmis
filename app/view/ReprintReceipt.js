@@ -20,14 +20,14 @@ Ext.define('CarePortal.view.ReprintReceipt', {
     requires: [
         'CarePortal.view.ReprintReceiptViewModel',
         'Ext.view.Table',
-        'Ext.grid.column.Date',
         'Ext.button.Button',
         'Ext.form.FieldSet',
         'Ext.form.field.Text',
         'Ext.form.RadioGroup',
         'Ext.form.field.Radio',
         'Ext.toolbar.Paging',
-        'Ext.selection.RowModel'
+        'Ext.selection.RowModel',
+        'Ext.grid.column.Date'
     ],
 
     viewModel: {
@@ -38,101 +38,6 @@ Ext.define('CarePortal.view.ReprintReceipt', {
     columnLines: true,
     store: 'PaidReceiptsStore',
 
-    columns: [
-        {
-            xtype: 'gridcolumn',
-            width: 36,
-            dataIndex: 'ID',
-            text: 'ID'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 72,
-            dataIndex: 'Pid',
-            text: 'Pid'
-        },
-        {
-            xtype: 'gridcolumn',
-            hidden: true,
-            dataIndex: 'Payer',
-            text: 'Payer'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 154,
-            dataIndex: 'Names',
-            text: 'Names'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 92,
-            dataIndex: 'ReceiptNo',
-            text: 'Receipt No'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 84,
-            dataIndex: 'PartCode',
-            text: 'Part Code'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 190,
-            dataIndex: 'Description',
-            text: 'Description'
-        },
-        {
-            xtype: 'datecolumn',
-            dataIndex: 'ReceiptDate',
-            text: 'Receipt Date',
-            format: 'm/j/Y'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'InputTime',
-            text: 'Input Time'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Amount',
-            text: 'Amount'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Qty',
-            text: 'Qty'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Total',
-            text: 'Total'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'CashPoint',
-            text: 'Cash Point'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'ShiftNo',
-            text: 'Shift No'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'PayMode',
-            text: 'Pay Mode'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'ServiceType',
-            text: 'Service Type'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Cashier',
-            text: 'Cashier'
-        }
-    ],
     dockedItems: [
         {
             xtype: 'fieldcontainer',
@@ -205,6 +110,97 @@ Ext.define('CarePortal.view.ReprintReceipt', {
     ],
     selModel: {
         selType: 'rowmodel'
-    }
+    },
+    columns: [
+        {
+            xtype: 'gridcolumn',
+            width: 36,
+            dataIndex: 'ID',
+            text: 'ID'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'Pid',
+            text: 'Pid'
+        },
+        {
+            xtype: 'gridcolumn',
+            hidden: true,
+            dataIndex: 'payer',
+            text: 'Payer'
+        },
+        {
+            xtype: 'gridcolumn',
+            width: 240,
+            dataIndex: 'Names',
+            text: 'Names'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'ref_no',
+            text: 'Receipt No'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'pay_mode',
+            text: 'Pay Mode'
+        },
+        {
+            xtype: 'datecolumn',
+            dataIndex: 'currdate',
+            text: 'Date',
+            format: 'm/j/Y'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'input_time',
+            text: 'Input Time'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'cash_point',
+            text: 'Cash Point'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'Shift_no',
+            text: 'Shift No'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'PartCode',
+            text: 'Part Code'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'prec_desc',
+            text: 'Prec Desc'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'rev_desc',
+            text: 'Rev Desc'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'amount',
+            text: 'Amount'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'proc_qty',
+            text: 'Proc Qty'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'total',
+            text: 'Total'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'cashier',
+            text: 'Cashier'
+        }
+    ]
 
 });

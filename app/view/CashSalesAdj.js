@@ -73,6 +73,8 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                             items: [
                                 {
                                     xtype: 'fieldset',
+                                    height: 37,
+                                    padding: 0,
                                     style: 'background-color: #d9f2e6;',
                                     layout: {
                                         type: 'hbox',
@@ -84,6 +86,7 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                             flex: 1,
                                             itemId: 'salesType',
                                             padding: 0,
+                                            width: 339,
                                             fieldLabel: 'Sales Type',
                                             labelStyle: 'color:green; font-weight:bold;',
                                             labelWidth: 80,
@@ -101,7 +104,7 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                                     itemId: 'cashSale',
                                                     labelWidth: 140,
                                                     name: 'salesType',
-                                                    boxLabel: '<b>Cash Sale / Walk IN</>',
+                                                    boxLabel: '<b>Walk IN</>',
                                                     inputValue: 'cashSale'
                                                 }
                                             ]
@@ -109,13 +112,12 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         {
                                             xtype: 'textfield',
                                             itemId: 'CashPoint',
-                                            width: 205,
+                                            width: 187,
                                             fieldLabel: 'Cash Point',
                                             labelAlign: 'right',
                                             labelStyle: 'color:green; font-weight:bold;',
                                             labelWidth: 80,
                                             name: 'cashPoint',
-                                            value: 'R01',
                                             fieldStyle: 'color:red; font-weight:bold;',
                                             allowBlank: false,
                                             emptyText: 'Cash Point'
@@ -123,20 +125,20 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         {
                                             xtype: 'textfield',
                                             itemId: 'ShiftNo',
-                                            width: 205,
+                                            width: 175,
                                             fieldLabel: 'Shift No',
                                             labelAlign: 'right',
                                             labelStyle: 'color:green; font-weight:bold;',
                                             labelWidth: 80,
                                             name: 'shiftNo',
-                                            value: 0,
                                             fieldStyle: 'color:red; font-weight:bold;',
                                             allowBlank: false,
-                                            emptyText: 'Cash Point'
+                                            emptyText: 'Shift No'
                                         },
                                         {
                                             xtype: 'textfield',
                                             itemId: 'ReceiptNo',
+                                            width: 231,
                                             fieldLabel: 'Receipt No',
                                             labelAlign: 'right',
                                             labelStyle: 'color:green; font-weight:bold;',
@@ -311,7 +313,7 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                 },
                                 {
                                     xtype: 'gridpanel',
-                                    height: 148,
+                                    height: 193,
                                     itemId: 'itemsGrid',
                                     resizable: true,
                                     columnLines: true,
@@ -341,7 +343,7 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
-                                            dataIndex: 'Payer',
+                                            dataIndex: 'payer',
                                             text: 'Payer'
                                         },
                                         {
@@ -353,13 +355,13 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
-                                            dataIndex: 'ReceiptNo',
+                                            dataIndex: 'ref_no',
                                             text: 'Receipt No'
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             width: 164,
-                                            dataIndex: 'ServiceType',
+                                            dataIndex: 'rev_desc',
                                             text: 'Service Type'
                                         },
                                         {
@@ -370,12 +372,12 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         {
                                             xtype: 'gridcolumn',
                                             width: 166,
-                                            dataIndex: 'Description',
+                                            dataIndex: 'prec_desc',
                                             text: 'Description'
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'Amount',
+                                            dataIndex: 'amount',
                                             text: 'Amount',
                                             editor: {
                                                 xtype: 'textfield'
@@ -383,7 +385,7 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'Qty',
+                                            dataIndex: 'proc_qty',
                                             text: 'Qty',
                                             editor: {
                                                 xtype: 'numberfield'
@@ -395,16 +397,16 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                                 var strSum=0;
                                                 store.getRange().forEach(function(rec) {
                                                     // console.log(rec.get('unit_price'));
-                                                    strSum += (rec.get('Amount')*rec.get('Qty'));
+                                                    strSum += (rec.get('amount')*rec.get('proc_qty'));
                                                     console.log(rec.get('strSum'));
                                                 } );
                                                 view.up('grid').up('panel').down('#total').setValue(strSum);
 
-                                                var totalPrice=record.get('Amount')*record.get('Qty');
+                                                var totalPrice=record.get('amount')*record.get('proc_qty');
 
                                                 return totalPrice;
                                             },
-                                            dataIndex: 'Total',
+                                            dataIndex: 'total',
                                             text: 'Total',
                                             editor: {
                                                 xtype: 'textfield'
@@ -412,36 +414,36 @@ Ext.define('CarePortal.view.CashSalesAdj', {
                                         },
                                         {
                                             xtype: 'datecolumn',
-                                            dataIndex: 'ReceiptDate',
+                                            dataIndex: 'currdate',
                                             text: 'Receipt Date',
                                             format: 'm/j/Y'
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'InputTime',
+                                            dataIndex: 'input_time',
                                             text: 'Input Time'
                                         },
                                         {
                                             xtype: 'gridcolumn',
-                                            dataIndex: 'Cashier',
+                                            dataIndex: 'cashier',
                                             text: 'Cashier'
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
-                                            dataIndex: 'CashPoint',
+                                            dataIndex: 'cash_point',
                                             text: 'Cash Point'
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
-                                            dataIndex: 'ShiftNo',
+                                            dataIndex: 'Shift_no',
                                             text: 'Shift No'
                                         },
                                         {
                                             xtype: 'gridcolumn',
                                             hidden: true,
-                                            dataIndex: 'PayMode',
+                                            dataIndex: 'pay_mode',
                                             text: 'Pay Mode'
                                         }
                                     ]

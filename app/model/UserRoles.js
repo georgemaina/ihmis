@@ -21,6 +21,8 @@ Ext.define('CarePortal.model.UserRoles', {
         'Ext.data.field.Field'
     ],
 
+    idProperty: 'ID',
+
     fields: [
         {
             name: 'ID'

@@ -63,12 +63,14 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "clientIdProperty": "ID",
                         "encode": true,
                         "rootProperty": "updateRoles"
                     },
                     "configAlternates": {
                         "encode": "boolean",
-                        "rootProperty": "string"
+                        "rootProperty": "string",
+                        "clientIdProperty": "string"
                     },
                     "name": "MyJsonWriter",
                     "designerId": "75a8515a-7161-4b33-86d4-71908794b1e0"

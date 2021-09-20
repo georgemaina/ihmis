@@ -164,7 +164,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "ReceiptNo",
+                "dataIndex": "ref_no",
                 "text": "Receipt No"
             },
             "configAlternates": {
@@ -182,7 +182,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "CashPoint",
+                "dataIndex": "cash_point",
                 "text": "Cash Point"
             },
             "configAlternates": {
@@ -200,7 +200,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Total",
+                "dataIndex": "total",
                 "text": "Total"
             },
             "configAlternates": {
@@ -236,7 +236,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "ShiftNo",
+                "dataIndex": "Shift_no",
                 "text": "Shift No"
             },
             "configAlternates": {
