@@ -8,6 +8,7 @@
     "userConfig": {
         "designer|userAlias": "userrolesstore",
         "designer|userClassName": "UserRolesStore",
+        "groupField": "Module",
         "model": "UserRoles",
         "storeId": "UserRolesStore"
     },
@@ -15,7 +16,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "groupField": "datafield"
     },
     "name": "MyJsonStore1",
     "designerId": "6f729304-b3ff-469a-a5a3-aef8b4178348",

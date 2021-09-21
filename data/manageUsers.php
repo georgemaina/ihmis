@@ -32,9 +32,9 @@ switch($task){
     case "getUsersList":
         getUsersList();
         break;
-    case "getRolesList":
-        getRolesList();
-        break;
+    // case "getRolesList":
+    //     getRolesList();
+    //     break;
     case "getUserRoles":
         getUserRoles();
         break;
@@ -82,6 +82,9 @@ function insertUser($userdetails) {
     $debug = false;
 
     //$table = $registerdetails['formtype'];
+    $FieldNames='';
+    $FieldValues='';
+
     if(validateUser($userdetails['UserName'])){
         echo '{failure:true,errNo:1}';
     }else{
@@ -144,10 +147,10 @@ function getUserRole() {
     global $db;
     $debug = false;
 
-    $userRoles = $_GET[ids];
+    $userRoles = $_GET['ids'];
     $userName=$_REQUEST['userName'];
 
-    $sql = "Select `ID`,`Role`,`RoleName`,`View`,`Edit`,`Delete` from user_roles where Username='$userName'";
+    $sql = "Select `ID`,`Role`,`RoleName`,`View`,`Edit`,`Delete`,menuGroup,Module from user_roles where Username='$userName'";
     if ($debug) echo $sql;
     
     $results = $db->Execute($sql);
@@ -156,8 +159,8 @@ function getUserRole() {
     echo '{"success":"true","roles":[';
     $counter = 0;
     while ($row = $results->FetchRow()) {
-        echo '{"ID":"' . $row['ID'] .'","Role":"' . $row['Role'] . '","RoleName":"' . $row['RoleName'] . '","View":"' . $row['View'] . '","Edit":"' . $row['Edit']
-        . '","Delete":"' . $row['Delete'] . '"}';
+        echo '{"ID":"' . $row['ID'] .'","Role":"' . $row['Role'] . '","RoleName":"' . $row['RoleName'] . '","View":' . $row['View'] . ',"Edit":' . $row['Edit']
+        . ',"Delete":' . $row['Delete'] . ',"MenuGroup":' . $row['menuGroup'] . ',"Module":"' . $row['Module']. '"}';
         if ($counter < $numRows) {
             echo ",";
         }
@@ -172,13 +175,13 @@ function getUserRoles() {
         $strData = json_decode($json_data);
     
         if (!empty($strData)) {
-            updateRoles($strData, $UserName);
+            updateRoles($strData);
         } else {
             getUserRole();
         }
 }
 
-function updateRoles($strData, $UserName) {
+function updateRoles($strData) {
     global $db;
     $debug = false;
     $UpdateRowsCount = $_POST['selectedCount'];

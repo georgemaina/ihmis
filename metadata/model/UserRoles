@@ -26,6 +26,22 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "Module"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField149",
+            "designerId": "bb119e2c-b988-4725-916a-3f83583b5cb0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "ID"
             },
             "configAlternates": {

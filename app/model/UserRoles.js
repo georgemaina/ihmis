@@ -25,6 +25,9 @@ Ext.define('CarePortal.model.UserRoles', {
 
     fields: [
         {
+            name: 'Module'
+        },
+        {
             name: 'ID'
         },
         {

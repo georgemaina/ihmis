@@ -27,6 +27,8 @@ Ext.define('CarePortal.view.UserManagement', {
         'Ext.grid.plugin.CellEditing',
         'Ext.grid.column.Check',
         'Ext.form.field.Checkbox',
+        'Ext.grid.feature.Grouping',
+        'Ext.XTemplate',
         'Ext.button.Button'
     ],
 
@@ -152,6 +154,14 @@ Ext.define('CarePortal.view.UserManagement', {
                         columns: [
                             {
                                 xtype: 'gridcolumn',
+                                width: 97,
+                                dataIndex: 'Module',
+                                groupable: true,
+                                hideable: false,
+                                text: 'Modules'
+                            },
+                            {
+                                xtype: 'gridcolumn',
                                 width: 56,
                                 dataIndex: 'ID',
                                 text: 'ID'
@@ -191,12 +201,23 @@ Ext.define('CarePortal.view.UserManagement', {
                             },
                             {
                                 xtype: 'checkcolumn',
-                                width: 80,
                                 dataIndex: 'Delete',
+                                width: 80,
                                 text: 'Delete',
                                 editor: {
                                     xtype: 'checkboxfield'
                                 }
+                            }
+                        ],
+                        features: [
+                            {
+                                ftype: 'grouping',
+                                showSummaryRow: false,
+                                enableNoGroups: false,
+                                groupHeaderTpl: [
+                                    '{columnName}: {name} {Module}({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})'
+                                ],
+                                startCollapsed: true
                             }
                         ]
                     },
@@ -219,15 +240,6 @@ Ext.define('CarePortal.view.UserManagement', {
                         width: 160,
                         iconCls: 'x-fa fa-save',
                         text: '<b>Update Roles</b>'
-                    },
-                    {
-                        xtype: 'button',
-                        x: 1050,
-                        y: 5,
-                        height: 40,
-                        itemId: 'cmdClose',
-                        width: 110,
-                        text: '<b>Close</b>'
                     }
                 ]
             };

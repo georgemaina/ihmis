@@ -411,6 +411,30 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "dataIndex": "Module",
+                        "groupable": true,
+                        "hideable": false,
+                        "text": "Modules",
+                        "width": 97
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto",
+                        "groupable": "boolean",
+                        "hideable": "boolean"
+                    },
+                    "name": "MyColumn58",
+                    "designerId": "05d95348-5a2f-4b21-b371-e1d80af701ba"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "dataIndex": "ID",
                         "text": "ID",
                         "width": 56
@@ -462,8 +486,8 @@
                         "text": "string",
                         "width": "auto"
                     },
-                    "name": "MyColumn58",
-                    "designerId": "05d95348-5a2f-4b21-b371-e1d80af701ba"
+                    "name": "MyColumn123",
+                    "designerId": "b571d8c9-5e1d-46ac-8cc1-dbdb046f4e4d"
                 },
                 {
                     "type": "Ext.grid.column.Check",
@@ -577,6 +601,48 @@
                             "designerId": "61fa6294-d163-4cce-b30c-b1350ce0020b"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.grid.feature.Grouping",
+                    "reference": {
+                        "name": "features",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableNoGroups": false,
+                        "showSummaryRow": false,
+                        "startCollapsed": true
+                    },
+                    "configAlternates": {
+                        "enableNoGroups": "boolean",
+                        "showSummaryRow": "boolean",
+                        "startCollapsed": "boolean"
+                    },
+                    "name": "MyGroupingFeature1",
+                    "designerId": "b5d8b97b-6688-4a4e-b4a9-d0800ceac035",
+                    "cn": [
+                        {
+                            "type": "Ext.XTemplate",
+                            "reference": {
+                                "name": "groupHeaderTpl",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|displayName": "groupHeaderTpl",
+                                "implHandler": [
+                                    "{columnName}: {name} {Module}({rows.length} Item{[values.rows.length > 1 ? \"s\" : \"\"]})"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|displayName": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "groupHeaderTpl",
+                            "designerId": "364af0b2-38b4-4b68-82ec-8c2af2c281cc"
+                        }
+                    ]
                 }
             ]
         },
@@ -637,33 +703,6 @@
             },
             "name": "MyButton94",
             "designerId": "adfb93d9-876b-4615-b360-cfb8ca27226e"
-        },
-        {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 40,
-                "itemId": "cmdClose",
-                "layout|x": 1050,
-                "layout|y": 5,
-                "text": "<b>Close</b>",
-                "width": 110
-            },
-            "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "layout|x": "number",
-                "layout|y": "number",
-                "text": "string",
-                "width": "auto",
-                "scrollable": "boolean"
-            },
-            "name": "MyButton95",
-            "designerId": "83c58dee-f6a0-4712-92d3-3527025740d0"
         }
     ]
 }

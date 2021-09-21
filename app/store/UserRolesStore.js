@@ -28,6 +28,7 @@ Ext.define('CarePortal.store.UserRolesStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            groupField: 'Module',
             storeId: 'UserRolesStore',
             model: 'CarePortal.model.UserRoles',
             proxy: {
