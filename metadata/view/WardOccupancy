@@ -751,12 +751,14 @@
             "userConfig": {
                 "align": "center",
                 "designer|displayName": "Notes",
+                "id": "openNotes",
                 "width": 37
             },
             "configAlternates": {
                 "align": "string",
                 "width": "auto",
-                "designer|displayName": "string"
+                "designer|displayName": "string",
+                "id": "string"
             },
             "name": "MyActionColumn4",
             "designerId": "17018a13-33fa-4119-b33a-da497962b64d",

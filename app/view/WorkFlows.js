@@ -135,6 +135,11 @@ Ext.define('CarePortal.view.WorkFlows', {
                         },
                         {
                             xtype: 'gridcolumn',
+                            dataIndex: 'LabNo',
+                            text: 'Lab No'
+                        },
+                        {
+                            xtype: 'gridcolumn',
                             dataIndex: 'EncounterNo',
                             text: 'Encounter No'
                         },

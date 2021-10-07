@@ -63,7 +63,7 @@ Ext.define('CarePortal.view.Suppliers', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'AmountDue',
+            dataIndex: 'Amount',
             text: 'Amount Due'
         },
         {

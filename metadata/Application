@@ -60,7 +60,9 @@
             "CashPoints",
             "Ledgers",
             "GeneralLedger",
-            "DebtorsList"
+            "DebtorsList",
+            "Payments",
+            "PaymentsList"
         ],
         "name": "CarePortal",
         "stores": [
@@ -124,7 +126,7 @@
             "DebtorsList",
             "GeneralLedgerStore",
             "RadiologyListStore",
-            "MyJsonStore1"
+            "PaymentsListStore"
         ],
         "views": [
             "Discharge",
@@ -211,7 +213,9 @@
             "GeneralLedger",
             "InpatientNotes",
             "PatientTransfer",
-            "IpTransfer"
+            "IpTransfer",
+            "IpNotes",
+            "PaymentsList"
         ]
     },
     "configAlternates": {

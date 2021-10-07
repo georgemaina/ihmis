@@ -162,6 +162,7 @@ Ext.define('CarePortal.view.WardOccupancy', {
         },
         {
             xtype: 'actioncolumn',
+            id: 'openNotes',
             width: 37,
             align: 'center',
             items: [

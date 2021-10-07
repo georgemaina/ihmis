@@ -97,6 +97,24 @@
             "designerId": "31a2ed48-5fd7-43eb-a420-22c10e0edda1"
         },
         {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Amount",
+                "text": "Amount"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn51",
+            "designerId": "faa21a40-fe6e-4b9e-9725-bc8db658ba63"
+        },
+        {
             "type": "Ext.toolbar.Paging",
             "reference": {
                 "name": "dockedItems",

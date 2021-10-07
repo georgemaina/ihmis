@@ -432,7 +432,7 @@
                     "designerId": "22e0b238-1684-4ec4-aa6c-b10031c60058",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Text",
+                            "type": "Ext.form.field.Number",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -449,6 +449,8 @@
                                 "labelWidth": 120,
                                 "layout|flex": 1,
                                 "margin": "0 5 0 0",
+                                "maxValue": 100,
+                                "minValue": 1,
                                 "name": "age"
                             },
                             "configAlternates": {
@@ -462,9 +464,11 @@
                                 "itemId": "string",
                                 "fieldStyle": "string",
                                 "allowBlank": "boolean",
-                                "labelWidth": "number"
+                                "labelWidth": "number",
+                                "maxValue": "number",
+                                "minValue": "number"
                             },
-                            "name": "MyTextField31",
+                            "name": "MyNumberField6",
                             "designerId": "0563198b-ee14-4e7c-ba5a-2f9f680e4e83"
                         },
                         {
@@ -507,7 +511,7 @@
                                 "emptyText": "Date of Birth",
                                 "fieldLabel": "Date of Birth",
                                 "fieldStyle": "color:#630921; font-weight:bold;",
-                                "format": "Y-m-d",
+                                "format": "d-m-Y",
                                 "itemId": "date_birth",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
@@ -515,6 +519,7 @@
                                 "layout|flex": 1,
                                 "margin": "0 5 0 0",
                                 "name": "date_birth",
+                                "submitFormat": "Y-m-d",
                                 "width": 224
                             },
                             "configAlternates": {
@@ -530,7 +535,8 @@
                                 "format": "string",
                                 "itemId": "string",
                                 "fieldStyle": "string",
-                                "allowBlank": "boolean"
+                                "allowBlank": "boolean",
+                                "submitFormat": "string"
                             },
                             "name": "MyDateField3",
                             "designerId": "aa5c5072-c02b-445a-a0cb-4d8b482cc493"

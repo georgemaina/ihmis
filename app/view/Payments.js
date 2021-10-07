@@ -58,14 +58,14 @@ Ext.define('CarePortal.view.Payments', {
                             x: -46,
                             y: 40,
                             itemId: 'payMode',
-                            width: 320,
+                            width: 335,
                             fieldLabel: 'Payment Mode',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 150,
-                            name: 'department',
+                            name: 'payMode',
                             allowBlank: false,
-                            emptyText: 'Select department',
+                            emptyText: 'Select Payment mode',
                             displayField: 'Description',
                             minChars: 2,
                             queryMode: 'local',
@@ -101,8 +101,7 @@ Ext.define('CarePortal.view.Payments', {
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
                             name: 'chequeNo',
-                            fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            fieldStyle: 'color:red; font-weight:bold;'
                         },
                         {
                             xtype: 'combobox',
@@ -115,7 +114,6 @@ Ext.define('CarePortal.view.Payments', {
                             labelWidth: 130,
                             name: 'department',
                             fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number',
                             displayField: 'Description',
                             minChars: 2,
                             queryMode: 'local',
@@ -128,13 +126,12 @@ Ext.define('CarePortal.view.Payments', {
                             x: 525,
                             y: 145,
                             itemId: 'control',
-                            fieldLabel: 'Control',
+                            fieldLabel: 'Control Amount',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
                             name: 'control',
-                            fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            fieldStyle: 'color:red; font-weight:bold;'
                         },
                         {
                             xtype: 'datefield',
@@ -183,14 +180,20 @@ Ext.define('CarePortal.view.Payments', {
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 150,
-                            name: 'glAccount'
+                            name: 'glAccount',
+                            displayField: 'AccountName',
+                            minChars: 2,
+                            queryMode: 'local',
+                            store: 'GeneralLedgerStore',
+                            typeAhead: true,
+                            valueField: 'AccountCode'
                         },
                         {
                             xtype: 'combobox',
                             x: 5,
                             y: 5,
                             itemId: 'cashPoint',
-                            width: 270,
+                            width: 285,
                             fieldLabel: 'Cash Point',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
@@ -233,7 +236,7 @@ Ext.define('CarePortal.view.Payments', {
                         },
                         {
                             xtype: 'gridcolumn',
-                            width: 269,
+                            width: 290,
                             dataIndex: 'Name',
                             text: 'Name'
                         },
@@ -244,18 +247,16 @@ Ext.define('CarePortal.view.Payments', {
                                 store.getRange().forEach(function(rec) {
                                     // console.log(rec.get('unit_price'));
                                     strSum += rec.get('Amount');
-                                    console.log(rec.get('strSum'));
+                                    console.log(strSum);
                                 } );
                                 view.up('grid').up('panel').down('#total').setValue(strSum);
 
-                                //var totalPrice=record.get('Price')*record.get('qty');
-
-                                return totalPrice;
                             },
                             dataIndex: 'Amount',
                             text: 'Amount',
                             editor: {
-                                xtype: 'numberfield'
+                                xtype: 'numberfield',
+                                minValue: 1
                             }
                         }
                     ]
@@ -270,7 +271,7 @@ Ext.define('CarePortal.view.Payments', {
                     items: [
                         {
                             xtype: 'button',
-                            x: 5,
+                            x: 175,
                             y: 0,
                             itemId: 'cmdSuppliers',
                             width: 145,
@@ -279,7 +280,7 @@ Ext.define('CarePortal.view.Payments', {
                         },
                         {
                             xtype: 'button',
-                            x: 160,
+                            x: 325,
                             y: 0,
                             itemId: 'cmdGLs',
                             width: 145,
@@ -288,16 +289,17 @@ Ext.define('CarePortal.view.Payments', {
                         },
                         {
                             xtype: 'button',
-                            x: 625,
-                            y: 0,
-                            itemId: 'cmdRemoveItem',
+                            x: 5,
+                            y: -0.6666670000000181,
+                            itemId: 'deleteSelectedItem',
+                            style: 'background-color:red;',
                             width: 130,
                             iconCls: 'x-fa fa-trash',
                             text: 'Remove Item'
                         },
                         {
                             xtype: 'textfield',
-                            x: 335,
+                            x: 450,
                             y: 0,
                             itemId: 'total',
                             width: 225,
@@ -317,12 +319,21 @@ Ext.define('CarePortal.view.Payments', {
                     items: [
                         {
                             xtype: 'button',
-                            x: 440,
-                            y: -1,
+                            x: 550,
+                            y: 5,
                             itemId: 'cmdSavePayment',
                             width: 120,
                             iconCls: 'x-fa fa-save',
                             text: 'Save'
+                        },
+                        {
+                            xtype: 'button',
+                            x: 225,
+                            y: 5,
+                            itemId: 'cmdOpenVouchers',
+                            width: 215,
+                            iconCls: 'x-fa fa-print',
+                            text: 'Print Vouchers and Cheques'
                         },
                         {
                             xtype: 'button',

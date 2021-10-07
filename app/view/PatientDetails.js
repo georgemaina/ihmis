@@ -18,108 +18,120 @@ Ext.define('CarePortal.view.PatientDetails', {
     alias: 'widget.patientdetails',
 
     requires: [
-        'CarePortal.view.PatientDetailsViewModel',
         'Ext.form.field.Display'
     ],
 
-    viewModel: {
-        type: 'patientdetails'
-    },
     height: 90,
     layout: 'absolute',
+    bodyStyle: 'background:#386d87',
 
     items: [
         {
             xtype: 'displayfield',
-            x: 25,
-            y: -1,
+            x: -16,
+            y: -3,
             itemId: 'pid',
             margin: 0,
             padding: 0,
+            width: 185,
             fieldLabel: 'Pid',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
             x: 260,
-            y: -1,
-            itemId: 'encounterno',
+            y: -4,
+            itemId: 'encounterNo',
             fieldLabel: 'Encounter No',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 260,
+            x: 240,
+            y: 25,
+            itemId: 'admissiondate',
+            width: 270,
+            fieldLabel: 'Admission Date',
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            labelWidth: 120,
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
+        },
+        {
+            xtype: 'displayfield',
+            x: 250,
             y: 60,
             itemId: 'paymode',
+            width: 280,
             fieldLabel: 'PaymentMethod',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            labelWidth: 110,
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 455,
-            y: 20,
-            itemId: 'labno',
-            fieldLabel: 'Lab No',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            x: 525,
+            y: -2,
+            itemId: 'wardno',
+            fieldLabel: 'Ward No',
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 260,
-            y: 20,
-            itemId: 'priority',
-            fieldLabel: 'Priority',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            x: 525,
+            y: 30,
+            itemId: 'roomno',
+            fieldLabel: 'Room No',
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 260,
-            y: 40,
-            itemId: 'createid',
-            fieldLabel: 'Requested By',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            x: 525,
+            y: 60,
+            itemId: 'bedno',
+            fieldLabel: 'Bed No',
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 25,
+            x: -16,
             y: 15,
             itemId: 'names',
             fieldLabel: 'Names',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 25,
-            y: 35,
+            x: -15,
+            y: 40,
             itemId: 'dob',
             fieldLabel: 'Date of Birth',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         },
         {
             xtype: 'displayfield',
-            x: 25,
-            y: 55,
+            x: -15,
+            y: 60,
             itemId: 'sex',
             fieldLabel: 'Gender',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
-        },
-        {
-            xtype: 'displayfield',
-            x: 455,
-            y: 0,
-            itemId: 'fileno',
-            fieldLabel: 'Hospital File',
-            labelStyle: 'font-size: 12px;font-weight: bold;color: green;',
-            fieldStyle: 'font-size: 10px;font-weight: bold;color: red;'
+            labelAlign: 'right',
+            labelStyle: 'font-weight:bold; color:#f4f6fc;',
+            fieldStyle: 'color:#a7e88b;font-weight-bold;'
         }
     ]
 

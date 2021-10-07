@@ -1374,7 +1374,7 @@ Ext.define('CarePortal.controller.CashBook', {
 
     openGlAccounts: function(button) {
         //Ext.Msg.alert('Tes','Test');
-        var glsForm=Ext.create("CarePortal.view.GlAccounts",{});
+        var glsForm=Ext.create("CarePortal.view.GeneralLedger",{});
 
         var glsWindow=Ext.create('Ext.window.Window', {
             title: 'Chart of Accounts',
@@ -1500,8 +1500,12 @@ Ext.define('CarePortal.controller.CashBook', {
 
     savePayments: function(button) {
           var form = button.up('form').getForm(); // get the basic form
-                var ledgerStore =Ext.data.StoreManager.lookup('LedgerStore');
+                var ledgerStore =Ext.data.StoreManager.lookup('LedgersStore');
                 var ledgerRecord = ledgerStore.getRange();
+                 var CashPoint=button.up('form').down('#cashPoint').getValue();
+                var voucherNo=button.up('form').down('#voucherNo').getValue();
+                 var payMode=button.up('form').down('#payMode').getValue();
+
 
 
                 var gridData = Array();
@@ -1516,7 +1520,8 @@ Ext.define('CarePortal.controller.CashBook', {
                             gridData: Ext.util.JSON.encode(gridData)
                         },
                         success: function(form, action) {
-                                window.open('reports/payment_voucher.php?cashpoint='+CashPoint+'&voucherNo'+voucherNo+'&payMode='+payMode+'&pno='+pno+'&PatientName='+PatientName ,"Payments","menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes");
+                            Ext.Msg.alert('Success', 'Successfully made payments');
+                            window.open('reports/payment_voucher.php?cashpoint='+CashPoint+'&voucherNo'+voucherNo+'&payMode='+payMode ,"Payments","menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes");
 
                             form.reset();
                             ledgerStore.load({});
@@ -1525,7 +1530,7 @@ Ext.define('CarePortal.controller.CashBook', {
 
                         },
                         failure: function(form, action) {
-                            Ext.Msg.alert('Failed', 'Could not Service Order. Error='+action.result.errors.clientNo);
+                            Ext.Msg.alert('Failed', 'Could not send payments, pls check your payments');
                         },
                         scope:this
                     });

@@ -51,7 +51,8 @@
             "Debit",
             "FinaliseInvoice",
             "InsuranceCredit",
-            "MenuDiagram"
+            "MenuDiagram",
+            "IpNotes"
         ]
     },
     "configAlternates": {
@@ -155,6 +156,9 @@
                     "    },",
                     "    'wardoccupancy actioncolumn[id=openVitals]':{",
                     "        click:this.openVitals",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openNotes]':{",
+                    "        click:this.openNotes",
                     "    },",
                     "    'wardoccupancy actioncolumn[id=openChart]':{",
                     "        click:this.openChart",
@@ -1797,6 +1801,49 @@
             "designerId": "c9a081c0-02f7-45ef-87c6-15ac5fcb584c"
         },
         {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view, rowIndex, colIndex, item, e, record, row"
+                ],
+                "fn": "openNotes",
+                "implHandler": [
+                    "var notes=Ext.create('CarePortal.view.IpNotes', {});",
+                    "var notesWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Notes',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "notes.down('#pid').setValue(record.get('PID'));",
+                    "notes.down('#names').setValue(record.get('Names'));",
+                    "notes.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "notes.down('#dob').setValue(record.get('BirthDate'));",
+                    "notes.down('#sex').setValue(record.get('Sex'));",
+                    "notes.down('#paymode').setValue(record.get('PaymentMode'));",
+                    "notes.down('#admissiondate').setValue(record.get('AdmissionDate'));",
+                    "notes.down('#wardno').setValue(record.get('WardID'));",
+                    "notes.down('#roomno').setValue(record.get('RoomNo'));",
+                    "notes.down('#bedno').setValue(record.get('BedNo'));",
+                    "",
+                    "notesWindow.add(notes);",
+                    "notesWindow.show();",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openNotes",
+            "designerId": "43b7e061-f7d8-4c96-b039-651f99d6ea37"
+        },
+        {
             "type": "controllerref",
             "reference": {
                 "name": "items",
@@ -2261,6 +2308,26 @@
             },
             "name": "menudiagram",
             "designerId": "26b093d1-8b29-4408-922e-4282531b0d90"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "ipnotes",
+                "selector": "ipnotes",
+                "xtype": "ipnotes"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "ipnotes",
+            "designerId": "e8dd6de1-60ca-475b-afb3-817c6e5a01c1"
         }
     ]
 }

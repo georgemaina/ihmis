@@ -6,21 +6,19 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
-        "designer|userAlias": "wardsliststore",
-        "designer|userClassName": "MyJsonStore1",
-        "model": "Wards",
-        "storeId": "WardsListStore"
+        "designer|userAlias": "paymentsliststore",
+        "designer|userClassName": "PaymentsListStore",
+        "model": "PaymentsList",
+        "storeId": "PaymentsListStore"
     },
     "configAlternates": {
-        "autoLoad": "boolean",
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string"
     },
     "name": "MyJsonStore1",
-    "designerId": "d9a1a7ab-2b69-4c4d-932f-0b24b2a9aed2",
+    "designerId": "e23210d5-1499-49ba-8456-42dc20ce6887",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -30,13 +28,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "../../data/getDataFunctions.php?task=getWardsList"
+                "url": "data/getDataFunctions.php?task=getPayments"
             },
             "configAlternates": {
                 "url": "string"
             },
-            "name": "MyAjaxProxy4",
-            "designerId": "a5f84b18-7628-4a1e-bb80-858fa2a07788",
+            "name": "MyAjaxProxy23",
+            "designerId": "639fc98a-78a7-4bfc-a049-1667ae762a4b",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -45,8 +43,8 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "name": "MyJsonReader4",
-                    "designerId": "5e20f069-cdde-4e54-a136-6d1f2a719901"
+                    "name": "MyJsonReader22",
+                    "designerId": "5a75e430-aa83-461b-9957-e948e74cb52e"
                 }
             ]
         }

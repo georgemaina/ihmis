@@ -25,8 +25,8 @@ Ext.define('CarePortal.view.Patientlists', {
         'Ext.grid.column.Column'
     ],
 
-    height: 600,
     itemId: 'patientsGrid',
+    minHeight: 600,
     width: 441,
     columnLines: true,
     store: 'PatientsListStore',
@@ -72,18 +72,18 @@ Ext.define('CarePortal.view.Patientlists', {
         },
         {
             xtype: 'gridcolumn',
+            dataIndex: 'LabNo',
+            text: 'Lab No'
+        },
+        {
+            xtype: 'gridcolumn',
             dataIndex: 'EncounterNo',
             text: 'Encounter No'
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'LabNo',
+            dataIndex: 'FileNo',
             text: 'File No'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'LabNo',
-            text: 'Lab No'
         },
         {
             xtype: 'gridcolumn',

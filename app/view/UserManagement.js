@@ -201,8 +201,8 @@ Ext.define('CarePortal.view.UserManagement', {
                             },
                             {
                                 xtype: 'checkcolumn',
-                                dataIndex: 'Delete',
                                 width: 80,
+                                dataIndex: 'Delete',
                                 text: 'Delete',
                                 editor: {
                                     xtype: 'checkboxfield'

@@ -52,6 +52,11 @@ Ext.define('CarePortal.view.GeneralLedger', {
             xtype: 'gridcolumn',
             dataIndex: 'AccountGroups',
             text: 'Account Groups'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'Amount',
+            text: 'Amount'
         }
     ],
     dockedItems: [

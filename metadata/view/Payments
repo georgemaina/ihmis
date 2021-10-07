@@ -82,7 +82,7 @@
                             "userConfig": {
                                 "allowBlank": false,
                                 "displayField": "Description",
-                                "emptyText": "Select department",
+                                "emptyText": "Select Payment mode",
                                 "fieldLabel": "Payment Mode",
                                 "itemId": "payMode",
                                 "labelAlign": "right",
@@ -91,14 +91,14 @@
                                 "layout|x": -46,
                                 "layout|y": 40,
                                 "minChars": 2,
-                                "name": "department",
+                                "name": "payMode",
                                 "queryMode": "local",
                                 "store": [
                                     "['Cash','Mpesa','Both','Visa']"
                                 ],
                                 "typeAhead": true,
                                 "valueField": "ID",
-                                "width": 320
+                                "width": 335
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -164,7 +164,6 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
                                 "fieldLabel": "Cheque No",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "chequeNo",
@@ -199,7 +198,6 @@
                             "codeClass": null,
                             "userConfig": {
                                 "displayField": "Description",
-                                "emptyText": "Receipt Number",
                                 "fieldLabel": "Department",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "department",
@@ -244,8 +242,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
-                                "fieldLabel": "Control",
+                                "fieldLabel": "Control Amount",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "control",
                                 "labelAlign": "right",
@@ -376,6 +373,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "displayField": "AccountName",
                                 "fieldLabel": "GL Account",
                                 "itemId": "glAccount",
                                 "labelAlign": "right",
@@ -383,7 +381,12 @@
                                 "labelWidth": 150,
                                 "layout|x": -45,
                                 "layout|y": 75,
+                                "minChars": 2,
                                 "name": "glAccount",
+                                "queryMode": "local",
+                                "store": "GeneralLedgerStore",
+                                "typeAhead": true,
+                                "valueField": "AccountCode",
                                 "width": 495
                             },
                             "configAlternates": {
@@ -428,7 +431,7 @@
                                 "store": "CashPointsStore",
                                 "typeAhead": true,
                                 "valueField": "CashPoint",
-                                "width": 270
+                                "width": 285
                             },
                             "configAlternates": {
                                 "displayField": "datafield",
@@ -526,8 +529,8 @@
                                 "dataIndex": "datafield",
                                 "text": "string"
                             },
-                            "name": "MyColumn20",
-                            "designerId": "c4500d9f-b5d1-4a9e-880d-502ec1674af2"
+                            "name": "MyColumn176",
+                            "designerId": "ad73c584-d09a-422e-a533-653aef131d4f"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -544,8 +547,8 @@
                                 "dataIndex": "datafield",
                                 "text": "string"
                             },
-                            "name": "MyColumn47",
-                            "designerId": "20a3470b-9c57-45f6-9e8c-d5b08d231285"
+                            "name": "MyColumn177",
+                            "designerId": "145152b9-aa86-4eaa-8324-55272f1bb999"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -557,15 +560,15 @@
                             "userConfig": {
                                 "dataIndex": "Name",
                                 "text": "Name",
-                                "width": 269
+                                "width": 290
                             },
                             "configAlternates": {
                                 "dataIndex": "datafield",
                                 "text": "string",
                                 "width": "auto"
                             },
-                            "name": "MyColumn51",
-                            "designerId": "cbdd1ee4-9b4a-469a-9561-1279085985f5"
+                            "name": "MyColumn178",
+                            "designerId": "17274746-35e9-4dc2-b164-e3be4cb95bba"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -582,8 +585,8 @@
                                 "dataIndex": "datafield",
                                 "text": "string"
                             },
-                            "name": "MyColumn52",
-                            "designerId": "58e280a6-d6f1-4cc6-a149-56a2d5ef210a",
+                            "name": "MyColumn179",
+                            "designerId": "00b03481-b63b-4ac0-8365-79aabd0fbd5c",
                             "cn": [
                                 {
                                     "type": "Ext.form.field.Number",
@@ -592,8 +595,14 @@
                                         "type": "object"
                                     },
                                     "codeClass": null,
+                                    "userConfig": {
+                                        "minValue": 1
+                                    },
+                                    "configAlternates": {
+                                        "minValue": "number"
+                                    },
                                     "name": "MyNumberField5",
-                                    "designerId": "9584aa54-a34a-44f8-8022-8879cd3b7e88"
+                                    "designerId": "15b8bf35-c81c-466e-b1d9-a063082d63d2"
                                 },
                                 {
                                     "type": "fixedfunction",
@@ -618,13 +627,10 @@
                                             "store.getRange().forEach(function(rec) {",
                                             "    // console.log(rec.get('unit_price'));",
                                             "    strSum += rec.get('Amount');",
-                                            "    console.log(rec.get('strSum'));",
+                                            "    console.log(strSum);",
                                             "} );",
                                             "view.up('grid').up('panel').down('#total').setValue(strSum);",
-                                            "",
-                                            "//var totalPrice=record.get('Price')*record.get('qty');",
-                                            "",
-                                            "return totalPrice;"
+                                            ""
                                         ]
                                     },
                                     "configAlternates": {
@@ -633,7 +639,7 @@
                                         "implHandler": "code"
                                     },
                                     "name": "renderer",
-                                    "designerId": "102659fe-4474-4d66-a714-804dab38aa31"
+                                    "designerId": "370eb9d6-51a2-46a1-ad70-1660bd7f1bc1"
                                 }
                             ]
                         }
@@ -675,7 +681,7 @@
                             "userConfig": {
                                 "iconCls": "x-fa fa-ellipsis-h",
                                 "itemId": "cmdSuppliers",
-                                "layout|x": 5,
+                                "layout|x": 175,
                                 "layout|y": 0,
                                 "text": "Suppliers",
                                 "width": 145
@@ -701,7 +707,7 @@
                             "userConfig": {
                                 "iconCls": "x-fa fa-ellipsis-h",
                                 "itemId": "cmdGLs",
-                                "layout|x": 160,
+                                "layout|x": 325,
                                 "layout|y": 0,
                                 "text": "General Ledgers",
                                 "width": 145
@@ -726,9 +732,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "iconCls": "x-fa fa-trash",
-                                "itemId": "cmdRemoveItem",
-                                "layout|x": 625,
-                                "layout|y": 0,
+                                "itemId": "deleteSelectedItem",
+                                "layout|x": 5,
+                                "layout|y": -0.6666670000000181,
+                                "style": "background-color:red;",
                                 "text": "Remove Item",
                                 "width": 130
                             },
@@ -738,7 +745,8 @@
                                 "text": "string",
                                 "width": "auto",
                                 "iconCls": "string",
-                                "itemId": "string"
+                                "itemId": "string",
+                                "style": "string"
                             },
                             "name": "MyButton5",
                             "designerId": "6a13bc82-a7e2-45a8-8a1f-a630a644579d"
@@ -755,7 +763,7 @@
                                 "itemId": "total",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
-                                "layout|x": 335,
+                                "layout|x": 450,
                                 "layout|y": 0,
                                 "name": "total",
                                 "width": 225
@@ -809,8 +817,8 @@
                             "userConfig": {
                                 "iconCls": "x-fa fa-save",
                                 "itemId": "cmdSavePayment",
-                                "layout|x": 440,
-                                "layout|y": -1,
+                                "layout|x": 550,
+                                "layout|y": 5,
                                 "text": "Save",
                                 "width": 120
                             },
@@ -824,6 +832,32 @@
                             },
                             "name": "MyButton6",
                             "designerId": "ea33c795-0150-4e7d-bd08-51be753a8708"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "x-fa fa-print",
+                                "itemId": "cmdOpenVouchers",
+                                "layout|x": 225,
+                                "layout|y": 5,
+                                "text": "Print Vouchers and Cheques",
+                                "width": 215
+                            },
+                            "configAlternates": {
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto",
+                                "itemId": "string",
+                                "iconCls": "string"
+                            },
+                            "name": "MyButton25",
+                            "designerId": "eeb397b8-13be-4ec8-993d-d41bb6847e77"
                         },
                         {
                             "type": "Ext.button.Button",

@@ -38,6 +38,7 @@ Ext.define('CarePortal.view.PatientStatus', {
             x: 10,
             y: 50,
             itemId: 'fileNumber',
+            width: 230,
             fieldLabel: 'File Number',
             labelStyle: 'color:#3660a5; font-size:13px;font-weight:bold;',
             value: '10001',
@@ -96,7 +97,6 @@ Ext.define('CarePortal.view.PatientStatus', {
             labelAlign: 'right',
             labelStyle: 'color:#3660a5; font-size:13px;font-weight:bold;3',
             labelWidth: 120,
-            value: '01-01-2015 11:25:30',
             fieldStyle: 'color:#ba3b3b; font-size:14px;font-weight:bold;'
         },
         {
@@ -115,7 +115,7 @@ Ext.define('CarePortal.view.PatientStatus', {
             x: 10,
             y: 30,
             itemId: 'pid',
-            width: 235,
+            width: 285,
             fieldLabel: 'Patient ID',
             labelStyle: 'color:#3660a5; font-size:13px;font-weight:bold;',
             value: '10001',

@@ -42,7 +42,8 @@
                 "labelStyle": "color:#3660a5; font-size:13px;font-weight:bold;",
                 "layout|x": 10,
                 "layout|y": 50,
-                "value": "10001"
+                "value": "10001",
+                "width": 230
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -52,7 +53,8 @@
                 "layout|x": "number",
                 "layout|y": "number",
                 "value": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "width": "auto"
             },
             "name": "MyDisplayField10",
             "designerId": "856492b4-a49c-4160-9222-fa24b94668c0"
@@ -195,7 +197,6 @@
                 "labelWidth": 120,
                 "layout|x": 155,
                 "layout|y": 185,
-                "value": "01-01-2015 11:25:30",
                 "width": 265
             },
             "configAlternates": {
@@ -258,7 +259,7 @@
                 "layout|x": 10,
                 "layout|y": 30,
                 "value": "10001",
-                "width": 235
+                "width": 285
             },
             "configAlternates": {
                 "fieldLabel": "string",

@@ -30,6 +30,9 @@ Ext.define('CarePortal.model.GeneralLedger', {
         },
         {
             name: 'AccountGroups'
+        },
+        {
+            name: 'Amount'
         }
     ]
 });

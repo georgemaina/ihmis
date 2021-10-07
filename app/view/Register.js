@@ -22,6 +22,7 @@ Ext.define('CarePortal.view.Register', {
         'CarePortal.view.RegisterViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.Display',
+        'Ext.form.field.Number',
         'Ext.form.field.Date',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
@@ -174,7 +175,7 @@ Ext.define('CarePortal.view.Register', {
                     },
                     items: [
                         {
-                            xtype: 'textfield',
+                            xtype: 'numberfield',
                             flex: 1,
                             itemId: 'age',
                             margin: '0 5 0 0',
@@ -185,7 +186,9 @@ Ext.define('CarePortal.view.Register', {
                             name: 'age',
                             fieldStyle: 'color:#630921; font-weight:bold;',
                             allowBlank: false,
-                            emptyText: 'Age'
+                            emptyText: 'Age',
+                            maxValue: 100,
+                            minValue: 1
                         },
                         {
                             xtype: 'textfield',
@@ -211,7 +214,8 @@ Ext.define('CarePortal.view.Register', {
                             fieldStyle: 'color:#630921; font-weight:bold;',
                             allowBlank: false,
                             emptyText: 'Date of Birth',
-                            format: 'Y-m-d'
+                            format: 'd-m-Y',
+                            submitFormat: 'Y-m-d'
                         },
                         {
                             xtype: 'combobox',

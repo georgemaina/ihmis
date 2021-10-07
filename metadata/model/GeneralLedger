@@ -63,6 +63,22 @@
             },
             "name": "MyField143",
             "designerId": "8dda2173-165e-4070-988c-e3543f8d2ea9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Amount"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField151",
+            "designerId": "ce6dd4df-d118-4aa2-923a-33c41a8818a8"
         }
     ]
 }

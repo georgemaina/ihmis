@@ -1,0 +1,164 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "payments",
+        "designer|userClassName": "Payments"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel1",
+    "designerId": "760431e0-e8b8-47e6-9522-9352983c71af",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Cash_Point"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField152",
+            "designerId": "17ea2a52-2301-4ade-9e64-2df0c1f8cb8e"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Voucher_No"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField153",
+            "designerId": "c58fdd7f-1951-4aa3-b65c-237461df11bf"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Pay_mode"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField154",
+            "designerId": "dddd818c-ad22-4f07-b8ad-fc628b1e4697"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "pdate"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField155",
+            "designerId": "6c4d12b5-db3d-477e-a65c-991bff728e48"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "payee"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField156",
+            "designerId": "da4816be-9de1-4aab-9281-3c477348413f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "toward"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField157",
+            "designerId": "d91a3056-cd29-485b-8d3a-3be1941ba706"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ledger_code"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField158",
+            "designerId": "0630916f-156c-43e5-b24e-d6ac5a749f6c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ledger_desc"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField159",
+            "designerId": "7939960c-5540-4dee-b1e3-9d49e97bab88"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "amount"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField160",
+            "designerId": "664bda35-d486-492f-9938-529882e00ac6"
+        }
+    ]
+}

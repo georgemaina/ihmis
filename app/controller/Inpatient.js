@@ -60,7 +60,8 @@ Ext.define('CarePortal.controller.Inpatient', {
         'Debit',
         'FinaliseInvoice',
         'InsuranceCredit',
-        'MenuDiagram'
+        'MenuDiagram',
+        'IpNotes'
     ],
 
     refs: {
@@ -143,6 +144,10 @@ Ext.define('CarePortal.controller.Inpatient', {
         menudiagram: {
             selector: 'menudiagram',
             xtype: 'menudiagram'
+        },
+        ipnotes: {
+            selector: 'ipnotes',
+            xtype: 'ipnotes'
         }
     },
 
@@ -225,6 +230,9 @@ Ext.define('CarePortal.controller.Inpatient', {
             },
             'wardoccupancy actioncolumn[id=openVitals]':{
                 click:this.openVitals
+            },
+            'wardoccupancy actioncolumn[id=openNotes]':{
+                click:this.openNotes
             },
             'wardoccupancy actioncolumn[id=openChart]':{
                 click:this.openChart
@@ -1029,6 +1037,29 @@ Ext.define('CarePortal.controller.Inpatient', {
 
         vitalsWindow.add(vitals);
         vitalsWindow.show();
+
+    },
+
+    openNotes: function(view, rowIndex, colIndex, item, e, record, row) {
+        var notes=Ext.create('CarePortal.view.IpNotes', {});
+        var notesWindow=Ext.create('Ext.window.Window', {
+            title: 'Patients Notes',
+            resizable:false
+        });
+
+        notes.down('#pid').setValue(record.get('PID'));
+        notes.down('#names').setValue(record.get('Names'));
+        notes.down('#encounterNo').setValue(record.get('EncounterNo'));
+        notes.down('#dob').setValue(record.get('BirthDate'));
+        notes.down('#sex').setValue(record.get('Sex'));
+        notes.down('#paymode').setValue(record.get('PaymentMode'));
+        notes.down('#admissiondate').setValue(record.get('AdmissionDate'));
+        notes.down('#wardno').setValue(record.get('WardID'));
+        notes.down('#roomno').setValue(record.get('RoomNo'));
+        notes.down('#bedno').setValue(record.get('BedNo'));
+
+        notesWindow.add(notes);
+        notesWindow.show();
 
     },
 

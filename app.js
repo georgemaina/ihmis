@@ -64,7 +64,9 @@ Ext.application({
         'CashPoints',
         'Ledgers',
         'GeneralLedger',
-        'DebtorsList'
+        'DebtorsList',
+        'Payments',
+        'PaymentsList'
     ],
     stores: [
         'ProcedureStore',
@@ -127,7 +129,7 @@ Ext.application({
         'DebtorsList',
         'GeneralLedgerStore',
         'RadiologyListStore',
-        'MyJsonStore1'
+        'PaymentsListStore'
     ],
     views: [
         'Discharge',
@@ -214,7 +216,9 @@ Ext.application({
         'GeneralLedger',
         'InpatientNotes',
         'PatientTransfer',
-        'IpTransfer'
+        'IpTransfer',
+        'IpNotes',
+        'PaymentsList'
     ],
     controllers: [
         'Main',

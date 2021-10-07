@@ -16,6 +16,7 @@ require_once($root_path . 'include/care_api_classes/class_department.php');
 require_once($root_path . 'include/care_api_classes/class_tz_drugsandservices.php');
 require_once ($root_path . 'include/care_api_classes/class_lab.php');
 require_once ('weberpFunctions.php');
+require 'conn.php';
 
 $ward_obj= new Ward;
 $bill_obj= new Bill;
@@ -634,10 +635,37 @@ switch ($task) {
     case "getlastPatient":
         getlastPatient();
         break;
+    case "savePayments":
+        savePayments();
+        break;
+    case "getPayments":
+        getPayments();
+        break;
     default:
         echo "{failure:true}";
         break;
 }//end switch
+
+function getPayments(){
+    global $conn;
+    $debug=false;
+
+    $sql="SELECT * FROM care_ke_payments";
+    if($debug) echo $sql;
+     $request=$conn->query($sql);
+     if($request->num_rows>0){
+        while($row[]=$request->fetch_assoc()){
+            $item=$row;
+            $json=json_encode($item,JSON_NUMERIC_CHECK);
+        }
+     }else{
+         echo "no Data Found";
+     }
+   
+    echo $json;
+    $conn->close();
+
+}
 
 function getlastPatient(){
     global $db;
@@ -649,8 +677,6 @@ function getlastPatient(){
 
     echo "{'pid':".$row[0]."}";
 }
-
-
 
 function getCurrentShift(){
     global $db;
@@ -671,7 +697,7 @@ function getGLAccounts(){
     while($row=$request->FetchRow()){
 
             echo '{"AccountCode":"' .  $row['AccountCode'] . '","AccountName":"' . $row['AccountName']
-                . '","AccountGroups":"' . $row['group_'].'"}';
+                . '","AccountGroups":"' . $row['group_']. '","Amount":0}';
 
         $counter++;
         if ($counter <> $total) {
@@ -3500,7 +3526,8 @@ function savePayments(){
   //  $department = $_POST['department'];
     $voucherNo = $_POST['voucherNo'];
     $cashPoint=$_REQUEST['cashPoint'];
-    $paymentDate=$_REQUEST['paymentDate'];
+    $pdate=new DateTime($_REQUEST['paymentDate']);
+    $paymentDate=$pdate->format('Y-m-d');
     $period=date('Y');
     
     $payMode=$_REQUEST['payMode'];
@@ -3508,7 +3535,7 @@ function savePayments(){
    // $shiftNo=$_REQUEST['shiftNo'];
     $chequeNo=$_REQUEST['chequeNo'];
     $payee=$_REQUEST['payee'];
-    $toward=$_REQUEST['toward'];
+    $toward=$_REQUEST['towards'];
     $control=$_REQUEST['control'];
     $department=$_REQUEST['department'];
     $ptime=date('H:i:s');
@@ -3519,7 +3546,7 @@ function savePayments(){
         $ledger_desc = $row['Name'];
         $qty = '1';
         $price = $row['Amount'];
-        $ledger = $row['Ledger'];
+        $ledger = $row['ledger'];
         $amount= $row['Amount'];
 
         $sql="INSERT INTO `care_ke_payments`

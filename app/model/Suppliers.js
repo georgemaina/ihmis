@@ -38,7 +38,7 @@ Ext.define('CarePortal.model.Suppliers', {
             name: 'AmountPaid'
         },
         {
-            name: 'AmountDue'
+            name: 'Amount'
         },
         {
             name: 'ledger'

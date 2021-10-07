@@ -36,6 +36,7 @@ Ext.define('CarePortal.view.OutpatientList', {
     },
     frame: true,
     itemId: 'OutpatientAdmissions',
+    scrollable: 'both',
     autoDestroy: false,
     columnLines: true,
     store: 'OPAdmissionsStore',
@@ -101,7 +102,7 @@ Ext.define('CarePortal.view.OutpatientList', {
         {
             xtype: 'gridcolumn',
             width: 72,
-            dataIndex: 'EncounterDate',
+            dataIndex: 'EncounterTime',
             text: 'Time'
         },
         {

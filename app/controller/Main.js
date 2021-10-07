@@ -762,12 +762,9 @@ Ext.define('CarePortal.controller.Main', {
     },
 
     openAdmissionData: function() {
-        // strPid=record.get('Pid');
-        // //getinfo(strPid)
-        // url="../modules/registration_admission/aufnahme_pass.php?target=search&fwd_nr="+strPid+"&title=Click to show data";
-        // //runModul (url);
-        // window.parent.CONTENTS.location.href=url;
 
+        var dt=new Date();
+        var regDate=Ext.Date.format(dt,'d-m-Y H:i:s');
 
                 var rec = button.lookupViewModel().get('record');
                 //Ext.Msg.alert("Button clicked", "Hey! " + rec.get("EncounterNo"));
@@ -814,7 +811,7 @@ Ext.define('CarePortal.controller.Main', {
                 this.getAdmissiondata().down('#names').setValue(names);
                 this.getAdmissiondata().down('#dob').setValue(rec.get('DateOfBirth'));
                 this.getAdmissiondata().down('#gender').setValue(rec.get('Gender'));
-                this.getAdmissiondata().down('#registrationDate').setValue(rec.get('RegistrationDate'));
+                this.getAdmissiondata().down('#registrationDate').setValue(rec.get('EncounterDate')+" "+rec.get('EncounterTime'));
                 this.getAdmissiondata().down('#encounterNr').setValue(encounterNo);
                 this.getAdmissiondata().down('#encounterNr2').setValue(encounterNo);
                 this.getAdmissiondata().down('#encounterDate').setValue(rec.get('EncounterDate'));
@@ -825,7 +822,7 @@ Ext.define('CarePortal.controller.Main', {
                     this.getAdmissiondata().down('#admissionButtons').setHidden(false);
                     this.getAdmissiondata().down('#menuDiagram').setHidden(true);
                 }else{
-                    this.getAdmissiondata().down('#admissionStatus').setValue('The Patient is Currentlly Admited in ');
+                    this.getAdmissiondata().down('#admissionStatus').setValue('The Patient is Currentlly Admited in '+rec.get('Department'));
                     this.getAdmissiondata().down('#admissionButtons').setHidden(true);
                     this.getAdmissiondata().down('#menuDiagram').setHidden(false);
                     if(rec.get('EncounterClass')==1){
@@ -848,8 +845,13 @@ Ext.define('CarePortal.controller.Main', {
     openAdmissionData1: function(pid,encNo,names) {
         // var pid=sessionStorage.getItem('pid');
         var names=sessionStorage.getItem('names');
+        //if(pid===''){
+        var pid=sessionStorage.getItem('pid');
+        var dt=new Date();
+        var regDate=Ext.Date.format(dt,'d-m-Y H:i:s');
+        //}
 
-        Ext.Msg.alert('Rest',pid+' '+encNo);
+        Ext.Msg.alert('Rest',pid+' '+names);
 
         var encounterNo=sessionStorage.getItem('encounterNo');
 
@@ -882,7 +884,7 @@ Ext.define('CarePortal.controller.Main', {
                 this.getAdmissiondata().down('#names').setValue(names);
                 this.getAdmissiondata().down('#dob').setValue(sessionStorage.getItem('dob'));
                 this.getAdmissiondata().down('#gender').setValue(sessionStorage.getItem('gender'));
-                //this.getAdmissiondata().down('#registrationDate').setValue(sessionStorage.getItem('RegistrationDate'));
+                this.getAdmissiondata().down('#registrationDate').setValue(regDate);
         //         this.getAdmissiondata().down('#encounterNr').setValue(encounterNo);
         //         this.getAdmissiondata().down('#encounterNr2').setValue(sessionStorage.getItem('encounterNo'));
         //         this.getAdmissiondata().down('#encounterDate').setValue(sessionStorage.getItem('EncounterDate'));
@@ -1154,7 +1156,7 @@ Ext.define('CarePortal.controller.Main', {
         this.getAdmissiondata().down('#names').setValue(names);
         this.getAdmissiondata().down('#dob').setValue(rec.get('DateOfBirth'));
         this.getAdmissiondata().down('#gender').setValue(rec.get('Gender'));
-        this.getAdmissiondata().down('#registrationDate').setValue(rec.get('RegistrationDate'));
+        this.getAdmissiondata().down('#registrationDate').setValue(rec.get('EncounterDate')+" "+rec.get('EncounterTime'));
         this.getAdmissiondata().down('#encounterNr').setValue(encounterNo);
         this.getAdmissiondata().down('#encounterNr2').setValue(encounterNo);
         this.getAdmissiondata().down('#encounterDate').setValue(rec.get('EncounterDate'));
@@ -1165,7 +1167,7 @@ Ext.define('CarePortal.controller.Main', {
             this.getAdmissiondata().down('#admissionButtons').setHidden(false);
             this.getAdmissiondata().down('#menuDiagram').setHidden(true);
         }else{
-            this.getAdmissiondata().down('#admissionStatus').setValue('The Patient is Currentlly Admited in ');
+            this.getAdmissiondata().down('#admissionStatus').setValue('The Patient is Currentlly Admited in '+rec.get('Department'));
             this.getAdmissiondata().down('#admissionButtons').setHidden(true);
             this.getAdmissiondata().down('#menuDiagram').setHidden(false);
             if(rec.get('EncounterClass')==1){
@@ -1240,31 +1242,28 @@ Ext.define('CarePortal.controller.Main', {
     savePatient: function(button) {
         var form = button.up('panel').getForm(); // get the basic form
         //var entryForm=form.getItemId();
-        var pid=button.up('panel').down('#Pid').getValue();
+        // var pid=button.up('panel').down('#Pid').getValue();
         var name_first=button.up('panel').down('#name_first').getValue();
         var name_2=button.up('panel').down('#name_2').getValue();
         var name_last=button.up('panel').down('#name_last').getValue();
         var names=name_first+' '+name_2+' '+name_last;
+        var dob1=button.up('panel').down('#date_birth').getValue();
+        var dob=Ext.Date.format(dob1,"d-m-Y");
 
         if (form.isValid()) { // make sure the form contains valid data before submitting
             form.submit({
-                params:{
-                    pid:pid
-                },
                 success: function (form, action) {
                     Ext.Msg.alert('Thank you!', 'The Patient has been saved Successfully.');
-                    sessionStorage.setItem("pid",button.up('panel').down('#Pid').getValue());
-                    sessionStorage.setItem("pid2",button.up('panel').down('#Pid').getValue());
-                    sessionStorage.setItem("pid3",button.up('panel').down('#Pid').getValue());
+                     this.getLastPatient();
+
 
                     sessionStorage.setItem("fileNumber",button.up('panel').down('#fileNumber').getValue());
                     sessionStorage.setItem("names",names);
-                    sessionStorage.setItem("dob",button.up('panel').down('#date_birth').getValue());
+                    sessionStorage.setItem("dob",dob);
                     sessionStorage.setItem("gender",button.up('panel').down('#sex').getValue());
         //             sessionStorage.setItem("registrationDate",button.up('panel').down('#registrationDate').getValue());
                     sessionStorage.setItem("paymentMethod",button.up('panel').down('#insurance').getValue());
 
-                    this.getLastPatient();
                     button.up('form').getForm().reset();
                     //             button.up('window').hide();
                     //this.getViewPatient(button);
@@ -1273,7 +1272,7 @@ Ext.define('CarePortal.controller.Main', {
                     var patientsStore =Ext.data.StoreManager.lookup('PatientDetails');
                     patientsStore.load({
                         params:{
-                            pid:pid
+                            pid:sessionStorage.getItem('pid')
                         }
                     });
 

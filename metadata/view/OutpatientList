@@ -16,6 +16,7 @@
         "frame": true,
         "itemId": "OutpatientAdmissions",
         "minHeight": null,
+        "scrollable": "both",
         "store": "OPAdmissionsStore",
         "width": null
     },
@@ -387,7 +388,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "EncounterDate",
+                "dataIndex": "EncounterTime",
                 "text": "Time",
                 "width": 72
             },
