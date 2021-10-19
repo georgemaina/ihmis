@@ -9,9 +9,9 @@
         "columnLines": true,
         "designer|userAlias": "paymentslist",
         "designer|userClassName": "PaymentsList",
+        "itemId": "paymentsList",
         "scrollable": "both",
-        "store": "PaymentsListStore",
-        "title": "Payments list"
+        "store": "PaymentsListStore"
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -19,7 +19,7 @@
         "designer|userClassName": "string",
         "scrollable": "auto",
         "store": "store",
-        "title": "string"
+        "itemId": "string"
     },
     "name": "MyGridPanel8",
     "designerId": "f2578d85-51dc-44d3-9ca2-c29d81c0118c",
@@ -481,6 +481,97 @@
             },
             "name": "MyPagingToolbar12",
             "designerId": "0e590777-0503-40b5-bf0e-44a7e061c48c"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 5,
+                "dock": "top",
+                "height": 44,
+                "layout": "absolute",
+                "width": 100
+            },
+            "configAlternates": {
+                "dock": "string",
+                "title": "string",
+                "width": "auto",
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MyFieldContainer7",
+            "designerId": "e20a72f3-070a-4d74-aab8-d2edebd31e69",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "txtPaymentSearch",
+                        "layout|x": 5,
+                        "layout|y": 5,
+                        "width": 395
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField41",
+                    "designerId": "13586872-0f10-4d54-a3e4-dd46e2c2ebef"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-print",
+                        "itemId": "cmdPrintVoucher",
+                        "layout|x": 415,
+                        "layout|y": 5,
+                        "text": "Print Voucher",
+                        "width": 155
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "0f258eb1-dfaf-43c9-8b8d-24c3c5ef6753"
+                }
+            ]
+        },
+        {
+            "type": "Ext.selection.CheckboxModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowDeselect": true
+            },
+            "configAlternates": {
+                "allowDeselect": "boolean"
+            },
+            "name": "MyCheckboxSelectionModel",
+            "designerId": "68637620-b240-4070-83d9-b53abf84e126"
         }
     ]
 }

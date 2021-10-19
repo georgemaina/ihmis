@@ -473,6 +473,12 @@ Ext.define('CarePortal.controller.Main', {
             },
             '#cmdSaveRadiology':{
                 click:this.saveRadiology
+            },
+            '#txtPaymentSearch':{
+                change:this.filterPayments
+            },
+            '#cmdPrintVoucher':{
+                click:this.openPaymentVoucher
             }
 
         });
@@ -2509,6 +2515,49 @@ Ext.define('CarePortal.controller.Main', {
             },
             scope: this
         });
+
+    },
+
+    filterPayments: function(field, newValue, oldValue, eOpts) {
+        var grid = field.up('grid');
+                grid.store.clearFilter();
+                if (newValue) {
+                    var matcher = new RegExp(Ext.String.escapeRegex(newValue), "i");
+                    grid.store.filter({
+                        filterFn: function(item) {
+                            return matcher.test(item.get('payee')) ||
+                                matcher.test(item.get('toward'));
+                        }
+                    });
+                }
+    },
+
+    openPaymentVoucher: function(button) {
+        var cheqID = '';
+        var voucherNo='';
+        var selectedKeys=button.up('grid').getView().getSelectionModel().getSelection();
+
+        var result = '';
+        var ID = '';
+        Ext.each(selectedKeys, function (record) {
+
+            result =record.get('Ledger');
+
+            ID = selectedKeys;
+            if(ID.length>1){
+                cheqID += record.get('ID') + ',';
+               // Ext.Msg.alert('Test',cheqID);
+                voucherNo+=record.get('Voucher_No');
+            }else{
+                cheqID = record.get('ID');
+                voucherNo=record.get('Voucher_No');
+            }
+
+        });
+
+        window.open('reports/payment_voucher.php?cheqID='+cheqID,
+                                    "Export Out Patient Invoices","menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes");
+
 
     }
 

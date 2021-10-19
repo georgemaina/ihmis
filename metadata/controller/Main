@@ -435,6 +435,12 @@
                     "    },",
                     "    '#cmdSaveRadiology':{",
                     "        click:this.saveRadiology",
+                    "    },",
+                    "    '#txtPaymentSearch':{",
+                    "        change:this.filterPayments",
+                    "    },",
+                    "    '#cmdPrintVoucher':{",
+                    "        click:this.openPaymentVoucher",
                     "    }",
                     "",
                     "});"
@@ -4488,6 +4494,92 @@
             },
             "name": "getLastPatient",
             "designerId": "67a0f0cb-e980-4a84-847d-8636e29cc7bb"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterPayments",
+                "implHandler": [
+                    "var grid = field.up('grid');",
+                    "        grid.store.clearFilter();",
+                    "        if (newValue) {",
+                    "            var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "            grid.store.filter({",
+                    "                filterFn: function(item) {",
+                    "                    return matcher.test(item.get('payee')) ||",
+                    "                        matcher.test(item.get('toward'));",
+                    "                }",
+                    "            });",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterPayments",
+            "designerId": "7ff2f2f7-b82a-4457-a5b8-bbdab4812e93"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openPaymentVoucher",
+                "implHandler": [
+                    "var cheqID = '';",
+                    "var voucherNo='';",
+                    "var selectedKeys=button.up('grid').getView().getSelectionModel().getSelection();",
+                    "",
+                    "var result = '';",
+                    "var ID = '';",
+                    "Ext.each(selectedKeys, function (record) {",
+                    "",
+                    "    result =record.get('Ledger');",
+                    "",
+                    "    ID = selectedKeys;",
+                    "    if(ID.length>1){",
+                    "        cheqID += record.get('ID') + ',';",
+                    "       // Ext.Msg.alert('Test',cheqID);",
+                    "        voucherNo+=record.get('Voucher_No');",
+                    "    }else{",
+                    "        cheqID = record.get('ID');",
+                    "        voucherNo=record.get('Voucher_No');",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "window.open('reports/payment_voucher.php?cheqID='+cheqID,",
+                    "                            \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPaymentVoucher",
+            "designerId": "fdc99f96-04eb-442f-854b-6b85fbcaf121"
         }
     ]
 }

@@ -21,14 +21,18 @@ Ext.define('CarePortal.view.PaymentsList', {
         'CarePortal.view.PaymentsListViewModel',
         'Ext.view.Table',
         'Ext.grid.column.Column',
-        'Ext.toolbar.Paging'
+        'Ext.toolbar.Paging',
+        'Ext.form.FieldContainer',
+        'Ext.form.field.Text',
+        'Ext.button.Button',
+        'Ext.selection.CheckboxModel'
     ],
 
     viewModel: {
         type: 'paymentslist'
     },
+    itemId: 'paymentsList',
     scrollable: 'both',
-    title: 'Payments list',
     columnLines: true,
     store: 'PaymentsListStore',
 
@@ -165,7 +169,36 @@ Ext.define('CarePortal.view.PaymentsList', {
             width: 360,
             displayInfo: true,
             store: 'PaymentsListStore'
+        },
+        {
+            xtype: 'fieldcontainer',
+            dock: 'top',
+            height: 44,
+            width: 100,
+            layout: 'absolute',
+            items: [
+                {
+                    xtype: 'textfield',
+                    x: 5,
+                    y: 5,
+                    itemId: 'txtPaymentSearch',
+                    width: 395
+                },
+                {
+                    xtype: 'button',
+                    x: 415,
+                    y: 5,
+                    itemId: 'cmdPrintVoucher',
+                    width: 155,
+                    iconCls: 'x-fa fa-print',
+                    text: 'Print Voucher'
+                }
+            ]
         }
-    ]
+    ],
+    selModel: {
+        selType: 'checkboxmodel',
+        allowDeselect: true
+    }
 
 });

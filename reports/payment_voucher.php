@@ -189,7 +189,7 @@ WHERE cash_point='$cashpoint' AND pay_mode='$payMode' AND voucher_no='$voucherNo
     $row = $result->FetchRow();
 
 
-    $imagePath="../../../icons/logo.jpg";
+    $imagePath="../icons/logo.jpg";
     $image = Zend_Pdf_Image::imageWithPath($imagePath);
     $page->drawImage($image, $leftPos + 25, $topPos-80, 500, $topPos - 5);
 

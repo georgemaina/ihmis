@@ -650,7 +650,7 @@ function getPayments(){
     global $conn;
     $debug=false;
 
-    $sql="SELECT * FROM care_ke_payments";
+    $sql="SELECT * FROM care_ke_payments order by pdate desc";
     if($debug) echo $sql;
      $request=$conn->query($sql);
      if($request->num_rows>0){
