@@ -1,6 +1,6 @@
 <?php
 # This is the database name
-$dbname='careNyanchwa';
+$dbname='carenyanchwa';
 # Database user name, default is root or httpd for mysql, or postgres for postgresql
 $dbusername='george';
 
@@ -8,7 +8,7 @@ $dbusername='george';
 $dbpassword='&355ewxxKE';
 
 # Database host name, default = localhost
-$dbhost='localhost';
+$dbhost='52.151.98.180';
 
 # First key used for simple chaining protection of scripts
 $key='4.58869032405E+13';

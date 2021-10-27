@@ -60,13 +60,14 @@ Ext.application({
         'PendingPatientsBills',
         'PendingBills',
         'Allergies',
-        'MyModel',
+        'Kins',
         'CashPoints',
         'Ledgers',
         'GeneralLedger',
         'DebtorsList',
         'Payments',
-        'PaymentsList'
+        'PaymentsList',
+        'CustomerType'
     ],
     stores: [
         'ProcedureStore',
@@ -129,7 +130,9 @@ Ext.application({
         'DebtorsList',
         'GeneralLedgerStore',
         'RadiologyListStore',
-        'PaymentsListStore'
+        'PaymentsListStore',
+        'ReceiptsList1',
+        'DebtorLocationStore1'
     ],
     views: [
         'Discharge',
@@ -218,7 +221,10 @@ Ext.application({
         'PatientTransfer',
         'IpTransfer',
         'IpNotes',
-        'PaymentsList'
+        'PaymentsList',
+        'DebtorRegisterForm',
+        'CustomerInfo',
+        'CustomerList'
     ],
     controllers: [
         'Main',

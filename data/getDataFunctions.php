@@ -4443,7 +4443,7 @@ function receiveSpecimen($labNo,$encounter_nr){
 function getSpecimens(){
     global $db;
     $debug=FALSE;
-    $sql = "SELECT `ID`,`Description` FROM `care_tz_laboratory_Specimens`";
+    $sql = "SELECT `ID`,`Description` FROM `care_tz_laboratory_specimens`";
 
     if ($debug) echo $sql;
 
@@ -4984,7 +4984,7 @@ function getNotes($encNo)
     global $db;
     $debug = false;
 
-    $sql = "SELECT CONCAT(`date`,' ',`time`) AS createTime,t.`name`,notes,n.`personell_name` FROM care_encounter_notes n
+    $sql = "SELECT nr,CONCAT(`date`,' ',`time`) AS createTime,t.`name`,notes,n.`personell_name` FROM care_encounter_notes n
                 LEFT JOIN care_type_notes t ON n.`type_nr`=t.nr WHERE encounter_nr='$encNo'";
 
     if ($debug) echo $sql;
@@ -4998,7 +4998,7 @@ function getNotes($encNo)
             $notes= escapeJsonString($row['notes']);
             $text = escapeJsonString($row['short_notes']);
 
-        echo '{"NotesType":"' . $row['name'] .'","Notes":"' . $notes. '","CreateTime":"' . $row['createTime']  . '","TreatedBy":"' . $row['personell_name']. '"}';
+        echo '{"ID":"' . $row['nr'] .'","NotesType":"' . $row['name'] .'","Notes":"' . $notes. '","CreateTime":"' . $row['createTime']  . '","TreatedBy":"' . $row['personell_name']. '"}';
 
         $counter++;
         if ($counter <> $numRows) {

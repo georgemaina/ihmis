@@ -250,7 +250,7 @@ function getUsers() {
 function getStoreUsers() {
     global $db;
     $debug=false;
-    $sql = "SELECT s.`ID`,`Username`,L.`ID`,s.`st_id`,L.`st_name`,s.IssueDrugs,s.ServiceDrugs FROM `care_ke_storeusers` s
+    $sql = "SELECT s.`ID`,`Username`,l.`ID`,s.`st_id`,l.`st_name`,s.IssueDrugs,s.ServiceDrugs FROM `care_ke_storeusers` s
             LEFT JOIN care_ke_stlocation l ON s.`st_id`=l.`st_id`";
     
     if ($debug) echo $sql;

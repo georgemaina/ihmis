@@ -24,13 +24,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "NotesType"
+                "name": "ID"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField15",
             "designerId": "7a88d372-6492-4766-80d1-c9a515505b5b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "NotesType"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField150",
+            "designerId": "9c86b63b-d33b-43bf-944d-8d3bebaebcb9"
         },
         {
             "type": "Ext.data.field.Field",

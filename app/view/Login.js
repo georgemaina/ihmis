@@ -53,7 +53,7 @@ Ext.define('CarePortal.view.Login', {
                     items: [
                         {
                             xtype: 'displayfield',
-                            value: 'Nyanchwa Adventist Hospital',
+                            value: 'Wesley Mission Hospital',
                             fieldStyle: 'color:white;font-weight:bold;font-size:16px;'
                         }
                     ]

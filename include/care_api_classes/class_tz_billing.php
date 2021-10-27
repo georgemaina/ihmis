@@ -1144,7 +1144,7 @@ class Bill extends Encounter {
 
             if ($db->Execute($sql4)) {
                 $newTransNo = ($trnsNo + 1);
-                $sql3 = "update care_ke_transactionNos set transNo='$newTransNo' where typeid='$transType'";
+                $sql3 = "update care_ke_transactionnos set transNo='$newTransNo' where typeid='$transType'";
                 if ($debug) echo $sql3;
                 $db->Execute($sql3);
 
@@ -1185,7 +1185,7 @@ class Bill extends Encounter {
 
         if ($db->Execute($sql4)) {
             $newTransNo = ($trnsNo + 1);
-            $sql3 = "update care_ke_transactionNos set transNo='$newTransNo' where typeid='$transType'";
+            $sql3 = "update care_ke_transactionnos set transNo='$newTransNo' where typeid='$transType'";
             if ($debug)
                 echo $sql3;
             $db->Execute($sql3);
@@ -1236,7 +1236,7 @@ class Bill extends Encounter {
 
             if ($db->Execute($sql4)) {
                 $newTransNo = ($trnsNo + 1);
-                $sql3 = "update care_ke_transactionNos set transNo='$newTransNo' where typeid='$transType'";
+                $sql3 = "update care_ke_transactionnos set transNo='$newTransNo' where typeid='$transType'";
                 if ($debug)
                     echo $sql3;
                 $db->Execute($sql3);
@@ -1256,7 +1256,7 @@ class Bill extends Encounter {
     function getTransNo($transType) {
         global $db;
         $debug = false;
-        $sql = "select `transNo` from `care_ke_transactionNos` where typeID=$transType";
+        $sql = "select `transNo` from `care_ke_transactionnos` where typeID=$transType";
         if ($debug)
             echo $sql;
         $result = $db->Execute($sql);

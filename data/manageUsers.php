@@ -106,8 +106,8 @@ function insertUser($userdetails) {
         if ($db->Execute($sql)) {
             $userName= $userdetails['UserName'];
             $sql2="INSERT INTO `user_roles` (
-                `Username`,`Role`,`RoleName`,`View`,`Edit`,`Delete`,`menuGroup`)
-                    SELECT '$userName', `Role`,`RoleName`, `View`,`Edit`,`Delete`,`menuGroup`
+                `Username`,`Role`,`RoleName`,`View`,`Edit`,`Delete`,`menuGroup`,`module`)
+                    SELECT '$userName', `Role`,`RoleName`, `View`,`Edit`,`Delete`,`menuGroup`,`module`
                     FROM user_roles WHERE username='Admin'";
                    if($debug) echo $sql2;
                     $db->Execute($sql2);

@@ -734,8 +734,8 @@ Ext.define('CarePortal.controller.Pharmacy', {
                 },
                 success: function (form, action) {
                     Ext.Msg.alert('Thank you!', 'Saved Prescription Successfully.');
-                    button.up('form').getForm().reset();
-                    button.up('window').close();
+                    //button.up('form').getForm().reset();
+                    //button.up('window').close();
 
 
 

@@ -32,7 +32,7 @@ require($root_path . 'include/inc_environment_global.php');
         $global_config_ok = 0;
     }
 
-    $imagePath="../../../icons/logo2.jpg";
+    $imagePath="../icons/logo2.jpg";
 
     global $db;
     $debug=false;

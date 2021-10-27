@@ -31,7 +31,7 @@ Ext.define('CarePortal.view.Notes', {
         type: 'notes'
     },
     height: 510,
-    width: 780,
+    width: 850,
     bodyPadding: 5,
 
     dockedItems: [

@@ -417,6 +417,9 @@ Ext.define('CarePortal.controller.Main', {
             '#btnMch':{
                 afterrender:this.createMch
             },
+            '#btnReports':{
+                afterrender:this.openAdmissionHistory
+            },
             '#cmdAddComplaints':{
                 click:this.addComplaints
             },
@@ -479,8 +482,13 @@ Ext.define('CarePortal.controller.Main', {
             },
             '#cmdPrintVoucher':{
                 click:this.openPaymentVoucher
-            }
-
+            },
+            '#cmdOpenVouchers':{
+                click:this.openPaymentList
+            }//,
+           // "#deleteNotes":{
+           //     afterrender:this.deleteNotes
+           // }
         });
     },
 
@@ -1629,14 +1637,31 @@ Ext.define('CarePortal.controller.Main', {
                                     '<td class=titles>Note</td>',
                                     '<td class=titles>Time</td>',
                                     '<td class=titles>TreatedBy</td>',
+                                    '<td class=titles>Update</td>',
+                                    '<td class=titles>Delete</td>',
                          '<tpl for=".">',
                                 '<tr>',
                                     '<td>{NotesType}</td>',
                                     '<td style="width:400px;"><div class=content>{Notes}</div></td>',
                                     '<td>{CreateTime}</td>',
                                     '<td>{TreatedBy}</td>',
+                                    '<td><a id={ID} href="#"><img src="icons/update2.gif"></a></td>',
+                                    '<td><a id={ID} href="#"><img src="icons/delete2.gif"></a></td>',
                                 '</tr>',
-                        '</tpl>',
+                        '</tpl>',{
+                            getLinkId: function(values) {
+                                Ext.Msg.alert('link ' + values + ' clicked');
+                                var result = Ext.id();
+                                this.addListener.defer(1, this, [result]);
+                                return result;
+                            },
+                            addListener: function(id) {
+                                Ext.get(id).on('click', function(e){
+                                    e.stopEvent();
+                                    Ext.Msg.alert('link ' + id + ' clicked');
+                                });
+                            }
+                        },
                         '</table>'
                     );
 
@@ -2559,6 +2584,40 @@ Ext.define('CarePortal.controller.Main', {
                                     "Export Out Patient Invoices","menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes");
 
 
+    },
+
+    openPaymentList: function(button) {
+        var paymentList=Ext.create('CarePortal.view.PaymentsList', {});
+
+
+        var listWindow=Ext.create('Ext.window.Window', {
+            title: 'Payments List',
+            resizable:true,
+            width:600,
+            height:600
+        });
+
+
+
+        listWindow.add(paymentList);
+        listWindow.show();
+    },
+
+    deleteNotes: function(component, eOpts) {
+            component.getEl().on('click', function() {
+                 Ext.Msg.alert('Thank you!',component.up('panel').up('panel').getItemId());
+
+                });
+    },
+
+    openAdmissionHistory: function(component, eOpts) {
+        component.getEl().on('click', function() {
+            var pid=component.up('panel').up('panel').down('#pid').getValue();
+            var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();
+             window.open('reports/patientAdmissionHistory.php?pid='+pid+'&enc='+encNr,
+                         "Patient Admission History","menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes");
+
+         });
     }
 
 });

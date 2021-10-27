@@ -104,6 +104,14 @@ Ext.define('CarePortal.view.PrescriptionForm', {
                     ]
                 },
                 {
+                    xtype: 'panel',
+                    dock: 'bottom',
+                    height: 184,
+                    itemId: 'prescriptionsPanel',
+                    scrollable: 'both',
+                    bodyStyle: 'background-color:green;color:white;'
+                },
+                {
                     xtype: 'fieldset',
                     dock: 'top',
                     height: 44,

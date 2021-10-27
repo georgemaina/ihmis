@@ -221,6 +221,30 @@
                     ]
                 },
                 {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bodyStyle": "background-color:green;color:white;",
+                        "dock": "bottom",
+                        "height": 184,
+                        "itemId": "prescriptionsPanel",
+                        "scrollable": "both"
+                    },
+                    "configAlternates": {
+                        "bodyStyle": "string",
+                        "dock": "string",
+                        "height": "auto",
+                        "itemId": "string",
+                        "scrollable": "auto"
+                    },
+                    "name": "MyPanel8",
+                    "designerId": "77885fc0-3f1e-438c-8367-35947526744a"
+                },
+                {
                     "type": "Ext.form.FieldSet",
                     "reference": {
                         "name": "dockedItems",

@@ -56,13 +56,14 @@
             "PendingPatientsBills",
             "PendingBills",
             "Allergies",
-            "MyModel",
+            "Kins",
             "CashPoints",
             "Ledgers",
             "GeneralLedger",
             "DebtorsList",
             "Payments",
-            "PaymentsList"
+            "PaymentsList",
+            "CustomerType"
         ],
         "name": "CarePortal",
         "stores": [
@@ -126,7 +127,9 @@
             "DebtorsList",
             "GeneralLedgerStore",
             "RadiologyListStore",
-            "PaymentsListStore"
+            "PaymentsListStore",
+            "ReceiptsList1",
+            "DebtorLocationStore1"
         ],
         "views": [
             "Discharge",
@@ -215,7 +218,10 @@
             "PatientTransfer",
             "IpTransfer",
             "IpNotes",
-            "PaymentsList"
+            "PaymentsList",
+            "DebtorRegisterForm",
+            "CustomerInfo",
+            "CustomerList"
         ]
     },
     "configAlternates": {
