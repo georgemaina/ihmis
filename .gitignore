@@ -5,3 +5,4 @@ ext
 build
 build.xml
 .idea
+include/inc_init_main.php
