@@ -8,7 +8,7 @@ $dbusername='george';
 $dbpassword='&355ewxxKE';
 
 # Database host name, default = localhost
-$dbhost='52.151.98.180';
+$dbhost='40.71.71.47';
 
 # First key used for simple chaining protection of scripts
 $key='4.58869032405E+13';
