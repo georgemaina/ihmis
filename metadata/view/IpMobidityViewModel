@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ipmobidity",
+        "designer|userClassName": "IpMobidityViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyGridPanelViewModel",
+    "designerId": "5dd3dd83-ac04-4375-97a5-d5a728bd7c22"
+}

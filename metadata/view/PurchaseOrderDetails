@@ -9,9 +9,10 @@
         "columnLines": true,
         "designer|userAlias": "purchaseorderdetails",
         "designer|userClassName": "PurchaseOrderDetails",
-        "height": 450,
+        "height": 552,
         "store": "PurchOrderItems",
-        "style": "color:green;font-size:14px;"
+        "style": "color:green;font-size:14px;",
+        "width": 1100
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -21,7 +22,8 @@
         "minHeight": "number",
         "store": "store",
         "style": "string",
-        "height": "auto"
+        "height": "auto",
+        "width": "auto"
     },
     "name": "PurchaseOrders1",
     "designerId": "9000a97e-02e0-4ac9-b855-4f0e653ec8d1",
@@ -94,7 +96,7 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-pencil-square-o",
                         "itemId": "newOrder",
-                        "layout|x": 820,
+                        "layout|x": 500,
                         "layout|y": 5,
                         "text": "Update Changes",
                         "width": 150
@@ -109,6 +111,32 @@
                     },
                     "name": "MyButton25",
                     "designerId": "0ea1fb99-5ad7-4156-9d4c-bf1fe56be3c7"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdCloseOders",
+                        "layout|x": 710,
+                        "layout|y": 5,
+                        "text": "Close",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton37",
+                    "designerId": "ea0bf757-d6c5-402a-8554-e7f8dabadd58"
                 }
             ]
         },

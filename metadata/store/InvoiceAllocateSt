@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "invoiceallocatest",
+        "designer|userClassName": "InvoiceAllocateSt",
+        "model": "ReceiptsAllocate",
+        "storeId": "InvoiceAllocateSt"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "d57cb168-f951-4991-9eec-27404c4d4360",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/debtorFunctions.php?task=getUnallocatedInvoices"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy23",
+            "designerId": "07154f99-bba2-41c4-ac56-849cd836ba39",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader22",
+                    "designerId": "33b86433-aa5f-4e90-8b1a-0b5e4632fb7c"
+                }
+            ]
+        }
+    ]
+}

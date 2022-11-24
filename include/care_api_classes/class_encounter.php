@@ -6,7 +6,8 @@
 /**
  */
 require_once($root_path . 'include/care_api_classes/class_notes.php');
-
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
 /**
  *  Patient encounter.
  *  Note this class should be instantiated only after a "$db" adodb  connector object  has been established by an adodb instance.
@@ -1725,7 +1726,7 @@ class Encounter extends Notes {
     }
 
 
-    function getCurrentEncounter($pid){
+   function getCurrentEncounter($pid){
         global $db;
         $debug=false;
 
@@ -1736,7 +1737,7 @@ class Encounter extends Notes {
                 a.`current_room_nr`,a.release_date,DATEDIFF(a.`discharge_date`,a.`encounter_date`) AS bedDays
                 FROM care_person b
                 LEFT JOIN care_encounter a ON a.pid=b.pid 
-                INNER JOIN care_ward w ON w.nr=a.current_ward_nr WHERE b.pid='$pid2' AND a.encounter_class_nr=1";
+                LEFT JOIN care_ward w ON w.nr=a.current_ward_nr WHERE b.pid='$pid2'";
 
         if($debug) echo $sql;
 
@@ -1747,17 +1748,17 @@ class Encounter extends Notes {
         echo '{"total":"' . $total . '","encounterNr":[';
         $counter=0;
         while($row = $result->FetchRow()){
-            $firstName = $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[name_first]);
-            $lastname = $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[name_2]);
-            $surName= $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[name_last]);
+            $firstName = $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['name_first']);
+            $lastname = $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['name_2']);
+            $surName= $desc = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['name_last']);
 
-            echo '{"Pid":"' . $row[pid] .'","FirstName":"' . $firstName  .'","LastName":"' . $lastname 
-                    .'","SurName":"' . $surName .'","EncounterNr":"' . $row[encounter_nr]
-                .'","EncounterClass":"' . $row[encounter_class_nr].'","Ward":"' . $row[ward]
-                    .'","BillNumber":"' . $row[bill_number]
-                    .'","AdmissionDate":"' . $row[encounter_date].'","DischargeDate":"' 
-                    . $row[discharge_date].'","RoomNo":"' . $row[current_room_nr]
-                    .'","ReleaseDate":"' . $row[release_date].'","BedDays":"' . $row[bedDays].'"}';
+            echo '{"Pid":"' . $row['pid'] .'","FirstName":"' . $firstName  .'","LastName":"' . $lastname 
+                    .'","SurName":"' . $surName .'","EncounterNr":"' . $row['encounter_nr']
+                .'","EncounterClass":"' . $row['encounter_class_nr'].'","Ward":"' . $row['ward']
+                    .'","BillNumber":"' . $row['bill_number']
+                    .'","AdmissionDate":"' . $row['encounter_date'].'","DischargeDate":"' 
+                    . $row['discharge_date'].'","RoomNo":"' . $row['current_room_nr']
+                    .'","ReleaseDate":"' . $row['release_date'].'","BedDays":"' . $row['bedDays'].'"}';
 
             $counter++;
 
@@ -2144,7 +2145,7 @@ class Encounter extends Notes {
      */
     function _InLocation($type_nr) {
         global $db;
-        $debug=false;
+        $debug=true;
         $sql="SELECT nr FROM $this->tb_location WHERE encounter_nr=$this->enc_nr AND type_nr=$type_nr AND 
                 location_nr=$this->loc_nr AND (date_to='' OR date_to='0000-00-00')";
         if($debug) echo $sql;
@@ -2348,6 +2349,7 @@ class Encounter extends Notes {
                 $ok = FALSE;
             }
         }
+
         if ($this->InRoom($enr, $room_nr)) {
             $ok = true;
         } else {
@@ -2357,6 +2359,7 @@ class Encounter extends Notes {
                 $ok = FALSE;
             }
         }
+
         if ($ok && !$this->InBed($enr, $bed_nr)) {
             if ($this->assignInBed($enr, $bed_nr, $ward_nr, $date, $time)) {
                 return true;
@@ -2449,7 +2452,7 @@ class Encounter extends Notes {
     function setCurrentDept($enr, $assign_nr) {
         //echo "<br>setCurrentDept::current_dept_nr=$assign_nr<br>";
 
-        $this->_setLocation($enr, 8, $assign_nr);
+        $this->_setLocation($enr, 8, $assign_nr,'','','');
 
 
         return $this->_setCurrentAssignment($enr, "current_dept_nr=$assign_nr", 'Set dept');
@@ -2681,6 +2684,7 @@ class Encounter extends Notes {
      */
     function _discharge($enr, $loc_types, $d_type_nr, $date, $time = '', $transferToWard) {
         global $dbf_nodate,$db, $dbtype; // $HTTP_SESSION_VARS;,
+        $debug=false;
         if (empty($date))
             $date = date('Y-m-d');
         if (empty($time))
@@ -2701,7 +2705,7 @@ class Encounter extends Notes {
         $this->sql.=" modify_id='" . $_SESSION['sess_user_name'] . "'
 							WHERE encounter_nr=$enr AND type_nr IN ($loc_types)";
 //
-       // echo $this->sql;
+       if($debug) echo $this->sql;
         if ($db->Execute($this->sql)) {
 
 

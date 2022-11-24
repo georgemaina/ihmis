@@ -245,7 +245,7 @@
                 "minChars": 2,
                 "name": "Store",
                 "queryMode": "local",
-                "store": "LocationsStore",
+                "store": "StoreLocationsStore",
                 "typeAhead": true,
                 "valueField": "ID",
                 "width": 485
@@ -440,8 +440,8 @@
             "userConfig": {
                 "columnLines": true,
                 "height": 395,
-                "layout|x": 380,
-                "layout|y": 165,
+                "layout|x": 390,
+                "layout|y": 170,
                 "store": "PrescriptionItemStore",
                 "title": "Prescription Items"
             },
@@ -845,6 +845,16 @@
                     "codeClass": null,
                     "name": "MyCellEditingPlugin1",
                     "designerId": "ea4476a0-f49a-4e40-8c7a-731966931f79"
+                },
+                {
+                    "type": "Ext.selection.CheckboxModel",
+                    "reference": {
+                        "name": "selModel",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyCheckboxSelectionModel",
+                    "designerId": "ddff8540-dee7-4bc9-bfc1-eabc46afdb92"
                 }
             ]
         },
@@ -861,8 +871,8 @@
                 "itemId": "totalcost",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
-                "layout|x": 560,
-                "layout|y": 580,
+                "layout|x": 1020,
+                "layout|y": 570,
                 "name": "TotalCost"
             },
             "configAlternates": {
@@ -889,8 +899,8 @@
                 "designer|displayName": "send",
                 "iconCls": "x-fa fa-save",
                 "itemId": "issueDrugs",
-                "layout|x": 945,
-                "layout|y": 580,
+                "layout|x": 905,
+                "layout|y": 575,
                 "text": "Send",
                 "width": 110
             },
@@ -959,6 +969,32 @@
             "designerId": "ac1cb6e7-cfbe-410d-b3ad-00f3e10de9b1"
         },
         {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|displayName": "printprescription",
+                "iconCls": "x-fa fa-print",
+                "itemId": "cmdAddPrescription",
+                "layout|x": 560,
+                "layout|y": 580,
+                "text": "Add / Edit Prescription"
+            },
+            "configAlternates": {
+                "designer|displayName": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "iconCls": "string"
+            },
+            "name": "MyButton36",
+            "designerId": "16821a68-b991-4bad-acba-9eb9d31767b5"
+        },
+        {
             "type": "linkedinstance",
             "reference": {
                 "name": "items",
@@ -971,7 +1007,7 @@
                 "layout|x": 0,
                 "layout|y": 5,
                 "resizable": false,
-                "width": 375
+                "width": 390
             },
             "configAlternates": {
                 "resizable": "boolean",

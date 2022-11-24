@@ -47,9 +47,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "roles"
-                    },
                     "configAlternates": {
                         "root": "string",
                         "rootProperty": "string"

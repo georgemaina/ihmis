@@ -1,0 +1,334 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "menusform",
+        "designer|userClassName": "MenusForm",
+        "height": 498,
+        "layout": "form",
+        "url": "data/getDataFunctions.php?task=saveMenuItem",
+        "width": 602
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "url": "string",
+        "width": "auto"
+    },
+    "name": "MyForm5",
+    "designerId": "17cee8c2-caf4-49cf-a67a-07a34990eb87",
+    "viewControllerInstanceId": "2444f857-c6da-4447-99c8-53ed9c2f4d9d",
+    "viewModelInstanceId": "4082f30a-e9dc-4e03-8ae1-6e6f2c853d68",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Menu Name",
+                "name": "menuName"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyTextField60",
+            "designerId": "65e27247-df9d-42fd-835c-e0a0d866f461"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowOnlyWhitespace": false,
+                "displayField": "MenuGroup",
+                "fieldLabel": "Group Name",
+                "itemId": "groupID",
+                "minChars": 2,
+                "name": "menuGroup",
+                "queryMode": "local",
+                "store": "MenuGroupStore",
+                "typeAhead": true,
+                "valueField": "ID"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "allowOnlyWhitespace": "boolean",
+                "displayField": "datafield",
+                "itemId": "string",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox9",
+            "designerId": "f166607e-7820-4385-8533-9833d58d7f56"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Menu Url",
+                "name": "menuUrl"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyTextField62",
+            "designerId": "517a8bb7-ec37-4b9d-91ff-f2c78089ba4a"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Sort Number",
+                "name": "SortNr"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyTextField66",
+            "designerId": "9a9c3932-839f-4939-ab79-972b6256219c"
+        },
+        {
+            "type": "Ext.form.field.Checkbox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Visible",
+                "inputValue": "1",
+                "name": "visible"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "inputValue": "string",
+                "name": "string"
+            },
+            "name": "MyCheckbox8",
+            "designerId": "8c8ce981-cee9-429a-8d8f-d9e4784b9b44"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Status",
+                "name": "menuStatus",
+                "store": [
+                    "['Active','Disabled']"
+                ]
+            },
+            "configAlternates": {
+                "store": "array",
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyComboBox19",
+            "designerId": "296b1737-68b5-404c-9b77-97f76d46734f"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Menu Image",
+                "name": "menuImage"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyTextField63",
+            "designerId": "dcac8b46-0aea-4493-b01d-993010a00a49"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "dispType",
+                "fieldLabel": "Menu Type",
+                "minChars": 2,
+                "name": "menuType",
+                "queryMode": "local",
+                "store": [
+                    "[{dispType:\"Main Menu\",dispvalue:\"1\"},{dispType:\"SubMenu\",dispvalue:\"2\"}]"
+                ],
+                "typeAhead": true,
+                "valueField": "dispvalue"
+            },
+            "configAlternates": {
+                "store": "array",
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox20",
+            "designerId": "86ae1951-8568-4316-b91d-23a6df668835"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Page ID",
+                "name": "PageID"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string"
+            },
+            "name": "MyTextField64",
+            "designerId": "c52d17dd-4cd6-4367-a044-d154f2b514b3"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "dispType",
+                "fieldLabel": "Display Type",
+                "minChars": 2,
+                "name": "DisplayType",
+                "queryMode": "local",
+                "store": [
+                    "[{dispType:\"Full Screen\",dispValue:\"1\"},{dispType:\"Popup Screen\",dispValue:\"2\"}]"
+                ],
+                "typeAhead": true,
+                "valueField": "dispValue"
+            },
+            "configAlternates": {
+                "store": "array",
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox27",
+            "designerId": "5cca8dfa-af1e-495d-8692-8fc8720a5e3e"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "height": 40,
+                "layout": "hbox"
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "container|pack": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MyFieldContainer7",
+            "designerId": "a68a28f8-7e41-4314-91ef-44a07b4934d4",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-save",
+                        "itemId": "cmdSaveMenu",
+                        "margin": "0 50 0 0",
+                        "text": "Save",
+                        "width": 134
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "margin": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton34",
+                    "designerId": "430fd589-119b-4ab8-8c0d-19c387892811"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdClose",
+                        "text": "Close",
+                        "width": 138
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "45b3bcd6-11c5-4b25-b582-d8ef1b8b573c"
+                }
+            ]
+        }
+    ]
+}

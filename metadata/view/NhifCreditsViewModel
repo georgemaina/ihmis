@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "nhifcredits",
+        "designer|userClassName": "NhifCreditsViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "LabTests1ViewModel",
+    "designerId": "43489111-e49d-4cd9-a4de-c9546c2e2b5b"
+}

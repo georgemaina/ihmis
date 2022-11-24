@@ -7,9 +7,12 @@
     "codeClass": null,
     "userConfig": {
         "bodyStyle": "background:#386d87",
+        "container|align": "stretch",
         "designer|userAlias": "invoicepanel",
         "designer|userClassName": "InvoicePanel",
         "itemId": "InvoicePanel",
+        "layout": "vbox",
+        "minHeight": 1020,
         "scrollable": "vertical"
     },
     "configAlternates": {
@@ -19,7 +22,10 @@
         "title": "string",
         "bodyStyle": "string",
         "scrollable": "auto",
-        "itemId": "string"
+        "itemId": "string",
+        "minHeight": "number",
+        "container|align": "string",
+        "layout": "string"
     },
     "name": "MyPanel1",
     "designerId": "85574586-3336-45c1-88ad-583e8607a578",
@@ -62,6 +68,7 @@
                     "userConfig": {
                         "emptyText": "Select Invoice Type",
                         "fieldLabel": "Invoice Type",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "invoiceType",
                         "labelAlign": "right",
                         "labelStyle": "font-weight:bold; color:#f4f6fc;",
@@ -81,7 +88,8 @@
                         "fieldLabel": "string",
                         "labelAlign": "string",
                         "labelStyle": "string",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyComboBox10",
                     "designerId": "42524bbc-e1b1-4d0c-a474-da37258241ca"
@@ -98,12 +106,16 @@
                         "displayField": "BillNumbers",
                         "emptyText": "Select Invoice Number",
                         "fieldLabel": "Bill Number",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "txtBillNumber",
                         "labelAlign": "right",
                         "labelStyle": "font-weight:bold; color:#f4f6fc;",
                         "layout|x": -14,
                         "layout|y": 75,
+                        "minChars": 2,
+                        "queryMode": "local",
                         "store": "BillNumbersStore",
+                        "typeAhead": true,
                         "valueField": "BillNumbers",
                         "width": 315
                     },
@@ -120,10 +132,56 @@
                         "labelAlign": "string",
                         "labelStyle": "string",
                         "value": "object",
-                        "allowBlank": "boolean"
+                        "allowBlank": "boolean",
+                        "fieldStyle": "string",
+                        "minChars": "number",
+                        "queryMode": "string",
+                        "typeAhead": "boolean"
                     },
                     "name": "MyComboBox13",
-                    "designerId": "a58e9ede-11be-463a-b206-e54c971b18ba"
+                    "designerId": "a58e9ede-11be-463a-b206-e54c971b18ba",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTxtBillNumberChange",
+                                "implHandler": [
+                                    "Ext.Ajax.request({",
+                                    "    url: 'data/getReportsData.php?task=getEncounterFromBill',",
+                                    "    params: {",
+                                    "        billNumber:newValue",
+                                    "    },",
+                                    "    waitMsg: 'getting encounteNo ...',",
+                                    "    success: function(response){",
+                                    "        var encDetails= Ext.util.JSON.decode(response.responseText);",
+                                    "        field.up('panel').down('#encNr').setValue(encDetails[0].encounter_nr);",
+                                    "    },",
+                                    "    failure:function(response){",
+                                    "        var resp = JSON.parse(response);",
+                                    "        Ext.Msg.alert('Error',resp.Error);",
+                                    "",
+                                    "        //                     Ext.Msg.alert('Error','There was a problem deleting the Part Locations, Contact System Administrator');",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onTxtBillNumberChange",
+                            "designerId": "56a2b12c-2d4b-48d4-8ffe-7eb39ce8c54a"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -136,6 +194,7 @@
                         "allowBlank": false,
                         "emptyText": "Enter Pid",
                         "fieldLabel": "Pid",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "txtInvoicePid",
                         "labelAlign": "right",
                         "labelStyle": "font-weight:bold; color:#f4f6fc;",
@@ -153,7 +212,8 @@
                         "labelAlign": "string",
                         "labelStyle": "string",
                         "value": "object",
-                        "allowBlank": "boolean"
+                        "allowBlank": "boolean",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField47",
                     "designerId": "c713a177-f775-45f2-a030-972e8667788c"
@@ -168,6 +228,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "emptyText": "Patient Name",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "txtPatientName",
                         "layout|x": 180,
                         "layout|y": 40,
@@ -179,7 +240,8 @@
                         "layout|y": "number",
                         "width": "auto",
                         "itemId": "string",
-                        "allowBlank": "boolean"
+                        "allowBlank": "boolean",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField48",
                     "designerId": "f4641bd7-83f9-433a-a41c-c46711997f21"
@@ -195,7 +257,7 @@
                         "labelAlign": "right",
                         "labelStyle": "color:Green; font-weight:bold;",
                         "layout": "anchor",
-                        "layout|x": 480,
+                        "layout|x": 550,
                         "layout|y": 5,
                         "style": "color:Green; font-weight:bold;",
                         "width": 190
@@ -284,7 +346,7 @@
                         "icon": "f570",
                         "iconCls": "x-fa fa-inbox",
                         "itemId": "cmdPreviewInvoice",
-                        "layout|x": 720,
+                        "layout|x": 780,
                         "layout|y": 10,
                         "text": "Preview",
                         "width": 100
@@ -312,8 +374,8 @@
                     "userConfig": {
                         "formBind": true,
                         "iconCls": "x-fa fa-print",
-                        "itemId": "cmdPrintInvoice",
-                        "layout|x": 830,
+                        "itemId": "cmdPrintIpInvoice",
+                        "layout|x": 900,
                         "layout|y": 10,
                         "text": "Print A4 Invoice Size",
                         "width": 165
@@ -340,7 +402,7 @@
                     "userConfig": {
                         "formBind": true,
                         "iconCls": "x-fa fa-print",
-                        "layout|x": 1005,
+                        "layout|x": 1080,
                         "layout|y": 10,
                         "text": "Print Mini Invoice",
                         "width": 160
@@ -367,7 +429,8 @@
                         "fieldLabel": "Encounter No",
                         "itemId": "encNr",
                         "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                        "layout|x": 570,
+                        "labelWidth": 95,
+                        "layout|x": 640,
                         "layout|y": 75
                     },
                     "configAlternates": {
@@ -375,10 +438,62 @@
                         "itemId": "string",
                         "labelStyle": "string",
                         "layout|x": "number",
-                        "layout|y": "number"
+                        "layout|y": "number",
+                        "labelWidth": "number"
                     },
                     "name": "MyTextField43",
                     "designerId": "b2fdeca0-fc38-4eca-b978-f3353b234f18"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "labelStyle": "font-weight:bold; color:#f4f6fc;",
+                        "labelWidth": 95,
+                        "layout|x": 935,
+                        "layout|y": 75
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "labelStyle": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "labelWidth": "number"
+                    },
+                    "name": "MyTextField77",
+                    "designerId": "ba049390-e730-4585-98e7-2ef634bcfb61"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "cmdSearchAdmissions",
+                        "layout|x": 475,
+                        "layout|y": 40,
+                        "text": "Search",
+                        "width": 95
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton34",
+                    "designerId": "9849571f-5744-49fb-abe1-b0668786abfd"
                 }
             ]
         },
@@ -392,19 +507,19 @@
             "userConfig": {
                 "html": "<div id=invoiceDetails>Invoice will be displayed here....</div>",
                 "itemId": "invoiceDetails",
+                "layout|flex": 1,
                 "scrollable": "vertical",
                 "style": "border:1;"
             },
             "configAlternates": {
-                "height": "auto",
-                "style": "string",
-                "frame": "boolean",
                 "itemId": "string",
+                "layout|flex": "number",
+                "html": "string",
                 "scrollable": "auto",
-                "html": "string"
+                "style": "string"
             },
-            "name": "MyFieldSet14",
-            "designerId": "179776ba-2662-4cae-a3c6-578b405200f9"
+            "name": "MyFieldSet21",
+            "designerId": "c2d740d7-c3af-4391-84d4-ca3b0894c034"
         }
     ]
 }

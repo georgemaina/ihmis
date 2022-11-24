@@ -15,7 +15,7 @@
         "height": 565,
         "itemId": "debitsForm",
         "padding": "0 0 0 0",
-        "url": "../../data/getDataFunctions.php?task=saveDebit",
+        "url": "data/getDataFunctions.php?task=saveDebit",
         "width": 860
     },
     "configAlternates": {

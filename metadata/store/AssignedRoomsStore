@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "assignedroomsstore",
+        "designer|userClassName": "AssignedRoomsStore",
+        "model": "AssignedRooms",
+        "storeId": "AssignedRoomsStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "autoLoad": "boolean",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "275af03e-bc9a-43f1-b1ec-20aca97d73ef",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getRoomPatients"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy23",
+            "designerId": "720098d0-178b-490d-b117-dc18ca9307e6",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader22",
+                    "designerId": "0e5267d3-24df-45a5-a995-18ce990812da"
+                }
+            ]
+        }
+    ]
+}

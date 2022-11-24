@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": false,
+        "autoLoad": true,
         "designer|userAlias": "notesstore",
         "designer|userClassName": "NotesStore",
         "model": "Notes",

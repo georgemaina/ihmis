@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoLoad": true,
         "designer|userAlias": "purchordersstore",
         "designer|userClassName": "PurchOrdersStore",
         "model": "PurchOrdersModel",
@@ -15,7 +16,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "autoLoad": "boolean"
     },
     "name": "MyJsonStore",
     "designerId": "460806e1-e894-4f8b-879b-4de2c411b48e",

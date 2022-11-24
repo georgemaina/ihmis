@@ -10,7 +10,7 @@
         "designer|userAlias": "notes",
         "designer|userClassName": "Notes",
         "height": 510,
-        "width": 850
+        "width": 976
     },
     "configAlternates": {
         "bodyPadding": "auto",
@@ -176,94 +176,361 @@
             ]
         },
         {
-            "type": "Ext.form.FieldSet",
+            "type": "Ext.container.Container",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "height": 95,
-                "layout": "hbox",
-                "padding": 5
+                "container|align": "stretch",
+                "height": 393,
+                "layout": "hbox"
             },
             "configAlternates": {
                 "container|align": "string",
-                "layout": "string",
-                "padding": "auto",
-                "height": "auto"
+                "height": "auto",
+                "layout": "string"
             },
-            "name": "MyFieldSet10",
-            "designerId": "83a1492b-cdcc-4e86-896f-bca335d10fd2",
+            "name": "MyContainer",
+            "designerId": "9d33d5a7-fb9e-4676-95cf-fbaa37f460bd",
             "cn": [
                 {
-                    "type": "Ext.form.field.ComboBox",
+                    "type": "Ext.container.Container",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": "Description",
-                        "emptyText": "Select Note Types",
-                        "itemId": "type_nr",
                         "layout|flex": 0,
-                        "minChars": 2,
-                        "name": "type_nr",
-                        "queryMode": "local",
-                        "store": "NoteTypesStore",
-                        "typeAhead": true,
-                        "valueField": "ID",
-                        "width": 193
+                        "width": 227
                     },
                     "configAlternates": {
-                        "displayField": "datafield",
-                        "emptyText": "string",
-                        "itemId": "string",
                         "layout|flex": "number",
-                        "minChars": "number",
-                        "name": "string",
-                        "queryMode": "string",
-                        "store": "store",
-                        "typeAhead": "boolean",
-                        "valueField": "datafield",
                         "width": "auto"
                     },
-                    "name": "MyComboBox3",
-                    "designerId": "6eed0ed8-b4fa-4c64-b662-9ea269d0cc81"
+                    "name": "MyContainer1",
+                    "designerId": "18709086-3d2f-4ffa-8eef-30306b28379a",
+                    "cn": [
+                        {
+                            "type": "Ext.form.RadioGroup",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "itemId": "type_nr",
+                                "layout": "vbox",
+                                "width": 225
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "itemId": "string",
+                                "layout": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyRadioGroup3",
+                            "designerId": "738bcd22-9959-49f1-a03a-f9fe2ab6d1d0",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Chief Complaints</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "1"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio6",
+                                    "designerId": "c081e4e4-a62c-4867-bf8c-89264c632fe8"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Medical/Family/Social History</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "2"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio10",
+                                    "designerId": "5c74ab31-2fdc-461d-8a6b-f4e04749d6d2"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>History Presenting Illness</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "6"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio11",
+                                    "designerId": "41d56538-8c26-4cc7-9a90-67ac1b560fe9"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Medications & Allergies</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "22"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio14",
+                                    "designerId": "3529bd0f-6268-4082-bc4e-3442102487fc"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Review of Symtoms</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "4"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio12",
+                                    "designerId": "b3630d92-8b5f-4d7a-b398-3329e7e1d4d0"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Physical Exams</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "5"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio15",
+                                    "designerId": "ac9a54a5-67f2-433c-af57-a0962a5ccbc6"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Investigations</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "10"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio16",
+                                    "designerId": "07d56e8e-dd5f-4ae7-92b3-60261d2c522f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Radio",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "boxLabel": "<b>Plan</b>",
+                                        "fieldLabel": null,
+                                        "inputValue": "7"
+                                    },
+                                    "configAlternates": {
+                                        "boxLabel": "string",
+                                        "fieldLabel": "string",
+                                        "inputValue": "string"
+                                    },
+                                    "name": "MyRadio17",
+                                    "designerId": "2df0bfbf-3d36-49da-8598-54dc20e1d447"
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    "type": "Ext.form.field.TextArea",
+                    "type": "Ext.container.Container",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "emptyText": "Notes",
-                        "height": 82,
-                        "itemId": "notes",
-                        "labelAlign": "top",
-                        "layout|flex": 1,
-                        "margin": "0 3 0 0",
-                        "name": "notes",
-                        "width": 403
+                        "height": 459,
+                        "layout|flex": 1
                     },
                     "configAlternates": {
-                        "layout|flex": "number",
-                        "fieldLabel": "string",
-                        "labelAlign": "string",
-                        "emptyText": "string",
+                        "height": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyContainer2",
+                    "designerId": "645d4653-4b20-4b70-92f8-a6f2ba464981",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 184,
+                                "layout": "hbox",
+                                "padding": 5
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "height": "auto"
+                            },
+                            "name": "MyFieldSet10",
+                            "designerId": "83a1492b-cdcc-4e86-896f-bca335d10fd2",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.HtmlEditor",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 191,
+                                        "itemId": "notes",
+                                        "labelAlign": "top",
+                                        "layout|flex": 1,
+                                        "margin": "0 3 0 0",
+                                        "name": "notes",
+                                        "width": 403
+                                    },
+                                    "configAlternates": {
+                                        "layout|flex": "number",
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "emptyText": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "margin": "auto",
+                                        "width": "auto",
+                                        "itemId": "string",
+                                        "height": "auto",
+                                        "name": "string",
+                                        "fieldStyle": "string"
+                                    },
+                                    "name": "MyHtmlEditor1",
+                                    "designerId": "cbfba127-afc1-4037-96ec-1e507f8123d4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "noteslist",
+                            "designerId": "4e02a1bd-1181-4f69-a0a7-c5676ca77ffd",
+                            "masterInstanceId": "81e553a0-a066-4b56-b038-19b8ed461acb"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 5,
+                "height": 37,
+                "layout": "absolute"
+            },
+            "configAlternates": {
+                "designer|snapToGrid": "number",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MyContainer5",
+            "designerId": "d235bb2c-1055-4733-9450-d1085f59b8f8",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-sync",
+                        "layout|x": 235,
+                        "layout|y": 0,
+                        "text": "Preview Note",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
                         "layout|x": "number",
                         "layout|y": "number",
-                        "margin": "auto",
-                        "width": "auto",
-                        "itemId": "string",
-                        "height": "auto",
-                        "name": "string"
+                        "text": "string",
+                        "width": "auto"
                     },
-                    "name": "MyTextArea4",
-                    "designerId": "cbfba127-afc1-4037-96ec-1e507f8123d4"
+                    "name": "MyButton5",
+                    "designerId": "a976a559-8033-4bc7-9561-31153e55f15b"
                 },
                 {
                     "type": "Ext.button.Button",
@@ -276,38 +543,24 @@
                         "height": 32,
                         "iconCls": "x-fa fa-save",
                         "itemId": "cmdAddComplaints",
-                        "text": "Confirm"
+                        "layout|x": 560,
+                        "layout|y": 0,
+                        "text": "Save",
+                        "width": 140
                     },
                     "configAlternates": {
                         "height": "auto",
                         "text": "string",
                         "itemId": "string",
-                        "iconCls": "string"
+                        "iconCls": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto"
                     },
                     "name": "MyButton17",
                     "designerId": "519c73de-5a6b-44e3-883f-bd08f26895cd"
                 }
             ]
-        },
-        {
-            "type": "Ext.panel.Panel",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 337,
-                "itemId": "notesPanel",
-                "scrollable": "vertical"
-            },
-            "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "scrollable": "auto"
-            },
-            "name": "MyPanel1",
-            "designerId": "11562998-9c36-4a17-89e1-dd1d59a2e6f9"
         }
     ]
 }

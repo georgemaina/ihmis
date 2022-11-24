@@ -25,10 +25,10 @@ body{
 }
 
 .page{
-    width: 216mm;
-    min-height: 279mm;
-    padding: 10mm 2cm 2cm 2cm;
-    margin: 10mm auto;
+    width: 100mm;
+    height: 279mm;
+    padding: 1mm 2mm 2mm 2mm;
+    margin: 1mm auto;
     border: 1px #d3d3d3 solid;
     border-radius: 5px;
     background: white;
@@ -36,9 +36,10 @@ body{
 }
 
 .subpage {
-        padding: 5mm 1cm 1cm 5mm;
-        border: 1px green solid;
-        height: 239mm; /* .page height -40mm (20 off top/bottom) */
+        padding: 1mm 5mm 1mm 1mm;
+        border: 0px green solid;
+        height: 150mm; /* .page height -40mm (20 off top/bottom) */
+        width: 100mm;
         /*outline: 2cm #d3dfea solid;*/
         display: table;
     }
@@ -49,7 +50,7 @@ body{
     }
     @media print {
         html, body {
-            width: 216mm;
+            width: 100mm;
             height: 279mm;        
         }
         .page {
@@ -67,31 +68,40 @@ body{
     .logo{
         text-align: center;
     }
-    
+
+
+
     .invTitle{
-        text-align: left;
+        text-align: center;
         font-family: sans-serif;
         font-size: small;
         font-weight: bold;
     }
-    
-    .invDetails{
-        font-style: italic;
-        font-family: helvetica;
-        font-size: 12px;
-        padding: 4px;
-    }
-    
-    .summaryTitle{
+
+    .reprintSS{
         text-align: center;
         font-family: sans-serif;
-        font-size: large;
+        font-size: small;
         font-weight: bold;
+        color: red;
     }
     
-        
+    .invDetails{
+        font-style: normal;
+        font-family: helvetica;
+        font-size: smaller;
+    }
+    
+    .mainTitles{
+        font-style:normal;
+		font-family: helvetica;
+        font-size: 18px;
+        font-weight: bold;
+    }    
+		
     .itemTitles{
-        font-size: x-small;
+        font-style:normal;
+        font-size: small;
         font-weight: bold;
     }
     
@@ -110,14 +120,41 @@ body{
         background-color: #4caf50;
         color:white;
     }
-
-
-    .treatmentpage {
-        height: 100%;
-        width: 500px;
-        border: solid 1px blue;
-        outline: solid 1px red;
+    
+    .chqDate{
+        position: relative;
+        left:580px;
+        top: 17px;
+        width:160px;
+        /*border:2px solid #D7D7D7;*/
     }
-
-
+    .chqAmount{
+        position: relative;
+        left:560px;
+        top:132px;
+        width:160px;
+        /*border:2px solid #D7D7D7;*/
+    }
+    .chqPayee{
+        position: relative;
+        left:70px;
+        top:150px;
+        width:420px;
+        padding-left: 40px;
+		font-size: 12px;
+        /*border:2px solid #D7D7D7;*/
+    }
+    
+    .chqAmountDetails{
+        position: relative;
+        left:60px;
+        top:160px;
+        width:450px;
+        padding-left: 120px;
+        height: 60px;
+        line-height: 260%;
+		font-size: 12px;
+        /*border:2px solid #D7D7D7;*/
+    }
+    
     /*tr:nth-child(even){background-color: #f2f2f2}*/

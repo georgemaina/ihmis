@@ -1,0 +1,274 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "laboratoryreports",
+        "designer|userClassName": "LaboratoryReports"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PharmacyReports1",
+    "designerId": "2f9e9d13-3178-4330-8354-afc3245e5d8b",
+    "viewControllerInstanceId": "46a33fb9-7d91-437c-8f72-f1244fedcc97",
+    "viewModelInstanceId": "db74c16e-5e72-4c99-aa5f-244d92462063",
+    "cn": [
+        {
+            "type": "Ext.button.Segmented",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "anchor",
+                "padding": "5 0 5 5",
+                "width": 892
+            },
+            "configAlternates": {
+                "layout": "string",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MySegmentedButton",
+            "designerId": "db8ecce4-9a37-417e-8bb0-11cf99a65b78",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuOPMobidity",
+                        "margin": "10 0 0 10",
+                        "text": "Laboratory Summaries"
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "margin": "auto",
+                        "text": "string"
+                    },
+                    "name": "MyButton46",
+                    "designerId": "fac7e026-5c66-41c2-a1a1-9aa19560f334"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "itemId": "mnuOpVisits",
+                        "pressed": true,
+                        "text": "Laboratory Activities"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "enableToggle": "boolean",
+                        "itemId": "string",
+                        "pressed": "boolean"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "38cfe22f-0397-4db4-b3f5-16813543f68a"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuDiagnosisReport",
+                        "text": "Revenue by Test"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "4ccb6163-5b30-4518-8dbe-c386cccf7ac8"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuTopDiseases",
+                        "text": "Patient Lab Tests"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton45",
+                    "designerId": "7be38107-15d4-4c7a-90d7-620c0739e9d2"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuDentalClinic",
+                        "text": "Results Summaries"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton47",
+                    "designerId": "55005d5d-b721-4dd6-9092-4de252022975"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuHtc",
+                        "text": "Xray Activities"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton48",
+                    "designerId": "e87e2b2f-37fb-4163-8000-313c7c160a5e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuWorkload",
+                        "text": "Xray Revenue"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton49",
+                    "designerId": "17338396-d7de-4040-877c-56bcfaeeb6d8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.button.Segmented",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "layout": "anchor",
+                "padding": "0 0 5 5"
+            },
+            "configAlternates": {
+                "layout": "string",
+                "padding": "auto",
+                "hidden": "boolean"
+            },
+            "name": "MySegmentedButton2",
+            "designerId": "bda2091d-ffca-4418-b16d-9580e28d9a2c",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuCreditSlips",
+                        "margin": "10 0 0 10",
+                        "text": "Credit Slips"
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton46",
+                    "designerId": "8602a9f0-9cc0-4dc1-b703-151547c6b3fa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "itemId": "mnuOpInvoices",
+                        "pressed": true,
+                        "text": "Outpatient Invoices"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "enableToggle": "boolean",
+                        "pressed": "boolean",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "c4dab190-aa03-439d-a450-9a01333de25b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mnuTreatmentReport",
+                        "text": "HTN Treatment Register"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "c1ade7f9-cb75-4143-87ac-d3a98d6e485d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "opReports"
+            },
+            "configAlternates": {
+                "itemId": "string"
+            },
+            "name": "MyContainer17",
+            "designerId": "f921d539-ea2b-4702-b548-2d89ce09ca3c"
+        }
+    ]
+}

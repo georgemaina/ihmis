@@ -567,7 +567,8 @@
             "codeClass": null,
             "userConfig": {
                 "height": 40,
-                "itemId": "cmdSave",
+                "iconCls": "x-fa fa-save",
+                "itemId": "cmdSaveInsuranceCredit",
                 "layout|x": 180,
                 "layout|y": 305,
                 "tabIndex": 7,
@@ -582,7 +583,8 @@
                 "text": "string",
                 "width": "auto",
                 "tabIndex": "number",
-                "formBind": "boolean"
+                "formBind": "boolean",
+                "iconCls": "string"
             },
             "name": "MyButton16",
             "designerId": "4509fd58-d9ff-43d1-a4ff-afbbfa0e04bc"
@@ -596,6 +598,7 @@
             "codeClass": null,
             "userConfig": {
                 "height": 40,
+                "iconCls": "x-fa fa-close",
                 "itemId": "cmdClose",
                 "layout|x": 420,
                 "layout|y": 305,
@@ -610,7 +613,8 @@
                 "text": "string",
                 "width": "auto",
                 "itemId": "string",
-                "tabIndex": "number"
+                "tabIndex": "number",
+                "iconCls": "string"
             },
             "name": "MyButton17",
             "designerId": "389e8e6c-9a08-4367-9fa2-f00722b35306"

@@ -150,6 +150,9 @@
                         "layout|x": 50,
                         "layout|y": 35,
                         "name": "orderDate",
+                        "value": [
+                            "new Date()"
+                        ],
                         "width": 345
                     },
                     "configAlternates": {
@@ -161,7 +164,8 @@
                         "labelStyle": "string",
                         "name": "string",
                         "itemId": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "value": "object"
                     },
                     "name": "MyDateField1",
                     "designerId": "e9e66dc3-97dd-4729-a2df-0ea5262c1dcc"
@@ -187,7 +191,7 @@
                         "minChars": 2,
                         "name": "department",
                         "queryMode": "local",
-                        "store": "DepartmentsStore",
+                        "store": "LocationsStore",
                         "typeAhead": true,
                         "valueField": "ID",
                         "width": 395
@@ -317,7 +321,7 @@
                         "minChars": 2,
                         "name": "suppStore",
                         "queryMode": "local",
-                        "store": "LocationsStore",
+                        "store": "StoreLocationsStore",
                         "typeAhead": true,
                         "valueField": "ID",
                         "width": 395
@@ -526,7 +530,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|snapToGrid": 5,
-                "height": 50,
+                "height": 46,
                 "layout": "absolute",
                 "style": "background-color: #d9f2e6;"
             },
@@ -547,7 +551,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "cmdGetItems",
+                        "itemId": "cmdGetDrugsItems",
                         "layout|x": 5,
                         "layout|y": 0,
                         "text": "Get Products List",

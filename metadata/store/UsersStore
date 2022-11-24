@@ -10,6 +10,7 @@
         "designer|userAlias": "usersstore",
         "designer|userClassName": "UsersStore",
         "model": "Users",
+        "pageSize": 500,
         "storeId": "UsersStore"
     },
     "configAlternates": {
@@ -17,7 +18,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "autoLoad": "boolean"
+        "autoLoad": "boolean",
+        "pageSize": "number"
     },
     "name": "UnitsMeasureStore2",
     "designerId": "9915891a-0bf8-4aa3-b2a1-1c2bc7d59e52",

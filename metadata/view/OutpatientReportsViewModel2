@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "pharmacyreports",
+        "designer|userClassName": "OutpatientReportsViewModel2"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OutpatientReportsViewModel2",
+    "designerId": "24203c0a-8e3e-4c08-8679-a95cb5d98be2"
+}

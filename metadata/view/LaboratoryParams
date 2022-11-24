@@ -10,7 +10,7 @@
         "designer|userAlias": "laboratoryparams",
         "designer|userClassName": "LaboratoryParams",
         "height": 630,
-        "itemId": "labTestsGrid",
+        "itemId": "labParamsGrid",
         "store": "LabParamsStore"
     },
     "configAlternates": {
@@ -51,17 +51,17 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "GroupID",
-                "text": "Group Id",
-                "width": 110
+                "dataIndex": "Description",
+                "text": "Description",
+                "width": 269
             },
             "configAlternates": {
                 "dataIndex": "datafield",
                 "text": "string",
                 "width": "auto"
             },
-            "name": "MyColumn67",
-            "designerId": "7970a0fd-0048-4fc1-9ac2-a8a4fc6ef0f1"
+            "name": "MyColumn66",
+            "designerId": "0f7d5ccc-11e5-4bb7-aa0a-b8c088029e1b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -89,26 +89,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Description",
-                "text": "Description",
-                "width": 269
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string",
-                "width": "auto"
-            },
-            "name": "MyColumn66",
-            "designerId": "0f7d5ccc-11e5-4bb7-aa0a-b8c088029e1b"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "dataIndex": "Price",
                 "text": "Price"
             },
@@ -118,6 +98,26 @@
             },
             "name": "MyColumn68",
             "designerId": "780948e5-72e0-4664-9336-e6afb88153db"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "GroupID",
+                "text": "Group Id",
+                "width": 110
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn67",
+            "designerId": "7970a0fd-0048-4fc1-9ac2-a8a4fc6ef0f1"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -193,7 +193,7 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-plus",
                         "itemId": "cmdNewParams",
-                        "layout|x": 550,
+                        "layout|x": 280,
                         "layout|y": 5,
                         "text": "New Parameter"
                     },
@@ -217,14 +217,15 @@
                     "userConfig": {
                         "displayField": "Description",
                         "emptyText": "Select Parameter Group",
+                        "hidden": true,
                         "itemId": "labParams",
-                        "layout|x": 305,
+                        "layout|x": 270,
                         "layout|y": 5,
                         "minChars": 1,
                         "queryMode": "local",
                         "typeAhead": true,
                         "valueField": "Description",
-                        "width": 190
+                        "width": 130
                     },
                     "configAlternates": {
                         "displayField": "datafield",
@@ -237,7 +238,8 @@
                         "store": "store",
                         "typeAhead": "boolean",
                         "valueField": "datafield",
-                        "width": "auto"
+                        "width": "auto",
+                        "hidden": "boolean"
                     },
                     "name": "MyComboBox14",
                     "designerId": "47fc0d5c-b3c7-4f64-8090-a2619567605d"
@@ -263,6 +265,32 @@
                     },
                     "name": "MyTextField17",
                     "designerId": "be6b7d9a-5de4-4d3d-b0c7-e93945464541"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "Source",
+                        "layout|x": 420,
+                        "layout|y": 5,
+                        "value": [
+                            "Params"
+                        ],
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "value": "object",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField59",
+                    "designerId": "8e401432-8c09-4186-b708-b5d0d49b9c14"
                 }
             ]
         }

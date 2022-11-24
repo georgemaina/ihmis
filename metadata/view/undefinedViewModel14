@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "receiptslist",
+        "designer|userClassName": "undefinedViewModel14"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewModel14",
+    "designerId": "f8a73cc8-0709-4d18-b59e-8447e77e8cc3"
+}

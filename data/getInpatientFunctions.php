@@ -41,21 +41,15 @@ $start = $_REQUEST['start'];
 
 $searchParam=$_REQUEST['searchParam'];
 
+$discharged=$_REQUEST['discharged'];
+$admType=$_REQUEST['admType'];
+
 switch ($caller) {
-    case "debit":
-        getPNames($pid);
-        break;
-    case "grid":
-        getDescription($desc);
-        break;
     case "getBillNumbers":
         getBillNumbers($pid);
         break;
     case "finalize":
         finalizeInvoice($db, $pid, $bill_number, $fdate);
-        break;
-    case "getNewReceipt":
-        getNewReceipt();
         break;
     case "nhif":
         getNHIFCredits($dt1, $dt2);
@@ -91,7 +85,7 @@ switch ($caller) {
         deleteBillItem($pid);
         break;
     case "updateBillItems":
-        updateBillItems($_POST);
+        updateBillItems($_POST,$pid);
         break;
     case "getAllBills":
         getAllBills($pid, $bill_number);
@@ -107,9 +101,6 @@ switch ($caller) {
         break;
     case "deleteReceiptItem":
         deleteReceiptItem($pid);  //32367
-        break;
-    case "insuranceCredit":
-        insuranceCredit($_POST);
         break;
     case "getInsuranceCompanies":
         getInsuranceCompanies();
@@ -144,9 +135,99 @@ switch ($caller) {
     case "getWaitingList":
         getWaitingList($wrdNo,$ward_obj);
         break;
+    case "getAdmissions":
+        getAdmissions($pid,$discharged,$admType);
+        break;
+    case "getDischarges":
+        getDischarges($pid);
+        break;
     default:
         echo "{failure:true}";
         break;
+}
+
+function getDischarges($pid){
+    global $conn;
+    $debug=false;
+
+    $sql="SELECT p.pid, concat(name_first,' ',name_last,' ',name_2) as names,date_birth as dob,
+            e.encounter_nr,e.encounter_date as admDate,e.`encounter_time` as admTime,
+            e.discharge_date as disDate,e.`discharge_time` AS disTime,e.`release_date` AS relDate,
+            DATEDIFF(e.`discharge_date`,e.`encounter_date`) AS bedDays,w.`name`  as ward,
+            p.phone_2_nr as phone,p.nat_id_nr as idNo,if(b.`service_type`<>'Payment',sum(total),0) as totalInvoice,
+            e.`bill_number`,w.`name` AS ward,p.`memberNo` AS nhifNo
+        FROM care_person p
+        LEFT JOIN care_encounter e on p.pid=e.pid
+        LEFT JOIN care_ward w ON e.`current_ward_nr`=w.`nr`
+        LEFT JOIN care_ke_billing b ON e.`encounter_nr`=b.`encounter_nr`
+        WHERE e.encounter_class_nr=1 AND e.is_discharged=1";
+
+        if($pid<>''){
+            $sql.=" AND p.pid='$pid'";
+        }
+
+        $sql.="  GROUP BY e.`encounter_nr`";
+   
+    if($debug) echo $sql;
+     $request=$conn->query($sql);
+     if($request->num_rows>0){
+        while($row[]=$request->fetch_assoc()){
+            $item=$row;
+            $json=json_encode($item,JSON_NUMERIC_CHECK);
+        }
+     }else{
+         echo "no Data Found";
+     }
+   
+    echo $json;
+    $conn->close();
+
+}
+
+function getAdmissions($pid,$discharged,$admType){
+    global $conn;
+    $debug=false;
+
+    $sql="SELECT p.pid, concat(name_first,' ',name_last,' ',name_2) as names,date_birth as dob,
+            e.encounter_nr,e.encounter_date as admDate,e.discharge_date as disDate,e.`encounter_time` as admTime,
+            w.`name`  as ward, p.phone_2_nr as phone,p.nat_id_nr as idNo,e.`bill_number`,
+            if(b.`service_type`<>'Payment',sum(total),0) as totalInvoice,e.encounter_class_nr
+        FROM care_person p
+        LEFT JOIN care_encounter e on p.pid=e.pid
+        LEFT JOIN care_ward w ON e.`current_ward_nr`=w.`nr`
+        LEFT JOIN care_ke_billing b ON e.`encounter_nr`=b.`encounter_nr`
+        WHERE  p.pid<>'0' ";
+
+        if($discharged==""){
+            $sql.=" AND e.is_discharged='0' ";
+        }else{
+            $sql.=" AND e.is_discharged='$discharged' ";
+        }
+
+        if($admType<>''){
+            $sql.=" AND e.encounter_class_nr='$admType' ";
+        }
+
+        if($pid<>''){
+            $sql.=" AND p.pid='$pid'";
+        }
+
+        $sql.="  GROUP BY e.`encounter_nr`";
+   
+    if($debug) echo $sql;
+     $request=$conn->query($sql);
+     if($request->num_rows>0){
+        while($row[]=$request->fetch_assoc()){
+            $item=$row;
+            $json=json_encode($item,JSON_NUMERIC_CHECK);
+        }
+     }else{
+         echo "no Data Found";
+     }
+   
+    echo $json;
+    $conn->close();
+
 }
 
 function getWaitingList($wrdNo,$ward_obj){
@@ -306,7 +387,7 @@ function insertNhifCredit($nhifDetails, $bill_obj) {
     if ($debug)echo $sql;
     if ($db->Execute($sql)) {
         updateNhifBill($nhifDetails, $bill_obj);
-        $invBalance = ($nhifDetails[totalCredit] - $nhifDetails[invAmount]);
+        $invBalance = ($nhifDetails['totalCredit'] - $nhifDetails['invAmount']);
         if ($invBalance <> 0) {
             updateNhifGainloss($nhifDetails, $bill_obj);
         }
@@ -321,8 +402,8 @@ function updateNhifBill($nhifDetails, $bill_obj) {
     $debug = true;
     $user = $_SESSION['sess_user_name'];
     $sql3 = "INSERT INTO care_ke_billing (pid, encounter_nr,insurance_id,bill_date,bill_time,`ip-op`,bill_number,service_type, price,`Description`,notes,input_user,status,days,qty,total,rev_code,batch_no)
-             VALUES('" . $nhifDetails[txtPid3] . "','" . $nhifDetails[encounterNr] . "','" . $nhifDetails[nhifDbAc] . "','" . date("Y-m-d") . "','" . date("H:i:s") . "','1',
-            '" . $nhifDetails[billNumber] . "','NHIF','$nhifDetails[totalCredit]','NHIF Credit No','NHIF Credit','$user','billed','" . $nhifDetails[days] . "','1','$nhifDetails[totalCredit]','NHIF','$nhifDetails[creditNo]')";
+             VALUES('" . $nhifDetails['txtPid3'] . "','" . $nhifDetails['encounterNr'] . "','" . $nhifDetails['nhifDbAc'] . "','" . date("Y-m-d") . "','" . date("H:i:s") . "','1',
+            '" . $nhifDetails['billNumber'] . "','NHIF','$nhifDetails[totalCredit]','NHIF Credit No','NHIF Credit','$user','billed','" . $nhifDetails['days'] . "','1','$nhifDetails[totalCredit]','NHIF','$nhifDetails[creditNo]')";
 
     if ($debug) echo $sql3 . "<br>";
     if ($db->Execute($sql3)) {
@@ -344,7 +425,7 @@ function updateNhifGainloss($nhifDetails, $bill_obj) {
     global $db;
     $debug = true;
 
-    $invBalance = ($nhifDetails[totalCredit] - $nhifDetails[invAmount]);
+    $invBalance = ($nhifDetails['totalCredit'] - $nhifDetails['invAmount']);
     $trnsNo = $bill_obj->getTransNo(2);
     $sql = "INSERT into `care_ke_debtortrans`(`transno`,`transtype`,`accno`, `pid`,`transdate`,`bill_number`,`amount`,`lastTransDate`,`lasttransTime`,`settled`,encounter_nr,accountNo)
              VALUE('$trnsNo','2','NHIF2', '$nhifDetails[txtPid3]','" . date('Y-m-d') . "','$nhifDetails[billNumber]','$invBalance','" . date('Y-m-d') . "','" . date('H:i:s') 
@@ -400,7 +481,8 @@ function getNhifRates() {
     $counter = 0;
     while ($row = $result->FetchRow()) {
         // $description=preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[name]);
-        echo '{"ID":"' . $row[ID] . '","RateType":"' . $row[RateType] . '","RateValue":"' . $row[RateValue] . '","rateCalc":"' . $row[rateCalc] . '"}';
+        echo '{"ID":"' . $row['ID'] . '","RateType":"' . $row['RateType'] . '","RateValue":"' . $row['RateValue'] 
+            . '","rateCalc":"' . $row['rateCalc'] . '"}';
 
         $counter++;
 
@@ -416,20 +498,20 @@ function saveInsuranceCredit($creditDetails, $bill_obj, $insurance_obj) {
     $debug = true;
 
     $billDate = date('Y-m-d');
-    $new_bill_number = $bill_obj->checkBillEncounter($creditDetails[encounterNr]);
+    $new_bill_number = $bill_obj->checkBillEncounter($creditDetails['encounterNr']);
     $input_User = $_SESSION['sess_login_username'];
     $trnsNo = $bill_obj->getTransNo(2);
 
-    $admDate1 = new DateTime($creditDetails[admissionDate]);
+    $admDate1 = new DateTime($creditDetails['admissionDate']);
     $admDate = $admDate1->format('Y-m-d');
 
-    $disDate1 = new DateTime($creditDetails[dischargeDate]);
+    $disDate1 = new DateTime($creditDetails['dischargeDate']);
     $disDate = $disDate1->format('Y-m-d');
 
-    $realDate1 = new DateTime($creditDetails[releaseDate]);
+    $realDate1 = new DateTime($creditDetails['releaseDate']);
     $realDate = $realDate1->format('Y-m-d');
 
-    $insuranceID = $insurance_obj->Get_insuranceID_from_pid($creditDetails[pid]);
+    $insuranceID = $insurance_obj->Get_insuranceID_from_pid($creditDetails['pid']);
 
     $sql = "INSERT INTO `care_ke_insurancecredits` (
             `creditNo`,`accno`,`inputDate`,`pid`,`names`,`admissionDate`,`dischargeDate`,`releaseDate`,
@@ -509,7 +591,7 @@ function getDebitNo() {
     global $db;
     $debug = false;
 
-    $sql = "select max(batch_no) as debitNo from care_ke_billing where ledger='DB'";
+    $sql = "SELECT transno FROM `care_ke_transactionnos` WHERE typeID=8";
     $results = $db->Execute($sql);
     $recCount = $results->RecordCount();
     if ($recCount > 0) {
@@ -519,7 +601,7 @@ function getDebitNo() {
         $debitNo = '1000';
     }
 
-    echo "{'debits':[{'debitNo':'$debitNo'}]}";
+    echo '{"debitNo":"'.$debitNo.'"}';
 }
 
 
@@ -527,7 +609,7 @@ function getCreditNo() {
     global $db;
     $debug = false;
 
-    $sql = "select max(creditNo) as creditNo from care_ke_insurancecredits";
+    $sql = "SELECT transno FROM `care_ke_transactionnos` WHERE typeID=9";
     $results = $db->Execute($sql);
     $recCount = $results->RecordCount();
     if ($recCount > 0) {
@@ -569,9 +651,9 @@ function getInsuranceCompanies() {
     "total":"' . $total . '","insurancecompanies":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[name]);
+        $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['name']);
 
-        echo '{"Accno":"' . $row[accno] . '","Description":"' . $description . '"}';
+        echo '{"Accno":"' . $row['accno'] . '","Description":"' . $description . '"}';
 
         $counter++;
 
@@ -594,7 +676,7 @@ function deleteMethod($ID, $table) {
     if ($db->Execute($sql)) {
         echo '{Success:true}';
     } else {
-        echo '{Failure:true}';
+        echo '{"Failure":true}';
     }
 }
 
@@ -613,14 +695,14 @@ function checkFinaliseStatus($pid, $bill_obj, $billNumber) {
 
     if ($request = $db->Execute($sql)) {
         $row = $request->FetchRow();
-        echo $row[finalised] . ',' . $row[pid] . ',' . $row[encounter_nr] . ',' . $row[bill_number];
+        echo $row['finalised'] . ',' . $row['pid'] . ',' . $row['encounter_nr'] . ',' . $row['bill_number'];
     }
 }
 
 function updateReceiptItems($strData, $pid) {
     global $db;
     $debug = false;
-    $UpdateRowsCount = $_POST[selectedCount];
+    $UpdateRowsCount = $_POST['selectedCount'];
 
     $error = 0;
     if ($UpdateRowsCount > 1) {
@@ -684,7 +766,7 @@ function updateReceiptItems($strData, $pid) {
 function updateBillItems($strData, $pid) {
     global $db;
     $debug = false;
-    $UpdateRowsCount = $_POST[selectedCount];
+    $UpdateRowsCount = $_POST['selectedCount'];
 
     $error = 0;
     if ($UpdateRowsCount > 1) {
@@ -753,7 +835,7 @@ function deleteReceiptItem($pid) {
     global $db;
     $debug = false;
 
-    $ID = chop($_REQUEST[ID], ',');
+    $ID = chop($_REQUEST['ID'], ',');
 
     $sql = "Delete from care_ke_receipts where sale_id in ($ID) and patient='$pid'";
     if ($debug)
@@ -770,7 +852,7 @@ function deleteBillItem($pid) {
     global $db;
     $debug = false;
 
-    $ID = chop($_REQUEST[ID], ',');
+    $ID = chop($_REQUEST['ID'], ',');
 
     $sql = "Delete from care_ke_billing where ID in ($ID) and pid='$pid'";
     if ($debug)
@@ -787,10 +869,10 @@ function combineBills($pid) {
     global $db;
     $debug = false;
 
-    $bill1 = $_REQUEST[bill1];
-    $bill2 = $_REQUEST[bill2];
-    $enc1 = $_REQUEST[enc1];
-    $enc2 = $_REQUEST[enc2];
+    $bill1 = $_REQUEST['bill1'];
+    $bill2 = $_REQUEST['bill2'];
+    $enc1 = $_REQUEST['enc1'];
+    $enc2 = $_REQUEST['enc2'];
 
     $sql = "update care_ke_billing set bill_number='$bill1',encounter_nr='$enc1' "
             . "where bill_number='$bill2' and pid='$pid'";
@@ -814,7 +896,7 @@ function saveDebits($enc_obj, $insurance_obj) {
     global $db;
     $debug = false;
 
-    $billDate = $_REQUEST[debitDate];
+    $billDate = $_REQUEST['debitDate'];
 
     $date1 = new DateTime($_POST['debitDate']);
     $debitDate = $date1->format("Y-m-d");
@@ -822,7 +904,7 @@ function saveDebits($enc_obj, $insurance_obj) {
     $inputUser = $_SESSION['sess_login_username'];
      $pid=$_REQUEST['pid'];
      
-    $debitData = $_REQUEST[gridData];
+    $debitData = $_REQUEST['gridData'];
     $data = json_decode($debitData, true);
 
     $encounterNr = $_REQUEST['encounterNo'];
@@ -886,10 +968,10 @@ function getItemsList($searchParam,$start,$limit) {
     "total":"' . $total . '","items":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row[item_description]);
+        $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['item_description']);
 
-        echo '{"PartCode":"' . $row[partcode] . '","Description":"' . $description
-        . '","Category":"' . $row[item_Cat - OP] . '","Price":"' . $row[unit_price] . '"}';
+        echo '{"PartCode":"' . $row['partcode'] . '","Description":"' . $description
+        . '","Category":"' . $row['item_Cat'] . '","Price":"' . $row['unit_price'] . '"}';
 
         $counter++;
 
@@ -934,13 +1016,13 @@ function getAllReceipts($pid, $refNo) {
     echo '{"receipts":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        $rDate = new DateTime($row[currdate]);
+        $rDate = new DateTime($row['currdate']);
         $receiptDate = $rDate->format('Y-m-d');
 
-        echo '{"Sale_ID":"' . $row[sale_id] . '","Pid":"' . $row[patient] . '","CashPoint":"' . $row[cash_point] . '","ShiftNo":"' . $row[Shift_no] . '","Cashier":"' . $row[username]
-        . '","ReceiptNo":"' . $row[ref_no] . '","ReceiptDate":"' . $receiptDate . '","Customer":"' . $row[name] . '","PayMode":"' . $row[pay_mode]
-        . '","Towards":"' . $row[towards] . '","PartCode":"' . $row[proc_code] . '","Description":"' . $row[Prec_desc] . '","ServiceType":"' . $row[rev_desc]
-        . '","Qty":"' . $row[proc_qty] . '","Amount":"' . number_format($row[amount], 2) . '","Total":"' . number_format($row[total], 2) . '","InputTime":"' . $row[input_Time] . '","Payer":"' . $row[payer] . '"}';
+        echo '{"Sale_ID":"' . $row['sale_id'] . '","Pid":"' . $row['patient'] . '","CashPoint":"' . $row['cash_point'] . '","ShiftNo":"' . $row['Shift_no'] . '","Cashier":"' . $row['username']
+        . '","ReceiptNo":"' . $row['ref_no'] . '","ReceiptDate":"' . $receiptDate . '","Customer":"' . $row['name'] . '","PayMode":"' . $row['pay_mode']
+        . '","Towards":"' . $row['towards'] . '","PartCode":"' . $row['proc_code'] . '","Description":"' . $row['Prec_desc'] . '","ServiceType":"' . $row['rev_desc']
+        . '","Qty":"' . $row['proc_qty'] . '","Amount":"' . number_format($row['amount'], 2) . '","Total":"' . number_format($row['total'], 2) . '","InputTime":"' . $row['input_Time'] . '","Payer":"' . $row['payer'] . '"}';
 
         $counter++;
 
@@ -953,7 +1035,7 @@ function getAllReceipts($pid, $refNo) {
 
 function getBills($pid, $bill_number) {
 //    var_dump($_POST);
-    $json_data = $_POST[updatedBills]; // file_get_contents('php://input');
+    $json_data = $_POST['updatedBills']; // file_get_contents('php://input');
     $strData = json_decode($json_data);
 
     if (!empty($strData)) {
@@ -985,10 +1067,10 @@ function getAllBills($pid, $bill_number) {
     echo '{"bills":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        echo '{"ID":"' . $row[ID] . '","Pid":"' . $row[pid] . '","Encounter_Nr":"' . $row[encounter_nr] . '","IP-OP":"' . $row[IPOP] . '","Bill_Date":"' . $row[bill_date]
-        . '","Bill_Time":"' . $row[bill_time] . '","Bill_Number":"' . $row[bill_number] . '","Service_Type":"' . $row[service_type]
-        . '","PartCode":"' . $row[partcode] . '","Description":"' . $row[Description] . '","Price":"' . number_format($row[price], 2) . '","Qty":"' . $row[qty]
-        . '","Total":"' . number_format($row[total], 2) . '","InputUser":"' . $row[input_user] . '"}';
+        echo '{"ID":"' . $row['ID'] . '","Pid":"' . $row['pid'] . '","Encounter_Nr":"' . $row['encounter_nr'] . '","IP-OP":"' . $row['IPOP'] . '","Bill_Date":"' . $row['bill_date']
+        . '","Bill_Time":"' . $row['bill_time'] . '","Bill_Number":"' . $row['bill_number'] . '","Service_Type":"' . $row['service_type']
+        . '","PartCode":"' . $row['partcode'] . '","Description":"' . $row['Description'] . '","Price":"' . number_format($row['price'], 2) . '","Qty":"' . $row['qty']
+        . '","Total":"' . number_format($row['total'], 2) . '","InputUser":"' . $row['input_user'] . '"}';
 
         $counter++;
 
@@ -1023,8 +1105,8 @@ function deleteClaim($claimNo, $pid, $bill_number) {
 
 function closeBill($insurance_obj, $bill_obj) {
     // global $db;
-    $pid = $_REQUEST[pid];
-    $encounterNo = $_REQUEST[enc_nr];
+    $pid = $_REQUEST['pid'];
+    $encounterNo = $_REQUEST['enc_nr'];
     $insuCompanyID = $insurance_obj->GetCompanyFromPID2($pid);
     $bill_obj->updateDebtorsTrans($pid, $insuCompanyID, $encounterNo);
 }
@@ -1112,7 +1194,7 @@ function getAdmissionDetails($pid) {
     "total":"' . $total . '","billnumbers":[';
         $counter = 0;
         while ($row = $result->FetchRow()) {
-            echo '{"BillNumbers":"' . $row[bill_number] . '"}';
+            echo '{"BillNumbers":"' . $row['bill_number'] . '"}';
 
             $counter++;
 
@@ -1149,7 +1231,7 @@ function getBillNumbers($pid) {
     "total":"' . $total . '","billnumbers":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        echo '{"BillNumbers":"' . $row[bill_number] . '"}';
+        echo '{"BillNumbers":"' . $row['bill_number'] . '"}';
 
         $counter++;
 
@@ -1178,7 +1260,7 @@ function getEncounterNumbers($pid) {
     "total":"' . $total . '","encounters":[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        echo '{"EncounterNumbers":"' . $row[encounter_nr] . '"}';
+        echo '{"EncounterNumbers":"' . $row['encounter_nr'] . '"}';
 
         $counter++;
 
@@ -1209,7 +1291,7 @@ function finalizeInvoice($db, $pid, $billNumber, $fdate) {
                 echo $sql;
             while ($rows = $results->FetchRow()) {
                 $bill_number = $rows[1];
-                $enc_nr = $rows[encounter_nr];
+                $enc_nr = $rows['encounter_nr'];
                 $stat = $rows[2];
                 if ($stat <> "1") {
                     $sql2 = "SELECT sum(total) as total FROM care_ke_billing WHERE pid = '$pid' and `IP-OP`=1 

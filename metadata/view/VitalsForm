@@ -6,11 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "bodyPadding": 10,
         "container|align": "stretch",
         "designer|userAlias": "vitalsform",
         "designer|userClassName": "VitalsForm",
-        "height": 390,
+        "height": 450,
         "layout": "vbox",
         "url": "data/getDataFunctions.php?task=saveVitals",
         "width": 744
@@ -41,9 +40,10 @@
             "codeClass": null,
             "userConfig": {
                 "designer|snapToGrid": 5,
-                "height": 315,
+                "height": 249,
                 "layout": "absolute",
-                "padding": 3,
+                "margin": 0,
+                "padding": 5,
                 "width": 744
             },
             "configAlternates": {
@@ -54,7 +54,8 @@
                 "width": "auto",
                 "designer|snapToGrid": "number",
                 "layout": "string",
-                "padding": "auto"
+                "padding": "auto",
+                "margin": "auto"
             },
             "name": "MyFieldSet5",
             "designerId": "d1699e7c-7c6f-408a-bbc3-dbea8d40f881",
@@ -231,7 +232,7 @@
                         "layout|x": 220,
                         "layout|y": 105,
                         "name": "bp2",
-                        "width": 80
+                        "width": 91
                     },
                     "configAlternates": {
                         "fieldLabel": "string",
@@ -276,7 +277,7 @@
                     "designerId": "80ffe0b6-e386-46e5-891a-5b80672c36df"
                 },
                 {
-                    "type": "Ext.form.field.TextArea",
+                    "type": "Ext.form.field.Text",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -284,7 +285,6 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Notes",
-                        "height": 82,
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -305,7 +305,7 @@
                         "width": "auto",
                         "labelStyle": "string"
                     },
-                    "name": "MyTextArea1",
+                    "name": "MyTextField58",
                     "designerId": "b05990f8-62e6-40f1-96d2-4e5d141f049c"
                 },
                 {
@@ -434,11 +434,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 40,
+                        "height": 30,
                         "iconCls": "x-fa fa-save",
                         "itemId": "SaveVitals",
-                        "layout|x": 135,
-                        "layout|y": 260,
+                        "layout|x": 140,
+                        "layout|y": 210,
                         "text": "Save",
                         "width": 140
                     },
@@ -462,11 +462,11 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 40,
+                        "height": 30,
                         "iconCls": "x-fa fa-close",
                         "itemId": "cmdClose",
-                        "layout|x": 425,
-                        "layout|y": 260,
+                        "layout|x": 415,
+                        "layout|y": 210,
                         "text": "Close",
                         "width": 140
                     },
@@ -496,6 +496,7 @@
                 "dock": "top",
                 "height": 45,
                 "layout": "hbox",
+                "margin": 0,
                 "style": "background:#386d87",
                 "width": 744
             },
@@ -508,7 +509,8 @@
                 "container|align": "string",
                 "dock": "string",
                 "layout": "string",
-                "style": "string"
+                "style": "string",
+                "margin": "auto"
             },
             "name": "MyFieldSet9",
             "designerId": "39449fb2-78f5-48c4-bb93-7756b6642c2b",
@@ -634,6 +636,23 @@
                     "designerId": "2bfdd329-d18a-4d9a-a581-8ccb3e3a63d1"
                 }
             ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "layout|flex": "number"
+            },
+            "name": "vitalslists",
+            "designerId": "752a9145-27ff-478e-a76b-e9c7befd3af1",
+            "masterInstanceId": "d8e50767-b5f9-4511-ae21-3535cb70ac2e"
         }
     ]
 }

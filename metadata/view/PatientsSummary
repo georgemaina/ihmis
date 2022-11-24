@@ -1,0 +1,279 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "patientssummary",
+        "designer|userClassName": "PatientsSummary",
+        "itemId": "PatientsSummary",
+        "store": "PatientsSummaryStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "store": "store",
+        "columnLines": "boolean",
+        "itemId": "string"
+    },
+    "name": "MyGridPanel",
+    "designerId": "65ceb983-3db0-4dc9-ad89-ac7e9a3346e6",
+    "viewControllerInstanceId": "9950788e-2286-4f8e-b28d-1db759686b35",
+    "viewModelInstanceId": "8aaa5567-6fab-44db-8d91-5c49c82645db",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable4",
+            "designerId": "1dc2dbe8-b4f8-4275-ae44-ce472083878e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ReceiptNo",
+                "text": "Receipt No"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn49",
+            "designerId": "6e7a8099-df9a-45f7-8b05-99cb702cf7aa"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Name",
+                "text": "Name",
+                "width": 178
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn50",
+            "designerId": "d27113cb-3a3e-4e29-82ae-df34742cfe51"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Pay_Mode",
+                "text": "Pay Mode"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn65",
+            "designerId": "bdb46627-28c0-4c5c-ab72-2b9e4b150337"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Total",
+                "summaryType": "sum",
+                "text": "Total"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "summaryType": "string"
+            },
+            "name": "MyColumn66",
+            "designerId": "a0dfed3a-cf1e-43da-b6db-68d0b5fa2f6c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Cash",
+                "summaryType": "sum",
+                "text": "Cash"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "summaryType": "string"
+            },
+            "name": "MyColumn67",
+            "designerId": "ecd05017-1b22-4813-8424-9fae978a30aa"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Mpesa",
+                "summaryType": "sum",
+                "text": "Mpesa"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "summaryType": "string"
+            },
+            "name": "MyColumn68",
+            "designerId": "c5fd02c4-0ed5-463e-abae-177484538897"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Visa",
+                "summaryType": "sum",
+                "text": "Visa"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "summaryType": "string"
+            },
+            "name": "MyColumn81",
+            "designerId": "9f13710d-14f0-43df-8fdd-366aaa8e8195"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "InputDate",
+                "text": "Input Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn82",
+            "designerId": "defb208e-4d2d-49cb-9884-1f6c85aab50e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "InputTime",
+                "text": "Input Time"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn83",
+            "designerId": "95405404-a25c-4483-b014-ee8a79ecab16"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Balance",
+                "summaryType": "sum",
+                "text": "Balance"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "summaryType": "string"
+            },
+            "name": "MyColumn84",
+            "designerId": "0e191675-62d3-441d-8ae0-f79f9528fd98"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "PatientsSummaryStore",
+                "width": 360
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store",
+                "width": "auto"
+            },
+            "name": "MyPagingToolbar6",
+            "designerId": "843b7d5a-e6e2-4467-a564-020c56d2480d"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "shiftsreportheader",
+            "designerId": "e1e0b859-f569-441b-ac3a-9210cbcd9b42",
+            "masterInstanceId": "bd0cc05b-8caf-4342-96c0-95c36a24976c"
+        },
+        {
+            "type": "Ext.grid.feature.Summary",
+            "reference": {
+                "name": "features",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MySummaryFeature2",
+            "designerId": "d3d8be48-4e05-4701-99dd-e439306e128d"
+        }
+    ]
+}

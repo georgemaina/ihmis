@@ -45,9 +45,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "patientInfo"
-                    },
                     "configAlternates": {
                         "rootProperty": "string"
                     },

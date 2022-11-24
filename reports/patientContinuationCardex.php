@@ -27,8 +27,8 @@ require($root_path . 'include/inc_environment_global.php');
                             echo $sql;
             $results = $db->Execute($sql);
             while ($row = $results->FetchRow()) {
-                createInvoiceTitle($row[pid],$row[encounter_nr],$row[pnames],$row[ward],$row[dept],$row[date_birth]
-                                ,$row[sex],$row[encounter_date],$row[discharge_date],$row[encounter_class_nr]);
+                createInvoiceTitle($row['pid'],$row['encounter_nr'],$row['pnames'],$row['ward'],$row['dept'],$row['date_birth']
+                                ,$row['sex'],$row['encounter_date'],$row['discharge_date'],$row['encounter_class_nr']);
                 $pageNos=-$pageNos+1;
             }
             
@@ -40,7 +40,7 @@ require($root_path . 'include/inc_environment_global.php');
                  echo "<div class='subpage'>
                         <table border=0>
                             <tr>
-                                <td colspan='6' class='logo'> <img src='../../icons/logo.jpg' width='600' height='100' ></td>
+                                <td colspan='6' class='logo'> <img src='../icons/logo.jpg' width='600' height='100' ></td>
                             </tr>
                             <tr>
                                 <td colspan='6' class='summaryTitle'>PATIENT HISTORY</td>
@@ -61,9 +61,9 @@ require($root_path . 'include/inc_environment_global.php');
                            <tr><td class='itemTitles'>DATE OF ADMISSION:</td><td class=invDetails>$admDate</td>
                                <td class='itemTitles'>DATE OF DISCHARGE:</td><td class=invDetails colspan=3>$disDate</td></tr>";
                      
-                     $sql="SELECT t.name as vital,m.value FROM care_encounter_measurement m 
-                            LEFT JOIN care_type_measurement t on m.msr_type_nr=t.nr
-                            where encounter_nr=$encNo";
+                     $sql="SELECT t.name as noteType,n.notes,`date`,`time`,n.create_id FROM care_encounter_notes n 
+                     left join care_type_notes t on n.type_nr=t.nr where encounter_nr=$encNo";
+                            //echo $sql;
                      $result=$db->Execute($sql);
 
                       echo "<tr><td colspan='6'><hr></td></tr>";

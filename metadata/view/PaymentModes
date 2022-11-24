@@ -6,13 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "bodyPadding": 10,
         "designer|snapToGrid": 5,
         "designer|userAlias": "paymentmodes",
         "designer|userClassName": "PaymentModes",
         "height": 483,
         "layout": "absolute",
-        "title": "Payment Modes",
         "width": 582
     },
     "configAlternates": {
@@ -183,6 +181,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "save",
+                "iconCls": "x-fa fa-save",
                 "itemId": "save",
                 "layout|x": 210,
                 "layout|y": 120,
@@ -195,36 +194,11 @@
                 "layout|x": "number",
                 "layout|y": "number",
                 "text": "string",
-                "width": "auto"
+                "width": "auto",
+                "iconCls": "string"
             },
             "name": "MyButton7",
             "designerId": "3060a746-1378-4843-884a-e6ee5bbcc9fb"
-        },
-        {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|displayName": "refresh",
-                "itemId": "refresh",
-                "layout|x": 360,
-                "layout|y": 120,
-                "text": "Reset",
-                "width": 90
-            },
-            "configAlternates": {
-                "layout|x": "number",
-                "layout|y": "number",
-                "text": "string",
-                "designer|displayName": "string",
-                "itemId": "string",
-                "width": "auto"
-            },
-            "name": "MyButton8",
-            "designerId": "221fa22b-a556-4c49-9db7-190d727ebaf9"
         },
         {
             "type": "Ext.grid.Panel",
@@ -234,20 +208,22 @@
             },
             "codeClass": null,
             "userConfig": {
-                "height": 250,
+                "columnLines": true,
+                "height": 315,
                 "layout|x": 5,
                 "layout|y": 160,
-                "store": [
-                    "{paymentsModels}"
-                ],
-                "title": "Payment Modes list"
+                "store": "PaymentsListStore",
+                "title": "Payment Modes",
+                "width": 575
             },
             "configAlternates": {
-                "store": "binding",
                 "height": "auto",
                 "layout|x": "number",
                 "layout|y": "number",
-                "title": "string"
+                "title": "string",
+                "columnLines": "boolean",
+                "store": "store",
+                "width": "auto"
             },
             "name": "MyGridPanel4",
             "designerId": "f244fd0d-3de2-492f-816e-180d25b00ccc",

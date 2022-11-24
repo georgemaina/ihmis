@@ -15,13 +15,17 @@
         "stores": [
             "ItemsListStore",
             "ClinicsStore",
-            "LocationsStore"
+            "LocationsStore",
+            "OpVisitsStore",
+            "DoctorsWorkloadStore"
         ],
         "views": [
             "OpMobidity",
             "LabTests",
             "LabResults",
-            "OpVisits"
+            "OpVisits",
+            "OutpatientReports",
+            "OutpatientInvoices"
         ]
     },
     "configAlternates": {
@@ -231,8 +235,8 @@
                     "    '#mnuOpInvoices':{",
                     "        click:this.openOpInvoices",
                     "    },",
-                    "    '#cmdPreviewInvoice':{",
-                    "        click:this.previewOpInvoices",
+                    "    '#cmdPrintIpInvoice':{",
+                    "        click:this.PrintSelectedInvoice",
                     "    },",
                     "    '#cmdExportMovement':{",
                     "        click:this.exportMovement",
@@ -278,6 +282,24 @@
                     "    },",
                     "    '#cmdUpdateReport':{",
                     "        click:this.updateOpWorkload",
+                    "    },",
+                    "    '#mnuCreditSlips':{",
+                    "        click:this.openCreditSlips",
+                    "    },",
+                    "    '#mnuDiagnosisReport':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#txtInvoicePid':{",
+                    "        blur:this.getPatientName",
+                    "    },",
+                    "    '#cmdPreviewInvoice':{",
+                    "        click:this.previewInterimInvoice",
+                    "    },",
+                    "    '#cmdInvoicesList':{",
+                    "        click:this.previewOpInvoices",
+                    "    },",
+                    "    '#cmdUpdateMobidity':{",
+                    "        click:this.updateMobidity",
                     "    }",
                     "",
                     "});"
@@ -517,10 +539,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openOpMobidity",
                 "implHandler": [
                     "opmodity = Ext.create('CarePortal.view.OpMobidity', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(opmodity);"
@@ -528,7 +553,8 @@
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openOpMobidity",
             "designerId": "84a5d326-03e7-4617-8cd5-0e5f45f623e8"
@@ -585,7 +611,7 @@
                 "implHandler": [
                     "// Ext.Msg.alert('Test','Test');",
                     "labsummaries = Ext.create('CarePortal.view.LabTests', {});",
-                    "        center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "        center_container.removeAll();",
                     "",
                     "        center_container.add(labsummaries);"
@@ -629,7 +655,7 @@
                 "fn": "openRevenue",
                 "implHandler": [
                     "revenues = Ext.create('CarePortal.view.RevenuePanel', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(revenues);"
@@ -741,19 +767,23 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openOpVisits",
                 "implHandler": [
-                    " // Ext.Msg.alert('Test','Test');",
-                    "        opvisits = Ext.create('CarePortal.view.OpVisits', {});",
-                    "                center_container = this.getViewport().down('container[region=center]');",
-                    "                center_container.removeAll();",
+                    "// Ext.Msg.alert('Test','Test');",
+                    "opvisits = Ext.create('CarePortal.view.OpVisits', {});",
+                    "center_container = button.up('panel').down('#opReports');",
+                    "center_container.removeAll();",
                     "",
-                    "                center_container.add(opvisits);"
+                    "center_container.add(opvisits);"
                 ]
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openOpVisits",
             "designerId": "bcd6e2d8-c9c3-4773-82e0-d921b08f9966"
@@ -846,7 +876,7 @@
                 "fn": "openIpMobidity",
                 "implHandler": [
                     "ipmobidity = Ext.create('CarePortal.view.IpMobidity', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(ipmobidity);"
@@ -954,7 +984,7 @@
                     "",
                     "",
                     "admissions = Ext.create('CarePortal.view.AdmDis', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(admissions);",
@@ -1007,7 +1037,7 @@
                     "",
                     "",
                     "discharges = Ext.create('CarePortal.view.AdmDis', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(discharges);",
@@ -1100,7 +1130,7 @@
                 "fn": "getDiagnosisReports",
                 "implHandler": [
                     "diagnosis = Ext.create('CarePortal.view.DiagnosisReports', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(diagnosis);"
@@ -1191,8 +1221,8 @@
                 ],
                 "fn": "getTopDiseases",
                 "implHandler": [
-                    "topDiagnosis = Ext.create('CarePortal.view.TopDiseases2', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "topDiagnosis = Ext.create('CarePortal.view.TopDiseases', {});",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(topDiagnosis);"
@@ -1260,9 +1290,9 @@
                 "fn": "previewTopDiseases",
                 "implHandler": [
                     "var diseasesstore=Ext.data.StoreManager.lookup('TopDiseasesStore');",
-                    " var startDate=this.getTopdiseases2().down('#StartDate').getValue();",
-                    " var endDate=this.getTopdiseases2().down('#EndDate').getValue();",
-                    "var admission=this.getTopdiseases2().down('#cmbAdmission').getValue();",
+                    " var startDate=this.getTopdiseases().down('#StartDate').getValue();",
+                    " var endDate=this.getTopdiseases().down('#EndDate').getValue();",
+                    "var admission=this.getTopdiseases().down('#cmbAdmission').getValue();",
                     "",
                     "diseasesstore.load({",
                     "    params: {",
@@ -1319,7 +1349,7 @@
                 "fn": "openPharmacyRevenue",
                 "implHandler": [
                     "pharmRevenue = Ext.create('CarePortal.view.PharmacyRevenue', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(pharmRevenue);"
@@ -1435,7 +1465,7 @@
                 "fn": "openLabActivities",
                 "implHandler": [
                     "labActivities = Ext.create('CarePortal.view.LaboratoryActivities', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(labActivities);"
@@ -1479,7 +1509,7 @@
                 "fn": "openXrayActivities",
                 "implHandler": [
                     "xrayActivities = Ext.create('CarePortal.view.XrayActivities', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(xrayActivities);"
@@ -1566,7 +1596,7 @@
                 "fn": "openLabRevenue",
                 "implHandler": [
                     "labRevenue = Ext.create('CarePortal.view.LaboratoryRevenue', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(labRevenue);",
@@ -1650,7 +1680,7 @@
                 "fn": "openXrayRevenue",
                 "implHandler": [
                     "xrayRevenue = Ext.create('CarePortal.view.XrayRevenue', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(xrayRevenue);",
@@ -1730,7 +1760,7 @@
                 "fn": "openDrugStatement",
                 "implHandler": [
                     "patientDrugStatement = Ext.create('CarePortal.view.PatientDrugStatement', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(patientDrugStatement);"
@@ -2671,7 +2701,7 @@
                 "fn": "openOccupancy",
                 "implHandler": [
                     "     var occupancy = Ext.create('CarePortal.view.Occupancy', {});",
-                    "        center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "        center_container.removeAll();",
                     "",
                     "        center_container.add(occupancy);"
@@ -2732,10 +2762,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openHtc",
                 "implHandler": [
-                    "var htc = Ext.create('CarePortal.view.Htc', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "var htc = Ext.create('CarePortal.view.Hts', {});",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(htc);"
@@ -2743,7 +2776,8 @@
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openHtc",
             "designerId": "7a02211d-ffab-45aa-937c-2d7dc56999da"
@@ -2798,10 +2832,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openWorkLoad",
                 "implHandler": [
-                    "var workload = Ext.create('CarePortal.view.Workload', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "var workload = Ext.create('CarePortal.view.DoctorsWorkload', {});",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(workload);"
@@ -2809,7 +2846,8 @@
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openWorkLoad",
             "designerId": "f15d4e90-0146-499c-9c6d-378d01e76045"
@@ -3057,17 +3095,21 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openOpInvoices",
                 "implHandler": [
                     "var opInvoices = Ext.create('CarePortal.view.OutpatientInvoices', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "center_container.add(opInvoices);"
                 ]
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openOpInvoices",
             "designerId": "8a16766c-9a48-46f1-a299-f0ea73518d4c"
@@ -3200,13 +3242,15 @@
                 "fn": "exportOPInvoices",
                 "implHandler": [
                     "//Ext.Msg.alert('test','test');",
-                    "        var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
-                    "        var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "var date1=Ext.Date.format(new Date(button.up('grid').down('#StartDate').getValue()), 'Y-m-d');",
+                    "var date2=Ext.Date.format(new Date(button.up('grid').down('#EndDate').getValue()), 'Y-m-d');",
+                    "var paymentPlan=button.up('grid').down('#paymentPlan').getValue();",
+                    "var debtorCat=button.up('grid').down('#debtorCat').getValue();",
+                    "var pid=button.up('grid').down('#txtPid').getValue();",
                     "",
                     "",
-                    "",
-                    "        window.open('reports/exportOPInvoices.php?startDate='+date1+'&endDate='+date2,",
-                    "                    \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "window.open('reports/exportOPInvoices2.php?startDate='+date1+'&endDate='+date2+'&paymentPlan='+paymentPlan+'&pid='+pid+'&debtorCat='+debtorCat,",
+                    "            \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
                     "",
                     ""
                 ]
@@ -3551,10 +3595,13 @@
             },
             "codeClass": null,
             "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
                 "fn": "openDentalClinic",
                 "implHandler": [
                     "var dental = Ext.create('CarePortal.view.DentalServices', {});",
-                    "center_container = this.getViewport().down('container[region=center]');",
+                    "center_container = button.up('panel').down('#opReports');",
                     "center_container.removeAll();",
                     "",
                     "center_container.add(dental);"
@@ -3562,7 +3609,8 @@
             },
             "configAlternates": {
                 "fn": "string",
-                "implHandler": "code"
+                "implHandler": "code",
+                "designer|params": "typedarray"
             },
             "name": "openDentalClinic",
             "designerId": "7b282c5c-342c-45d4-a479-a0e9aee3d5c7"
@@ -3650,6 +3698,299 @@
             },
             "name": "updateOpWorkload",
             "designerId": "eaa09124-1dab-49e5-a313-5d6addd54998"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outpatientreports",
+                "selector": "outpatientreports"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string"
+            },
+            "name": "outpatientreports",
+            "designerId": "2b62f131-2c70-46e1-995c-71e4d7e4dfe9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openCreditSlips",
+                "implHandler": [
+                    "creditSlips = Ext.create('CarePortal.view.CreditSlips', {});",
+                    "center_container = button.up('panel').down('#opReports');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(creditSlips);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openCreditSlips",
+            "designerId": "96e1bae8-b197-4cf7-86e4-e2d129d037a6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openReports",
+                "implHandler": [
+                    "var reportName=button.getId();",
+                    "reports = Ext.create('CarePortal.view.'+reportName, {});",
+                    "center_container = button.up('panel').down('#opReports');",
+                    "center_container.removeAll();",
+                    "",
+                    "center_container.add(reports);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openReports",
+            "designerId": "28fbd656-895e-4162-973d-aff9447f81c5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "previewInterimInvoice",
+                "implHandler": [
+                    "var invoiceDetails=button.up('panel').down('#invoiceDetails');",
+                    "var invoiceHeaderDetails=button.up('panel').down('#invoiceHeaderDetails');",
+                    "",
+                    "var pid=button.up('panel').down('#txtInvoicePid').getValue();",
+                    "var bill_number=button.up('panel').down('#txtBillNumber').getValue();",
+                    "var includeReceipt=button.up('panel').down('#includeReceipt').getValue();",
+                    "var includeNhif=button.up('panel').down('#includeNhif').getValue();",
+                    "var invoiceType=button.up('panel').down('#invoiceType').getValue();",
+                    "var encNr=button.up('panel').down('#encNr').getValue();",
+                    "var formStatus=button.up('panel').down('#formStatus').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=generateInvoice',",
+                    "    params: {",
+                    "        pid: pid,",
+                    "        bill_number:bill_number,",
+                    "        includeReceipt:includeReceipt,",
+                    "        includeNhif:includeNhif,",
+                    "        invoiceType:invoiceType,",
+                    "        encNr:encNr,",
+                    "        formStatus:formStatus",
+                    "    },",
+                    "    success: function(response){",
+                    "        var encDetails= response.responseText;",
+                    "        var div = Ext.fly('invoiceDetails');",
+                    "        var htmlList = encDetails;",
+                    "",
+                    "        div.update(htmlList);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "previewInterimInvoice",
+            "designerId": "9e874132-5c0f-4813-a309-1225c29e176b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "textField,the,eOpts"
+                ],
+                "fn": "getPatientName",
+                "implHandler": [
+                    "var pid=textField.getValue();",
+                    " var formStatus=textField.up('panel').down('#formStatus').getValue();",
+                    "",
+                    "if(formStatus==\"IP\"){",
+                    "    admType='1';",
+                    "}else{",
+                    "    admType='2';",
+                    "}",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getPatientNames',",
+                    "    params: {",
+                    "        pid: pid",
+                    "    },",
+                    "    success: function(response){",
+                    "        var encDetails= Ext.util.JSON.decode(response.responseText);",
+                    "        pnames=encDetails[0].names;",
+                    "",
+                    "        textField.up('panel').down('#txtPatientName').setValue(pnames);",
+                    "        textField.up('panel').down('#encNr').setValue(encDetails[0].EncounterNr);",
+                    "        //textField.up('panel').down('#txtBillNumber').setValue(encDetails.encounterNr[0].BillNumber);",
+                    "",
+                    "        var billStore2 =Ext.data.StoreManager.lookup('BillNumbersStore');",
+                    "        billStore2.load({",
+                    "            params: {",
+                    "                pid: pid,",
+                    "                admType:admType",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "",
+                    "        });",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getPatientName",
+            "designerId": "0bbb5500-eae2-4364-b5c3-655116b0bf99"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "PrintSelectedInvoice",
+                "implHandler": [
+                    "var pid=button.up('form').down('#txtInvoicePid').getValue();",
+                    "var bill_number=button.up('form').down('#txtBillNumber').getValue();",
+                    "var includeReceipt='ON';",
+                    "var includeNhif='ON';",
+                    "var invoiceType=button.up('form').down('#invoiceType').getValue(); //'Interim Detail Invoice';",
+                    "var encNr=button.up('form').down('#encNr').getValue();",
+                    "if(invoiceType==='Interim Detail Invoice'){",
+                    "    var urlholder=\"reports/detail_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "    invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "}else if(invoiceType==='Interim Summary Invoice'){",
+                    "    var urlholder=\"reports/summary_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "    invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "}else if(invoiceType==='Final Detail Invoice'){",
+                    "    var urlholder=\"reports/finaldetail_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "    invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "}else if(invoiceType==='Final Summary Invoice'){",
+                    "    var urlholder=\"reports/finalsummary_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "    invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "PrintSelectedInvoice",
+            "designerId": "1b60ab9b-786c-42c8-94a9-afe9b87c3443"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outpatientinvoices",
+                "selector": "outpatientinvoices",
+                "xtype": "outpatientinvoices"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "outpatientinvoices",
+            "designerId": "d2981e2a-5b0a-48ca-816c-af5e5a71ceb4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "updateMobidity",
+                "implHandler": [
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "Ext.Ajax.request({",
+                    "     url: 'data/getReportsData.php?task=updateOpMobidity',",
+                    "     params:{",
+                    "         startDate:startDate,",
+                    "         endDate:endDate",
+                    "     },",
+                    "     success: function(response, opts) {",
+                    "         var obj = Ext.decode(response.responseText);",
+                    "         console.dir(obj);",
+                    "     },",
+                    "",
+                    "     failure: function(response, opts) {",
+                    "         console.log('server-side failure with status code ' + response.status);",
+                    "     }",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "updateMobidity",
+            "designerId": "5ff5c20f-7760-4437-ba0b-dba23ceaed85"
         }
     ]
 }

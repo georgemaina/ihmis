@@ -1,0 +1,162 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|uiInterfaceName": "default-framed",
+        "designer|userAlias": "noteslist",
+        "designer|userClassName": "NotesList",
+        "frame": true,
+        "height": 195,
+        "itemId": "notesGrid",
+        "store": "NotesStore",
+        "width": 754
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|uiInterfaceName": "string",
+        "frame": "boolean",
+        "height": "auto",
+        "store": "store",
+        "width": "auto",
+        "itemId": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyGridPanel3",
+    "designerId": "81e553a0-a066-4b56-b038-19b8ed461acb",
+    "viewControllerInstanceId": "effb9935-2ceb-4be2-ae8a-d26e27d63800",
+    "viewModelInstanceId": "b0309822-f5a0-4e36-85fe-865e30f8a1ee",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable6",
+            "designerId": "b8d25149-5361-41a2-a44e-13e7f1625bd2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "CreateTime",
+                "text": "Create Time",
+                "width": 167
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn78",
+            "designerId": "627b7602-b0da-4f9f-8d8c-eb7889009923"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "NotesType",
+                "text": "Notes Type",
+                "width": 127
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn79",
+            "designerId": "c5c78a0e-1e33-439c-89a7-f99b18cf57cc"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Notes",
+                "text": "Notes",
+                "width": 302
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn80",
+            "designerId": "6aaad912-23fd-45d0-bb3b-fbefc39aac91"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "TreatedBy",
+                "text": "Treated By"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn81",
+            "designerId": "1cafe9ef-6abc-499b-8adf-3f81db010a23"
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "itemId": "deleteNote",
+                "width": 37
+            },
+            "configAlternates": {
+                "align": "string",
+                "itemId": "string",
+                "width": "auto"
+            },
+            "name": "MyActionColumn9",
+            "designerId": "aff74693-1001-40ca-89df-79c3cd86b46a",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "icon": "icons/delete1.jpg"
+                    },
+                    "configAlternates": {
+                        "icon": "string"
+                    },
+                    "name": "MyActionColumnItem",
+                    "designerId": "bfa1c783-b025-4d4b-a9e9-04b155a6b623"
+                }
+            ]
+        }
+    ]
+}

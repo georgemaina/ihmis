@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dischargesstore",
+        "designer|userClassName": "DischargesStore",
+        "model": "Admissions",
+        "storeId": "DischargesStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "33522e0d-b7bd-4767-a4a9-770866e3ad26",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getInpatientFunctions.php?caller=getDischarges"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy12",
+            "designerId": "a385026e-ac29-44d3-81da-0f959819aca0",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader11",
+                    "designerId": "8f9512cd-03c9-44de-8e76-e46729a214e4"
+                }
+            ]
+        }
+    ]
+}

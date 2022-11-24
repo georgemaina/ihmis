@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "theatre",
+        "designer|userClassName": "Theatre"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyPanel11",
+    "designerId": "0d28721b-200a-485d-b29f-4688f252fbe7",
+    "viewControllerInstanceId": "4bb1fcf8-aead-4b8f-8195-ec3c6678bea8",
+    "viewModelInstanceId": "95f9a8b7-cd31-4b7e-8bb8-2aaa55dd7b54"
+}

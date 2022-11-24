@@ -1,0 +1,114 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "VitalsChart"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "95b4af3d-3e54-4888-81f8-755877adfc69",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "VitalsTime"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField162",
+            "designerId": "8652fb22-eed3-4bd7-9ac1-251b3e50efb4"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Temperature"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField166",
+            "designerId": "2b3f8c2c-8405-4d87-96d7-fa370f93bf92"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Systolic"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField177",
+            "designerId": "29ec0e36-0ce7-4b93-9f22-01281ea4eff3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Diastolic"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField178",
+            "designerId": "89d92498-1bbc-4e16-8ed6-74ee9eedac65"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Pulse"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField179",
+            "designerId": "8e2fc172-50c2-40b7-b7c3-198affd853b0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Respiration"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField180",
+            "designerId": "6bd9d6dc-a2c3-4af7-b135-ce27b799c7a3"
+        }
+    ]
+}

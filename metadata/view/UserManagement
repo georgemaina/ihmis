@@ -8,12 +8,10 @@
     "userConfig": {
         "closable": null,
         "collapsible": false,
-        "designer|snapToGrid": 5,
+        "container|align": "stretch",
         "designer|userAlias": "usermanagement",
         "designer|userClassName": "UserManagement",
-        "frame": true,
-        "height": 560,
-        "layout": "absolute",
+        "layout": "hbox",
         "title": null
     },
     "configAlternates": {
@@ -27,7 +25,8 @@
         "layout": "string",
         "title": "string",
         "width": "auto",
-        "scrollable": "boolean"
+        "scrollable": "boolean",
+        "container|align": "string"
     },
     "name": "UserManagement1",
     "designerId": "3d384f7e-4b40-45f4-b8c3-3730ce30c885",
@@ -35,287 +34,21 @@
     "viewModelInstanceId": "1ced3a2e-2958-458d-9b1f-fb936482f184",
     "cn": [
         {
-            "type": "Ext.grid.Panel",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "columnLines": true,
-                "height": 560,
-                "itemId": "usersGrid",
-                "layout|x": 0,
-                "layout|y": 0,
-                "store": "UsersListStore",
-                "title": null,
-                "width": 530
+                "width": 541
             },
             "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "layout|x": "number",
-                "layout|y": "number",
-                "store": "store",
-                "title": "string",
-                "width": "auto",
-                "scrollable": "boolean",
-                "columnLines": "boolean"
+                "width": "auto"
             },
-            "name": "MyGridPanel16",
-            "designerId": "2b7d1868-d8a4-44ef-a899-f7bb098b6659",
-            "cn": [
-                {
-                    "type": "Ext.view.Table",
-                    "reference": {
-                        "name": "viewConfig",
-                        "type": "object"
-                    },
-                    "codeClass": null,
-                    "configAlternates": {
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyGridView24",
-                    "designerId": "6884f148-e69a-4fd1-b567-a4a559a582e4"
-                },
-                {
-                    "type": "Ext.toolbar.Paging",
-                    "reference": {
-                        "name": "dockedItems",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "displayInfo": true,
-                        "dock": "bottom",
-                        "store": "UsersListStore",
-                        "width": 360
-                    },
-                    "configAlternates": {
-                        "displayInfo": "boolean",
-                        "dock": "string",
-                        "store": "store",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyPagingToolbar24",
-                    "designerId": "f091f6ca-e93c-44f5-80c2-c6a92749d123"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "ID",
-                        "text": "ID",
-                        "width": 40
-                    },
-                    "configAlternates": {
-                        "dataIndex": "datafield",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyColumn193",
-                    "designerId": "5e832f3f-6aa2-493e-b979-3c8696c7be0a"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "FirstName",
-                        "text": "FirstName",
-                        "width": 70
-                    },
-                    "configAlternates": {
-                        "dataIndex": "datafield",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyColumn194",
-                    "designerId": "343668df-847a-4112-9299-466b12728f22"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "LastName",
-                        "text": "LastName",
-                        "width": 79
-                    },
-                    "configAlternates": {
-                        "dataIndex": "datafield",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyColumn195",
-                    "designerId": "3317edd5-9af5-4c16-8834-1f15cf9a23ea"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "UserName",
-                        "text": "UserName",
-                        "width": 77
-                    },
-                    "configAlternates": {
-                        "dataIndex": "datafield",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyColumn196",
-                    "designerId": "bcfdb2b8-6b91-419e-9353-f46f9fe57fe8"
-                },
-                {
-                    "type": "Ext.grid.column.Column",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "dataIndex": "Roles",
-                        "text": "Roles"
-                    },
-                    "configAlternates": {
-                        "dataIndex": "datafield",
-                        "text": "string",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyColumn197",
-                    "designerId": "44ba2907-e9f6-4cb7-b8ce-7279b8474644"
-                },
-                {
-                    "type": "Ext.grid.column.Action",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "icon": "icons/delete1.jpg",
-                        "text": "Register",
-                        "width": 75
-                    },
-                    "configAlternates": {
-                        "align": "string",
-                        "icon": "string",
-                        "id": "string",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyActionColumn9",
-                    "designerId": "08583632-0940-4d9b-af3f-33df254ad49b",
-                    "cn": [
-                        {
-                            "type": "actioncolumnitem",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "icon": "../icons/register.png"
-                            },
-                            "configAlternates": {
-                                "icon": "string"
-                            },
-                            "name": "MyActionColumnItem9",
-                            "designerId": "15e1bd32-0066-428a-a057-7f2c589b7bdb"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.grid.column.Action",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "deleteUser",
-                        "text": "Delete",
-                        "width": 72
-                    },
-                    "configAlternates": {
-                        "align": "string",
-                        "id": "string",
-                        "itemId": "string",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyActionColumn10",
-                    "designerId": "52c31797-5187-470e-8bee-e2604b23a0b3",
-                    "cn": [
-                        {
-                            "type": "actioncolumnitem",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "icon": "../icons/delete1.jpg"
-                            },
-                            "configAlternates": {
-                                "icon": "string"
-                            },
-                            "name": "MyActionColumnItem10",
-                            "designerId": "be40b971-8a61-4ed6-9a7e-7a04a3a9dd6f"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.grid.column.Action",
-                    "reference": {
-                        "name": "columns",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "width": 40
-                    },
-                    "configAlternates": {
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyActionColumn11",
-                    "designerId": "b7285807-88c9-4996-8742-c8290efc6309",
-                    "cn": [
-                        {
-                            "type": "actioncolumnitem",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "name": "MyActionColumnItem11",
-                            "designerId": "aa3c3990-c9eb-4d47-9517-7c8ecdb0e615"
-                        }
-                    ]
-                }
-            ]
+            "name": "userslist",
+            "designerId": "b8ee5e60-a926-425f-bce4-645d16b6f44e",
+            "masterInstanceId": "d5b34124-ed67-4f69-a9ba-3f11e7365805"
         },
         {
             "type": "Ext.grid.Panel",
@@ -328,8 +61,7 @@
                 "columnLines": true,
                 "height": 510,
                 "itemId": "rolesGrid",
-                "layout|x": 540,
-                "layout|y": 50,
+                "layout|flex": 1,
                 "store": "UserRolesStore",
                 "title": "User Roles"
             },
@@ -342,7 +74,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "columnLines": "boolean",
-                "itemId": "string"
+                "itemId": "string",
+                "layout|flex": "number"
             },
             "name": "MyGridPanel17",
             "designerId": "8ef24447-f325-4057-9bbb-7c0b876f6a70",
@@ -559,10 +292,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "inputValue": "1"
+                                "inputValue": "1",
+                                "uncheckedValue": "0"
                             },
                             "configAlternates": {
-                                "inputValue": "string"
+                                "inputValue": "string",
+                                "uncheckedValue": "string"
                             },
                             "name": "MyCheckbox4",
                             "designerId": "ea8a5835-d0ee-4091-8b7a-1752089447f3"
@@ -597,6 +332,12 @@
                                 "type": "object"
                             },
                             "codeClass": null,
+                            "userConfig": {
+                                "uncheckedValue": "0"
+                            },
+                            "configAlternates": {
+                                "uncheckedValue": "string"
+                            },
                             "name": "MyCheckbox7",
                             "designerId": "61fa6294-d163-4cce-b30c-b1350ce0020b"
                         }
@@ -643,66 +384,92 @@
                             "designerId": "364af0b2-38b4-4b68-82ec-8c2af2c281cc"
                         }
                     ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "dock": "top",
+                        "height": 44,
+                        "layout": "hbox",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "dock": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyContainer25",
+                    "designerId": "df168204-e11e-4a54-98b3-a980386bfc57",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 40,
+                                "iconCls": "x-fa fa-plus",
+                                "itemId": "cmdNewUser",
+                                "margin": 5,
+                                "text": "<b>New User</b>",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "itemId": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto",
+                                "scrollable": "boolean",
+                                "iconCls": "string",
+                                "margin": "auto"
+                            },
+                            "name": "MyButton93",
+                            "designerId": "276689c6-bd38-4800-8440-b1e309706c4d"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 40,
+                                "iconCls": "x-fa fa-save",
+                                "itemId": "updateRoles",
+                                "margin": 5,
+                                "text": "<b>Update Roles</b>",
+                                "width": 160
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto",
+                                "scrollable": "boolean",
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "margin": "auto"
+                            },
+                            "name": "MyButton94",
+                            "designerId": "adfb93d9-876b-4615-b360-cfb8ca27226e"
+                        }
+                    ]
                 }
             ]
-        },
-        {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 40,
-                "iconCls": "x-fa fa-plus",
-                "itemId": "cmdNewUser",
-                "layout|x": 540,
-                "layout|y": 5,
-                "text": "<b>New User</b>",
-                "width": 120
-            },
-            "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "layout|x": "number",
-                "layout|y": "number",
-                "text": "string",
-                "width": "auto",
-                "scrollable": "boolean",
-                "iconCls": "string"
-            },
-            "name": "MyButton93",
-            "designerId": "276689c6-bd38-4800-8440-b1e309706c4d"
-        },
-        {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 40,
-                "iconCls": "x-fa fa-save",
-                "itemId": "updateRoles",
-                "layout|x": 680,
-                "layout|y": 5,
-                "text": "<b>Update Roles</b>",
-                "width": 160
-            },
-            "configAlternates": {
-                "height": "auto",
-                "layout|x": "number",
-                "layout|y": "number",
-                "text": "string",
-                "width": "auto",
-                "scrollable": "boolean",
-                "iconCls": "string",
-                "itemId": "string"
-            },
-            "name": "MyButton94",
-            "designerId": "adfb93d9-876b-4615-b360-cfb8ca27226e"
         }
     ]
 }

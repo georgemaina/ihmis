@@ -83,16 +83,19 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|snapToGrid": 5,
+                "container|align": "stretch",
+                "container|pack": "center",
                 "dock": "bottom",
-                "height": 60,
-                "layout": "absolute"
+                "height": 46,
+                "layout": "hbox"
             },
             "configAlternates": {
                 "designer|snapToGrid": "number",
                 "dock": "string",
                 "height": "auto",
-                "layout": "string"
+                "layout": "string",
+                "container|align": "string",
+                "container|pack": "string"
             },
             "name": "MyContainer5",
             "designerId": "142f4937-50ee-48bc-8d7a-e06841e57c2c",
@@ -106,10 +109,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "height": 40,
+                        "hidden": true,
                         "iconCls": "x-fa fa-close",
                         "itemId": "cmdClose",
-                        "layout|x": 505,
-                        "layout|y": 10,
                         "text": "Close",
                         "width": 120
                     },
@@ -120,7 +122,8 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "text": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "hidden": "boolean"
                     },
                     "name": "MyButton",
                     "designerId": "ad39a833-4f3c-4af5-8e37-dc81038104dc"
@@ -136,8 +139,7 @@
                         "height": 40,
                         "iconCls": "x-fa fa-save",
                         "itemId": "cmdSaveResults",
-                        "layout|x": 205,
-                        "layout|y": 10,
+                        "margin": "0 50 0 0",
                         "text": "Save",
                         "width": 120
                     },
@@ -148,10 +150,39 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "text": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "margin": "auto"
                     },
                     "name": "MyButton4",
                     "designerId": "13ee376f-b032-4427-a607-46d4c08745a0"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdCloseResultsForm",
+                        "margin": "0 0 0 50",
+                        "text": "Close",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "af7092a2-cfac-4103-afd4-0db0f863beb9"
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -188,8 +219,6 @@
                         "fieldLabel": "Lab No",
                         "hidden": true,
                         "itemId": "labNo",
-                        "layout|x": -1,
-                        "layout|y": 30,
                         "name": "labNo",
                         "width": 190
                     },

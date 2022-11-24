@@ -330,13 +330,13 @@
                                             "userConfig": {
                                                 "fn": "onAddSamplesClick",
                                                 "implHandler": [
-                                                    "var rec = button.getViewModel().get('record');",
+                                                    "var rec = button.lookupViewModel().get('record');",
                                                     "//Ext.Msg.alert(\"Button clicked\", \"Hey! \" + rec.get('LabNo'));",
-                                                    "var specimen=Ext.create(\"Lab.view.SpecimenCollection\",{});",
+                                                    "var specimen=Ext.create(\"CarePortal.view.SpecimenCollection\",{});",
                                                     " Ext.Ajax.request(",
                                                     "     {",
                                                     "         // waitMsg: 'Saving changes...',",
-                                                    "         url: '../../data/getDataFunctions.php?task=checkUserAccess',",
+                                                    "         url: 'data/getDataFunctions.php?task=checkUserAccess',",
                                                     "         params: {",
                                                     "             activity: 'TakeSamples'",
                                                     "         },",
@@ -355,6 +355,10 @@
                                                     "                    specimen.down('#labNo').setValue(button.up('grid').up('panel').down('#labno').getValue());",
                                                     "                    containterWindows.add(specimen);",
                                                     "                    containterWindows.show();",
+                                                    "                    ",
+                                                    "                    var specimenStore=Ext.data.StoreManager.lookup(\"SpecimenStore\");",
+                                                    "                    specimenStore.load({});",
+                                                    "                    ",
                                                     "                }else{",
                                                     "                     Ext.Msg.alert('Access Denied','Sorry! You are not allowed to Collect Specimen');",
                                                     "                }",
@@ -390,15 +394,15 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "LabNo",
-                                "text": "Lab No"
+                                "dataIndex": "TestStatus",
+                                "text": "Test Status"
                             },
                             "configAlternates": {
                                 "dataIndex": "datafield",
                                 "text": "string"
                             },
-                            "name": "MyColumn2",
-                            "designerId": "8bd78b04-1768-4e53-b23c-94c0c2d55b38"
+                            "name": "MyColumn42",
+                            "designerId": "4474ca94-9dd9-4012-a9ce-7239cf4d5cc6"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -408,15 +412,15 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "dataIndex": "EncounterNo",
-                                "text": "Encounter No"
+                                "dataIndex": "LabNo",
+                                "text": "Lab No"
                             },
                             "configAlternates": {
                                 "dataIndex": "datafield",
                                 "text": "string"
                             },
-                            "name": "MyColumn3",
-                            "designerId": "fcb4d15e-53cd-452d-afaa-945ba98fe646"
+                            "name": "MyColumn2",
+                            "designerId": "8bd78b04-1768-4e53-b23c-94c0c2d55b38"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -453,6 +457,24 @@
                             },
                             "name": "MyColumn15",
                             "designerId": "9a388bf8-9669-4a00-a543-9c7c87978700"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "EncounterNo",
+                                "text": "Encounter No"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn3",
+                            "designerId": "fcb4d15e-53cd-452d-afaa-945ba98fe646"
                         },
                         {
                             "type": "Ext.grid.column.Column",
@@ -957,24 +979,6 @@
                             },
                             "name": "MyColumn41",
                             "designerId": "6d4e1f70-d5e8-4661-8d5c-b0b4b61d4f69"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "TestStatus",
-                                "text": "Test Status"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string"
-                            },
-                            "name": "MyColumn42",
-                            "designerId": "4474ca94-9dd9-4012-a9ce-7239cf4d5cc6"
                         },
                         {
                             "type": "Ext.grid.column.Column",

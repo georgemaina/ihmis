@@ -84,3 +84,18 @@
     font-weight: bold;
     text-align: center;
 }
+
+.button {
+  border: none;
+  color: white;
+/*   padding: 15px 15px 15px; */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+/*   margin: 2px 2px; */
+  cursor: pointer;
+}
+
+.apptButton1 {background-color: #4CAF50; width: 150px; height: 20px} /* Green */
+.apptButton2 {background-color: #008CBA;} /* Blue */

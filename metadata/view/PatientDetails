@@ -39,8 +39,8 @@
                 "itemId": "pid",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": -16,
-                "layout|y": -3,
+                "layout|x": -8,
+                "layout|y": -6,
                 "margin": 0,
                 "padding": 0,
                 "width": 185
@@ -161,13 +161,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "fieldLabel": "Ward No",
+                "fieldLabel": "Ward",
                 "fieldStyle": "color:#a7e88b;font-weight-bold;",
-                "itemId": "wardno",
+                "itemId": "wardName",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": 525,
-                "layout|y": -2
+                "layout|x": 450,
+                "layout|y": -5
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -190,13 +190,42 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fieldLabel": "Ward No",
+                "fieldStyle": "color:#a7e88b;font-weight-bold;",
+                "itemId": "wardno",
+                "labelAlign": "right",
+                "labelStyle": "font-weight:bold; color:#f4f6fc;",
+                "layout|x": 640,
+                "layout|y": -6
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelStyle": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyDisplayField4",
+            "designerId": "a1932019-77d3-46c8-9814-b343fef33b02"
+        },
+        {
+            "type": "Ext.form.field.Display",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fieldLabel": "Room No",
                 "fieldStyle": "color:#a7e88b;font-weight-bold;",
                 "itemId": "roomno",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": 525,
-                "layout|y": 30
+                "layout|x": 450,
+                "layout|y": 25
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -224,8 +253,8 @@
                 "itemId": "bedno",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": 525,
-                "layout|y": 60
+                "layout|x": 450,
+                "layout|y": 55
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -253,7 +282,7 @@
                 "itemId": "names",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": -16,
+                "layout|x": -8,
                 "layout|y": 15
             },
             "configAlternates": {
@@ -282,7 +311,7 @@
                 "itemId": "dob",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": -15,
+                "layout|x": -5,
                 "layout|y": 40
             },
             "configAlternates": {
@@ -311,7 +340,7 @@
                 "itemId": "sex",
                 "labelAlign": "right",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
-                "layout|x": -15,
+                "layout|x": -5,
                 "layout|y": 60
             },
             "configAlternates": {

@@ -16,7 +16,6 @@
             "WardInfo",
             "ClinicsInfo",
             "Announcements",
-            "Clincs",
             "Radiology",
             "Investigations",
             "Notes",
@@ -32,7 +31,11 @@
             "ServicesList",
             "ProceduresAndServices",
             "ServiceOrdesrModel",
-            "Allergies"
+            "Allergies",
+            "PendingPrescription",
+            "MenuItems",
+            "MenuGroups",
+            "Appointments"
         ],
         "stores": [
             "VitalsStore",
@@ -62,7 +65,15 @@
             "OrderDetailStore",
             "AllergiesStore",
             "RadiologyListStore",
-            "LabTestStore"
+            "LabTestStore",
+            "InvoicesList",
+            "ReceiptsList",
+            "CreditSlipsStore",
+            "PendingPrescription",
+            "MenuItemsStore",
+            "MenuGroupStore",
+            "AppointmentsStore",
+            "NhifRatesStore"
         ],
         "views": [
             "Portal",
@@ -71,15 +82,12 @@
             "GridPortlet",
             "Message",
             "HeaderPanel",
-            "Vitals",
-            "DiagnosisPanel",
             "Investigations",
             "DoctorsNotes",
             "Complains",
             "DoctorsArea",
             "PatientStatus",
             "RoomAllocation",
-            "DoctorsWorkload",
             "TriagePanel",
             "Announcements",
             "WardsTable",
@@ -107,7 +115,11 @@
             "Diagnosis",
             "MCH",
             "Immunization",
-            "Radiology"
+            "Radiology",
+            "VitalsLists",
+            "Appointments",
+            "AppointmentsForm",
+            "ClinicsList"
         ]
     },
     "configAlternates": {
@@ -355,6 +367,15 @@
                     "    'outpatientlist button#transferPatient':{",
                     "        click:this.openTransferForm",
                     "    },",
+                    "    'outpatientlist button#openAssignRoom':{",
+                    "        click:this.openAssignRoom",
+                    "    },",
+                    "    'outpatientlist actioncolumn[itemId=transferClinic]':{",
+                    "        click:this.openTransferClinic",
+                    "    },",
+                    "    'clinicslist actioncolumn[id=transferOP]':{",
+                    "        click:this.transferClinic",
+                    "    },",
                     "    '#btnNotes':{",
                     "        afterrender:this.createNotes",
                     "    },",
@@ -390,6 +411,12 @@
                     "    },",
                     "    'assignbeds':{",
                     "        itemclick:this.assignBed",
+                    "    },",
+                    "//     'clinicslist':{",
+                    "//         itemclick:this.transferClinic",
+                    "//     },",
+                    "    'wardslist':{",
+                    "        itemclick:this.transferWard",
                     "    },",
                     "    '#cmdLogin':{",
                     "        click:this.login",
@@ -445,12 +472,61 @@
                     "    '#cmdPrintVoucher':{",
                     "        click:this.openPaymentVoucher",
                     "    },",
+                    "    '#cmdPrintCheque':{",
+                    "        click:this.openCheque",
+                    "    },",
                     "    '#cmdOpenVouchers':{",
                     "        click:this.openPaymentList",
-                    "    }//,",
-                    "   // \"#deleteNotes\":{",
-                    "   //     afterrender:this.deleteNotes",
-                    "   // }",
+                    "    },",
+                    "    '#type_nr':{",
+                    "        change:this.clearNotes",
+                    "    },",
+                    "    '#cmdPrintCreditSlip':{",
+                    "        click:this.printCreditSlip",
+                    "    },",
+                    "    '#txtPid':{",
+                    "        onblur:this.getPatientNames",
+                    "    },",
+                    "    '#cmdRePrintCreditSlip':{",
+                    "        click:this.rePrintCreditSlip",
+                    "    },",
+                    "    '#creditSlips':{",
+                    "        itemclick:this.populateSlip",
+                    "    },",
+                    "    '#assignRoom':{",
+                    "        click:this.assignRoom",
+                    "    },",
+                    "    '#opWaitingList':{",
+                    "        itemclick:this.loadPatientDetails",
+                    "    },",
+                    "    '#Radiology':{",
+                    "        change:this.onRadiologyChange",
+                    "    },",
+                    "    '#admSource':{",
+                    "        change:this.changeEncounterClass",
+                    "    },",
+                    "    '#cmdNewMenu':{",
+                    "        click:this.openMenuForm",
+                    "    },",
+                    "    '#cmdSaveMenu':{",
+                    "        click:this.saveMenuGroup",
+                    "    },",
+                    "    '#apttCalendar':{",
+                    "        select:this.loadAppointments",
+                    "    },",
+                    "    '#cmdScheduleAppointment':{",
+                    "        click:this.openAppoinmentsWindow",
+                    "    },",
+                    "    '#txtSearchGL':{",
+                    "        //specialkey:this.getPressedKey3,",
+                    "        change:this.filterGls",
+                    "    },",
+                    "    '#deleteNote':{",
+                    "        click:this.deleteNote",
+                    "    },",
+                    "    '#cmdPatientHistory':{",
+                    "        click:this.openPatientHistory",
+                    "    }",
                     "});"
                 ]
             },
@@ -520,14 +596,17 @@
                     "        homeArea=Ext.create(\"CarePortal.view.Portal\",{});",
                     "",
                     "         this.getView().destroy();",
-                    "        ",
+                    "",
                     "        Ext.widget(homeArea);",
+                    "",
+                    "        homeArea.down('#companyTitle').setValue(localStorage.getItem('CompanyName'));",
+                    "",
                     "        centerContainer=homeArea.down(\"#PortalDetails\");",
                     "        centerContainer.removeAll();",
                     "",
                     "       // centerContainer.add(homeArea);",
                     "",
-                    "       // this.getAnnouncements();"
+                    "       // this.getAnnouncements();work"
                 ]
             },
             "configAlternates": {
@@ -1031,6 +1110,8 @@
                     "        this.getAdmissiondata().down('#encounterNr2').setValue(encounterNo);",
                     "        this.getAdmissiondata().down('#encounterDate').setValue(rec.get('EncounterDate'));",
                     "        this.getAdmissiondata().down('#encounterDate2').setValue(rec.get('EncounterDate'));",
+                    "        this.getAdmissiondata().down('#phone').setValue(rec.get('Phone'));",
+                    "",
                     "",
                     "        if(encounterNo===''){",
                     "            this.getAdmissiondata().down('#admissionStatus').setValue('No Admission Data for '+ names);",
@@ -1086,7 +1167,7 @@
                     "var regDate=Ext.Date.format(dt,'d-m-Y H:i:s');",
                     "//}",
                     "",
-                    "Ext.Msg.alert('Rest',pid+' '+names);",
+                    "//Ext.Msg.alert('Rest',pid+' '+names);",
                     "",
                     "var encounterNo=sessionStorage.getItem('encounterNo');",
                     "",
@@ -1120,6 +1201,8 @@
                     "        this.getAdmissiondata().down('#dob').setValue(sessionStorage.getItem('dob'));",
                     "        this.getAdmissiondata().down('#gender').setValue(sessionStorage.getItem('gender'));",
                     "        this.getAdmissiondata().down('#registrationDate').setValue(regDate);",
+                    "        this.getAdmissiondata().down('#phone').setValue(regDate);",
+                    "        ",
                     "//         this.getAdmissiondata().down('#encounterNr').setValue(encounterNo);",
                     "//         this.getAdmissiondata().down('#encounterNr2').setValue(sessionStorage.getItem('encounterNo'));",
                     "//         this.getAdmissiondata().down('#encounterDate').setValue(sessionStorage.getItem('EncounterDate'));",
@@ -1515,9 +1598,10 @@
                     "                menuItem = Ext.create(\"Ext.menu.Item\", {",
                     "                    text: items.subMenuName,",
                     "                    icon:items.sImage,",
-                    "                    itemId:items.nr,",
+                    "                    itemId:items.Nr,",
                     "                    link:items.url,",
                     "                    dispType:items.dispType,",
+                    "                    admType:items.ID,",
                     "                    style:'font-size: 28px;'",
                     "                });",
                     "                menu.add(menuItem);",
@@ -1553,7 +1637,7 @@
                 ],
                 "fn": "getSelectedMenu",
                 "implHandler": [
-                    "//Ext.Msg.alert('test','test '+item.link + '-'+item.itemId);",
+                    "//Ext.Msg.alert('test','test '+item.link + '-'+item.admType);",
                     "    centerContainer=this.getViewport().down(\"#detailsPanel\");",
                     "if(item.dispType==1){",
                     "",
@@ -1573,12 +1657,20 @@
                     "                containterWindows.show();",
                     "                Ext.Msg.alert('Info','You have not opened a Shift: Status='+shiftStatus);",
                     "    }else{",
-                    "        ",
+                    "",
                     "        centerDetails=Ext.create(\"CarePortal.view.\"+item.link,{});",
                     "        centerContainer.removeAll();",
                     "",
                     "        centerContainer.add(centerDetails);",
                     "        centerContainer.setTitle(item.text);",
+                    "",
+                    "        if(item.admType==\"122\"){",
+                    "            centerDetails.down('#formStatus').setValue('IP');",
+                    "            centerContainer.setTitle(\"Inpatient Invoices\");",
+                    "        }else{",
+                    "            centerDetails.down('#formStatus').setValue('OP');",
+                    "            centerContainer.setTitle(\"Outpatient Invoices\");",
+                    "        }",
                     "",
                     "    }",
                     "",
@@ -1591,8 +1683,9 @@
                     "    centerContainer.removeAll();",
                     "    var containterWindows=Ext.create('Ext.window.Window', {",
                     "        title: item.text,",
-                    "        resizable:false,",
-                    "        closable:true",
+                    "        resizable:true,",
+                    "        closable:true,",
+                    "        layout:'fit'",
                     "    });",
                     "",
                     "    containterWindows.add(centerDetails);",
@@ -1954,18 +2047,22 @@
                 "implHandler": [
                     "var form = button.up('panel').getForm(); // get the basic form",
                     "//var entryForm=form.getItemId();",
-                    "// var pid=button.up('panel').down('#Pid').getValue();",
+                    "var pid=button.up('panel').down('#Pid').getValue();",
                     "var name_first=button.up('panel').down('#name_first').getValue();",
                     "var name_2=button.up('panel').down('#name_2').getValue();",
                     "var name_last=button.up('panel').down('#name_last').getValue();",
                     "var names=name_first+' '+name_2+' '+name_last;",
                     "var dob1=button.up('panel').down('#date_birth').getValue();",
                     "var dob=Ext.Date.format(dob1,\"d-m-Y\");",
+                    "var formStatus=button.up('panel').down('#formStatus').getValue();",
                     "",
                     "if (form.isValid()) { // make sure the form contains valid data before submitting",
                     "    form.submit({",
+                    "        params:{",
+                    "          pid: pid",
+                    "        },",
                     "        success: function (form, action) {",
-                    "            Ext.Msg.alert('Thank you!', 'The Patient has been saved Successfully.');",
+                    "            Ext.Msg.alert('Thank you!', 'The Patient has been registered Successfully. \\n NoW admit the patient');",
                     "             this.getLastPatient();",
                     "",
                     "",
@@ -1977,9 +2074,12 @@
                     "            sessionStorage.setItem(\"paymentMethod\",button.up('panel').down('#insurance').getValue());",
                     "",
                     "            button.up('form').getForm().reset();",
-                    "            //             button.up('window').hide();",
+                    "            button.up('window').hide();",
                     "            //this.getViewPatient(button);",
-                    "            this.openAdmissionData1();",
+                    "",
+                    "            if(formStatus==\"insert\"){",
+                    "                this.openAdmissionData1();",
+                    "            }",
                     "",
                     "            var patientsStore =Ext.data.StoreManager.lookup('PatientDetails');",
                     "            patientsStore.load({",
@@ -2078,9 +2178,16 @@
                 "fn": "saveForm",
                 "implHandler": [
                     "var form = button.up('panel').getForm(); // get the basic form",
+                    "var pid=button.up('form').down('#pid').getValue();",
+                    "var encNr=button.up('form').down('#encounterNo').getValue();",
+                    "",
                     "//var entryForm=form.getItemId();",
                     "if (form.isValid()) { // make sure the form contains valid data before submitting",
                     "    form.submit({",
+                    "        params:{",
+                    "            pid:pid,",
+                    "            encNr:encNr",
+                    "        },",
                     "        success: function (form, action) {",
                     "            Ext.Msg.alert('Thank you!', 'The Vitals has been saved Successfully.');",
                     "            button.up('form').getForm().reset();",
@@ -2222,24 +2329,31 @@
                     "",
                     "//Ext.Msg.alert('Thank you!',this.getPatientstatus().down('#pid'));",
                     "component.getEl().on('click', function() {",
-                    "  // Ext.Msg.alert('Thank you!',component.up('panel').up('panel').getItemId());",
+                    "    // Ext.Msg.alert('Thank you!',component.up('panel').up('panel').getItemId());",
                     "",
-                    "        var vitals=Ext.create(\"CarePortal.view.VitalsForm\",{});",
-                    "        //centerContainer.removeAll();",
-                    "        var containterWindows=Ext.create('Ext.window.Window', {",
-                    "            title:\"Vitals Entry Form\",",
-                    "            resizable:false,",
-                    "            closable:true",
-                    "        });",
+                    "    var vitals=Ext.create(\"CarePortal.view.VitalsForm\",{});",
+                    "    //centerContainer.removeAll();",
+                    "    var containterWindows=Ext.create('Ext.window.Window', {",
+                    "        title:\"Vitals Entry Form\",",
+                    "        resizable:false,",
+                    "        closable:true",
+                    "    });",
                     "",
-                    "        containterWindows.add(vitals);",
-                    "        containterWindows.show();",
+                    "    containterWindows.add(vitals);",
+                    "    containterWindows.show();",
+                    "    var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
                     "",
                     "    vitals.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
                     "    vitals.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
-                    "   vitals.down('#encounterNo').setValue(component.up('panel').up('panel').down('#encounterNr').getValue());",
+                    "    vitals.down('#encounterNo').setValue(encNr);",
                     "    vitals.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
                     "",
+                    "    var vitalsStore =Ext.data.StoreManager.lookup('VitalsStore');",
+                    "    vitalsStore.load({",
+                    "        params:{",
+                    "            encNr:encNr",
+                    "        }",
+                    "    });",
                     "",
                     "});",
                     "",
@@ -2316,10 +2430,13 @@
                     "                 //    icd10Store.load({});",
                     "                var notes=Ext.create(\"CarePortal.view.Notes\",{});",
                     "                var containterWindows=Ext.create('Ext.window.Window', {",
-                    "                    title:\"Complaints Entry Form\",",
+                    "                    title:\"Patient Notes\",",
                     "                    resizable:false,",
                     "                    closable:true",
                     "                });",
+                    "",
+                    "              var notesStore =Ext.data.StoreManager.lookup('NoteTypesStore');",
+                    "               notesStore.load({});",
                     "",
                     "                containterWindows.add(notes);",
                     "                containterWindows.show();",
@@ -2365,13 +2482,14 @@
                     "        resizable:false,",
                     "        closable:true",
                     "    });",
-                    "    ",
+                    "",
                     "    var dob=component.up('panel').up('panel').down('#dob').getValue();",
-                    "    ",
+                    "",
                     "    var icd10Store =Ext.data.StoreManager.lookup('DiseaseCodeStore');",
                     "    icd10Store.load({",
                     "        params:{",
-                    "            dob:dob",
+                    "            dob:dob,",
+                    "            diagType:'OP'",
                     "        }",
                     "    });",
                     "",
@@ -2384,6 +2502,7 @@
                     "    diagnosis.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
                     "    diagnosis.down('#encounterNo').setValue(encNr);",
                     "    diagnosis.down('#Dob').setValue(dob);",
+                    "    diagnosis.down('#formStatus').setValue('OP');",
                     "",
                     "     var control = Ext.create('CarePortal.controller.Main');",
                     "        control.loadDiagnosis(encNr,component);",
@@ -2419,19 +2538,21 @@
                     "     var containterWindows=Ext.create('Ext.window.Window', {",
                     "         title:\"lab Tests Entry Form\",",
                     "         resizable:false,",
-                    "         closable:true",
+                    "         closable:true,",
+                    "         width:1400",
                     "     });",
                     "",
                     "     containterWindows.add(labtest);",
                     "     containterWindows.show();",
-                    "     ",
+                    "",
                     "     var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
                     "",
                     "     labtest.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
                     "     labtest.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
                     "     labtest.down('#encounterNo').setValue(encNr);",
                     "     labtest.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
-                    " ",
+                    "     labtest.down('#Source').setValue('Dashboard');",
+                    "",
                     "     var control = Ext.create('CarePortal.controller.Main');",
                     "       control.loadLabTest(encNr);",
                     " });"
@@ -2477,6 +2598,10 @@
                     "     radiology.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
                     "     radiology.down('#encounterNo').setValue(encNr);",
                     "     radiology.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
+                    "     ",
+                    "     var radiologyStore =Ext.data.StoreManager.lookup('RadiologyListStore');",
+                    "     radiologyStore.load({});",
+                    "",
                     "",
                     "      var control = Ext.create('CarePortal.controller.Main');",
                     "                control.loadRadiology(encNr);",
@@ -2554,6 +2679,9 @@
                 "implHandler": [
                     " component.getEl().on('click', function() {",
                     "",
+                    "     var pid=component.up('panel').up('panel').down('#pid').getValue();",
+                    "     var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
+                    "",
                     "     var prescription=Ext.create(\"CarePortal.view.PrescriptionForm\",{});",
                     "     var containterWindows=Ext.create('Ext.window.Window', {",
                     "         title:\"Prescriptions Entry Form\",",
@@ -2564,10 +2692,20 @@
                     "     containterWindows.add(prescription);",
                     "     containterWindows.show();",
                     "",
-                    "     prescription.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
+                    "     prescription.down('#pid').setValue(pid);",
                     "     prescription.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
-                    "     prescription.down('#encounterNo').setValue(component.up('panel').up('panel').down('#encounterNr').getValue());",
+                    "     prescription.down('#encounterNo').setValue(encNr);",
                     "     prescription.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
+                    "",
+                    "      var prescriptionStore=Ext.data.StoreManager.lookup(\"PrescriptionStore\");",
+                    "        prescriptionStore.load({",
+                    "            params:{",
+                    "                pid:pid,",
+                    "                encNr:encNr,",
+                    "                prescSource:'Prescription'",
+                    "            },",
+                    "            scope: this",
+                    "        });",
                     " });"
                 ]
             },
@@ -2597,26 +2735,34 @@
                     "var complaint=button.up('form').down('#type_nr').getValue();",
                     "var comment=button.up('form').down('#notes').getValue();",
                     "",
-                    "var notesPanel=button.up('form').down('#notesPanel');",
+                    "//var notesPanel=button.up('form').down('#notesPanel');",
                     "",
-                    "        Ext.Ajax.request({",
-                    "             url: 'data/getDataFunctions.php?task=saveComplaints',",
-                    "            params: {",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=saveComplaints',",
+                    "    params: {",
+                    "        pid:pid,",
+                    "        encNr:encounterNo,",
+                    "        type_nr:complaint,",
+                    "        notes:comment",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        //Ext.Msg.alert('Error',resp.Error);",
+                    "        button.up('form').down('#notes').setValue(\"\");",
+                    "        var notesStore=Ext.data.StoreManager.lookup(\"NotesStore\");",
+                    "        notesStore.load({",
+                    "            params:{",
                     "                pid:pid,",
                     "                encNr:encounterNo,",
-                    "                type_nr:complaint,",
-                    "                notes:comment",
+                    "                locationNr:locationNr",
                     "            },",
-                    "            success: function(response){",
-                    "               var resp = Ext.JSON.decode(response.responseText);",
-                    "                //Ext.Msg.alert('Error',resp.Error);",
-                    "",
-                    "                //this.getNotes(encounterNo);",
-                    "",
-                    "            },",
-                    "            scope:this",
+                    "            scope: this",
                     "        });",
-                    "this.loadNotes(encounterNo,notesPanel);",
+                    "",
+                    "    },",
+                    "    scope:this",
+                    "});",
+                    "//this.loadNotes(encounterNo,notesPanel);",
                     "//this.getNotes(encounterNo);"
                 ]
             },
@@ -2688,9 +2834,12 @@
                     "                            '<td>{CreateTime}</td>',",
                     "                            '<td>{TreatedBy}</td>',",
                     "                            '<td><a id={ID} href=\"#\"><img src=\"icons/update2.gif\"></a></td>',",
-                    "                            '<td><a id={ID} href=\"#\"><img src=\"icons/delete2.gif\"></a></td>',",
+                    "                            '<td><a id={ID} href=\"javascript:void(0);\" onclick = \"this.deleteNote();\"><img src=\"icons/delete2.gif\"></a></td>',",
                     "                        '</tr>',",
                     "                '</tpl>',{",
+                    "                    deleteNote: function(id) {",
+                    "                        return Ext.Msg.alert('Test',id);",
+                    "                    },",
                     "                    getLinkId: function(values) {",
                     "                        Ext.Msg.alert('link ' + values + ' clicked');",
                     "                        var result = Ext.id();",
@@ -2928,7 +3077,13 @@
                 "implHandler": [
                     "component.getEl().on('click', function(e,t) {",
                     "       e.stopEvent();",
-                    "     // Ext.Msg.alert('Test','Select Pid is '+t.id);",
+                    "    var patient=t.innerHTML;",
+                    "    var str1=patient.split(\" \");",
+                    "    var pid=str1[0];",
+                    "    var encNo = str1[str1.length - 1];",
+                    "    var names=str1.slice(1,-1);",
+                    "    ",
+                    "      //Ext.Msg.alert('Test','Select Pid is '+names);",
                     "       var assignBeds=Ext.create(\"CarePortal.view.AssignBeds\",{});",
                     "       var containterWindows=Ext.create('Ext.window.Window', {",
                     "           title:\"Assign Occupant\",",
@@ -2949,7 +3104,9 @@
                     "        assignBeds.down('#ward').setValue(ward);",
                     "        assignBeds.down('#assMsg').setValue(assMsg +\" PID \" + t.innerHTML + \".Thank You\");",
                     "        assignBeds.down('#wardID').setValue(wardID);",
-                    "        assignBeds.down('#encNo').setValue(t.id);",
+                    "        assignBeds.down('#encNo').setValue(encNo);",
+                    "        assignBeds.down('#pid').setValue(pid);",
+                    "        assignBeds.down('#names').setValue(names);",
                     "",
                     "",
                     "             containterWindows.add(assignBeds);",
@@ -3009,41 +3166,50 @@
                 ],
                 "fn": "assignBed",
                 "implHandler": [
-                    "Ext.Msg.alert('Test','ward No is '+this.getAssignbeds().down('#encNo').getValue());",
+                    "var transType=gridpanel.up('panel').down('#transType').getValue();",
+                    "Ext.Msg.alert('Test','ward No is '+transType);",
                     "if(record.get('PID')===''){",
                     "  //   var columns = grid.getView().headerCt.getGridColumns();",
+                    "    if(transType==\"Beds\"){",
+                    "        transType=\"transferWardBed\";",
+                    "        mode=\"transferbed\";",
+                    "    }else{",
+                    "         transType=\"assignBed\";",
+                    "         mode=\"\";",
+                    "    }",
                     "",
-                    "",
-                    "    var encNo=record.get('EncounterNo');",
-                    "    var wrdNo=this.getAssignbeds().down('#wardID').getValue();",
+                    "    var encNo=gridpanel.up('grid').down('#encNo').getValue();",
+                    "    var wrdNo=gridpanel.up('grid').down('#wardID').getValue();",
                     "    var rm=record.get('RoomNo');",
                     "    var bd=record.get('BedNo');",
                     "",
                     "     Ext.Ajax.request({",
-                    "            url: 'data/getDataFunctions.php?task=assignBed',",
+                    "            url: 'data/getDataFunctions.php?task='+transType,",
                     "            waitMsg: 'wait while we assign a bed ...',",
                     "         params:{",
-                    "             encNr:this.getAssignbeds().down('#encNo').getValue(),",
+                    "             encNr:encNo,",
                     "             wrdNo:wrdNo,",
                     "             roomNo:rm,",
-                    "             bed:bd",
+                    "             bed:bd,",
+                    "             mode:mode",
                     "         },",
                     "            success: function(response){",
                     "                var text = response.responseText;",
                     "",
-                    "                Ext.Msg.alert('Success','Successfully Assigned Bed to '+this.getAssignbeds().down('#encNo').getValue());",
+                    "               // Ext.Msg.alert('Success','Successfully Assigned Bed to '+this.getAssignbeds().down('#encNo').getValue());",
+                    "                gridpanel.up('window').close();",
                     "",
                     "                var occupancyStore=Ext.data.StoreManager.lookup(\"OccupancyStore\");",
                     "                occupancyStore.load({",
                     "                    params:{",
-                    "                       wrdNo:wrdNo",
+                    "                       wardId:wrdNo",
                     "                    }",
                     "                });",
                     "",
                     "                var waitingStore=Ext.data.StoreManager.lookup(\"WaitingListStore\");",
                     "                waitingStore.load({",
                     "                     params: {",
-                    "                        wrdNo:wrdNo",
+                    "                        wardNo:wrdNo",
                     "                    }",
                     "                });",
                     "",
@@ -3094,7 +3260,10 @@
                     "",
                     "            localStorage.setItem(\"LoggedIn\",true);",
                     "            localStorage.setItem(\"UserName\",username);",
-                    "            this.getLogin().destroy();",
+                    "            console.log(\"logged Username \"+action.result.userNameSession);",
+                    "            ",
+                    "            //this.getLogin().destroy();",
+                    "            button.up(\"viewport\").destroy();",
                     "            this.openHome();",
                     "",
                     "        },",
@@ -3322,11 +3491,19 @@
                 ],
                 "fn": "logout",
                 "implHandler": [
-                    " localStorage.setItem(\"LoggedIn\", false);",
-                    "this.getViewport().destroy();",
-                    "Ext.create(\"CarePortal.view.Login\",{});",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=logOut',",
+                    "    success: function(response, opts) {",
+                    "        var obj = Ext.decode(response.responseText);",
+                    "         localStorage.setItem(\"LoggedIn\", false);",
+                    "        button.up('viewport').destroy();",
+                    "        Ext.create(\"CarePortal.view.Login\",{});",
+                    "    },",
                     "",
-                    "",
+                    "    failure: function(response, opts) {",
+                    "        console.log('server-side failure with status code ' + response.status);",
+                    "    }",
+                    "});",
                     "",
                     "//Ext.widget(homeArea);",
                     "// centerContainer=homeArea.down(\"#PortalDetails\");",
@@ -3600,10 +3777,17 @@
                     "register.down('#name_first').setValue(rec.get('FirstName'));",
                     "register.down('#name_2').setValue(rec.get('LastName'));",
                     "register.down('#name_last').setValue(rec.get('SurName'));",
-                    "register.down('#date_birth').setValue(rec.get('DateOfBirth'));",
-                    "register.down('#age').setValue(rec.get('Gender'));",
+                    "var dt=rec.get('DateOfBirth');",
+                    "var dob=Ext.Date.format(dt,'d-m-Y');",
+                    "register.down('#date_birth').setValue(dob);",
+                    "",
+                    "//(Ext.Date.diff(new Date(2000, 02, 29), new Date(2015, 03, 03), Ext.Date.YEAR); // returns 4 expected 5!",
+                    "",
+                    "var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR); // returns 4 expected 5!",
+                    "",
+                    "register.down('#age').setValue(age);",
                     "register.down('#months').setValue(rec.get('Months'));",
-                    "register.down('#sex').setValue(rec.get('MaritalStatus'));",
+                    "register.down('#sex').setValue(rec.get('Gender'));",
                     "register.down('#citizenship').setValue(rec.get('Village'));",
                     "register.down('#county').setValue(rec.get('County'));",
                     "register.down('#addr_zip').setValue(rec.get('Address'));",
@@ -3613,6 +3797,7 @@
                     "register.down('#kin_relations').setValue(rec.get('KinRelations'));",
                     "register.down('#next_of_kin2').setValue(rec.get('NextOfKin'));",
                     "register.down('#kin_relations2').setValue(rec.get('KinRelations'));",
+                    "register.down('#insurance').setValue(rec.get('PaymentMode'));",
                     "register.down('#formStatus').setValue(\"Update\");"
                 ]
             },
@@ -3750,7 +3935,7 @@
                     "var comment=button.up('form').down('#Comments').getValue();",
                     "",
                     "var servicesPanel=button.up('form').down('#servicesPanel');",
-                    "",
+                    "  button.disable();",
                     "Ext.Ajax.request({",
                     "    url: 'data/getDataFunctions.php?task=saveProcedures',",
                     "    params: {",
@@ -3762,14 +3947,20 @@
                     "        comments:comment",
                     "    },",
                     "    success: function(response){",
+                    "        ",
                     "        var resp = Ext.JSON.decode(response.responseText);",
-                    "        Ext.Msg.alert('Success','Procedure/Service Added Successfully');",
+                    "       // Ext.Msg.alert('Success','Procedure/Service Added Successfully');",
                     "",
                     "        //this.getNotes(encounterNo);",
                     "",
                     "    },",
                     "    scope:this",
                     "});",
+                    "// button.up('panel').down('#Services').clear();",
+                    " Ext.defer(function () {",
+                    "     button.enable();",
+                    " }, 2000);",
+                    "",
                     "this.loadServices(encounterNo,servicesPanel);"
                 ]
             },
@@ -4382,7 +4573,7 @@
                     "labTestPanel=this.getLabtests().down(\"#labTestPanel\");",
                     "encounterNr=this.getLabtests().down(\"#encounterNo\").getValue();",
                     "",
-                    "var ltest=Ext.data.StoreManager.lookup(\"LabTestStore\");",
+                    "var ltest=Ext.data.StoreManager.lookup(\"PendingTestsStore\");",
                     "",
                     "ltest.load({",
                     "    params: {",
@@ -4589,11 +4780,16 @@
                     "        cheqID = record.get('ID');",
                     "        voucherNo=record.get('Voucher_No');",
                     "    }",
+                    "    ",
+                    "    if(record.get('Cash_Point')=='P06'){",
+                    "        window.open('reports/payment_voucher.php?cheqID='+cheqID,",
+                    "                            \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "    }else{",
+                    "        window.open('reports/petty_cash.php?cheqID='+cheqID,\"Petty cash\",\"menubar=yes,toolbar=no,width=600,height=550,location=yes,resizable=yes,scrollbars=yes,status=yes\");",
+                    "",
+                    "    }",
                     "",
                     "});",
-                    "",
-                    "window.open('reports/payment_voucher.php?cheqID='+cheqID,",
-                    "                            \"Export Out Patient Invoices\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
                     "",
                     ""
                 ]
@@ -4624,9 +4820,8 @@
                     "",
                     "var listWindow=Ext.create('Ext.window.Window', {",
                     "    title: 'Payments List',",
-                    "    resizable:true,",
-                    "    width:600,",
-                    "    height:600",
+                    "    resizable:false,",
+                    "    height:700,width:1000",
                     "});",
                     "",
                     "",
@@ -4701,6 +4896,1116 @@
             },
             "name": "openAdmissionHistory",
             "designerId": "5af80d61-3959-47b6-916d-2f451eed556a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "clearNotes",
+                "implHandler": [
+                    "field.up('form').down('#notes').setValue(\"\");"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "clearNotes",
+            "designerId": "e7c59e7e-df8f-4842-b5c0-6ae5371bcf7b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view, rowIndex, colIndex, item, e, record, row"
+                ],
+                "fn": "deleteNote",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',record.get('NotesType'));",
+                    "view.getStore().remove(record);",
+                    " Ext.Ajax.request({",
+                    "     url: 'data/getDataFunctions.php?task=deleteRecord',",
+                    "     params: {",
+                    "         ID:record.get(\"Nr\"),",
+                    "         tableName:'care_encounter_notes',",
+                    "         idColumn:'nr',",
+                    "         batch_nr:record.get(\"Nr\")",
+                    "     },",
+                    "     success: function(response){",
+                    "         var resp = Ext.JSON.decode(response.responseText);",
+                    "         //Ext.Msg.alert(\"Selected Column\",\"Removed record with partcode \"+record.get('PartCode'));",
+                    "",
+                    "         //this.getNotes(encounterNo);",
+                    "",
+                    "     },",
+                    "     failure: function (form, action) {",
+                    "         var jsonResp = Ext.decode(action.response.responseText);",
+                    "",
+                    "         Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
+                    "     },",
+                    "     scope:this",
+                    " });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "deleteNote",
+            "designerId": "56215113-c41d-48c5-b2b3-ee1e3c6ed4dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "printCreditSlip",
+                "implHandler": [
+                    "var pid=button.up('grid').down(\"#txtPid\").getValue();",
+                    "window.open('reports/creditslipnew.php?pid='+pid, \"Cridit Slips\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "printCreditSlip",
+            "designerId": "d00f60cb-8c59-41c9-816b-d7b1e5fb57c6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "getPatientNames",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',newValue);",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getPatientNames',",
+                    "    params: {",
+                    "        pid:newValue",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "        names=resp[0].names;",
+                    "        field.up('grid').down(\"#txtNames\").setValue(names);",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response);",
+                    "        Ext.Msg.alert('Error',resp.Error);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getPatientNames",
+            "designerId": "4605ef2f-2938-46cc-87ed-581a15257c19"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "rePrintCreditSlip",
+                "implHandler": [
+                    "var slipNo=button.up('grid').down(\"#txtSlipNo\").getValue();",
+                    "var pid=button.up('grid').down(\"#txtPid\").getValue();",
+                    "",
+                    "",
+                    "if(pid!==''){",
+                    " //   Ext.Msg.alert('Test',slipNo);",
+                    "    window.open('reports/creditslipnew.php?pid='+pid+\"&slipNo=\"+slipNo+\"&reprint=REPRINT\",",
+                    "                \"Crid Sips\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "}else{",
+                    "    Ext.Msg.alert('Error',\"Please select a patient to Reprint Slip\");",
+                    "}",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "rePrintCreditSlip",
+            "designerId": "0b562da5-ee05-4394-b865-4a191affa192"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "populateSlip",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',record.get('Pid'));",
+                    "gridpanel.up('grid').down(\"#txtPid\").setValue(record.get('Pid'));",
+                    "gridpanel.up('grid').down(\"#txtNames\").setValue(record.get('Names'));",
+                    "gridpanel.up('grid').down(\"#txtSlipNo\").setValue(record.get('SlipNo'));",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "populateSlip",
+            "designerId": "4858465a-190a-41c0-9eac-e8c44dcac64b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "vitalslists",
+                "selector": "vitalslists",
+                "xtype": "vitalslists"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "vitalslists",
+            "designerId": "9b304e4c-9ec1-47da-afb6-7a4bdbe1710c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openAssignRoom",
+                "implHandler": [
+                    "",
+                    "var rec = button.lookupViewModel().get('record');",
+                    "//Ext.Msg.alert('Test',rec.get('Pid'));",
+                    "",
+                    "var assignRoom=Ext.create(\"CarePortal.view.AssignOpRoom\",{});",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Assign Patient to Doctors Room\",",
+                    "    resizable:true,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "assignRoom.down('#pid').setValue(rec.get('Pid'));",
+                    "assignRoom.down('#names').setValue(rec.get('Names'));",
+                    "assignRoom.down('#encounterNo').setValue(rec.get('EncounterNo'));",
+                    "assignRoom.down('#Dob').setValue(rec.get('DateOfBirth'));",
+                    "",
+                    "containterWindows.add(assignRoom);",
+                    "containterWindows.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openAssignRoom",
+            "designerId": "ef0bb8ac-6a15-411b-926e-de1eebf26d6d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "assignRoom",
+                "implHandler": [
+                    "var pid=button.up('form').down('#pid').getValue();",
+                    "var names=button.up('form').down('#names').getValue();",
+                    "var encounterNo=button.up('form').down('#encounterNo').getValue();",
+                    "var dob=button.up('form').down('#Dob').getValue();",
+                    "var roomNo=button.up('form').down('#roomNo').getValue();",
+                    "var attendingDoctor=button.up('form').down('#attendingDoctor').getValue();",
+                    "var priority=button.up('form').down('#priority').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=asignOpRoom',",
+                    "    params: {",
+                    "        pid:pid,",
+                    "        name:names,",
+                    "        encounterNo:encounterNo,",
+                    "        dob:dob,",
+                    "        roomNo:roomNo,",
+                    "        attendingDoctor:attendingDoctor,",
+                    "        priority:priority",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "",
+                    "        var roomsStore=Ext.data.StoreManager.lookup(\"AssignedRoomsStore\");",
+                    "        roomsStore.load({});",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        var resp = JSON.parse(response);",
+                    "        Ext.Msg.alert('Error',resp.Error);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "assignRoom",
+            "designerId": "62c10aa2-53a8-4be0-9cad-5a84d8371db7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadPatientDetails",
+                "implHandler": [
+                    " var presStore=Ext.data.StoreManager.lookup(\"PrescriptionStore\");",
+                    "presStore.load({",
+                    "    params: {",
+                    "        encNo:record.get(\"Encounter_Nr\")",
+                    "    }",
+                    "});",
+                    "",
+                    " var vitalsStore=Ext.data.StoreManager.lookup(\"VitalsStore\");",
+                    "",
+                    "vitalsStore.load({",
+                    "    params: {",
+                    "        encNr:record.get(\"Encounter_Nr\")",
+                    "    }",
+                    "});",
+                    "",
+                    " var notesStore =Ext.data.StoreManager.lookup('NoteTypesStore');",
+                    " notesStore.load({",
+                    "     params: {",
+                    "         encNr:record.get(\"Encounter_Nr\")",
+                    "     },",
+                    " });",
+                    "",
+                    "var serviceStore=Ext.data.StoreManager.lookup(\"ProceduresAndServices\");",
+                    "serviceStore.load({",
+                    "    params:{",
+                    "        pid:record.get('Pid'),",
+                    "        encNr:record.get('Encounter_Nr')",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "var diagnosisStore=Ext.data.StoreManager.lookup(\"DiagnosisStore\");",
+                    "diagnosisStore.load({",
+                    "    params:{",
+                    "        pid:record.get('Pid'),",
+                    "        encNr:record.get('Encounter_Nr')",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadPatientDetails",
+            "designerId": "84d9e17f-1b7a-4133-8a0f-8b44354ef0d0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "onRadiologyChange",
+                "implHandler": [
+                    "var v = field.getValue();",
+                    "        var record = field.findRecord(field.valueField || field.displayField, v);",
+                    "        //Ext.Msg.alert('Test',record.get('Price'));",
+                    "",
+                    "        field.up('form').down('#Price').setValue(record.get('Price'));",
+                    "       // field.up('form').down('#Qty').setValue(1);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onRadiologyChange",
+            "designerId": "3b6ef94e-2afe-4c87-99b0-c5ad029d4642"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "changeEncounterClass",
+                "implHandler": [
+                    "//Ext.Msg.alert('test',field.up('grid').getItemId());",
+                    "var source=field.up('grid').getItemId();",
+                    "",
+                    "if(source=='pendingBills'){",
+                    "    var encClass=Ext.data.StoreManager.lookup(\"PendingPatientBills\");",
+                    "",
+                    "    encClass.load({",
+                    "        params: {",
+                    "            class:newValue",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}else if(source=='prescGrid'){",
+                    "    var encClass=Ext.data.StoreManager.lookup(\"PendingPrescription\");",
+                    "     encClass.load({",
+                    "        params: {",
+                    "            class:newValue",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "changeEncounterClass",
+            "designerId": "95f3168b-bf12-4024-be47-66d4120507ee"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openMenuForm",
+                "implHandler": [
+                    "var menuForm=Ext.create(\"CarePortal.view.MenusForm\",{});",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Menus Form\",",
+                    "    resizable:true,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "containterWindows.add(menuForm);",
+                    "containterWindows.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openMenuForm",
+            "designerId": "8c54d15d-b946-4eee-aa62-7eeb6b2c5850"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveMenuGroup",
+                "implHandler": [
+                    "  var form = button.up('panel').getForm(); // get the basic form",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            GroupID:button.up('form').down('#groupID').getRawValue()",
+                    "        },",
+                    "        success: function (form, action) {",
+                    "            Ext.Msg.alert('Thank you!', 'Saved MCH Request Successfully.');",
+                    "            //button.up('form').getForm().reset();",
+                    "           // button.up('window').close();",
+                    "        },",
+                    "        failure: function (form, action) {",
+                    "            var jsonResp = Ext.decode(action.response.responseText);",
+                    "",
+                    "            Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveMenuGroup",
+            "designerId": "24ce4eab-104d-4b1f-93ee-d41ca1fd37b6"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "appointments",
+                "selector": "appointments",
+                "xtype": "appointments"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "appointments",
+            "designerId": "825110ae-f7cc-47c5-a2e0-5df714e35d87"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "datepicker",
+                    "date",
+                    "eOpts"
+                ],
+                "fn": "loadAppointments",
+                "implHandler": [
+                    "var appointmentsPanel=this.getAppointments().down(\"#appointmentsPanel\");",
+                    "appointmentsPanel.removeAll();",
+                    "",
+                    "var apptsStore=Ext.data.StoreManager.lookup(\"AppointmentsStore\");",
+                    "var me = this;",
+                    "",
+                    "apptsStore.load({",
+                    "    params: {",
+                    "        apptDate:date",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //Ext.Msg.alert('Test',records.length);",
+                    "        var failure=records.length;",
+                    "        if(failure>0){",
+                    "                var tpl=new Ext.XTemplate(",
+                    "                '<Table id=notes>',",
+                    "                '<tr><td colspan=5 class=titles>Scheduled Appointments</td></tr>',",
+                    "                '<tr><td class=titles>Date/Time/Details</td>',",
+                    "                '<td class=titles>Patient</td>',",
+                    "                '<td class=titles>Appointments</td>',",
+                    "                '<td class=titles>Status</td>',",
+                    "                '<td class=titles>Actions</td></>',",
+                    "                '<tpl for=\".\">',",
+                    "                '<tr><td>{date}</td><td>{names}</td><td>{purpose}</td><td>{urgency}</td><td><button class=\"button apptButton1\" onclick=\"this.editAppt()\">Edit</button></td></tr>',",
+                    "                '<tr><td>{time}</td><td>{date_birth}</td><td></td><td>{appt_status}</td><td><button class=\"button apptButton1\">Admit</button></td></tr>',",
+                    "                '<tr><td>{to_dept_nr}</td><td>{sex}</td><td></td><td></td><td><button class=\"button apptButton1\">Cancel Appt</button></td></tr>',",
+                    "                '<tr><td colspan=5></ hr></td></tr>',",
+                    "                '</tpl>',",
+                    "                '</table>',",
+                    "                {",
+                    "                    editAppt: function(){",
+                    "                        Ext.Msg.alert('Test','Test test');",
+                    "                        me.getMain().editAppointment();",
+                    "                    }",
+                    "                }",
+                    "            );",
+                    "",
+                    "            var data = [];",
+                    "",
+                    "            apptsStore.each(function(record) {",
+                    "                data.push(record.getData());",
+                    "            });",
+                    "",
+                    "            //var data1=notesStore.proxy.reader.rawData;",
+                    "            tpl.overwrite(appointmentsPanel.body,data);",
+                    "        }else{",
+                    "             var tpl2=new Ext.XTemplate(",
+                    "              '<Table id=notes>',",
+                    "                '<tr><td colspan=5 class=titles></br></br></br>There are no Scheduled Appointments on this Date</td></tr></table>');",
+                    "              tpl2.overwrite(appointmentsPanel.body,\"data\");",
+                    "        }",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadAppointments",
+            "designerId": "0dd0e1f1-3ece-4f00-b847-566a5ae0666c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "editAppointment",
+                "implHandler": [
+                    "Ext.Msg.alert('Test','Test');"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "editAppointment",
+            "designerId": "086075e5-b7df-4b7f-a8cc-a9890aa29cfb"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "appointmentsform",
+                "selector": "appointmentsform",
+                "xtype": "appointmentsform"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "appointmentsform",
+            "designerId": "0d5ce7ed-36f1-4fe8-8865-945c93faa85a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openAppoinmentsWindow",
+                "implHandler": [
+                    "var apptsForm=Ext.create(\"CarePortal.view.AppointmentsForm\",{});",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Schedule new Appointment\",",
+                    "    resizable:true,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "var strSource=button.up('grid').getItemId();",
+                    "",
+                    "if(strSource==='patientInfo'){",
+                    "    var selectedKeys=this.getPatientinfo().getView().getSelectionModel().getSelection();",
+                    "    //Ext.Msg.alert('Test',selectedKeys.length);",
+                    "    if(selectedKeys.length>0){",
+                    "         Ext.each(selectedKeys, function (record) {",
+                    "            apptsForm.down('#pid').setValue(record.get('Pid'));",
+                    "            apptsForm.down('#names').setValue(record.get('FirstName')+\" \"+record.get('LastName')+\" \"+record.get('SurName'));",
+                    "            //apptsForm.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "            apptsForm.down('#Dob').setValue(record.get('DateOfBirth'));",
+                    "        });",
+                    "        containterWindows.add(apptsForm);",
+                    "        containterWindows.show();",
+                    "    }else{",
+                    "        Ext.Msg.alert('Patient Select Error',\"Please Select a Patient to Schedule Appointment\");",
+                    "    }",
+                    "    ",
+                    "   ",
+                    "",
+                    "}else{",
+                    "    var selectedKeys=this.getOutpatientlist().getView().getSelectionModel().getSelection();",
+                    "    if(selectedKeys.length>0){",
+                    "        Ext.each(selectedKeys, function (record) {",
+                    "            apptsForm.down('#pid').setValue(record.get('Pid'));",
+                    "            apptsForm.down('#names').setValue(record.get('Names'));",
+                    "            apptsForm.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "            apptsForm.down('#Dob').setValue(record.get('DateOfBirth'));",
+                    "        });",
+                    "         containterWindows.add(apptsForm);",
+                    "        containterWindows.show();   ",
+                    "    }else{",
+                    "          Ext.Msg.alert('Patient Select Error',\"Please Select a Patient to Schedule Appointment\");",
+                    "    }",
+                    "    ",
+                    "}",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openAppoinmentsWindow",
+            "designerId": "d5483f70-e907-47f6-9ff6-3a719a243ddf"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outpatientlist",
+                "selector": "outpatientlist",
+                "xtype": "outpatientlist"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "outpatientlist",
+            "designerId": "8cc9aed6-0deb-41b5-909a-5f831d4d14dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openPaymentCheque"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string"
+            },
+            "name": "openPaymentCheque",
+            "designerId": "c44d9900-31ec-4a7c-9ec8-ba88aeaa0130"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openCheque",
+                "implHandler": [
+                    "var cheqID = '';",
+                    "var voucherNo='';",
+                    "var selectedKeys=button.up('grid').getView().getSelectionModel().getSelection();",
+                    "",
+                    "var result = '';",
+                    "var ID = '';",
+                    "Ext.each(selectedKeys, function (record) {",
+                    "",
+                    "    result =record.get('Ledger');",
+                    "",
+                    "    ID = selectedKeys;",
+                    "    if(ID.length>1){",
+                    "        cheqID += record.get('ID') + ',';",
+                    "       // Ext.Msg.alert('Test',cheqID);",
+                    "        voucherNo+=record.get('Voucher_No');",
+                    "    }else{",
+                    "        cheqID = record.get('ID');",
+                    "        voucherNo=record.get('Voucher_No');",
+                    "    }",
+                    "",
+                    "});",
+                    "",
+                    "window.open('reports/paymentCheques.php?cheqID='+cheqID,",
+                    "                            \"Cheque\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openCheque",
+            "designerId": "becd1246-fa02-4b08-b3d2-8e56edafdeec"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field,newValue,oldValue,eOpts"
+                ],
+                "fn": "filterGls",
+                "implHandler": [
+                    " var grid = field.up('grid');",
+                    "        grid.store.clearFilter();",
+                    "        if (newValue) {",
+                    "            var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "            grid.store.filter({",
+                    "                filterFn: function(item) {",
+                    "                    return matcher.test(item.get('AccountName')) ||",
+                    "                        matcher.test(item.get('AccountCode'));",
+                    "                }",
+                    "            });",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterGls",
+            "designerId": "9df43517-57c6-42b6-90ac-9a53d185536e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openPatientHistory",
+                "implHandler": [
+                    "var pid=button.up('panel').down('#pid').getValue();",
+                    "var encNr=button.up('panel').down('#encounterNr').getValue();",
+                    "window.open('reports/patientAdmissionHistory.php?pid='+pid+'&enc='+encNr,",
+                    "            \"Patient Admission History\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPatientHistory",
+            "designerId": "9c2d73d0-8aa5-4e0c-a907-733a1803510f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "transferWard",
+                "implHandler": [
+                    "var encNo=gridpanel.up('grid').up('form').down('#encounterNo').getValue();",
+                    "var wrdNo=gridpanel.up('grid').up('form').down('#wardno').getValue();",
+                    "var rm=gridpanel.up('grid').up('form').down('#roomno').getValue();",
+                    "var bd=gridpanel.up('grid').up('form').down('#bedno').getValue();",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=transferWardBed',",
+                    "    waitMsg: 'wait while we assign a bed ...',",
+                    "    params:{",
+                    "        encNr:encNo,",
+                    "        wrdNo:record.get(\"Nr\"),",
+                    "        roomNo:rm,",
+                    "        bed:bd,",
+                    "        mode:\"transferward\"",
+                    "    },",
+                    "    success: function(response){",
+                    "        var text = response.responseText;",
+                    "",
+                    "        // Ext.Msg.alert('Success','Successfully Assigned Bed to '+this.getAssignbeds().down('#encNo').getValue());",
+                    "       // gridpanel.up('window').close();",
+                    "",
+                    "        var occupancyStore=Ext.data.StoreManager.lookup(\"OccupancyStore\");",
+                    "        occupancyStore.load({",
+                    "            params:{",
+                    "                wardId:wrdNo",
+                    "            }",
+                    "        });",
+                    "",
+                    "        var waitingStore=Ext.data.StoreManager.lookup(\"WaitingListStore\");",
+                    "        waitingStore.load({",
+                    "            params: {",
+                    "                wardNo:wrdNo",
+                    "            }",
+                    "        });",
+                    "",
+                    "",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        // var resp = JSON.parseJSON(response);",
+                    "        Ext.Msg.alert('Access Denied','Access Denied, contact Systems Administrator');",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "transferWard",
+            "designerId": "fa7c397f-b582-4f2c-b14b-2a6a0100a728"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view, rowIndex, colIndex, item, e, record, row"
+                ],
+                "fn": "openTransferClinic",
+                "implHandler": [
+                    "// var rec = button.lookupViewModel().get('record');",
+                    "encounterNo=record.get('EncounterNo');",
+                    "pid=record.get('Pid');",
+                    "names=record.get('Names');",
+                    "dob=record.get('Dob');",
+                    "",
+                    "var clinics=Ext.create(\"CarePortal.view.ClinicsList\",{});",
+                    "clinics.down('#encounterNo').setValue(encounterNo);",
+                    "clinics.down('#pid').setValue(pid);",
+                    "clinics.down('#names').setValue(names);",
+                    "clinics.down('#Dob').setValue(dob);",
+                    "// clinics.down('#sourcePanel').setValue('transfer');",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Transfer Patient\",",
+                    "    resizable:false,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "containterWindows.add(clinics);",
+                    "containterWindows.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openTransferClinic",
+            "designerId": "ecff2ef8-7b82-43b0-9ca9-0e87d2917f3b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view, rowIndex, colIndex, item, e, record, row"
+                ],
+                "fn": "transferClinic",
+                "implHandler": [
+                    "Ext.Msg.alert('Success','Clinic No '+record.get('Nr'));",
+                    "",
+                    "var encNo=view.up('grid').down('#encounterNo').getValue();",
+                    "var clinicNo=record.get('Nr');",
+                    "var consultation='';",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=transferDept',",
+                    "    waitMsg: 'wait while we transfer Patient...',",
+                    "    params:{",
+                    "        encNr:encNo,",
+                    "        clinicNo:clinicNo,",
+                    "        consultation:consultation",
+                    "    },",
+                    "    success: function(response){",
+                    "        var text = response.responseText;",
+                    "",
+                    "        // Ext.Msg.alert('Success','Successfully Assigned Bed to '+this.getAssignbeds().down('#encNo').getValue());",
+                    "        view.up('window').close();",
+                    "",
+                    "        var opadmissionsStore=Ext.data.StoreManager.lookup(\"OPAdmissionsStore\");",
+                    "        opadmissionsStore.load({});",
+                    "    },",
+                    "    failure:function(response){",
+                    "        // var resp = JSON.parseJSON(response);",
+                    "        Ext.Msg.alert('Access Denied','Access Denied, contact Systems Administrator');",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "transferClinic",
+            "designerId": "85af92ca-9303-48e4-b379-49df0d67d2d0"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "clinicslist",
+                "selector": "clinicslist",
+                "xtype": "clinicslist"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "clinicslist",
+            "designerId": "aebab144-9355-4281-aa81-f1b596c945d9"
         }
     ]
 }

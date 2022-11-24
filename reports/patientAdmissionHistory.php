@@ -7,7 +7,7 @@
 require('roots.php');
 require($root_path . 'include/inc_environment_global.php');
 ?>
- <link rel="stylesheet" href="reportsCss.css">
+ <link rel="stylesheet" href="reportsCss2.css">
 <div class="book">
     <?php 
     $pid = $_REQUEST['pid'];
@@ -22,7 +22,7 @@ require($root_path . 'include/inc_environment_global.php');
                     LEFT JOIN care_encounter e on p.pid=e.pid
                     LEFT JOIN care_ward w on e.current_ward_nr=w.nr 
                     LEFT JOIN care_department d on e.current_dept_nr=d.nr 
-                    WHERE p.pid=$pid and e.encounter_nr=$encNo order by e.encounter_date desc";
+                    WHERE p.pid=$pid order by e.encounter_date desc";
                         if($debug) 
                             echo $sql;
             $results = $db->Execute($sql);
@@ -43,7 +43,10 @@ require($root_path . 'include/inc_environment_global.php');
                                 <td colspan='6' class='logo'> <img src='../icons/logo.jpg' width='600' height='100' ></td>
                             </tr>
                             <tr>
-                                <td colspan='6' class='summaryTitle'>PATIENT HISTORY</td>
+                            <td colspan='6' class='logo'>&nbsp;</td>
+                        </tr>
+                            <tr>
+                                <td colspan='6' class='summaryTitle' align='center'><b>PATIENT HISTORY</b></td>
                             </tr>";
                         
                                             
@@ -61,56 +64,61 @@ require($root_path . 'include/inc_environment_global.php');
                            <tr><td class='itemTitles'>DATE OF ADMISSION:</td><td class=invDetails>$admDate</td>
                                <td class='itemTitles'>DATE OF DISCHARGE:</td><td class=invDetails colspan=3>$disDate</td></tr>";
                      
-                     $sql="SELECT t.name as vital,m.value,m.measured_by FROM care_encounter_measurement m 
-                            LEFT JOIN care_type_measurement t on m.msr_type_nr=t.nr
-                            where encounter_nr=$encNo";
+                     $sql="SELECT `weight`,`height`,`bmi`,`systolic`,`diastolic`,`pulse`,`respiration`,
+                            `spo2`,`head_circumference`,temperature,notes,inputuser
+                            FROM `care_encounter_vitals` where encounterNo=$encNo";
+                        //echo $sql;
                      $result=$db->Execute($sql);
 
                       echo "<tr><td colspan='7'><hr></td></tr>";
-                     echo "<tr><td colspan='6' class='invTitle'>PATIENT VITALS:</td><td colspan='6' class='invTitle'>Measured By:</td></tr>";
+                     echo "<tr><td colspan='6' class='invTitle'>PATIENT VITALS:</td></tr>";
                      echo "<tr><td class=invDetails colspan=6>";
                      $measeuredBy='';
                      while($row=$result->FetchRow()){
-                         echo "$row[vital] =  $row[value]; &nbsp; &nbsp;";
-                         $measeuredBy=$row['measured_by'];
+                         echo "Weight = $row[weight]; Height = $row[height]; Systolic = $row[systolic]; 
+                            Diastolic = $row[diastolic]; Pulse Rate = $row[pulse]; 
+                            Respiration Rate = $row[respiration]; Temperature = $row[temperature]; 
+                            BMI = $row[bmi]; "; 
+                         $measuredBy=$row['inputuser'];
+                         $notes=$row['notes'];
                      }
-                     echo "</td><td class=invDetails>$measeuredBy</td></tr>";
+                     echo "</td><td class=invDetails></td></tr>";
+                     echo "<tr><td class=invDetails>Notes</td><td colspan=3>$notes</td></tr>";
+
 
                              
                      $sql="SELECT ICD_10_description,doctor_name FROM care_tz_diagnosis where encounter_nr=$encNo";
                      $result=$db->Execute($sql);
                      $counter=0;
                       echo "<tr><td colspan='7'><hr></td></tr>";
-                     echo "<tr><td colspan='6' class='invTitle'>FINAL DIAGNOSIS:</td><td class='invTitle'>Doctor's Name:</td></tr>";
+                     echo "<tr><td colspan='6' class='invTitle'>FINAL DIAGNOSIS:</td></tr>";
                      echo "<tr><td colspan=6 class=invDetails>";
                      $diagnosedBy='';
                      while($row=$result->FetchRow()){
                          echo "$row[ICD_10_description]; &nbsp; &nbsp;";
                          $diagnosedBy=$row['doctor_name'];
                      }
-                     echo "</td><td class='invDetails'>$diagnosedBy</td></tr>";
+                     echo "</td><td class='invDetails'></td></tr>";
 
                      echo "<tr><td colspan='7'><hr></td></tr>";
                       $sql3 = "SELECT t.name as noteType,n.notes,personell_name FROM care_encounter_notes n left join care_type_notes t on n.type_nr=t.nr where encounter_nr=$encNo";
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                       $totals=0;
-                       echo "<tr><td class='invTitle'colspan=6>SUMMARY:</td><td class='invTitle'>Entered By:</td></tr>";
+                       echo "<tr><td class='invTitle'colspan=6>SUMMARY:</td><td class='invTitle'></td></tr>";
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>".$row['noteType']."</td><td class='invDetails' colspan=5>".$row['notes']."</td><td class='invDetails'>".$row['personell_name']."</td></tr>";
+                           echo "<tr><td class='invDetails'>".$row['noteType']."</td><td class='invDetails' colspan=5>".$row['notes']."</td><td class='invDetails'></td></tr>";
                        }
                        echo "<tr><td colspan='7'><hr></td></tr>";
                                              
-                       $sql3 = "SELECT d.item_description,l.`create_id` FROM care_test_request_chemlabor_sub t 
-                                LEFT JOIN care_tz_drugsandservices d ON t.item_id=d.partcode
-                                LEFT JOIN `care_test_request_chemlabor` l ON t.`batch_nr`=l.`batch_nr`
-                                    where t.encounter_nr=$encNo";
+                       $sql3 = "SELECT labtest,`Requestedby` FROM `care_ke_labrequests`
+                                    where encounter_nr=$encNo";
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                       $totals=0;
-                       echo "<tr><td class='invTitle' colspan=6>INVESTIGATIONS:</td><td class='invTitle'>Requested By:</td></tr>";
+                       echo "<tr><td class='invTitle' colspan=6>INVESTIGATIONS:</td><td class='invTitle'></td></tr>";
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>Lab</td><td class='invDetails' colspan=5>".$row['item_description']."</td><td class='invDetails'>".$row['create_id']."</td></tr>";
+                           echo "<tr><td class='invDetails'>Lab</td><td class='invDetails' colspan=5>".$row['labtest']."</td><td class='invDetails'></td></tr>";
                        } 
                        
                        $sql3 = "SELECT d.item_description FROM care_test_request_radio r 
@@ -124,17 +132,16 @@ require($root_path . 'include/inc_environment_global.php');
                        
                        echo "<tr><td colspan='7'><hr></td></tr>";
                                              
-                       $sql3 = "SELECT i.item_Cat,article,p.prescriber FROM care_encounter_prescription p 
-                                    LEFT JOIN care_tz_drugsandservices d ON p.partcode=d.partcode
-                                    LEFT JOIN care_tz_itemscat i on d.category=i.catID
-                                    where encounter_nr=$encNo and d.purchasing_class in('service','THEATRE','physiotherapy')";
+                       $sql3 = "SELECT p.partcode,d.`item_description`,p.InputBy FROM `care_encounter_procedure` p LEFT JOIN `care_tz_drugsandservices` d
+                                    ON p.`PartCode`=d.`partcode`
+                                    where encounter_nr=$encNo";
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                       $totals=0;
-                       echo "<tr><td class='invTitle' colspan=6>PROCEDURE & SERVICE DONE:</td><td class='invTitle'>Done By</td></tr>";
+                       echo "<tr><td class='invTitle' colspan=6>PROCEDURE & SERVICE DONE:</td><td class='invTitle'></td></tr>";
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>".ucfirst(strtolower($row['item_Cat']))."</td>
-                                        <td class='invDetails' colspan=5>".$row['article']."</td><td class='invDetails'>".$row['prescriber']."</td></tr>";
+                           echo "<tr><td class='invDetails'>".ucfirst(strtolower($row['item_description']))."</td>
+                                        <td class='invDetails' colspan=5>".$row['article']."</td><td class='invDetails'></td></tr>";
                        } 
                        
                        echo "<tr><td colspan='7'><hr></td></tr>";
@@ -143,22 +150,22 @@ require($root_path . 'include/inc_environment_global.php');
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                       $totals=0;
-                       echo "<tr><td class='invTitle' colspan=6>MEDICATIONS GIVEN ON WARD:</td><td class='invTitle'>Prescriber</td></tr>";
+                       echo "<tr><td class='invTitle' colspan=6>MEDICATIONS GIVEN ON WARD:</td><td class='invTitle'></td></tr>";
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails' colspan=6>".$row['article']."</td><td class='invDetails'>".$row['prescriber']."</td></tr>";
+                           echo "<tr><td class='invDetails' colspan=6>".$row['article']."</td><td class='invDetails'></td></tr>";
                        } 
                        echo "<tr><td colspan='7'><hr></td></tr>";
        
                       
                          echo "<tr><td colspan='6'>&nbsp; &nbsp;</td></tr>";
-                       echo "<tr><td class='itemTitles'>NAME OF CLINIC:</td>
+                       echo "<tr><td class='itemTitles'>Name of Clinician</td>
                                  <td class='invDetails'>_________________________</td>
                                  <td class='invDetails'>Date: ".date('Y-m-d')."</td>
                                  <td class='invDetails' colspan=3>Time:".date('H:i:s')."</td></tr>";
                         echo "<tr><td colspan='6'>&nbsp; &nbsp;</td></tr>";
-                       echo "<tr><td class='itemTitles'>CLINICIAN'S SIGN:</td>
+                       echo "<tr><td class='itemTitles'>Clinician'S Signature:</td>
                                  <td>___________________</td>
-                                 <td class='itemTitles'>NAME:</td><td colspan=4>____________________</td></tr>";
+                                 <td class='itemTitles'>____________________</td></tr>";
                     echo "</table>
                 </div>
                  <div class='pageNos'></div>

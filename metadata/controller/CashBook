@@ -14,7 +14,9 @@
             "PendingPatientsBills",
             "ledger",
             "Suppliers",
-            "ReceiptModel"
+            "ReceiptModel",
+            "CashSaleSummaries",
+            "ItemSalesSummary"
         ],
         "stores": [
             "PendingPrescription",
@@ -24,7 +26,10 @@
             "SuppliersStore",
             "PaidReceiptsStore",
             "DebtorsList",
-            "GeneralLedgerStore"
+            "GeneralLedgerStore",
+            "CashpointsSummaryStore",
+            "CashSaleSummariesStore",
+            "ItemSalesSummaryStore"
         ],
         "views": [
             "ItemsList",
@@ -43,7 +48,13 @@
             "Suppliers",
             "CashSalesAdj",
             "Debtors",
-            "GeneralLedger"
+            "GeneralLedger",
+            "Shifts",
+            "CashPointsSummary",
+            "CollectionsBreakdown",
+            "ItemSalesSummary",
+            "DailyRevenueBreakdown",
+            "CashbookReportsHeader"
         ]
     },
     "configAlternates": {
@@ -207,11 +218,14 @@
                     "        click:this.openShifts",
                     "    },",
                     "    '#shiftsGrid':{",
-                    "        itemdblclick:this.loadReceipts",
+                    "        itemclick:this.loadReceipts",
                     "    },",
                     "    \"#cashSales\":{",
                     "        afterrender:this.setReceiptNo",
-                    "    }    ,",
+                    "    },",
+                    "    \"#receipts\":{",
+                    "        afterrender:this.setReceiptNo1",
+                    "    },",
                     "    '#cmdPreviewReport':{",
                     "        click:this.previewCashReport",
                     "    },",
@@ -259,6 +273,30 @@
                     "    },",
                     "    '#cmdSavePayment':{",
                     "        click:this.savePayments",
+                    "    },",
+                    "    '#cashSale':{",
+                    "        change:this.clearGrid",
+                    "    },",
+                    "    '#ShiftReport':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#CashPointsSummary':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#CollectionsBreakdown':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#DepartmentsRevenue':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#DailyRevenueBreakdown':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#PatientsSummary':{",
+                    "        click:this.openReports",
+                    "    },",
+                    "    '#ItemSalesSummary':{",
+                    "        click:this.openReports",
                     "    }",
                     "",
                     "});"
@@ -402,7 +440,7 @@
                 "fn": "openCashItemsList",
                 "implHandler": [
                     "",
-                    "Ext.Msg.alert('Test','test');",
+                    "//Ext.Msg.alert('Test','test');",
                     "var itesmStore=Ext.data.StoreManager.lookup(\"ItemsListStore\");",
                     "itesmStore.load({",
                     "    params: {",
@@ -846,6 +884,7 @@
                     "var pid=button.up('form').down('#Pid').getValue();",
                     "var patient=button.up('form').down('#Pid').getValue();",
                     "var cashpoint=button.up('form').down('#CashPoint').getValue();",
+                    " var shiftno=button.up('form').down('#ShiftNo').getValue();",
                     "var names=button.up('form').down('#Names').getValue();",
                     "var cashier=localStorage.getItem('UserName');",
                     "var salesType=button.up('form').down('#salesType').getValue().salesType;",
@@ -865,9 +904,9 @@
                     "//             Ext.Msg.alert(\"Sale\",\"Sale Successful\");",
                     "",
                     "            if(salesType=='cashSale'){",
-                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=400,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }else if(salesType=='bill'){",
-                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=400,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }",
                     "",
                     "            form.reset();",
@@ -920,6 +959,7 @@
                     "var pid=button.up('form').down('#Pid').getValue();",
                     "var patient=button.up('form').down('#Pid').getValue();",
                     "var cashpoint=button.up('form').down('#CashPoint').getValue();",
+                    "var shiftno=button.up('form').down('#ShiftNo').getValue();",
                     "var names=button.up('form').down('#Names').getValue();",
                     "var cashier=localStorage.getItem('UserName');",
                     "var salesType=button.up('form').down('#salesType').getValue().salesType;",
@@ -939,9 +979,9 @@
                     "//             Ext.Msg.alert(\"Sale\",\"Sale Successful\");",
                     "",
                     "            if(salesType=='cashSale'){",
-                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }else if(salesType=='bill'){",
-                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }",
                     "",
                     "            form.reset();",
@@ -952,7 +992,7 @@
                     "",
                     "        },",
                     "        failure: function(form, action) {",
-                    "            Ext.Msg.alert('Failed', 'Could not Service Order.');",
+                    "            Ext.Msg.alert('Failed', 'Could not Adjust Sales.');",
                     "        },",
                     "        scope:this",
                     "    });",
@@ -1263,7 +1303,7 @@
                     "var days=field.up('fieldset').down('#days').getValue();",
                     "var total=parseInt(dose)*parseInt(timesperday)*parseInt(days);",
                     "",
-                    "field.up('fieldset').down('#total').setValue(total);",
+                    "field.up('fieldset').down('#total').setValue(Math.round(total));",
                     ""
                 ]
             },
@@ -1290,15 +1330,16 @@
                 ],
                 "fn": "loadPatientDetails",
                 "implHandler": [
-                    "var patientStore=Ext.data.StoreManager.lookup(\"PatientDetaila\");",
+                    "var patientStore=Ext.data.StoreManager.lookup(\"PatientDetails\");",
                     "",
                     "patientStore.load({",
                     "    params: {",
-                    "        pid:field.getValue()",
+                    "        searchParam:field.getValue()",
                     "    },",
                     "    callback: function(records, operation, success) {",
+                    "       // Ext.Msg.alert('Test',records[0].data.FirstName);",
                     "       // var resp = Ext.JSON.decode(response.responseText);",
-                    "        names= records[0].data.Names;",
+                    "        names= records[0].data.FirstName+\" \"+records[0].data.LastName+\" \"+records[0].data.SurName;",
                     "        prescriber=records[0].data.Prescriber;",
                     "        prescdate=records[0].data.PrescribeDate;",
                     "        age=records[0].data.Age;",
@@ -1306,6 +1347,7 @@
                     "        encNr=records[0].data.EncounterNo;",
                     "",
                     "        this.getCashsales().down('#Names').setValue(names);",
+                    "        this.getCashsales().down('#Payer').setValue(names);",
                     "        this.getCashsales().down('#doctor').setValue(prescriber);",
                     "        this.getCashsales().down('#prescribeDate').setValue(prescdate);",
                     "        this.getCashsales().down('#age').setValue(age);",
@@ -1691,7 +1733,7 @@
                 ],
                 "fn": "loadValuation",
                 "implHandler": [
-                    "Ext.Msg.alert('Test','test');",
+                    "//Ext.Msg.alert('Test','test');",
                     "var valuationStore =Ext.data.StoreManager.lookup('ValuationStore');",
                     "var category=this.getDrugissuesreports().down('#itemCategory').getValue();",
                     "",
@@ -2050,7 +2092,7 @@
                 ],
                 "fn": "getSalesType",
                 "implHandler": [
-                    " //Ext.Msg.alert('Radio Selection',field.getValue().salesType);",
+                    "//Ext.Msg.alert('Radio Selection',field.getValue().salesType);",
                     "if(field.getValue().salesType=='bill'){",
                     "    this.getCashsales().down('#patientDetails').show();",
                     "    this.getCashsales().down('#pendingBills').show();",
@@ -2144,6 +2186,7 @@
                     "    ShiftNo=this.getCashsales().down('#ShiftNo').getValue();",
                     "    ReceiptNo=this.getCashsales().down('#ReceiptNo').getValue();",
                     "    var cashSaleStore =Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "     this.setReceiptNo();",
                     "",
                     "    cashSaleStore.load({",
                     "        params: {",
@@ -2407,14 +2450,14 @@
                     "            var pid=record.get('Pid');",
                     "            var cashpoint=record.get('cash_point');",
                     "            var names=record.get('Names');",
-                    "            var shiftNo=record.get('Shift_no');",
+                    "            var shiftno=record.get('Shift_no');",
                     "            var cashier=record.get('cashier');",
                     "",
                     "",
                     "            if(reprintType=='CashSale'){",
-                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }else if(reprintType=='Receipt'){",
-                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                window.open('reports/newreceipt2.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+\"&shiftNo=\"+shiftno,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "            }",
                     "",
                     "        }else{",
@@ -2460,7 +2503,7 @@
                     "        this.getCashsales().down('#ReceiptNo').setValue(resp.nextReceipt);",
                     "        this.getCashsales().down('#ShiftNo').setValue(resp.shiftNo);",
                     "        this.getCashsales().down('#CurrDate').setValue(resp.currDate);",
-                    "        this.getCashsales().down('#CashPoint').setValue(cashPoint);",
+                    "        this.getCashsales().down('#CashPoint').setValue(resp.cashPoint);",
                     "",
                     "    },",
                     "    failure:function(response){",
@@ -2489,6 +2532,52 @@
             },
             "codeClass": null,
             "userConfig": {
+                "fn": "setReceiptNo1",
+                "implHandler": [
+                    "var transNo=0;",
+                    "//var cashPoint=this.getCashsales().down('#CashPoint').getValue();",
+                    "var cashPoint=localStorage.getItem('CashPoint');",
+                    "//Ext.Msg.alert('set Receipt',cashPoint);",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=getNextReceiptNo',",
+                    "    params: {",
+                    "        cashpoint:cashPoint",
+                    "    },",
+                    "    success: function(response){",
+                    "        var resp = Ext.JSON.decode(response.responseText);",
+                    "",
+                    "        this.getReceipts().down('#ReceiptNo').setValue(resp.nextReceipt);",
+                    "        this.getReceipts().down('#ShiftNo').setValue(resp.shiftNo);",
+                    "        this.getReceipts().down('#CurrDate').setValue(resp.currDate);",
+                    "        this.getReceipts().down('#CashPoint').setValue(resp.cashPoint);",
+                    "",
+                    "    },",
+                    "    failure:function(response){",
+                    "        // var resp = JSON.parse(response);",
+                    "         Ext.Msg.alert('Error',resp.Error);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "return transNo;"
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setReceiptNo1",
+            "designerId": "28e63388-c14a-491a-90a7-639ef23c3f46"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "designer|params": [
                     "button"
                 ],
@@ -2506,7 +2595,9 @@
                     "});",
                     "",
                     "containterWindows.add(shifts);",
-                    "containterWindows.show();"
+                    "containterWindows.show();",
+                    "",
+                    "shifts.down('#formStatus').setValue(button.up('grid').getItemId());"
                 ]
             },
             "configAlternates": {
@@ -2535,21 +2626,53 @@
                 ],
                 "fn": "loadReceipts",
                 "implHandler": [
-                    "this.getShiftreport().down('#cashPoint').setValue(record.get('CashPoint'));",
-                    "this.getShiftreport().down('#shiftNo').setValue(record.get('ShiftNo'));",
                     "",
-                    "var receiptsStore =Ext.data.StoreManager.lookup('ReceiptsStore');",
-                    "receiptsStore.load({",
-                    "    params:{",
-                    "        cashpoint:record.get('CashPoint'),",
-                    "        shiftNo:record.get('ShiftNo')",
-                    "    },",
-                    "    callback: function(records, operation, success) {",
+                    "var formSource=gridpanel.up('grid').down('#formStatus').getValue();",
+                    "this.getShiftsreportheader().down('#cashPoint').setValue(record.get('CashPoint'));",
+                    "this.getShiftsreportheader().down('#shiftNo').setValue(record.get('ShiftNo'));",
                     "",
-                    "        gridpanel.up('window').close();",
-                    "    },",
-                    "    scope: this",
-                    "});"
+                    "if(formSource=='ShiftReport'){",
+                    "    var receiptsStore =Ext.data.StoreManager.lookup('ReceiptStore');",
+                    "    receiptsStore.load({",
+                    "        params:{",
+                    "            cashpoint:record.get('CashPoint'),",
+                    "            shiftNo:record.get('ShiftNo')",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}else if(formSource=='ItemSalesSummary'){",
+                    "    var itemsStore =Ext.data.StoreManager.lookup('ItemSalesSummaryStore');",
+                    "    itemsStore.load({",
+                    "        params:{",
+                    "            cashpoint:record.get('CashPoint'),",
+                    "            shiftNo:record.get('ShiftNo')",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}else if(formSource=='PatientsSummary'){",
+                    "    var patientsStore =Ext.data.StoreManager.lookup('PatientsSummaryStore');",
+                    "    patientsStore.load({",
+                    "        params:{",
+                    "            cashpoint:record.get('CashPoint'),",
+                    "            shiftNo:record.get('ShiftNo')",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}",
+                    "",
+                    ""
                 ]
             },
             "configAlternates": {
@@ -2573,22 +2696,56 @@
                 ],
                 "fn": "previewCashReport",
                 "implHandler": [
-                    "var cashpoint=button.up('gridpanel').down('#cashPoint').getValue();",
-                    "var shiftNo=button.up('gridpanel').down('#shiftNo').getValue();",
+                    "var formSource=button.up('panel').down('#formStatus').getValue();",
+                    "       // Ext.Msg.alert('Test',button.up('panel').down('#formStatus').getValue());",
                     "",
+                    "var startDate=this.getCashbookreportsheader().down('#startDate').getValue();",
+                    "var endDate=this.getCashbookreportsheader().down('#endDate').getValue();",
                     "",
-                    "var receiptsStore =Ext.data.StoreManager.lookup('ReceiptsStore');",
-                    "receiptsStore.load({",
-                    "    params:{",
-                    "        cashpoint:cashpoint,",
-                    "        shiftNo:shiftNo",
-                    "    },",
-                    "    callback: function(records, operation, success) {",
+                    "if(formSource=='ShiftReport'){",
+                    "    var cashpoint=this.getCashbookreportsheader().down('#cashPoint').getValue();",
+                    "    var shiftNo=this.getCashbookreportsheader().down('#shiftNo').getValue();",
                     "",
-                    "//         gridpanel.up('window').close();",
-                    "    },",
-                    "    scope: this",
-                    "});",
+                    "    var receiptsStore =Ext.data.StoreManager.lookup('ReceiptStore');",
+                    "    receiptsStore.load({",
+                    "        params:{",
+                    "            cashpoint:cashpoint,",
+                    "            shiftNo:shiftNo",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //         gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}else if(formSource=='CashPointsSummary'){",
+                    "    var summaryStore =Ext.data.StoreManager.lookup('CashpointsSummaryStore');",
+                    "    summaryStore.load({",
+                    "        params:{",
+                    "           startDate:startDate,",
+                    "            endDate:endDate",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //         gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}else if(formSource=='CollectionsBreakdown'){",
+                    "",
+                    "    var collectionsStore =Ext.data.StoreManager.lookup('CashSaleSummariesStore');",
+                    "    collectionsStore.load({",
+                    "        params:{",
+                    "            startDate:startDate,",
+                    "            endDate:endDate",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //         gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "}",
                     ""
                 ]
             },
@@ -2979,9 +3136,18 @@
                 "fn": "saveReceipt",
                 "implHandler": [
                     "  var form = button.up('form').getForm(); // get the basic form",
-                    "        var ledgerStore =Ext.data.StoreManager.lookup('LedgerStore');",
+                    "        var ledgerStore =Ext.data.StoreManager.lookup('LedgersStore');",
                     "        var ledgerRecord = ledgerStore.getRange();",
                     "",
+                    "",
+                    "        var receiptNo=button.up('form').down('#ReceiptNo').getValue();",
+                    "        var payMode=button.up('form').down('#PayMode').getValue();",
+                    "        var pid=button.up('form').down('#Pid').getValue();",
+                    "        var patient=button.up('form').down('#Pid').getValue();",
+                    "        var cashpoint=button.up('form').down('#CashPoint').getValue();",
+                    "        var names=button.up('form').down('#PatientName').getValue();",
+                    "        var cashier=localStorage.getItem('UserName');",
+                    "//         var salesType=button.up('form').down('#salesType').getValue().salesType;",
                     "",
                     "        var gridData = Array();",
                     "",
@@ -2995,12 +3161,12 @@
                     "                    gridData: Ext.util.JSON.encode(gridData)",
                     "                },",
                     "                success: function(form, action) {",
-                    "                        window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&payer='+payer+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
+                    "                        window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,\"receipt\",\"menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes\");",
                     "",
                     "                    form.reset();",
                     "                    ledgerStore.load({});",
                     "",
-                    "                    this.setReceiptNo();",
+                    "                    this.setReceiptNo1();",
                     "",
                     "                },",
                     "                failure: function(form, action) {",
@@ -3095,10 +3261,24 @@
                 ],
                 "fn": "printCashReport",
                 "implHandler": [
-                    "    var cashpoint=button.up('gridpanel').down('#cashPoint').getValue();",
-                    "        var shiftNo=button.up('gridpanel').down('#shiftNo').getValue();",
+                    "var formStatus=button.up('panel').down('#formStatus').getValue();",
+                    "var report='';",
+                    "var cashpoint=button.up('gridpanel').down('#cashPoint').getValue();",
+                    "var shiftNo=button.up('gridpanel').down('#shiftNo').getValue();",
                     "",
-                    "        window.open('reports/shift_report_pdf.php?cashpoint=' + cashpoint + '&shiftno=' + shiftNo, \"Shift Report\",",
+                    "if(formStatus==='ShiftReport'){",
+                    "    report='shift_report_pdf';",
+                    "}else if(formStatus==='PatientsSummary'){",
+                    "    report='shift_report_Summary_pdf';",
+                    "}else if(formStatus==='ItemSalesSummary'){",
+                    "    report='shift_reportByItem_pdf';",
+                    "}else if(formStatus==='CashPointsSummary'){",
+                    "    report='shift_reportByItem_pdf';",
+                    "}",
+                    "",
+                    "",
+                    "",
+                    "window.open('reports/'+report+'.php?cashpoint=' + cashpoint + '&shiftno=' + shiftNo, \"Shift Report\",",
                     "                    \"menubar=no,toolbar=no,width=600,height=800,location=yes,resizable=yes,scrollbars=yes,status=yes\");"
                 ]
             },
@@ -3109,6 +3289,127 @@
             },
             "name": "printCashReport",
             "designerId": "99f127d7-8cd6-40f9-b843-a9ea946ab884"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "clearGrid",
+                "implHandler": [
+                    "var store =Ext.data.StoreManager.lookup('CashSaleStore');",
+                    "store.removeAll();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "clearGrid",
+            "designerId": "5cb48bbb-1e82-4c32-9255-7346c2574a9c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "shifts",
+                "selector": "shifts",
+                "xtype": "shifts"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "shifts",
+            "designerId": "de756ff1-f89b-424f-a388-4edd3132a601"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openReports",
+                "implHandler": [
+                    "var strReport=button.getItemId();",
+                    "",
+                    "shiftReport=Ext.create(\"CarePortal.view.\"+strReport,{});",
+                    "centerContainer=button.up('panel').down(\"#cashbookReports\");",
+                    "centerContainer.removeAll();",
+                    "",
+                    "centerContainer.add(shiftReport);",
+                    "",
+                    "shiftReport.down('#formStatus').setValue(strReport);",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openReports",
+            "designerId": "6f4d60b0-fab0-429e-a1d9-dfe3d0872bb3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "shiftsreportheader",
+                "selector": "shiftsreportheader",
+                "xtype": "shiftsreportheader"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "shiftsreportheader",
+            "designerId": "5280d251-585d-43ad-9ae8-bdd94be67532"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "cashbookreportsheader",
+                "selector": "cashbookreportsheader",
+                "xtype": "cashbookreportsheader"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "cashbookreportsheader",
+            "designerId": "4cea951e-831d-47fa-b5e0-93498c3cae56"
         }
     ]
 }

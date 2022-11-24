@@ -8,12 +8,14 @@
     "userConfig": {
         "designer|userAlias": "fullhaemogramstore",
         "designer|userClassName": "FullHaemogramStore",
-        "model": "FullHaemogramParams"
+        "model": "FullHaemogramParams",
+        "storeId": "FullHaemogramStore"
     },
     "configAlternates": {
         "designer|userAlias": "string",
         "designer|userClassName": "string",
-        "model": "model"
+        "model": "model",
+        "storeId": "string"
     },
     "name": "MyJsonStore",
     "designerId": "cd1333be-2957-43ea-9faa-ed5b90c08162",

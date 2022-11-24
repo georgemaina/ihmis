@@ -58,6 +58,22 @@
             },
             "codeClass": null,
             "userConfig": {
+                "name": "Name"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField201",
+            "designerId": "2cb7c2bb-2a03-4239-8ce9-d6c967c285a5"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "name": "Encounter_Nr"
             },
             "configAlternates": {
@@ -90,7 +106,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "IP-OP"
+                "name": "EncounterClass"
             },
             "configAlternates": {
                 "name": "string"

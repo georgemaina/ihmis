@@ -19,6 +19,8 @@ $ID = $_POST['ID'];
 $tableName = $_POST['tableName'];
 $fieldParam = $_POST['fieldParam'];
 $valueParam = $_POST['fieldValue'];
+$idColumn=$_POST['idColumn'];
+$batchNr=$_POST['batch_nr'];
 
 $itemdetails = $_POST;
 
@@ -35,6 +37,93 @@ $_SESSION['pid']=$pid;
 //         echo "{failure:true}";
 //         break;
 // }//end switch
+
+
+function deleteCashItem($tableName,$idColumn,$ID,$batchNr){
+    global $db;
+    $debug=false;
+    $error=0;
+
+    $sql="update care_ke_billing set status='deleted' where id='$batchNr'";
+    if($debug) echo $sql;
+
+    if($db->Execute($sql)){
+        $error=0;        
+    }else{
+        $error=1;
+    }
+
+    if($error==2){
+        echo '{"failure":true,"error":"Unable to delete bill:"'.$sql.'"}';
+    }else if($error==1){
+        echo '{"failure":true,"error":"Unable to delete Procedure:"'.$sql.'"}';
+    }else{
+        echo '{"success":true}';
+    }
+}
+
+function deleteRecord($tableName,$idColumn,$ID,$batchNr){
+    global $db;
+    $debug=false;
+    $error=0;
+
+    $sql="Delete from $tableName where $idColumn='$batchNr'";
+    if($debug) echo $sql;
+
+    if($db->Execute($sql)){
+        $sql2="Delete from care_ke_billing where batch_no='$batchNr'";
+        if($debug) echo $sql2;
+        if($db->Execute($sql2)){
+            $error=0;
+        }else{
+            $error=2;
+        }
+        
+    }else{
+        $error=1;
+    }
+
+    if($error==2){
+        echo '{"failure":true,"error":"Unable to delete bill:"'.$sql2.'"}';
+    }else if($error==1){
+        echo '{"failure":true,"error":"Unable to delete Procedure:"'.$sql.'"}';
+    }else{
+        echo '{"success":true}';
+    }
+}
+
+function updateAdmDis(){
+    global $db,$bill_obj;
+    $debug=true;
+
+    $pid=$_REQUEST['pid'];
+    $encounterNr=$_REQUEST['encounterNr'];
+    $encounterClass=$_REQUEST['encounterClass'];
+    $billNumber=$_REQUEST['billNumber'];
+    // $admDate=$_REQUEST['admDate'];
+    // $disDate=$_REQUEST['disDate'];
+
+    $date1= date_create($_REQUEST['admDate']);
+    $admDate=$date1->format("Y-m-d");
+
+    $date2= date_create($_REQUEST['disDate']);
+    $disDate=$date2->format("Y-m-d");
+
+    $new_bill_number = $bill_obj->checkBillEncounter($encounterNr);
+    $sql2 = "Update care_encounter set bill_number='$new_bill_number' where encounter_nr='$encounterNr'";
+    if($debug) echo $sql2;
+    $db->Execute($sql2);
+
+    $sql="UPDATE care_encounter set  encounter_date='$admDate',discharge_date='$disDate',
+    bill_number='$new_bill_number' WHERE pid='$pid'";
+     if($debug) echo $sql;
+
+    if($db->Execute($sql)){
+        echo '{"success":true}';
+    }else{
+        echo "{'failure':true}";
+    }
+}
 
 function admitPatient($pid,$encoder,$insurance_obj,$encounter_obj,$bill_obj,$person_obj,$weberp_obj){
     global $db;
@@ -76,8 +165,8 @@ function admitPatient($pid,$encoder,$insurance_obj,$encounter_obj,$bill_obj,$per
 
         $db->Execute($sql2);
 
-        $status="Patatient admitted in Outpatient in dept ".$current_dept_nr;
-        $statusDesc="Patatient admitted in Outpatient in dept ".$current_dept_nr;
+        $status="Patient admitted in Outpatient in dept ".$current_dept_nr;
+        $statusDesc="Patient admitted in Outpatient in dept ".$current_dept_nr;
         $currUser=$_SESSION['sess_login_username'];
 
         updatePatientStatus($encounter_nr,$encounter_nr,'Admission OP',$status,$statusDesc,$currUser);
@@ -108,9 +197,9 @@ function admitPatient($pid,$encoder,$insurance_obj,$encounter_obj,$bill_obj,$per
         //            destroy_weberp($weberp_obj);
         //        }
 
-        echo "{'success':true}";
+        echo '{"success":true}';
     }else{
-        echo "{'failure':true}";
+        echo '{"failure":true}';
     }
 }
 
@@ -130,9 +219,9 @@ function addMemberToInsurance($bill_obj,$accno,$pid,$memberID){
         $sql3 = "update care_person set insurance_ID='$row[0]' where pid=$pid";
         if($debug) echo  $sql3;
         if ($db->Execute($sql3)) {
-            echo '{success:true},';
+            echo '{"success":true}';
         } else {
-            echo '{success:false,errors:{pid:"Could not Update Pid Insurance"}},';
+            echo '{"success":false,"errors":"pid":"Could not Update Pid Insurance"}';
         }
         
         $sql4="update care_encounter set insurance_firm_id='$row[0]' where encounter_nr='$encounterNr'";   
@@ -152,18 +241,17 @@ function addMemberToInsurance($bill_obj,$accno,$pid,$memberID){
     
             if($debug) echo $sql3;
             if($db->Execute($sql3)){
-                //echo '{success:true}';
+                //echo '{"success":true}';
             } else {
-                echo '{success:false,errors:{billInsurance:"Could not update billing insurance"}}';
+                echo '{"success":false,"errors":"billInsurance":"Could not update billing insurance"}';
             }
         }
 }
 
 
-
 function createPatient($person_obj,$bill_obj){
     global $db;
-    $debug=false;
+    $debug=FALSE;
 
     $dob = date_create($_POST['date_birth']);
     $dob2 = date_format($dob,"Y-m-d");
@@ -174,7 +262,7 @@ function createPatient($person_obj,$bill_obj){
     $_POST['history'] = "Init.reg. " . date('Y-m-d H:i:s') . " " . $_SESSION['sess_login_username'] . "\n";
     $_POST['create_id'] = $_SESSION['sess_login_username'];
     $_POST['create_time'] = date('Y-m-d H:i:s');
-    $sql = "select last_encounter_no from care_ke_invoice";
+    $sql = "select last_encounter_no from care_ke_company";
     $result = $db->Execute($sql);
     $row = $result->FetchRow();
     $new_nr = intval($row[0] + 1)."/".date('y');
@@ -215,12 +303,12 @@ function createPatient($person_obj,$bill_obj){
             //     addMemberToInsurance($bill_obj,$_POST[insurance],$pid,$_POST['memberNo']);
             // }
             updatePatientStatus('1','1','Registration',$status,$statusDesc,$_POST['create_id']);
-            echo '{success:true}';
+            echo '{"success":true}';
         } else {
             echo '{failure:true,"error":"Could not save patient"}';
         }
     }else{
-        echo '{success:false, "error":"Patient Already Exists"}';
+        echo '{"failure":false, "error":"Patient Already Exists"}';
     }
 }
 
@@ -246,7 +334,7 @@ function updatePatient($pid,$person_obj){
                 `sex` = '$_POST[sex]', `nat_id_nr` = '$_POST[nat_id_nr]',
                 `county` = '$_POST[county]',`date_update` = '$updateDate',`status` = 'Active',`history` = $history,
                 `modify_id` = '$currUser', `modify_time` = '$updateDate',`next_of_kin` = '$_POST[next_of_kin]',`kin_relations` = '$_POST[kin_relations]',
-                `next_of_kin2` = '$_POST[next_of_kin2]', `kin_relations2` = '$_POST[kin_relations2]'
+                `next_of_kin2` = '$_POST[next_of_kin2]', `kin_relations2` = '$_POST[kin_relations2]',insurance_id='$_POST[insurance]',memberNo='$_POST[memberNo]'
            WHERE `pid` = '$pid'";
      if($debug) echo $sql;      
 
@@ -255,7 +343,7 @@ function updatePatient($pid,$person_obj){
         $statusDesc="Updated patient registration";
 
         updatePatientStatus($pid,$pid,'Patient Registration',$status,$statusDesc,$currUser);
-        echo '{success:true}';
+        echo '{"success":true}';
     }else{
         echo '{failure:true}';
     }

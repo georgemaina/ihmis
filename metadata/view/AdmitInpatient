@@ -64,7 +64,9 @@
                 "allowBlank": false,
                 "displayField": "Name",
                 "fieldLabel": "Ward",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "minChars": 2,
                 "name": "current_ward_nr",
@@ -85,7 +87,9 @@
                 "minChars": "number",
                 "name": "string",
                 "queryMode": "string",
-                "typeAhead": "boolean"
+                "typeAhead": "boolean",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox4",
             "designerId": "1464756c-f391-4060-b1c0-9b500516faa6"
@@ -98,10 +102,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "allowBlank": false,
                 "displayField": "Item_Description",
                 "fieldLabel": "Registration or Consultation Fee",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "minChars": 2,
                 "name": "consultation_fee",
@@ -123,7 +128,9 @@
                 "minChars": "number",
                 "name": "string",
                 "queryMode": "string",
-                "typeAhead": "boolean"
+                "typeAhead": "boolean",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox5",
             "designerId": "b33aadce-402b-4ad4-88c2-fbb109989cb2"
@@ -136,10 +143,11 @@
             },
             "codeClass": null,
             "userConfig": {
-                "allowBlank": false,
                 "displayField": null,
                 "fieldLabel": "Payment Plan",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "name": "financial_class",
                 "store": [
@@ -157,7 +165,9 @@
                 "displayField": "datafield",
                 "store": "array",
                 "valueField": "datafield",
-                "name": "string"
+                "name": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox6",
             "designerId": "f51c130c-1186-41a7-8587-07b4c7fb539c"
@@ -171,7 +181,9 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Referal Method",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "name": "referals",
                 "width": 416
@@ -181,7 +193,9 @@
                 "width": "auto",
                 "labelAlign": "string",
                 "labelWidth": "number",
-                "name": "string"
+                "name": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox7",
             "designerId": "0b06b355-4cc4-45a3-8ce7-98435dc53756"
@@ -195,8 +209,10 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Source Panel",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "itemId": "sourcePanel",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "name": "referals",
                 "width": 416
@@ -207,7 +223,9 @@
                 "labelAlign": "string",
                 "labelWidth": "number",
                 "name": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyTextField21",
             "designerId": "0a9e512b-edd2-43ca-af7f-65d34f369af7"

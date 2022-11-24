@@ -19,7 +19,8 @@
         "designer|userClassName": "string",
         "scrollable": "auto",
         "store": "store",
-        "itemId": "string"
+        "itemId": "string",
+        "height": "auto"
     },
     "name": "MyGridPanel8",
     "designerId": "f2578d85-51dc-44d3-9ca2-c29d81c0118c",
@@ -554,6 +555,32 @@
                     },
                     "name": "MyButton35",
                     "designerId": "0f258eb1-dfaf-43c9-8b8d-24c3c5ef6753"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-print",
+                        "itemId": "cmdPrintCheque",
+                        "layout|x": 585,
+                        "layout|y": 5,
+                        "text": "Print Cheque",
+                        "width": 155
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton38",
+                    "designerId": "61f42560-0efd-442f-8741-fe4e91f95e12"
                 }
             ]
         },

@@ -1,0 +1,207 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "itemsalessummary",
+        "designer|userClassName": "ItemSalesSummary",
+        "itemId": "ItemSalesSummary",
+        "store": "ItemSalesSummaryStore"
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "itemId": "string",
+        "store": "store"
+    },
+    "name": "MyGridPanel",
+    "designerId": "289c52ee-0755-4dad-88f6-bfc8ed61d1c1",
+    "viewControllerInstanceId": "346e643b-e50e-47b9-8beb-4ab9ec43877c",
+    "viewModelInstanceId": "f3c0a99b-c1c5-408a-92db-63796629d998",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable3",
+            "designerId": "d2815155-f8cd-4004-9d38-b7fa64ee7701"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Category",
+                "text": "Category",
+                "width": 188
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn24",
+            "designerId": "6885a6cb-f871-4ee0-b92c-5ab5ab33b3b8"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "PartCode",
+                "text": "Part Code"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn25",
+            "designerId": "25cfdff8-10c7-4f6b-98b9-6bd46b1ff201"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Description",
+                "text": "Description",
+                "width": 301
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn26",
+            "designerId": "ed5d6b69-07fb-44bd-86f6-398eb59cbf73"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Amount",
+                "text": "Amount"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn27",
+            "designerId": "2899c784-cb18-44ee-b001-4554608225fa"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Quantity",
+                "text": "Quantity"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn28",
+            "designerId": "0943cd55-8bf2-4ebd-973b-fd0dc370d286"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Total",
+                "summaryType": "sum",
+                "text": "Total"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "summaryType": "string",
+                "text": "string"
+            },
+            "name": "MyColumn29",
+            "designerId": "d740dc5d-cd59-4f11-8913-c7638fb5b6e5"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "ItemSalesSummaryStore",
+                "width": 360
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store",
+                "width": "auto"
+            },
+            "name": "MyPagingToolbar5",
+            "designerId": "f7161275-0003-4441-844b-1288e4b13f3e"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "shiftsreportheader1",
+            "designerId": "c36eb73a-63d1-4dbb-a71a-112136359292",
+            "masterInstanceId": "bd0cc05b-8caf-4342-96c0-95c36a24976c"
+        },
+        {
+            "type": "Ext.grid.feature.Summary",
+            "reference": {
+                "name": "features",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "MySummaryFeature1",
+            "designerId": "f6d22637-0fdd-4025-954a-698ee3734315"
+        }
+    ]
+}

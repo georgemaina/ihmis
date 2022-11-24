@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "debtorallocatereceipts",
+        "designer|userClassName": "undefinedViewController12"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewController12",
+    "designerId": "96444e9a-37cc-4096-875a-2ccf16eb71b0"
+}

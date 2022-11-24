@@ -1,0 +1,249 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "clinicslist",
+        "designer|userClassName": "ClinicsList",
+        "height": 592,
+        "store": "DepartmentsStore",
+        "width": 918
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "store": "store",
+        "width": "auto"
+    },
+    "name": "MyGridPanel8",
+    "designerId": "8eb3a371-4ba8-4b2b-929e-5ce43f2457bb",
+    "viewControllerInstanceId": "7c715852-49eb-404a-acee-bd054f3db7b7",
+    "viewModelInstanceId": "2e736c68-9da1-48c0-931e-3acf21aa33a4",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "patientdetais4",
+            "designerId": "a0de706d-0d38-463e-bb15-34cf1d9e4a01",
+            "masterInstanceId": "3d257ecb-2ca1-40bf-b7ca-31282ca4bf4d"
+        },
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable15",
+            "designerId": "a9469d4b-5e44-4145-bd31-0c17eda72842"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Nr",
+                "text": "Nr"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn162",
+            "designerId": "9de8b074-2c4e-40d1-999d-41c8e5126d3d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Description",
+                "text": "Description",
+                "width": 263
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn163",
+            "designerId": "31504d99-9534-402a-982d-c5766b2302f0"
+        },
+        {
+            "type": "Ext.grid.column.Widget",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "text": "Consultation Fee",
+                "width": 319
+            },
+            "configAlternates": {
+                "width": "auto",
+                "text": "string"
+            },
+            "name": "MyWidget2",
+            "designerId": "d4c4ddbb-9fd8-4b8d-9e9a-7fad4cc8c2e0",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "widget",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "Item_Description",
+                        "queryMode": "local",
+                        "store": "Consultations",
+                        "typeAhead": true,
+                        "valueField": "PartCode"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox37",
+                    "designerId": "e4c8a6f2-7605-453f-bf77-336278b18d1c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "id": "transferOP",
+                "text": "Transfer",
+                "width": 82
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "text": "string",
+                "width": "auto",
+                "id": "string",
+                "align": "string"
+            },
+            "name": "MyActionColumn22",
+            "designerId": "66b22e12-8653-448a-bc69-63cd18dca757",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Transfer Here",
+                        "icon": "icons/xchange.gif"
+                    },
+                    "configAlternates": {
+                        "altText": "string",
+                        "icon": "string"
+                    },
+                    "name": "MyActionColumnItem8",
+                    "designerId": "151bd1bf-f24e-4e7c-b3b7-e681d2d3cb2c"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "dock": "top",
+                "height": 48,
+                "layout": "vbox",
+                "width": 100
+            },
+            "configAlternates": {
+                "dock": "string",
+                "title": "string",
+                "width": "auto",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MyContainer31",
+            "designerId": "5bc5cbdf-bfbb-4b9b-ae12-07e07fd355fa",
+            "cn": [
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": "5 0 5 10",
+                        "style": "font-size:14px;color:red;font-weight:bold;",
+                        "text": "Where should the patient be transferred to?"
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "style": "string",
+                        "text": "string"
+                    },
+                    "name": "MyLabel1",
+                    "designerId": "64f3cc84-19fd-4b04-ba7e-700c93b4219b"
+                },
+                {
+                    "type": "Ext.form.Label",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": "0 0 0 10",
+                        "style": "font-size:14px;color:maroon;font-weight:bold;",
+                        "text": " Transfer to clinic or department"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "margin": "auto",
+                        "style": "string"
+                    },
+                    "name": "MyLabel6",
+                    "designerId": "99ae7bd5-504c-4458-805f-a1481832c03c"
+                }
+            ]
+        }
+    ]
+}

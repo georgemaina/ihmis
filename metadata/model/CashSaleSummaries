@@ -1,0 +1,100 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "cashsalesummaries",
+        "designer|userClassName": "CashSaleSummaries"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "53f8791d-9b1f-40da-b0a1-7becb1d26c69",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Description"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField78",
+            "designerId": "52103206-dbd3-47bd-91ce-dfa6d1418655"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Cash"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField80",
+            "designerId": "228775d5-5b6e-4b89-9586-e9bc24e00c5c"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Mpesa"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField81",
+            "designerId": "6590966d-bb0a-4ea9-920f-fa87b806b56a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Visa"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField87",
+            "designerId": "19cd8420-06ae-4640-aaed-ce9e42b98bf2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Cheque"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField89",
+            "designerId": "596cefb8-58d2-4205-bcd0-e546e688c4ed"
+        }
+    ]
+}

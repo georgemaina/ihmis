@@ -197,7 +197,7 @@
             "codeClass": null,
             "userConfig": {
                 "iconCls": "x-fa fa-save",
-                "itemId": "cmdSave",
+                "itemId": "cmdSaveItemLocation",
                 "layout|x": 35,
                 "layout|y": 155,
                 "tabIndex": 4,

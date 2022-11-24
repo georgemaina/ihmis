@@ -139,6 +139,9 @@ FROM
         }else{
             $qty=$row ['proc_qty'];
         }
+
+        $total=$row['amount']*$qty;
+
         $page->drawText($row ['ref_no'], $leftPos + 10, $topPos - $currpoint);
         $page->drawText($row ['type'], $leftPos + 50, $topPos - $currpoint);
         $date = new DateTime($row ['currdate']);
@@ -150,10 +153,10 @@ FROM
         $page->drawText($row ['pay_mode'], $leftPos + 430, $topPos - $currpoint);
         $pdfBase->drawText($page, number_format($row['amount'], 2), $leftPos + 500, $topPos - $currpoint, $leftPos + 500, right);
         $page->drawText($qty, $leftPos + 530, $topPos - $currpoint);
-        $pdfBase->drawText($page, number_format($row['amount']*$qty, 2), $leftPos + 580, $topPos - $currpoint, $leftPos + 580, right);
+        $pdfBase->drawText($page, number_format($total,2), $leftPos + 580, $topPos - $currpoint, $leftPos + 580, right);
 
         $amount=$amount+ $row['amount'];
-        $total=$total+ $row['amount']*$qty;
+        $totalAmount=$totalAmount + $row['total'];
         $topPos = $topPos - 20;
 
         $lineStyle3 = new Zend_Pdf_Style ();
@@ -176,9 +179,9 @@ FROM
     $page->setStyle($resultsStyle3);
 
     $page->drawText('Totals:', $leftPos + 392, $topPos - 10);
-    $pdfBase->drawText($page, number_format($amount, 2), $leftPos + 500, $topPos - 10, $leftPos + 500, right);
+   // $pdfBase->drawText($page, number_format($totalAmount, 2), $leftPos + 500, $topPos - 10, $leftPos + 500, right);
 //    $pdfBase->drawText($page, number_format($chqTotal, 2), $leftPos + 540, $topPos - 10, $leftPos + 530, right);
-    $pdfBase->drawText($page, number_format($total, 2), $leftPos + 580, $topPos - 10, $leftPos + 550, right);
+    $pdfBase->drawText($page, number_format($totalAmount, 2), $leftPos + 580, $topPos - 10, $leftPos + 550, right);
 //    $page->drawText('Totals:', $leftPos + 410, $topPos - 30);
 //    $pdfBase->drawText($page, number_format(($casTotal + $chqTotal + $othersTotal), 2), $leftPos + 500, $topPos - 30, $leftPos + 500, right);
 
@@ -225,6 +228,7 @@ FROM
 
     $mTotal=0;
 	$cTotal=0;
+   
     while ($row = $tresult->FetchRow()) {
         if ($topPos < 160) {
             array_push($pdf->pages, $page);
@@ -247,7 +251,7 @@ FROM
         //     $desc=$row['rev_code'].' - '.$row['prec_desc'];
         // }
         $page->drawText( strtoupper($row['Description']), $leftPos + 40, $topPos - 97);
-//		$page->drawText ( $row [1], $leftPos + 200, $topPos - 95 );
+     // $page->drawText ( $row [1], $leftPos + 200, $topPos - 95 );
         $page->drawText(number_format($row['Cash'],2), $leftPos + 250, $topPos - 97);
         $page->drawText(number_format($row['Mpesa'],2), $leftPos + 330, $topPos - 97);
 

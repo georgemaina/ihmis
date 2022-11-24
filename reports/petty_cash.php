@@ -179,7 +179,7 @@ function getVouchers($cashpoint,$voucherNo,$payMode,$page,$topPos,$leftPos) {
         $global_config_ok = 0;
     }
 
-    $title = 'PETTY CASH';
+    $title = 'CHEQUE PAYMENT VOUCHER';
 
     $sql = "SELECT Cash_Point,Voucher_No,gl_acc,GL_Desc,pdate,cheque_no,ledger_code,ledger_desc,payee,toward,Total,input_user 
             FROM `care_ke_payments` 
@@ -189,7 +189,7 @@ WHERE cash_point='$cashpoint' AND pay_mode='$payMode' AND voucher_no='$voucherNo
     $row = $result->FetchRow();
 
 
-    $imagePath="../../../icons/logo.jpg";
+    $imagePath="../icons/logo.jpg";
     $image = Zend_Pdf_Image::imageWithPath($imagePath);
     $page->drawImage($image, $leftPos + 25, $topPos-80, 500, $topPos - 5);
 

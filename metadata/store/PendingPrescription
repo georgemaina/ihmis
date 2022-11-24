@@ -7,11 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "designer|userAlias": "pendingprescriptions",
+        "designer|userAlias": "pendingprescription",
         "designer|userClassName": "PendingPrescription",
         "groupField": "PrescribeDate",
         "model": "PendingPrescription",
-        "storeId": "PendingPrescriptions"
+        "storeId": "PendingPrescription"
     },
     "configAlternates": {
         "designer|userAlias": "string",

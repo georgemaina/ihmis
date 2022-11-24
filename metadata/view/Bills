@@ -98,6 +98,36 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "Name",
+                "text": "Names"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn71",
+            "designerId": "740261aa-1a7c-4100-8d87-e48ec231a9c4",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "editor",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTextField",
+                    "designerId": "b15b154d-ce75-4313-b350-070ed003b0c1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "Encounter_Nr",
                 "text": "Encounter Nr"
             },
@@ -158,7 +188,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "IP-OP",
+                "dataIndex": "EncounterClass",
                 "text": "Ip Op"
             },
             "configAlternates": {
@@ -199,24 +229,21 @@
             "designerId": "bef746d0-7274-46a8-8d49-953f6c63abce",
             "cn": [
                 {
-                    "type": "Ext.form.field.Date",
+                    "type": "Ext.form.field.Text",
                     "reference": {
                         "name": "editor",
                         "type": "object"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "submitFormat": "Y-m-d"
+                        "submitValue": false
                     },
                     "configAlternates": {
-                        "altFormats": "string",
-                        "ariaFormat": "string",
-                        "format": "string",
-                        "formatText": "string",
-                        "submitFormat": "string"
+                        "submitFormat": "string",
+                        "submitValue": "boolean"
                     },
-                    "name": "MyDateField6",
-                    "designerId": "7a4f2284-7774-437e-92fb-bb68febc20b5"
+                    "name": "MyTextField79",
+                    "designerId": "e161612b-d95e-40e8-8b7b-c9456cc85b93"
                 }
             ]
         },
@@ -492,7 +519,7 @@
             "userConfig": {
                 "designer|snapToGrid": 5,
                 "dock": "top",
-                "height": 76,
+                "height": 110,
                 "layout": "absolute",
                 "padding": "0 1 0 0",
                 "width": 100
@@ -642,8 +669,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "cmdUpdateBill",
-                        "layout|x": 975,
-                        "layout|y": 5,
+                        "layout|x": 370,
+                        "layout|y": 75,
+                        "style": "font-size:14;",
                         "text": "Update Changes to the Bill",
                         "width": 180
                     },
@@ -652,7 +680,8 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "text": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "style": "string"
                     },
                     "name": "MyButton10",
                     "designerId": "80d5827f-f81d-4449-a608-b80ef4a82214"
@@ -666,8 +695,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "cmdDeleteSelected",
-                        "layout|x": 1160,
-                        "layout|y": 5,
+                        "layout|x": 200,
+                        "layout|y": 75,
                         "text": "Remove Selected Rows",
                         "width": 160
                     },
@@ -689,9 +718,33 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "itemId": "cmdUpdateDates",
+                        "layout|x": 10,
+                        "layout|y": 75,
+                        "text": "Update Dates",
+                        "width": 160
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "bc7cb6c6-5a9e-436a-98cf-dc9380ef32f6"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
                         "itemId": "cmdUpdateBill1",
-                        "layout|x": 975,
-                        "layout|y": 40,
+                        "layout|x": 555,
+                        "layout|y": 75,
                         "text": "Readmit  Discharged Patient",
                         "width": 180
                     },
@@ -891,7 +944,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "icon": "../../icons/delete1.jpg"
+                        "icon": "icons/delete1.jpg"
                     },
                     "configAlternates": {
                         "icon": "string"

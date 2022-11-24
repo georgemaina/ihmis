@@ -9,7 +9,7 @@
         "autoLoad": false,
         "designer|userAlias": "clinicsstore",
         "designer|userClassName": "ClinicsStore",
-        "model": "Clincs",
+        "model": "Clinics",
         "storeId": "ClinicsStore"
     },
     "configAlternates": {

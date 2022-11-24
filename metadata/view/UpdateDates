@@ -1,0 +1,339 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "container|align": "stretch",
+        "designer|userAlias": "updatedates",
+        "designer|userClassName": "UpdateDates",
+        "height": 346,
+        "layout": "vbox",
+        "width": 396
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto"
+    },
+    "name": "MyForm6",
+    "designerId": "d3ec84a9-7cf2-450b-9d95-e01b1d00879c",
+    "viewControllerInstanceId": "30f77eaa-3084-4262-a262-3d62e86c7c6d",
+    "viewModelInstanceId": "fa5b398d-0ddb-4dca-a38e-942062b064a6",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Pid",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "txtSearchInterim",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "labelWidth": "number",
+                "layout|flex": "number"
+            },
+            "name": "MyTextField60",
+            "designerId": "f61b3260-bd82-4d60-9af0-b27e79ee3e36"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Names",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "Name",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "itemId": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "labelWidth": "number",
+                "layout|flex": "number"
+            },
+            "name": "MyTextField78",
+            "designerId": "50aa202b-b58b-43df-93a5-38582e2cab51"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "BillNumbers",
+                "fieldLabel": "Bill Number",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "billNumber",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0,
+                "minChars": 2,
+                "queryMode": "local",
+                "store": "BillNumbersStore",
+                "typeAhead": true,
+                "valueField": "BillNumbers"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|flex": "number",
+                "displayField": "datafield",
+                "itemId": "string",
+                "labelWidth": "number",
+                "minChars": "number",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox20",
+            "designerId": "19141b96-7d65-4f32-868e-f43719545594",
+            "cn": [
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onBillNumberChange",
+                        "implHandler": [
+                            "Ext.Ajax.request({",
+                            "    url: 'data/getReportsData.php?task=getEncounterFromBill',",
+                            "    params: {",
+                            "        billNumber:newValue",
+                            "    },",
+                            "    waitMsg: 'getting encounteNo ...',",
+                            "    success: function(response){",
+                            "        var encDetails= Ext.util.JSON.decode(response.responseText);",
+                            "        field.up('panel').down('#encNr').setValue(encDetails[0].encounter_nr);",
+                            "         field.up('panel').down('#encounterClass').setValue(encDetails[0].encounter_class_nr);",
+                            "         field.up('panel').down('#admDate').setValue(encDetails[0].encounter_date);",
+                            "         field.up('panel').down('#disDate').setValue(encDetails[0].dischargeDate);",
+                            "",
+                            "",
+                            "    },",
+                            "    failure:function(response){",
+                            "        var resp = JSON.parse(response);",
+                            "        Ext.Msg.alert('Error',resp.Error);",
+                            "",
+                            "        //                     Ext.Msg.alert('Error','There was a problem deleting the Part Locations, Contact System Administrator');",
+                            "    }",
+                            "});"
+                        ],
+                        "name": "change",
+                        "scope": "me"
+                    },
+                    "configAlternates": {
+                        "fn": "string",
+                        "implHandler": "code",
+                        "name": "string",
+                        "scope": "string"
+                    },
+                    "name": "onBillNumberChange",
+                    "designerId": "32507ca7-4834-4b2b-b141-dc18351c3bae"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Encounter Class",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "encounterClass",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|flex": "number",
+                "itemId": "string",
+                "labelWidth": "number"
+            },
+            "name": "MyComboBox30",
+            "designerId": "01208f3f-ab92-4767-9c9e-5ce2a8ba1e97"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Encounter Number",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "encNr",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|flex": "number",
+                "itemId": "string",
+                "labelWidth": "number"
+            },
+            "name": "MyComboBox36",
+            "designerId": "d5a285f6-14c5-4c4f-92c2-045428924413"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Admission Date",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "admDate",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|flex": "number",
+                "labelWidth": "number",
+                "itemId": "string"
+            },
+            "name": "MyDateField4",
+            "designerId": "4a5f9506-23f5-4490-a243-ba969fc2336e"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Discharge Date",
+                "fieldStyle": "color:maroon; font-weight:bold;",
+                "itemId": "disDate",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 130,
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|flex": "number",
+                "labelWidth": "number",
+                "itemId": "string"
+            },
+            "name": "MyDateField8",
+            "designerId": "90198865-9b56-4ea2-ae9b-b9d1c6510d6d"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "height": 30,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "width": 396
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "container|pack": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "width": "auto"
+            },
+            "name": "MyContainer26",
+            "designerId": "5ee04ce4-24ca-45fe-a900-794887d4a026",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-save",
+                        "itemId": "cmdSaveDates",
+                        "text": "Save",
+                        "width": 122
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "iconCls": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "30538632-0252-412c-be18-cb2ec8241b39"
+                }
+            ]
+        }
+    ]
+}

@@ -366,7 +366,7 @@
                         "layout|x": 180,
                         "layout|y": -1,
                         "value": "Ward Occupancy:",
-                        "width": 182
+                        "width": 240
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -388,11 +388,11 @@
                     "userConfig": {
                         "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:white;",
                         "itemId": "wardTitle",
-                        "layout|x": 340,
+                        "layout|x": 355,
                         "layout|y": 0,
                         "reference": "wardTitle",
                         "value": "Ward Occupancy",
-                        "width": 490
+                        "width": 365
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -462,6 +462,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "iconCls": "x-fa fa-arrow-down",
                         "layout|x": 945,
                         "layout|y": 5,
@@ -473,7 +474,8 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "text": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "hidden": "boolean"
                     },
                     "name": "MyButton11",
                     "designerId": "ee659c12-c7ef-4cca-9ad3-d97dca54b848"
@@ -487,11 +489,11 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:white;",
-                        "itemId": "wardID",
-                        "layout|x": 845,
-                        "layout|y": 5,
-                        "reference": "wardID",
-                        "value": "WardId"
+                        "itemId": "currDate",
+                        "layout|x": 745,
+                        "layout|y": 0,
+                        "reference": "currDate",
+                        "value": ""
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -503,6 +505,32 @@
                     },
                     "name": "MyDisplayField27",
                     "designerId": "5a7a1466-e59e-42ba-abf7-0c9907527322"
+                },
+                {
+                    "type": "Ext.form.field.Display",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:white;",
+                        "itemId": "wardID",
+                        "layout|x": 745,
+                        "layout|y": 0,
+                        "reference": "wardID",
+                        "value": ""
+                    },
+                    "configAlternates": {
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "reference": "string",
+                        "value": "string"
+                    },
+                    "name": "MyDisplayField",
+                    "designerId": "831fa1c1-2b31-400c-bce7-be0b520ebbf2"
                 }
             ]
         },
@@ -827,6 +855,83 @@
             "codeClass": null,
             "userConfig": {
                 "align": "center",
+                "designer|displayName": "Diagnosis",
+                "id": "openDiagnosis",
+                "width": 37
+            },
+            "configAlternates": {
+                "align": "string",
+                "width": "auto",
+                "designer|displayName": "string",
+                "id": "string"
+            },
+            "name": "MyActionColumn14",
+            "designerId": "7a2ead4c-4da8-4bbf-8100-d438f96c1e87",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Patient Diagnosis",
+                        "icon": "icons/firstaidkit.png",
+                        "tooltip": "Patient Diagnosis"
+                    },
+                    "configAlternates": {
+                        "altText": "string",
+                        "icon": "string",
+                        "tooltip": "string"
+                    },
+                    "name": "MyActionColumnItem1",
+                    "designerId": "87db5be1-adac-489c-8920-b0fc546ce8cf",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "v",
+                                    "metadata",
+                                    "r",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store"
+                                ],
+                                "fn": "getClass",
+                                "implHandler": [
+                                    "if(r.get('PID') === '') {",
+                                    "     return 'x-hidden-visibility';",
+                                    " }"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "getClass",
+                            "designerId": "625f0e4f-c43e-48c5-a47f-693a2733c6d3"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
                 "designer|displayName": "Invoice",
                 "width": 37
             },
@@ -913,7 +1018,7 @@
                                     "var billNumber=record.get('BillNumber');",
                                     "",
                                     "",
-                                    "var urlholder=\"../accounting/reports/detail_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+billNumber+\"&receipt=1\";",
+                                    "var urlholder=\"reports/detail_invoice_pdf.php?pid=\"+pid+\"&billNumber=\"+billNumber+\"&receipt=1\";",
                                     "invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");"
                                 ]
                             },
@@ -1015,8 +1120,85 @@
             "codeClass": null,
             "userConfig": {
                 "align": "center",
+                "designer|displayName": "Chart",
+                "id": "openVitalsChart",
+                "width": 37
+            },
+            "configAlternates": {
+                "align": "string",
+                "width": "auto",
+                "designer|displayName": "string",
+                "id": "string"
+            },
+            "name": "MyActionColumn17",
+            "designerId": "6a0ed747-c7e6-4a49-8b87-18b04d5372db",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Patient Vitals Charts",
+                        "icon": "icons/chart.gif",
+                        "tooltip": "Patient Vitals Chart"
+                    },
+                    "configAlternates": {
+                        "altText": "string",
+                        "icon": "string",
+                        "tooltip": "string"
+                    },
+                    "name": "MyActionColumnItem1",
+                    "designerId": "2518290d-e18a-439b-a328-4b79a2cd5172",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "v",
+                                    "metadata",
+                                    "r",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store"
+                                ],
+                                "fn": "getClass",
+                                "implHandler": [
+                                    "if(r.get('PID') === '') {",
+                                    "     return 'x-hidden-visibility';",
+                                    " }"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "getClass",
+                            "designerId": "5f1c443a-ef3a-4a87-8b17-ad05b28924a2"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
                 "designer|displayName": "Services",
-                "id": "openVitals1",
+                "id": "openServices",
                 "width": 37
             },
             "configAlternates": {
@@ -1067,8 +1249,8 @@
                                 "fn": "getClass",
                                 "implHandler": [
                                     "if(r.get('PID') === '') {",
-                                    "     return 'x-hidden-visibility';",
-                                    " }"
+                                    "    return 'x-hidden-visibility';",
+                                    "}"
                                 ]
                             },
                             "configAlternates": {
@@ -1093,7 +1275,7 @@
             "userConfig": {
                 "align": "center",
                 "designer|displayName": "Prescriptions",
-                "id": "openVitals2",
+                "id": "openPrescription",
                 "width": 37
             },
             "configAlternates": {
@@ -1170,7 +1352,7 @@
             "userConfig": {
                 "align": "center",
                 "designer|displayName": "Laboratory",
-                "id": "openVitals3",
+                "id": "openLab",
                 "width": 37
             },
             "configAlternates": {
@@ -1247,7 +1429,7 @@
             "userConfig": {
                 "align": "center",
                 "designer|displayName": "Xray",
-                "id": "openVitals4",
+                "id": "openXray",
                 "width": 37
             },
             "configAlternates": {
@@ -1324,12 +1506,14 @@
             "userConfig": {
                 "align": "center",
                 "designer|displayName": "Transfer",
+                "itemId": "transfer",
                 "width": 37
             },
             "configAlternates": {
                 "align": "string",
                 "width": "auto",
-                "designer|displayName": "string"
+                "designer|displayName": "string",
+                "itemId": "string"
             },
             "name": "MyActionColumn6",
             "designerId": "534d7875-5b08-4b3b-a2fd-89717f6492ce",

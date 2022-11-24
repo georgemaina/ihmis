@@ -96,23 +96,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyContainer8",
-            "designerId": "8ff5383e-df69-4d6c-a595-9250827754c7",
-            "cn": [
-                {
-                    "type": "linkedinstance",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "configAlternates": {
-                        "scrollable": "boolean"
-                    },
-                    "name": "doctorsworkload",
-                    "designerId": "eaae5d9f-12e9-4899-a16b-56f8cda5fb13",
-                    "masterInstanceId": "9009b61c-9d43-43a7-bd2e-a346ddc1263d"
-                }
-            ]
+            "designerId": "8ff5383e-df69-4d6c-a595-9250827754c7"
         },
         {
             "type": "Ext.container.Container",

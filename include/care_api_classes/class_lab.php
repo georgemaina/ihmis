@@ -623,7 +623,8 @@ job_id='$job_id' AND group_id='$grp_id' AND status NOT IN
 			$cond = "batch_nr='$id'";
 		$sub = "_sub";
 		$this->sql = "SELECT labtest, labtest,partcode FROM care_ke_labrequests  WHERE $cond";
-		// echo $this->sql;
+	    //echo $this->sql;
+
 		if ($this->tparams = $db->Execute ( $this->sql )) {
 			if ($this->rec_count = $this->tparams->RecordCount ()) {
 				return $this->tparams;

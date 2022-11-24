@@ -7,13 +7,11 @@
     "codeClass": null,
     "userConfig": {
         "bodyPadding": 10,
-        "designer|snapToGrid": 5,
         "designer|userAlias": "newuserform",
         "designer|userClassName": "NewUserForm",
         "frame": true,
-        "height": 289,
         "itemId": "myform1",
-        "layout": "absolute",
+        "layout": "form",
         "title": null,
         "url": "data/manageUsers.php?task=updateUser",
         "width": 398
@@ -45,14 +43,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "allowBlank": false,
-                "fieldLabel": "First Name",
+                "fieldLabel": "ID",
+                "hidden": true,
+                "itemId": "ID",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 120,
-                "layout|x": 35,
-                "layout|y": 10,
-                "name": "FirstName",
+                "name": "ID",
+                "readOnly": true,
                 "tabIndex": 1,
                 "width": 290
             },
@@ -67,7 +65,10 @@
                 "tabIndex": "number",
                 "width": "auto",
                 "scrollable": "boolean",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "itemId": "string",
+                "hidden": "boolean",
+                "readOnly": "boolean"
             },
             "name": "MyTextField94",
             "designerId": "97094cf1-3537-4622-bf63-3d6dd61cad7a",
@@ -103,12 +104,68 @@
             "codeClass": null,
             "userConfig": {
                 "allowBlank": false,
-                "fieldLabel": "Last Name",
+                "fieldLabel": "First Name",
+                "itemId": "FirstName1",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 120,
-                "layout|x": 35,
-                "layout|y": 45,
+                "name": "FirstName",
+                "tabIndex": 1,
+                "width": 290
+            },
+            "configAlternates": {
+                "allowBlank": "boolean",
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelWidth": "number",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string",
+                "tabIndex": "number",
+                "width": "auto",
+                "scrollable": "boolean",
+                "labelStyle": "string",
+                "itemId": "string"
+            },
+            "name": "MyTextField",
+            "designerId": "9c0f1daa-0064-4f24-ab1b-29578af85279",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "afterLabelTextTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "afterLabelTextTpl",
+                        "implHandler": [
+                            "<span style=\"color:red;font-weight:bold\" data-qtip=\"Required\">*</span>"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "tpl31",
+                    "designerId": "a00a5b0d-f9b9-4085-939d-30175933c415"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "fieldLabel": "Last Name",
+                "itemId": "LastName",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 120,
                 "name": "LastName",
                 "tabIndex": 2,
                 "width": 290
@@ -124,7 +181,8 @@
                 "tabIndex": "number",
                 "width": "auto",
                 "scrollable": "boolean",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "itemId": "string"
             },
             "name": "MyTextField95",
             "designerId": "bec9a436-cc1a-4cc0-b979-63c6ce25caef",
@@ -161,11 +219,10 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "Username",
+                "itemId": "UserName",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 120,
-                "layout|x": 35,
-                "layout|y": 80,
                 "name": "UserName",
                 "tabIndex": 3,
                 "width": 290
@@ -181,7 +238,8 @@
                 "tabIndex": "number",
                 "width": "auto",
                 "scrollable": "boolean",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "itemId": "string"
             },
             "name": "MyTextField96",
             "designerId": "254e856c-4c9a-4bc2-a93f-87512ef0a4f4",
@@ -223,8 +281,6 @@
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 120,
-                "layout|x": 35,
-                "layout|y": 115,
                 "minChars": 2,
                 "name": "UserGroup",
                 "queryMode": "local",
@@ -294,11 +350,10 @@
                 "allowBlank": false,
                 "fieldLabel": "Password",
                 "inputType": "password",
+                "itemId": "Password",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 120,
-                "layout|x": 35,
-                "layout|y": 150,
                 "name": "password1",
                 "submitValue": false,
                 "tabIndex": 4,
@@ -319,7 +374,8 @@
                 "validateBlank": "boolean",
                 "width": "auto",
                 "scrollable": "boolean",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "itemId": "string"
             },
             "name": "MyTextField80",
             "designerId": "7030d083-8769-41c7-b9c7-c25932968b4b",
@@ -357,11 +413,10 @@
                 "allowBlank": false,
                 "fieldLabel": "Confirm Password",
                 "inputType": "password",
+                "itemId": "Password2",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 130,
-                "layout|x": 25,
-                "layout|y": 185,
                 "name": "password2",
                 "submitValue": false,
                 "tabIndex": 5,
@@ -382,7 +437,8 @@
                 "validateBlank": "boolean",
                 "width": "auto",
                 "scrollable": "boolean",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "itemId": "string"
             },
             "name": "MyTextField98",
             "designerId": "f2a772b3-4bf9-4b05-a9f4-4cab0ab9dc9f",
@@ -410,66 +466,6 @@
             ]
         },
         {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 40,
-                "iconCls": "x-fa fa-save",
-                "itemId": "cmdSaveUser",
-                "layout|x": 75,
-                "layout|y": 235,
-                "tabIndex": 6,
-                "text": "<b>Save</b>",
-                "width": 100
-            },
-            "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "layout|x": "number",
-                "layout|y": "number",
-                "tabIndex": "number",
-                "text": "string",
-                "width": "auto",
-                "scrollable": "boolean",
-                "iconCls": "string"
-            },
-            "name": "MyButton96",
-            "designerId": "28b76db6-5776-476c-9f3b-4a3f9ecf83e5"
-        },
-        {
-            "type": "Ext.button.Button",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "height": 40,
-                "iconCls": "x-fa fa-close",
-                "itemId": "cmdClose",
-                "layout|x": 250,
-                "layout|y": 235,
-                "text": "<b>Cancel</b>",
-                "width": 100
-            },
-            "configAlternates": {
-                "height": "auto",
-                "itemId": "string",
-                "layout|x": "number",
-                "layout|y": "number",
-                "text": "string",
-                "width": "auto",
-                "scrollable": "boolean",
-                "iconCls": "string"
-            },
-            "name": "MyButton97",
-            "designerId": "561bee5c-cbbd-4f4a-9bb5-385b4aac8a6a"
-        },
-        {
             "type": "Ext.form.field.Text",
             "reference": {
                 "name": "items",
@@ -479,8 +475,6 @@
             "userConfig": {
                 "fieldLabel": null,
                 "hidden": true,
-                "layout|x": 10,
-                "layout|y": 215,
                 "name": "formStatus"
             },
             "configAlternates": {
@@ -493,6 +487,92 @@
             },
             "name": "MyTextField99",
             "designerId": "75f79d0e-242d-4ada-b4e3-c8c0339216f4"
+        },
+        {
+            "type": "Ext.form.FieldContainer",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "height": 37,
+                "layout": "hbox",
+                "width": 398
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "container|pack": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "width": "auto"
+            },
+            "name": "MyFieldContainer",
+            "designerId": "45237a51-6d68-4156-9ba4-f9d92bf78e17",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "iconCls": "x-fa fa-save",
+                        "itemId": "cmdSaveUser",
+                        "margin": "0 100 0 0",
+                        "tabIndex": 6,
+                        "text": "<b>Save</b>",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "tabIndex": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "iconCls": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton96",
+                    "designerId": "28b76db6-5776-476c-9f3b-4a3f9ecf83e5"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdClose",
+                        "text": "<b>Close</b>",
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "iconCls": "string"
+                    },
+                    "name": "MyButton97",
+                    "designerId": "561bee5c-cbbd-4f4a-9bb5-385b4aac8a6a"
+                }
+            ]
         }
     ]
 }

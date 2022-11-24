@@ -68,21 +68,37 @@
             },
             "codeClass": null,
             "userConfig": {
+                "container|align": "stretch",
                 "designer|displayName": "PortalDetails",
                 "itemId": "detailsPanel",
+                "layout": "vbox",
                 "layout|region": "center",
-                "scrollable": true,
-                "title": "Details"
+                "scrollable": true
             },
             "configAlternates": {
                 "designer|displayName": "string",
                 "itemId": "string",
                 "layout|region": "string",
                 "scrollable": "boolean",
-                "title": "string"
+                "title": "string",
+                "container|align": "string",
+                "layout": "string"
             },
-            "name": "MyPanel6",
-            "designerId": "244a5f67-b772-47cb-ae2d-69aa38e8b19f"
+            "name": "MyPanel21",
+            "designerId": "244a5f67-b772-47cb-ae2d-69aa38e8b19f",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "home",
+                    "designerId": "8bdfa90c-e530-4563-8869-14547c11b62a",
+                    "masterInstanceId": "53b9878c-8969-4209-922f-62cbfcce9928"
+                }
+            ]
         },
         {
             "type": "Ext.container.Container",
@@ -93,7 +109,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|displayName": "header",
-                "height": 33,
+                "height": 39,
                 "layout": "border",
                 "layout|region": "north",
                 "margin": "0 0 2 0"
@@ -140,8 +156,8 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "Welcome",
-                                "fieldStyle": "font-size: small;font-weight: bold;color: green;",
-                                "labelStyle": "font-size: small;font-weight: bold;color: green;",
+                                "fieldStyle": "font-size: large;font-weight: bold;color: green;",
+                                "labelStyle": "font-size: large;font-weight: bold;color: green;",
                                 "layout|flex": 1,
                                 "value": "Admin",
                                 "width": 165
@@ -315,17 +331,118 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "height": 36,
+                                "height": 50,
+                                "margin": "0 100 0 0",
                                 "src": "resources/care_logo.gif",
                                 "width": 140
                             },
                             "configAlternates": {
                                 "height": "auto",
                                 "src": "uri",
-                                "width": "auto"
+                                "width": "auto",
+                                "margin": "auto"
                             },
                             "name": "MyImg",
-                            "designerId": "94fb14f1-0bff-48d4-99f5-facc2a67ed1b"
+                            "designerId": "94fb14f1-0bff-48d4-99f5-facc2a67ed1b",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onImageAfterRender",
+                                        "implHandler": [
+                                            "        component.setSrc(localStorage.getItem('logoPath'));",
+                                            ""
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onImageAfterRender",
+                                    "designerId": "c70b55b1-96d9-4d62-9af8-42982441ca0e"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "right",
+                        "layout|region": "west",
+                        "width": 440
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "layout|region": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyContainer29",
+                    "designerId": "4eb1f896-7181-4000-a412-9ad814baff45",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldStyle": "font-size: large;font-weight: bold;color: maroon;",
+                                "itemId": "companyTitle",
+                                "margin": "0 0 0 50",
+                                "value": "Company Name",
+                                "width": 423
+                            },
+                            "configAlternates": {
+                                "fieldStyle": "string",
+                                "itemId": "string",
+                                "margin": "auto",
+                                "value": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyDisplayField32",
+                            "designerId": "18a01a23-e458-45ff-9988-e4a3a30ad282",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCompanyTitleAfterRender",
+                                        "implHandler": [
+                                            " component.setValue(localStorage.getItem(\"CompanyName\"));"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onCompanyTitleAfterRender",
+                                    "designerId": "6eea6691-6a91-4eb0-975f-3c45b16ce987"
+                                }
+                            ]
                         }
                     ]
                 }

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "debtorallocations",
+        "designer|userClassName": "undefinedViewController10"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewController10",
+    "designerId": "0a782ebe-4829-4a65-94f8-e4bd2884e3e9"
+}

@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
+        "autoLoad": false,
         "designer|userAlias": "wardinforstore",
         "designer|userClassName": "WardInfoStore",
         "model": "WardInfo",
@@ -45,12 +45,8 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "Wards"
-                    },
                     "configAlternates": {
-                        "root": "string",
-                        "rootProperty": "string"
+                        "root": "string"
                     },
                     "name": "MyJsonReader1",
                     "designerId": "60b7f99e-d6ae-4e1e-b111-1693859b1d53"

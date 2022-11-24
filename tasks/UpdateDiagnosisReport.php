@@ -5,8 +5,8 @@ require('../include/inc_environment_global.php');
 $debug=true;
  $day=date('d');
  
-//$startDate="2020-08-05";//date('Y-m-d');
-$startDate=date('Y-m-d');
+$startDate="2022-09-19";//date('Y-m-d');
+//$startDate=date('Y-m-d');
   
  $sMonth=new DateTime($startDate);
  $eMonth=$sMonth->format('F');
@@ -23,7 +23,7 @@ $startDate=date('Y-m-d');
 
 $sql2="SELECT DATE_FORMAT(TIMESTAMP,'%Y-%m-%d') as dday,c.`type`, icd_10_code,icd_10_description,COUNT(icd_10_code) AS dcount FROM care_tz_diagnosis d
         LEFT JOIN `care_icd10_en` c ON d.`ICD_10_code`=c.`diagnosis_code`
-        WHERE d.type='New' AND c.`type` IN ('OP','OPC') and DATE_FORMAT(TIMESTAMP,'%Y-%m-%d')='$startDate'
+        WHERE d.type='New' AND c.`type` IN ('OP','OPC') and DATE_FORMAT(TIMESTAMP,'%Y-%m-%d') between '$startDate' and '$endDate'
         GROUP BY icd_10_code";
 
 
@@ -33,7 +33,7 @@ $result=$db->Execute($sql2);
 $dcount=0;
 while($row=$result->FetchRow()){
         for($i=1;$i<=31;$i++){
-            $dday=new DateTime($row[dday]);
+            $dday=new DateTime($row['dday']);
             $ddays=$dday->Format('d');
             if($ddays==$i){
                 $sql3="Update care_ke_opmobidity set `$i`='$row[dcount]',DateUpdated='$startDate' where icdCode='$row[icd_10_code]'

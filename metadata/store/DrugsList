@@ -1,0 +1,63 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "drugslist",
+        "designer|userClassName": "DrugsList",
+        "model": "ItemsList",
+        "pageSize": 1500,
+        "storeId": "DrugsList"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string",
+        "autoLoad": "boolean",
+        "pageSize": "number"
+    },
+    "name": "ItemsListStore1",
+    "designerId": "00e50881-323e-4aee-895f-e5fd04b083f3",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "extraParams": [
+                    "{storeLoc:'dispens'}"
+                ],
+                "url": "data/getPatientFunctions.php?caller=getItemsList"
+            },
+            "configAlternates": {
+                "url": "string",
+                "extraParams": "object"
+            },
+            "name": "MyAjaxProxy1",
+            "designerId": "e2da43ce-e25f-4e17-b3a6-08d4d1fa0f54",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader1",
+                    "designerId": "bf8e2560-27ee-452d-a78a-0b4a49c44b9d"
+                }
+            ]
+        }
+    ]
+}

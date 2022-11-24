@@ -195,7 +195,7 @@ body{
 }
 
 .page{
-    width: 216mm;
+    width: 200mm;
     min-height: 279mm;
     padding: 10mm 2cm 2cm 2cm;
     margin: 10mm auto;
@@ -219,7 +219,7 @@ body{
     }
     @media print {
         html, body {
-            width: 216mm;
+            width: 200mm;
             height: 279mm;        
         }
         .page {

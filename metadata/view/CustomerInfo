@@ -12,7 +12,6 @@
         "designer|snapToGrid": 5,
         "designer|userAlias": "customerinfo",
         "designer|userClassName": "CustomerInfo",
-        "height": 670,
         "itemId": "Accno",
         "layout": "absolute",
         "title": "Customer Information",
@@ -298,7 +297,7 @@
                 "animCollapse": true,
                 "collapsible": false,
                 "columnLines": true,
-                "height": 450,
+                "height": 485,
                 "itemId": "customerTransactions",
                 "layout|x": 0,
                 "layout|y": 80,
@@ -1078,7 +1077,6 @@
                     "userConfig": {
                         "displayInfo": true,
                         "dock": "bottom",
-                        "store": "DebtorTransactions",
                         "width": 360
                     },
                     "configAlternates": {

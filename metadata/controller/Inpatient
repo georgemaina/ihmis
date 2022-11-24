@@ -22,12 +22,12 @@
             "Wards",
             "Vitals",
             "BillModel",
-            "AdmissionTypes"
+            "AdmissionTypes",
+            "Admissions"
         ],
         "stores": [
             "ReceiptStore",
             "BillNumbersStore",
-            "NhifRates",
             "EncounterNosStore",
             "VitalsStore",
             "Invoices",
@@ -36,7 +36,11 @@
             "InsuranceCompaniesStore",
             "ItemsListStore",
             "OccupancyStore",
-            "PendingBills"
+            "PendingBills",
+            "AdmissionsStore",
+            "NhifRatesStore",
+            "NhifClaimStore",
+            "WardsListStore"
         ],
         "views": [
             "Discharge",
@@ -45,14 +49,17 @@
             "VitalsForm",
             "WardOccupancy",
             "Credit",
-            "NhifCredit",
             "InvoicePanel",
             "InvoicesList",
             "Debit",
             "FinaliseInvoice",
             "InsuranceCredit",
             "MenuDiagram",
-            "IpNotes"
+            "IpNotes",
+            "Admissions",
+            "PatientChart",
+            "NhifCreditForm",
+            "UpdateDates"
         ]
     },
     "configAlternates": {
@@ -133,7 +140,7 @@
                     "    '#creditAmount':{",
                     "        blur:this.getBalance",
                     "    },",
-                    "    '#cmdSave':{",
+                    "    '#cmdSaveInsuranceCredit':{",
                     "        click:this.saveInsuranceCredit",
                     "    },",
                     "    '#cmdSearchReceipt':{",
@@ -163,12 +170,29 @@
                     "    'wardoccupancy actioncolumn[id=openChart]':{",
                     "        click:this.openChart",
                     "    },",
+                    "    'wardoccupancy actioncolumn[id=openVitalsChart]':{",
+                    "        click:this.openVitalsChart",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openPrescription]':{",
+                    "        click:this.openPrescription",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openLab]':{",
+                    "        click:this.openLab",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openServices]':{",
+                    "        click:this.openServices",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openDiagnosis]':{",
+                    "        click:this.openDiagnosis",
+                    "    },",
+                    "    'wardoccupancy actioncolumn[id=openXray]':{",
+                    "        click:this.openXray",
+                    "    },",
                     "    '#cmdSearchItems':{",
                     "        click:this.searchItems",
                     "    },",
                     "    '#searchParam':{",
-                    "       specialkey:this.getPressedKey",
-                    "",
+                    "        specialkey:this.getPressedKey",
                     "    },",
                     "    '#cmdClose':{",
                     "        click:this.closewindow",
@@ -176,10 +200,73 @@
                     "    'wardoccupancy actioncolumn[id=discharge]':{",
                     "        click:this.openDischargeForm",
                     "    },",
+                    "    'wardoccupancy actioncolumn[itemId=transfer]':{",
+                    "        click:this.openTransferWindow",
+                    "    },",
                     "    '#saveDischarge':{",
                     "        click:this.discharge",
+                    "    },",
+                    "    '#cmdSaveNotes':{",
+                    "        click:this.saveNotes",
+                    "    },",
+                    "    '#notesGrid':{",
+                    "        itemclick:this.loadNotes",
+                    "    },",
+                    "    '#cmdSearchAdmissions':{",
+                    "        click:this.openSearchWindow",
+                    "    },",
+                    "    '#txtSearchParam':{",
+                    "        change:this.filterPatients",
+                    "    },",
+                    "    '#cmdDoctorsNotes':{",
+                    "        click:this.openDoctorsNotes",
+                    "    },",
+                    "    '#cmdNursesNotes':{",
+                    "        click:this.openNursingNotes",
+                    "    },",
+                    "    '#Occupancy':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#IpMobidity':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#Admissions':{",
+                    "        click:this.openIpReports,",
+                    "        itemdblclick:this.setPatientNames",
+                    "    },",
+                    "    '#Discharges':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#NhifCredits':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#DoctorsWorkload':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#InvoicesList':{",
+                    "        click:this.openIpReports",
+                    "    },",
+                    "    '#cmdPreviewIpReports':{",
+                    "        click:this.loadIpReports",
+                    "    },",
+                    "    'discharges button#cmdDischargeSummary':{",
+                    "        click:this.openDischargeSummary",
+                    "    },",
+                    "    'discharges button#cmdDischargeNotes':{",
+                    "        click:this.openNursesNotes",
+                    "    },",
+                    "    '#cmdUpdateDates':{",
+                    "        click:this.openUpdateDates",
+                    "    },",
+                    "    '#cmdSaveDates':{",
+                    "        click:this.saveAdmDisDates",
+                    "    },",
+                    "    '#transferWard':{",
+                    "        change:this.showWards",
+                    "    },",
+                    "    '#wardsList':{",
+                    "        change:this.showWards",
                     "    }",
-                    "",
                     "});"
                 ]
             },
@@ -458,7 +545,7 @@
                     "});",
                     "",
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=saveDebit',",
+                    "    url: 'data/getDataFunctions.php?task=saveDebit',",
                     "    params: {",
                     "        pid:pid,",
                     "        debitDate:debitDate,",
@@ -498,22 +585,22 @@
                 ],
                 "fn": "getEncounter",
                 "implHandler": [
-                    "var pid=this.getDebit().down('#txtPid').getValue();",
+                    "var pid=textfield.up('form').down('#txtPid').getValue();",
                     "",
                     "Ext.Ajax.request({",
-                    "     url: 'data/getDataFunctions.php?caller=getEncounter',",
+                    "     url: 'data/getDataFunctions.php?task=getEncounter',",
                     "    params: {",
                     "        pid: pid",
                     "    },",
                     "    success: function(response){",
                     "",
-                    "        var encDetails= Ext.util.JSON.decode(response.responseText);",
+                    "        var encDetails= Ext.decode(response.responseText);",
                     "",
                     "         pnames=encDetails.encounterNr[0].FirstName+\" \"+encDetails.encounterNr[0].LastName+\" \"+encDetails.encounterNr[0].SurName;",
                     "       //  Ext.ComponentQuery.query(\"#pname\")[0].setValue(pnames);",
-                    "        this.getDebit().down('#pname').setValue(pnames);",
-                    "        this.getDebit().down('#billNumber').setValue(encDetails.encounterNr[0].BillNumber);",
-                    "        this.getDebit().down('#encounterNo').setValue(encDetails.encounterNr[0].EncounterNr);",
+                    "        textfield.up('form').down('#pname').setValue(pnames);",
+                    "        textfield.up('form').down('#billNumber').setValue(encDetails.encounterNr[0].BillNumber);",
+                    "        textfield.up('form').down('#encounterNo').setValue(encDetails.encounterNr[0].EncounterNr);",
                     "",
                     "        this.getDebitNo();",
                     "    },",
@@ -607,7 +694,7 @@
                     "    fn: function(btn) {",
                     "        if (btn === 'yes') {",
                     "            Ext.Ajax.request({",
-                    "                    url: 'data/getDataFunctions.php?caller=combineBills',",
+                    "                    url: 'data/getDataFunctions.php?task=combineBills',",
                     "                    params: {",
                     "                        pid:pid,",
                     "                        bill1:bill1,",
@@ -745,7 +832,7 @@
                     "    fn: function(rec) {",
                     "        if (rec === \"yes\") {",
                     "            Ext.Ajax.request({",
-                    "                url: 'data/getDataFunctions.php?caller=deleteBillItem',",
+                    "                url: 'data/getDataFunctions.php?task=deleteBillItem',",
                     "                params: {",
                     "                    ID:record.get('ID'),",
                     "                    pid:record.get('Pid')",
@@ -909,17 +996,17 @@
             "codeClass": null,
             "userConfig": {
                 "designer|params": [
-                    "field",
-                    "the",
-                    "eOpts"
+                    "pid,admType"
                 ],
                 "fn": "getBillNumbers",
                 "implHandler": [
+                    "",
                     "//var searchParam=this.getBills().down('#txtSearch').getValue();",
                     "var billStore2 =Ext.data.StoreManager.lookup('BillNumbersStore');",
                     "billStore2.load({",
                     "    params: {",
-                    "        pid: field.getValue()",
+                    "        pid: pid,",
+                    "        admType:admType",
                     "    },",
                     "    callback: function(records, operation, success) {",
                     "",
@@ -973,7 +1060,7 @@
                     "            fn: function(rec) {",
                     "                if (rec === \"yes\") {",
                     "                    Ext.Ajax.request({",
-                    "                        url: 'data/getDataFunctions.php?caller=deleteBillItem',",
+                    "                        url: 'data/getDataFunctions.php?task=deleteBillItem',",
                     "                        params: {",
                     "                            ID:pids,",
                     "                            pid:record.get('Pid')",
@@ -1047,7 +1134,7 @@
                     "                    fn: function(rec) {",
                     "                        if (rec === \"yes\") {",
                     "                            Ext.Ajax.request({",
-                    "                                url: 'data/getDataFunctions.php?caller=deleteReceiptItem',",
+                    "                                url: 'data/getDataFunctions.php?task=deleteReceiptItem',",
                     "                                params: {",
                     "                                    ID:pids,",
                     "                                    pid:record.get('Pid')",
@@ -1183,7 +1270,7 @@
                     "var pid=textField.getValue();",
                     "// var pnames='as';",
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=getEncounter',",
+                    "    url: 'data/getDataFunctions.php?task=getEncounter',",
                     "    params: {",
                     "        pid: pid",
                     "    },",
@@ -1254,7 +1341,7 @@
                 "implHandler": [
                     " // var pnames='as';",
                     "        Ext.Ajax.request({",
-                    "            url: 'data/getDataFunctions.php?caller=getCreditNo',",
+                    "            url: 'data/getDataFunctions.php?task=getCreditNo',",
                     "            success: function(response){",
                     "                 var respText= Ext.util.JSON.decode(response.responseText);",
                     "                 if(respText.credits[0].creditNo==1){",
@@ -1262,7 +1349,7 @@
                     "                 }else{",
                     "                     creditNo=respText.credits[0].creditNo;",
                     "                 }",
-                    "                 ",
+                    "",
                     "                this.getInsurancecredit().down('#creditNo').setValue(creditNo);",
                     "",
                     "            },",
@@ -1295,7 +1382,7 @@
                     "var billNumber=this.getInsurancecredit().down('#billNumber').getValue();",
                     "",
                     "Ext.Ajax.request({",
-                    "     url: 'data/getDataFunctions.php?caller=getTotalBill',",
+                    "     url: 'data/getDataFunctions.php?task=getTotalBill',",
                     "     params:{",
                     "         pid:pid,",
                     "         bill_number:billNumber",
@@ -1440,7 +1527,7 @@
                     "        var pid=textField.getValue();",
                     "        // var pnames='as';",
                     "        Ext.Ajax.request({",
-                    "            url: 'data/getDataFunctions.php?caller=getEncounter',",
+                    "            url: 'data/getDataFunctions.php?task=getEncounter',",
                     "            params: {",
                     "                pid: pid",
                     "            },",
@@ -1491,7 +1578,7 @@
                 "fn": "generateNhifCreditNo",
                 "implHandler": [
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=getNhifCreditNo',",
+                    "    url: 'data/getDataFunctions.php?task=getNhifCreditNo',",
                     "    success: function(response){",
                     "        var respText= Ext.util.JSON.decode(response.responseText);",
                     "        if(respText.credits[0].creditNo==1){",
@@ -1532,7 +1619,7 @@
                     "var billNumber=this.getNhifcredit().down('#billNumber').getValue();",
                     "",
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=getTotalBill',",
+                    "    url: 'data/getDataFunctions.php?task=getTotalBill',",
                     "    params:{",
                     "        pid:pid,",
                     "        bill_number:billNumber",
@@ -1572,7 +1659,7 @@
                 "fn": "getNhifRates",
                 "implHandler": [
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=getNhifRates',",
+                    "    url: 'data/getDataFunctions.php?task=getNhifRates',",
                     "    params:{",
                     "        rate:newValue",
                     "    },",
@@ -1586,19 +1673,19 @@
                     "        var rateValue;",
                     "        if(rateCalc==1){",
                     "            rateValue=respText.nhifRates[0].RateValue;",
-                    "           ",
+                    "",
                     "        }else{",
                     "            var days=this.getNhifcredit().down('#days').getValue();",
                     "            var rates=respText.nhifRates[0].RateValue;",
                     "            rateValue=parseInt(rates * days);",
                     "        }",
                     "         this.getNhifcredit().down('#creditAmount').setValue(rateValue);",
-                    "        ",
+                    "",
                     "        var invoiceAmount= this.getNhifcredit().down('#invoiceAmount').getValue();",
-                    "        ",
+                    "",
                     "        var balance=parseInt(invoiceAmount-rateValue);",
                     "        this.getNhifcredit().down('#balance').setValue(balance);",
-                    "        ",
+                    "",
                     "",
                     "    },",
                     "    scope: this",
@@ -1690,7 +1777,7 @@
                 "fn": "getDebitNo",
                 "implHandler": [
                     "Ext.Ajax.request({",
-                    "    url: 'data/getDataFunctions.php?caller=getDebitNo',",
+                    "    url: 'data/getInpatientFunctions.php?task=getDebitNo',",
                     "",
                     "    success: function(response){",
                     "        var respText= Ext.util.JSON.decode(response.responseText);",
@@ -1789,6 +1876,16 @@
                     "",
                     "vitalsWindow.add(vitals);",
                     "vitalsWindow.show();",
+                    "",
+                    "var vitalsStore=Ext.data.StoreManager.lookup(\"VitalsStore\");",
+                    "vitalsStore.load({",
+                    "    params:{",
+                    "        pid:record.get('PID'),",
+                    "        encNr:record.get('EncounterNo')",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
                     ""
                 ]
             },
@@ -1832,6 +1929,16 @@
                     "",
                     "notesWindow.add(notes);",
                     "notesWindow.show();",
+                    "",
+                    "var notesStore=Ext.data.StoreManager.lookup(\"NotesStore\");",
+                    "notesStore.load({",
+                    "    params:{",
+                    "        pid:record.get('PID'),",
+                    "        encNr:record.get('EncounterNo'),",
+                    "        locationNr:record.get('WardID')",
+                    "    },",
+                    "    scope: this",
+                    "});",
                     ""
                 ]
             },
@@ -1876,7 +1983,7 @@
                 ],
                 "fn": "searchItems",
                 "implHandler": [
-                    " var searchParam=this.getItemslist().down('#searchParam').getValue();",
+                    " var searchParam=button.up('grid').down('#txtSearchItemlocs').getValue();",
                     "",
                     "        var itemsListStore =Ext.data.StoreManager.lookup('ItemsListStore');",
                     "        itemsListStore.load({",
@@ -2328,6 +2435,1040 @@
             },
             "name": "ipnotes",
             "designerId": "e8dd6de1-60ca-475b-afb3-817c6e5a01c1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openPrescription",
+                "implHandler": [
+                    " var prescriptions=Ext.create('CarePortal.view.PrescriptionForm', {});",
+                    "var prescriptionsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Prescriptions',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "prescriptions.down('#pid').setValue(record.get('PID'));",
+                    "prescriptions.down('#names').setValue(record.get('Names'));",
+                    "prescriptions.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "prescriptions.down('#Dob').setValue(record.get('dateBirth'));",
+                    "",
+                    "prescriptionsWindow.add(prescriptions);",
+                    "prescriptionsWindow.show();",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openPrescription",
+            "designerId": "29d25d97-9c73-4b56-95f0-9bd90dec9518"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openLab",
+                "implHandler": [
+                    "var labtests=Ext.create('CarePortal.view.LabTests', {});",
+                    "var labtestsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients labtests',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "labtests.down('#pid').setValue(record.get('PID'));",
+                    "labtests.down('#names').setValue(record.get('Names'));",
+                    "labtests.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "labtests.down('#Source').setValue(\"Inpatient\");",
+                    "",
+                    "labtestsWindow.add(labtests);",
+                    "labtestsWindow.show();",
+                    "",
+                    "var pendingTests=Ext.data.StoreManager.lookup(\"PendingTestsStore\");",
+                    "pendingTests.load({",
+                    "    params: {",
+                    "        labNo:record.get('LabNo'),",
+                    "        encNr:record.get('EncounterNo')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openLab",
+            "designerId": "65545ad0-1655-4282-88bf-147b7c79e24b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openServices",
+                "implHandler": [
+                    "var Services=Ext.create('CarePortal.view.Services', {});",
+                    "var ServicesWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Services',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "Services.down('#pid').setValue(record.get('PID'));",
+                    "Services.down('#names').setValue(record.get('Names'));",
+                    "Services.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "//Services.down('#PrescribeDate').setValue(new Date(\"d-m-Y\"));",
+                    "",
+                    "ServicesWindow.add(Services);",
+                    "ServicesWindow.show();",
+                    "",
+                    "var serviceStore=Ext.data.StoreManager.lookup(\"ProceduresAndServices\");",
+                    "serviceStore.load({",
+                    "    params:{",
+                    "        pid:record.get('PID'),",
+                    "        encNr:record.get('EncounterNo')",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openServices",
+            "designerId": "6eeea1a5-f30f-4afc-8ba2-271bbefa3685"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openXray",
+                "implHandler": [
+                    "var Services=Ext.create('CarePortal.view.Radiology', {});",
+                    "var ServicesWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Services',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "Services.down('#pid').setValue(record.get('PID'));",
+                    "Services.down('#names').setValue(record.get('Names'));",
+                    "Services.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "//Services.down('#PrescribeDate').setValue(new Date(\"d-m-Y\"));",
+                    "",
+                    "ServicesWindow.add(Services);",
+                    "ServicesWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openXray",
+            "designerId": "dab92c5b-8c1b-4f76-83ef-3d4491fd74f7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openDiagnosis",
+                "implHandler": [
+                    "var Services=Ext.create('CarePortal.view.Diagnosis', {});",
+                    "var ServicesWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Services',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "Services.down('#pid').setValue(record.get('PID'));",
+                    "Services.down('#names').setValue(record.get('Names'));",
+                    "Services.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "Services.setTitle(\"Inpatient Diagnosis\");",
+                    "",
+                    "//Services.down('#PrescribeDate').setValue(new Date(\"d-m-Y\"));",
+                    "",
+                    "var dob=record.get('BirthDate');",
+                    "",
+                    "ServicesWindow.add(Services);",
+                    "ServicesWindow.show();",
+                    "",
+                    "var diagnosisStore=Ext.data.StoreManager.lookup(\"DiagnosisStore\");",
+                    "diagnosisStore.load({",
+                    "    params:{",
+                    "        pid:record.get('PID'),",
+                    "        encNr:record.get('Names')",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "var icd10Store =Ext.data.StoreManager.lookup('DiseaseCodeStore');",
+                    "icd10Store.load({",
+                    "    params:{",
+                    "        dob:dob,",
+                    "        diagType:'IP'",
+                    "    }",
+                    "});",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDiagnosis",
+            "designerId": "d438cccb-ba30-4203-a262-8e87a3dea818"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveNotes",
+                "implHandler": [
+                    "var form = button.up('form').getForm(); // get the basic form",
+                    "var encounterNo=button.up('form').down('#encounterNo').getValue();",
+                    "var locationNr=button.up('form').down('#wardno').getValue();",
+                    "var pid=button.up('form').down('#pid').getValue();",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        params:{",
+                    "            encounterNo:encounterNo,",
+                    "            locationNr:locationNr",
+                    "        },",
+                    "        success: function (form, action) {",
+                    "",
+                    "            button.up('form').down('#notes').reset();",
+                    "            //Ext.Msg.alert('Thank you!', 'The Notes has been saved Successfully.');",
+                    "",
+                    "            var notesStore=Ext.data.StoreManager.lookup(\"NotesStore\");",
+                    "            notesStore.load({",
+                    "                params:{",
+                    "                    pid:pid,",
+                    "                    encNr:encounterNo,",
+                    "                    locationNr:locationNr",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "",
+                    "",
+                    "        },",
+                    "        failure: function (form, action) {",
+                    "            var jsonResp = Ext.decode(action.response.responseText);",
+                    "",
+                    "            Ext.Msg.alert('Failed', 'Could not save Notes. \\n Error=' + jsonResp.error);",
+                    "        },scope:this",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveNotes",
+            "designerId": "9fb1684c-4b60-43ab-a444-d1b1df15e826"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadNotes",
+                "implHandler": [
+                    "gridpanel.up('form').down('#notes').setValue(record.get('Notes'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadNotes",
+            "designerId": "a2cd8bbd-a4ae-4858-bbba-2130369eb8b0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openSearchWindow",
+                "implHandler": [
+                    "var admissionType=button.up('panel').down('#formStatus').getValue();",
+                    "if(admissionType=='IP'){",
+                    "    admType='1';",
+                    "}else{",
+                    "    admType='2';",
+                    "}",
+                    "var admissions=Ext.create('CarePortal.view.Admissions', {});",
+                    "var admissionsWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Admissions List',",
+                    "    srollable:'both',",
+                    "    resizable:false,",
+                    "});",
+                    "",
+                    "",
+                    "var admStore =Ext.data.StoreManager.lookup('AdmissionsStore');",
+                    "admStore.load({",
+                    "    params: {",
+                    "        admType: admType",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});",
+                    "",
+                    "admissionsWindow.add(admissions);",
+                    "admissionsWindow.show();",
+                    "",
+                    "admissions.down('#formStatus').setValue('Invoice');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openSearchWindow",
+            "designerId": "9061b3db-1448-4a87-8ce8-35b2a044a7b0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterPatients",
+                "implHandler": [
+                    " var grid = field.up('grid');",
+                    "        grid.store.clearFilter();",
+                    "        if (newValue) {",
+                    "            var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "            grid.store.filter({",
+                    "                filterFn: function(item) {",
+                    "                    return matcher.test(item.get('names')) ||",
+                    "                        matcher.test(item.get('pid')) || matcher.test(item.get('phone'));",
+                    "                }",
+                    "            });",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterPatients",
+            "designerId": "1531f5cb-d82c-41d1-9c53-cd6b30e92540"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "admissions",
+                "selector": "admissions",
+                "xtype": "admissions"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "admissions",
+            "designerId": "f9caa22b-f4b8-4a83-890f-95c3b4195058"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpt"
+                ],
+                "fn": "setPatientNames",
+                "implHandler": [
+                    "if(gridpanel.up('grid').down('#formStatus').getValue()==\"Invoice\"){",
+                    "    this.getInvoicepanel().down(\"#txtInvoicePid\").setValue(record.get('pid'));",
+                    "    this.getInvoicepanel().down(\"#txtPatientName\").setValue(record.get('names'));",
+                    "    this.getInvoicepanel().down(\"#encNr\").setValue(record.get('encounter_nr'));",
+                    "",
+                    "    this.getBillNumbers(record.get('pid'),record.get('encounter_class_nr'));",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "setPatientNames",
+            "designerId": "7920a06c-a809-4015-a769-0b570e4c1864"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openDoctorsNotes",
+                "implHandler": [
+                    "var encNo=button.up('form').down(\"#encounterNo\").getValue();",
+                    "var pid=button.up('form').down(\"#pid\").getValue();",
+                    "",
+                    "",
+                    "",
+                    "    //   Ext.Msg.alert('Test',slipNo);",
+                    "    window.open('reports/patientContinuationCardex.php?pid='+pid+\"&enc=\"+encNo,",
+                    "                \"Doctors Notes\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDoctorsNotes",
+            "designerId": "b2a5423f-7f5b-42eb-ba40-1c673d255f70"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openNursingNotes",
+                "implHandler": [
+                    "var btnSource=button.up('panel').getItemId();",
+                    "//Ext.Msg.alert('Test',btnSource);",
+                    "var rec = button.lookupViewModel().get('record');",
+                    "if(btnSource=='Discharges'){",
+                    "    var enc=rec.get('encounter_nr');",
+                    "    var pid=rec.get('pid');",
+                    "}else{",
+                    "    var enc=button.up('form').down(\"#encounterNo\").getValue();",
+                    "    var pid=button.up('form').down(\"#pid\").getValue();",
+                    "}",
+                    "",
+                    "",
+                    "if(pid!==''){",
+                    "    //   Ext.Msg.alert('Test',slipNo);",
+                    "    window.open('reports/patientNursesCardex.php?pid='+pid+\"&enc=\"+enc,",
+                    "                \"Nursing Cardex\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "}else{",
+                    "    Ext.Msg.alert('Error',\"Please select a patient to open notes\");",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openNursingNotes",
+            "designerId": "e71f42fa-4c50-4b0a-9ee2-8b3d1416c984"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openVitalsChart",
+                "implHandler": [
+                    "var pChart=Ext.create('CarePortal.view.PatientChart', {});",
+                    "        var chartWindow=Ext.create('Ext.window.Window', {",
+                    "            title: 'Patients Vitals Chart',",
+                    "            resizable:true",
+                    "        });",
+                    "",
+                    "        pChart.down('#pid').setValue(record.get('PID'));",
+                    "        pChart.down('#names').setValue(record.get('Names'));",
+                    "        pChart.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "        pChart.down('#dob').setValue(record.get('BirthDate'));",
+                    "        pChart.down('#sex').setValue(record.get('Sex'));",
+                    "        pChart.down('#paymode').setValue(record.get('PaymentMode'));",
+                    "        pChart.down('#admissiondate').setValue(record.get('AdmissionDate'));",
+                    "        pChart.down('#wardno').setValue(record.get('WardID'));",
+                    "        pChart.down('#roomno').setValue(record.get('RoomNo'));",
+                    "        pChart.down('#bedno').setValue(record.get('BedNo'));",
+                    "",
+                    "var vitalsStore=Ext.data.StoreManager.lookup(\"VitalsChartStore\");",
+                    "vitalsStore.load({",
+                    "    params:{",
+                    "        pid:record.get('PID'),",
+                    "        encNr:record.get('EncounterNo')",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "        chartWindow.add(pChart);",
+                    "        chartWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openVitalsChart",
+            "designerId": "589252a2-18e8-4894-bd85-db2ddeaea24d"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "inpatientnotes",
+                "selector": "inpatientnotes",
+                "xtype": "inpatientnotes"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "inpatientnotes",
+            "designerId": "9ebbda5a-38ae-4d66-bf89-cd2c9ae48731"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openIpReports",
+                "implHandler": [
+                    "var strReport=button.getItemId();",
+                    "",
+                    "shiftReport=Ext.create(\"CarePortal.view.\"+strReport,{});",
+                    "centerContainer=button.up('panel').down(\"#IPReports\");",
+                    "centerContainer.removeAll();",
+                    "",
+                    "centerContainer.add(shiftReport);",
+                    "",
+                    " button.up('panel').up('panel').setTitle(strReport);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openIpReports",
+            "designerId": "98bbd30c-9c65-4b99-948b-e15d6f702bf7"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "nhifcredits",
+                "selector": "nhifcredits",
+                "xtype": "nhifcredits"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "nhifcredits",
+            "designerId": "5fbc45b0-786d-4da0-8a07-d33949cbf9d2"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "loadIpReports",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',button.up('grid').getItemId());",
+                    "var formSource=button.up('grid').getItemId();",
+                    "if(formSource=='Discharges'){",
+                    "     var receiptsStore =Ext.data.StoreManager.lookup('ReceiptStore');",
+                    "        receiptsStore.load({",
+                    "            params:{",
+                    "                cashpoint:cashpoint,",
+                    "                shiftNo:shiftNo",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "",
+                    "        //         gridpanel.up('window').close();",
+                    "            },",
+                    "            scope: this",
+                    "        });",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadIpReports",
+            "designerId": "24dff432-ba90-4358-9de6-ffbb86f21b7e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openDischargeSummary",
+                "implHandler": [
+                    "var rec = button.lookupViewModel().get('record');",
+                    "var pid=rec.get('pid');",
+                    "var enc=rec.get('encounter_nr');",
+                    "",
+                    "if(pid!==''){",
+                    "    //   Ext.Msg.alert('Test',slipNo);",
+                    "    window.open('reports/patientNursesCardex.php?pid='+pid+\"&enc=\"+enc,",
+                    "                \"Nursing Cardex\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "}else{",
+                    "    Ext.Msg.alert('Error',\"Please select a patient to open Discharge Summary\");",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openDischargeSummary",
+            "designerId": "794d690c-7df6-4503-9bb0-c02e71076067"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openNursesNotes",
+                "implHandler": [
+                    "var rec = button.lookupViewModel().get('record');",
+                    "var pid=rec.get('pid');",
+                    "var enc=rec.get('encounter_nr');",
+                    "",
+                    "if(pid!==''){",
+                    "    //   Ext.Msg.alert('Test',slipNo);",
+                    "    window.open('reports/patientNursesCardex.php?pid='+pid+\"&enc=\"+enc,",
+                    "                \"Nursing Cardex\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    "}else{",
+                    "    Ext.Msg.alert('Error',\"Please select a patient to open Discharge Summary\");",
+                    "}",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openNursesNotes",
+            "designerId": "71d03d6c-4882-4b9c-9c46-2388372ee142"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "updatedates",
+                "selector": "updatedates",
+                "xtype": "updatedates"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "updatedates",
+            "designerId": "6c6ff1a6-cab0-4eb4-a2ae-b6dfa45cbeb1"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openUpdateDates",
+                "implHandler": [
+                    "var datesForm=Ext.create('CarePortal.view.UpdateDates', {});",
+                    "var datesWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Update Dates',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "var pid=\"\";",
+                    "var admType=\"\";",
+                    "",
+                    "var selectedKeys=this.getBills().getView().getSelectionModel().getSelection();",
+                    "//Ext.Msg.alert('Test',selectedKeys.length);",
+                    "if(selectedKeys.length>0){",
+                    "    Ext.each(selectedKeys, function (record) {",
+                    "        pid=record.get('Pid');",
+                    "        admType=record.get('EncounterClass');",
+                    "",
+                    "        datesForm.down('#txtSearchInterim').setValue(pid);",
+                    "        datesForm.down('#Name').setValue(record.get('Name'));",
+                    "        //apptsForm.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "       // apptsForm.down('#Dob').setValue(record.get('DateOfBirth');",
+                    "",
+                    "    });",
+                    "",
+                    "}else{",
+                    "    Ext.Msg.alert('Patient Select Error',\"Please Select a Patient to Schedule Appointment\");",
+                    "}",
+                    "",
+                    " this.getBillNumbers(pid,admType);",
+                    "",
+                    "datesWindow.add(datesForm);",
+                    "datesWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openUpdateDates",
+            "designerId": "0132b5b2-e38e-4619-ae69-ae96da099fe9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveAdmDisDates",
+                "implHandler": [
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=updateAdmDis',",
+                    "    params: {",
+                    "        pid:button.up('form').down('#txtSearchInterim').getValue(),",
+                    "        encounterNr:button.up('form').down('#encNr').getValue(),",
+                    "        encounterClass:button.up('form').down('#encounterClass').getValue(),",
+                    "        billNumber:button.up('form').down('#billNumber').getValue(),",
+                    "        admDate:button.up('form').down('#admDate').getValue(),",
+                    "        disDate:button.up('form').down('#disDate').getValue(),",
+                    "",
+                    "    },success: function(response){",
+                    "        //var encDetails= Ext.util.JSON.decode(response.responseText);",
+                    "        Ext.Msg.alert(\"Admission Discharge Dates\",\"Update Saved Successfully\");",
+                    "//         form.reset();",
+                    "//         debitStore.load({});",
+                    "    },",
+                    "    scope:this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveAdmDisDates",
+            "designerId": "90815e90-3c3c-4f55-9406-becf49b44237"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "view",
+                    "rowIndex",
+                    "colIndex",
+                    "item",
+                    "e",
+                    "record",
+                    "row"
+                ],
+                "fn": "openTransferWindow",
+                "implHandler": [
+                    "var transfers=Ext.create('CarePortal.view.PatientTransfer', {});",
+                    "var transferWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Patients Transfer Form',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "transfers.down('#pid').setValue(record.get('PID'));",
+                    "transfers.down('#names').setValue(record.get('Names'));",
+                    "transfers.down('#encounterNo').setValue(record.get('EncounterNo'));",
+                    "transfers.down('#dob').setValue(record.get('BirthDate'));",
+                    "transfers.down('#sex').setValue(record.get('Sex'));",
+                    "transfers.down('#admissiondate').setValue(record.get('AdmissionDate'));",
+                    "transfers.down('#paymode').setValue(record.get('PaymentMode'));",
+                    "",
+                    "var wardName=view.up('grid').down('#wardTitle').getValue();",
+                    "transfers.down('#wardName').setValue(wardName);",
+                    "transfers.down('#wardno').setValue(record.get('WardID'));",
+                    "",
+                    "transfers.down('#roomno').setValue(record.get('RoomNo'));",
+                    "transfers.down('#bedno').setValue(record.get('BedNo'));",
+                    "",
+                    "transferWindow.add(transfers);",
+                    "transferWindow.show();",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openTransferWindow",
+            "designerId": "e173309e-92e1-40f3-acf7-c796aec332e5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "showWards",
+                "implHandler": [
+                    "var transContainer=field.up('form').down('#transWindow');",
+                    "var beds=Ext.create(\"CarePortal.view.AssignBeds\",{});",
+                    "var wards=Ext.create(\"CarePortal.view.WardsList\",{});",
+                    "var wrdNo=field.up('form').down('#wardno').getValue();",
+                    "",
+                    "if(field.getValue().transferWard=='Wards'){",
+                    "    transContainer.removeAll();",
+                    "    transContainer.add(wards);",
+                    "",
+                    "    var wardsListStore =Ext.data.StoreManager.lookup('WardsListStore');",
+                    "    wardsListStore.load({",
+                    "        params:{",
+                    "            wrdNo:wrdNo",
+                    "        },",
+                    "        callback: function(records, operation, success) {",
+                    "",
+                    "            //         gridpanel.up('window').close();",
+                    "        },",
+                    "        scope: this",
+                    "    });",
+                    "",
+                    "",
+                    " }else if(field.getValue().transferWard=='Beds'){",
+                    "    transContainer.removeAll();",
+                    "    transContainer.add(beds);",
+                    "    field.up('form').down('#wardsList').hide();",
+                    "     beds.down('#transType').setValue(field.getValue().transferWard);",
+                    "     beds.down('#wardID').setValue(wrdNo);",
+                    "     beds.down('#pid').setValue(field.up('form').down('#pid').getValue());",
+                    "     beds.down('#names').setValue(field.up('form').down('#names').getValue());",
+                    "     beds.down('#encNo').setValue(field.up('form').down('#encounterNo').getValue());",
+                    "",
+                    "",
+                    " }",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "showWards",
+            "designerId": "dfc4d963-4580-4203-8835-baae64eb731c"
         }
     ]
 }

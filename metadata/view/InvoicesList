@@ -9,8 +9,7 @@
         "columnLines": true,
         "designer|userAlias": "invoiceslist",
         "designer|userClassName": "InvoicesList",
-        "itemId": "InvoicesList",
-        "store": "PendingBills"
+        "itemId": "InvoicesList"
     },
     "configAlternates": {
         "designer|userAlias": "string",
@@ -47,7 +46,6 @@
             "userConfig": {
                 "displayInfo": true,
                 "dock": "bottom",
-                "store": "PendingBills",
                 "width": 360
             },
             "configAlternates": {
@@ -244,6 +242,118 @@
             },
             "name": "MyColumn104",
             "designerId": "6b1b3adc-abf6-4d6b-b0d8-9a40fb4b9a24"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "dock": "top",
+                "height": 44,
+                "layout": "hbox",
+                "width": 100
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "width": "auto"
+            },
+            "name": "MyContainer6",
+            "designerId": "2178a9be-861e-4189-8622-c967588ddf3d",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": 5,
+                        "width": 302
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField55",
+                    "designerId": "47783b2f-7c7f-4375-bfaa-47d1e9cef0a5"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Start Date",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "margin": 5
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField4",
+                    "designerId": "bf0ca397-e8b8-48d2-a4f9-63dfebd7266b"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "End Date",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "margin": 5
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField17",
+                    "designerId": "f24d2588-30e8-4e93-b3c5-11f147e9018c"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "cmdPreviewIpReports",
+                        "margin": 5,
+                        "text": "Preview",
+                        "width": 141
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "margin": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton18",
+                    "designerId": "8463bdd2-7686-409e-b736-6f9bf8a72cd9"
+                }
+            ]
         }
     ]
 }

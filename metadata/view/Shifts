@@ -9,10 +9,10 @@
         "columnLines": true,
         "designer|userAlias": "shifts",
         "designer|userClassName": "Shifts",
-        "height": 382,
+        "height": 548,
         "itemId": "shiftsGrid",
         "store": "ShiftsStore",
-        "width": 842
+        "width": 1054
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -48,7 +48,7 @@
             "userConfig": {
                 "dataIndex": "ID",
                 "text": "ID",
-                "width": 46
+                "width": 66
             },
             "configAlternates": {
                 "dataIndex": "datafield",
@@ -107,11 +107,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "Cashier",
-                "text": "Cashier"
+                "text": "Cashier",
+                "width": 226
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn51",
             "designerId": "142cedee-eff2-4a38-9cd5-a6f93c7830c7"
@@ -227,6 +229,70 @@
             },
             "name": "MyPagingToolbar10",
             "designerId": "8d3cce7c-1d00-4934-b129-3b8bb7175bdf"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "dock": "top",
+                "height": 42,
+                "layout": "hbox",
+                "width": 100
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "width": "auto"
+            },
+            "name": "MyContainer4",
+            "designerId": "2035832d-12f1-43ac-af15-267040156f0f",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "margin": 5,
+                        "width": 248
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField26",
+                    "designerId": "ab855f80-444f-474b-b137-2dc6c9dcd9c8"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "margin": 5,
+                        "width": 156
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextField39",
+                    "designerId": "d2c458ae-b86a-4abf-8a79-748d6e1e8a14"
+                }
+            ]
         }
     ]
 }

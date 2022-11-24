@@ -1747,7 +1747,7 @@ class Insurance_tz extends Core {
         $debug = false;
         ($debug) ? $db->debug = TRUE : $db->debug = FALSE;
         $this->sql = "select a.pid,a.insurance_ID from care_person a where a.pid='$pid' 
-                and a.insurance_ID !=-1";
+                and a.insurance_ID NOT IN('-1','CASH')";
         $this->result = $db->Execute($this->sql);
         if ($debug)
             echo $this->sql;
@@ -1806,7 +1806,7 @@ class Insurance_tz extends Core {
         global $db;
         $debug = false;
 
-        $sql = "SELECT id,name FROM care_tz_Company where accno='$accno'";
+        $sql = "SELECT id,name FROM care_tz_company where accno='$accno'";
         if ($debug) {
             echo $sql;
         }
@@ -1821,7 +1821,7 @@ class Insurance_tz extends Core {
         global $db;
         $debug = false;
         ($debug) ? $db->debug = TRUE : $db->debug = FALSE;
-        $this->sql = "SELECT a.id,a.name FROM care_tz_Company a 
+        $this->sql = "SELECT a.id,a.name FROM care_tz_company a 
             inner join care_person b on a.id=b.insurance_ID where pid=".$pid;
 
         $return_value='';

@@ -15,7 +15,8 @@
             "PendingPrescription",
             "PatientDetails",
             "StockLevelsModel",
-            "ServiceOrdesrModel"
+            "ServiceOrdesrModel",
+            "Prescriptions"
         ],
         "stores": [
             "OrderStocksStore",
@@ -31,7 +32,8 @@
             "DepartmentsStore",
             "PurchOrdersStore",
             "OrderDetailStore",
-            "OrdersServiceStore"
+            "OrdersServiceStore",
+            "DrugsList"
         ],
         "views": [
             "ItemsList",
@@ -44,7 +46,10 @@
             "PendingPrescriptions",
             "OrdersFromSuppliers",
             "SupplierForm",
-            "PurchaseOrders"
+            "PurchaseOrders",
+            "IssueDrugs",
+            "DosageList",
+            "DrugsList"
         ]
     },
     "configAlternates": {
@@ -83,6 +88,9 @@
                     "    '#mnuStockLevels':{",
                     "        click:this.openStockLevels",
                     "    },",
+                    "    '#cmdGetDrugsItems':{",
+                    "        click:this.openItemsList",
+                    "    },",
                     "    '#cmdGetItems':{",
                     "        click:this.openItemsList4",
                     "    },",
@@ -92,13 +100,12 @@
                     "    '#orderType':{",
                     "        change:this.setOrderNo",
                     "    },",
-                    "    '#itemsList':{",
+                    "    '#drugsList':{",
                     "        itemdblclick:this.addSelectedItems",
                     "    },",
                     "    '#cmdSaveOrder':{",
                     "        click:this.saveOrder",
-                    "    },",
-                    "    '#department':{",
+                    "    },'#department':{",
                     "        select:this.setDeptName",
                     "    },",
                     "    '#suppStore':{",
@@ -131,7 +138,7 @@
                     "    '#mnuIssue':{",
                     "        click:this.displayIssueForm",
                     "    },",
-                    "    '#drugsList':{",
+                    "    '#itemsList':{",
                     "        click:this.loadSelectedDrugs",
                     "    },",
                     "    '#cmdNewPrescription':{",
@@ -227,6 +234,15 @@
                     "    },",
                     "    '#cmdPrint':{",
                     "        click:this.printLPO",
+                    "    },",
+                    "    '#cmdAddPrescription':{",
+                    "        click:this.editPrescription",
+                    "    },",
+                    "    '#cmdCloseOders':{",
+                    "        click:this.closeOrdersForm",
+                    "    },",
+                    "    '#cmdSaveItemLocation':{",
+                    "        click:this.saveItemLocation",
                     "    }",
                     "",
                     "});"
@@ -435,9 +451,9 @@
                 "fn": "openItemsList4",
                 "implHandler": [
                     "// var storeLoc=button.up(\"panel\").down('#suppStore').getValue();",
-                    "var itemsList=Ext.create(\"CarePortal.view.ItemsList\",{});",
+                    "var itemsList=Ext.create(\"CarePortal.view.DrugsList\",{});",
                     "var ordersWindow=Ext.create('Ext.window.Window', {",
-                    "    title: 'Items List',",
+                    "    title: 'Drugs ans Supplies List',",
                     "    resizable:false",
                     "});",
                     "",
@@ -466,6 +482,49 @@
             },
             "name": "openItemsList4",
             "designerId": "3fe8c226-bbdb-47e4-8af0-11ff4aa35b6e"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openItemsList",
+                "implHandler": [
+                    "// var storeLoc=button.up(\"panel\").down('#suppStore').getValue();",
+                    "var itemsList=Ext.create(\"CarePortal.view.DrugsList\",{});",
+                    "var ordersWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Drugs and Supplies List',",
+                    "    resizable:false",
+                    "});",
+                    "",
+                    "var drugsStore=Ext.data.StoreManager.lookup(\"DrugsList\");",
+                    "drugsStore.load({",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "",
+                    "ordersWindow.add(itemsList);",
+                    "ordersWindow.show();",
+                    "itemsList.down('#sourceID').setValue('Orders');",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openItemsList",
+            "designerId": "e424e93a-3a85-41a3-81b1-7fc135ad8537"
         },
         {
             "type": "controllerref",
@@ -621,9 +680,9 @@
                 ],
                 "fn": "addSelectedItems",
                 "implHandler": [
-                    "var sourceID=this.getItemslist().down('#sourceID').getValue();",
+                    "var sourceID=this.getDrugslist().down('#sourceID').getValue();",
                     "if(sourceID==='Orders'){",
-                    "    var store =Ext.data.StoreManager.lookup('ItemslistStore');",
+                    "    var store =Ext.data.StoreManager.lookup('DrugsList');",
                     "    var store1 =Ext.data.StoreManager.lookup('OrderStocksStore');",
                     "    store.remove(record);",
                     "    store1.add(record);",
@@ -652,7 +711,7 @@
                     "",
                     "    newVar=parseInt(counter)+1;",
                     "",
-                    "    this.getPrescriptionform().down('#dosageList').add(dosage);",
+                    "    this.getPrescriptionform().down('#prescDetails').add(dosage);",
                     "    this.getPrescriptionform().down(\"#counter\").setValue(newVar);",
                     "}",
                     ""
@@ -1290,19 +1349,31 @@
                 "fn": "prescribe",
                 "implHandler": [
                     "var form = button.up('panel').getForm(); // get the basic form",
-                    " var encNr= this.getPrescriptionform().down('#encounterNo').getValue();",
+                    "var encNr= this.getPrescriptionform().down('#encounterNo').getValue();",
                     "",
                     "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "     button.disable();",
                     "    form.submit({",
                     "        params:{",
                     "            encNr:encNr",
                     "        },",
                     "        success: function (form, action) {",
-                    "            Ext.Msg.alert('Thank you!', 'Saved Prescription Successfully.');",
+                    "           // Ext.Msg.alert('Thank you!', 'Saved Prescription Successfully.');",
                     "            //button.up('form').getForm().reset();",
-                    "            //button.up('window').close();",
+                    "           // button.up('window').close();",
+                    "            var prescriptionStore=Ext.data.StoreManager.lookup(\"PrescriptionStore\");",
+                    "            prescriptionStore.load({",
+                    "                params:{",
+                    "                    //pid:record.get('PID'),",
+                    "                    encNr:encNr,",
+                    "                    prescSource:'Prescription'",
                     "",
+                    "                },",
+                    "                scope: this",
+                    "            });",
+                    "            //this.showPrescribed(encNr);",
                     "",
+                    "            button.up('panel').up('panel').down('#prescDetails').removeAll();",
                     "",
                     "        },",
                     "        failure: function (form, action) {",
@@ -1311,6 +1382,9 @@
                     "            Ext.Msg.alert('Failed', 'There was a problem with the Prescription. \\n Error=' + jsonResp.error);",
                     "        }",
                     "    });",
+                    "    Ext.defer(function () {",
+                    "            button.enable();",
+                    "        }, 2000);",
                     "} else { // display error alert if the data is invalid",
                     "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
                     "}"
@@ -1481,15 +1555,18 @@
                 ],
                 "fn": "issueDrugs",
                 "implHandler": [
+                    "",
                     "var form = button.up('form').getForm(); // get the basic form",
                     "var orderStore =Ext.data.StoreManager.lookup('PrescriptionItemStore');",
                     "var ordersRecord = orderStore.getRange();",
                     "",
                     "var gridData = Array();",
                     "",
+                    "",
                     "Ext.each(ordersRecord, function (record) {",
                     "    gridData.push(record.data);",
                     "});",
+                    "console.log(gridData);",
                     "",
                     "if (form.isValid()) { // make sure the form contains valid data before submitting",
                     "    form.submit({",
@@ -1501,7 +1578,7 @@
                     "            form.reset();",
                     "            orderStore.removeAll();",
                     "            orderStore.sync();",
-                    "            ",
+                    "",
                     "            var peddingPrescStore=Ext.data.StoreManager.lookup(\"PendingPrescriptions\");",
                     "            peddingPrescStore.load({});",
                     "",
@@ -1675,7 +1752,8 @@
                     "    this.getIssuedrugs().down('#Names').setValue(record.get('Names'));",
                     "    this.getIssuedrugs().down('#prescribeDate').setValue(record.get('PrescribeDate'));",
                     "    this.getIssuedrugs().down('#encNr').setValue(record.get('EncounterNo'));",
-                    "    ",
+                    "    this.getIssuedrugs().down('#doctor').setValue(record.get('Prescriber'));",
+                    "",
                     "    var patientStore=Ext.data.StoreManager.lookup(\"PatientDetailStore\");",
                     "",
                     "    patientStore.load({",
@@ -1686,23 +1764,21 @@
                     "        },",
                     "        callback: function(records, operation, success) {",
                     "           patientStore.each(function(record) {",
-                    "           prescriber=record.data.Prescriber;",
-                    "           age=record.get('Age');",
-                    "           payMode=record.get('Payment');",
-                    "           receiptNo=record.get('ReceiptNo');",
-                    "           receiptAmount=record.get('ReceiptAmount');",
-                    "",
-                    "           this.getIssuedrugs().down('#doctor').setValue(prescriber);",
-                    "           this.getIssuedrugs().down('#age').setValue(age);",
-                    "           this.getIssuedrugs().down('#payMode').setValue(payMode);",
-                    "           this.getIssuedrugs().down('#receiptNo').setValue(receiptNo);",
-                    "           this.getIssuedrugs().down('#receiptAmount').setValue(receiptAmount);",
-                    "       });",
+                    "               prescriber=record.data.Prescriber;",
+                    "               age=record.get('Age');",
+                    "               payMode=record.get('Payment');",
+                    "               receiptNo=record.get('ReceiptNo');",
+                    "               receiptAmount=record.get('ReceiptAmount');",
+                    "            });",
                     "",
                     "        },",
                     "        scope: this",
                     "    });",
-                    "    ",
+                    "            this.getIssuedrugs().down('#age').setValue(age);",
+                    "            this.getIssuedrugs().down('#payMode').setValue(payMode);",
+                    "            this.getIssuedrugs().down('#receiptNo').setValue(receiptNo);",
+                    "            this.getIssuedrugs().down('#receiptAmount').setValue(receiptAmount);",
+                    "",
                     "",
                     "var prescStore=Ext.data.StoreManager.lookup(\"PrescriptionItemStore\");",
                     "prescStore.load({",
@@ -2515,15 +2591,18 @@
                 ],
                 "fn": "createPurchOrder",
                 "implHandler": [
-                    "var ordersForm2=Ext.create(\"CarePortal.view.OrdersFromSuppliers\",{});",
-                    "var ordersWindow2=Ext.create('Ext.window.Window', {",
+                    "var purchOrdersForm=Ext.create(\"CarePortal.view.OrdersFromSuppliers\",{});",
+                    "var purchOrdersWindow=Ext.create('Ext.window.Window', {",
                     "    title: 'Purchase Orders',",
                     "    resizable:false,",
                     "    closable:true",
                     "});",
                     "",
-                    "ordersWindow2.add(ordersForm2);",
-                    "ordersWindow2.show();"
+                    "var ordersStore =Ext.data.StoreManager.lookup('OrderStocksStore');",
+                    "ordersStore.removeAll();",
+                    "",
+                    "purchOrdersWindow.add(purchOrdersForm);",
+                    "purchOrdersWindow.show();"
                 ]
             },
             "configAlternates": {
@@ -2533,60 +2612,6 @@
             },
             "name": "createPurchOrder",
             "designerId": "48c08dc1-a75b-441b-b407-e96076c89e38"
-        },
-        {
-            "type": "controlleraction",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|controlQuery": "#orderDetailsButton",
-                "designer|params": [
-                    "button",
-                    "e",
-                    "eOpts"
-                ],
-                "designer|targetType": "Ext.button.Button",
-                "fn": "onOrderDetailsClick",
-                "implHandler": [
-                    " var rec = button.lookupViewModel().get('record');",
-                    "//  Ext.Msg.alert(\"Button clicked\", \"Hey! \" + rec.get('OrderNo'));",
-                    " var ordersForm2=Ext.create(\"CarePortal.view.PurchaseOrderDetails\",{});",
-                    "        var ordersWindow2=Ext.create('Ext.window.Window', {",
-                    "            title: 'Purchase Orders',",
-                    "            resizable:true,",
-                    "            closable:true",
-                    "        });",
-                    "",
-                    "  var pendingOrders =Ext.data.StoreManager.lookup('PurchOrderItems');",
-                    "        pendingOrders.load({",
-                    "            params:{",
-                    "                orderNo:rec.get('OrderNo')",
-                    "            },",
-                    "            callback: function(records, operation, success) {",
-                    "",
-                    "            },",
-                    "            scope: this",
-                    "        });",
-                    "",
-                    "        ordersWindow2.add(ordersForm2);",
-                    "        ordersWindow2.show();",
-                    ""
-                ],
-                "name": "click"
-            },
-            "configAlternates": {
-                "designer|controlQuery": "string",
-                "designer|params": "typedarray",
-                "designer|targetType": "view",
-                "fn": "string",
-                "implHandler": "code",
-                "name": "string"
-            },
-            "name": "onOrderDetailsClick",
-            "designerId": "4dccd931-b3d9-4530-8e50-1678556c74cd"
         },
         {
             "type": "basicfunction",
@@ -2730,6 +2755,270 @@
             },
             "name": "printLPO",
             "designerId": "a71083da-2e1a-4952-9e24-0300c6ad06c4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button,encNr"
+                ],
+                "fn": "showPrescribed",
+                "implHandler": [
+                    "var prescDetails=this.getPrescriptionform().down('#prescDetails');",
+                    "",
+                    "//**************************************************************************",
+                    "//Populate the prescription items",
+                    "//**************************************************************************",
+                    "",
+                    "var precStore=Ext.data.StoreManager.lookup(\"PrescriptionItemStore\");",
+                    "",
+                    "var billSum=0;",
+                    "var data = [];",
+                    "precStore.load({",
+                    "    params: {",
+                    "        pid:record.get('Pid'),",
+                    "        encNr:record.get('EncounterNo'),",
+                    "        prescSource:\"Prescription\"",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        var tpl=new Ext.XTemplate(",
+                    "            '<Table id=pharmacy>',",
+                    "            '<tr><td id=titles colspan=6>Prescriptions</td></tr>',",
+                    "            '<tr><th>Prescription No</th><th>Date</th><th>Description</th>',",
+                    "            ' <th>Dosage</th><th>Times Per Day</th><th>Days</th></tr>',",
+                    "            '<tpl for=\".\">',",
+                    "            '<tr><td>{Nr}</td><td>{PrescribeDate}</td><td>{Description}</td>',",
+                    "            '<td>{Dosage}</td><td>{TimesPerDay}</td><td>{Days}</td></tr>',",
+                    "            '<tr><td>Notes</td><td colspan=3 id=notes>{Notes}</td><td>Prescribed By:{Prescriber}</td><td><button id=edit>Edit</button><button id=delete>Delete</button></td></tr>',",
+                    "            '</tpl>',",
+                    "            '</table>'",
+                    "        );",
+                    "",
+                    "        precStore.each(function(record) {",
+                    "            data.push(record.getData());",
+                    "            //billSum += record.get('Total');",
+                    "        });",
+                    "",
+                    "        tpl.overwrite(prescDetails.body,data);",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "showPrescribed",
+            "designerId": "a531297c-1fa7-4411-b62f-523984d633c9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "editPrescription",
+                "implHandler": [
+                    "var pid=button.up('form').down('#Pid').getValue();",
+                    "var encNr=button.up('form').down('#encNr').getValue();",
+                    "",
+                    "var prescription=Ext.create(\"CarePortal.view.PrescriptionForm\",{});",
+                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                    "    title:\"Prescriptions Entry Form\",",
+                    "    resizable:false,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "containterWindows.add(prescription);",
+                    "containterWindows.show();",
+                    "",
+                    "prescription.down('#pid').setValue(pid);",
+                    "prescription.down('#names').setValue(button.up('form').down('#Names').getValue());",
+                    "prescription.down('#encounterNo').setValue(encNr);",
+                    "prescription.down('#Dob').setValue(button.up('form').down('#age').getValue());",
+                    "",
+                    "var prescriptionStore=Ext.data.StoreManager.lookup(\"PrescriptionStore\");",
+                    "prescriptionStore.load({",
+                    "    params:{",
+                    "        pid:pid,",
+                    "        encNr:encNr,",
+                    "        prescSource:'Prescription'",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "editPrescription",
+            "designerId": "00495139-0371-4042-80f8-7610279a1b6b"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "dosagelist",
+                "selector": "dosagelist",
+                "xtype": "dosagelist"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "dosagelist",
+            "designerId": "dd08e41e-5431-45fb-9931-33276fd8a318"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "closeOrdersForm",
+                "implHandler": [
+                    "button.up('window').hide();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "closeOrdersForm",
+            "designerId": "e8da30e3-2bdb-4d42-9c24-0020c95e1b1b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "onOrderDetailsClick",
+                "implHandler": [
+                    "var rec = button.lookupViewModel().get('record');",
+                    "//  Ext.Msg.alert(\"Button clicked\", \"Hey! \" + rec.get('OrderNo'));",
+                    "var PurchordersForm=Ext.create(\"CarePortal.view.PurchaseOrderDetails\",{});",
+                    "var purchOrdersWindow=Ext.create('Ext.window.Window', {",
+                    "    title: 'Purchase Orders',",
+                    "    resizable:true,",
+                    "    closable:false",
+                    "});",
+                    "",
+                    "var pendingOrders =Ext.data.StoreManager.lookup('PurchOrderItems');",
+                    "pendingOrders.load({",
+                    "    params:{",
+                    "        orderNo:rec.get('OrderNo')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    "purchOrdersWindow.add(PurchordersForm);",
+                    "purchOrdersWindow.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "onOrderDetailsClick",
+            "designerId": "e2ea0299-209f-4535-b006-8a44acb3c441"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveItemLocation",
+                "implHandler": [
+                    "var form = button.up('panel').getForm(); // get the basic form",
+                    "  ",
+                    "        //var entryForm=form.getItemId();",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "         success: function (form, action) {",
+                    "            Ext.Msg.alert('Thank you!', 'The Vitals has been saved Successfully.');",
+                    "            button.up('form').getForm().reset();",
+                    "            button.up('window').hide();",
+                    "",
+                    "        },",
+                    "        failure: function (form, action) {",
+                    "            var jsonResp = Ext.decode(action.response.responseText);",
+                    "",
+                    "            Ext.Msg.alert('Failed', 'Could not save Vitals. \\n Error=' + jsonResp.error);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveItemLocation",
+            "designerId": "1ecc16b5-0484-4ac7-b7a5-61ed56d54013"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "drugslist",
+                "selector": "drugslist",
+                "xtype": "drugslist"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "drugslist",
+            "designerId": "15958587-f9d6-4ff7-8c97-05d5c8166f73"
         }
     ]
 }

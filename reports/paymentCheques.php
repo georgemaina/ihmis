@@ -108,10 +108,10 @@ require($root_path . 'include/inc_environment_global.php');
                         $result = $db->Execute($r_sql);
                         $row = $result->FetchRow();
                            echo "<div class='chqDate'>".date('d-m-Y')."</div>";
-                           echo "<div class='chqAmount'>".number_format($row[total], 2)."</div>";
-                           echo "<div class='chqPayee'>&nbsp;&nbsp;&nbsp;&nbsp;".strtoupper($row[payee])."</div>";
+                           echo "<div class='chqAmount'>".number_format($row['total'], 2)."</div>";
+                           echo "<div class='chqPayee'>&nbsp;&nbsp;&nbsp;&nbsp;".strtoupper($row['payee'])."</div>";
                            
-                            $total= $row[total];
+                            $total= $row['total'];
                             $whole = floor($total);      // 1
                             $fraction = number_format($total - $whole,2); // .25
                             

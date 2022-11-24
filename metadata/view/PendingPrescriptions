@@ -13,7 +13,7 @@
         "frame": true,
         "height": 600,
         "itemId": "prescGrid",
-        "store": "PendingPrescriptions",
+        "store": "PendingPrescription",
         "title": "Pending Prescriptions"
     },
     "configAlternates": {
@@ -42,130 +42,6 @@
             "codeClass": null,
             "name": "MyTable7",
             "designerId": "e1da2afe-a2a0-4845-b529-84554850ee2c"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "PrescribeDate",
-                "groupable": true,
-                "hidden": true,
-                "text": "Prescription Date",
-                "width": 78
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "groupable": "boolean",
-                "hidden": "boolean",
-                "text": "string",
-                "width": "auto"
-            },
-            "name": "MyColumn66",
-            "designerId": "8c621fd3-b746-4160-a268-6eb23221cab1"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Pid",
-                "text": "Pid",
-                "width": 113
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string",
-                "width": "auto"
-            },
-            "name": "MyColumn63",
-            "designerId": "0d070e00-7597-46b4-84c1-e8deb26a68d6"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Names",
-                "text": "Names",
-                "width": 228
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string",
-                "width": "auto"
-            },
-            "name": "MyColumn64",
-            "designerId": "0e4d21aa-d5af-4e2d-aa5f-ac3c68c763b7"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "EncounterNo",
-                "hidden": true,
-                "text": "Encounter No"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "hidden": "boolean",
-                "text": "string"
-            },
-            "name": "MyColumn65",
-            "designerId": "205382cc-9b3b-4903-a4b3-5c15c8dfa151"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Nr",
-                "hidden": true,
-                "text": "Nr"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "hidden": "boolean",
-                "text": "string"
-            },
-            "name": "MyColumn67",
-            "designerId": "ca5edaf3-0964-4eda-93c2-a3e8eb0aa8b6"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "EncounterClassNr",
-                "hidden": true,
-                "text": "Encounter Class Nr"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "hidden": "boolean",
-                "text": "string"
-            },
-            "name": "MyColumn68",
-            "designerId": "4883838a-a09c-4ef7-9324-41e9d63fe814"
         },
         {
             "type": "Ext.grid.feature.Grouping",
@@ -209,7 +85,7 @@
             "userConfig": {
                 "displayInfo": true,
                 "dock": "bottom",
-                "store": "PendingPrescriptions",
+                "store": "PendingPrescription",
                 "width": 360
             },
             "configAlternates": {
@@ -284,7 +160,7 @@
                         "layout|x": 160,
                         "layout|y": 5,
                         "store": [
-                            "['Outpatient','Inpatient']"
+                            "['OP','IP']"
                         ],
                         "width": 145
                     },
@@ -300,6 +176,152 @@
                     "designerId": "4a58561c-59e9-4a31-b39c-70c0ab79b08d"
                 }
             ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Pid",
+                "text": "Pid"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn206",
+            "designerId": "c88dee16-47e3-45e1-a746-d95c72ec535b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Names",
+                "text": "Names",
+                "width": 262
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn207",
+            "designerId": "177cbc18-b09a-4edb-99f0-2e085f2a43a1"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "EncounterNo",
+                "text": "Encounter No"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn208",
+            "designerId": "c3a1d495-9106-41d6-adce-97c85444075d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "PrescribeDate",
+                "text": "Prescribe Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn209",
+            "designerId": "a5a98f70-57b9-433d-9748-5402b1d8d755"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Nr",
+                "text": "Nr"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn210",
+            "designerId": "e9a1a00a-725e-4b90-a1ba-b61c66cd8b37"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "EncounterClassNr",
+                "text": "Encounter Class Nr"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn211",
+            "designerId": "824d1864-bcad-485a-8e52-21779fa9cef3"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Prescriber",
+                "text": "Prescriber"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn212",
+            "designerId": "ae379756-1ed4-4140-8237-352172a0bebf"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "PaymentMode",
+                "text": "Payment Mode"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn213",
+            "designerId": "07b245c5-960b-4245-93f2-bda325de27c2"
         }
     ]
 }

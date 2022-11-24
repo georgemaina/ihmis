@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": true,
+        "designer|userAlias": "oproomstore",
+        "designer|userClassName": "OpRoomsStore",
+        "model": "OpRooms",
+        "storeId": "OpRoomsStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "autoLoad": "boolean",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "a1f2a56f-bd9d-4fc7-84e7-1f3eb6116557",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getOpRooms"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy21",
+            "designerId": "a4f3d95e-c5fb-4956-9410-23460c8a549d",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader20",
+                    "designerId": "6a9164ad-d8f3-4195-ae28-9f3d0b301207"
+                }
+            ]
+        }
+    ]
+}

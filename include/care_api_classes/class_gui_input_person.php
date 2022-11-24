@@ -324,7 +324,7 @@ class GuiInputPerson {
                     //$db->BeginTrans();
                     $ok = $db->Execute($sql);
 
-                    $sql = "select last_encounter_no from care_ke_invoice";
+                    $sql = "select last_encounter_no from care_ke_company";
                     $result = $db->Execute($sql);
                     $row = $result->FetchRow();
 //
@@ -342,7 +342,7 @@ class GuiInputPerson {
 
 
                     if ($currNo2 == $row[0]) {
-                        $sql2 = "update care_ke_invoice set last_encounter_no='$new_nr'";
+                        $sql2 = "update care_ke_company set last_encounter_no='$new_nr'";
                         $db->Execute($sql2);
                     }
                     if ($db->debug)
@@ -403,7 +403,7 @@ class GuiInputPerson {
                     //$_POST['modify_id']=$_SESSION['sess_user_name'];
                     $_POST['create_id'] = $_SESSION['sess_user_name'];
                     $_POST['create_time'] = date('YmdHis');
-                    $sql = "select last_encounter_no from care_ke_invoice";
+                    $sql = "select last_encounter_no from care_ke_company";
                             $result = $db->Execute($sql);
                             $row = $result->FetchRow();
                             $new_nr = intval($row[0] + 1)."/".date('y');
@@ -453,7 +453,7 @@ class GuiInputPerson {
                                 }
                             }
 
-                            $sql = "select last_encounter_no from care_ke_invoice";
+                            $sql = "select last_encounter_no from care_ke_company";
                             $result = $db->Execute($sql);
                             $row = $result->FetchRow();
 
@@ -465,7 +465,7 @@ class GuiInputPerson {
                             //echo $new_nr;
 
 //                            if ($selian_pid <> $row[0]) {
-                                $sql2 = "update care_ke_invoice set last_encounter_no='$new_nr'";
+                                $sql2 = "update care_ke_company set last_encounter_no='$new_nr'";
                                 //echo $sql2;
                                 $db->Execute($sql2);
 //                            }
@@ -943,7 +943,7 @@ class GuiInputPerson {
                             </td>
                             <?php
                             // $person_obj->GetNewSelianFileNumber()
-                            $sql1 = "select last_encounter_no from care_ke_invoice";
+                            $sql1 = "select last_encounter_no from care_ke_company";
                             $result1 = $db->Execute($sql1);
                             $row = $result1->FetchRow();
                             $strNum=$row[0];

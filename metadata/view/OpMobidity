@@ -9,6 +9,7 @@
         "columnLines": true,
         "designer|userAlias": "opmobidity",
         "designer|userClassName": "OpMobidity",
+        "store": "OpMobidityStore",
         "width": null
     },
     "configAlternates": {
@@ -735,183 +736,6 @@
             "designerId": "a14a8a94-2b85-4567-8433-31e2319fc887"
         },
         {
-            "type": "Ext.toolbar.Toolbar",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dock": "top",
-                "height": 47
-            },
-            "configAlternates": {
-                "dock": "string",
-                "height": "auto",
-                "scrollable": "boolean"
-            },
-            "name": "MyToolbar",
-            "designerId": "be7d0f37-a715-4f94-a30b-d40da36dfb7e",
-            "cn": [
-                {
-                    "type": "Ext.form.field.ComboBox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "displayField": "month",
-                        "fieldLabel": "Select Report Type",
-                        "itemId": "reportType",
-                        "labelWidth": 120,
-                        "layout|flex": null,
-                        "store": [
-                            "[['OP','OP Mobidity Above 5'],['OPC','OP Mobidity Below 5']]"
-                        ],
-                        "valueField": "ID",
-                        "width": 321
-                    },
-                    "configAlternates": {
-                        "store": "array",
-                        "displayField": "datafield",
-                        "fieldLabel": "string",
-                        "itemId": "string",
-                        "labelWidth": "number",
-                        "layout|flex": "number",
-                        "valueField": "datafield",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyComboBox",
-                    "designerId": "edc257a9-40b2-4b78-8ea4-9462ae942eaf"
-                },
-                {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Start Date",
-                        "format": "Y-m-d",
-                        "itemId": "startDate",
-                        "labelWidth": 70,
-                        "layout|flex": null,
-                        "width": 232
-                    },
-                    "configAlternates": {
-                        "store": "array",
-                        "fieldLabel": "string",
-                        "format": "string",
-                        "itemId": "string",
-                        "labelWidth": "number",
-                        "layout|flex": "number",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyDateField13",
-                    "designerId": "e994ccb0-f9ca-49c2-986e-22a815785d5b"
-                },
-                {
-                    "type": "Ext.form.field.Date",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "End Date",
-                        "format": "Y-m-d",
-                        "itemId": "endDate",
-                        "labelWidth": 70,
-                        "layout|flex": null,
-                        "width": 232
-                    },
-                    "configAlternates": {
-                        "store": "array",
-                        "fieldLabel": "string",
-                        "format": "string",
-                        "itemId": "string",
-                        "labelWidth": "number",
-                        "layout|flex": "number",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyDateField17",
-                    "designerId": "5092daa5-18b4-43d0-b652-864330c3a7ca"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "cmdPreview",
-                        "layout|flex": null,
-                        "text": "<b>Preview</b>",
-                        "width": 99
-                    },
-                    "configAlternates": {
-                        "itemId": "string",
-                        "layout|flex": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyButton",
-                    "designerId": "645a4fd0-498a-4043-96b7-41fc9934bf07"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "cmdPrint",
-                        "layout|flex": null,
-                        "text": "<b>Print",
-                        "width": 83
-                    },
-                    "configAlternates": {
-                        "itemId": "string",
-                        "layout|flex": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyButton1",
-                    "designerId": "469ea0af-2307-442f-b6a4-5d8d379fa1f7"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "itemId": "cmdExport",
-                        "layout|flex": null,
-                        "text": "<b>Export to Excel"
-                    },
-                    "configAlternates": {
-                        "itemId": "string",
-                        "layout|flex": "number",
-                        "text": "string",
-                        "scrollable": "boolean"
-                    },
-                    "name": "MyButton2",
-                    "designerId": "3c724ab9-7053-465c-824f-b3d7ac08fefa"
-                }
-            ]
-        },
-        {
             "type": "Ext.grid.column.Column",
             "reference": {
                 "name": "columns",
@@ -935,6 +759,231 @@
             },
             "name": "MyColumn33",
             "designerId": "4797b4b3-cf0c-4dc1-b285-41851f7ebe92"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "dock": "top",
+                "height": 45,
+                "layout": "hbox",
+                "padding": 5,
+                "width": 100
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyContainer17",
+            "designerId": "33a72b11-3f91-436b-8210-10f271311cfc",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "month",
+                        "fieldLabel": "Select Report Type",
+                        "itemId": "reportType",
+                        "labelWidth": 120,
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "store": [
+                            "[['OP','OP Mobidity Above 5'],['OPC','OP Mobidity Below 5']]"
+                        ],
+                        "valueField": "ID",
+                        "width": 321
+                    },
+                    "configAlternates": {
+                        "store": "array",
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "valueField": "datafield",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "margin": "auto"
+                    },
+                    "name": "MyComboBox",
+                    "designerId": "edc257a9-40b2-4b78-8ea4-9462ae942eaf"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Start Date",
+                        "format": "Y-m-d",
+                        "itemId": "startDate",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "width": 232
+                    },
+                    "configAlternates": {
+                        "store": "array",
+                        "fieldLabel": "string",
+                        "format": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField13",
+                    "designerId": "e994ccb0-f9ca-49c2-986e-22a815785d5b"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "End Date",
+                        "format": "Y-m-d",
+                        "itemId": "endDate",
+                        "labelWidth": 70,
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "width": 232
+                    },
+                    "configAlternates": {
+                        "store": "array",
+                        "fieldLabel": "string",
+                        "format": "string",
+                        "itemId": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField17",
+                    "designerId": "5092daa5-18b4-43d0-b652-864330c3a7ca"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "cmdPreview",
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "text": "<b>Preview</b>",
+                        "width": 99
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "iconCls": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton",
+                    "designerId": "645a4fd0-498a-4043-96b7-41fc9934bf07"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-print",
+                        "itemId": "cmdPrint",
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "text": "<b>Print",
+                        "width": 103
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "scrollable": "boolean",
+                        "iconCls": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton1",
+                    "designerId": "469ea0af-2307-442f-b6a4-5d8d379fa1f7"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-download",
+                        "itemId": "cmdExport",
+                        "layout|flex": null,
+                        "margin": "0 10 0 0",
+                        "text": "<b>Export to Excel"
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "scrollable": "boolean",
+                        "iconCls": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton2",
+                    "designerId": "3c724ab9-7053-465c-824f-b3d7ac08fefa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-pencil-square-o",
+                        "itemId": "cmdUpdateMobidity",
+                        "layout|flex": null,
+                        "text": "<b>Update Reports"
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string",
+                        "scrollable": "boolean",
+                        "iconCls": "string"
+                    },
+                    "name": "MyButton38",
+                    "designerId": "7cb6faed-6f1c-412b-9b4c-e04e0124734a"
+                }
+            ]
         }
     ]
 }

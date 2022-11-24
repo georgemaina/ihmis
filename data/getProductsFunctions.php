@@ -279,7 +279,7 @@ function InsertLocations(){
     global $db;
     $debug=false;
 
-    $ID=$_POST[ID];
+    $ID=$_POST['ID'];
     $Description=$_POST['Description'];
     $subStore= ($_POST['subStore']<>'' ? $_POST['subStore']:'0');
     $mainStore=($_POST['mainStore']<>'' ? $_POST['mainStore']:'0');
@@ -390,11 +390,11 @@ function getGLAccounts() {
 
         echo '{"AccountCode":"' . $row['accountcode'] . '","AccountName":"' . $row['accountname'] . '"}';
 
-
+        $counter++;
         if ($counter <> $total) {
             echo ",";
         }
-        $counter++;
+      
     }
 
     echo ']}';
@@ -586,7 +586,7 @@ function getPriceTypes() {
     global $db;
     $debug = FALSE;
 
-    $sql = "Select ID,PriceType from care_ke_priceTypes ";
+    $sql = "Select ID,PriceType from care_ke_pricetypes ";
 
     if ($debug) {
         echo $sql;
@@ -876,11 +876,11 @@ function getUnitsofMeasure($start, $limit) {
 
         echo '{"ID":"' . $row['id'] . '","Name":"' . $row['name'] . '"}';
 
-
+        $counter++;
         if ($counter <> $total) {
             echo ",";
         }
-        $counter++;
+      
     }
 
     echo ']}';
@@ -990,11 +990,11 @@ function getItemStatus() {
 
         echo '{"ID":"' . $row['ID'] . '","Description":"' . $row['Description'] . '"}';
 
-
+        $counter++;
         if ($counter <> $total) {
             echo ",";
         }
-        $counter++;
+      
     }
 
     echo ']}';
@@ -1025,11 +1025,11 @@ function getStoreLocations($start, $limit) {
 
         echo '{"ID":"' . $row['st_id'] . '","Description":"' . $row['st_name'] . '","Store":"' . $row['store'] . '","MainStore":"' . $row['mainStore'] . '"}';
 
-
+        $counter++;
         if ($counter <> $total) {
             echo ",";
         }
-        $counter++;
+      
     }
 
     echo ']}';
@@ -1191,11 +1191,11 @@ function getDispensingLocations($start, $limit) {
     while ($row = $request->FetchRow()) {
 
         echo '{"st_id":"' . $row['st_id'] . '","st_name":"' . $row['st_name'] . '"}';
-
+        $counter++;
         if ($counter <> $total) {
             echo ",";
         }
-        $counter++;
+      
     }
 
     echo ']}';

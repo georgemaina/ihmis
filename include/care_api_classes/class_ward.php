@@ -1077,7 +1077,7 @@ class Ward extends Encounter {
         $db->debug=0;
         $this->sql="SELECT w.ward_id,w.name AS ward_name, w.roomprefix,
 							d.id AS dept_id,d.name_formal AS dept_name,
-							r.location_nr AS room_nr, b.location_nr AS bed_nr,r.date_from,r.date_to
+							r.location_nr AS room_nr, b.location_nr AS bed_nr,e.encounter_date,e.discharge_date
 				FROM $this->tb_enc AS e
 					LEFT JOIN $this->tb_ward AS w ON e.encounter_class_nr=1 AND e.current_ward_nr=w.nr
 					LEFT JOIN $this->tb_dept AS d ON (e.encounter_class_nr=1 AND e.current_ward_nr=d.nr)
@@ -1105,7 +1105,7 @@ class Ward extends Encounter {
         $this->sql="SELECT w.ward_id,w.name AS ward_name, w.roomprefix,
         d.id AS dept_id,d.name_formal AS dept_name,
         r.location_nr AS room_nr, b.location_nr AS bed_nr,e.encounter_date,e.discharge_date,
-        DATEDIFF(r.date_to,r.date_from) as wardDays
+        DATEDIFF(e.discharge_date,e.encounter_date) as wardDays
         FROM $this->tb_enc AS e
         LEFT JOIN $this->tb_ward AS w ON e.encounter_class_nr=1 AND e.current_ward_nr=w.nr
         LEFT JOIN $this->tb_dept AS d ON (e.encounter_class_nr=1 AND e.current_ward_nr=d.nr)

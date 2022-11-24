@@ -56,7 +56,7 @@
                 "minChars": 2,
                 "name": "SelectSupplyingStore",
                 "queryMode": "local",
-                "store": "LocationsStore",
+                "store": "StoreLocationsStore",
                 "typeAhead": true,
                 "valueField": "ID",
                 "width": 430

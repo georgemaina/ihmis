@@ -205,6 +205,7 @@
                     "userConfig": {
                         "displayField": "Description",
                         "emptyText": "X-Ray Requests",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "Radiology",
                         "labelAlign": "top",
                         "layout|flex": 3,
@@ -228,7 +229,8 @@
                         "minChars": "number",
                         "queryMode": "string",
                         "store": "store",
-                        "valueField": "datafield"
+                        "valueField": "datafield",
+                        "fieldStyle": "string"
                     },
                     "name": "MyComboBox2",
                     "designerId": "b844ace3-b4b5-4aae-b2c8-baaeaf455857"
@@ -242,6 +244,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "emptyText": "Price",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "Price",
                         "labelAlign": "top",
                         "layout|flex": 1,
@@ -257,7 +260,8 @@
                         "layout|y": "number",
                         "margin": "auto",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField1",
                     "designerId": "bedd9639-f92d-4e5f-b5dc-aaa6e351516d"
@@ -271,6 +275,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "emptyText": "Comments",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "Comments",
                         "labelAlign": "top",
                         "layout|flex": 2,
@@ -286,7 +291,8 @@
                         "layout|y": "number",
                         "margin": "auto",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField57",
                     "designerId": "08c8a087-dc58-4430-b25d-6fcdf758a4d7"

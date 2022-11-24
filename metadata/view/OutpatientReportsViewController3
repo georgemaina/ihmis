@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "laboratoryreports",
+        "designer|userClassName": "OutpatientReportsViewController3"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OutpatientReportsViewController3",
+    "designerId": "46a33fb9-7d91-437c-8f72-f1244fedcc97"
+}

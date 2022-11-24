@@ -10,6 +10,7 @@
         "designer|userAlias": "opvisits",
         "designer|userClassName": "OpVisits",
         "height": 615,
+        "store": "OpVisitsStore",
         "width": null
     },
     "configAlternates": {

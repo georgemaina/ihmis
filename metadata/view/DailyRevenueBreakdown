@@ -1,0 +1,123 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "dailyrevenuebreakdown",
+        "designer|userClassName": "DailyRevenueBreakdown",
+        "itemId": "DailyRevenueBreakdown"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "itemId": "string"
+    },
+    "name": "MyGridPanel8",
+    "designerId": "d7146bd3-b925-4601-9976-69f1ddb018a1",
+    "viewControllerInstanceId": "d9dc031f-2488-4c99-af20-0713f78f153e",
+    "viewModelInstanceId": "2b244fcb-728f-4564-a66f-9a4e13948196",
+    "cn": [
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "string",
+                "text": "String"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn64",
+            "designerId": "931caadf-03dd-420e-b4bc-e681d8f0cddd"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "number",
+                "text": "Number"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyNumberColumn4",
+            "designerId": "e62dcc58-db01-47d1-986a-2f0657104b12"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "date",
+                "text": "Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyDateColumn2",
+            "designerId": "aa18ade7-f4ee-42c9-ba89-5a806a7e4b4c"
+        },
+        {
+            "type": "Ext.grid.column.Boolean",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bool",
+                "text": "Boolean"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyBooleanColumn2",
+            "designerId": "14006dbf-0d5e-47d5-b92d-b8932b2c532f"
+        },
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable14",
+            "designerId": "33dbfcea-ab57-4c9c-ad31-1a7fcda3466d"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "cashbookreportsheader2",
+            "designerId": "870bbfc0-0085-414b-99b1-87153d51090a",
+            "masterInstanceId": "41097c1d-756b-4047-a0a9-eb31c3df6024"
+        }
+    ]
+}

@@ -38,13 +38,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Encounter_Nr"
+                "name": "Batch_Nr"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField121",
             "designerId": "2c1f08d9-7de0-4e4f-aa96-ec04f009511a"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Encounter_Nr"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField155",
+            "designerId": "d0461a4c-fbee-4d1b-9e19-313018998b87"
         },
         {
             "type": "Ext.data.field.Field",

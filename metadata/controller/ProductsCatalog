@@ -51,7 +51,7 @@
                 "fn": "init",
                 "implHandler": [
                     "this.control({",
-                    "    '#cmdNew':{",
+                    "    '#cmdNewProduct':{",
                     "        click:this.openItemRegister",
                     "    },",
                     "    '#cmdSaveProducts':{",

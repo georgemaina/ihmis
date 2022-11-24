@@ -13,7 +13,8 @@
         "itemId": "assignGrid",
         "minHeight": 500,
         "store": "OccupancyStore",
-        "viewModel": "wardoccupancy"
+        "viewModel": "wardoccupancy",
+        "width": 907
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -24,7 +25,8 @@
         "title": "string",
         "viewModel": "string",
         "height": "auto",
-        "itemId": "string"
+        "itemId": "string",
+        "width": "auto"
     },
     "name": "WardOccupancy1",
     "designerId": "cd7c6438-e50e-4d3d-8c44-7eea720aa03f",
@@ -155,11 +157,11 @@
                         "fn": "renderer",
                         "implHandler": [
                             "if(value =='m'){",
-                            "    return '<img src=../gui/img/common/default/spm.gif>';",
+                            "    return '<img src=icons/fam/spm.gif>';",
                             "}else if(value=='f'){",
-                            "    return '<img src=../gui/img/common/default/spf.gif>';",
+                            "    return '<img src=icons/fam/spf.gif>';",
                             "}else{",
-                            "    return '<img src=../gui/img/common/default/plus2.gif>';",
+                            "    return '<img src=icons/fam/plus2.gif>';",
                             "}",
                             "return value;"
                         ]
@@ -407,7 +409,7 @@
                 "bodyStyle": "background:#386d87",
                 "designer|snapToGrid": 5,
                 "dock": "top",
-                "height": 78,
+                "height": 56,
                 "layout": "absolute",
                 "width": 100
             },
@@ -461,8 +463,8 @@
                         "layout|x": 180,
                         "layout|y": 0,
                         "reference": "wardTitle",
-                        "value": "Ward Occupancy",
-                        "width": 490
+                        "value": "",
+                        "width": 200
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -486,8 +488,8 @@
                     "userConfig": {
                         "fieldStyle": "font-family: serif;     font-size: 16px;     font-weight: bold;     font-variant: normal;  color:#eef742;",
                         "itemId": "assMsg",
-                        "layout|x": 65,
-                        "layout|y": 35,
+                        "layout|x": 5,
+                        "layout|y": 25,
                         "value": "Please select the room and bed to assign to  ",
                         "width": 685
                     },
@@ -511,11 +513,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "emptyText": "Ward ID",
                         "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:black;",
+                        "hidden": true,
                         "itemId": "wardID",
-                        "layout|x": 665,
-                        "layout|y": 10,
-                        "width": 65
+                        "layout|x": 405,
+                        "layout|y": 5,
+                        "width": 70
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -523,7 +527,9 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "value": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "hidden": "boolean",
+                        "emptyText": "string"
                     },
                     "name": "MyTextField3",
                     "designerId": "501dc5a7-80aa-4c87-b4c2-d2af5ee57b17"
@@ -536,11 +542,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "emptyText": "pid",
                         "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:black;",
-                        "itemId": "encNo",
-                        "layout|x": 765,
-                        "layout|y": 10,
-                        "width": 65
+                        "hidden": true,
+                        "itemId": "pid",
+                        "layout|x": 480,
+                        "layout|y": 5,
+                        "width": 70
                     },
                     "configAlternates": {
                         "fieldStyle": "string",
@@ -548,10 +556,90 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "value": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "hidden": "boolean",
+                        "emptyText": "string"
+                    },
+                    "name": "MyTextField80",
+                    "designerId": "a692f601-7df4-4740-9581-c7f1a18c9cda"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "EncNo",
+                        "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:black;",
+                        "hidden": true,
+                        "itemId": "encNo",
+                        "layout|x": 555,
+                        "layout|y": 5,
+                        "width": 90
+                    },
+                    "configAlternates": {
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "value": "string",
+                        "width": "auto",
+                        "hidden": "boolean",
+                        "emptyText": "string"
                     },
                     "name": "MyTextField52",
                     "designerId": "c73cd797-b4ee-4f0a-8e72-1f76c6d3dd23"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Names",
+                        "fieldStyle": "font-family: serif;     font-size: 20px;     font-weight: bold;     font-variant: normal;     color:black;",
+                        "hidden": true,
+                        "itemId": "names",
+                        "layout|x": 650,
+                        "layout|y": 5,
+                        "width": 235
+                    },
+                    "configAlternates": {
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "value": "string",
+                        "width": "auto",
+                        "hidden": "boolean",
+                        "emptyText": "string"
+                    },
+                    "name": "MyTextField81",
+                    "designerId": "cc6323f9-925b-4e40-900e-3d8a435bc444"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "transType",
+                        "layout|x": 710,
+                        "layout|y": 20
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField128",
+                    "designerId": "4de1225c-04d6-4448-9ba6-fc6c5836792f"
                 }
             ]
         },

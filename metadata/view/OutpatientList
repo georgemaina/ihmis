@@ -14,6 +14,7 @@
             "{moveOnDrag:false}"
         ],
         "frame": true,
+        "height": 800,
         "itemId": "OutpatientAdmissions",
         "minHeight": null,
         "scrollable": "both",
@@ -112,8 +113,8 @@
             "userConfig": {
                 "align": "center",
                 "dataIndex": "EncounterNo",
-                "text": "Admit Patient",
-                "width": 174
+                "text": "Transfer to Ward",
+                "width": 124
             },
             "configAlternates": {
                 "align": "string",
@@ -132,10 +133,10 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "bind": "Outpatients",
+                        "bind": "Transfer Inpatient",
                         "iconCls": "x-fa fa-arrow-up",
                         "itemId": "transferPatient",
-                        "text": "Admit Patient"
+                        "text": "TransferInpatient"
                     },
                     "configAlternates": {
                         "text": "string",
@@ -156,6 +157,59 @@
             ]
         },
         {
+            "type": "Ext.grid.column.Widget",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "dataIndex": "EncounterNo",
+                "text": "Assign Room",
+                "width": 126
+            },
+            "configAlternates": {
+                "align": "string",
+                "text": "string",
+                "width": "auto",
+                "dataIndex": "datafield"
+            },
+            "name": "MyWidget",
+            "designerId": "6b052b13-21bf-48c7-9646-005426ca88eb",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "widget",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bind": "Assign Room",
+                        "iconCls": "x-fa fa-arrow-up",
+                        "itemId": "openAssignRoom",
+                        "text": "AssignRoom"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "bind": "string",
+                        "iconCls": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton15",
+                    "designerId": "3ce819f7-cbea-4dee-ada2-1c606b12cde4",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "bind",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "Ext.view.Table",
             "reference": {
                 "name": "viewConfig",
@@ -163,11 +217,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|displayName": "Transfer Inpatients"
+                "designer|displayName": "Transfer Inpatient",
+                "height": 901
             },
             "configAlternates": {
                 "scrollable": "boolean",
-                "designer|displayName": "string"
+                "designer|displayName": "string",
+                "height": "auto"
             },
             "name": "MyGridView",
             "designerId": "a7d273b8-b90d-4352-8ec5-b67309ac7e59"
@@ -257,6 +313,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "iconCls": "x-fa fa-search",
                         "itemId": "cmdSearchPatients",
                         "layout|x": 470,
                         "layout|y": 5,
@@ -268,10 +325,37 @@
                         "layout|y": "number",
                         "text": "string",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "iconCls": "string"
                     },
                     "name": "MyButton4",
                     "designerId": "bc077420-e0df-46a2-8e89-ae3f7eb30758"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-clock-o",
+                        "itemId": "cmdScheduleAppointment",
+                        "layout|x": 655,
+                        "layout|y": 4,
+                        "text": "Schedule New Appointments",
+                        "width": 210
+                    },
+                    "configAlternates": {
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string",
+                        "iconCls": "string"
+                    },
+                    "name": "MyButton29",
+                    "designerId": "38412859-296e-4b64-80e5-be8c1a48dc36"
                 }
             ]
         },
@@ -285,7 +369,7 @@
             "userConfig": {
                 "dataIndex": "Status",
                 "text": "Status",
-                "width": 80
+                "width": 136
             },
             "configAlternates": {
                 "dataIndex": "datafield",
@@ -294,7 +378,44 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn30",
-            "designerId": "f0ec5329-eb1a-4159-8d8e-ffda56d72943"
+            "designerId": "f0ec5329-eb1a-4159-8d8e-ffda56d72943",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            " if (value ===\"pending\" || value===\"\") {",
+                            "     metaData.style = \"background-color:\" + \"red\" + \";font-weight:bold;color:white;\";",
+                            " } else {",
+                            "     metaData.style = \"background-color:\" + \"yellow\" + \";font-weight:bold;color:red;\";",
+                            " }",
+                            "return value;"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "renderer",
+                    "designerId": "cced1b14-0727-4054-8116-ee76aea5a746"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -357,7 +478,44 @@
                 "width": "auto"
             },
             "name": "MyColumn33",
-            "designerId": "f8afaf63-8cf9-40e2-85b3-fdf87d01a6cc"
+            "designerId": "f8afaf63-8cf9-40e2-85b3-fdf87d01a6cc",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            " if (value ===\"CASH\" || value=='-1') {",
+                            "     metaData.style = \"background-color:\" + \"yellow\" + \";font-weight:bold;color:red;\";",
+                            " } else {",
+                            "     metaData.style = \"background-color:\" + \"red\" + \";font-weight:bold;color:white;\";",
+                            " }",
+                            "return value;"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "renderer",
+                    "designerId": "211fe3c9-e383-4f12-a742-1dbdfc8a0202"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -409,7 +567,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Department",
+                "dataIndex": "EncounterNo",
                 "text": "Encounter No",
                 "width": 119
             },
@@ -513,6 +671,83 @@
             "codeClass": null,
             "name": "MyRowSelectionModel1",
             "designerId": "c1fc84a7-de25-4e2d-af8c-db883aa3e174"
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "align": "center",
+                "itemId": "transferClinic",
+                "text": "Transfer",
+                "width": 90
+            },
+            "configAlternates": {
+                "align": "string",
+                "itemId": "string",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyActionColumn20",
+            "designerId": "780ae916-8287-41c7-9be9-87f626d5f337",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Transfer Patient",
+                        "icon": "icons/xchange.gif",
+                        "tooltip": "Transfer Patient"
+                    },
+                    "configAlternates": {
+                        "altText": "string",
+                        "icon": "string",
+                        "tooltip": "string"
+                    },
+                    "name": "MyActionColumnItem6",
+                    "designerId": "7ed1ce50-63d9-4b0a-b745-fb3e06560073",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "v",
+                                    "metadata",
+                                    "r",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "store"
+                                ],
+                                "fn": "getClass",
+                                "implHandler": [
+                                    "if(r.get('Pid') === '') {",
+                                    "     return 'x-hidden-visibility';",
+                                    " }"
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "getClass",
+                            "designerId": "28e6e437-fa6a-4fd3-93e7-c576e29c2512"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

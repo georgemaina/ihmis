@@ -10,7 +10,6 @@
         "designer|userAlias": "opadmissionsstore",
         "designer|userClassName": "OPAdmissionsStore",
         "model": "OPAdmissions",
-        "pageSize": 200,
         "storeId": "OPAdmissionsStore"
     },
     "configAlternates": {
@@ -47,9 +46,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "OutPatients"
-                    },
                     "configAlternates": {
                         "root": "string",
                         "rootProperty": "string"

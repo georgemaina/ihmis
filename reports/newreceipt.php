@@ -32,15 +32,15 @@ require($root_path . 'include/inc_environment_global.php');
         $global_config_ok = 0;
     }
 
-    $imagePath="../../icons/logo2.jpg";
+    $imagePath="../icons/logo2.jpg";
 
     global $db;
     $debug=false;
     $datePrinted=date('Y-m-d H:i:s');
     echo "<div class='page'>";
      echo "<div class='subpage'>
-            <table border=0>
-                <tr> <td colspan='3' class='logo'> <img src='../../../icons/logo2.jpg' width='200' height='100' ></td></tr>
+            <table border=0 width=60%>
+                <tr> <td colspan='3' class='logo'> <img src='../icons/logo2.jpg' width='200' height='100' ></td></tr>
                 <tr> <td colspan='3' class='summaryTitle'>PATIENT RECEIPT</td></tr>";
 
 
@@ -72,10 +72,10 @@ require($root_path . 'include/inc_environment_global.php');
     $cashpoint=$_REQUEST['cash_point'];
     $refno=$_REQUEST['refno'];
     $pno=$_REQUEST['pno'];
-    $shiftNo=$_REQUEST['shiftno'];
+    $shiftNo=$_REQUEST['shiftNo'];
 
     $r_sql = "select rev_desc, proc_qty, `Prec_desc`, total, amount, rev_code, proc_code,mpesaRef from care_ke_receipts
-            where ref_no='$refno' and cash_point='$cashpoint'";
+            where ref_no='$refno' and cash_point='$cashpoint' and shift_no='$shiftNo'";
 
     $result = $db->Execute($r_sql);
     //echo $r_sql;
@@ -83,7 +83,7 @@ require($root_path . 'include/inc_environment_global.php');
     $mpesaRef='';
 	$total=0;
     while ( $row = $result->FetchRow()) {
-        echo"<tr><td class='invDetails'>".$row['Prec_desc']."</td>
+        echo"<tr><td style='width:40%'>".$row['Prec_desc']."</td>
           <td class='invDetails' align='center'>".$row['proc_qty']."</td>
           <td class='invDetails' align='r'>".number_format($row['total'],2)."</td>";
 		$total=$total+$row['total'];
@@ -93,7 +93,7 @@ require($root_path . 'include/inc_environment_global.php');
     echo "<tr><td colspan='3'><hr></td></tr>";
 
     $sql = "SELECT cash,mpesa,visa FROM care_ke_receipts
-     WHERE ref_no='$refno' AND cash_point='$cashpoint'";
+     WHERE ref_no='$refno' AND cash_point='$cashpoint' and shift_no='$shiftNo'";
     $result = $db->Execute($sql);
     //echo $sql;
     $row = $result->FetchRow();
@@ -118,6 +118,7 @@ require($root_path . 'include/inc_environment_global.php');
     echo"<tr><td class='itemTitles'>Paid By.....:</td><td class=invDetails colspan='2'>Customer</td></tr>
           <tr><td class='itemTitles'>Cashier.....:</td><td class=invDetails colspan='2'>".$cashier."</tr>
           <tr><td class='itemTitles'>Cash Point..:</td><td class=invDetails colspan='2'>".$cashpoint."</td></tr>
+          <tr><td class='itemTitles'>Shift No..:</td><td class=invDetails colspan='2'>".$shiftno."</td></tr>
          <tr><td class='itemTitles' colspan='3'>Thank`s and wish you a quick recovery:</td></tr>";
 
     echo "<tr><td colspan='3'><hr></td></tr>";

@@ -17,7 +17,7 @@ function createInvoiceTitle($db, $cashpoint, $shiftno, $pdf, $pdfBase) {
     require ('roots.php');
     $page = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4);
 
-    require '../../../include/care_api_classes/class_ward.php';
+    require '../include/care_api_classes/class_ward.php';
     //require('../../../include/class_ward.php');
     //require('../../../include/care_api_classes/class_encounter.php');
     $wrd = new Ward ();

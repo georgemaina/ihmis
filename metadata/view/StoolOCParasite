@@ -59,7 +59,7 @@
                     "userConfig": {
                         "fieldLabel": "OCCULT BLOOD",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-54",
+                        "name": "group-ltest111-54",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -85,7 +85,7 @@
                     "userConfig": {
                         "fieldLabel": "ASCARIS",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-55",
+                        "name": "group-ltest111-55",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -111,7 +111,7 @@
                     "userConfig": {
                         "fieldLabel": "HOOKWARM",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-56",
+                        "name": "group-ltest111-56",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -137,7 +137,7 @@
                     "userConfig": {
                         "fieldLabel": "TAENIA SPP",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-57",
+                        "name": "group-ltest111-57",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -163,7 +163,7 @@
                     "userConfig": {
                         "fieldLabel": "TRICURIS",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-58",
+                        "name": "group-ltest111-58",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -189,7 +189,7 @@
                     "userConfig": {
                         "fieldLabel": "STRONGYLOIDES",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-58",
+                        "name": "group-ltest111-58",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -215,7 +215,7 @@
                     "userConfig": {
                         "fieldLabel": "GIARDIA",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-59",
+                        "name": "group-ltest111-59",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -241,7 +241,7 @@
                     "userConfig": {
                         "fieldLabel": "ECOLI",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-60",
+                        "name": "group-ltest111-60",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -267,7 +267,7 @@
                     "userConfig": {
                         "fieldLabel": "EHISTOLYNCA",
                         "margin": "0 0 3 0",
-                        "name": "group-ltest102-61",
+                        "name": "group-ltest111-61",
                         "store": [
                             "['POS','NEG']"
                         ],
@@ -335,7 +335,7 @@
                                 "labelAlign": "right",
                                 "layout|flex": 1,
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-49",
+                                "name": "group-ltest111-49",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -361,7 +361,7 @@
                                 "labelAlign": "right",
                                 "layout|flex": 1,
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-50",
+                                "name": "group-ltest111-50",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -387,7 +387,7 @@
                                 "labelAlign": "right",
                                 "layout|flex": 1,
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-51",
+                                "name": "group-ltest111-51",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -413,7 +413,7 @@
                                 "labelAlign": "right",
                                 "layout|flex": 1,
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-52",
+                                "name": "group-ltest111-52",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -459,7 +459,7 @@
                                 "fieldLabel": "OVA",
                                 "labelAlign": "right",
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-118",
+                                "name": "group-ltest111-118",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -484,7 +484,7 @@
                                 "fieldLabel": "CYST",
                                 "labelAlign": "right",
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-119",
+                                "name": "group-ltest111-119",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -509,7 +509,7 @@
                                 "fieldLabel": "TROPHOLOITE",
                                 "labelAlign": "right",
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-120",
+                                "name": "group-ltest111-120",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -534,7 +534,7 @@
                                 "fieldLabel": "BACTERIA",
                                 "labelAlign": "right",
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-121",
+                                "name": "group-ltest111-121",
                                 "width": 373
                             },
                             "configAlternates": {
@@ -559,7 +559,7 @@
                                 "fieldLabel": "PARASITE",
                                 "labelAlign": "right",
                                 "margin": "0 0 3 0",
-                                "name": "group-ltest102-122",
+                                "name": "group-ltest111-122",
                                 "width": 373
                             },
                             "configAlternates": {

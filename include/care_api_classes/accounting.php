@@ -20,11 +20,11 @@ class accounting {
         $bill_obj = new Bill;
          $user = $_SESSION['sess_user_name'];
 
-        $ddate=new DateTime($DebitDetails[debitDate]);
+        $ddate=new DateTime($DebitDetails['debitDate']);
         $debitDate=$ddate->format('Y-m-d');
         
-        $new_bill_number = $bill_obj->checkBillEncounter($DebitDetails[en_nr]);
-        $insuranceid=$insurance_obj->Get_insuranceID_from_pid($DebitDetails[pid]);
+        $new_bill_number = $bill_obj->checkBillEncounter($DebitDetails['en_nr']);
+        $insuranceid=$insurance_obj->Get_insuranceID_from_pid($DebitDetails['pid']);
         
 //        echo var_dump($DebitDetails);
         
@@ -32,16 +32,16 @@ class accounting {
         $this->sql = "INSERT care_ke_billing(encounter_nr,pid,bill_number,bill_date,service_type,item_number,
             Description,price,qty,total,`status`,`IP-OP`,prescribe_date,weberpSync,partcode,
             bill_time,ledger,insurance_id,batch_no,input_user,rev_code,debtorUpdate)
-            values('" . $DebitDetails[en_nr] . "','" . $DebitDetails[pid] . "','" . $new_bill_number . "','" .$debitDate 
-                . "','".$DebitDetails[item_type]."','" . $DebitDetails[revcode] . "','" . $DebitDetails[Description] . "','" . $DebitDetails[Amount]
-                . "','" . $DebitDetails[qty] . "','" . $DebitDetails[total] . "','pending','1','" . $debitDate
-                . "',0,'" . $DebitDetails[revcode] . "','" . date('H:i:s') . "','" . $DebitDetails[ward_nr]
-                . "','" . $insuranceid. "','". $DebitDetails[receiptNo]. "','".$user. "','".$DebitDetails[revcode] ."',0)";
+            values('" . $DebitDetails['en_nr'] . "','" . $DebitDetails['pid'] . "','" . $new_bill_number . "','" .$debitDate 
+                . "','".$DebitDetails['item_type']."','" . $DebitDetails['revcode'] . "','" . $DebitDetails['Description'] . "','" . $DebitDetails['Amount']
+                . "','" . $DebitDetails['qty'] . "','" . $DebitDetails['total'] . "','pending','1','" . $debitDate
+                . "',0,'" . $DebitDetails['revcode'] . "','" . date('H:i:s') . "','" . $DebitDetails['ward_nr']
+                . "','" . $insuranceid. "','". $DebitDetails['receiptNo']. "','".$user. "','".$DebitDetails['revcode'] ."',0)";
         if ($debug)
             echo $this->sql;
         if($db->Execute($this->sql)){
-            $newDebitNo=substr($DebitDetails[receiptNo],1)+1;
-            $sql="Update care_ke_invoice set newDebitNo='D".$newDebitNo."'";
+            $newDebitNo=substr($DebitDetails['receiptNo'],1)+1;
+            $sql="Update care_ke_company set newDebitNo='D".$newDebitNo."'";
             if ($debug)
             echo $sql;
             $db->Execute($sql);
@@ -61,27 +61,27 @@ class accounting {
         $insurance_obj = new Insurance_tz;
         $bill_obj = new Bill;
 
-        $ddate=new DateTime($DebitDetails[debitDate]);
+        $ddate=new DateTime($DebitDetails['debitDate']);
         $debitDate=$ddate->format('Y-m-d');
          $user = $_SESSION['sess_user_name'];
 
-        $new_bill_number = $bill_obj->checkBillEncounter($DebitDetails[en_nr]);
-         $insuranceid=$insurance_obj->Get_insuranceID_from_pid($DebitDetails[pid]);
+        $new_bill_number = $bill_obj->checkBillEncounter($DebitDetails['en_nr']);
+         $insuranceid=$insurance_obj->Get_insuranceID_from_pid($DebitDetails['pid']);
          
         $this->sql = "INSERT care_ke_billing(encounter_nr,pid,bill_number,bill_date,service_type,item_number,
             Description,price,qty,total,`status`,`IP-OP`,prescribe_date,weberpSync,partcode,
             bill_time,ledger,insurance_id,batch_no,input_user,rev_code,debtorUpdate)
-            values('" . $DebitDetails[en_nr] . "','" . $DebitDetails[pid] . "','" . $new_bill_number . "','" 
-                . $debitDate . "','".$DebitDetails[item_type]."','" . $DebitDetails[revcode] . "','" . $DebitDetails[Description] . "','" . $DebitDetails[Amount]
-                . "','" . $DebitDetails[qty] . "','" . $DebitDetails[total] . "','pending','2','" .$debitDate
-                . "',0,'" . $DebitDetails[revcode] . "','" . date('H:i:s') . "','17','" . $insuranceid .  "','" 
-                . $DebitDetails[receiptNo] . "','" . $user . "','".$DebitDetails[revcode] ."',0)";
+            values('" . $DebitDetails['en_nr'] . "','" . $DebitDetails['pid'] . "','" . $new_bill_number . "','" 
+                . $debitDate . "','".$DebitDetails['item_type']."','" . $DebitDetails['revcode'] . "','" . $DebitDetails['Description'] . "','" . $DebitDetails['Amount']
+                . "','" . $DebitDetails['qty'] . "','" . $DebitDetails['total'] . "','pending','2','" .$debitDate
+                . "',0,'" . $DebitDetails['revcode'] . "','" . date('H:i:s') . "','17','" . $insuranceid .  "','" 
+                . $DebitDetails['receiptNo'] . "','" . $user . "','".$DebitDetails['revcode'] ."',0)";
         if ($debug)
             echo $this->sql;
         $db->Execute($this->sql);
         
-        $newDebitNo=substr($DebitDetails[receiptNo],2)+1;
-            $sql="Update care_ke_invoice set OPDebitNo='DT".$newDebitNo."'";
+        $newDebitNo=substr($DebitDetails['receiptNo'],2)+1;
+            $sql="Update care_ke_company set OPDebitNo='DT".$newDebitNo."'";
             if ($debug)
             echo $sql;
             $db->Execute($sql);

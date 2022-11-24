@@ -1,0 +1,773 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "container|pack": "center",
+        "designer|userAlias": "statisticspanel",
+        "designer|userClassName": "StatisticsPanel",
+        "height": 123,
+        "layout": "hbox"
+    },
+    "configAlternates": {
+        "container|align": "string",
+        "height": "auto",
+        "layout": "string",
+        "layout|flex": "number",
+        "container|pack": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyPanel11",
+    "designerId": "48f351a5-90dd-4152-8b71-45f0f753dea1",
+    "viewControllerInstanceId": "7fa2f22e-9e16-4b67-a877-dda6acca52cf",
+    "viewModelInstanceId": "c8806f52-601d-4a9e-be9c-62d017bdff69",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": "background: #4d94ff;",
+                "container|align": "stretchmax",
+                "height": 112,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "margin": "5 5 2 2"
+            },
+            "configAlternates": {
+                "bodyStyle": "string",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyPanel30",
+            "designerId": "7ee1420d-bea3-4d99-9fc7-affe9df0d024",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "flex": 1,
+                        "iconCls": "x-fa fa-arrow-right",
+                        "shadow": true,
+                        "text": "More Info"
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "flex": "number",
+                        "iconCls": "string",
+                        "text": "string",
+                        "shadow": "auto"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "dc8d1442-00a1-4c58-8ddd-0406706fcee0"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "height": 83,
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "container|pack": "string"
+                    },
+                    "name": "MyContainer10",
+                    "designerId": "71b6e24c-74b3-467d-9808-2317bc42aae0",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 15px; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "OP Pending Patients"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField29",
+                            "designerId": "4d1dc701-9aed-47e3-9a7c-698e040737f5"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 2.5em; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "200"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField33",
+                            "designerId": "aedeecb6-d7a6-471d-b5cd-01709860ae3a"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 10,
+                        "layout|flex": 0,
+                        "src": "icons/ihmis.png",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "height": "auto",
+                        "src": "uri",
+                        "style": "string",
+                        "width": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyImg13",
+                    "designerId": "8f42c696-5c2d-4257-974a-b3beaba3675d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": "background: #ffa31a;",
+                "container|align": "stretchmax",
+                "height": 112,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "margin": "5 5 2 2"
+            },
+            "configAlternates": {
+                "bodyStyle": "string",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyPanel20",
+            "designerId": "55787d24-2b98-4c97-a1b1-aeb0cdd9c2bc",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "flex": 1,
+                        "iconCls": "x-fa fa-arrow-right",
+                        "text": "More Info"
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "flex": "number",
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "4f344fff-dbc1-4a15-af69-58c17669bcf3"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "height": 83,
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "container|pack": "string"
+                    },
+                    "name": "MyContainer10",
+                    "designerId": "f62ee831-8c85-4d66-9c58-8e6e001df7b5",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 15px; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "OP Pending Patients"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField29",
+                            "designerId": "9d36e63b-96bf-43b3-b875-c49e76cc59d7"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 2.5em; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "200"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField33",
+                            "designerId": "8aeaf91e-672b-4354-bd37-020775ff8a1e"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 10,
+                        "layout|flex": 0,
+                        "src": "icons/ihmis.png",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "height": "auto",
+                        "src": "uri",
+                        "style": "string",
+                        "width": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyImg13",
+                    "designerId": "7726362e-2374-4529-899e-0d7fae3a9dc0"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": "background: #ff3300;",
+                "container|align": "stretchmax",
+                "height": 112,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "margin": "5 5 2 2"
+            },
+            "configAlternates": {
+                "bodyStyle": "string",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyPanel24",
+            "designerId": "0bf4f2e6-4037-43f8-a76e-5b7ffc220536",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "flex": 1,
+                        "iconCls": "x-fa fa-arrow-right",
+                        "text": "More Info"
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "flex": "number",
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "d1e74c50-afaf-45da-a7ee-d61681254479"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "height": 83,
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "container|pack": "string"
+                    },
+                    "name": "MyContainer10",
+                    "designerId": "6d425df2-1b43-4119-9bde-c55afdf50a63",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 15px; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "OP Pending Patients"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField29",
+                            "designerId": "1bf77dbc-2888-4fc1-9487-929368ea438c"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 2.5em; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "200"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField33",
+                            "designerId": "0bf130d6-fd14-4d6f-b86f-bc9f95291a1d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 10,
+                        "layout|flex": 0,
+                        "src": "icons/ihmis.png",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "height": "auto",
+                        "src": "uri",
+                        "style": "string",
+                        "width": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyImg13",
+                    "designerId": "a397df95-d6ed-422e-ba86-619f0379f2b5"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": ";background: #00cc44;",
+                "container|align": "stretchmax",
+                "height": 112,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "margin": "5 5 2 2"
+            },
+            "configAlternates": {
+                "bodyStyle": "string",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyPanel25",
+            "designerId": "ce27fc6c-53b5-4049-89f7-76e1eeb3b8d3",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "flex": 1,
+                        "iconCls": "x-fa fa-arrow-right",
+                        "text": "More Info"
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "flex": "number",
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "2da2e01c-e6c9-4d53-bb82-5b811b5d4cb4"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "height": 83,
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "container|pack": "string"
+                    },
+                    "name": "MyContainer10",
+                    "designerId": "b39bd08b-68b6-4859-9aa9-eb752914a252",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 15px; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "OP Pending Patients"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField29",
+                            "designerId": "4d4359ee-ce71-43e7-9b2a-f89c2a38921d"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 2.5em; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "200"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField33",
+                            "designerId": "523581e3-89a8-4998-9320-6ec2d8293413"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 10,
+                        "layout|flex": 0,
+                        "src": "icons/ihmis.png",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "height": "auto",
+                        "src": "uri",
+                        "style": "string",
+                        "width": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyImg13",
+                    "designerId": "09b62b3e-1e17-41d4-9051-63161984c81b"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyStyle": "background: #b35900;",
+                "container|align": "stretchmax",
+                "height": 112,
+                "layout": "hbox",
+                "layout|flex": 1,
+                "margin": "5 5 2 2"
+            },
+            "configAlternates": {
+                "bodyStyle": "string",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyPanel26",
+            "designerId": "c7e09f4e-be05-4fa8-949c-96ac571886fa",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "bottom",
+                        "flex": 1,
+                        "iconCls": "x-fa fa-arrow-right",
+                        "text": "More Info"
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "flex": "number",
+                        "iconCls": "string",
+                        "text": "string"
+                    },
+                    "name": "MyButton27",
+                    "designerId": "00bdda88-a33d-4440-83ee-37705139ae80"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "center",
+                        "container|pack": "center",
+                        "height": 83,
+                        "layout": "vbox",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "container|pack": "string"
+                    },
+                    "name": "MyContainer10",
+                    "designerId": "7d1562b4-f5f5-46ce-bf2c-73ea01b6a3f1",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 15px; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "OP Pending Patients"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField29",
+                            "designerId": "03c96ed2-6b49-4e70-8d4b-d58087351f7c"
+                        },
+                        {
+                            "type": "Ext.form.field.Display",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dock": "left",
+                                "fieldStyle": "font-size: 2.5em; color:white;  font-family: \"serif\", Times, serif; font-weight: bold;",
+                                "layout|flex": 1,
+                                "value": "200"
+                            },
+                            "configAlternates": {
+                                "dock": "string",
+                                "fieldStyle": "string",
+                                "layout|flex": "number",
+                                "padding": "auto",
+                                "value": "string"
+                            },
+                            "name": "MyDisplayField33",
+                            "designerId": "89b528ea-b97c-421d-a752-b07b721f0ac0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Img",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": null,
+                        "height": 10,
+                        "layout|flex": 0,
+                        "src": "icons/ihmis.png",
+                        "width": 80
+                    },
+                    "configAlternates": {
+                        "dock": "string",
+                        "height": "auto",
+                        "src": "uri",
+                        "style": "string",
+                        "width": "auto",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyImg13",
+                    "designerId": "53b25a4f-58d2-46b3-ad85-331fe5f45526"
+                }
+            ]
+        }
+    ]
+}

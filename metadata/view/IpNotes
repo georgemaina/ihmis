@@ -14,7 +14,7 @@
         "frame": true,
         "height": 575,
         "layout": "hbox",
-        "url": "../../data/getDataFunctions.php?task=saveNotes",
+        "url": "data/getDataFunctions.php?task=saveNotes",
         "width": 1017
     },
     "configAlternates": {
@@ -102,13 +102,15 @@
                     "codeClass": null,
                     "userConfig": {
                         "container|align": "stretch",
+                        "itemId": "type_nr",
                         "layout": "vbox",
                         "width": 217
                     },
                     "configAlternates": {
                         "container|align": "string",
                         "layout": "string",
-                        "width": "auto"
+                        "width": "auto",
+                        "itemId": "string"
                     },
                     "name": "MyRadioGroup2",
                     "designerId": "f5660f74-67e6-4d7e-949e-98974385b940",
@@ -265,6 +267,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "itemId": "notes",
                                 "name": "notes",
                                 "padding": 0,
                                 "scrollable": "both",
@@ -276,7 +279,8 @@
                                 "scrollable": "auto",
                                 "name": "string",
                                 "width": "auto",
-                                "padding": "auto"
+                                "padding": "auto",
+                                "itemId": "string"
                             },
                             "name": "MyHtmlEditor",
                             "designerId": "e23124f4-0394-448c-8289-6838e2b73c04"
@@ -284,120 +288,15 @@
                     ]
                 },
                 {
-                    "type": "Ext.grid.Panel",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "columnLines": true,
-                        "designer|uiInterfaceName": "default-framed",
-                        "frame": true,
-                        "height": 195,
-                        "store": "NotesStore",
-                        "width": 754
-                    },
-                    "configAlternates": {
-                        "columnLines": "boolean",
-                        "designer|uiInterfaceName": "string",
-                        "frame": "boolean",
-                        "height": "auto",
-                        "store": "store",
-                        "width": "auto"
-                    },
-                    "name": "MyGridPanel3",
-                    "designerId": "317831dd-dffc-4621-ba94-c84d9bc4f1f3",
-                    "cn": [
-                        {
-                            "type": "Ext.view.Table",
-                            "reference": {
-                                "name": "viewConfig",
-                                "type": "object"
-                            },
-                            "codeClass": null,
-                            "name": "MyTable6",
-                            "designerId": "b8d25149-5361-41a2-a44e-13e7f1625bd2"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "CreateTime",
-                                "text": "Create Time",
-                                "width": 167
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string",
-                                "width": "auto"
-                            },
-                            "name": "MyColumn78",
-                            "designerId": "627b7602-b0da-4f9f-8d8c-eb7889009923"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "NotesType",
-                                "text": "Notes Type",
-                                "width": 127
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string",
-                                "width": "auto"
-                            },
-                            "name": "MyColumn79",
-                            "designerId": "c5c78a0e-1e33-439c-89a7-f99b18cf57cc"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "Notes",
-                                "text": "Notes",
-                                "width": 302
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string",
-                                "width": "auto"
-                            },
-                            "name": "MyColumn80",
-                            "designerId": "6aaad912-23fd-45d0-bb3b-fbefc39aac91"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "TreatedBy",
-                                "text": "Treated By"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string"
-                            },
-                            "name": "MyColumn81",
-                            "designerId": "1cafe9ef-6abc-499b-8adf-3f81db010a23"
-                        }
-                    ]
+                    "name": "noteslist1",
+                    "designerId": "9990ce50-8d6a-4e07-9689-0302882af953",
+                    "masterInstanceId": "81e553a0-a066-4b56-b038-19b8ed461acb"
                 }
             ]
         },

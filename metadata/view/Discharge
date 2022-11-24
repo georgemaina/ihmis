@@ -406,7 +406,7 @@
                         "itemId": "encounterNo",
                         "labelAlign": "top",
                         "labelStyle": "font-weight:bold; font-size:11px; color:#f4f6fc;",
-                        "name": "encounter_nr",
+                        "name": "encNr",
                         "readOnly": true,
                         "width": 150
                     },

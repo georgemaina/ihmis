@@ -1,0 +1,212 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "occupancy",
+        "designer|userClassName": "Occupancy",
+        "height": 615,
+        "itemId": "Occupancy",
+        "title": "Occupancy Report",
+        "width": null
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "title": "string",
+        "width": "auto",
+        "scrollable": "boolean",
+        "itemId": "string"
+    },
+    "name": "MyPanel5",
+    "designerId": "ddf5fb43-0bd4-4037-a3cf-05c48adf5981",
+    "viewControllerInstanceId": "a0561dc0-be5a-40f1-b4c0-ed7c96fb5d5a",
+    "viewModelInstanceId": "d58a679e-3c0e-44bd-8fa7-c37aa779f172",
+    "cn": [
+        {
+            "type": "Ext.chart.CartesianChart",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 250,
+                "insetPadding": [
+                    "20"
+                ],
+                "store": "WardInfoStore",
+                "theme": "muted",
+                "width": null
+            },
+            "configAlternates": {
+                "height": "auto",
+                "insetPadding": "object",
+                "store": "store",
+                "theme": "string",
+                "width": "auto"
+            },
+            "name": "ColumnChart3D",
+            "designerId": "85cab025-c664-48ef-a77b-104c21bd0c86",
+            "isBuiltIn": true,
+            "iconCls": "icon-column-chart",
+            "autoName": "ColumnChart3D",
+            "cn": [
+                {
+                    "type": "Ext.chart.axis.Category3D",
+                    "reference": {
+                        "name": "axes",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fields": [
+                            "Ward"
+                        ],
+                        "grid": true,
+                        "position": "bottom",
+                        "title": [
+                            "List of Wards",
+                            "",
+                            ""
+                        ]
+                    },
+                    "configAlternates": {
+                        "grid": "boolean",
+                        "fields": "typedarray",
+                        "position": "string",
+                        "title": "object"
+                    },
+                    "name": "My3DCategoryAxis3",
+                    "designerId": "c31d0c30-bcf5-4f2b-8bf2-ba0ce7cc3d6d"
+                },
+                {
+                    "type": "Ext.chart.axis.Numeric3D",
+                    "reference": {
+                        "name": "axes",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fields": [
+                            "Occupied"
+                        ],
+                        "grid": [
+                            "{",
+                            "    odd: {",
+                            "        fillStyle: 'rgba(255, 255, 255, 0.06)'",
+                            "    },",
+                            "    even: {",
+                            "        fillStyle: 'rgba(0, 0, 0, 0.03)'",
+                            "    }",
+                            "}"
+                        ],
+                        "maximum": 150,
+                        "position": "left",
+                        "title": [
+                            "Occupancy",
+                            ""
+                        ]
+                    },
+                    "configAlternates": {
+                        "fields": "typedarray",
+                        "grid": "object",
+                        "maximum": "number",
+                        "position": "string",
+                        "title": "object"
+                    },
+                    "name": "My3DNumericAxis3",
+                    "designerId": "57e87a65-6c5b-4363-922c-65edf992323b",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "axis",
+                                    "label",
+                                    "layoutContext",
+                                    "lastLabel"
+                                ],
+                                "fn": "renderer",
+                                "implHandler": [
+                                    " // Custom renderer overrides the native axis label renderer.",
+                                    "        // Since we don't want to do anything fancy with the value",
+                                    "        // ourselves except adding a thousands separator, but at the same time",
+                                    "        // don't want to loose the formatting done by the native renderer,",
+                                    "        // we let the native renderer process the value first.",
+                                    "        return Ext.util.Format.number(layoutContext.renderer(label) / 1000, '0,000');",
+                                    ""
+                                ]
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "renderer",
+                            "designerId": "e46d6eb7-7663-4c83-9990-7fc87a34c1fa"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.chart.series.Bar3D",
+                    "reference": {
+                        "name": "series",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "highlightCfg": [
+                            "{saturationFactor:1.5}"
+                        ],
+                        "label": [
+                            "{field: 'Occupied',",
+                            "display: 'insideEnd'}"
+                        ],
+                        "style": [
+                            "{minGapWidth:20}"
+                        ],
+                        "xField": "Ward",
+                        "yField": [
+                            "Occupied"
+                        ]
+                    },
+                    "configAlternates": {
+                        "highlightCfg": "object",
+                        "label": "object",
+                        "style": "object",
+                        "xField": "datafield",
+                        "yField": "typedarray"
+                    },
+                    "name": "My3DBarSeries3",
+                    "designerId": "474f9cb5-c5a5-442f-a721-9a20d3841ed5"
+                }
+            ]
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "title": "Occupancy Data"
+            },
+            "configAlternates": {
+                "title": "string"
+            },
+            "name": "MyPanel3",
+            "designerId": "9d5df84c-ce8c-4174-b949-ad4c74c0729f"
+        }
+    ]
+}

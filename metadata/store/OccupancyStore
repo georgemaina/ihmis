@@ -49,9 +49,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "occupancy"
-                    },
                     "configAlternates": {
                         "rootProperty": "string"
                     },

@@ -56,6 +56,8 @@ function deleteUser($userName) {
         echo $sql;
     }
     if ($db->Execute($sql)) {
+          $sql = "delete from user_roles where username='$userName'";
+          $db->Execute($sql);
         echo "{success:true}";
     } else {
         echo "{failure:false}";
@@ -120,7 +122,7 @@ function insertUser($userdetails) {
 
 function updateUser($userdetails) {
     global $db;
-    $debug = true;
+    $debug = false;
     $id=$userdetails['ID'];
     $sql = 'UPDATE user_list SET ';
     unset($userdetails['formStatus']);
@@ -147,7 +149,7 @@ function getUserRole() {
     global $db;
     $debug = false;
 
-    $userRoles = $_GET['ids'];
+   // $userRoles = $_GET['ids'];
     $userName=$_REQUEST['userName'];
 
     $sql = "Select `ID`,`Role`,`RoleName`,`View`,`Edit`,`Delete`,menuGroup,Module from user_roles where Username='$userName'";
@@ -156,7 +158,7 @@ function getUserRole() {
     $results = $db->Execute($sql);
     $numRows = $results->RecordCount();
 
-    echo '{"success":"true","roles":[';
+    echo '[';
     $counter = 0;
     while ($row = $results->FetchRow()) {
         echo '{"ID":"' . $row['ID'] .'","Role":"' . $row['Role'] . '","RoleName":"' . $row['RoleName'] . '","View":' . $row['View'] . ',"Edit":' . $row['Edit']
@@ -166,7 +168,7 @@ function getUserRole() {
         }
         $counter++;
     }
-    echo ']}';
+    echo ']';
 }
 
 function getUserRoles() {
@@ -202,8 +204,16 @@ function updateRoles($strData) {
                 if ($k == 'View' && $strVal==false) {
                     $strVal = '0';
                 }
+
+                if ($k == 'Edit' && $strVal==false) {
+                    $strVal = '0';
+                }
+
+                if ($k == 'Delete' && $strVal==false) {
+                    $strVal = '0';
+                }
                 
-                $sql .= $k . '="' . $strVal . '", ';
+                $sql .= "`".$k."`" . '="' . $strVal . '", ';
                 foreach ($strVal as $x => $xval) {
                     //echo "<br> Items in third loop  $x and Value $xval";
                 }
@@ -223,10 +233,24 @@ function updateRoles($strData) {
         $sql = "UPDATE user_roles SET ";
         $id = '';
         foreach ($strData as $key => $value) {
-            $sql .= $key . '="' . $value . '", ';
+            
             if ($key == 'ID') {
                 $id = $value;
             }
+
+            if ($key == 'View' && $value==false) {
+                $value = '0';
+            }
+
+            if ($key == 'Edit' && $value==false) {
+                $value = '0';
+            }
+
+            if ($key == 'Delete' && $value==false) {
+                $value = '0';
+            }
+
+            $sql .=  "`".$key. "`".'="' . $value . '", ';
 
         }
         $sql = substr($sql, 0, -2) . " WHERE ID='$id'";
@@ -274,7 +298,8 @@ function getUsersList() {
     global $db;
     $debug = false;
 
-    $sql = "Select ID,FirstName,LastName,Username,Roles from user_list";
+    $sql = "Select l.ID,FirstName,LastName,Username,l.Roles,g.`group` as UserGroup from user_list l LEFT JOIN `user_groups` g
+                ON l.`UserGroup` = g.`ID`";
     if ($debug)
         echo $sql;
     $results = $db->Execute($sql);
@@ -284,7 +309,7 @@ function getUsersList() {
     $counter = 0;
     while ($row = $results->FetchRow()) {
         echo '{"ID":"' . $row['ID'] . '","FirstName":"' . $row['FirstName'] . '","LastName":"' . $row['LastName']
-        . '","UserName":"' . $row['Username'] . '","Roles":"' . $row['Roles'] . '"}';
+        . '","UserName":"' . $row['Username'] . '","Roles":"' . $row['Roles'] . '","UserGroup":"' . $row['UserGroup'] . '"}';
 
         $counter++;
 

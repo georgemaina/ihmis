@@ -1,6 +1,6 @@
 <?php
 # This is the database name
-$dbname='carenyanchwa';
+$dbname='careWesley';
 # Database user name, default is root or httpd for mysql, or postgres for postgresql
 $dbusername='george';
 
@@ -8,13 +8,14 @@ $dbusername='george';
 $dbpassword='&355ewxxKE';
 
 # Database host name, default = localhost
-$dbhost='40.71.71.47';
+$dbhost='192.168.3.128';
 
 # First key used for simple chaining protection of scripts
 $key='4.58869032405E+13';
 
 # Second key used for accessing modules
 $key_2level='3.14352182102E+12';
+
 
 # 3rd key for encrypting cookie informaStion
 $key_login='3.92004887912E+13';

@@ -94,7 +94,7 @@
                                 "name": "payMode",
                                 "queryMode": "local",
                                 "store": [
-                                    "['Cash','Mpesa','Both','Visa']"
+                                    "['Cash','Mpesa','Both','Visa','Cheque']"
                                 ],
                                 "typeAhead": true,
                                 "valueField": "ID",
@@ -209,9 +209,9 @@
                                 "minChars": 2,
                                 "name": "department",
                                 "queryMode": "local",
-                                "store": "DepartmentsStore",
+                                "store": "LocationsStore",
                                 "typeAhead": true,
-                                "valueField": "Nr"
+                                "valueField": "ID"
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",

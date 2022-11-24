@@ -1,0 +1,220 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "shiftsreportheader",
+        "designer|userClassName": "ShiftsReportHeader",
+        "height": 44,
+        "layout": "hbox"
+    },
+    "configAlternates": {
+        "designer|snapToGrid": "number",
+        "dock": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto",
+        "container|align": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyContainer16",
+    "designerId": "bd0cc05b-8caf-4342-96c0-95c36a24976c",
+    "viewControllerInstanceId": "b2a08279-f2a8-4a79-b922-b30a864a153e",
+    "viewModelInstanceId": "0d1b3ba2-2882-4d56-9e51-826556edf53d",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-search",
+                "itemId": "selectShifts",
+                "margin": 5,
+                "text": "Select Shift",
+                "width": 130
+            },
+            "configAlternates": {
+                "iconCls": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyButton20",
+            "designerId": "e1e02a67-ae0e-48c8-8ea0-6e37c4fd2ec8"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "emptyText": "Shift No",
+                "itemId": "shiftNo",
+                "margin": 5,
+                "width": 85
+            },
+            "configAlternates": {
+                "emptyText": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "object",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyTextField115",
+            "designerId": "76b0ba06-b5ba-4338-abbe-531eced170ff"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "emptyText": "Cash Point",
+                "itemId": "cashPoint",
+                "margin": 5,
+                "width": 105
+            },
+            "configAlternates": {
+                "emptyText": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyTextField116",
+            "designerId": "02ba0cc5-9ca8-4e14-811d-4a5b3148e153"
+        },
+        {
+            "type": "Ext.toolbar.Spacer",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "margin": 5,
+                "width": 500
+            },
+            "configAlternates": {
+                "margin": "auto",
+                "width": "auto"
+            },
+            "name": "MySpacer",
+            "designerId": "242f85cd-b8e7-438f-9f78-797b0d6d7a27"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-refresh",
+                "itemId": "cmdPreviewReport",
+                "margin": 5,
+                "text": "Preview",
+                "width": 90
+            },
+            "configAlternates": {
+                "iconCls": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "itemId": "string",
+                "margin": "auto"
+            },
+            "name": "MyButton29",
+            "designerId": "91eadabc-eba5-44dc-8b6f-f2d1a9ce072a"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-print",
+                "itemId": "cmdPrintCashReport",
+                "margin": 5,
+                "text": "Print",
+                "width": 85
+            },
+            "configAlternates": {
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "iconCls": "string",
+                "width": "auto",
+                "itemId": "string",
+                "margin": "auto"
+            },
+            "name": "MyButton30",
+            "designerId": "aa0fdb76-7dcd-4406-9f0e-1a243529fdbe"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-download",
+                "margin": 5,
+                "text": "Export",
+                "width": 85
+            },
+            "configAlternates": {
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "iconCls": "string",
+                "margin": "auto"
+            },
+            "name": "MyButton31",
+            "designerId": "90a2a649-bc1e-4127-8282-6f071f6c62cd"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "formStatus",
+                "layout|flex": 1,
+                "margin": 5
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "layout|flex": "number",
+                "margin": "auto"
+            },
+            "name": "MyTextField119",
+            "designerId": "1c8f3e17-9497-4e8d-8d0d-17336cf22b19"
+        }
+    ]
+}

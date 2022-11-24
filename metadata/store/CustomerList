@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userAlias": "customerslist",
         "designer|userClassName": "CustomerList",
-        "model": "customersList",
+        "model": "CustomerList",
         "pageSize": 50,
         "storeId": "CustomersList"
     },
@@ -31,7 +31,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "./data/getDataFunctions.php?task=getCustomersList"
+                "url": "data/debtorFunctions.php?task=getCustomersList"
             },
             "configAlternates": {
                 "url": "string"

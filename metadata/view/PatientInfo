@@ -9,8 +9,8 @@
         "columnLines": true,
         "designer|userAlias": "patientinfo",
         "designer|userClassName": "PatientInfo",
+        "height": 800,
         "itemId": "patientInfo",
-        "manageHeight": false,
         "scrollable": "both",
         "store": "PatientDetails"
     },
@@ -153,6 +153,34 @@
                     },
                     "name": "MyButton14",
                     "designerId": "66e05519-7c84-4211-9d42-16915089ab91"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 69,
+                        "iconCls": "x-fa fa-clock-o",
+                        "itemId": "cmdScheduleAppointment",
+                        "margin": "0 0 0 20",
+                        "text": "Schedule New Appointments",
+                        "width": 220
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string",
+                        "iconCls": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton36",
+                    "designerId": "7c476f20-5637-4340-b3f1-1449cec55188"
                 },
                 {
                     "type": "Ext.toolbar.Spacer",
@@ -445,6 +473,64 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "PaymentMode",
+                "text": "Payment Mode",
+                "width": 138
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto",
+                "hidden": "boolean"
+            },
+            "name": "MyColumn22",
+            "designerId": "507dc3c5-1038-4a6f-82df-b7e82021f21d",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            " if (value ===\"CASH\") {",
+                            "     metaData.style = \"background-color:\" + \"yellow\" + \";font-weight:bold;color:red;\";",
+                            " } else {",
+                            "     metaData.style = \"background-color:\" + \"red\" + \";font-weight:bold;color:white;\";",
+                            " }",
+                            "return value;"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "renderer",
+                    "designerId": "21599003-8b29-44ec-956b-416e529629a1"
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "FileNumber",
                 "text": "File Number"
             },
@@ -576,28 +662,6 @@
             },
             "name": "MyColumn21",
             "designerId": "a9a9acf2-ce8f-4ce7-abc4-778e79a4935d"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "PaymentMode",
-                "hidden": true,
-                "text": "Finance Plan",
-                "width": 138
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string",
-                "width": "auto",
-                "hidden": "boolean"
-            },
-            "name": "MyColumn22",
-            "designerId": "507dc3c5-1038-4a6f-82df-b7e82021f21d"
         },
         {
             "type": "Ext.grid.column.Column",

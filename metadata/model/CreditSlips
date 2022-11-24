@@ -1,0 +1,148 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "creditslips",
+        "designer|userClassName": "CreditSlips"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "005e88c3-384a-437c-ad66-3402e7e80590",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField152",
+            "designerId": "f98a0835-5fb5-441a-aaf4-8dea7b8f7100"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Pid"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField153",
+            "designerId": "61d9b57f-8a4c-495c-8c99-5f0fa8e33a9d"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SlipNo"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField154",
+            "designerId": "97b03d05-e7dc-4ab3-a736-eda470abfa77"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SlipDate"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField155",
+            "designerId": "1b2bfcdc-e2e4-4910-9a8f-592b21f20133"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Names"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField156",
+            "designerId": "79cdd8bd-a9f9-4bc9-a6b1-8730a02bc555"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Accno"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField157",
+            "designerId": "4786f242-80eb-4d90-9d4b-b4cc6db39df2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Company"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField158",
+            "designerId": "583c799e-0216-4f7f-84e8-b85afbde97f6"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SlipTime"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField159",
+            "designerId": "3011bff7-912d-4062-9397-ef2e0290091c"
+        }
+    ]
+}

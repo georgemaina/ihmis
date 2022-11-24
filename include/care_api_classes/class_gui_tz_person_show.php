@@ -343,7 +343,7 @@ if(file_exists($root_path.'cache/barcodes/pn_'.$pid.'.png')){
 <?php
 		# If person is dead show a black cross
 		if($death_date&&$death_date!=$dbf_nodate){
-			echo '&nbsp;<img '.createComIcon($root_path,'blackcross_sm.gif','0').'>&nbsp;<font color="#000000">'.formatDate2Local($death_date,$date_format).'</font>';
+			echo '&nbsp;<img '.createComIcon($root_path,'blackcross_sm.gif','0').'>&nbsp;<font color="#000000">'.formatDate2Local($death_date,$date_forma,false,false,"-").'</font>';
 		}
 ?>
 		</td>

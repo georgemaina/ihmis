@@ -138,7 +138,7 @@
                             "userConfig": {
                                 "boxLabel": "Nurses daily Notes",
                                 "fieldLabel": null,
-                                "inputValue": "25",
+                                "inputValue": "15",
                                 "itemId": "NursesNotes",
                                 "name": "notesType"
                             },
@@ -162,7 +162,7 @@
                             "userConfig": {
                                 "boxLabel": "Doctors Daily Notes",
                                 "fieldLabel": null,
-                                "inputValue": "26",
+                                "inputValue": "19",
                                 "name": "notesType"
                             },
                             "configAlternates": {
@@ -252,6 +252,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
+                                "itemId": "notes",
                                 "name": "notes",
                                 "padding": 0,
                                 "scrollable": "both",
@@ -263,7 +264,8 @@
                                 "scrollable": "auto",
                                 "name": "string",
                                 "width": "auto",
-                                "padding": "auto"
+                                "padding": "auto",
+                                "itemId": "string"
                             },
                             "name": "MyHtmlEditor",
                             "designerId": "dccaf699-d6f5-4c5a-8456-d42167478eaf"

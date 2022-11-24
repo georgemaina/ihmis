@@ -1,0 +1,270 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "cashpointssummary",
+        "designer|userClassName": "CashPointsSummary",
+        "maxHeight": 900,
+        "store": "CashpointsSummaryStore"
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "store": "store",
+        "maxHeight": "number"
+    },
+    "name": "MyGridPanel",
+    "designerId": "a11331f9-0060-4872-b4e8-7d4d02ca26ab",
+    "viewControllerInstanceId": "22411ba2-cb35-43e7-b57d-4e402a1d85b9",
+    "viewModelInstanceId": "8bc44052-5b04-4488-8d83-124e516389a5",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable",
+            "designerId": "e2ff8381-0798-41a4-ac74-e07126a6affc"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Cash_Point",
+                "summaryType": "count",
+                "text": "Cash Point"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "summaryType": "string",
+                "text": "string"
+            },
+            "name": "MyColumn1",
+            "designerId": "0e946a02-e607-4b22-a189-ef04ad41b40b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Shift_No",
+                "summaryType": "count",
+                "text": "Shift No"
+            },
+            "configAlternates": {
+                "summaryRenderer": "object",
+                "dataIndex": "datafield",
+                "summaryType": "string",
+                "text": "string"
+            },
+            "name": "MyColumn2",
+            "designerId": "3d7d2f55-4d83-499a-a817-245d84049fc3"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Start_Date",
+                "text": "Start Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn3",
+            "designerId": "4863f192-c291-47ef-ba44-4da5bfba4012"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Start_Time",
+                "text": "Start Time"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn6",
+            "designerId": "68f21513-a946-4a4f-8784-6f3ebee5a180"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "End_Date",
+                "text": "End Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn12",
+            "designerId": "8a3bb897-83d2-47a3-a6c1-26c3633f0346"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "End_Time",
+                "text": "End Time"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn15",
+            "designerId": "fd7d3b56-52d9-4e3c-87ef-7416d54af9b9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Cashier",
+                "text": "Cashier"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn16",
+            "designerId": "47cde1a4-1947-4bc8-a5e0-a3feb332e987"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Total",
+                "summaryType": "sum",
+                "text": "Total"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "summaryType": "string",
+                "text": "string"
+            },
+            "name": "MyColumn17",
+            "designerId": "f0d902b5-91fe-4f98-852b-4636f074302b"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "CashpointsSummaryStore",
+                "width": 360
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store",
+                "width": "auto"
+            },
+            "name": "MyPagingToolbar3",
+            "designerId": "08ead391-b783-4059-a9c7-a0e258bb7c99"
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "cashbookreportsheader",
+            "designerId": "fe49b507-30d0-449b-b2f6-fd1ade51a93e",
+            "masterInstanceId": "41097c1d-756b-4047-a0a9-eb31c3df6024"
+        },
+        {
+            "type": "Ext.selection.RowModel",
+            "reference": {
+                "name": "selModel",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyRowSelectionModel1",
+            "designerId": "65eeb8ee-518c-4aee-a172-14c112ec8c80"
+        },
+        {
+            "type": "Ext.grid.feature.GroupingSummary",
+            "reference": {
+                "name": "features",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyGroupingSummaryFeature",
+            "designerId": "7d7cabe5-0ba6-414a-969b-a775235361e7",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "groupHeaderTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "groupHeaderTpl",
+                        "implHandler": [
+                            "{columnName}:Cashpoint Summaries for {name}"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "groupHeaderTpl",
+                    "designerId": "cbf92542-f0af-46af-aa75-dc470bf9804d"
+                }
+            ]
+        }
+    ]
+}

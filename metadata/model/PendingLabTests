@@ -24,13 +24,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "LabNo"
+                "name": "ID"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField14",
             "designerId": "201f20da-9226-4281-b329-5f958d3ddfe2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "LabNo"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField206",
+            "designerId": "a5a4997d-d447-4506-9ca2-0cdc09368b8c"
         },
         {
             "type": "Ext.data.field.Field",
@@ -104,13 +120,61 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "SampleCollectionTime"
+                "name": "RequestTime"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField19",
             "designerId": "7e8638f0-a873-46a9-8280-44f27987e17b"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RequestedBy"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField204",
+            "designerId": "9bfd8c40-4ab6-4fbd-af1c-904623057d83"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Priority"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField205",
+            "designerId": "61a15a37-b742-4f70-8b43-80b12df0a521"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "SampleCollectionTime"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField203",
+            "designerId": "4ac1e2dc-a1e6-4ab4-aa22-260ec3ddca4b"
         },
         {
             "type": "Ext.data.field.Field",

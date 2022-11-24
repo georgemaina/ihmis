@@ -9,9 +9,9 @@
         "columnLines": true,
         "designer|userAlias": "shiftreport",
         "designer|userClassName": "ShiftReport",
-        "maxHeight": 650,
+        "itemId": "ShiftReport",
         "scrollable": "both",
-        "store": "ReceiptsStore"
+        "store": "ReceiptStore"
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -19,7 +19,9 @@
         "designer|userClassName": "string",
         "store": "store",
         "scrollable": "auto",
-        "maxHeight": "number"
+        "maxHeight": "number",
+        "height": "auto",
+        "itemId": "string"
     },
     "name": "MyGridPanel7",
     "designerId": "3b879603-a593-44b9-b4b4-3b522cd11cb0",
@@ -33,188 +35,31 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "scrollable": "both"
+            },
+            "configAlternates": {
+                "scrollable": "auto"
+            },
             "name": "MyTable8",
             "designerId": "3348d309-6501-47d7-8d34-b5f662390f6e"
         },
         {
-            "type": "Ext.container.Container",
+            "type": "linkedinstance",
             "reference": {
                 "name": "dockedItems",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|snapToGrid": 5,
-                "dock": "top",
-                "height": 40,
-                "layout": "absolute",
-                "width": 100
+                "dock": "top"
             },
             "configAlternates": {
-                "designer|snapToGrid": "number",
-                "dock": "string",
-                "height": "auto",
-                "layout": "string",
-                "width": "auto"
+                "dock": "string"
             },
-            "name": "MyContainer16",
-            "designerId": "bd59a3bd-3502-4dd0-93da-d0c33e1d449d",
-            "cn": [
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconCls": "x-fa fa-refresh",
-                        "itemId": "cmdPreviewReport",
-                        "layout|x": 805,
-                        "layout|y": 5,
-                        "text": "Preview",
-                        "width": 90
-                    },
-                    "configAlternates": {
-                        "iconCls": "string",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "itemId": "string"
-                    },
-                    "name": "MyButton29",
-                    "designerId": "91eadabc-eba5-44dc-8b6f-f2d1a9ce072a"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconCls": "x-fa fa-print",
-                        "itemId": "cmdPrintCashReport",
-                        "layout|x": 905,
-                        "layout|y": 5,
-                        "text": "Print",
-                        "width": 85
-                    },
-                    "configAlternates": {
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "text": "string",
-                        "iconCls": "string",
-                        "width": "auto",
-                        "itemId": "string"
-                    },
-                    "name": "MyButton30",
-                    "designerId": "aa0fdb76-7dcd-4406-9f0e-1a243529fdbe"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconCls": "x-fa fa-download",
-                        "layout|x": 1000,
-                        "layout|y": 5,
-                        "text": "Export",
-                        "width": 85
-                    },
-                    "configAlternates": {
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "iconCls": "string"
-                    },
-                    "name": "MyButton31",
-                    "designerId": "90a2a649-bc1e-4127-8282-6f071f6c62cd"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconCls": "x-fa fa-search",
-                        "itemId": "selectShifts",
-                        "layout|x": 5,
-                        "layout|y": 5,
-                        "text": "Select Shift",
-                        "width": 130
-                    },
-                    "configAlternates": {
-                        "iconCls": "string",
-                        "itemId": "string",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "text": "string",
-                        "width": "auto"
-                    },
-                    "name": "MyButton20",
-                    "designerId": "e1e02a67-ae0e-48c8-8ea0-6e37c4fd2ec8"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "emptyText": "Cash Point",
-                        "itemId": "cashPoint",
-                        "layout|x": 155,
-                        "layout|y": 5,
-                        "value": [
-                            "R01"
-                        ],
-                        "width": 85
-                    },
-                    "configAlternates": {
-                        "emptyText": "string",
-                        "itemId": "string",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "value": "object",
-                        "width": "auto"
-                    },
-                    "name": "MyTextField17",
-                    "designerId": "ab084bf7-3af2-48fb-aaca-85ac9dd8e4e9"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "emptyText": "Shift No",
-                        "itemId": "shiftNo",
-                        "layout|x": 255,
-                        "layout|y": 5,
-                        "width": 85
-                    },
-                    "configAlternates": {
-                        "emptyText": "string",
-                        "itemId": "string",
-                        "layout|x": "number",
-                        "layout|y": "number",
-                        "width": "auto"
-                    },
-                    "name": "MyTextField21",
-                    "designerId": "67865798-cab7-4385-a8dc-dfa047488192"
-                }
-            ]
+            "name": "shiftsreportheader",
+            "designerId": "84a870fa-1cdc-4a8d-adad-3de7dc7f1122",
+            "masterInstanceId": "bd0cc05b-8caf-4342-96c0-95c36a24976c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -634,7 +479,7 @@
             "userConfig": {
                 "displayInfo": true,
                 "dock": "bottom",
-                "store": "ReceiptsStore",
+                "store": "ReceiptStore",
                 "width": 360
             },
             "configAlternates": {

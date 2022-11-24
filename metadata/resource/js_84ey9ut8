@@ -1,0 +1,22 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js_84ey9ut8",
+        "id": "charts",
+        "includeInBundle": true,
+        "url": "../ext-6.5/build//packages/charts/classic/charts.js"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "id": "string",
+        "includeInBundle": "boolean",
+        "url": "uri"
+    },
+    "name": "js",
+    "designerId": "4e44e564-5e82-49bc-b6c2-84bb21239134"
+}

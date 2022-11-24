@@ -1,0 +1,61 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "invoiceallocations",
+        "designer|userClassName": "InvoiceAllocations",
+        "model": "ReceiptsAllocation",
+        "pageSize": 700,
+        "storeId": "InvoiceAllocations"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "pageSize": "number",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore2",
+    "designerId": "da6df9dd-6613-4e70-89f8-765eba63db70",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/debtorFunctions.php?task=getUnallocatedInvoices"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy12",
+            "designerId": "56c4ea84-0421-4304-a479-86377c8a4db1",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "invoiceList"
+                    },
+                    "configAlternates": {
+                        "root": "string",
+                        "rootProperty": "string"
+                    },
+                    "name": "MyJsonReader12",
+                    "designerId": "10f9d647-514d-4e56-99a1-778cd04796b8"
+                }
+            ]
+        }
+    ]
+}

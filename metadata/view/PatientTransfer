@@ -11,8 +11,7 @@
         "designer|userAlias": "patienttransfer",
         "designer|userClassName": "PatientTransfer",
         "frame": true,
-        "id": "patientTransfer",
-        "width": 743
+        "width": 1005
     },
     "configAlternates": {
         "bodyPadding": "auto",
@@ -30,6 +29,17 @@
     "viewModelInstanceId": "c1560033-cb2c-4a74-b0dd-745198a85fd3",
     "cn": [
         {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "patientdetails2",
+            "designerId": "92759125-25fe-4143-8f5d-0784fa61c225",
+            "masterInstanceId": "59198028-f230-40f4-9404-6ef9ffcd6d5e"
+        },
+        {
             "type": "Ext.form.FieldSet",
             "reference": {
                 "name": "items",
@@ -38,6 +48,7 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
+                "height": 33,
                 "layout": "hbox",
                 "margin": "5 0 5 0",
                 "padding": "0 0 0 15"
@@ -46,7 +57,8 @@
                 "container|align": "string",
                 "layout": "string",
                 "margin": "auto",
-                "padding": "auto"
+                "padding": "auto",
+                "height": "auto"
             },
             "name": "MyFieldSet15",
             "designerId": "c077ccd1-b2ac-4b6d-9f99-4a739b0102b6",
@@ -59,67 +71,87 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "fieldStyle": "color:maroon;font-weight:bold;font-size:14px;",
+                        "labelStyle": "color:#a7e88b;font-weight-bold;",
                         "margin": "0 20 0 0",
                         "value": "Where should the patient be transferred to?"
                     },
                     "configAlternates": {
                         "margin": "auto",
-                        "value": "string"
+                        "value": "string",
+                        "fieldStyle": "string",
+                        "labelStyle": "string"
                     },
                     "name": "MyDisplayField19",
                     "designerId": "554749a9-8e00-4f41-b0a9-629d2d7337aa"
                 },
                 {
-                    "type": "Ext.form.field.Checkbox",
+                    "type": "Ext.form.RadioGroup",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "Transfer to Ward",
-                        "id": "treansferWard",
-                        "itemId": "treansferWard",
-                        "labelWidth": 120,
+                        "flex": 1,
+                        "itemId": "transferWard",
                         "layout|flex": 1,
-                        "name": "transType"
+                        "width": 400
                     },
                     "configAlternates": {
-                        "fieldLabel": "string",
                         "itemId": "string",
-                        "labelWidth": "number",
                         "layout|flex": "number",
-                        "name": "string",
-                        "id": "string"
+                        "width": "auto",
+                        "flex": "number"
                     },
-                    "name": "MyCheckbox5",
-                    "designerId": "757e9fd3-6dbd-4fda-8405-cf526944257f"
-                },
-                {
-                    "type": "Ext.form.field.Checkbox",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "fieldLabel": "Transfer to Bed",
-                        "id": "treansferBed",
-                        "itemId": "treansferBed",
-                        "labelWidth": 120,
-                        "layout|flex": 1,
-                        "name": "transType"
-                    },
-                    "configAlternates": {
-                        "fieldLabel": "string",
-                        "itemId": "string",
-                        "labelWidth": "number",
-                        "layout|flex": "number",
-                        "name": "string",
-                        "id": "string"
-                    },
-                    "name": "MyCheckbox6",
-                    "designerId": "e258c2e6-9db7-49c0-9414-542fea248731"
+                    "name": "MyRadioGroup4",
+                    "designerId": "0ff044ed-d3a4-4a4c-ac12-e6b860e92638",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "<b>Ward to Ward</b>",
+                                "fieldLabel": null,
+                                "inputValue": "Wards",
+                                "name": "transferWard"
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "fieldLabel": "string",
+                                "inputValue": "string",
+                                "name": "string"
+                            },
+                            "name": "MyRadio15",
+                            "designerId": "3008cac7-b0df-4ac7-909d-7ddb2326171e"
+                        },
+                        {
+                            "type": "Ext.form.field.Radio",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "boxLabel": "<b>Bed to Bed</b>",
+                                "fieldLabel": null,
+                                "inputValue": "Beds",
+                                "name": "transferWard"
+                            },
+                            "configAlternates": {
+                                "boxLabel": "string",
+                                "fieldLabel": "string",
+                                "inputValue": "string",
+                                "name": "string"
+                            },
+                            "name": "MyRadio16",
+                            "designerId": "48dd37b4-8e60-4628-8177-eb605e3481ae"
+                        }
+                    ]
                 }
             ]
         },
@@ -132,22 +164,24 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
+                "height": 33,
                 "hidden": true,
-                "id": "transBed",
-                "itemId": "transBed",
+                "itemId": "wardsList",
                 "layout": "hbox",
+                "margin": "5 0 5 0",
                 "padding": "0 0 0 15"
             },
             "configAlternates": {
                 "container|align": "string",
                 "layout": "string",
+                "margin": "auto",
                 "padding": "auto",
+                "height": "auto",
                 "hidden": "boolean",
-                "id": "string",
                 "itemId": "string"
             },
-            "name": "MyFieldSet10",
-            "designerId": "d39cdc5f-893d-4ffb-988a-5a44d820ac0a",
+            "name": "MyFieldSet23",
+            "designerId": "fcba7dc3-a739-4f5c-9c17-3384c07df386",
             "cn": [
                 {
                     "type": "Ext.form.field.Display",
@@ -157,51 +191,53 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "margin": "0 10 0 0",
-                        "value": "Transfer to another bed in this ward "
-                    },
-                    "configAlternates": {
-                        "value": "string",
-                        "margin": "auto"
-                    },
-                    "name": "MyDisplayField21",
-                    "designerId": "6da6e342-eaf5-47ff-94fd-dfcdf94395d3"
-                },
-                {
-                    "type": "Ext.form.field.Text",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "margin": "0 20 0 0"
-                    },
-                    "configAlternates": {
-                        "margin": "auto"
-                    },
-                    "name": "MyTextField31",
-                    "designerId": "efa1dd62-fe8f-4ffa-a628-52b52c088aff"
-                },
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "margin": "0 10 0 20",
-                        "text": "Show Bed",
-                        "width": 115
+                        "fieldStyle": "color:maroon;font-weight:bold;font-size:14px;",
+                        "labelStyle": "color:#a7e88b;font-weight-bold;",
+                        "margin": "0 20 0 0",
+                        "value": "Select Ward to transfer to"
                     },
                     "configAlternates": {
                         "margin": "auto",
-                        "text": "string",
-                        "width": "auto"
+                        "value": "string",
+                        "fieldStyle": "string",
+                        "labelStyle": "string"
                     },
-                    "name": "MyButton21",
-                    "designerId": "1bd35be0-b8aa-4e30-9462-a5f1218da605"
+                    "name": "MyDisplayField19",
+                    "designerId": "197ba2a1-dc5f-4056-ae8f-5a3e0dc3fb12"
+                },
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "Name",
+                        "fieldStyle": "color:blue;font-weight:bold;font-size:14px;",
+                        "itemId": "wardsList",
+                        "layout|flex": 0,
+                        "minChars": 2,
+                        "queryMode": "local",
+                        "store": "WardsListStore",
+                        "style": "color:blue;font-weight:bold;font-size:14px;",
+                        "typeAhead": true,
+                        "valueField": "Nr"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "layout|flex": "number",
+                        "minChars": "number",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "style": "string"
+                    },
+                    "name": "MyComboBox35",
+                    "designerId": "dc98444b-9087-4067-9d72-cac729eb5c7d"
                 }
             ]
         },
@@ -214,8 +250,7 @@
             "codeClass": null,
             "userConfig": {
                 "height": 564,
-                "hidden": true,
-                "itemId": "transWard",
+                "itemId": "transWindow",
                 "padding": "0 0 0 15"
             },
             "configAlternates": {
@@ -225,27 +260,7 @@
                 "itemId": "string"
             },
             "name": "MyFieldSet17",
-            "designerId": "3809e003-f30f-48da-a3df-06b4f0a9fdb5",
-            "cn": [
-                {
-                    "type": "Ext.form.field.Display",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "layout|anchor": "100%",
-                        "value": "Transfer to another ward"
-                    },
-                    "configAlternates": {
-                        "layout|anchor": "string",
-                        "value": "string"
-                    },
-                    "name": "MyDisplayField22",
-                    "designerId": "406edbf4-4580-4aa9-acf2-b5740321bdc8"
-                }
-            ]
+            "designerId": "3809e003-f30f-48da-a3df-06b4f0a9fdb5"
         }
     ]
 }

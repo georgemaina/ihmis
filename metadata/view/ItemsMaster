@@ -240,7 +240,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "iconCls": "x-fa fa-plus",
-                                        "itemId": "cmdNew",
+                                        "itemId": "cmdNewProduct",
                                         "layout|x": 620,
                                         "layout|y": 5,
                                         "text": "New Item",
@@ -355,7 +355,7 @@
                             "userConfig": {
                                 "dataIndex": "Item_Full_Description",
                                 "text": "Item Full Description",
-                                "width": 179
+                                "width": 257
                             },
                             "configAlternates": {
                                 "dataIndex": "datafield",
@@ -1166,7 +1166,7 @@
                         "height": 112,
                         "layout": "absolute",
                         "title": null,
-                        "url": "data/getDataFunctions.php?task=InsertCategory"
+                        "url": "data/getProductsFunctions.php?task=InsertCategory"
                     },
                     "configAlternates": {
                         "bodyPadding": "auto",
@@ -1423,7 +1423,7 @@
                         "itemId": "cmdSave",
                         "layout": "absolute",
                         "title": null,
-                        "url": "data/getDataFunctions.php?task=InsertSubCategory"
+                        "url": "data/getProductsFunctions.php?task=InsertSubCategory"
                     },
                     "configAlternates": {
                         "bodyPadding": "auto",
@@ -2825,7 +2825,7 @@
                         "columnLines": true,
                         "height": 390,
                         "itemId": "locations",
-                        "store": "LocationsStore",
+                        "store": "StoreLocationsStore",
                         "title": "Locations"
                     },
                     "configAlternates": {
@@ -3073,7 +3073,7 @@
                                 "minChars": 2,
                                 "name": "StoreID",
                                 "queryMode": "local",
-                                "store": "LocationsStore",
+                                "store": "StoreLocationsStore",
                                 "typeAhead": true,
                                 "valueField": "ID"
                             },

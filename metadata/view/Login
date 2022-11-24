@@ -89,7 +89,7 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldStyle": "color:white;font-weight:bold;font-size:16px;",
-                                "value": "Wesley Mission Hospital"
+                                "value": "ACK MT KENYA HOSPITAL MWEA"
                             },
                             "configAlternates": {
                                 "fieldStyle": "string",
@@ -110,7 +110,7 @@
                     "userConfig": {
                         "bodyPadding": 10,
                         "container|align": "stretch",
-                        "height": 514,
+                        "height": 600,
                         "layout": "vbox",
                         "url": "data/getDataFunctions.php?task=login",
                         "width": 330
@@ -134,7 +134,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "height": 104,
+                                "height": 106,
                                 "layout": "center",
                                 "layout|flex": 1,
                                 "style": "background-color:white;"

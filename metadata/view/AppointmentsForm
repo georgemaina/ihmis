@@ -1,0 +1,565 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "designer|userAlias": "appointmentsform",
+        "designer|userClassName": "AppointmentsForm",
+        "layout": "form",
+        "url": "data/getDataFunctions.php?task=saveAppointment",
+        "width": 738
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "url": "string",
+        "width": "auto"
+    },
+    "name": "MyForm5",
+    "designerId": "c04cd987-22fa-4cf9-a3c3-fc4ee8c2a732",
+    "viewControllerInstanceId": "9872e43a-bc88-4fd3-abed-4bdf20da9b51",
+    "viewModelInstanceId": "443f3e05-b804-4bf4-9139-24e67a78414d",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "configAlternates": {
+                "dock": "string"
+            },
+            "name": "patientdetais3",
+            "designerId": "df731fc1-8ec7-4704-ada8-71bc4500e738",
+            "masterInstanceId": "3d257ecb-2ca1-40bf-b7ca-31282ca4bf4d"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Date",
+                "flex": 0,
+                "labelAlign": "right",
+                "minValue": [
+                    "new Date()"
+                ],
+                "name": "date"
+            },
+            "configAlternates": {
+                "minValue": "object",
+                "fieldLabel": "string",
+                "flex": "number",
+                "labelAlign": "string",
+                "name": "string"
+            },
+            "name": "MyDateField3",
+            "designerId": "36438d59-57f6-493f-b854-3051422c5b58"
+        },
+        {
+            "type": "Ext.form.field.Time",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Time",
+                "labelAlign": "right",
+                "maxValue": "6:00 PM",
+                "minValue": "7:00 AM",
+                "name": "time"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "maxValue": "time",
+                "minValue": "time",
+                "name": "string"
+            },
+            "name": "MyTimeField",
+            "designerId": "df6a0740-11c3-41ff-82a6-a716b0771b1b"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "Description",
+                "fieldLabel": "Department",
+                "labelAlign": "right",
+                "minChars": 2,
+                "name": "to_dept_nr",
+                "queryMode": "local",
+                "store": "DepartmentsStore",
+                "typeAhead": true,
+                "valueField": "Nr"
+            },
+            "configAlternates": {
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox9",
+            "designerId": "2dd5d4b8-9ddd-4f18-b4da-12d257ca78ed"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "staff_name",
+                "fieldLabel": "Physician/ Clinician",
+                "labelAlign": "right",
+                "minChars": 2,
+                "name": "to_personell_name",
+                "queryMode": "local",
+                "store": "StaffList",
+                "typeAhead": true,
+                "valueField": "staff_name"
+            },
+            "configAlternates": {
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox19",
+            "designerId": "91bb0ce7-6964-4531-8025-4fbc569c00f7"
+        },
+        {
+            "type": "Ext.form.field.TextArea",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Purpose",
+                "labelAlign": "right",
+                "name": "purpose"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "name": "string"
+            },
+            "name": "MyTextArea",
+            "designerId": "8c578203-10f2-4475-a2af-491d237c671e"
+        },
+        {
+            "type": "Ext.form.RadioGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Urgency",
+                "labelAlign": "right"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyRadioGroup",
+            "designerId": "d4b93636-304a-44e5-bb1b-29400b730c87",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Normal",
+                        "fieldLabel": null,
+                        "inputValue": "Normal",
+                        "margin": "0 10 0 0",
+                        "name": "urgency"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyRadio",
+                    "designerId": "3a747ac8-fb7f-4040-a759-89ba29da0752"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Priority",
+                        "fieldLabel": null,
+                        "inputValue": "Priority",
+                        "margin": "0 10 0 0",
+                        "name": "urgency"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyRadio1",
+                    "designerId": "b93b394f-8de4-43e1-973b-57afba540e96"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Urgent",
+                        "fieldLabel": null,
+                        "inputValue": "Urgent",
+                        "margin": "0 10 0 0",
+                        "name": "urgency"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyRadio2",
+                    "designerId": "0513e453-98e9-4e78-a40c-c900888b9e0b"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Emergency",
+                        "fieldLabel": null,
+                        "inputValue": "Emergency",
+                        "name": "urgency"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyRadio3",
+                    "designerId": "248d1ea7-24ab-421c-af0e-2bd03815b026"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.RadioGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Remind Patient",
+                "labelAlign": "right"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyRadioGroup1",
+            "designerId": "2a87e77f-edc6-4ce7-83bd-181464784561",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Yes",
+                        "fieldLabel": null,
+                        "inputValue": "Yes",
+                        "margin": "0 45 0 0",
+                        "name": "remind"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyRadio4",
+                    "designerId": "24ef8c72-9590-4453-9639-019d16117e4e"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "No",
+                        "fieldLabel": null,
+                        "inputValue": "No",
+                        "name": "remind"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyRadio8",
+                    "designerId": "be7fb19e-c936-47fc-ac9b-8a51988902b8"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.CheckboxGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Remind By",
+                "labelAlign": "right"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyCheckboxGroup",
+            "designerId": "c07271b5-9f08-4f01-bcce-2ebdcb3fefa8",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Email",
+                        "fieldLabel": null,
+                        "inputValue": "Email",
+                        "margin": "0 35 0 0",
+                        "name": "remind_email"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyCheckbox8",
+                    "designerId": "6045be02-f89a-4901-a677-f29102a1145f"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Phone",
+                        "fieldLabel": null,
+                        "inputValue": "Phone",
+                        "name": "remind_phone"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyCheckbox9",
+                    "designerId": "352300c8-5b04-4477-8399-a3eb4d6b6a8e"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.RadioGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Planned Admission Type",
+                "labelAlign": "right"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyRadioGroup3",
+            "designerId": "a5d61185-d8e2-4d83-a4a8-af672534100e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Outpatient",
+                        "fieldLabel": null,
+                        "inputValue": "2",
+                        "margin": "0 5 0 0",
+                        "name": "encounter_class_nr"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyRadio10",
+                    "designerId": "1781a30d-01df-4cbb-834a-4326400c5f1f"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Inpatient",
+                        "fieldLabel": null,
+                        "inputValue": "1",
+                        "name": "encounter_class_nr"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyRadio9",
+                    "designerId": "7a227456-a99c-4719-aae0-7c82d3caf695"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "height": 49,
+                "layout": "hbox"
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "container|pack": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MyFieldSet20",
+            "designerId": "677b9187-0e5c-4d04-a0d9-85713e28ad91",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdSave",
+                        "margin": "0 50 0 0",
+                        "text": "Save",
+                        "width": 98
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "margin": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton30",
+                    "designerId": "19fe0bfc-c36d-4432-8740-3c670e50c5f9"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdClose",
+                        "text": "Close",
+                        "width": 108
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton34",
+                    "designerId": "043295d6-a217-4be8-86d5-3952d0e27116"
+                }
+            ]
+        }
+    ]
+}

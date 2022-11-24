@@ -95,6 +95,22 @@
             },
             "name": "MyField226",
             "designerId": "e848b91b-ebe9-4664-a80b-828b808e47f9"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "UserGroup"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField192",
+            "designerId": "5f876517-fcd9-4d20-9f8d-8a7e791c270d"
         }
     ]
 }

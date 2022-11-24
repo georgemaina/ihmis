@@ -7,11 +7,13 @@
     "codeClass": null,
     "userConfig": {
         "bodyPadding": 1,
+        "container|align": "stretch",
         "designer|userAlias": "services",
         "designer|userClassName": "Services",
         "height": 525,
         "itemId": "Services",
-        "layout": "vbox"
+        "layout": "vbox",
+        "width": 944
     },
     "configAlternates": {
         "bodyPadding": "auto",
@@ -19,7 +21,9 @@
         "designer|userClassName": "string",
         "height": "auto",
         "itemId": "string",
-        "layout": "string"
+        "layout": "string",
+        "container|align": "string",
+        "width": "auto"
     },
     "name": "MyForm3",
     "designerId": "75eb4cea-ec86-468e-87d6-d385a66d4f2f",
@@ -57,8 +61,7 @@
                 "layout": "hbox",
                 "layout|flex": 0,
                 "margin": 2,
-                "padding": 0,
-                "width": 726
+                "padding": 0
             },
             "configAlternates": {
                 "container|align": "string",
@@ -186,8 +189,7 @@
                 "layout": "hbox",
                 "layout|flex": 0,
                 "margin": 2,
-                "padding": 0,
-                "width": 726
+                "padding": 0
             },
             "configAlternates": {
                 "container|align": "string",
@@ -244,7 +246,6 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-plus",
                         "itemId": "cmdAddServices",
-                        "layout|flex": 1,
                         "text": "Add Services"
                     },
                     "configAlternates": {
@@ -259,30 +260,21 @@
             ]
         },
         {
-            "type": "Ext.form.FieldSet",
+            "type": "linkedinstance",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|uiInterfaceName": "default-framed",
-                "frame": true,
-                "itemId": "servicesPanel",
-                "layout|flex": 1,
-                "ui": "default-framed",
-                "width": 730
+                "layout|flex": 1
             },
             "configAlternates": {
-                "designer|uiInterfaceName": "string",
-                "frame": "boolean",
-                "layout|flex": "number",
-                "ui": "string",
-                "width": "auto",
-                "itemId": "string"
+                "layout|flex": "number"
             },
-            "name": "MyFieldSet17",
-            "designerId": "dcfb1fcf-d90d-46f4-a972-881fdcad092e"
+            "name": "servicesprocedures1",
+            "designerId": "7a58b493-aedf-4ce3-89d3-4d78a9d29353",
+            "masterInstanceId": "442b0dfa-255b-4f31-93cc-cfff5ee65e52"
         }
     ]
 }

@@ -23,6 +23,8 @@ $enc_obj = new Encounter;
 $desc = $_GET['rev'];
 //0726557630
 $caller = $_REQUEST['caller'];
+$formStatus = $_REQUEST['formStatus'];
+$admType=$_REQUEST['admType'];
 
 $pid = $_REQUEST['pid'];
 $encNo=$_REQUEST['encNo'];
@@ -59,7 +61,7 @@ switch ($caller) {
     //     getDescription($desc);
     //     break;
     case "getBillNumbers":
-        getBillNumbers($pid);
+        getBillNumbers($pid,$admType);
         break;
     case "finalize":
         finalizeInvoice($db, $pid, $bill_number, $fdate);
@@ -88,9 +90,6 @@ switch ($caller) {
     case "getEncounter":
         getEncounter($enc_obj, $pid);
         break;
-//    case "getBillNumbers":
-//        getBillNumbers($pid);
-//        break;
     case "getEncounterNumbers":
         getEncounterNumbers($pid);
         break;
@@ -585,7 +584,7 @@ function getEncountersList($enc_obj,$person_obj,$pid){
         }
         echo ']}';
     }else{
-        echo '{success:false}';
+        echo '{"success":false}';
     }
    
 
@@ -596,19 +595,26 @@ function getWaitingList($wrdNo,$ward_obj){
     $waitlist=$ward_obj->createWaitingInpatientList($wrdNo);
     $waitlist_count=$ward_obj->LastRecordCount();
 
-    echo '[';
-    $counter=0;
-    while($row=$waitlist->FetchRow()){
-        $names=$row['name_first']." " . $row['name_last'];
-        echo '{"Pid":"' . $row['pid'] .'","EncounterNr":"' . $row['encounter_nr'] .'","Names":"' . $names.'","Dob":"' . $row['date_birth'] .'"}';
+    
+    if($waitlist_count>0){
+        echo '[';
+        $counter=0;
 
-        $counter++;
-
-        if ($counter <> $waitlist_count) {
-            echo ",";
+        while($row=$waitlist->FetchRow()){
+            $names=$row['name_first']." " . $row['name_last'];
+            echo '{"Pid":"' . $row['pid'] .'","EncounterNr":"' . $row['encounter_nr'] .'","Names":"' . $names.'","Dob":"' . $row['date_birth'] .'"}';
+    
+            $counter++;
+    
+            if ($counter <> $waitlist_count) {
+                echo ",";
+            }
         }
+        echo ']';
+    }else{
+        echo '{"failure":true}';
     }
-    echo ']';
+    
 }
 
 function getPatientsInWard($ward_obj,$ward_nr){
@@ -623,6 +629,8 @@ $room_obj=$ward_obj->getRoomInfo($ward_nr,$ward_info['room_nr_start'],$ward_info
     }
 
 $nr_beds=$ward_obj->countBeds($ward_nr);
+//echo "Number of Beds ".$nr_beds;
+
 $patients_obj=$ward_obj->getDayWardOccupants($ward_nr);
 
 # Prepare patients data into array matrix
@@ -646,7 +654,8 @@ $patients_obj=$ward_obj->getDayWardOccupants($ward_nr);
     $sListRows='';
     $strPatientRecord='';
 
-    echo '{"occupancy":[';
+    $counter=0;
+    echo '[';
 for ($i=$ward_info['room_nr_start'];$i<=$ward_info['room_nr_end'];$i++){
         if($room_ok){
             $room_info=$room_obj->FetchRow();
@@ -704,15 +713,22 @@ for ($i=$ward_info['room_nr_start'];$i<=$ward_info['room_nr_end'];$i++){
         echo '","UrlAppend":"'.URL_REDIRECT_APPEND;
         echo '","BillNumber":"'.$bed['bill_number'];
         echo '","WardID":"'.$bed['wardID'].'"}';
+        
+        // if ($j < $room_info['lastBedNo']) {
+        //     echo ",";
+        // }
 
-        if($i<=$ward_info['room_nr_end']){
-            echo ',';
+        $counter++;
+    
+        if ($counter < $nr_beds) {
+            echo ",";
+        }
+      //  echo  "Counter is ".$counter;
+
         }
 
-        }
-   // echo  $strPatientRecord;
     }
-    echo ']}';
+    echo ']';
 }
 
 //2524
@@ -761,9 +777,9 @@ function insertNhifCredit($nhifDetails, $bill_obj) {
 
         updatePatientStatus($nhifDetails['encounterNr'],$nhifDetails['encounterNr'],'Accounts',$status,$statusDesc,$currUser);
 
-        echo '{success:true,"msg":"Successfully saved NHIF Credit"}';
+        echo '{"success":true,"msg":"Successfully saved NHIF Credit"}';
     } else {
-        echo '{failure:true,"msg":"Could not save NHIF Credit, Please check your values"}';
+        echo '{"failure":true,"msg":"Could not save NHIF Credit, Please check your values"}';
     }
 }
 
@@ -888,9 +904,9 @@ function saveInsuranceCredit($creditDetails, $bill_obj, $insurance_obj) {
         if ($debug)
             echo $sql4;
         if ($db->Execute($sql4)) {
-            echo '{success:true,"msg":"Successfully saved Inssurance Credit"}';
+            echo '{"success":true,"msg":"Successfully saved Inssurance Credit"}';
         } else {
-            echo '{failure:true,"msg":"Could not save Insurance Credit, Please check your values"}';
+            echo '{"failure":true,"msg":"Could not save Insurance Credit, Please check your values"}';
         }
     }
 }
@@ -919,7 +935,7 @@ function getTotalBill($pid, $bill_number) {
 
     $billBalance = $totalBill - $totalPayment;
 
-    echo "{'invoiceAmount':[{'amount':'$billBalance'}]}";
+    echo '{"amount":"'.$billBalance.'"}';
 }
 
 function getDebitNo() {
@@ -1009,9 +1025,9 @@ function deleteMethod($ID, $table) {
     }
 
     if ($db->Execute($sql)) {
-        echo '{Success:true}';
+        echo '{"success":true}';
     } else {
-        echo '{Failure:true}';
+        echo '{"Failure":true}';
     }
 }
 
@@ -1115,8 +1131,8 @@ function updateBillItems($strData, $pid) {
                 }
                 
                 if($k=="Bill_Date"){
-                    $date1 = new DateTime($strVal);
-                    $strVal = $date1->format("Y-m-d");
+                    $date1 = date_create($strVal);
+                    $strVal = date_format($date1,"Y-m-d");
                 }
                 
                 $sql .= $k . '="' . $strVal . '", ';
@@ -1144,8 +1160,8 @@ function updateBillItems($strData, $pid) {
                 $id = $value;
             }
             if ($key == 'Bill_Date') {
-                $date1 = new DateTime($value);
-                $value = $date1->format("Y-m-d");
+                $date1 = date_create($value);
+                $value = date_format($date1,"Y-m-d");
             }
         }
         $sql = substr($sql, 0, -2) . " WHERE ID='$id'";
@@ -1285,11 +1301,13 @@ function getItemsList($searchParam,$start,$limit) {
     global $db;
     $debug = false;
 
+    $storeLoc=$_REQUEST['storeLoc'];
+
     $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`,c.`catID`,s.quantity,s.`loccode`
             FROM care_tz_drugsandservices d 
             LEFT JOIN care_tz_itemscat c ON d.`category`=c.`catID` 
             LEFT JOIN care_ke_locstock s ON d.`partcode`=s.stockid
-            where d.purchasing_class <>''";
+            where d.purchasing_class <>'' AND s.`loccode`='Dispens' ";
 
     if($searchParam<>''){
         $sql=$sql." and partcode='$searchParam' OR d.item_description like '%$searchParam%'";
@@ -1302,8 +1320,7 @@ function getItemsList($searchParam,$start,$limit) {
 
     $result = $db->Execute($sql);
     $total = $result->RecordCount();
-    echo '{
-    "total":"' . $total . '","items":[';
+    echo '[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
         $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['item_description']);
@@ -1318,7 +1335,7 @@ function getItemsList($searchParam,$start,$limit) {
             echo ",";
         }
     }
-    echo ']}';
+    echo ']';
 }
 
 function getReceipts($pid, $refNo) {
@@ -1386,7 +1403,7 @@ function getBills($pid, $bill_number) {
 
 function getAllBills($pid, $bill_number) {
     global $db;
-    $debug = false;
+    $debug = true;
 
     $pid2 = ($pid <> "" ? $pid = $pid : $pid = '1000');
 
@@ -1547,15 +1564,12 @@ function getAdmissionDetails($pid) {
     }
 }
 
-//getBillNumbers($pid2);
-function getBillNumbers($pid) {
+function getBillNumbers($pid,$admType) {
     global $db;
     $debug = false;
 
-    $pid2 = ($pid <> "" ? $pid = $pid : $pid = '1000');
-
-    $sql = "select DISTINCT bill_number from care_ke_billing where pid=$pid2
-    order by bill_date desc";
+    $sql = "SELECT bill_number,encounter_date FROM care_encounter WHERE pid=$pid 
+    ORDER BY encounter_date DESC";
 
     if ($debug)
         echo $sql;

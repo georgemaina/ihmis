@@ -10,7 +10,7 @@
         "bodyStyle": "background-color: #d9f2e6;",
         "designer|userAlias": "cashsales",
         "designer|userClassName": "CashSales",
-        "height": 651,
+        "height": 700,
         "itemId": "cashSales",
         "layout": "auto",
         "style": "background-color: #d9f2e6;",
@@ -43,11 +43,13 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
+                "height": 700,
                 "layout": "hbox"
             },
             "configAlternates": {
                 "container|align": "string",
-                "layout": "string"
+                "layout": "string",
+                "height": "auto"
             },
             "name": "MyContainer12",
             "designerId": "4f518754-1f20-4327-a296-f1feb622ed6e",
@@ -62,6 +64,7 @@
                     "userConfig": {
                         "collapseDirection": "left",
                         "collapsible": true,
+                        "height": 700,
                         "itemId": "pendingBills",
                         "layout|flex": 0,
                         "width": 372
@@ -72,7 +75,8 @@
                         "hidden": "boolean",
                         "itemId": "string",
                         "layout|flex": "number",
-                        "width": "auto"
+                        "width": "auto",
+                        "height": "auto"
                     },
                     "name": "pendingbills",
                     "designerId": "c023e84d-6e99-4338-ae50-c3fc1ae46482",
@@ -86,10 +90,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "height": 854,
                         "layout|flex": 1
                     },
                     "configAlternates": {
-                        "layout|flex": "number"
+                        "layout|flex": "number",
+                        "height": "auto"
                     },
                     "name": "MyContainer11",
                     "designerId": "96ede426-a262-4ab3-a5d3-9f46f1796b84",
@@ -132,10 +138,12 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "container|align": "stretch",
                                                 "fieldLabel": "Sales Type",
                                                 "itemId": "salesType",
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
+                                                "layout": "vbox",
                                                 "layout|flex": 1,
                                                 "padding": 0
                                             },
@@ -145,7 +153,9 @@
                                                 "labelStyle": "string",
                                                 "labelWidth": "number",
                                                 "layout|flex": "number",
-                                                "padding": "auto"
+                                                "padding": "auto",
+                                                "container|align": "string",
+                                                "layout": "string"
                                             },
                                             "name": "MyRadioGroup2",
                                             "designerId": "6cb3fb7b-f3ca-4046-9462-714ea1db417e",
@@ -198,7 +208,8 @@
                                                         "inputValue": "string",
                                                         "itemId": "string",
                                                         "labelWidth": "number",
-                                                        "name": "string"
+                                                        "name": "string",
+                                                        "hidden": "boolean"
                                                     },
                                                     "name": "MyRadio5",
                                                     "designerId": "1118fee7-1312-43bc-ab1c-039d5f9bd985"
@@ -218,7 +229,7 @@
                                                 "fieldLabel": "Cash Point",
                                                 "fieldStyle": "color:red; font-weight:bold;",
                                                 "itemId": "CashPoint",
-                                                "labelAlign": "right",
+                                                "labelAlign": "top",
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "cashPoint",
@@ -255,7 +266,7 @@
                                                 "fieldLabel": "Shift No",
                                                 "fieldStyle": "color:red; font-weight:bold;",
                                                 "itemId": "ShiftNo",
-                                                "labelAlign": "right",
+                                                "labelAlign": "top",
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "labelWidth": 80,
                                                 "name": "shiftNo",
@@ -291,7 +302,7 @@
                                                 "fieldLabel": "Receipt No",
                                                 "fieldStyle": "color:red; font-weight:bold;",
                                                 "itemId": "ReceiptNo",
-                                                "labelAlign": "right",
+                                                "labelAlign": "top",
                                                 "labelStyle": "color:green; font-weight:bold;",
                                                 "name": "receiptNo"
                                             },
@@ -354,7 +365,7 @@
                                                 "padding": 0,
                                                 "queryMode": "local",
                                                 "store": [
-                                                    "['Cash','Mpesa','Both','Visa']"
+                                                    "['Cash','Mpesa','Cheque','Both','Visa']"
                                                 ],
                                                 "typeAhead": true,
                                                 "valueField": "ID",
@@ -470,8 +481,12 @@
                                 "type": "array"
                             },
                             "codeClass": null,
+                            "userConfig": {
+                                "height": 593
+                            },
                             "configAlternates": {
-                                "layout|region": "string"
+                                "layout|region": "string",
+                                "height": "auto"
                             },
                             "name": "MyContainer1",
                             "designerId": "4ba6a258-e4f9-4996-ac26-9eb7f7251c42",
@@ -485,7 +500,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "designer|snapToGrid": 5,
-                                        "height": 82,
+                                        "height": 72,
                                         "itemId": "patientDetails",
                                         "layout": "absolute",
                                         "padding": 0,
@@ -756,9 +771,10 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "columnLines": true,
-                                        "height": 156,
+                                        "height": 250,
                                         "itemId": "itemsGrid",
-                                        "resizable": true,
+                                        "resizable": false,
+                                        "scrollable": "both",
                                         "store": "CashSaleStore"
                                     },
                                     "configAlternates": {
@@ -766,7 +782,8 @@
                                         "store": "store",
                                         "columnLines": "boolean",
                                         "resizable": "boolean",
-                                        "itemId": "string"
+                                        "itemId": "string",
+                                        "scrollable": "auto"
                                     },
                                     "name": "MyGridPanel2",
                                     "designerId": "17581e1e-4d09-4971-b4a4-f054c7b1a28b",
@@ -815,6 +832,26 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
+                                                "dataIndex": "ID",
+                                                "hidden": true,
+                                                "text": "ID"
+                                            },
+                                            "configAlternates": {
+                                                "dataIndex": "datafield",
+                                                "text": "string",
+                                                "hidden": "boolean"
+                                            },
+                                            "name": "MyColumn60",
+                                            "designerId": "3337e2ac-9589-416f-9874-7a1d8922bd5e"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Column",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
                                                 "dataIndex": "CatID",
                                                 "hidden": true,
                                                 "text": "CatID"
@@ -824,8 +861,8 @@
                                                 "text": "string",
                                                 "hidden": "boolean"
                                             },
-                                            "name": "MyColumn60",
-                                            "designerId": "3337e2ac-9589-416f-9874-7a1d8922bd5e"
+                                            "name": "MyColumn124",
+                                            "designerId": "cf627bf5-4b7f-4ddc-8065-bff3131e28d3"
                                         },
                                         {
                                             "type": "Ext.grid.column.Column",
@@ -989,16 +1026,19 @@
                                                         "fn": "renderer",
                                                         "implHandler": [
                                                             "var strSum=0;",
+                                                            "var totalPrice=record.get('Price')*record.get('qty');",
+                                                            "var totals=Math.ceil(totalPrice / 10) * 10;",
                                                             "store.getRange().forEach(function(rec) {",
                                                             "    // console.log(rec.get('unit_price'));",
-                                                            "    strSum += (rec.get('Price')*rec.get('qty'));",
+                                                            "    totalAmount=rec.get('Price')*rec.get('qty');",
+                                                            "    strSum += Math.ceil(totalAmount / 10) * 10;",
                                                             "    console.log(rec.get('strSum'));",
-                                                            "} );",
+                                                            "});",
+                                                            "",
                                                             "view.up('grid').up('panel').down('#total').setValue(strSum);",
                                                             "",
-                                                            "var totalPrice=record.get('Price')*record.get('qty');",
                                                             "",
-                                                            "return totalPrice;"
+                                                            "return Math.round(totals);"
                                                         ]
                                                     },
                                                     "configAlternates": {
@@ -1047,7 +1087,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "dataIndex": "ID",
+                                                "dataIndex": "BillTime",
                                                 "text": "Bill Time"
                                             },
                                             "configAlternates": {
@@ -1056,6 +1096,129 @@
                                             },
                                             "name": "MyColumn78",
                                             "designerId": "f7f458ef-810e-4f19-8bd4-6e4a48f2e7eb"
+                                        },
+                                        {
+                                            "type": "Ext.grid.column.Action",
+                                            "reference": {
+                                                "name": "columns",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "align": "center",
+                                                "iconCls": "icons/delete1.jpg",
+                                                "text": "Remove"
+                                            },
+                                            "configAlternates": {
+                                                "align": "string",
+                                                "iconCls": "string",
+                                                "text": "string"
+                                            },
+                                            "name": "MyActionColumn9",
+                                            "designerId": "7560adfa-ed3c-4f7f-b4f2-3d674355a0dc",
+                                            "cn": [
+                                                {
+                                                    "type": "actioncolumnitem",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "icon": "icons/delete1.jpg"
+                                                    },
+                                                    "configAlternates": {
+                                                        "icon": "string"
+                                                    },
+                                                    "name": "MyActionColumnItem4",
+                                                    "designerId": "b62684e2-aa65-4918-a353-cce296edd94d",
+                                                    "cn": [
+                                                        {
+                                                            "type": "fixedfunction",
+                                                            "reference": {
+                                                                "name": "items",
+                                                                "type": "array"
+                                                            },
+                                                            "codeClass": null,
+                                                            "userConfig": {
+                                                                "designer|params": [
+                                                                    "view",
+                                                                    "rowIndex",
+                                                                    "colIndex",
+                                                                    "item",
+                                                                    "e",
+                                                                    "record",
+                                                                    "row"
+                                                                ],
+                                                                "fn": "handler",
+                                                                "implHandler": [
+                                                                    "Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+\"?\", function() {",
+                                                                    "    // process text value and close...",
+                                                                    "    view.getStore().remove(record);",
+                                                                    "",
+                                                                    "        Ext.Ajax.request({",
+                                                                    "                    url: 'data/getDataFunctions.php?task=deleteCashItem',",
+                                                                    "                    params: {",
+                                                                    "                        ID:record.get(\"ID\"),",
+                                                                    "                        tableName:'care_ke_billing',",
+                                                                    "                        idColumn:'ID',",
+                                                                    "                        batch_nr:record.get(\"ID\")",
+                                                                    "                    },",
+                                                                    "                    success: function(response){",
+                                                                    "                        var resp = Ext.JSON.decode(response.responseText);",
+                                                                    "                       // Ext.Msg.alert(\"Success\",\"Successfully Removed \"+record.get('Description'));",
+                                                                    "",
+                                                                    "                        //this.getNotes(encounterNo);",
+                                                                    "",
+                                                                    "                    },",
+                                                                    "                     failure: function (form, action) {",
+                                                                    "                         var jsonResp = Ext.decode(action.response.responseText);",
+                                                                    "",
+                                                                    "                         Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
+                                                                    "                     },",
+                                                                    "                    scope:this",
+                                                                    "        });",
+                                                                    "",
+                                                                    "});",
+                                                                    "",
+                                                                    ""
+                                                                ]
+                                                            },
+                                                            "configAlternates": {
+                                                                "designer|params": "typedarray",
+                                                                "fn": "string",
+                                                                "implHandler": "code"
+                                                            },
+                                                            "name": "handler",
+                                                            "designerId": "b0782443-1b46-420c-9bae-3672a2b3ac79"
+                                                        }
+                                                    ]
+                                                },
+                                                {
+                                                    "type": "basicfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "choice"
+                                                        ],
+                                                        "fn": "onConfirm",
+                                                        "implHandler": [
+                                                            ""
+                                                        ]
+                                                    },
+                                                    "configAlternates": {
+                                                        "designer|params": "typedarray",
+                                                        "fn": "string",
+                                                        "implHandler": "code"
+                                                    },
+                                                    "name": "onConfirm",
+                                                    "designerId": "748e39d8-2f4b-42e9-96a9-f8c992a2dd2a"
+                                                }
+                                            ]
                                         }
                                     ]
                                 },
@@ -1093,7 +1256,7 @@
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "iconCls": "x-fa fa-ellipsis-h",
+                                                "iconCls": "x-fa fa-download",
                                                 "itemId": "cmdGetCashItems",
                                                 "layout|x": 5,
                                                 "layout|y": 0,
@@ -1110,32 +1273,6 @@
                                             },
                                             "name": "MyButton4",
                                             "designerId": "0ca5c3c2-5fef-4b9b-bf92-dc41d9d84a3b"
-                                        },
-                                        {
-                                            "type": "Ext.button.Button",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "iconCls": "x-fa fa-trash",
-                                                "itemId": "deleteSelectedItem",
-                                                "layout|x": 175,
-                                                "layout|y": 0,
-                                                "text": "Remove Item",
-                                                "width": 150
-                                            },
-                                            "configAlternates": {
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "text": "string",
-                                                "width": "auto",
-                                                "iconCls": "string",
-                                                "itemId": "string"
-                                            },
-                                            "name": "MyButton5",
-                                            "designerId": "0f7b310f-e4fd-4b8d-bf15-2eafb494cbaf"
                                         }
                                     ]
                                 },
@@ -1148,7 +1285,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "designer|snapToGrid": 5,
-                                        "height": 233,
+                                        "height": 345,
                                         "layout": "absolute",
                                         "padding": 0,
                                         "style": "background-color: #d9f2e6;"
@@ -1173,8 +1310,8 @@
                                             "userConfig": {
                                                 "iconCls": "x-fa fa-save",
                                                 "itemId": "cmdSaveSales",
-                                                "layout|x": 675,
-                                                "layout|y": 175,
+                                                "layout|x": 635,
+                                                "layout|y": 110,
                                                 "text": "Save",
                                                 "width": 120
                                             },
@@ -1198,8 +1335,8 @@
                                             "codeClass": null,
                                             "userConfig": {
                                                 "iconCls": "x-fa fa-close",
-                                                "layout|x": 840,
-                                                "layout|y": 175,
+                                                "layout|x": 815,
+                                                "layout|y": 110,
                                                 "text": "Close",
                                                 "width": 95
                                             },

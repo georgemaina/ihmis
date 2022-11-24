@@ -1,0 +1,69 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "appointments",
+        "designer|userClassName": "Appointments",
+        "layout": "hbox"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "title": "string",
+        "container|align": "string",
+        "layout": "string"
+    },
+    "name": "MyPanel10",
+    "designerId": "f5de85f0-cd45-4769-9284-2d88f5a985c6",
+    "viewControllerInstanceId": "56b060af-3e52-4717-a07f-44db4b049efa",
+    "viewModelInstanceId": "605724d9-7a4a-4462-a1c0-b015b11fd00d",
+    "cn": [
+        {
+            "type": "Ext.menu.DatePicker",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyBorder": true,
+                "floating": false,
+                "itemId": "apttCalendar",
+                "margin": "0 10 0 0",
+                "width": 440
+            },
+            "configAlternates": {
+                "bodyBorder": "boolean",
+                "floating": "boolean",
+                "itemId": "string",
+                "margin": "auto",
+                "width": "auto"
+            },
+            "name": "MyDateMenu",
+            "designerId": "a1d5c2a3-ac5e-4ae7-9333-e906608c87c7"
+        },
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "appointmentsPanel",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "layout|flex": "number",
+                "itemId": "string"
+            },
+            "name": "MyPanel10",
+            "designerId": "136bd72d-2683-40c5-b3ad-804018596258"
+        }
+    ]
+}

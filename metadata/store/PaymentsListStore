@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "autoLoad": true,
         "designer|userAlias": "paymentsliststore",
         "designer|userClassName": "PaymentsListStore",
         "model": "PaymentsList",
@@ -15,7 +16,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "autoLoad": "boolean"
     },
     "name": "MyJsonStore1",
     "designerId": "e23210d5-1499-49ba-8456-42dc20ce6887",

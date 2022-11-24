@@ -6,9 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
-        "basePath": "../ext-6.5/build/",
         "debug": true,
-        "designer|userClassName": "Library"
+        "designer|userClassName": "Library",
+        "libraryRequires": [
+            "sencha-charts",
+            "calendar"
+        ]
     },
     "configAlternates": {
         "basePath": "uri",

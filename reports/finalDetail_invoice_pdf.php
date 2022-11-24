@@ -1,11 +1,14 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 require ('roots.php');
 require ($root_path . 'include/inc_environment_global.php');
 $pid = $_REQUEST['pid'];
-$receipt = $_REQUEST['receipt'];
-$nhif = $_REQUEST['nhif'];
+$receipt = $_REQUEST['includeReceipt'];
+$nhif = $_REQUEST['includeNhif'];
 $billNumber = $_REQUEST['billNumber'];
+
 
 createGuarantorsForm($db, $pid, $receipt,$billNumber, $nhif,$root_path);
 
@@ -60,12 +63,12 @@ function createGuarantorsForm($db, $pid, $receipt,$bill_number, $nhif,$root_path
     require_once 'Zend/Pdf.php';
     $pdf = new Zend_Pdf ();
     $page = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4);
-
+    $encounterNr=$_REQUEST['encounterNr'];
 
     require ($root_path . 'include/care_api_classes/Library_Pdf_Base.php');
     $pdfBase=new Library_Pdf_Base();
 
-    require '../../../include/care_api_classes/class_ward.php';
+    require $root_path . 'include/care_api_classes/class_ward.php';
     //require('../../../include/class_ward.php');
     //require('../../../include/care_api_classes/class_encounter.php');
     $wrd = new Ward ();
@@ -93,7 +96,7 @@ function createGuarantorsForm($db, $pid, $receipt,$bill_number, $nhif,$root_path
     }
 
 
-    $imagePath="../../../icons/logo.jpg";
+    $imagePath="../icons/logo.jpg";
     $image = Zend_Pdf_Image::imageWithPath($imagePath);
     $page->drawImage($image, $leftPos+20, $topPos-70, $leftPos+500, $topPos+10);
 
@@ -175,7 +178,7 @@ FROM
     care_ke_billing
     INNER JOIN care_person
         ON (care_ke_billing.pid = care_person.pid)
-WHERE (care_ke_billing.`IP-OP`='1' and care_ke_billing.pid='" . $pid . "' and bill_number='$bill_number')";
+WHERE ( care_ke_billing.pid='" . $pid . "' and bill_number='$bill_number')";
 //echo $sql2;
     $info_result = $db->Execute($sql2);
 
@@ -192,9 +195,9 @@ WHERE (care_ke_billing.`IP-OP`='1' and care_ke_billing.pid='" . $pid . "' and bi
         $page->drawText(ucfirst(strtolower($patient_data ['name_first'])) . ' ' . ucfirst(strtolower($patient_data ['name_2'])) . ' ' . ucfirst(strtolower($patient_data ['name_last'])), $leftPos + 92, $topPos - 130);
         $page->drawText('P.O. Box ' . ucfirst(strtolower($patient_data ['addr_zip'])), $leftPos + 92, $topPos - 145);
         $page->drawText(ucfirst(strtolower($patient_data ['citizenship'])) . '    Postal code ' . $postal, $leftPos + 92, $topPos - 160);
-        $page->drawText($patient_data ['cellphone_1_nr'], $leftPos + 92, $topPos - 175);
+        $page->drawText($patient_data ['phone_1_nr'], $leftPos + 92, $topPos - 175);
 
-        $row2 = $wrd->EncounterLocationsInfo2($patient_data ['encounter_nr']);
+        $row2 = $wrd->EncounterLocationsInfo2($encounterNr);
         $bed_nr = $row2 [6];
         $room_nr = $row2 [5];
         $ward_nr = $row2 [0];
@@ -233,7 +236,7 @@ WHERE (care_ke_billing.`IP-OP`='1' and care_ke_billing.pid='" . $pid . "' and bi
 
     $currpoint = 220;
     $sql3 = "SELECT
-    prescribe_date
+     bill_date
     , description
     , bill_number
     , price
@@ -241,7 +244,7 @@ WHERE (care_ke_billing.`IP-OP`='1' and care_ke_billing.pid='" . $pid . "' and bi
     , total
 FROM
     care_ke_billing
-WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustment','NHIF') and `ip-op`=1
+WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustment','NHIF')
             and pid='" . $pid . "' and bill_number=$bill_number)";
 
 
@@ -274,7 +277,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
             $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
         }
         
-        $page->drawText($row['prescribe_date'], $leftPos + 36, $topPos - $currpoint);
+        $page->drawText($row['bill_date'], $leftPos + 36, $topPos - $currpoint);
 //        $page->drawText($row['description'], $leftPos + 100, $topPos - $currpoint);
         $y = $topPos - $currpoint;
         $lines = explode("\n", getWrappedText($row['description'], $headlineStyle, 250));
@@ -308,7 +311,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
     $topPos = $topPos - $currpoint;
     $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
     $sql4 = "SELECT sum(total) as total FROM care_ke_billing WHERE pid = '$pid' AND 
-        service_type NOT IN ('payment','payment adjustment','NHIF') and `ip-op`=1 and care_ke_billing.pid='" . $pid . "' and bill_number=$bill_number";
+        service_type NOT IN ('payment','payment adjustment','NHIF') and care_ke_billing.pid='" . $pid . "' and bill_number=$bill_number";
 
     $results = $db->Execute($sql4);
     $row = $results->FetchRow();
@@ -347,8 +350,8 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
     $currpoint = $currpoint + 10;
     $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
 
-    $sqli = "SELECT * FROM care_ke_billing WHERE (pid ='" . $pid . "' AND service_type IN
-            ('payment','payment adjustment','NHIF') and `ip-op`=1 and bill_number=$bill_number)";
+    $sqli = "SELECT * FROM care_ke_billing WHERE pid ='" . $pid . "' AND service_type IN
+            ('payment','payment adjustment','NHIF') and bill_number=$bill_number";
 
     $resultsi = $db->Execute($sqli);
     $resultsStyle = new Zend_Pdf_Style ();
@@ -358,7 +361,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
 
     $currpoint = $currpoint + 20;
     $totalPaid=0;
-    if ($receipt <> '') {
+    if ($receipt == 'ON') {
         $ntotals=0;
         while ($rowi = $resultsi->FetchRow()) {
             if ($topPos < 200) {
@@ -381,7 +384,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
                 $page->setStyle($rectStyle);
                 $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
             }
-            $page->drawText($rowi['prescribe_date'], $leftPos + 36, $topPos - $currpoint);
+            $page->drawText($rowi['bill_date'], $leftPos + 36, $topPos - $currpoint);
             $page->drawText('Bill', $leftPos + 100, $topPos - $currpoint);
             $page->drawText($rowi['service_type'], $leftPos + 150, $topPos - $currpoint);
             $page->drawText('CLAIM No ( ', $leftPos + 270, $topPos - $currpoint);
@@ -406,9 +409,9 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
     $page->setStyle($resultsStyle);
 
     $currpoint = $currpoint + 20;
-    if ($nhif <> '' and $receipt == '') {
+    if ($nhif=="ON" and $receipt == '') {
     $nhifdebited=true;
-        $sqlj = "SELECT * FROM care_ke_billing WHERE (pid ='" . $pid . "' AND rev_code in('NHIF') and `ip-op`=1 and bill_number=$bill_number)";
+        $sqlj = "SELECT * FROM care_ke_billing WHERE (pid ='" . $pid . "' AND rev_code in('NHIF') and bill_number=$bill_number)";
         $resultsj = $db->Execute($sqlj);
         $ntotal=0;
         while ($rowi = $resultsj->FetchRow()) {
@@ -432,7 +435,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
                 $page->setStyle($rectStyle);
                 $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
             }
-            $page->drawText($rowi['prescribe_date'], $leftPos + 36, $topPos - $currpoint);
+            $page->drawText($rowi['bill_date'], $leftPos + 36, $topPos - $currpoint);
             $page->drawText('Bill', $leftPos + 100, $topPos - $currpoint);
             $page->drawText($rowi['service_type'], $leftPos + 150, $topPos - $currpoint);
             $page->drawText('receipt No ( ', $leftPos + 270, $topPos - $currpoint);
@@ -453,7 +456,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
     $page->drawLine($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
 
     $sql4 = "SELECT sum(total) as total FROM care_ke_billing WHERE pid = '$pid' AND 
-        service_type IN ('payment','payment adjustment','NHIF') and `ip-op`=1 and bill_number=$bill_number";
+        service_type IN ('payment','payment adjustment','NHIF') and bill_number=$bill_number";
 
     $results = $db->Execute($sql4);
     $row = $results->FetchRow();
@@ -467,7 +470,7 @@ WHERE (pid ='" . $pid . "' AND service_type NOT IN ('payment','payment adjustmen
     $resultsStyle->setFont($font, 9);
     $page->setStyle($resultsStyle);
     $currpoint = $currpoint + 20;
-    if ($receipt <> '') {
+    if ($receipt == 'ON') {
         $page->drawRectangle($leftPos + 32, $topPos - $currpoint, $leftPos + 500, $topPos - $currpoint, Zend_Pdf_Page::SHAPE_DRAW_STROKE);
         $page->drawText('Total Paid:', $leftPos + 380, $topPos - $currpoint);
         $page->drawText(' Ksh. ' . number_format($totalPaid, 2), $leftPos + 430, $topPos - $currpoint);

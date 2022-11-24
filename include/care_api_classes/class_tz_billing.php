@@ -373,7 +373,7 @@ class Bill extends Encounter {
         ($this->debug) ? $db->debug = FALSE : $db->debug = FALSE;
         if ($this->debug)
             echo "<br><b>Method class_tz_billing::newBillNo()</b><br>";
-        $this->sql = "select new_bill_nr from care_ke_invoice";
+        $this->sql = "select new_bill_nr from care_ke_company";
 
         if ($this->debug)
             echo $this->sql;
@@ -449,7 +449,7 @@ class Bill extends Encounter {
                $request = $db->Execute($sql);
                $row = $request->FetchRow();
                if($row[0]<>0){
-                    return $row[bill_number];
+                    return $row['bill_number'];
                 } else {
                     $bill2 = $this->newBillNo($encounter_nr);
                     $this->updateBillNo($encounter_nr);
@@ -465,14 +465,14 @@ class Bill extends Encounter {
         if ($this->debug)
             echo "<br><b>Method class_tz_billing::updateBillNo()</b><br>";
 
-        $this->sql = "select last_Bill_nr,new_bill_nr from care_ke_invoice";
+        $this->sql = "select last_Bill_nr,new_bill_nr from care_ke_company";
         if ($this->debug)
             echo $this->sql;
         $this->request = $db->Execute($this->sql);
         $row = $this->request->FetchRow();
         $newbillno = intval($row[1]) + 1;
 
-        $this->sql = "Update care_ke_invoice set last_Bill_nr='$row[1]',new_bill_nr='$newbillno'";
+        $this->sql = "Update care_ke_company set last_Bill_nr='$row[1]',new_bill_nr='$newbillno'";
         $this->request = $db->Execute($this->sql);
         if ($this->debug)
             echo $this->sql;
@@ -571,7 +571,7 @@ class Bill extends Encounter {
         if($debug) echo $sql;
         $result=$db->Execute($sql);
         while($row=$result->FetchRow()){
-			    $total=round($row[unit_price]*10)/10;
+			    $total=round($row['unit_price']*10)/10;
 
             $sql2="INSERT INTO care_ke_billing
                 (
@@ -605,7 +605,7 @@ class Bill extends Encounter {
 
         while($row=$result->FetchRow()){
 
-            $total=round($row[unit_price]*10)/10;
+            $total=round($row['unit_price']*10)/10;
 
             $sql2="INSERT INTO care_ke_billing
                 (
@@ -773,7 +773,8 @@ class Bill extends Encounter {
             if ($this->debug)
                 echo $this->records['parameters'] . "<br>";
             parse_str($this->records['parameters'], $this->parameter_array);
-            while (list($this->index, $this->chemlab_amount) = each($this->parameter_array)) {
+            foreach($this->parameter_array as $this->index=>$this->chemlab_amount){
+            // while (list($this->index, $this->chemlab_amount) = each($this->parameter_array)) {
 //Strip the string baggage off to get the task id
                 $this->chemlab_testindex = substr($this->index, 5, strlen($this->index) - 6);
                 $this->chemlab_testname = $this->GetNameOfLAboratoryFromID($this->chemlab_testindex);
@@ -854,11 +855,11 @@ class Bill extends Encounter {
     function checkCustomerPriceTag($encounter_class_nr,$partcode,$insuranceid){
            
         if($insuranceid<>'-1'){
-            $price=getItemPrice($partcode,3);
+            $price=$this->getItemPrice($partcode,3);
         }else if($encounter_class_nr==1){
-            $price=getItemPrice($partcode,2);
+            $price=$this->getItemPrice($partcode,2);
         }else if($encounter_class_nr==2){
-            $price=getItemPrice($partcode,1);
+            $price=$this->getItemPrice($partcode,1);
         }
     }
     
@@ -1411,7 +1412,7 @@ class Bill extends Encounter {
             ON c.encounter_nr=b.encounter_nr
             INNER JOIN care_person e on e.pid=c.pid
             INNER JOIN care_tz_drugsandservices d on d.partcode=b.partcode
-            WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status='pending' and b.is_disabled is null";
+            WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status in ('pending','billed')";
          if ($debug)
             echo $sql;
         $request = $db->Execute($sql);
@@ -1432,9 +1433,7 @@ class Bill extends Encounter {
                     ON c.encounter_nr=b.encounter_nr
                     INNER JOIN care_person e on e.pid=c.pid
                     INNER JOIN care_tz_drugsandservices d on d.partcode=b.partcode
-                    WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status='pending' 
-                    and b.weberpsync is null
-                    and b.is_disabled is null";
+                    WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status in ('pending','billed')";
              if ($debug)
                     echo $sql;
             $request = $db->Execute($sql);
@@ -1457,7 +1456,7 @@ class Bill extends Encounter {
                 value('" . $this->res['pid'] . "','" . $this->res['encounter_nr'] . "','" . $insuid . "','" . date("Y-m-d") . "','" . $this->res['encounter_class_nr']
                         . "','" . $this->res['bill_number'] . "','" . $this->res['drug_class'] . "','" . $this->res['price']
                         . "','" . $this->res['article'] . "','" . $this->res['prescribe_date']
-                        . "','" . $this->res['prescriber'] . "','" . $this->res['article_item_number'] . "','" . $this->res['partcode'] . "','insured','" . $this->res['item_number'] . "'"
+                        . "','" . $this->res['prescriber'] . "','" . $this->res['article_item_number'] . "','" . $this->res['partcode'] . "','billed','" . $this->res['item_number'] . "'"
                         . ",'1','" . $this->res['price'] . "',0,'17','" . date('H:i:s') . "',0,'".$this->res['salesAreas']."')";
                 if ($debug)
                     echo $sql2;
@@ -1483,8 +1482,7 @@ class Bill extends Encounter {
                     ON c.encounter_nr=b.encounter_nr
                     INNER JOIN care_person e on e.pid=c.pid
                     INNER JOIN care_tz_drugsandservices d on d.partcode=b.partcode
-                    WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status='pending' and b.weberpsync is null
-                     and b.is_disabled is null";
+                    WHERE b.encounter_nr='$encounter_no' and d.isConsultation='Yes' and b.bill_status in ('pending','billed')";
             if ($debug)
                 echo $sql3;
             $request = $db->Execute($sql3);
@@ -1514,7 +1512,7 @@ class Bill extends Encounter {
                 $sql2 = "INSERT INTO care_ke_billing (pid, encounter_nr,bill_date,`ip-op`,bill_number,
                 service_type, price,`Description`,prescribe_date,input_user,item_number,partcode,status,
                 rev_code,qty,total,weberpsync,ledger,insurance_id,bill_time,debtorUpdate,salesArea)
-                value('" . $row3['pid'] . "','" . $row3['encounter_nr'] . "','" . date("Y-m-d") . "','".$row3['encounter_class_nr']."','" . $row3[bill_number] . "','" . $row3['drug_class'] . "','" . $row3['price']
+                value('" . $row3['pid'] . "','" . $row3['encounter_nr'] . "','" . date("Y-m-d") . "','".$row3['encounter_class_nr']."','" . $row3['bill_number'] . "','" . $row3['drug_class'] . "','" . $row3['price']
                         . "','" . $row3['article'] . "','" . $row3['prescribe_date']
                         . "','" . $row3['prescriber'] . "','" . $row3['article_item_number'] . "','"
                         . $row3['partcode'] . "','pending','" . $row3['item_number'] . "'"
@@ -1619,7 +1617,7 @@ class Bill extends Encounter {
                 $request = $db->Execute($sql2);
                 $row3 = $request->FetchRow();
 
-                if ($row3[rev_code] == 'IP') {
+                if ($row3['rev_code'] == 'IP') {
                     if (!$weberp_obj->transfer_bill_to_webERP_asIPSalesInvoice($row3)) {
                         destroy_weberp($weberp_obj);
                     }
@@ -2146,7 +2144,8 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         if ($this->result = $db->Execute($this->sql)) {
             if ($this->result->RecordCount()) {
                 $this->item_array = $this->result->GetArray();
-                while (list($x, $v) = each($this->item_array)) {
+                foreach($this->item_array as $x=>$v){
+                //while (list($x, $v) = each($this->item_array)) {
                     $db->debug = FALSE;
                     return $v['price'];
                 }
@@ -2168,7 +2167,8 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         if ($this->result = $db->Execute($this->sql)) {
             if ($this->result->RecordCount()) {
                 $this->item_array = $this->result->GetArray();
-                while (list($x, $v) = each($this->item_array)) {
+                foreach($this->item_array as $x=>$v){
+                // while (list($x, $v) = each($this->item_array)) {
                     $db->debug = FALSE;
                     return $v['description'];
                 }
@@ -2581,7 +2581,8 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         '<td><span class=SpellE><span style="font-family:&quot;20 cpi&quot;"><font size="1">' . $LDPaidbyInsurance . '</font></span></span></td>
 	      				<td><span class=SpellE><span style="font-family:&quot;20 cpi&quot;"><font size="1">' . $LDpartSum . '</font></span></span></td>
 	      			</tr>';
-
+                      $pos_nr=0;
+                      $insurance_used=0; $sum=0;
         while ($bill_elems_row = $billelems->FetchRow()) {
             $pos_nr+=1;
             $insurance_used +=$bill_elems_row['balanced_insurance'];
@@ -2669,7 +2670,7 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         '<td><span class=SpellE><span style="font-family:&quot;20 cpi&quot;"><font size="1">' . $LDPaidbyInsurance . '</font></span></span></td>
 	      				<td><span class=SpellE><span style="font-family:&quot;20 cpi&quot;"><font size="1">' . $LDpartSum . '</font></span></span></td>
 	      			</tr>';
-
+        $pos_nr=0; $insurance_used=0;$sum=0;
         while ($bill_elems_row = $billelems->FetchRow()) {
             $pos_nr+=1;
             $insurance_used +=$bill_elems_row['balanced_insurance'];
@@ -2745,7 +2746,7 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
 // **********************************************************************************************************
 // Start of the integrated table for this section
         echo ($printout) ? '<table border="1" width="200">' : '<table border="0" width="600" class="table_content">';
-
+        $pos_nr=0;
         while ($bill_elems_row = $billelems->FetchRow()) {
             $mySum = 0; // this is the total sum to pay for each lab-test
             $insurance_used = 0;
@@ -2829,7 +2830,7 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
 // **********************************************************************************************************
 // Start of the integrated table for this section
         echo ($printout) ? '<table border="0" width="100%">' : '<table border="0" width="100%" class="table_content">';
-
+        $pos_nr=0;
         while ($bill_elems_row = $billelems->FetchRow()) {
             $mySum = 0; // this is the tota sum to pay for each rad-test
             $insurance_used = 0;
@@ -3095,6 +3096,8 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         $billelems = $this->GetElemsOfBill($bill_nr, "drug_list");
 
         echo '<table border="0" width="100%">';
+        $pos_nr=0;
+        $sum=0;
         while ($bill_elems_row = $billelems->FetchRow()) {
             $insurance_used += $bill_elems_row['balanced_insurance'];
             $pos_nr+=1;
@@ -3173,6 +3176,11 @@ is_radio_test, is_medicine, is_comment, is_paid, amount, amount_doc, times_per_d
         $this->debug = false;
 
         $billelems = $this->GetElemsOfBill($bill_nr, "drug_list");
+        $pos_nr=0; $xray_amt=0;
+        $xray_amt=0;
+        $dress_amt =0;
+        $surgery_amt=0;$dental_amt=0;
+        $drug_amt1 =0; $drug_amt2=0;$drug_amt3=0;$service_amt =0;$others_amt=0;
 
         while ($bill_elems_row = $billelems->FetchRow()) {
             $insurance_used += $bill_elems_row['balanced_insurance'];

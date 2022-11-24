@@ -146,12 +146,14 @@
             "userConfig": {
                 "dock": "top",
                 "emptyText": "Find account by name or code",
+                "itemId": "txtSearchGL",
                 "width": 100
             },
             "configAlternates": {
                 "dock": "string",
                 "emptyText": "string",
-                "width": "auto"
+                "width": "auto",
+                "itemId": "string"
             },
             "name": "MyTextField38",
             "designerId": "6f5690e1-956d-4f86-8aca-d3ad3f5f1320"

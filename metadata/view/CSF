@@ -62,7 +62,7 @@
                         "labelAlign": "right",
                         "layout|flex": 1,
                         "margin": "0 0 3 0",
-                        "name": "group-ltest103-93"
+                        "name": "group-ltest94-93"
                     },
                     "configAlternates": {
                         "fieldLabel": "string",
@@ -86,7 +86,7 @@
                         "labelAlign": "right",
                         "layout|flex": 1,
                         "margin": "0 0 3 0",
-                        "name": "group-ltest103-94"
+                        "name": "group-ltest94-94"
                     },
                     "configAlternates": {
                         "fieldLabel": "string",

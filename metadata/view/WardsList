@@ -1,0 +1,151 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyBorder": true,
+        "columnLines": true,
+        "designer|userAlias": "wardslist",
+        "designer|userClassName": "WardsList",
+        "height": 329,
+        "store": "WardsListStore",
+        "title": "Transfer to another  Ward",
+        "width": 616
+    },
+    "configAlternates": {
+        "bodyBorder": "boolean",
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "store": "store",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyGridPanel8",
+    "designerId": "6b5d38e8-fdb3-4043-b253-52021cc94cf7",
+    "viewControllerInstanceId": "49e67ced-6b87-41eb-a57f-de2050f3f78f",
+    "viewModelInstanceId": "e1738430-c212-4909-a5b8-1c4bf367cc2e",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable14",
+            "designerId": "8b8ae5eb-02e9-4575-b44b-72bf7c96ad7e"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Nr",
+                "text": "Nr"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn72",
+            "designerId": "999e67ec-0858-46c3-9b3e-5039df0329a5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "WardID",
+                "text": "Ward Id"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn74",
+            "designerId": "1dc4a019-a43e-4da9-8710-7ecfcc8d3c54"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Name",
+                "text": "Name",
+                "width": 191
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn122",
+            "designerId": "6440a6c3-f120-41db-bf6c-9702839cb5b8"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "text": "Transfer",
+                "width": 173
+            },
+            "configAlternates": {
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn64",
+            "designerId": "596ca9d8-9819-4ff9-9aa2-9c3da0128bc7",
+            "cn": [
+                {
+                    "type": "fixedfunction",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|params": [
+                            "value",
+                            "metaData",
+                            "record",
+                            "rowIndex",
+                            "colIndex",
+                            "store",
+                            "view"
+                        ],
+                        "fn": "renderer",
+                        "implHandler": [
+                            "   return '<div id=\"transfer\" style=\"border:1px solid #1faf2e; border-radius: 5px;cursor: pointer;list-style: none outside;color:white; text-align:center; padding:1px;background-color:#354e75; margin:0px;\">Transfer Here</div>';",
+                            ""
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|params": "typedarray",
+                        "fn": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "renderer",
+                    "designerId": "9b30369d-6483-471c-a564-f79622e2eeda"
+                }
+            ]
+        }
+    ]
+}

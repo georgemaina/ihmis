@@ -566,7 +566,6 @@
                                 "minChars": 2,
                                 "name": "location",
                                 "queryMode": "local",
-                                "store": "DebtorLocationStore",
                                 "typeAhead": true,
                                 "valueField": "Location",
                                 "width": 335
@@ -631,7 +630,6 @@
                                 "minChars": 2,
                                 "name": "subLocation",
                                 "queryMode": "local",
-                                "store": "DebtorSubLocationStore",
                                 "typeAhead": true,
                                 "valueField": "Location",
                                 "width": 335
@@ -1380,7 +1378,6 @@
                                 "minChars": 2,
                                 "name": "guarantorsRelation",
                                 "queryMode": "local",
-                                "store": "KinsStore",
                                 "typeAhead": true,
                                 "valueField": "Kin",
                                 "width": 260
@@ -1676,7 +1673,6 @@
                 "minChars": 2,
                 "name": "category",
                 "queryMode": "local",
-                "store": "CustomerType",
                 "typeAhead": true,
                 "valueField": "ID",
                 "width": 300

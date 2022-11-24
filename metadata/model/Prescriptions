@@ -24,13 +24,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Status"
+                "name": "Nr"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField8",
             "designerId": "060ba01c-2f19-4bf6-b0c2-2af4e4f51663"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Status"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField152",
+            "designerId": "acd8eaca-6f26-4a97-aa5c-b2099a448b8f"
         },
         {
             "type": "Ext.data.field.Field",
@@ -47,6 +63,22 @@
             },
             "name": "MyField15",
             "designerId": "161f866b-5571-460a-b5c3-b7992149663f"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "EncounterNo"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField27",
+            "designerId": "973b1f9f-ce44-4944-80e7-bb0c29b9d39c"
         },
         {
             "type": "Ext.data.field.Field",
@@ -168,13 +200,13 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "EncounterNo"
+                "name": "Notes"
             },
             "configAlternates": {
                 "name": "string"
             },
-            "name": "MyField27",
-            "designerId": "973b1f9f-ce44-4944-80e7-bb0c29b9d39c"
+            "name": "MyField154",
+            "designerId": "75eba523-bde1-43a4-b03a-064c9ded98fd"
         },
         {
             "type": "Ext.data.field.Field",
@@ -191,6 +223,22 @@
             },
             "name": "MyField28",
             "designerId": "a391390b-aea4-4169-87cd-3df01893a483"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Prescriber"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField153",
+            "designerId": "24c3ace2-70b7-48b2-88a9-b9dd440cfe7d"
         }
     ]
 }

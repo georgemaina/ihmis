@@ -769,7 +769,7 @@
                                         "columnLines": true,
                                         "height": 193,
                                         "itemId": "itemsGrid",
-                                        "resizable": true,
+                                        "resizable": false,
                                         "store": "PaidReceiptsStore"
                                     },
                                     "configAlternates": {

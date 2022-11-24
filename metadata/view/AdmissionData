@@ -11,7 +11,7 @@
         "designer|userAlias": "admissiondata",
         "designer|userClassName": "AdmissionData",
         "frame": true,
-        "height": 650,
+        "height": 800,
         "itemId": "admissionData",
         "layout": "hbox",
         "margin": "5 0 5 0",
@@ -860,6 +860,54 @@
                             },
                             "name": "MyColumn40",
                             "designerId": "6a7c3c5a-dd11-46e3-b330-e9fca5afa700"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|pack": "center",
+                        "height": 46,
+                        "layout": "hbox"
+                    },
+                    "configAlternates": {
+                        "container|align": "string",
+                        "container|pack": "string",
+                        "height": "auto",
+                        "layout": "string"
+                    },
+                    "name": "MyFieldSet23",
+                    "designerId": "c3c3a5b2-3d05-4332-bcf6-673b65d5e35c",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 16,
+                                "iconCls": "x-fa fa-info",
+                                "itemId": "cmdPatientHistory",
+                                "text": "Patient History",
+                                "width": 140
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton36",
+                            "designerId": "80daf564-4c81-43b3-b8b4-63ddb6afe032"
                         }
                     ]
                 },

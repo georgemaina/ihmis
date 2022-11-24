@@ -47,9 +47,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "items"
-                    },
                     "configAlternates": {
                         "rootProperty": "string"
                     },

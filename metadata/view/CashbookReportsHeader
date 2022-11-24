@@ -1,0 +1,142 @@
+{
+    "type": "Ext.container.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "cashbookreportsheader",
+        "designer|userClassName": "CashbookReportsHeader",
+        "height": 40,
+        "layout": "hbox"
+    },
+    "configAlternates": {
+        "container|align": "string",
+        "dock": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyContainer2",
+    "designerId": "41097c1d-756b-4047-a0a9-eb31c3df6024",
+    "viewControllerInstanceId": "edb052d4-2137-4a07-b515-f46d7ea31907",
+    "viewModelInstanceId": "3bae89d7-221b-4cdf-9ff5-5b38b57e0fba",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "emptyText": "Search cashpoint, cashier",
+                "margin": 5,
+                "padding": 3,
+                "width": 294
+            },
+            "configAlternates": {
+                "emptyText": "string",
+                "margin": "auto",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyTextField25",
+            "designerId": "8594f9f4-8245-401f-80c8-67f06a61091a"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Start Date",
+                "itemId": "startDate",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "margin": 5
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "margin": "auto",
+                "itemId": "string"
+            },
+            "name": "MyDateField",
+            "designerId": "eb7e8b59-e00a-416b-8a91-ec128f983323"
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "End Date",
+                "itemId": "endDate",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "margin": 5
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "margin": "auto",
+                "itemId": "string"
+            },
+            "name": "MyDateField2",
+            "designerId": "a5b61521-a2a8-4fbc-8cb1-033434fdb598"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "iconCls": "x-fa fa-search",
+                "itemId": "cmdPreviewReport",
+                "margin": 5,
+                "text": "Preview",
+                "width": 119
+            },
+            "configAlternates": {
+                "iconCls": "string",
+                "itemId": "string",
+                "text": "string",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyButton1",
+            "designerId": "354cc42a-66f9-44d9-88a8-d9e0ca4f5fd3"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "formStatus",
+                "margin": 5
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "margin": "auto"
+            },
+            "name": "MyTextField79",
+            "designerId": "1fc103a2-daef-46dc-a209-57c45fc81422"
+        }
+    ]
+}

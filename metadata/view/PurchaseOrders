@@ -505,6 +505,65 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.grid.column.Widget",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "hidden": true,
+                "text": "Receive Order",
+                "width": 154
+            },
+            "configAlternates": {
+                "width": "auto",
+                "text": "string",
+                "hidden": "boolean"
+            },
+            "name": "MyWidget5",
+            "designerId": "78b65c44-6102-437e-a3c7-838ff2105008",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "widget",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "bind": [
+                            "{record.AllowPrint}"
+                        ],
+                        "designer|displayName": "Receive Order",
+                        "iconCls": "x-fa fa-print",
+                        "itemId": "cmdReceive",
+                        "style": "background-color:maroon; font-weight:bold;",
+                        "text": "Receive Order",
+                        "tooltip": "Receive Order"
+                    },
+                    "configAlternates": {
+                        "bind": "array",
+                        "designer|displayName": "string",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "style": "string",
+                        "text": "string",
+                        "tooltip": "string"
+                    },
+                    "name": "MyButton32",
+                    "designerId": "e4182e96-1cba-46c6-80c3-466648dc815e",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "bind",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

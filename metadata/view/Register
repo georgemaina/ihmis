@@ -10,7 +10,7 @@
         "designer|uiInterfaceName": "default",
         "designer|userAlias": "register",
         "designer|userClassName": "Register",
-        "url": "data/updateDataFunctions.php?task=createPatient"
+        "url": "data/getDataFunctions.php?task=createPatient"
     },
     "configAlternates": {
         "designer|userAlias": "string",
@@ -110,33 +110,7 @@
                                 "margin": "auto"
                             },
                             "name": "MyDisplayField8",
-                            "designerId": "eb2a3d7c-7a5e-4055-bd89-4a1bfcd6fcd8",
-                            "cn": [
-                                {
-                                    "type": "viewcontrollereventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onRegDateAfterRender",
-                                        "implHandler": [
-                                            "component.setValue(Ext.Date.format(new Date(), \"Y-m-d\"));"
-                                        ],
-                                        "name": "afterrender",
-                                        "scope": "me"
-                                    },
-                                    "configAlternates": {
-                                        "fn": "string",
-                                        "implHandler": "code",
-                                        "name": "string",
-                                        "scope": "string"
-                                    },
-                                    "name": "onRegDateAfterRender",
-                                    "designerId": "355f059a-9cf2-4fb4-9d31-e0fd73676b45"
-                                }
-                            ]
+                            "designerId": "eb2a3d7c-7a5e-4055-bd89-4a1bfcd6fcd8"
                         },
                         {
                             "type": "Ext.form.field.Display",
@@ -172,38 +146,12 @@
                                 "itemId": "string"
                             },
                             "name": "MyDisplayField9",
-                            "designerId": "586a8c83-712b-4bdb-b127-a3df83e11022",
-                            "cn": [
-                                {
-                                    "type": "viewcontrollereventbinding",
-                                    "reference": {
-                                        "name": "listeners",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "fn": "onCurrTimeAfterRender",
-                                        "implHandler": [
-                                            " setInterval(this.printTime(component), 1000);"
-                                        ],
-                                        "name": "afterrender",
-                                        "scope": "me"
-                                    },
-                                    "configAlternates": {
-                                        "fn": "string",
-                                        "implHandler": "code",
-                                        "name": "string",
-                                        "scope": "string"
-                                    },
-                                    "name": "onCurrTimeAfterRender",
-                                    "designerId": "d27debb7-97a3-4c7c-bd58-7af23c8538a9"
-                                }
-                            ]
+                            "designerId": "586a8c83-712b-4bdb-b127-a3df83e11022"
                         }
                     ]
                 },
                 {
-                    "type": "Ext.form.field.Display",
+                    "type": "Ext.form.field.Text",
                     "reference": {
                         "name": "items",
                         "type": "array"
@@ -218,6 +166,7 @@
                         "labelWidth": 35,
                         "layout|flex": 0,
                         "layout|margins": "0",
+                        "readOnly": true,
                         "reference": "Pid",
                         "width": 144
                     },
@@ -234,9 +183,10 @@
                         "width": "auto",
                         "itemId": "string",
                         "layout|flex": "number",
-                        "layout|margins": "string"
+                        "layout|margins": "string",
+                        "readOnly": "boolean"
                     },
-                    "name": "MyDisplayField31",
+                    "name": "MyTextField64",
                     "designerId": "7929a6ef-7092-4333-bbce-934a3b6db93d"
                 },
                 {
@@ -432,15 +382,13 @@
                     "designerId": "22e0b238-1684-4ec4-aa6c-b10031c60058",
                     "cn": [
                         {
-                            "type": "Ext.form.field.Number",
+                            "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "allowBlank": false,
-                                "emptyText": "Age",
                                 "fieldLabel": "Age",
                                 "fieldStyle": "color:#630921; font-weight:bold;",
                                 "itemId": "age",
@@ -449,9 +397,10 @@
                                 "labelWidth": 120,
                                 "layout|flex": 1,
                                 "margin": "0 5 0 0",
-                                "maxValue": 100,
-                                "minValue": 1,
-                                "name": "age"
+                                "name": "age",
+                                "value": [
+                                    "'0'"
+                                ]
                             },
                             "configAlternates": {
                                 "emptyText": "string",
@@ -466,9 +415,10 @@
                                 "allowBlank": "boolean",
                                 "labelWidth": "number",
                                 "maxValue": "number",
-                                "minValue": "number"
+                                "minValue": "number",
+                                "value": "object"
                             },
-                            "name": "MyNumberField6",
+                            "name": "MyTextField28",
                             "designerId": "0563198b-ee14-4e7c-ba5a-2f9f680e4e83"
                         },
                         {
@@ -479,13 +429,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Months",
                                 "fieldLabel": "Months",
+                                "fieldStyle": "color:#630921; font-weight:bold;",
                                 "itemId": "months",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "layout|flex": 1,
-                                "name": "months"
+                                "name": "months",
+                                "value": [
+                                    "0"
+                                ]
                             },
                             "configAlternates": {
                                 "layout|flex": "number",
@@ -494,7 +447,9 @@
                                 "fieldLabel": "string",
                                 "labelAlign": "string",
                                 "itemId": "string",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "fieldStyle": "string",
+                                "value": "object"
                             },
                             "name": "MyTextField35",
                             "designerId": "f029e0a8-28d7-42e4-926b-606cab013faa"
@@ -515,12 +470,10 @@
                                 "itemId": "date_birth",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
-                                "labelWidth": 160,
                                 "layout|flex": 1,
                                 "margin": "0 5 0 0",
                                 "name": "date_birth",
-                                "submitFormat": "Y-m-d",
-                                "width": 224
+                                "submitFormat": "Y-m-d"
                             },
                             "configAlternates": {
                                 "emptyText": "string",
@@ -562,8 +515,7 @@
                                 "name": "sex",
                                 "store": [
                                     "[[\"m\",\"Male\"],[\"f\",\"Female\"]]"
-                                ],
-                                "width": 224
+                                ]
                             },
                             "configAlternates": {
                                 "emptyText": "string",
@@ -654,7 +606,7 @@
                                 "margin": "0 5 0 0",
                                 "name": "citizenship",
                                 "value": [
-                                    "NYANCHWA"
+                                    "LUGULU"
                                 ],
                                 "width": 423
                             },
@@ -1548,7 +1500,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "itemId": "formStatus",
                         "layout|flex": 1,
                         "name": "formStatus",

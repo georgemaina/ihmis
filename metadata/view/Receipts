@@ -10,7 +10,8 @@
         "bodyStyle": "background-color: #d9f2e6;",
         "designer|userAlias": "receipts",
         "designer|userClassName": "Receipts",
-        "height": 600,
+        "height": 624,
+        "itemId": "receipts",
         "layout": "border",
         "style": "background-color: #d9f2e6;",
         "url": "data/getDataFunctions.php?task=saveCashReceipts"
@@ -25,7 +26,8 @@
         "title": "string",
         "style": "string",
         "bodyStyle": "string",
-        "url": "string"
+        "url": "string",
+        "itemId": "string"
     },
     "name": "CashSales2",
     "designerId": "3ef68624-a41e-4024-8bd5-53518ac5f684",
@@ -73,7 +75,7 @@
                     "designerId": "e3da10f3-93f0-4f4b-9cb0-0e1d083e559b",
                     "cn": [
                         {
-                            "type": "Ext.form.field.ComboBox",
+                            "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
@@ -81,19 +83,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "allowBlank": false,
-                                "displayField": "CashPoint",
                                 "fieldLabel": "Cash Point",
+                                "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "CashPoint",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "layout|x": 5,
                                 "layout|y": 5,
-                                "minChars": 2,
                                 "name": "cashPoint",
-                                "queryMode": "local",
-                                "store": "CashPointsStore",
-                                "typeAhead": true,
-                                "valueField": "CashPoint",
                                 "width": 205
                             },
                             "configAlternates": {
@@ -111,9 +108,10 @@
                                 "queryMode": "string",
                                 "store": "store",
                                 "typeAhead": "boolean",
-                                "valueField": "datafield"
+                                "valueField": "datafield",
+                                "fieldStyle": "string"
                             },
-                            "name": "MyComboBox9",
+                            "name": "MyTextField16",
                             "designerId": "dfd970be-1417-401a-b5b0-8fe974b4161e"
                         },
                         {
@@ -138,7 +136,7 @@
                                 "name": "payMode",
                                 "queryMode": "local",
                                 "store": [
-                                    "['Cash','Mpesa','Both','Visa']"
+                                    "['Cash','Mpesa','Cheque','Both','Visa']"
                                 ],
                                 "typeAhead": true,
                                 "valueField": "ID",
@@ -208,7 +206,41 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Shift Number",
+                                "fieldLabel": "Shift No",
+                                "fieldStyle": "color:red; font-weight:bold;",
+                                "itemId": "ShiftNo",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "labelWidth": 130,
+                                "layout|x": 165,
+                                "layout|y": 5,
+                                "name": "shiftNo"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "labelAlign": "string",
+                                "labelWidth": "number",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "emptyText": "string",
+                                "itemId": "string",
+                                "fieldStyle": "string",
+                                "labelStyle": "string"
+                            },
+                            "name": "MyTextField14",
+                            "designerId": "50cc4ea9-7c37-4714-8059-2840c603e0bf"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "emptyText": "GL Account",
                                 "fieldLabel": "GL Account",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "GlAccount",
@@ -242,7 +274,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Drawers Bank",
                                 "fieldLabel": "Drawers Bank",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "Bank",
@@ -276,7 +308,7 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Cheque No",
                                 "fieldLabel": "Cheque No",
                                 "fieldStyle": "color:red; font-weight:bold;",
                                 "itemId": "chequeNo",
@@ -344,14 +376,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "fieldLabel": "Payee",
+                                "fieldLabel": "Payer",
                                 "itemId": "Payee",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": -27,
                                 "layout|y": 110,
-                                "name": "payee",
+                                "name": "payer",
                                 "width": 475
                             },
                             "configAlternates": {
@@ -645,8 +677,10 @@
                                             "    strSum += rec.get('Amount');",
                                             "    console.log(rec.get('strSum'));",
                                             "} );",
+                                            "view.up('grid').up('panel').down('#total').setValue(strSum);",
                                             "",
-                                            "return strSum;"
+                                            "return strSum;",
+                                            ""
                                         ]
                                     },
                                     "configAlternates": {
@@ -670,7 +704,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|snapToGrid": 5,
-                        "height": 36,
+                        "height": 178,
                         "layout": "absolute",
                         "margin": 0,
                         "padding": 0,
@@ -802,9 +836,9 @@
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "layout|x": 440,
-                                "layout|y": 0,
+                                "layout|y": -0.6666670000000181,
                                 "name": "total",
-                                "width": 225
+                                "width": 230
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -818,6 +852,223 @@
                             },
                             "name": "MyTextField32",
                             "designerId": "a66a7073-9bef-4a79-8137-cab5dfe3d03a"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Visa",
+                                "itemId": "visa",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 105,
+                                "name": "visa",
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "520d08f9-f00f-4e0c-8ff8-0e418b8f4df9"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Balance",
+                                "itemId": "balance",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 140,
+                                "name": "balance",
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField19",
+                            "designerId": "82845666-a531-4bce-931c-bf5f85130ea1"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Received Mpesa",
+                                "itemId": "mpesa",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "labelWidth": 120,
+                                "layout|x": 420,
+                                "layout|y": 70,
+                                "name": "mpesa",
+                                "width": 250
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "labelWidth": "number"
+                            },
+                            "name": "MyTextField17",
+                            "designerId": "58132d10-e0ee-4860-9fac-1a79443218ec",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMpesaChange",
+                                        "implHandler": [
+                                            "var total=field.up('form').down('#total').getValue();",
+                                            "var cash=field.up('form').down('#cash').getValue();",
+                                            "if(cash>0){",
+                                            "    var bal=parseInt(newValue)+parseInt(cash)-parseInt(total);",
+                                            "}else{",
+                                            "    var bal=newValue-total;",
+                                            "}",
+                                            "",
+                                            "field.up('form').down('#balance').setValue(bal);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onMpesaChange",
+                                    "designerId": "ec0cfe3b-edf3-4821-9565-47089b8493f9"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Mpesa Ref",
+                                "itemId": "mpesa1",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "labelWidth": 80,
+                                "layout|x": 670,
+                                "layout|y": 70,
+                                "name": "mpesaRef",
+                                "width": 210
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "labelWidth": "number"
+                            },
+                            "name": "MyTextField22",
+                            "designerId": "2b3caec4-d5d5-4d29-a17b-c208fc4d729d"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Received Cash",
+                                "itemId": "cash",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 35,
+                                "name": "cash",
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField18",
+                            "designerId": "def53fb4-0fca-47d3-8382-11305fbcf6f5",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCashChange",
+                                        "implHandler": [
+                                            "var total=field.up('form').down('#total').getValue();",
+                                            "var bal=newValue-total;",
+                                            "field.up('form').down('#balance').setValue(bal);",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onCashChange",
+                                    "designerId": "d2ad45fd-7700-4eaa-88da-77e6a7cd09f8"
+                                }
+                            ]
                         }
                     ]
                 },
@@ -830,7 +1081,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|snapToGrid": 5,
-                        "height": 83,
+                        "height": 43,
                         "layout": "absolute",
                         "padding": 0,
                         "style": "background-color: #d9f2e6;"
@@ -855,8 +1106,8 @@
                             "userConfig": {
                                 "iconCls": "x-fa fa-save",
                                 "itemId": "cmdSaveReceipt",
-                                "layout|x": 660,
-                                "layout|y": 40,
+                                "layout|x": 545,
+                                "layout|y": 5,
                                 "text": "Save",
                                 "width": 120
                             },
@@ -880,10 +1131,10 @@
                             "codeClass": null,
                             "userConfig": {
                                 "iconCls": "x-fa fa-close",
-                                "layout|x": 815,
-                                "layout|y": 40,
+                                "layout|x": 715,
+                                "layout|y": 5,
                                 "text": "Close",
-                                "width": 95
+                                "width": 130
                             },
                             "configAlternates": {
                                 "layout|x": "number",

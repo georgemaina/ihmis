@@ -39,8 +39,8 @@ require($root_path . 'include/inc_environment_global.php');
     $datePrinted=date('Y-m-d H:i:s');
     echo "<div class='page'>";
      echo "<div class='subpage'>
-            <table border=0>
-                <tr> <td colspan='3' class='logo'> <img src='../../icons/logo2.jpg' width='200' height='100' ></td></tr>
+            <table border=0 width=60%>
+                <tr> <td colspan='3' class='logo'> <img src='../icons/logo2.jpg' width='200' height='100' ></td></tr>
                 <tr><td class='itemTitles' colspan='3'><hr></td></tr>
 				<tr> <td colspan='3' class='mainTitles' align=center>RECEIPT</td></tr>
 				<tr><td class='itemTitles' colspan='3'><hr></td></tr>";
@@ -71,9 +71,10 @@ require($root_path . 'include/inc_environment_global.php');
 
     echo "<tr><td colspan='3'><hr></td></tr>";
 
-	$shiftNo=$_REQUEST['shiftno'];
-    echo"<tr><td class='itemTitles' colspan=2>ITEM:</td>
-          <td class='itemTitles'>AMOUNT</td></tr>";
+	$shiftNo=$_REQUEST['shiftNo'];
+    echo"<tr><td class='itemTitles'>ITEM:</td>
+                <td class='itemTitles' align='center'>Qty:</td>
+                <td class='itemTitles'>AMOUNT</td></tr>";
 
     echo "<tr><td colspan='3'><hr></td></tr>";
 
@@ -81,8 +82,9 @@ require($root_path . 'include/inc_environment_global.php');
 	$refno=$_REQUEST['refno'];
 	$pno=$_REQUEST['patientid'];
 
-	$r_sql = "select rev_desc, proc_qty, `Prec_desc`, total, amount, rev_code, proc_code,towards
-	from care_ke_receipts where ref_no='$refno' and cash_point='$cashpoint' AND patient='$pno'";
+	$r_sql = "select rev_desc, proc_qty, `Prec_desc`, total, amount, rev_code, proc_code,towards,
+    cash,mpesa,visa,balance 
+	from care_ke_receipts where ref_no='$refno' and cash_point='$cashpoint' AND patient='$pno' and shift_no='$shiftNo'";
 
     $result = $db->Execute($r_sql);
     //echo $r_sql;
@@ -97,25 +99,38 @@ require($root_path . 'include/inc_environment_global.php');
           <td class='invDetails' align='center'>".$row['proc_qty']."</td>
           <td class='invDetails' align='r'>".number_format($row['total'],2)."</td>";
 		$total=$total+$row['total'];
-        $mpesaRef=$row[mpesaRef];
+        $mpesaRef=$row['mpesaRef'];
     }
 
     echo "<tr><td colspan='3'><hr></td></tr>";
 
-	$sql = "SELECT SUM(total) AS total FROM care_ke_receipts
-     WHERE ref_no='$refno' AND cash_point='$cashpoint' AND patient='$pno'";
+	$sql = "SELECT SUM(total) AS total, cash,mpesa,visa,balance  FROM care_ke_receipts
+     WHERE ref_no='$refno' AND cash_point='$cashpoint' AND patient='$pno' and shift_no='$shiftNo'";
        $result = $db->Execute($sql);
     //         echo $sql;
     $row = $result->FetchRow();
-    echo"<tr><td class='itemTitles'>".substr($row['Prec_desc'])."</td>
-          <td class='itemTitles' align=center>TOTAL</td>
+    echo"<tr><td class='itemTitles' style='width:40%'></td>
+          <td class='itemTitles' align=center>Total</td>
           <td class='itemTitles'>".number_format($row['total'],2)."</td>";
+
+          $bal=($row['cash']+$row['mpesa']+$row['visa'])-$total;
+          echo "<tr><td colspan='3'><hr></td></tr>";
+      
+          echo"<tr><td class='itemTitles'>Cash Amount Paid:</td><td class=invDetails colspan='2'>".$row['cash']."</td></tr>
+                <tr><td class='itemTitles'>Mpesa Amount Paid:</td><td class=invDetails colspan='2'>".$row['mpesa']."</td></tr>
+                <tr><td class='itemTitles'>Visa Amount paid:</td><td class=invDetails colspan='2'>".$row['visa']."</td></tr>
+                <tr><td class='itemTitles'>Change given:</td><td class=invDetails colspan='2'>".number_format($bal,2)."</td></tr>";
+      
+          if($row['mpesa']>0){
+              echo"<tr><td class='itemTitles'>MPESA REF NO:</td><td class=invDetails>".$mpesaRef."</td></tr>";
+          }
 
         echo "<tr><td colspan='3'><hr></td></tr>";
 
     echo"<tr><td class='itemTitles'>Paid By.....:</td><td class=invDetails colspan='2'>".$_REQUEST['patientname']."</td></tr>
           <tr><td class='itemTitles'>Cashier.....:</td><td class=invDetails colspan='2'>".$_REQUEST['cashier']."</td></tr>
           <tr><td class='itemTitles'>Cash Point..:</td><td class=invDetails colspan='2'>".$cashpoint."</td></tr>
+          <tr><td class='itemTitles'>Shift No..:</td><td class=invDetails colspan='2'>".$shiftno."</td></tr>
          <tr><td class='itemTitles' colspan='3' align=center>Thank You:</td></tr>";
 
     echo "<tr><td colspan='3'><hr></td></tr>";

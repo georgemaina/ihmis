@@ -74,7 +74,7 @@
                 "labelPad": 0,
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
                 "labelWidth": 60,
-                "width": 230
+                "width": 271
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -105,7 +105,7 @@
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
                 "name": "encounter_nr",
                 "readOnly": true,
-                "width": 211
+                "width": 175
             },
             "configAlternates": {
                 "fieldLabel": "string",

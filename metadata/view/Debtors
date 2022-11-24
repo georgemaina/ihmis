@@ -10,10 +10,10 @@
         "designer|uiInterfaceName": "default",
         "designer|userAlias": "debtors",
         "designer|userClassName": "Debtors",
-        "height": 466,
-        "itemId": "debtorslist",
-        "store": "DebtorsList",
-        "width": 668
+        "height": 590,
+        "itemId": "mdebtorslist",
+        "title": "Debtors List",
+        "width": 360
     },
     "configAlternates": {
         "height": "auto",
@@ -30,9 +30,9 @@
         "designer|userClassName": "string"
     },
     "name": "MyGridPanel4",
-    "designerId": "6547fd29-25af-42d2-b3c4-cc3a271bbc88",
-    "viewControllerInstanceId": "8aa80aa0-18ae-4e9c-8c5e-c5f2c9c76721",
-    "viewModelInstanceId": "1c07c1d4-ca06-4352-a8bf-7ed71ef877f6",
+    "designerId": "3299fa4a-1a10-4bb4-be6a-6646cbf13925",
+    "viewControllerInstanceId": "3a5a6afd-d1b6-4302-bc71-b6c9ad82a9b1",
+    "viewModelInstanceId": "33cea850-c4bd-4345-a0d1-9020f608d329",
     "cn": [
         {
             "type": "Ext.view.Table",
@@ -45,7 +45,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyGridView11",
-            "designerId": "73a3fea8-8115-42d9-b35e-3ce3f3d5213b"
+            "designerId": "4c6fd452-61eb-4421-b4df-a1df13d3751d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -66,7 +66,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn126",
-            "designerId": "e36b001f-4fbb-499e-ae5a-9dd13eba5f80"
+            "designerId": "0c59fdd1-711a-4d0e-bfa5-3dc7e3d94104"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -78,7 +78,7 @@
             "userConfig": {
                 "dataIndex": "name",
                 "text": "Name",
-                "width": 254
+                "width": 162
             },
             "configAlternates": {
                 "dataIndex": "datafield",
@@ -87,7 +87,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn127",
-            "designerId": "36053c01-33bd-4778-991a-7543ef4b3d57"
+            "designerId": "e995f167-9a98-416c-ba0b-57c137d230ce"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -98,17 +98,15 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "category",
-                "text": "Category",
-                "width": 154
+                "text": "Category"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
                 "text": "string",
-                "scrollable": "boolean",
-                "width": "auto"
+                "scrollable": "boolean"
             },
             "name": "MyColumn128",
-            "designerId": "9c2758ae-4f72-48a1-ab53-0f0471ed0e05"
+            "designerId": "805d2bfe-f42a-4be9-866b-677932946ad7"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -129,7 +127,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn129",
-            "designerId": "0d8468ff-d6e2-422d-913c-95b610d8a0a7"
+            "designerId": "509f38e7-ec8f-48ed-974f-84b11614f95a"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -150,7 +148,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn130",
-            "designerId": "c580c946-d647-4c2e-946b-b3b10e784529"
+            "designerId": "268eea6a-ce5e-41cf-b460-b5903aa6d8cb"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -171,7 +169,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn131",
-            "designerId": "89363195-2244-41b6-9345-0e08ce9d7ae6"
+            "designerId": "2ef53cfe-0978-4875-960e-efcb08a37df4"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -192,7 +190,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn132",
-            "designerId": "651ae966-0625-4177-9a9c-ab8d8bb96b28"
+            "designerId": "a1d6812f-f4a2-4901-a1d1-731775d9902b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -213,7 +211,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn133",
-            "designerId": "77de8365-d6a3-41d3-8acd-9f1eea9ded4c"
+            "designerId": "3bbfb511-e82d-4245-bd69-9803c8710f52"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -234,7 +232,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn134",
-            "designerId": "2853d2c8-ea2a-4b4d-8920-dade41dfee54"
+            "designerId": "34b77738-4845-4024-abe6-dc95841cd1b1"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -255,7 +253,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn135",
-            "designerId": "483e04d8-8b03-4689-b34d-6afff8930945"
+            "designerId": "8cafcbad-012c-42b8-a483-5c9ba0b8334e"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -276,7 +274,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn136",
-            "designerId": "f236b3c3-a844-4eea-b65a-090876d725c0"
+            "designerId": "c80d29c3-e4c5-4483-b4b2-5415df2485aa"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -297,7 +295,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn137",
-            "designerId": "9f9a7d0f-56b4-4f13-9ccd-b415a60252c6"
+            "designerId": "bfa5dd2e-ba7c-4295-bf6c-6af793ce7ab1"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -318,7 +316,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn138",
-            "designerId": "d8d5eab7-2bad-41bd-98b6-59fdc50d5be7"
+            "designerId": "e59f15d8-f8aa-4952-b707-293a1d27ab01"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -339,7 +337,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn139",
-            "designerId": "74afcfe2-f1be-438f-9c82-3b85d52dcf2c"
+            "designerId": "0cbfcb80-97c3-4196-8e40-088650356f6c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -360,7 +358,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn140",
-            "designerId": "095c23d4-4f8a-41cd-acdf-3aa012054d9e"
+            "designerId": "ffb6068b-6533-4688-9662-1cd6771d07c9"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -381,7 +379,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn141",
-            "designerId": "0fbde866-aea5-4da2-b844-8ac7adc2af15"
+            "designerId": "787295ee-dcc9-41bb-a5a9-b47bcd8ec53b"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -402,7 +400,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn142",
-            "designerId": "aafd343d-088c-49a5-91dd-a1c9543c1b0d"
+            "designerId": "734e114c-594f-42e3-9d96-880a58172c41"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -423,7 +421,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn143",
-            "designerId": "e02dbf80-ee84-419c-b518-9bbbb5629d59"
+            "designerId": "c19a5cc0-0b7f-4348-be06-d4942dc7b6cd"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -444,7 +442,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn144",
-            "designerId": "1496aa8e-43e8-4ce9-8cdf-c1b9f4c2cf8f"
+            "designerId": "9ec4ac7b-d4c3-4969-9c38-7eb3c73419d7"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -465,7 +463,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn145",
-            "designerId": "168f503c-c46c-4367-b8f8-1f5f601370bc"
+            "designerId": "29555e23-316f-49f0-98b8-0ace5984f9be"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -486,7 +484,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn146",
-            "designerId": "528da566-ac42-4c79-a83f-dc8c1cd42b90"
+            "designerId": "073cba55-799c-4b01-b120-e8ef74e80938"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -507,7 +505,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn147",
-            "designerId": "3971193c-443b-4f28-a25f-6e8300881fc3"
+            "designerId": "1d148fc7-da6e-474b-b7a4-2cc423536e0c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -528,7 +526,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn148",
-            "designerId": "58dca64d-5ea4-4192-bdeb-5237b2276018"
+            "designerId": "03e9e16c-b7e2-4fe5-85bc-b7819ba07fe7"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -549,7 +547,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn149",
-            "designerId": "6d7f9a0f-1a37-4c15-aae1-715484e0e236"
+            "designerId": "322c6288-d90b-473e-a8f3-f0d3b7c18e3f"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -570,7 +568,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn150",
-            "designerId": "a1214469-3c4f-4970-ac78-307281a477b1"
+            "designerId": "327a7fe2-0427-4575-92a2-2e91456132c5"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -591,7 +589,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn151",
-            "designerId": "b47b74ce-b0d9-4b51-a0ba-9fa1f32994f2"
+            "designerId": "f6847338-5f07-4a4d-a491-26727c03d067"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -612,7 +610,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn152",
-            "designerId": "3068374c-dbb6-4ea2-82ee-b01f3457cc71"
+            "designerId": "c6e829ea-bd30-48d3-8e00-e77af114b31e"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -633,7 +631,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn153",
-            "designerId": "a2a10566-3563-4e03-88bc-9af38114dd3f"
+            "designerId": "57bdd48e-f3ae-43a6-a336-a304acec975e"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -654,7 +652,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn154",
-            "designerId": "6bc73be5-cfa1-4792-bf46-9d1dfe0415ea"
+            "designerId": "d756cc2a-a362-47a8-9bea-10224917564d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -675,7 +673,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn155",
-            "designerId": "f4ffd5f6-eb66-4d41-9ade-78eddeac8206"
+            "designerId": "c8b54d7f-ddb2-47a4-b9bc-579bbe164a6d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -696,7 +694,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn156",
-            "designerId": "941abccf-6bf1-483f-a5b1-ad0a45ca3090"
+            "designerId": "f55607fc-d309-463f-b421-4befe4a04eb8"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -717,7 +715,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn157",
-            "designerId": "0b8ffde0-5d57-4d88-b6f3-e831c175c804"
+            "designerId": "873fcbcd-fda3-4d09-ad58-75b92ba67a8e"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -738,7 +736,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn158",
-            "designerId": "7135487b-9f8c-49cc-ad4f-cd0baf79148e"
+            "designerId": "70d0944f-9938-4d26-bf59-e6ba4f5b0339"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -759,7 +757,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn159",
-            "designerId": "93f9461a-cbd6-4f7a-a9dc-6a2d3ca82986"
+            "designerId": "3ef6995a-f407-47cf-9824-af8168cda101"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -780,7 +778,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn160",
-            "designerId": "88ae1767-d059-4202-add4-532935db0c03"
+            "designerId": "00f70138-5d72-4f5e-8283-36df223cc86f"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -801,7 +799,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn161",
-            "designerId": "56c82053-9c28-4fc4-858b-088694723343"
+            "designerId": "0928b0b1-4075-495f-b52d-bc6392c899f8"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -822,7 +820,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn162",
-            "designerId": "ecdef988-8870-436d-8893-8934510b3d59"
+            "designerId": "642cd713-3df4-40b3-9fcb-fe20ac98daf8"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -843,7 +841,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn163",
-            "designerId": "b4a2e3ca-b6cc-4542-8a00-33067563d7ef"
+            "designerId": "821f6803-ed12-422b-92ef-1659c346db55"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -864,7 +862,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn164",
-            "designerId": "8fe6c5ad-5461-42a6-a1fd-4bf3cc3710fb"
+            "designerId": "da6d1a88-dd11-44fb-97d0-2e8f36635b8c"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -885,7 +883,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyColumn165",
-            "designerId": "b58acf6d-feae-4e1a-9bfd-75c0af038f60"
+            "designerId": "cd6c6ef8-7634-4252-ad42-eb91896fd0ed"
         },
         {
             "type": "Ext.toolbar.Paging",
@@ -897,7 +895,6 @@
             "userConfig": {
                 "displayInfo": true,
                 "dock": "bottom",
-                "store": "DebtorsList",
                 "width": 360
             },
             "configAlternates": {
@@ -908,27 +905,7 @@
                 "scrollable": "boolean"
             },
             "name": "MyPagingToolbar10",
-            "designerId": "7f30b363-88b5-473b-9e6c-3231da068a8f"
-        },
-        {
-            "type": "Ext.form.field.Text",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dock": "top",
-                "emptyText": "find debtors by name,category or account No",
-                "width": 100
-            },
-            "configAlternates": {
-                "dock": "string",
-                "emptyText": "string",
-                "width": "auto"
-            },
-            "name": "MyTextField39",
-            "designerId": "17f97fed-175b-4cca-9793-8e401c830c82"
+            "designerId": "0783d99b-4445-44ef-9df4-bfd070da5b7c"
         }
     ]
 }

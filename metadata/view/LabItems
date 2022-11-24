@@ -13,7 +13,7 @@
         "height": 71,
         "layout": "absolute",
         "padding": 0,
-        "width": 789
+        "width": 891
     },
     "configAlternates": {
         "designer|snapToGrid": "number",
@@ -125,7 +125,7 @@
                 "margin": 0,
                 "name": "notes",
                 "padding": 0,
-                "width": 680
+                "width": 505
             },
             "configAlternates": {
                 "layout|x": "number",
@@ -164,7 +164,7 @@
                 "value": [
                     "Unit Cost:"
                 ],
-                "width": 180
+                "width": 215
             },
             "configAlternates": {
                 "layout|x": "number",
@@ -191,7 +191,7 @@
             "userConfig": {
                 "iconCls": "x-fa fa-trash",
                 "itemId": "cmdRemoveDose",
-                "layout|x": 670,
+                "layout|x": 685,
                 "layout|y": 35,
                 "text": "Remove",
                 "width": 95
@@ -206,6 +206,63 @@
             },
             "name": "MyButton8",
             "designerId": "e4de89d1-e9d9-4b05-90ee-7cb77ff7beef"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "dispValue",
+                "fieldLabel": "Priority",
+                "itemId": "priority",
+                "labelAlign": "right",
+                "labelStyle": "color:maroon; font-weight:bold;font-size:12px;",
+                "layout|x": 450,
+                "layout|y": 35,
+                "minChars": 2,
+                "name": "priority",
+                "queryMode": "local",
+                "store": [
+                    "[",
+                    "{",
+                    "dispType: 'Normal',",
+                    "dispValue: 'Normal'",
+                    "},",
+                    "{",
+                    "dispType: 'Urgent',",
+                    "dispValue: 'Urgent'",
+                    "},",
+                    "{",
+                    "dispType: 'Emergency',",
+                    "dispValue: 'Emergency'",
+                    "}",
+                    "]"
+                ],
+                "typeAhead": true,
+                "valueField": "dispValue",
+                "width": 235
+            },
+            "configAlternates": {
+                "store": "array",
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "itemId": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "minChars": "number",
+                "name": "string",
+                "queryMode": "string",
+                "typeAhead": "boolean",
+                "valueField": "datafield",
+                "width": "auto"
+            },
+            "name": "MyComboBox27",
+            "designerId": "adeb3ee6-57fd-4d0e-9605-a890527954fc"
         }
     ]
 }

@@ -39,8 +39,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "layout|flex": 1,
-                "width": 608
+                "layout|flex": 0,
+                "width": 376
             },
             "configAlternates": {
                 "layout|flex": "number",
@@ -128,13 +128,12 @@
             },
             "codeClass": null,
             "userConfig": {
-                "bodyPadding": 10,
+                "bodyPadding": 5,
                 "container|align": "stretch",
                 "height": 554,
                 "itemId": "labItemsForm",
                 "layout": "vbox",
                 "layout|flex": 1,
-                "minWidth": 800,
                 "scrollable": "vertical"
             },
             "configAlternates": {
@@ -163,14 +162,18 @@
                         "dock": "top",
                         "height": 44,
                         "itemId": "patientForm1",
-                        "layout": "hbox"
+                        "layout": "hbox",
+                        "layout|flex": 1,
+                        "margin": 0
                     },
                     "configAlternates": {
                         "container|align": "string",
                         "height": "auto",
                         "layout": "string",
                         "itemId": "string",
-                        "dock": "string"
+                        "dock": "string",
+                        "layout|flex": "number",
+                        "margin": "auto"
                     },
                     "name": "MyFieldSet6",
                     "designerId": "e3c9d3d5-3d47-4882-a4aa-b2bac8238883",
@@ -292,6 +295,23 @@
                     ]
                 },
                 {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number"
+                    },
+                    "name": "labrequestitems",
+                    "designerId": "46498df2-2458-41b1-9616-e1f8e0b47186",
+                    "masterInstanceId": "7239b45b-b6cb-459e-a3ae-8ecc8d6b9077"
+                },
+                {
                     "type": "Ext.panel.Panel",
                     "reference": {
                         "name": "dockedItems",
@@ -302,6 +322,7 @@
                         "alignOnScroll": false,
                         "dock": "top",
                         "height": 165,
+                        "hidden": true,
                         "itemId": "labTestPanel",
                         "minHeight": 50,
                         "resizable": true,
@@ -316,7 +337,8 @@
                         "alignOnScroll": "boolean",
                         "height": "auto",
                         "resizable": "boolean",
-                        "resizeHandles": "string"
+                        "resizeHandles": "string",
+                        "hidden": "boolean"
                     },
                     "name": "MyPanel19",
                     "designerId": "ab940363-e08b-40b4-9aa4-f1aa77ef6b18"
@@ -324,12 +346,12 @@
                 {
                     "type": "Ext.form.Panel",
                     "reference": {
-                        "name": "dockedItems",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dock": "top",
+                        "dock": null,
                         "height": 384,
                         "itemId": "labTestForm",
                         "scrollable": "both",
@@ -358,8 +380,7 @@
                                 "container|pack": "center",
                                 "dock": "bottom",
                                 "height": 36,
-                                "layout": "hbox",
-                                "resizable": true
+                                "layout": "hbox"
                             },
                             "configAlternates": {
                                 "container|align": "string",

@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": true,
-        "designer|userAlias": "locationsStore",
+        "designer|userAlias": "locationsstore",
         "designer|userClassName": "LocationsStore",
         "model": "Locations",
         "pageSize": 100,
@@ -21,8 +21,8 @@
         "autoLoad": "boolean",
         "pageSize": "number"
     },
-    "name": "MyJsonStore",
-    "designerId": "2a31dd0c-babe-4d90-861b-d8c27e0490c1",
+    "name": "LocationsStore1",
+    "designerId": "6b385a8c-b773-4018-a79f-f97a42b7f787",
     "cn": [
         {
             "type": "Ext.data.proxy.Ajax",
@@ -32,11 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "extraParams": [
-                    "{mainStore:'1'}"
-                ],
-                "url": "data/getDataFunctions.php?task=getStoreLocations",
-                "useDefaultXhrHeader": false
+                "url": "data/getDataFunctions.php?task=getLocations"
             },
             "configAlternates": {
                 "url": "string",
@@ -44,7 +40,7 @@
                 "useDefaultXhrHeader": "boolean"
             },
             "name": "MyAjaxProxy7",
-            "designerId": "b96b68ae-f9e9-403d-8c8b-e9d1af0d30ac",
+            "designerId": "829a8fae-920a-4c09-a64b-eaa1ad9f22e5",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -54,7 +50,7 @@
                     },
                     "codeClass": null,
                     "name": "MyJsonReader7",
-                    "designerId": "31d35abe-c21f-4c3a-9ad8-5acf53d23307"
+                    "designerId": "0f48f356-d540-4a6e-a064-d1b515bb2226"
                 }
             ]
         }

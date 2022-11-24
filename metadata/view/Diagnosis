@@ -71,7 +71,7 @@
                         "labelAlign": "top",
                         "layout|flex": 1,
                         "margin": "0 5 0 0",
-                        "minChars": 3,
+                        "minChars": 2,
                         "name": "ICD_10_code",
                         "queryMode": "local",
                         "store": "DiseaseCodeStore",
@@ -126,6 +126,36 @@
                     },
                     "name": "MyTextField1",
                     "designerId": "fea5ca68-9fb9-410a-9c21-72e5b7c04039"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Comments",
+                        "itemId": "formStatus",
+                        "labelAlign": "top",
+                        "margin": "0 3 0 0",
+                        "name": "comment",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "fieldLabel": "string",
+                        "labelAlign": "string",
+                        "emptyText": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "margin": "auto",
+                        "width": "auto",
+                        "name": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextField62",
+                    "designerId": "6785db35-aba7-4ea3-bd7b-c578acdb4998"
                 },
                 {
                     "type": "Ext.button.Button",

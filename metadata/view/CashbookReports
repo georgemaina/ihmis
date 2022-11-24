@@ -1,0 +1,213 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|userAlias": "cashbookreports",
+        "designer|userClassName": "CashbookReports",
+        "layout": "vbox"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "container|align": "string",
+        "layout": "string"
+    },
+    "name": "MyPanel8",
+    "designerId": "9908ba59-e269-4fca-bc8f-31114f284b96",
+    "viewControllerInstanceId": "64198358-d463-4a7c-921a-894d4c7d80b2",
+    "viewModelInstanceId": "59262c8c-8dbe-4c13-b741-59e62779303d",
+    "cn": [
+        {
+            "type": "Ext.button.Segmented",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "border": "borderStyle:solid;",
+                "container|align": "stretch",
+                "height": 29,
+                "layout": "hbox",
+                "margin": "5 0 5 5"
+            },
+            "configAlternates": {
+                "margin": "auto",
+                "border": "auto",
+                "container|align": "string",
+                "height": "auto",
+                "layout": "string"
+            },
+            "name": "MySegmentedButton1",
+            "designerId": "5d0e3b54-3bd3-4336-a8d5-e02ca9ed2953",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "flex": 0,
+                        "itemId": "ShiftReport",
+                        "text": "<b>Cahiers Shift Report</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "text": "string",
+                        "width": "auto",
+                        "style": "object",
+                        "flex": "number"
+                    },
+                    "name": "MyButton36",
+                    "designerId": "e612c329-c66c-40b6-8f1b-1f4b228929f9"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "CashPointsSummary",
+                        "text": "<b>Cash Points Summary</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton38",
+                    "designerId": "aeffc628-accd-4498-abd7-f9a6602c38d7"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "CollectionsBreakdown",
+                        "text": "<b>Collections Breakdown</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "4624977b-d778-465b-b559-3a23b28482d4"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "PatientsSummary",
+                        "text": "<b>Collections Per Patient</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton42",
+                    "designerId": "2dd057a7-c180-4681-b46c-76a4f20f29d3"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "ItemSalesSummary",
+                        "text": "<b>Collections Per Item</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton9",
+                    "designerId": "78802353-6edd-4fa5-837a-1de88e2010ff"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "DepartmentsRevenue",
+                        "text": "<b>Departments Revenue</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton10",
+                    "designerId": "42762f9b-a71f-4ce0-b6a8-4cfb96ec957f"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "DailyRevenueBreakdown",
+                        "text": "<b>Daily Revenue Breakdown</b>",
+                        "width": 192
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton16",
+                    "designerId": "a3a4c387-399c-4430-b11f-9357310178da"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "cashbookReports",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "layout|flex": "number"
+            },
+            "name": "MyContainer",
+            "designerId": "ed2a4d63-0eef-4809-ac2a-8f3394fbc5af"
+        }
+    ]
+}
