@@ -24,13 +24,29 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "EncounterNo"
+                "name": "Case_nr"
             },
             "configAlternates": {
                 "name": "string"
             },
             "name": "MyField15",
             "designerId": "b7aa4163-59b0-401f-b2ed-df12754c3018"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "EncounterNo"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField202",
+            "designerId": "614b331b-18cf-49c3-b4f5-ea1673be2877"
         },
         {
             "type": "Ext.data.field.Field",

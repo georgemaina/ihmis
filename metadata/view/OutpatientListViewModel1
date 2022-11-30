@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "outpatientvisits",
+        "designer|userClassName": "OutpatientListViewModel1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OutpatientListViewModel1",
+    "designerId": "e08ac148-a249-4124-991b-3c9112b838de"
+}

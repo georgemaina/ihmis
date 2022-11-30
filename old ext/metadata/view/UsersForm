@@ -1,0 +1,130 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "bodyStyle": "background:#629670;",
+        "designer|snapToGrid": 5,
+        "designer|userAlias": "usersform",
+        "designer|userClassName": "UsersForm",
+        "height": 127,
+        "layout": "absolute",
+        "url": "../../data/getDataFunctions.php?task=updateReceiver",
+        "width": 400
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|snapToGrid": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "url": "string",
+        "width": "auto",
+        "bodyStyle": "string"
+    },
+    "name": "MyForm",
+    "designerId": "67c11cbf-3633-4cd3-991d-82379aef81b8",
+    "viewControllerInstanceId": "c325d02a-d5b3-46a9-b7a8-29b004661de2",
+    "viewModelInstanceId": "a55c1d19-a942-4a02-ac8f-a2c6cee78c82",
+    "cn": [
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "staff_name",
+                "fieldLabel": "Staff List",
+                "labelAlign": "right",
+                "labelStyle": "color:white;font-weight:bold;",
+                "layout|anchor": "100%",
+                "layout|x": 5,
+                "layout|y": 15,
+                "minChars": 1,
+                "queryMode": "local",
+                "store": "StaffList",
+                "typeAhead": true,
+                "valueField": "ID"
+            },
+            "configAlternates": {
+                "displayField": "datafield",
+                "fieldLabel": "string",
+                "layout|anchor": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "minChars": "number",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyComboBox2",
+            "designerId": "c82ca593-c96f-4216-94c9-98e04726d497"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 40,
+                "iconCls": "x-fa fa-save",
+                "itemId": "cmdSaveReceiver",
+                "layout|x": 35,
+                "layout|y": 70,
+                "text": "Save",
+                "width": 115
+            },
+            "configAlternates": {
+                "height": "auto",
+                "iconCls": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyButton2",
+            "designerId": "7ea84368-ca93-468c-b14f-8ee22d5f3271"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 40,
+                "iconCls": "x-fa fa-close",
+                "itemId": "cmdClose",
+                "layout|x": 240,
+                "layout|y": 70,
+                "text": "Close",
+                "width": 95
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "iconCls": "string",
+                "itemId": "string"
+            },
+            "name": "MyButton3",
+            "designerId": "4acf89ba-e5b5-4406-ab92-9e8c9836df96"
+        }
+    ]
+}

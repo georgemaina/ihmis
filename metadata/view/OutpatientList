@@ -356,6 +356,30 @@
                     },
                     "name": "MyButton29",
                     "designerId": "38412859-296e-4b64-80e5-be8c1a48dc36"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Show all Patients",
+                        "itemId": "showAll",
+                        "labelStyle": "color:green;font-size:14px;font-weight:bold;",
+                        "labelWidth": 130,
+                        "layout|x": 900
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number"
+                    },
+                    "name": "MyCheckbox11",
+                    "designerId": "a029259e-33f8-478f-bcae-4b01182f3dd0"
                 }
             ]
         },

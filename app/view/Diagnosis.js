@@ -24,7 +24,10 @@ Ext.define('CarePortal.view.Diagnosis', {
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
         'Ext.form.RadioGroup',
-        'Ext.form.field.Radio'
+        'Ext.form.field.Radio',
+        'Ext.grid.Panel',
+        'Ext.view.Table',
+        'Ext.grid.column.Action'
     ],
 
     viewModel: {
@@ -131,8 +134,88 @@ Ext.define('CarePortal.view.Diagnosis', {
             ]
         },
         {
+            xtype: 'gridpanel',
+            height: 301,
+            columnLines: true,
+            store: 'DiagnosisStore',
+            columns: [
+                {
+                    xtype: 'gridcolumn',
+                    hidden: true,
+                    width: 133,
+                    dataIndex: 'Case_nr',
+                    text: 'Case No'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    hidden: true,
+                    width: 133,
+                    dataIndex: 'EncounterNo',
+                    text: 'Encounter No'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'Code',
+                    text: 'Code'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 309,
+                    dataIndex: 'Description',
+                    text: 'Description'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 142,
+                    dataIndex: 'TimeStamp',
+                    text: 'Time Stamp'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 166,
+                    dataIndex: 'Type',
+                    text: 'Type'
+                },
+                {
+                    xtype: 'actioncolumn',
+                    text: 'Delete',
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                view.getStore().remove(record);
+                                Ext.Ajax.request({
+                                    url: 'data/getDataFunctions.php?task=deleteRecord',
+                                    params: {
+                                        ID:record.get("Case_nr"),
+                                        tableName:'care_tz_diagnosis',
+                                        idColumn:'Case_nr',
+                                        batch_nr:record.get('Case_nr')
+                                    },
+                                    success: function(response){
+                                        var resp = Ext.JSON.decode(response.responseText);
+                                        Ext.Msg.alert("Success","Removed record with partcode "+record.get('PartCode'));
+
+                                        //this.getNotes(encounterNo);
+
+                                    },
+                                    failure: function (form, action) {
+                                        var jsonResp = Ext.decode(action.response.responseText);
+
+                                        Ext.Msg.alert('Failed', 'There was a problem with the Request. \n Error=' + jsonResp.error);
+                                    },
+                                    scope:this
+                                });
+                            },
+                            icon: 'icons/delete1.jpg'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             xtype: 'fieldset',
             height: 300,
+            hidden: true,
             itemId: 'diagnosisPanel'
         }
     ]

@@ -271,7 +271,7 @@ Ext.define('CarePortal.view.Credit', {
                     x: 0,
                     y: 10,
                     height: 30,
-                    itemId: 'cmdServiceList',
+                    itemId: 'cmdGetDrugsItems',
                     width: 130,
                     iconCls: 'x-fa fa-plus',
                     text: 'Get Items List'

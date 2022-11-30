@@ -364,7 +364,8 @@ Ext.application({
         'UpdateDates',
         'NotesList',
         'WardsList',
-        'ClinicsList'
+        'ClinicsList',
+        'OutpatientVisits'
     ],
     controllers: [
         'Main',

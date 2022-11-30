@@ -7,7 +7,7 @@
 require('roots.php');
 require($root_path . 'include/inc_environment_global.php');
 ?>
- <link rel="stylesheet" href="reportsCss.css">
+ <link rel="stylesheet" href="reportsCss2.css">
 <div class="book">
     <?php 
     $pid = $_REQUEST['pid'];
@@ -87,14 +87,14 @@ require($root_path . 'include/inc_environment_global.php');
                      echo "</td></tr>";
                      
                      echo "<tr><td colspan='6'><hr></td></tr>";
-                      $sql3 = "SELECT t.name as noteType,n.notes FROM care_encounter_notes n 
+                      $sql3 = "SELECT t.name as noteType,n.notes,CONCAT(n.`date`,' ',n.`time`) as inputDate FROM care_encounter_notes n 
                       left join care_type_notes t on n.type_nr=t.nr where encounter_nr=$encNo";
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                       $totals=0;
                        echo "<tr><td class='invTitle'colspan=6>NOTES:</td></tr>";
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>".$row['noteType']."</td><td class='invDetails' colspan=5>".$row['notes']."</td></tr>";
+                           echo "<tr><td class='invDetails'>".$row['noteType']."</td><td class='invDetails' colspan=4>".$row['notes']."</td><td class='invDetails'>".$row['inputDate']."</td></tr>";
                        }
                        echo "<tr><td colspan='6'><hr></td></tr>";
                                              
@@ -109,15 +109,13 @@ require($root_path . 'include/inc_environment_global.php');
                            echo "<tr><td class='invDetails'>Lab</td><td class='invDetails' colspan=5>".$row['item_description']."</td></tr>";
                        } 
                        
-                       $sql3 = "SELECT d.item_description FROM care_test_request_radio r 
-                           LEFT JOIN care_tz_drugsandservices d on r.test_request=d.partcode
-                                    where encounter_nr=$encNo";
-                      //echo $sql3;
-                      $results = $db->Execute($sql3);
-                       while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>x-ray</td><td class='invDetails' colspan=5>".$row['item_description']."</td></tr>";
-                       } 
-                       
+                                              
+                       $sql3 = "SELECT radiologyTest FROM care_ke_radiologytests where encounter_nr=$encNo";
+                       //echo $sql3;
+                       $results = $db->Execute($sql3);
+                        while ($row = $results->FetchRow()) {
+                            echo "<tr><td class='invDetails'>x-ray</td><td class='invDetails' colspan=5>".$row['radiologyTest']."</td></tr>";
+                        }
                        echo "<tr><td colspan='6'><hr></td></tr>";
                                              
                        $sql3 = "SELECT i.item_Cat,article FROM care_encounter_prescription p 

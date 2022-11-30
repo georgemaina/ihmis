@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "serviceorders",
+        "designer|userClassName": "ServiceOrdersViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyForm2ViewModel",
+    "designerId": "34ee7d8a-38ef-4ba8-9a1c-68380a973a3a"
+}

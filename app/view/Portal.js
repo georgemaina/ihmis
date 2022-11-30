@@ -87,7 +87,7 @@ Ext.define('CarePortal.view.Portal', {
                         {
                             xtype: 'displayfield',
                             flex: 1,
-                            width: 165,
+                            width: 244,
                             fieldLabel: 'Welcome',
                             labelStyle: 'font-size: large;font-weight: bold;color: green;',
                             value: 'Admin',

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "diagnosisreports",
+        "designer|userClassName": "DiagnosisReportViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyGridPanelViewModel",
+    "designerId": "d14f8bea-c9e9-480f-9dc2-2e78cdf27bd9"
+}

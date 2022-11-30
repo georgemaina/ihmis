@@ -1,0 +1,250 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "salesgrid",
+        "designer|userClassName": "SalesGrid",
+        "height": 600,
+        "itemId": "salesGrid",
+        "store": "CashSalesStore",
+        "title": "Cash Sales",
+        "width": 400
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "itemId": "string",
+        "store": "store",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "MyGridPanel8",
+    "designerId": "8b33e325-c468-4545-addc-b3f75dbe8d96",
+    "viewControllerInstanceId": "ea88a97a-12e7-4fe4-b86b-ce869fac5e15",
+    "viewModelInstanceId": "9238ddd3-e20b-494b-b75e-50833090e494",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "salesGrid"
+            },
+            "configAlternates": {
+                "itemId": "string"
+            },
+            "name": "MyTable10",
+            "designerId": "ae16c302-2d27-4d18-be83-02fa62722466"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretchmax",
+                "dock": "top",
+                "height": 43,
+                "layout": "hbox",
+                "padding": 5,
+                "width": 100
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyContainer19",
+            "designerId": "5eb04a54-3095-4da2-8653-53411fb837b1",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Find receipt by name, ReceiptNo,Pid,Date",
+                        "itemId": "receiptsParams",
+                        "layout|flex": 1,
+                        "submitValue": false,
+                        "width": 254
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "width": "auto",
+                        "submitValue": "boolean"
+                    },
+                    "name": "MyTextField80",
+                    "designerId": "768c0af6-3f38-4f24-8b07-1fc0b8a1972a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "CashSalesStore",
+                "width": 360
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store",
+                "width": "auto"
+            },
+            "name": "MyPagingToolbar10",
+            "designerId": "b7269da0-4353-4611-95b4-1c77155c1b2d"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Pid",
+                "text": "Pid"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn146",
+            "designerId": "a7b6bfe6-5f0c-4cee-98d0-803a0547f2ae"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Names",
+                "text": "Names"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn147",
+            "designerId": "b60b29b3-d013-4da7-9ea1-ce2e4cbd429a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "ref_no",
+                "text": "Receipt No"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn148",
+            "designerId": "de08c792-7e64-4d42-9f66-183403a6c0a5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "cash_point",
+                "text": "Cash Point"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn149",
+            "designerId": "c6c42dbf-da6e-4718-9c9b-c16360aa41db"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "total",
+                "text": "Total"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn150",
+            "designerId": "ba373157-1977-41fe-a696-5632d186813b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "CurrDate",
+                "text": "Curr Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn174",
+            "designerId": "5e2d6c29-7b43-4581-a13b-a135ae93ed6b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Shift_no",
+                "text": "Shift No"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn175",
+            "designerId": "e21ed0c6-b15c-401b-91a0-40ebb3c86d6d"
+        }
+    ]
+}

@@ -5,7 +5,7 @@ require('../include/inc_environment_global.php');
 $debug=true;
  $day=date('d');
  
-$startDate="2022-09-19";//date('Y-m-d');
+$startDate="2022-11-24";//date('Y-m-d');
 //$startDate=date('Y-m-d');
   
  $sMonth=new DateTime($startDate);
@@ -23,7 +23,7 @@ $startDate="2022-09-19";//date('Y-m-d');
 
 $sql2="SELECT DATE_FORMAT(TIMESTAMP,'%Y-%m-%d') as dday,c.`type`, icd_10_code,icd_10_description,COUNT(icd_10_code) AS dcount FROM care_tz_diagnosis d
         LEFT JOIN `care_icd10_en` c ON d.`ICD_10_code`=c.`diagnosis_code`
-        WHERE d.type='New' AND c.`type` IN ('OP','OPC') and DATE_FORMAT(TIMESTAMP,'%Y-%m-%d') between '$startDate' and '$endDate'
+        WHERE c.`type` IN ('OP','OPC') and DATE_FORMAT(TIMESTAMP,'%Y-%m-%d') between '$startDate' and '$endDate'
         GROUP BY icd_10_code";
 
 

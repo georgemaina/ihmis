@@ -262,7 +262,6 @@ Ext.define('CarePortal.view.Register', {
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 120,
                             name: 'citizenship',
-                            value: 'LUGULU',
                             fieldStyle: 'color:#630921; font-weight:bold;',
                             allowBlank: false
                         },

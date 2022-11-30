@@ -105,6 +105,7 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "First Name",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "itemId": "FirstName1",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
@@ -125,7 +126,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "labelStyle": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string"
             },
             "name": "MyTextField",
             "designerId": "9c0f1daa-0064-4f24-ab1b-29578af85279",
@@ -162,6 +164,7 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "Last Name",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "itemId": "LastName",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
@@ -182,7 +185,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "labelStyle": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string"
             },
             "name": "MyTextField95",
             "designerId": "bec9a436-cc1a-4cc0-b979-63c6ce25caef",
@@ -219,6 +223,7 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "Username",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "itemId": "UserName",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
@@ -239,7 +244,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "labelStyle": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string"
             },
             "name": "MyTextField96",
             "designerId": "254e856c-4c9a-4bc2-a93f-87512ef0a4f4",
@@ -277,6 +283,7 @@
                 "allowBlank": false,
                 "displayField": "Group",
                 "fieldLabel": "User Group",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "itemId": "UserGroup",
                 "labelAlign": "right",
                 "labelStyle": "color:green; font-weight:bold;",
@@ -312,7 +319,8 @@
                 "queryMode": "string",
                 "store": "store",
                 "typeAhead": "boolean",
-                "valueField": "datafield"
+                "valueField": "datafield",
+                "fieldStyle": "string"
             },
             "name": "MyComboBox19",
             "designerId": "41e21d44-5d09-4c85-91e9-19d06b800af2",
@@ -340,6 +348,89 @@
             ]
         },
         {
+            "type": "Ext.form.field.Tag",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "createNewOnBlur": true,
+                "createNewOnEnter": true,
+                "displayField": "Description",
+                "encodeSubmitValue": true,
+                "fieldLabel": "Clinics",
+                "fieldStyle": "color:#630921; font-weight:bold;",
+                "filterPickList": true,
+                "itemId": "clinics",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "labelWidth": 120,
+                "minChars": 2,
+                "name": "clinics",
+                "queryMode": "local",
+                "store": "DepartmentsStore",
+                "tabIndex": 4,
+                "typeAhead": true,
+                "validateBlank": true,
+                "valueField": "Nr",
+                "width": 290
+            },
+            "configAlternates": {
+                "allowBlank": "boolean",
+                "fieldLabel": "string",
+                "inputType": "string",
+                "labelAlign": "string",
+                "labelWidth": "number",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string",
+                "submitValue": "boolean",
+                "tabIndex": "number",
+                "validateBlank": "boolean",
+                "width": "auto",
+                "scrollable": "boolean",
+                "labelStyle": "string",
+                "displayField": "datafield",
+                "itemId": "string",
+                "minChars": "number",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield",
+                "createNewOnBlur": "boolean",
+                "createNewOnEnter": "boolean",
+                "encodeSubmitValue": "boolean",
+                "fieldStyle": "string",
+                "filterPickList": "boolean"
+            },
+            "name": "MyTagField",
+            "designerId": "6ee31c44-8b25-43a7-ba3e-18e0c927febc",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "afterLabelTextTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "afterLabelTextTpl",
+                        "implHandler": [
+                            "<span style=\"color:red;font-weight:bold\" data-qtip=\"Required\">*</span>"
+                        ]
+                    },
+                    "configAlternates": {
+                        "designer|displayName": "string",
+                        "implHandler": "code"
+                    },
+                    "name": "tpl34",
+                    "designerId": "d139be19-7e13-442c-8a53-d87adde34497"
+                }
+            ]
+        },
+        {
             "type": "Ext.form.field.Text",
             "reference": {
                 "name": "items",
@@ -349,6 +440,7 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "Password",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "inputType": "password",
                 "itemId": "Password",
                 "labelAlign": "right",
@@ -375,7 +467,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "labelStyle": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string"
             },
             "name": "MyTextField80",
             "designerId": "7030d083-8769-41c7-b9c7-c25932968b4b",
@@ -412,6 +505,7 @@
             "userConfig": {
                 "allowBlank": false,
                 "fieldLabel": "Confirm Password",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "inputType": "password",
                 "itemId": "Password2",
                 "labelAlign": "right",
@@ -438,7 +532,8 @@
                 "width": "auto",
                 "scrollable": "boolean",
                 "labelStyle": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "fieldStyle": "string"
             },
             "name": "MyTextField98",
             "designerId": "f2a772b3-4bf9-4b05-a9f4-4cab0ab9dc9f",

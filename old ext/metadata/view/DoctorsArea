@@ -1,0 +1,294 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "baseCls": "",
+        "bodyCls": [
+            "x-portal-body"
+        ],
+        "cls": [
+            "x-portal"
+        ],
+        "designer|uiInterfaceName": "light-framed-framed",
+        "designer|userAlias": "doctorsarea",
+        "designer|userClassName": "DoctorsArea",
+        "frame": true,
+        "frameHeader": false,
+        "height": null,
+        "scrollable": true,
+        "title": null,
+        "ui": "light-framed-framed",
+        "width": null
+    },
+    "configAlternates": {
+        "autoScroll": "boolean",
+        "baseCls": "string",
+        "bodyCls": "typedarray",
+        "cls": "string",
+        "designer|uiInterfaceName": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "frame": "boolean",
+        "frameHeader": "boolean",
+        "height": "auto",
+        "layout": "string",
+        "title": "string",
+        "ui": "string",
+        "width": "auto",
+        "scrollable": "boolean"
+    },
+    "name": "MyPanel3",
+    "designerId": "8d2f2e84-fc52-4244-b0b2-176ee5f30163",
+    "viewControllerInstanceId": "2cbad9f7-8aac-4c05-970b-eff6d7b16732",
+    "viewModelInstanceId": "eb4a9e88-fd0a-4906-90c8-2f491ee7798c",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "statisticspanel",
+            "designerId": "88058ef4-b422-4416-a588-27e3ea60b7c5",
+            "masterInstanceId": "48f351a5-90dd-4152-8b71-45f0f753dea1"
+        },
+        {
+            "type": "Ext.form.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "column"
+            },
+            "configAlternates": {
+                "layout": "string"
+            },
+            "name": "MyForm4",
+            "designerId": "6564a417-244d-4295-b5ed-1b840c9c7c4e",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Column1",
+                        "layout": "anchor",
+                        "layout|columnWidth": 0.33333,
+                        "padding": "5 3 3 1"
+                    },
+                    "configAlternates": {
+                        "cls": "string",
+                        "designer|displayName": "string",
+                        "layout": "string",
+                        "layout|columnWidth": "auto",
+                        "padding": "auto",
+                        "scrollable": "boolean"
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "208a982b-686e-4a37-8686-d24ffe773db4",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 393,
+                                "margin": "0 0 10 0"
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "margin": "auto"
+                            },
+                            "name": "opwaitinglist1",
+                            "designerId": "43786710-0d9f-4d3b-94be-7a5ee36ff33d",
+                            "masterInstanceId": "b08d81e4-c2db-45dc-9ba0-28bebd09a45f"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "closable": true,
+                                "collapsible": true,
+                                "draggable": true,
+                                "height": 319,
+                                "itemId": "notesPanel"
+                            },
+                            "configAlternates": {
+                                "closable": "boolean",
+                                "collapsible": "boolean",
+                                "draggable": "boolean",
+                                "height": "auto",
+                                "scrollable": "boolean",
+                                "itemId": "string"
+                            },
+                            "name": "doctorsnotes1",
+                            "designerId": "2cb21800-5e6e-445a-bc88-a5094b820448",
+                            "masterInstanceId": "fd3b387e-3ffb-4a63-90ae-5aac51f73d32"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "designer|displayName": "Column2",
+                        "layout": "vbox",
+                        "layout|columnWidth": 0.33333,
+                        "padding": "5 3 3 3"
+                    },
+                    "configAlternates": {
+                        "cls": "string",
+                        "designer|displayName": "string",
+                        "layout": "string",
+                        "layout|columnWidth": "auto",
+                        "padding": "auto",
+                        "scrollable": "boolean",
+                        "container|align": "string"
+                    },
+                    "name": "MyContainer4",
+                    "designerId": "5bb82ee6-1b2b-4030-91f6-a51b74320562",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 140
+                            },
+                            "configAlternates": {
+                                "height": "auto"
+                            },
+                            "name": "vitalslists1",
+                            "designerId": "8c902cce-5cab-45a6-aad8-c632d75b9e7f",
+                            "masterInstanceId": "d8e50767-b5f9-4511-ae21-3535cb70ac2e"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "height": 233,
+                                "layout|flex": 1,
+                                "title": "Procedures and Services"
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "layout|flex": "number",
+                                "title": "string"
+                            },
+                            "name": "servicesprocedures",
+                            "designerId": "658483b9-03c7-4a1a-832f-d17daa3f229f",
+                            "masterInstanceId": "442b0dfa-255b-4f31-93cc-cfff5ee65e52"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": 1
+                            },
+                            "configAlternates": {
+                                "layout|flex": "number"
+                            },
+                            "name": "diagnosis1",
+                            "designerId": "2cc1910c-847c-4dc4-a304-12b3311c8dcc",
+                            "masterInstanceId": "2028c641-7a3d-4128-aabf-b460f1dd4bd0"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|displayName": "Column3",
+                        "layout": "anchor",
+                        "layout|columnWidth": 0.33333,
+                        "padding": "5 5 5 5",
+                        "toFrontOnShow": false
+                    },
+                    "configAlternates": {
+                        "cls": "string",
+                        "designer|displayName": "string",
+                        "layout": "string",
+                        "layout|columnWidth": "auto",
+                        "padding": "auto",
+                        "toFrontOnShow": "boolean",
+                        "scrollable": "boolean"
+                    },
+                    "name": "MyContainer5",
+                    "designerId": "bf8aaf08-e41b-4ba7-9a7a-b9670e149b09",
+                    "cn": [
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "closable": true,
+                                "collapsible": true,
+                                "draggable": true
+                            },
+                            "configAlternates": {
+                                "closable": "boolean",
+                                "collapsible": "boolean",
+                                "draggable": "boolean",
+                                "scrollable": "boolean"
+                            },
+                            "name": "investigations1",
+                            "designerId": "d437b3ef-d701-48b9-89b6-0d34252e3b00",
+                            "masterInstanceId": "f7876c12-4d7e-4693-ab27-e7fcba5c56ee"
+                        },
+                        {
+                            "type": "linkedinstance",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "name": "dosagelist",
+                            "designerId": "f554819c-fd23-46c4-9688-d745b7f95776",
+                            "masterInstanceId": "f6969d24-c5f3-4b47-8bae-5cef45544940"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

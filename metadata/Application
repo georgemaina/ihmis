@@ -362,7 +362,8 @@
             "UpdateDates",
             "NotesList",
             "WardsList",
-            "ClinicsList"
+            "ClinicsList",
+            "OutpatientVisits"
         ]
     },
     "configAlternates": {

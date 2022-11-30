@@ -15,10 +15,10 @@
         "cacheBust": false,
         "canvasControls": {
             "viewportSize": {
-                "name": "Large",
-                "builtIn": true,
-                "height": 1024,
-                "width": 1280
+                "name": "New Size",
+                "builtIn": false,
+                "height": 1080,
+                "width": 1920
             }
         },
         "buildShouldOverwriteIndex": true,
@@ -67,8 +67,11 @@
             "a5bd4f03-be17-4db0-adae-2e5dce81df4c",
             "81bda88f-5fea-4ac7-92d1-7755e2dac015",
             "7f8e01e4-554f-4b06-a866-cedd3e803d75",
+            "dbe0c73f-826a-4782-9222-f5fcd9f13fe5",
             "4080c021-b3e8-41aa-b145-50c5ea5a92e1",
+            "e08ac148-a249-4124-991b-3c9112b838de",
             "31f138ca-cb23-4753-bd3b-148bbb23e078",
+            "94f69d98-465f-4d3c-ae04-454f7257e11b",
             "9ba5520b-c1d0-4763-8ebf-0b5d4320ee3f",
             "dec0815b-80a3-42c5-970b-2391053518b9",
             "da5e96f8-0330-4fca-9f8e-e5fea869bf03",
@@ -918,7 +921,7 @@
             "7a343d2c-ba51-4f4b-99b6-0e3c67e8e2e3"
         ],
         "resource": [
-            "930e0fd9-a871-4c72-8f8a-c29ae5a42213",
+            "ccc63ead-c6d9-4ca8-9b85-12db202b323b",
             "7d7dafb5-094a-4ac0-80f6-e606c50018d9",
             "7474c197-dce5-4cf4-93ca-e45b0718c653",
             "c2dd5573-0b00-4902-aa47-117a2e5ee515",

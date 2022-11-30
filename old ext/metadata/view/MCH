@@ -1,0 +1,1255 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "container|align": "stretch",
+        "designer|userAlias": "mch",
+        "designer|userClassName": "MCH",
+        "height": 607,
+        "layout": "hbox",
+        "url": "data/getDataFunctions.php?task=saveMch"
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "title": "string",
+        "designer|snapToGrid": "number",
+        "layout": "string",
+        "container|align": "string",
+        "height": "auto",
+        "url": "string"
+    },
+    "designerId": "71834c52-f007-496c-ad13-061cf4d8b179",
+    "viewControllerInstanceId": "58530b70-aa37-4b45-a08c-21f04c981b50",
+    "viewModelInstanceId": "1744ec07-0b60-4497-9661-91fd9fbc0993",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "vbox"
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string"
+            },
+            "name": "MyContainer19",
+            "designerId": "22c3c9b0-9aa4-4123-89d0-e96cfef2a01f",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 0,
+                        "margin": "0 0 2 0"
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "margin": "auto"
+                    },
+                    "name": "patientdetais2",
+                    "designerId": "526e7cc1-6325-48e1-aa54-b6470676a0de",
+                    "masterInstanceId": "3d257ecb-2ca1-40bf-b7ca-31282ca4bf4d"
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 0,
+                        "margin": "0 0 2 0"
+                    },
+                    "configAlternates": {
+                        "layout|flex": "number",
+                        "margin": "auto"
+                    },
+                    "name": "MyContainer20",
+                    "designerId": "45d15d9f-f74b-4afe-bc2e-b9547b60f94b",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "x-fa fa-save",
+                                "itemId": "cmdSaveMch",
+                                "text": "Save",
+                                "width": 124
+                            },
+                            "configAlternates": {
+                                "iconCls": "string",
+                                "itemId": "string",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyButton20",
+                            "designerId": "6db268fd-13f5-4da6-9f80-ade2533beb91"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mchForms",
+                        "layout|flex": 1,
+                        "scrollable": "vertical"
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "layout|flex": "number",
+                        "scrollable": "auto"
+                    },
+                    "name": "MyContainer16",
+                    "designerId": "44fb8e78-4583-469b-8fa5-f66e65ef15a4",
+                    "cn": [
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "collapsed": true,
+                                "collapsible": true,
+                                "container|align": "stretchmax",
+                                "layout": "vbox",
+                                "margin": "0 0 0 0",
+                                "padding": "0 0 0 10",
+                                "title": "CWC"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "collapsed": "boolean",
+                                "collapsible": "boolean",
+                                "margin": "auto",
+                                "title": "string"
+                            },
+                            "name": "MyFieldSet15",
+                            "designerId": "21a40411-f58f-4743-91d3-1216ef1417f0",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Weight",
+                                        "labelAlign": "right",
+                                        "layout|flex": 0,
+                                        "margin": "0 0 2 0",
+                                        "name": "weight"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "layout|flex": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "9549a221-6fc9-419b-a765-c7dc07839723"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Height",
+                                        "labelAlign": "right",
+                                        "margin": "0 0 2 0",
+                                        "name": "height"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "78db91d9-7d31-42f0-99e1-57a262aa28e6"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Age",
+                                        "labelAlign": "right",
+                                        "margin": "0 0 2 0",
+                                        "name": "age"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "db7203c2-9ea8-4afb-b3ae-1e6dbaa27389"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "layout|flex": 2,
+                                        "name": "notes"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField4",
+                                    "designerId": "1b12e6cf-bb53-47b4-b6cf-16b2dbbabd82"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "layout|flex": 2,
+                                        "name": "mch_type",
+                                        "value": [
+                                            "'CWC'"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "layout|flex": "number",
+                                        "name": "string",
+                                        "value": "object"
+                                    },
+                                    "name": "MyTextField49",
+                                    "designerId": "41ed3b34-2993-4487-b90e-859e90f993de"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "collapsed": true,
+                                "collapsible": true,
+                                "container|align": "stretchmax",
+                                "layout": "vbox",
+                                "margin": 0,
+                                "padding": "0 0 0 10",
+                                "title": "ANC"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "title": "string",
+                                "collapsed": "boolean",
+                                "collapsible": "boolean",
+                                "margin": "auto"
+                            },
+                            "name": "MyFieldSet10",
+                            "designerId": "b607782a-e722-4b30-bd59-012e118bd0e5",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Visit Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "layout|flex": 0,
+                                        "margin": "0 0 2 0",
+                                        "name": "anc_visit_status",
+                                        "store": [
+                                            "['New','ReVisit']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|flex": "number",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox1",
+                                    "designerId": "d96976c2-9912-4291-bd1c-4c07fafbdebd"
+                                },
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Date of Birth",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "dob"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyDateField6",
+                                    "designerId": "17f8b725-dc25-4b61-9978-e4d317131e5e"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "LMP",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "layout|margins": "0 0 2 0",
+                                        "margin": "0 0 2 0",
+                                        "name": "lmp"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|margins": "string",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "02b36333-5958-45f5-9d06-c8f8ae360b20"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "EDD",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "edd"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField7",
+                                    "designerId": "ee512a8d-8c07-4a3c-bd1d-fe0c17f49764"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Gestation in Weeks",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "gestation_in_weeks"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField9",
+                                    "designerId": "209cb2c5-920f-498f-b875-31607d32b0e9"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "HIV",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "HIV",
+                                        "store": [
+                                            "['Positive','Negative','Pre-N','Pre-P']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox22",
+                                    "designerId": "c86e4b55-a125-4a45-92cc-e98ac17ccbd3"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "HAART Given",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "Haart",
+                                        "store": [
+                                            "['Yes','No']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox23",
+                                    "designerId": "e6c90470-b12f-4b4a-b6bc-e4f935fe9a45"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Infant Prophylaxis",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "InfantProphylaxis",
+                                        "store": [
+                                            "['Yes','No']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox24",
+                                    "designerId": "9c8f39ec-eaa9-4c8b-9c07-8987f1d69236"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Partner Testing",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "PartnerTesting",
+                                        "store": [
+                                            "['Yes','No','N/A']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox25",
+                                    "designerId": "00b542d7-cf08-4e8c-8fe4-17744f9043d0"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Partner Testing Results",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "PartnerTestingResults",
+                                        "store": [
+                                            "['Positive','Negative','N/A']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox26",
+                                    "designerId": "5105ba05-eb1f-431b-b33a-617dcac8e901"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Other Conditions",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "OtherConditions"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyTextField115",
+                                    "designerId": "046f3c7b-d18c-4641-a11c-1a248a8a0367"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Preventive Services",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "margin": "0 0 2 0",
+                                        "name": "PreventiveServices",
+                                        "store": [
+                                            "['Tetanus','IPTp-SP','LLITN','Dewarming','Suplementation']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox28",
+                                    "designerId": "5e4d092b-18e3-4158-b1d9-bd8ccbebd159"
+                                },
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "layout|flex": 2,
+                                        "name": "TCA"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "layout|flex": "number",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyDateField7",
+                                    "designerId": "b20eaf56-ba80-45a1-8b81-a0b56d01baec"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "labelWidth": 120,
+                                        "layout|flex": 2,
+                                        "name": "Remarks",
+                                        "value": [
+                                            "'ANC'"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "layout|flex": "number",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "name": "string",
+                                        "value": "object"
+                                    },
+                                    "name": "MyTextField50",
+                                    "designerId": "993773fe-4739-44a6-a20d-5abc2ab2fa0e"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "collapsible": true,
+                                "container|align": "stretchmax",
+                                "layout": "vbox",
+                                "padding": "0 0 0 10",
+                                "title": "Family Planning"
+                            },
+                            "configAlternates": {
+                                "collapsed": "boolean",
+                                "collapsible": "boolean",
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "title": "string"
+                            },
+                            "name": "MyFieldSet6",
+                            "designerId": "73c2c5bb-d90a-40c5-97c0-4b6b9f48e95e",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Weight",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 0,
+                                        "layout|margins": "0 0 2 0",
+                                        "margin": "0 0 2 0",
+                                        "name": "fpWeight"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "layout|margins": "string",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField",
+                                    "designerId": "555430d5-a0d2-48ed-ad2b-8e0c2adb1531"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Previous Method Used",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "previous_method_used",
+                                        "store": [
+                                            "['Condom','Diaphragm','Pills','Implants','Injections','IUD','Female Condom']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox15",
+                                    "designerId": "d7a248b9-a462-429e-89de-d4335a372d09"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Curent Method",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "current_method",
+                                        "store": [
+                                            "['Condom','Diaphragm','Pills','Implants','Injections','IUD','Female Condom']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox17",
+                                    "designerId": "03deff3a-28b1-48c9-a1ff-156b1835a2cf"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "HIV Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "HIVStatus",
+                                        "store": [
+                                            "['Condom','Diaphragm','Pills','Implants','Injections','IUD','Female Condom']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox33",
+                                    "designerId": "f12be80d-51b3-477f-b99f-3acf2fb72c94"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "HIV Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "HIVStatus",
+                                        "store": [
+                                            "['Condom','Diaphragm','Pills','Implants','Injections','IUD','Female Condom']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox34",
+                                    "designerId": "091479a7-7355-40e1-9692-6a328d5d106e"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "BP",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "BP"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField30",
+                                    "designerId": "22016013-5d53-4d47-be16-a2bd804fabd2"
+                                },
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 2,
+                                        "name": "notes"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyDateField2",
+                                    "designerId": "18d9f5cb-6a7f-4108-aa5b-7017c4b5a364"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Remaks",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 2,
+                                        "name": "mch_type"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "name": "string",
+                                        "value": "object"
+                                    },
+                                    "name": "MyTextField55",
+                                    "designerId": "d8d6d077-b18a-441e-bba3-a8b0bba114c0"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "collapsed": true,
+                                "collapsible": true,
+                                "container|align": "stretchmax",
+                                "layout": "vbox",
+                                "padding": "0 0 0 10",
+                                "title": "PNC"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "collapsed": "boolean",
+                                "collapsible": "boolean",
+                                "title": "string"
+                            },
+                            "name": "MyFieldSet16",
+                            "designerId": "ed22cdc1-7c8e-41c3-81e3-b023382e051d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Timing Of Visit",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 0,
+                                        "layout|margins": "0 0 2 0",
+                                        "margin": "0 0 2 0",
+                                        "name": "TimingOfVisit",
+                                        "store": [
+                                            "[]"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "layout|margins": "string",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox29",
+                                    "designerId": "8e6d406c-c605-4573-a4b9-cd0f61b91005"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "General Condtion",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 0,
+                                        "layout|margins": "0 0 2 0",
+                                        "margin": "0 0 2 0",
+                                        "name": "GeneralCondtion"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "layout|margins": "string",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyTextField118",
+                                    "designerId": "b3b79d4f-f6a2-4cd5-bd02-8946592b568c"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Mother BP",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 0,
+                                        "layout|margins": "0 0 2 0",
+                                        "margin": "0 0 2 0",
+                                        "name": "motherBP"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "layout|margins": "string",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField117",
+                                    "designerId": "3671307c-9588-4540-abf6-33e9693e9433"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Baby Temp",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "Baby_temp"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField1",
+                                    "designerId": "13599b0b-16c7-457c-89c7-ba9771c9e7d5"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Cord Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "cord_status"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "f1514da1-1d59-4ff2-8938-c812facabe21"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Cord Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "BreastExam"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField121",
+                                    "designerId": "6708e119-d741-4637-8a31-f49bd6697a85"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Cord Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "CSScar",
+                                        "store": [
+                                            "['Yes','No','N/A']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox31",
+                                    "designerId": "7465dc24-fccc-4e0f-82fe-315ba90bff50"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Cord Status",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "margin": "0 0 2 0",
+                                        "name": "InvolutionOfUterus",
+                                        "store": [
+                                            "['Yes','No','N/A']"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "margin": "auto",
+                                        "name": "string",
+                                        "store": "array"
+                                    },
+                                    "name": "MyComboBox32",
+                                    "designerId": "fe98a97d-44b7-42d2-8599-35cde68994a6"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 2,
+                                        "name": "notes"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "name": "string"
+                                    },
+                                    "name": "MyTextField4",
+                                    "designerId": "115757dd-ff95-4f92-83d5-bc7a1425ed1d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "TCA (Notes)",
+                                        "labelAlign": "right",
+                                        "labelWidth": 140,
+                                        "layout|flex": 2,
+                                        "name": "mch_type",
+                                        "value": [
+                                            "'PNC'"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "layout|anchor": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "name": "string",
+                                        "value": "object"
+                                    },
+                                    "name": "MyTextField56",
+                                    "designerId": "00b813dc-5714-4a0f-a90c-c5a6183aec85"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

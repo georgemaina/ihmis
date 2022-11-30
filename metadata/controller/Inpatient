@@ -2606,7 +2606,7 @@
                 "implHandler": [
                     "var Services=Ext.create('CarePortal.view.Radiology', {});",
                     "var ServicesWindow=Ext.create('Ext.window.Window', {",
-                    "    title: 'Patients Services',",
+                    "    title: 'Radiology Services',",
                     "    resizable:false",
                     "});",
                     "",
@@ -2648,7 +2648,7 @@
                 "implHandler": [
                     "var Services=Ext.create('CarePortal.view.Diagnosis', {});",
                     "var ServicesWindow=Ext.create('Ext.window.Window', {",
-                    "    title: 'Patients Services',",
+                    "    //title: 'Patients Services',",
                     "    resizable:false",
                     "});",
                     "",
@@ -3159,6 +3159,8 @@
                     "            },",
                     "            scope: this",
                     "        });",
+                    "}else if(formSource=='Discharges'){",
+                    "    ",
                     "}"
                 ]
             },

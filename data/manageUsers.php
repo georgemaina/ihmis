@@ -86,7 +86,8 @@ function insertUser($userdetails) {
     //$table = $registerdetails['formtype'];
     $FieldNames='';
     $FieldValues='';
-
+    //$data = json_decode($_REQUEST['clinics'], true);
+    
     if(validateUser($userdetails['UserName'])){
         echo '{failure:true,errNo:1}';
     }else{
@@ -97,11 +98,11 @@ function insertUser($userdetails) {
          
         foreach ($userdetails as $key => $value) {
             $FieldNames.=$key . ', ';
-            $FieldValues.='"' . $value . '", ';
+            $FieldValues.="'" . $value . "', ";
         }
 
-        $sql = 'INSERT INTO user_list (' . substr($FieldNames, 0, -2) . ') ' .
-                'VALUES (' . substr($FieldValues, 0, -2) . ') ';
+        $sql = "INSERT INTO user_list (" . substr($FieldNames, 0, -2) . ") " .
+                "VALUES (" . substr($FieldValues, 0, -2) . ") ";
 
         if ($debug)
             echo $sql;
@@ -113,9 +114,9 @@ function insertUser($userdetails) {
                     FROM user_roles WHERE username='Admin'";
                    if($debug) echo $sql2;
                     $db->Execute($sql2);
-            echo '{success:true}';
+            echo '{"success":true}';
         } else {
-            echo "{'failure':'true','errNo':'2'}";
+            echo '{"failure":"true","errNo":"2"}';
         }
     }
 }
@@ -129,7 +130,7 @@ function updateUser($userdetails) {
      unset($userdetails['ID']);
     $userdetails['password']=  md5($userdetails['password']);
     foreach ($userdetails as $key => $value) {
-        $sql .= $key . '="' . $value . '", ';
+        $sql .= $key . "='" . $value . "', ";
     }
     $sql = substr($sql, 0, -2) . ' WHERE ID="' . $id . '"';
 
@@ -137,9 +138,9 @@ function updateUser($userdetails) {
         echo $sql;
 
     if ($db->Execute($sql)) {
-        $results = '{success: true }';
+        $results = '{"success": true }';
     } else {
-        $results = "{success: false,errors:{clientNo:'Could not update User, Please check your values'}}"; // Return the error message(s)
+        $results = '{"failure":true,"errors":"Could not update User, Please check your values"}'; // Return the error message(s)
     }
     echo $results;
 }
@@ -163,10 +164,12 @@ function getUserRole() {
     while ($row = $results->FetchRow()) {
         echo '{"ID":"' . $row['ID'] .'","Role":"' . $row['Role'] . '","RoleName":"' . $row['RoleName'] . '","View":' . $row['View'] . ',"Edit":' . $row['Edit']
         . ',"Delete":' . $row['Delete'] . ',"MenuGroup":' . $row['menuGroup'] . ',"Module":"' . $row['Module']. '"}';
+        
+        $counter++;
         if ($counter < $numRows) {
             echo ",";
         }
-        $counter++;
+        
     }
     echo ']';
 }

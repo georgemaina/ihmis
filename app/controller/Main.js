@@ -128,7 +128,8 @@ Ext.define('CarePortal.controller.Main', {
         'VitalsLists',
         'Appointments',
         'AppointmentsForm',
-        'ClinicsList'
+        'ClinicsList',
+        'OutpatientVisits'
     ],
 
     refs: {
@@ -292,6 +293,10 @@ Ext.define('CarePortal.controller.Main', {
         clinicslist: {
             selector: 'clinicslist',
             xtype: 'clinicslist'
+        },
+        outpatientvisits: {
+            selector: 'outpatientvisits',
+            xtype: 'outpatientvisits'
         }
     },
 
@@ -584,6 +589,12 @@ Ext.define('CarePortal.controller.Main', {
             },
             '#cmdPatientHistory':{
                 click:this.openPatientHistory
+            },
+            '#showAll':{
+                change:this.showAllPatients
+            },
+            '#cmdSearchOpVisits':{
+                click:this.filterOpVisits
             }
         });
     },
@@ -1187,9 +1198,14 @@ Ext.define('CarePortal.controller.Main', {
                 if(item.admType=="122"){
                     centerDetails.down('#formStatus').setValue('IP');
                     centerContainer.setTitle("Inpatient Invoices");
-                }else{
+                }else if(item.admType=="16"){
                     centerDetails.down('#formStatus').setValue('OP');
                     centerContainer.setTitle("Outpatient Invoices");
+                }
+
+                if(item.link==="OutpatientVisits"){
+                    var opVisits =Ext.data.StoreManager.lookup('OPAdmissionsStore');
+                    opVisits.load({});
                 }
 
             }
@@ -1772,7 +1788,7 @@ Ext.define('CarePortal.controller.Main', {
                     params:{
                         pid:pid,
                         encNr:encounterNo,
-                        locationNr:locationNr
+                       // locationNr:locationNr
                     },
                     scope: this
                 });
@@ -1781,7 +1797,7 @@ Ext.define('CarePortal.controller.Main', {
             scope:this
         });
         //this.loadNotes(encounterNo,notesPanel);
-        //this.getNotes(encounterNo);
+        //this.getNotes(encounterNo);//
     },
 
     loadNotes: function(encounterNr,component) {
@@ -2442,8 +2458,15 @@ Ext.define('CarePortal.controller.Main', {
                        var resp = Ext.JSON.decode(response.responseText);
                         Ext.Msg.alert('Success',resp.Error);
 
-                        //this.getNotes(encounterNo);
-
+                        var diagnosisStore=Ext.data.StoreManager.lookup("DiagnosisStore");
+                                diagnosisStore.load({
+                                    params: {
+                                        encNr:encounterNo
+                                    },
+                                    callback: function(records, operation, success) {
+                                    },
+                                    scope: this
+                                });
                     },
                     scope:this
                 });
@@ -2517,7 +2540,7 @@ Ext.define('CarePortal.controller.Main', {
             },
             success: function(response){
                 var resp = Ext.JSON.decode(response.responseText);
-                Ext.Msg.alert('Success',resp.Error);
+                //Ext.Msg.alert('Success',resp.Error);
 
                 //this.getNotes(encounterNo);
 
@@ -2594,9 +2617,16 @@ Ext.define('CarePortal.controller.Main', {
             },
             success: function(response){
                 var resp = Ext.JSON.decode(response.responseText);
-                Ext.Msg.alert('Success',resp.Error);
 
-                //this.getNotes(encounterNo);
+                var radiologyStore=Ext.data.StoreManager.lookup("RadiologyStore");
+                radiologyStore.load({
+                    params: {
+                        encNr:encounterNo
+                    },
+                    callback: function(records, operation, success) {
+                    },
+                    scope: this
+                });
 
             },
             scope:this
@@ -3355,6 +3385,41 @@ Ext.define('CarePortal.controller.Main', {
             failure:function(response){
                 // var resp = JSON.parseJSON(response);
                 Ext.Msg.alert('Access Denied','Access Denied, contact Systems Administrator');
+            },
+            scope: this
+        });
+    },
+
+    showAllPatients: function(field, newValue, oldValue, eOpts) {
+        //Ext.Msg.alert('Test',newValue);
+        var opStore=Ext.data.StoreManager.lookup("OPAdmissionsStore");
+
+        opStore.load({
+            params: {
+                showAll:newValue
+            },
+            callback: function(records, operation, success) {
+            },
+            scope: this
+        });
+    },
+
+    filterOpVisits: function(button) {
+            var searchParam=button.up('grid').down('#txtOpSearch').getValue();
+            var startDate=button.up('grid').down('#startDate').getValue();
+            var endDate=button.up('grid').down('#endDate').getValue();
+            var department=button.up('grid').down('#departments').getValue();
+
+        var opStore=Ext.data.StoreManager.lookup("OPAdmissionsStore");
+
+        opStore.load({
+            params: {
+                searchParam:searchParam,
+                startDate:startDate,
+                endDate:endDate,
+                departmen:department
+            },
+            callback: function(records, operation, success) {
             },
             scope: this
         });

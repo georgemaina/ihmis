@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "payments",
+        "designer|userClassName": "CashSalesViewModel4"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CashSalesViewModel4",
+    "designerId": "6a2b42b8-9608-496e-8d0a-59a8935d5a79"
+}

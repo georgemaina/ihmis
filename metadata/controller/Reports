@@ -238,6 +238,9 @@
                     "    '#cmdPrintIpInvoice':{",
                     "        click:this.PrintSelectedInvoice",
                     "    },",
+                    "    '#cmdPrintMiniInvoice':{",
+                    "        click:this.openMiniInvoice",
+                    "    },",
                     "    '#cmdExportMovement':{",
                     "        click:this.exportMovement",
                     "    },",
@@ -3991,6 +3994,43 @@
             },
             "name": "updateMobidity",
             "designerId": "5ff5c20f-7760-4437-ba0b-dba23ceaed85"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openMiniInvoice",
+                "implHandler": [
+                    "       var pid=button.up('form').down('#txtInvoicePid').getValue();",
+                    "        var bill_number=button.up('form').down('#txtBillNumber').getValue();",
+                    "        var includeReceipt='ON';",
+                    "        var includeNhif='ON';",
+                    "        var invoiceType=button.up('form').down('#invoiceType').getValue(); //'Interim Detail Invoice';",
+                    "        var encNr=button.up('form').down('#encNr').getValue();",
+                    "",
+                    "if(invoiceType==='Interim Detail Invoice'){",
+                    "            var urlholder=\"reports/miniinvoice.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "            invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "}else if(invoiceType==='Interim Summary Invoice'){",
+                    "            var urlholder=\"reports/miniInvoiceSummary.php?pid=\"+pid+\"&billNumber=\"+bill_number+\"&encounterNr=\"+encNr+\"&includeReceipt=\"+includeReceipt+\"&includeNhif=\"+includeNhif;",
+                    "            invwin=window.open(urlholder,\"transwin<?php echo $sid ?>\",\"width=650,height=600,menubar=no,resizable=yes,scrollbars=yes\");",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openMiniInvoice",
+            "designerId": "b01c34c3-449a-4b96-ad22-617effdf0003"
         }
     ]
 }

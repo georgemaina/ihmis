@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "outpatientvisits",
+        "designer|userClassName": "OutpatientListViewController1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OutpatientListViewController1",
+    "designerId": "94f69d98-465f-4d3c-ae04-454f7257e11b"
+}

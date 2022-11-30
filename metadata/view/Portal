@@ -160,7 +160,7 @@
                                 "labelStyle": "font-size: large;font-weight: bold;color: green;",
                                 "layout|flex": 1,
                                 "value": "Admin",
-                                "width": 165
+                                "width": 244
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",

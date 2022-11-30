@@ -294,6 +294,248 @@
             ]
         },
         {
+            "type": "Ext.grid.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "columnLines": true,
+                "height": 301,
+                "store": "DiagnosisStore"
+            },
+            "configAlternates": {
+                "columnLines": "boolean",
+                "height": "auto",
+                "store": "store"
+            },
+            "name": "MyGridPanel8",
+            "designerId": "de720ad3-97b9-469b-b6f8-c984a91a9cd7",
+            "cn": [
+                {
+                    "type": "Ext.view.Table",
+                    "reference": {
+                        "name": "viewConfig",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyTable16",
+                    "designerId": "8b5ca1fa-f08f-4dac-93c3-2b8374c8070a"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Case_nr",
+                        "hidden": true,
+                        "text": "Case No",
+                        "width": 133
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "hidden": "boolean",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn72",
+                    "designerId": "d689cf47-6a7f-4b6d-983b-bb62b0f67020"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "EncounterNo",
+                        "hidden": true,
+                        "text": "Encounter No",
+                        "width": 133
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "hidden": "boolean",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn71",
+                    "designerId": "f34afdbd-1157-47e9-9659-b51d7368f9eb"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Code",
+                        "text": "Code"
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string"
+                    },
+                    "name": "MyColumn74",
+                    "designerId": "066339f7-ec63-4a51-ae56-5f2961f1b407"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Description",
+                        "text": "Description",
+                        "width": 309
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn122",
+                    "designerId": "4e7780a3-8d8b-4f14-bc3f-8f44af732b99"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "TimeStamp",
+                        "text": "Time Stamp",
+                        "width": 142
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn228",
+                    "designerId": "ae4ac18a-7677-4811-a417-3738d2836196"
+                },
+                {
+                    "type": "Ext.grid.column.Column",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dataIndex": "Type",
+                        "text": "Type",
+                        "width": 166
+                    },
+                    "configAlternates": {
+                        "dataIndex": "datafield",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyColumn229",
+                    "designerId": "1f7f854f-48d6-4b1b-b8a9-8ed217513d86"
+                },
+                {
+                    "type": "Ext.grid.column.Action",
+                    "reference": {
+                        "name": "columns",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "text": "Delete"
+                    },
+                    "configAlternates": {
+                        "text": "string"
+                    },
+                    "name": "MyActionColumn11",
+                    "designerId": "f63222e2-4cc1-4d4a-a0ff-39953d26504f",
+                    "cn": [
+                        {
+                            "type": "actioncolumnitem",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "icon": "icons/delete1.jpg"
+                            },
+                            "configAlternates": {
+                                "icon": "string"
+                            },
+                            "name": "MyActionColumnItem5",
+                            "designerId": "ce3d37b0-49d1-40a8-a8de-28068cbdeb82",
+                            "cn": [
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "view",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "item",
+                                            "e",
+                                            "record",
+                                            "row"
+                                        ],
+                                        "fn": "handler",
+                                        "implHandler": [
+                                            "view.getStore().remove(record);",
+                                            " Ext.Ajax.request({",
+                                            "            url: 'data/getDataFunctions.php?task=deleteRecord',",
+                                            "            params: {",
+                                            "                ID:record.get(\"Case_nr\"),",
+                                            "                tableName:'care_tz_diagnosis',",
+                                            "                idColumn:'Case_nr',",
+                                            "                batch_nr:record.get('Case_nr')",
+                                            "            },",
+                                            "            success: function(response){",
+                                            "                var resp = Ext.JSON.decode(response.responseText);",
+                                            "                Ext.Msg.alert(\"Success\",\"Removed record with partcode \"+record.get('PartCode'));",
+                                            "",
+                                            "                //this.getNotes(encounterNo);",
+                                            "",
+                                            "            },",
+                                            "             failure: function (form, action) {",
+                                            "                 var jsonResp = Ext.decode(action.response.responseText);",
+                                            "",
+                                            "                 Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
+                                            "             },",
+                                            "            scope:this",
+                                            "        });"
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "handler",
+                                    "designerId": "6fbb3950-13ce-4673-80ba-ca271fe1c7c6"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "type": "Ext.form.FieldSet",
             "reference": {
                 "name": "items",
@@ -302,11 +544,13 @@
             "codeClass": null,
             "userConfig": {
                 "height": 300,
+                "hidden": true,
                 "itemId": "diagnosisPanel"
             },
             "configAlternates": {
                 "height": "auto",
-                "itemId": "string"
+                "itemId": "string",
+                "hidden": "boolean"
             },
             "name": "MyFieldSet11",
             "designerId": "f7a44161-e851-41e7-8727-136438112ebc"

@@ -119,7 +119,8 @@
             "VitalsLists",
             "Appointments",
             "AppointmentsForm",
-            "ClinicsList"
+            "ClinicsList",
+            "OutpatientVisits"
         ]
     },
     "configAlternates": {
@@ -526,6 +527,12 @@
                     "    },",
                     "    '#cmdPatientHistory':{",
                     "        click:this.openPatientHistory",
+                    "    },",
+                    "    '#showAll':{",
+                    "        change:this.showAllPatients",
+                    "    },",
+                    "    '#cmdSearchOpVisits':{",
+                    "        click:this.filterOpVisits",
                     "    }",
                     "});"
                 ]
@@ -1667,9 +1674,14 @@
                     "        if(item.admType==\"122\"){",
                     "            centerDetails.down('#formStatus').setValue('IP');",
                     "            centerContainer.setTitle(\"Inpatient Invoices\");",
-                    "        }else{",
+                    "        }else if(item.admType==\"16\"){",
                     "            centerDetails.down('#formStatus').setValue('OP');",
                     "            centerContainer.setTitle(\"Outpatient Invoices\");",
+                    "        }",
+                    "        ",
+                    "        if(item.link===\"OutpatientVisits\"){",
+                    "            var opVisits =Ext.data.StoreManager.lookup('OPAdmissionsStore');",
+                    "            opVisits.load({});",
                     "        }",
                     "",
                     "    }",
@@ -2754,7 +2766,7 @@
                     "            params:{",
                     "                pid:pid,",
                     "                encNr:encounterNo,",
-                    "                locationNr:locationNr",
+                    "               // locationNr:locationNr",
                     "            },",
                     "            scope: this",
                     "        });",
@@ -2763,7 +2775,7 @@
                     "    scope:this",
                     "});",
                     "//this.loadNotes(encounterNo,notesPanel);",
-                    "//this.getNotes(encounterNo);"
+                    "//this.getNotes(encounterNo);//"
                 ]
             },
             "configAlternates": {
@@ -4075,8 +4087,15 @@
                     "               var resp = Ext.JSON.decode(response.responseText);",
                     "                Ext.Msg.alert('Success',resp.Error);",
                     "",
-                    "                //this.getNotes(encounterNo);",
-                    "",
+                    "                var diagnosisStore=Ext.data.StoreManager.lookup(\"DiagnosisStore\");",
+                    "                        diagnosisStore.load({",
+                    "                            params: {",
+                    "                                encNr:encounterNo",
+                    "                            },",
+                    "                            callback: function(records, operation, success) {",
+                    "                            },",
+                    "                            scope: this",
+                    "                        });",
                     "            },",
                     "            scope:this",
                     "        });",
@@ -4289,7 +4308,7 @@
                     "    },",
                     "    success: function(response){",
                     "        var resp = Ext.JSON.decode(response.responseText);",
-                    "        Ext.Msg.alert('Success',resp.Error);",
+                    "        //Ext.Msg.alert('Success',resp.Error);",
                     "",
                     "        //this.getNotes(encounterNo);",
                     "",
@@ -4467,9 +4486,16 @@
                     "    },",
                     "    success: function(response){",
                     "        var resp = Ext.JSON.decode(response.responseText);",
-                    "        Ext.Msg.alert('Success',resp.Error);",
                     "",
-                    "        //this.getNotes(encounterNo);",
+                    "        var radiologyStore=Ext.data.StoreManager.lookup(\"RadiologyStore\");",
+                    "        radiologyStore.load({",
+                    "            params: {",
+                    "                encNr:encounterNo",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "            },",
+                    "            scope: this",
+                    "        });",
                     "",
                     "    },",
                     "    scope:this",
@@ -6006,6 +6032,104 @@
             },
             "name": "clinicslist",
             "designerId": "aebab144-9355-4281-aa81-f1b596c945d9"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "showAllPatients",
+                "implHandler": [
+                    "//Ext.Msg.alert('Test',newValue);",
+                    "var opStore=Ext.data.StoreManager.lookup(\"OPAdmissionsStore\");",
+                    "",
+                    "opStore.load({",
+                    "    params: {",
+                    "        showAll:newValue",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "showAllPatients",
+            "designerId": "9e44eb33-edc7-47fb-9d2a-33a9aaa40acd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "outpatientvisits",
+                "selector": "outpatientvisits",
+                "xtype": "outpatientvisits"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "outpatientvisits",
+            "designerId": "75dee6d4-9c6d-4d3c-bd4c-02ecb564befc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "filterOpVisits",
+                "implHandler": [
+                    "    var searchParam=button.up('grid').down('#txtOpSearch').getValue();",
+                    "    var startDate=button.up('grid').down('#startDate').getValue();",
+                    "    var endDate=button.up('grid').down('#endDate').getValue();",
+                    "    var department=button.up('grid').down('#departments').getValue();",
+                    "",
+                    "var opStore=Ext.data.StoreManager.lookup(\"OPAdmissionsStore\");",
+                    "",
+                    "opStore.load({",
+                    "    params: {",
+                    "        searchParam:searchParam,",
+                    "        startDate:startDate,",
+                    "        endDate:endDate,",
+                    "        departmen:department",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterOpVisits",
+            "designerId": "2621d323-9807-4d8d-9039-3ade21a4c8e5"
         }
     ]
 }

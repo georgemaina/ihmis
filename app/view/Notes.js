@@ -196,17 +196,27 @@ Ext.define('CarePortal.view.Notes', {
                     y: 0,
                     width: 150,
                     iconCls: 'x-fa fa-sync',
-                    text: 'Preview Note'
+                    text: '<b>Preview Note</b>'
                 },
                 {
                     xtype: 'button',
-                    x: 560,
+                    x: 535,
                     y: 0,
                     height: 32,
                     itemId: 'cmdAddComplaints',
                     width: 140,
                     iconCls: 'x-fa fa-save',
-                    text: 'Save'
+                    text: '<b>Save</b>'
+                },
+                {
+                    xtype: 'button',
+                    x: 815,
+                    y: -4,
+                    height: 32,
+                    itemId: 'cmdClose',
+                    width: 140,
+                    iconCls: 'x-fa fa-arrow-down',
+                    text: '<b>Close</b>'
                 }
             ]
         }

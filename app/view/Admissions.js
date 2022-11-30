@@ -25,6 +25,7 @@ Ext.define('CarePortal.view.Admissions', {
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Checkbox',
+        'Ext.form.field.Date',
         'Ext.button.Button'
     ],
 
@@ -155,6 +156,15 @@ Ext.define('CarePortal.view.Admissions', {
                     uncheckedValue: '0'
                 },
                 {
+                    xtype: 'datefield',
+                    flex: 1,
+                    itemId: 'startDate',
+                    margin: 5,
+                    fieldLabel: 'Start Date',
+                    labelAlign: 'right',
+                    labelStyle: 'color:green; font-weight:bold;'
+                },
+                {
                     xtype: 'button',
                     itemId: 'cmdPreviewIpReports',
                     margin: 5,
@@ -164,7 +174,8 @@ Ext.define('CarePortal.view.Admissions', {
                 },
                 {
                     xtype: 'textfield',
-                    itemId: 'formStatus'
+                    itemId: 'formStatus',
+                    margin: 5
                 }
             ]
         }

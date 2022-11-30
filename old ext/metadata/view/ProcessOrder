@@ -1,0 +1,202 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "bodyStyle": "background-color: #d9f2e6;",
+        "designer|snapToGrid": 5,
+        "designer|userAlias": "processorder",
+        "designer|userClassName": "ProcessOrder",
+        "height": 178,
+        "layout": "absolute",
+        "width": 293
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "bodyStyle": "string",
+        "designer|snapToGrid": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "width": "auto"
+    },
+    "name": "MyForm3",
+    "designerId": "6a705696-3ade-497c-8cc3-a827cc375e76",
+    "viewControllerInstanceId": "be110a2b-50e1-440d-af30-7b28017a9f74",
+    "viewModelInstanceId": "c4b20ef6-3b47-4f53-9c39-0c2791b85613",
+    "cn": [
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 30,
+                "hidden": true,
+                "iconCls": "x-fa fa-refresh",
+                "itemId": "ProcessOrder",
+                "layout|x": 80,
+                "layout|y": 140,
+                "margin": "0 20 0 0",
+                "text": "Process Order",
+                "width": 130
+            },
+            "configAlternates": {
+                "height": "auto",
+                "hidden": "boolean",
+                "iconCls": "string",
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "margin": "auto",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyButton34",
+            "designerId": "44f1b238-cede-44ac-9152-c5ff1a3e3b20"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 30,
+                "hidden": true,
+                "iconCls": "x-fa fa-trash",
+                "itemId": "CancelPurchOrder",
+                "layout|x": 80,
+                "layout|y": 140,
+                "margin": "0 20 0 0",
+                "text": "Cancel Order",
+                "width": 130
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "margin": "auto",
+                "text": "string",
+                "hidden": "boolean",
+                "iconCls": "string",
+                "itemId": "string",
+                "width": "auto"
+            },
+            "name": "MyButton35",
+            "designerId": "75be3a51-3184-4e09-abd8-904d0d6fcf98"
+        },
+        {
+            "type": "Ext.form.RadioGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "height": 70,
+                "itemId": "OrderStatus",
+                "layout": "vbox",
+                "layout|x": 80,
+                "layout|y": 55,
+                "width": 170
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "height": "auto",
+                "itemId": "string",
+                "layout": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto"
+            },
+            "name": "MyRadioGroup1",
+            "designerId": "649a2b1c-d71e-4119-b115-52cd3f63cb23",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "<b>Authorise Order</b>",
+                        "fieldLabel": null,
+                        "inputValue": "Authorise",
+                        "name": "OrderStatus"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyRadio",
+                    "designerId": "e7043d40-ebeb-4678-8a74-93cb550ea9a6"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "<b>Cancel Order<d>",
+                        "fieldLabel": null,
+                        "inputValue": "Cancel",
+                        "name": "OrderStatus"
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "inputValue": "string",
+                        "name": "string"
+                    },
+                    "name": "MyRadio4",
+                    "designerId": "04388457-839e-4966-a7ab-8471101a558a"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "editable": false,
+                "fieldLabel": "Order No",
+                "itemId": "orderNo",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "layout|x": -22,
+                "layout|y": 15,
+                "readOnly": false
+            },
+            "configAlternates": {
+                "editable": "boolean",
+                "fieldLabel": "string",
+                "itemId": "string",
+                "labelAlign": "string",
+                "labelStyle": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "readOnly": "boolean"
+            },
+            "name": "MyTextField52",
+            "designerId": "516b9efa-99ae-4d51-a659-ed2cdff33ba8"
+        }
+    ]
+}

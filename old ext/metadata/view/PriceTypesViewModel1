@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "itemlocations",
+        "designer|userClassName": "PriceTypesViewModel1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PriceTypesViewModel1",
+    "designerId": "cdedad6a-221f-4908-a220-9e6da4f9ddad"
+}

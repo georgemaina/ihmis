@@ -25,6 +25,7 @@ Ext.define('CarePortal.view.OutpatientList', {
         'Ext.toolbar.Paging',
         'Ext.form.FieldContainer',
         'Ext.form.field.Text',
+        'Ext.form.field.Checkbox',
         'Ext.selection.RowModel',
         'Ext.grid.column.Action'
     ],
@@ -229,6 +230,14 @@ Ext.define('CarePortal.view.OutpatientList', {
                     width: 210,
                     iconCls: 'x-fa fa-clock-o',
                     text: 'Schedule New Appointments'
+                },
+                {
+                    xtype: 'checkboxfield',
+                    x: 900,
+                    itemId: 'showAll',
+                    fieldLabel: 'Show all Patients',
+                    labelStyle: 'color:green;font-size:14px;font-weight:bold;',
+                    labelWidth: 130
                 }
             ]
         }

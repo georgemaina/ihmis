@@ -1,0 +1,240 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 0,
+        "container|align": "stretch",
+        "designer|userAlias": "resultsform",
+        "designer|userClassName": "ResultsForm",
+        "height": 644,
+        "layout": "vbox",
+        "scrollable": "both",
+        "url": "data/getDataFunctions.php?task=saveLabResults",
+        "width": 881
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|snapToGrid": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "layout": "string",
+        "title": "string",
+        "width": "auto",
+        "scrollable": "auto",
+        "container|align": "string",
+        "url": "string"
+    },
+    "name": "MyForm",
+    "designerId": "758f9c88-8f98-4bac-883a-c30b84b57248",
+    "viewControllerInstanceId": "5ead5d82-26af-4166-b2cc-4920204aa2c3",
+    "viewModelInstanceId": "8b5323ee-9d2d-40c5-9d36-ed62369dce70",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 0
+            },
+            "configAlternates": {
+                "layout|flex": "number"
+            },
+            "name": "patientdetailslab1",
+            "designerId": "450857fb-cb4c-4314-9833-33e4e992d892",
+            "masterInstanceId": "0ff5cd8e-e6fb-4576-85fa-cf2081545706"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "itemId": "resultsControl",
+                "layout": "vbox"
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "title": "string",
+                "itemId": "string",
+                "container|align": "string",
+                "layout": "string"
+            },
+            "name": "MyFieldSet3",
+            "designerId": "069dc923-fce2-4502-830b-cd8aaf9407c0"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|pack": "center",
+                "dock": "bottom",
+                "height": 46,
+                "layout": "hbox"
+            },
+            "configAlternates": {
+                "designer|snapToGrid": "number",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "container|align": "string",
+                "container|pack": "string"
+            },
+            "name": "MyContainer5",
+            "designerId": "142f4937-50ee-48bc-8d7a-e06841e57c2c",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "hidden": true,
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdClose",
+                        "text": "Close",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "hidden": "boolean"
+                    },
+                    "name": "MyButton",
+                    "designerId": "ad39a833-4f3c-4af5-8e37-dc81038104dc"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "iconCls": "x-fa fa-save",
+                        "itemId": "cmdSaveResults",
+                        "margin": "0 50 0 0",
+                        "text": "Save",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton4",
+                    "designerId": "13ee376f-b032-4427-a607-46d4c08745a0"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 40,
+                        "iconCls": "x-fa fa-close",
+                        "itemId": "cmdCloseResultsForm",
+                        "margin": "0 0 0 50",
+                        "text": "Close",
+                        "width": 120
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto",
+                        "margin": "auto"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "af7092a2-cfac-4103-afd4-0db0f863beb9"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "EncounterNr",
+                        "hidden": true,
+                        "itemId": "encNr",
+                        "name": "encounter_nr",
+                        "width": 190
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "name": "string",
+                        "width": "auto",
+                        "hidden": "boolean"
+                    },
+                    "name": "MyTextField3",
+                    "designerId": "79043a41-00d8-47b0-84b3-ef0b92d5e848"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Lab No",
+                        "hidden": true,
+                        "itemId": "labNo",
+                        "name": "labNo",
+                        "width": 190
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "width": "auto",
+                        "hidden": "boolean"
+                    },
+                    "name": "MyTextField4",
+                    "designerId": "e0801a1b-f73a-4042-a3b4-cf22e377e961"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,369 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyStyle": "background-color: #d9f2e6;",
+        "designer|snapToGrid": 5,
+        "designer|userAlias": "finaliseinvoice",
+        "designer|userClassName": "FinaliseInvoice",
+        "height": 450,
+        "layout": "absolute",
+        "width": 712
+    },
+    "configAlternates": {
+        "designer|snapToGrid": "number",
+        "fieldLabel": "string",
+        "height": "auto",
+        "layout": "string",
+        "layout|x": "number",
+        "layout|y": "number",
+        "width": "auto",
+        "bodyStyle": "string",
+        "title": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyForm",
+    "designerId": "f097a896-8892-47db-9e38-e44aad1036ac",
+    "viewControllerInstanceId": "635d57b4-f3c9-42a1-8b64-c71293197a7d",
+    "viewModelInstanceId": "3753da2d-8e20-4bc6-bdd0-0525699718c3",
+    "cn": [
+        {
+            "type": "Ext.form.RadioGroup",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "fieldLabel": "Finalize By",
+                "frame": true,
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "layout|x": 15,
+                "layout|y": 15,
+                "width": 500
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "frame": "boolean",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto",
+                "allowBlank": "boolean",
+                "labelStyle": "string"
+            },
+            "name": "MyRadioGroup",
+            "designerId": "eff7e5c0-6d9a-43f3-8df3-d858279f5e04",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Account No",
+                        "labelStyle": "color:#1b5f87; font-weight:bold;",
+                        "labelWidth": 80
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number"
+                    },
+                    "name": "MyRadio",
+                    "designerId": "9a16e545-4e0c-45f9-a3d3-0e92b206757c"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Category",
+                        "labelStyle": "color:#1b5f87; font-weight:bold;",
+                        "labelWidth": 60
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number"
+                    },
+                    "name": "MyRadio1",
+                    "designerId": "2ebf549d-e011-4489-ac24-76b9ff604e6f"
+                },
+                {
+                    "type": "Ext.form.field.Radio",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Pid",
+                        "labelStyle": "color:#1b5f87; font-weight:bold;",
+                        "labelWidth": 30
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "fieldLabel": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number"
+                    },
+                    "name": "MyRadio2",
+                    "designerId": "49a0fd91-283a-44cd-8108-76917ed230b2"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.field.Date",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "allowBlank": false,
+                "fieldLabel": "Date",
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 60
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "labelWidth": "number",
+                "allowBlank": "boolean",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyDateField2",
+            "designerId": "bf656946-1953-4a66-8432-5797cdbf8083"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "layout|x": 285,
+                "layout|y": 100,
+                "width": 265
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto"
+            },
+            "name": "MyTextField37",
+            "designerId": "bbd7fb47-c4bd-4979-9ed9-897e09dd45d8"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": null,
+                "layout|x": 280,
+                "layout|y": 220,
+                "width": 270
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto"
+            },
+            "name": "MyTextField38",
+            "designerId": "f267a283-d197-4d83-a898-d0a8c8d7f714"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Bill Number",
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 220,
+                "width": 265
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "labelWidth": "number",
+                "width": "auto",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyTextField39",
+            "designerId": "4d43669d-1522-470f-82a9-2aff1448a6a6"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Pid",
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 180
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "labelWidth": "number",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyTextField40",
+            "designerId": "4f3192cc-7683-47d2-8538-60a9328542df"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Account Category",
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 140
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "labelWidth": "number",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyComboBox",
+            "designerId": "16e22d76-77f8-4df0-bb44-ff08c109c109"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Account No",
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 100,
+                "width": 270
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "labelWidth": "number",
+                "width": "auto",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyTextField42",
+            "designerId": "b4be7431-0561-43e1-8067-293d4bccef05"
+        },
+        {
+            "type": "Ext.form.field.TextArea",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Message to appear on all Invoices ",
+                "height": 82,
+                "labelAlign": "right",
+                "labelStyle": "color:#1b5f87; font-weight:bold;",
+                "labelWidth": 170,
+                "layout|x": 15,
+                "layout|y": 260,
+                "value": [
+                    "Payable as per the Agreement"
+                ],
+                "width": 460
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "height": "auto",
+                "labelWidth": "number",
+                "layout|x": "number",
+                "layout|y": "number",
+                "value": "object",
+                "width": "auto",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyTextArea",
+            "designerId": "62134ca3-49d2-44ab-977c-827d210daaf9"
+        },
+        {
+            "type": "Ext.button.Button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "formBind": true,
+                "height": 45,
+                "layout|x": 295,
+                "layout|y": 355,
+                "text": "Finalize",
+                "width": 135
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "text": "string",
+                "width": "auto",
+                "formBind": "boolean"
+            },
+            "name": "MyButton4",
+            "designerId": "e0d80c6b-022d-4c3b-ab4f-49ec56eb8f9c"
+        }
+    ]
+}

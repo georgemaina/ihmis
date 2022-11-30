@@ -102,9 +102,7 @@ FROM
     $page->drawText('Visa', $leftPos + 530, $topPos - 110);
 
     $currpoint = 125;
-    $sql = "SELECT b.ref_no,b.patient,b.name,b.payer,b.pay_mode,
-                SUM(IF(b.pay_mode='CAS' AND mpesaref='', b.total,'')) AS cash,
-                SUM(IF(b.pay_mode='MPESA' OR mpesaref<>'' , b.total,'')) AS mpesa,
+    $sql = "SELECT b.ref_no,b.patient,b.name,b.payer,b.pay_mode,b.`cash`,b.`mpesa`,
                 SUM(IF(b.pay_mode='VISA', b.total,'')) AS visa,
                 SUM(IF(b.pay_mode='CHEQUE', b.total,'')) AS cheque,b.currdate,b.input_Time,b.balance FROM care_ke_receipts b
             WHERE b.cash_point='$cashpoint' AND b.shift_no='$shiftno' GROUP BY ref_no ORDER BY patient asc";
@@ -143,10 +141,10 @@ FROM
         $page->drawText($row['name'], $leftPos + 150, $topPos - $currpoint);
 //        $page->drawText($row ['total'], $leftPos + 300, $topPos - $currpoint);
         $pdfBase->drawText($page, number_format($row['total'], 2), $leftPos + 320, $topPos - $currpoint, $leftPos + 320, right);
-        $pdfBase->drawText($page, number_format($row[cash], 2), $leftPos + 380, $topPos - $currpoint, $leftPos + 350, right);
-        $pdfBase->drawText($page, number_format($row[mpesa], 2), $leftPos + 450, $topPos - $currpoint, $leftPos + 350, right);
-        $pdfBase->drawText($page, number_format($row[cheque], 2), $leftPos + 500, $topPos - $currpoint, $leftPos + 350, right);
-        $pdfBase->drawText($page, number_format($row[visa], 2), $leftPos + 560, $topPos - $currpoint, $leftPos + 350, right);
+        $pdfBase->drawText($page, number_format($row['cash'], 2), $leftPos + 380, $topPos - $currpoint, $leftPos + 350, right);
+        $pdfBase->drawText($page, number_format($row['mpesa'], 2), $leftPos + 450, $topPos - $currpoint, $leftPos + 350, right);
+        $pdfBase->drawText($page, number_format($row['cheque'], 2), $leftPos + 500, $topPos - $currpoint, $leftPos + 350, right);
+        $pdfBase->drawText($page, number_format($row['visa'], 2), $leftPos + 560, $topPos - $currpoint, $leftPos + 350, right);
 
         $total=$total+$row['total'];
         $cash=$cash+$row['cash'];
@@ -204,16 +202,14 @@ FROM
     $page->drawRectangle($leftPos + 35, $topPos - 73, $leftPos + 400, $topPos - 86, Zend_Pdf_Page::SHAPE_DRAW_FILL_AND_STROKE);
     $page->setFillColor(new Zend_Pdf_Color_RGB(1, 1, 1));
     $page->drawText('rev code', $leftPos + 40, $topPos - 80);
-    $page->drawText('rev desc', $leftPos + 200, $topPos - 80);
-    $page->drawText('pay mode', $leftPos + 260, $topPos - 80);
-    $page->drawText('amount', $leftPos + 330, $topPos - 80);
+    //$page->drawText('rev desc', $leftPos + 200, $topPos - 80);
+    $page->drawText('Cash', $leftPos + 180, $topPos - 80);
+    $page->drawText('Mpesa', $leftPos + 260, $topPos - 80);
 
 
 
-    $sql5 = "SELECT r.rev_code,r.rev_desc,r.pay_mode, 
-                SUM(r.total) AS total,r.prec_desc FROM care_ke_receipts r 
-            WHERE r.cash_point='$cashpoint' and r.shift_no='$shiftno'
-                group by r.rev_desc";
+    $sql5 = "SELECT b.`rev_desc`,b.pay_mode,b.`cash`,b.`mpesa` FROM care_ke_receipts b
+            WHERE b.cash_point='$cashpoint' AND b.shift_no='$shiftno' GROUP BY b.`rev_desc` ORDER BY patient ASC";
     $tresult = $db->Execute($sql5);
 
     $resultsStyle3 = new Zend_Pdf_Style ();
@@ -223,8 +219,11 @@ FROM
     $resultsStyle3->setFont($font, 9);
     $page->setStyle($resultsStyle3);
 
-    $totals=0;
+    $totalCash=0;
+    $totalMpesa=0;
+    $category="";
     while ($row = $tresult->FetchRow()) {
+        
         if ($topPos < 140) {
             array_push($pdf->pages, $page);
             $page = new Zend_Pdf_Page(Zend_Pdf_Page::SIZE_A4);
@@ -243,16 +242,18 @@ FROM
         if($row['rev_desc']<>""){
             $desc=$row['rev_desc'];
        }else{
-           $desc=$row[rev_code].' - '.$row['prec_desc'];
+           $desc=$row['rev_code'].' - '.$row['prec_desc'];
        }
-        $page->drawText(strtoupper($desc), $leftPos + 40, $topPos - 95);
-        $page->drawText($row ['pay_mode'], $leftPos + 260, $topPos - 95);
 
+       $page->drawText(strtoupper($desc), $leftPos + 40, $topPos - 95);
+       $pdfBase->drawText($page, number_format(intval($row ['cash']), 2), $leftPos + 200, $topPos - 95, $leftPos + 360, right);
+       $pdfBase->drawText($page, number_format(intval($row ['mpesa']), 2), $leftPos + 300, $topPos - 95, $leftPos + 360, right);
 
-        $pdfBase->drawText($page, number_format(intval($row ['total']), 2), $leftPos + 360, $topPos - 95, $leftPos + 360, right);
-        $totals=$totals+$row ['total'];
-
+        $totalCash=$totalCash+$row ['Cash'];
+        $totalMpesa=$totalMpesa+$row ['Mpesa'];
         $topPos = $topPos - 20;
+
+        $category=$row['purchasing_class'];
     }
     $resultsStyle3 = new Zend_Pdf_Style ();
     $resultsStyle3->setLineDashingPattern(array(2), 1.6);
@@ -261,9 +262,10 @@ FROM
     $resultsStyle3->setFont($font, 9);
     $page->setStyle($resultsStyle3);
 
-    $page->drawText('TOTAL:', $leftPos + 200, $topPos - 95);
+    $page->drawText('TOTAL:', $leftPos + 40, $topPos - 95);
 //    $page->drawText(number_format(intval($casTotal + $chqTotal + $othesTotal), 2), $leftPos + 300, $topPos - 95);
-    $pdfBase->drawText($page, number_format($totals, 2), $leftPos + 360, $topPos - 95, $leftPos + 360, right);
+    $pdfBase->drawText($page, number_format($totalCash, 2), $leftPos + 200, $topPos - 95, $leftPos + 360, right);
+    $pdfBase->drawText($page, number_format($totalMpesa, 2), $leftPos + 300, $topPos - 95, $leftPos + 360, right);
 
     $page->drawText('Cashier Sign : ____________________________', $leftPos + 50, $topPos - 200);
     $page->drawText('ID : __________________________________', $leftPos + 300, $topPos - 200);

@@ -10,7 +10,7 @@
         "bodyStyle": "background-color: #d9f2e6;",
         "designer|userAlias": "cashsales",
         "designer|userClassName": "CashSales",
-        "height": 700,
+        "height": 800,
         "itemId": "cashSales",
         "layout": "auto",
         "style": "background-color: #d9f2e6;",
@@ -43,13 +43,15 @@
             "codeClass": null,
             "userConfig": {
                 "container|align": "stretch",
-                "height": 700,
+                "flex": 1,
+                "height": 800,
                 "layout": "hbox"
             },
             "configAlternates": {
                 "container|align": "string",
                 "layout": "string",
-                "height": "auto"
+                "height": "auto",
+                "flex": "number"
             },
             "name": "MyContainer12",
             "designerId": "4f518754-1f20-4327-a296-f1feb622ed6e",
@@ -90,28 +92,43 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "height": 854,
-                        "layout|flex": 1
+                        "container|align": "stretch",
+                        "flex": 1,
+                        "height": 800,
+                        "layout": "vbox"
                     },
                     "configAlternates": {
                         "layout|flex": "number",
-                        "height": "auto"
+                        "height": "auto",
+                        "container|align": "string",
+                        "flex": "number",
+                        "layout": "string"
                     },
                     "name": "MyContainer11",
                     "designerId": "96ede426-a262-4ab3-a5d3-9f46f1796b84",
                     "cn": [
                         {
-                            "type": "Ext.container.Container",
+                            "type": "Ext.form.FieldSet",
                             "reference": {
                                 "name": "items",
                                 "type": "array"
                             },
                             "codeClass": null,
-                            "name": "MyContainer15",
-                            "designerId": "183e9ba7-214a-4c2e-a7e1-a0862d78f7ad",
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "layout": "hbox",
+                                "style": "background-color: #d9f2e6;"
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "style": "string"
+                            },
+                            "name": "MyFieldSet8",
+                            "designerId": "4f257266-32a9-4546-bdc4-bc1a0fce2c9d",
                             "cn": [
                                 {
-                                    "type": "Ext.form.FieldSet",
+                                    "type": "Ext.form.RadioGroup",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
@@ -119,356 +136,1070 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "container|align": "stretch",
-                                        "layout": "hbox",
-                                        "style": "background-color: #d9f2e6;"
+                                        "fieldLabel": "Sales Type",
+                                        "itemId": "salesType",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout": "vbox",
+                                        "padding": 0
                                     },
                                     "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "itemId": "string",
+                                        "labelStyle": "string",
+                                        "labelWidth": "number",
+                                        "layout|flex": "number",
+                                        "padding": "auto",
                                         "container|align": "string",
-                                        "layout": "string",
-                                        "style": "string"
+                                        "layout": "string"
                                     },
-                                    "name": "MyFieldSet8",
-                                    "designerId": "4f257266-32a9-4546-bdc4-bc1a0fce2c9d",
+                                    "name": "MyRadioGroup2",
+                                    "designerId": "6cb3fb7b-f3ca-4046-9462-714ea1db417e",
                                     "cn": [
                                         {
-                                            "type": "Ext.form.RadioGroup",
+                                            "type": "Ext.form.field.Radio",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "container|align": "stretch",
-                                                "fieldLabel": "Sales Type",
-                                                "itemId": "salesType",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 80,
-                                                "layout": "vbox",
-                                                "layout|flex": 1,
-                                                "padding": 0
+                                                "boxLabel": "<b>Patient Bill</b>",
+                                                "checked": true,
+                                                "fieldLabel": null,
+                                                "inputValue": "bill",
+                                                "itemId": "bill",
+                                                "name": "salesType"
                                             },
                                             "configAlternates": {
+                                                "boxLabel": "string",
                                                 "fieldLabel": "string",
+                                                "inputValue": "string",
                                                 "itemId": "string",
-                                                "labelStyle": "string",
-                                                "labelWidth": "number",
-                                                "layout|flex": "number",
-                                                "padding": "auto",
-                                                "container|align": "string",
-                                                "layout": "string"
+                                                "name": "string",
+                                                "checked": "boolean"
                                             },
-                                            "name": "MyRadioGroup2",
-                                            "designerId": "6cb3fb7b-f3ca-4046-9462-714ea1db417e",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.form.field.Radio",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "boxLabel": "<b>Patient Bill</b>",
-                                                        "checked": true,
-                                                        "fieldLabel": null,
-                                                        "inputValue": "bill",
-                                                        "itemId": "bill",
-                                                        "name": "salesType"
-                                                    },
-                                                    "configAlternates": {
-                                                        "boxLabel": "string",
-                                                        "fieldLabel": "string",
-                                                        "inputValue": "string",
-                                                        "itemId": "string",
-                                                        "name": "string",
-                                                        "checked": "boolean"
-                                                    },
-                                                    "name": "MyRadio6",
-                                                    "designerId": "b24dc01b-4dd0-483c-8060-91eb22dd3ebb"
-                                                },
-                                                {
-                                                    "type": "Ext.form.field.Radio",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "boxLabel": "<b>Cash Sale / Walk IN</>",
-                                                        "fieldLabel": null,
-                                                        "inputValue": "cashSale",
-                                                        "itemId": "cashSale",
-                                                        "labelWidth": 140,
-                                                        "name": "salesType"
-                                                    },
-                                                    "configAlternates": {
-                                                        "boxLabel": "string",
-                                                        "checked": "boolean",
-                                                        "fieldLabel": "string",
-                                                        "inputValue": "string",
-                                                        "itemId": "string",
-                                                        "labelWidth": "number",
-                                                        "name": "string",
-                                                        "hidden": "boolean"
-                                                    },
-                                                    "name": "MyRadio5",
-                                                    "designerId": "1118fee7-1312-43bc-ab1c-039d5f9bd985"
-                                                }
-                                            ]
+                                            "name": "MyRadio6",
+                                            "designerId": "b24dc01b-4dd0-483c-8060-91eb22dd3ebb"
                                         },
                                         {
-                                            "type": "Ext.form.field.Text",
+                                            "type": "Ext.form.field.Radio",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "allowBlank": false,
-                                                "emptyText": "Cash Point",
-                                                "fieldLabel": "Cash Point",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "CashPoint",
-                                                "labelAlign": "top",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 80,
-                                                "name": "cashPoint",
-                                                "width": 205
+                                                "boxLabel": "<b>Cash Sale / Walk IN</>",
+                                                "fieldLabel": null,
+                                                "inputValue": "cashSale",
+                                                "itemId": "cashSale",
+                                                "labelWidth": 140,
+                                                "name": "salesType"
                                             },
                                             "configAlternates": {
+                                                "boxLabel": "string",
+                                                "checked": "boolean",
                                                 "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "allowBlank": "boolean",
-                                                "labelStyle": "string",
-                                                "name": "string",
+                                                "inputValue": "string",
                                                 "itemId": "string",
-                                                "width": "auto",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string",
                                                 "labelWidth": "number",
-                                                "value": "object"
-                                            },
-                                            "name": "MyTextField15",
-                                            "designerId": "bd404d42-5345-4105-86f1-eb23c2b5217f"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "allowBlank": false,
-                                                "emptyText": "Shift No",
-                                                "fieldLabel": "Shift No",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "ShiftNo",
-                                                "labelAlign": "top",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 80,
-                                                "name": "shiftNo",
-                                                "width": 205
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "allowBlank": "boolean",
-                                                "labelStyle": "string",
                                                 "name": "string",
-                                                "itemId": "string",
-                                                "width": "auto",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string",
-                                                "value": "object",
-                                                "labelWidth": "number"
+                                                "hidden": "boolean"
                                             },
-                                            "name": "MyTextField45",
-                                            "designerId": "1837cfa9-d00f-4e8c-b99e-1018ec520f97"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Receipt Number",
-                                                "fieldLabel": "Receipt No",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "ReceiptNo",
-                                                "labelAlign": "top",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "name": "receiptNo"
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "fieldStyle": "string",
-                                                "labelStyle": "string"
-                                            },
-                                            "name": "MyTextField3",
-                                            "designerId": "1386fa9e-c6a0-4725-b169-4ff61e3a1aec"
+                                            "name": "MyRadio5",
+                                            "designerId": "1118fee7-1312-43bc-ab1c-039d5f9bd985"
                                         }
                                     ]
                                 },
                                 {
-                                    "type": "Ext.form.FieldContainer",
+                                    "type": "Ext.form.field.Text",
                                     "reference": {
                                         "name": "items",
                                         "type": "array"
                                     },
                                     "codeClass": null,
                                     "userConfig": {
-                                        "container|align": "stretch",
-                                        "layout": "hbox",
-                                        "padding": 0
+                                        "allowBlank": false,
+                                        "emptyText": "Cash Point",
+                                        "fieldLabel": "Cash Point",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "CashPoint",
+                                        "labelAlign": "top",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "labelWidth": 80,
+                                        "name": "cashPoint",
+                                        "width": 205
                                     },
                                     "configAlternates": {
-                                        "container|align": "string",
-                                        "layout": "string",
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "allowBlank": "boolean",
+                                        "labelStyle": "string",
+                                        "name": "string",
+                                        "itemId": "string",
+                                        "width": "auto",
+                                        "emptyText": "string",
+                                        "fieldStyle": "string",
+                                        "labelWidth": "number",
+                                        "value": "object"
+                                    },
+                                    "name": "MyTextField15",
+                                    "designerId": "bd404d42-5345-4105-86f1-eb23c2b5217f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "emptyText": "Shift No",
+                                        "fieldLabel": "Shift No",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "ShiftNo",
+                                        "labelAlign": "top",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "labelWidth": 80,
+                                        "name": "shiftNo",
+                                        "width": 205
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "allowBlank": "boolean",
+                                        "labelStyle": "string",
+                                        "name": "string",
+                                        "itemId": "string",
+                                        "width": "auto",
+                                        "emptyText": "string",
+                                        "fieldStyle": "string",
+                                        "value": "object",
+                                        "labelWidth": "number"
+                                    },
+                                    "name": "MyTextField45",
+                                    "designerId": "1837cfa9-d00f-4e8c-b99e-1018ec520f97"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "emptyText": "Receipt Number",
+                                        "fieldLabel": "Receipt No",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "ReceiptNo",
+                                        "labelAlign": "top",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "name": "receiptNo"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "name": "string",
+                                        "emptyText": "string",
+                                        "itemId": "string",
+                                        "fieldStyle": "string",
+                                        "labelStyle": "string"
+                                    },
+                                    "name": "MyTextField3",
+                                    "designerId": "1386fa9e-c6a0-4725-b169-4ff61e3a1aec"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldContainer",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 5,
+                                "height": 36,
+                                "layout": "absolute",
+                                "padding": 0
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "layout": "string",
+                                "padding": "auto",
+                                "designer|snapToGrid": "number",
+                                "height": "auto"
+                            },
+                            "name": "MyFieldContainer4",
+                            "designerId": "59015bc7-731a-4068-ab36-d8688e9117de",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "displayField": "Description",
+                                        "emptyText": "Payment Mode",
+                                        "fieldLabel": "Payment Mode",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "PayMode",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "labelWidth": 110,
+                                        "layout|x": -91,
+                                        "minChars": 2,
+                                        "name": "payMode",
+                                        "padding": 0,
+                                        "queryMode": "local",
+                                        "store": [
+                                            "['Cash','Mpesa','Cheque','Both','Visa']"
+                                        ],
+                                        "typeAhead": true,
+                                        "valueField": "ID",
+                                        "width": 270
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "allowBlank": "boolean",
+                                        "displayField": "datafield",
+                                        "emptyText": "string",
+                                        "itemId": "string",
+                                        "labelStyle": "string",
+                                        "minChars": "number",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "array",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto",
+                                        "fieldStyle": "string",
                                         "padding": "auto"
                                     },
-                                    "name": "MyFieldContainer4",
-                                    "designerId": "59015bc7-731a-4068-ab36-d8688e9117de",
+                                    "name": "MyComboBox2",
+                                    "designerId": "b58aed62-7842-4e5f-8518-264325ae541a"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "emptyText": "GL Account",
+                                        "fieldLabel": "GL Account",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "glAccount",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout|x": 425,
+                                        "name": "glAccount",
+                                        "value": [
+                                            "1020"
+                                        ],
+                                        "width": 270
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "name": "string",
+                                        "emptyText": "string",
+                                        "itemId": "string",
+                                        "fieldStyle": "string",
+                                        "labelStyle": "string",
+                                        "layout|flex": "number",
+                                        "value": "object",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyTextField29",
+                                    "designerId": "11f180c0-02f9-4ae2-96c2-d64c32811d8f"
+                                },
+                                {
+                                    "type": "Ext.form.field.Date",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "emptyText": "Date",
+                                        "fieldLabel": "Date",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "format": "Y/m/d",
+                                        "itemId": "CurrDate",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout|x": 690,
+                                        "name": "currDate"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "name": "string",
+                                        "emptyText": "string",
+                                        "itemId": "string",
+                                        "fieldStyle": "string",
+                                        "labelStyle": "string",
+                                        "allowBlank": "boolean",
+                                        "format": "string",
+                                        "layout|flex": "number"
+                                    },
+                                    "name": "MyDateField1",
+                                    "designerId": "9380165b-c6ef-40e5-9aae-1c249b457380"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 5,
+                                "height": 38,
+                                "itemId": "patientDetails",
+                                "layout": "absolute",
+                                "padding": 0,
+                                "style": "background-color: #d9f2e6;"
+                            },
+                            "configAlternates": {
+                                "designer|snapToGrid": "number",
+                                "height": "auto",
+                                "layout": "string",
+                                "style": "string",
+                                "padding": "auto",
+                                "itemId": "string",
+                                "hidden": "boolean"
+                            },
+                            "name": "MyFieldSet",
+                            "designerId": "e060d556-cdbd-4c2f-b713-11bf7934a89d",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "allowBlank": false,
+                                        "allowOnlyWhitespace": false,
+                                        "autoHideInputMask": false,
+                                        "fieldLabel": "Pid",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "inputType": "number",
+                                        "itemId": "Pid",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout|x": 25,
+                                        "name": "pid"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "fieldStyle": "string",
+                                        "itemId": "string",
+                                        "labelAlign": "string",
+                                        "labelStyle": "string",
+                                        "layout|x": "number",
+                                        "name": "string",
+                                        "allowBlank": "boolean",
+                                        "allowOnlyWhitespace": "boolean",
+                                        "autoHideInputMask": "boolean",
+                                        "inputType": "string"
+                                    },
+                                    "name": "MyTextField79",
+                                    "designerId": "754aed8a-b3a7-4c75-aa55-933a02eab7e7"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "emptyText": "Patient Names",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "hideLabel": true,
+                                        "itemId": "Names",
+                                        "labelWidth": 0,
+                                        "layout|x": 295,
+                                        "name": "patient",
+                                        "width": 215
+                                    },
+                                    "configAlternates": {
+                                        "emptyText": "string",
+                                        "fieldStyle": "string",
+                                        "hideLabel": "boolean",
+                                        "itemId": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "name": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyTextField82",
+                                    "designerId": "08f66c67-5b7d-4762-b451-97729450dc4d"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Encounter No",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "encNr",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout|x": 530,
+                                        "layout|y": 0,
+                                        "name": "encNr"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "fieldStyle": "string",
+                                        "itemId": "string",
+                                        "labelAlign": "string",
+                                        "labelStyle": "string",
+                                        "layout|x": "number",
+                                        "name": "string",
+                                        "layout|y": "number"
+                                    },
+                                    "name": "MyTextField83",
+                                    "designerId": "d80f08b7-d6f5-4bcf-8886-98e7556e1a20"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": "Bill Number",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "BillNumber",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "layout|x": 795,
+                                        "layout|y": 0,
+                                        "name": "billNumber"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "fieldStyle": "string",
+                                        "itemId": "string",
+                                        "labelAlign": "string",
+                                        "labelStyle": "string",
+                                        "layout|x": "number",
+                                        "name": "string",
+                                        "layout|y": "number"
+                                    },
+                                    "name": "MyTextField84",
+                                    "designerId": "f8459387-5aff-477a-bad4-86759e5eb136"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.FieldSet",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|snapToGrid": 5,
+                                "height": 36,
+                                "itemId": "patientDetails1",
+                                "layout": "absolute",
+                                "padding": 0,
+                                "style": "background-color: #d9f2e6;"
+                            },
+                            "configAlternates": {
+                                "designer|snapToGrid": "number",
+                                "height": "auto",
+                                "layout": "string",
+                                "style": "string",
+                                "padding": "auto",
+                                "itemId": "string",
+                                "hidden": "boolean"
+                            },
+                            "name": "MyFieldSet26",
+                            "designerId": "b9b388c1-5547-48f8-90bf-8e109196c61c",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "emptyText": "Enter person paying if not patient",
+                                        "fieldLabel": "Payer",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "flex": 1,
+                                        "itemId": "Payer",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "labelWidth": 150,
+                                        "layout|x": -24,
+                                        "name": "payer",
+                                        "width": 460
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "allowBlank": "boolean",
+                                        "displayField": "datafield",
+                                        "itemId": "string",
+                                        "labelStyle": "string",
+                                        "labelWidth": "number",
+                                        "minChars": "number",
+                                        "name": "string",
+                                        "queryMode": "string",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield",
+                                        "width": "auto",
+                                        "emptyText": "string",
+                                        "fieldStyle": "string",
+                                        "flex": "number"
+                                    },
+                                    "name": "MyTextField24",
+                                    "designerId": "d5595121-d34b-4770-a11d-23c444618928"
+                                },
+                                {
+                                    "type": "Ext.form.field.ComboBox",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "displayField": "Description",
+                                        "emptyText": "Department",
+                                        "fieldLabel": "Department",
+                                        "fieldStyle": "color:red; font-weight:bold;",
+                                        "itemId": "deptName",
+                                        "labelAlign": "right",
+                                        "labelStyle": "color:green; font-weight:bold;",
+                                        "labelWidth": 130,
+                                        "layout|x": 765,
+                                        "layout|y": 0,
+                                        "minChars": 2,
+                                        "name": "department",
+                                        "store": "DepartmentsStore",
+                                        "typeAhead": true,
+                                        "valueField": "Nr"
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "labelAlign": "string",
+                                        "labelWidth": "number",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "name": "string",
+                                        "itemId": "string",
+                                        "labelStyle": "string",
+                                        "width": "auto",
+                                        "displayField": "datafield",
+                                        "emptyText": "string",
+                                        "fieldStyle": "string",
+                                        "minChars": "number",
+                                        "store": "store",
+                                        "typeAhead": "boolean",
+                                        "valueField": "datafield"
+                                    },
+                                    "name": "MyComboBox18",
+                                    "designerId": "562755b1-6872-4b19-8f92-ac93710efcf1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.Panel",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "columnLines": true,
+                                "height": 250,
+                                "itemId": "itemsGrid",
+                                "resizable": false,
+                                "scrollable": "both",
+                                "store": "CashSaleStore"
+                            },
+                            "configAlternates": {
+                                "height": "auto",
+                                "store": "store",
+                                "columnLines": "boolean",
+                                "resizable": "boolean",
+                                "itemId": "string",
+                                "scrollable": "auto"
+                            },
+                            "name": "MyGridPanel2",
+                            "designerId": "17581e1e-4d09-4971-b4a4-f054c7b1a28b",
+                            "cn": [
+                                {
+                                    "type": "Ext.view.Table",
+                                    "reference": {
+                                        "name": "viewConfig",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyTable1",
+                                    "designerId": "f08fd261-7940-4f86-8500-5ba914fd5f96"
+                                },
+                                {
+                                    "type": "Ext.selection.RowModel",
+                                    "reference": {
+                                        "name": "selModel",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyRowSelectionModel",
+                                    "designerId": "7e1e9634-cd48-475d-8681-dd95cd03d22c"
+                                },
+                                {
+                                    "type": "Ext.grid.plugin.CellEditing",
+                                    "reference": {
+                                        "name": "plugins",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "clicksToEdit": 1
+                                    },
+                                    "configAlternates": {
+                                        "clicksToEdit": "number"
+                                    },
+                                    "name": "MyCellEditingPlugin",
+                                    "designerId": "b81b01a8-d809-452c-ace7-90938a82d15d"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "ID",
+                                        "hidden": true,
+                                        "text": "ID"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string",
+                                        "hidden": "boolean"
+                                    },
+                                    "name": "MyColumn60",
+                                    "designerId": "3337e2ac-9589-416f-9874-7a1d8922bd5e"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "CatID",
+                                        "hidden": true,
+                                        "text": "CatID"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string",
+                                        "hidden": "boolean"
+                                    },
+                                    "name": "MyColumn124",
+                                    "designerId": "cf627bf5-4b7f-4ddc-8065-bff3131e28d3"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Names",
+                                        "hidden": true,
+                                        "text": "Category"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string",
+                                        "hidden": "boolean"
+                                    },
+                                    "name": "MyColumn61",
+                                    "designerId": "48492abf-ab4b-4812-b722-31ac5c904a8c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "PartCode",
+                                        "text": "PartCode"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn62",
+                                    "designerId": "9f1961ea-2930-4154-965f-176a28e6b7f7"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Description",
+                                        "text": "Description",
+                                        "width": 299
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string",
+                                        "width": "auto"
+                                    },
+                                    "name": "MyColumn80",
+                                    "designerId": "01ca495f-8a7b-4d1b-8faf-5259598bfc9a"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Price",
+                                        "text": "Amount"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn69",
+                                    "designerId": "3b4739f8-2db5-4033-9b4b-35765728c11e",
                                     "cn": [
                                         {
-                                            "type": "Ext.form.field.ComboBox",
+                                            "type": "Ext.form.field.Text",
+                                            "reference": {
+                                                "name": "editor",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "name": "MyTextField27",
+                                            "designerId": "b2fd0a39-1164-4dea-a96f-53479a77d97f"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "qty",
+                                        "text": "Qty"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn70",
+                                    "designerId": "d6470df8-a28e-4e3e-a79c-6de11fa044a8",
+                                    "cn": [
+                                        {
+                                            "type": "Ext.form.field.Number",
+                                            "reference": {
+                                                "name": "editor",
+                                                "type": "object"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "minValue": 0
+                                            },
+                                            "configAlternates": {
+                                                "minValue": "number"
+                                            },
+                                            "name": "MyNumberField2",
+                                            "designerId": "47b6330c-67cd-4a7a-a48c-9985a19ea845"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "Total",
+                                        "text": "Total"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn76",
+                                    "designerId": "e261aa0e-5feb-4e1e-95e9-f38a09049a7e",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "allowBlank": false,
-                                                "displayField": "Description",
-                                                "emptyText": "Payment Mode",
-                                                "fieldLabel": "Payment Mode",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "PayMode",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 110,
-                                                "minChars": 2,
-                                                "name": "payMode",
-                                                "padding": 0,
-                                                "queryMode": "local",
-                                                "store": [
-                                                    "['Cash','Mpesa','Cheque','Both','Visa']"
+                                                "designer|params": [
+                                                    "value",
+                                                    "metaData",
+                                                    "record",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "store",
+                                                    "view"
                                                 ],
-                                                "typeAhead": true,
-                                                "valueField": "ID",
-                                                "width": 313
+                                                "fn": "renderer",
+                                                "implHandler": [
+                                                    "var strSum=0;",
+                                                    "var totalPrice=record.get('Price')*record.get('qty');",
+                                                    "var totals=Math.ceil(totalPrice / 10) * 10;",
+                                                    "store.getRange().forEach(function(rec) {",
+                                                    "    // console.log(rec.get('unit_price'));",
+                                                    "    totalAmount=rec.get('Price')*rec.get('qty');",
+                                                    "    strSum += Math.ceil(totalAmount / 10) * 10;",
+                                                    "    console.log(rec.get('strSum'));",
+                                                    "});",
+                                                    "",
+                                                    "view.up('grid').up('panel').down('#total').setValue(strSum);",
+                                                    "",
+                                                    "",
+                                                    "return Math.round(totals);"
+                                                ]
                                             },
                                             "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "allowBlank": "boolean",
-                                                "displayField": "datafield",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "labelStyle": "string",
-                                                "minChars": "number",
-                                                "name": "string",
-                                                "queryMode": "string",
-                                                "store": "array",
-                                                "typeAhead": "boolean",
-                                                "valueField": "datafield",
-                                                "width": "auto",
-                                                "fieldStyle": "string",
-                                                "padding": "auto"
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
                                             },
-                                            "name": "MyComboBox2",
-                                            "designerId": "b58aed62-7842-4e5f-8518-264325ae541a"
+                                            "name": "renderer",
+                                            "designerId": "1936b66b-9b30-4050-bbee-54c866825c12"
                                         },
                                         {
                                             "type": "Ext.form.field.Text",
                                             "reference": {
-                                                "name": "items",
-                                                "type": "array"
+                                                "name": "editor",
+                                                "type": "object"
                                             },
                                             "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "GL Account",
-                                                "fieldLabel": "GL Account",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "glAccount",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 275,
-                                                "layout|flex": 1,
-                                                "name": "glAccount",
-                                                "value": [
-                                                    "1020"
-                                                ]
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "fieldStyle": "string",
-                                                "labelStyle": "string",
-                                                "layout|flex": "number",
-                                                "value": "object"
-                                            },
-                                            "name": "MyTextField29",
-                                            "designerId": "11f180c0-02f9-4ae2-96c2-d64c32811d8f"
-                                        },
+                                            "name": "MyTextField46",
+                                            "designerId": "4fc1405e-cfc1-47a7-bc4c-64aec8e7c2bd"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "BillDate",
+                                        "text": "Bill Date"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn77",
+                                    "designerId": "e697208a-25af-4a49-ba2d-bd3326f8a84c"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Column",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "dataIndex": "BillTime",
+                                        "text": "Bill Time"
+                                    },
+                                    "configAlternates": {
+                                        "dataIndex": "datafield",
+                                        "text": "string"
+                                    },
+                                    "name": "MyColumn78",
+                                    "designerId": "f7f458ef-810e-4f19-8bd4-6e4a48f2e7eb"
+                                },
+                                {
+                                    "type": "Ext.grid.column.Action",
+                                    "reference": {
+                                        "name": "columns",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "align": "center",
+                                        "iconCls": "icons/delete1.jpg",
+                                        "text": "Remove"
+                                    },
+                                    "configAlternates": {
+                                        "align": "string",
+                                        "iconCls": "string",
+                                        "text": "string"
+                                    },
+                                    "name": "MyActionColumn9",
+                                    "designerId": "7560adfa-ed3c-4f7f-b4f2-3d674355a0dc",
+                                    "cn": [
                                         {
-                                            "type": "Ext.form.field.Date",
+                                            "type": "actioncolumnitem",
                                             "reference": {
                                                 "name": "items",
                                                 "type": "array"
                                             },
                                             "codeClass": null,
                                             "userConfig": {
-                                                "allowBlank": false,
-                                                "emptyText": "Date",
-                                                "fieldLabel": "Date",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "format": "Y/m/d",
-                                                "itemId": "CurrDate",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "layout|flex": 1,
-                                                "name": "currDate"
+                                                "icon": "icons/delete1.jpg"
                                             },
                                             "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "fieldStyle": "string",
-                                                "labelStyle": "string",
-                                                "allowBlank": "boolean",
-                                                "format": "string",
-                                                "layout|flex": "number"
+                                                "icon": "string"
                                             },
-                                            "name": "MyDateField1",
-                                            "designerId": "9380165b-c6ef-40e5-9aae-1c249b457380"
+                                            "name": "MyActionColumnItem4",
+                                            "designerId": "b62684e2-aa65-4918-a353-cce296edd94d",
+                                            "cn": [
+                                                {
+                                                    "type": "fixedfunction",
+                                                    "reference": {
+                                                        "name": "items",
+                                                        "type": "array"
+                                                    },
+                                                    "codeClass": null,
+                                                    "userConfig": {
+                                                        "designer|params": [
+                                                            "view",
+                                                            "rowIndex",
+                                                            "colIndex",
+                                                            "item",
+                                                            "e",
+                                                            "record",
+                                                            "row"
+                                                        ],
+                                                        "fn": "handler",
+                                                        "implHandler": [
+                                                            "Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+\"?\", function() {",
+                                                            "    // process text value and close...",
+                                                            "    view.getStore().remove(record);",
+                                                            "",
+                                                            "        Ext.Ajax.request({",
+                                                            "                    url: 'data/getDataFunctions.php?task=deleteCashItem',",
+                                                            "                    params: {",
+                                                            "                        ID:record.get(\"ID\"),",
+                                                            "                        tableName:'care_ke_billing',",
+                                                            "                        idColumn:'ID',",
+                                                            "                        batch_nr:record.get(\"ID\")",
+                                                            "                    },",
+                                                            "                    success: function(response){",
+                                                            "                        var resp = Ext.JSON.decode(response.responseText);",
+                                                            "                       // Ext.Msg.alert(\"Success\",\"Successfully Removed \"+record.get('Description'));",
+                                                            "",
+                                                            "                        //this.getNotes(encounterNo);",
+                                                            "",
+                                                            "                    },",
+                                                            "                     failure: function (form, action) {",
+                                                            "                         var jsonResp = Ext.decode(action.response.responseText);",
+                                                            "",
+                                                            "                         Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
+                                                            "                     },",
+                                                            "                    scope:this",
+                                                            "        });",
+                                                            "",
+                                                            "});",
+                                                            "",
+                                                            ""
+                                                        ]
+                                                    },
+                                                    "configAlternates": {
+                                                        "designer|params": "typedarray",
+                                                        "fn": "string",
+                                                        "implHandler": "code"
+                                                    },
+                                                    "name": "handler",
+                                                    "designerId": "b0782443-1b46-420c-9bae-3672a2b3ac79"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "type": "basicfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "choice"
+                                                ],
+                                                "fn": "onConfirm",
+                                                "implHandler": [
+                                                    ""
+                                                ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
+                                            "name": "onConfirm",
+                                            "designerId": "748e39d8-2f4b-42e9-96a9-f8c992a2dd2a"
                                         }
                                     ]
                                 }
@@ -482,746 +1213,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "height": 593
+                                "flex": 1
                             },
                             "configAlternates": {
                                 "layout|region": "string",
-                                "height": "auto"
+                                "height": "auto",
+                                "flex": "number"
                             },
                             "name": "MyContainer1",
                             "designerId": "4ba6a258-e4f9-4996-ac26-9eb7f7251c42",
                             "cn": [
-                                {
-                                    "type": "Ext.form.FieldSet",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "designer|snapToGrid": 5,
-                                        "height": 72,
-                                        "itemId": "patientDetails",
-                                        "layout": "absolute",
-                                        "padding": 0,
-                                        "style": "background-color: #d9f2e6;"
-                                    },
-                                    "configAlternates": {
-                                        "designer|snapToGrid": "number",
-                                        "height": "auto",
-                                        "layout": "string",
-                                        "style": "string",
-                                        "padding": "auto",
-                                        "itemId": "string",
-                                        "hidden": "boolean"
-                                    },
-                                    "name": "MyFieldSet",
-                                    "designerId": "e060d556-cdbd-4c2f-b713-11bf7934a89d",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Generated Bill Number",
-                                                "fieldLabel": "Bill No",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "BillNumber",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 130,
-                                                "layout|x": 460,
-                                                "layout|y": 40,
-                                                "name": "billNumber",
-                                                "value": [
-                                                    "0"
-                                                ],
-                                                "width": 305
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "fieldStyle": "string",
-                                                "labelStyle": "string",
-                                                "value": "object",
-                                                "width": "auto"
-                                            },
-                                            "name": "MyTextField30",
-                                            "designerId": "8e5f1e32-f638-47a2-bdef-fa814844e49f"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Order Number",
-                                                "fieldLabel": "Order Number",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "orderNo4",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 130,
-                                                "layout|x": 460,
-                                                "layout|y": 5,
-                                                "name": "orderNo",
-                                                "value": [
-                                                    "0"
-                                                ]
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "emptyText": "string",
-                                                "itemId": "string",
-                                                "fieldStyle": "string",
-                                                "labelStyle": "string",
-                                                "value": "object"
-                                            },
-                                            "name": "MyTextField31",
-                                            "designerId": "e4f62a24-12d5-4270-83d1-82c74b24cb45"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.ComboBox",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "displayField": "Description",
-                                                "emptyText": "Department",
-                                                "fieldLabel": "Department",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "deptName",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 130,
-                                                "layout|x": 730,
-                                                "layout|y": 5,
-                                                "minChars": 2,
-                                                "name": "department",
-                                                "store": "DepartmentsStore",
-                                                "typeAhead": true,
-                                                "valueField": "Nr"
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "itemId": "string",
-                                                "labelStyle": "string",
-                                                "width": "auto",
-                                                "displayField": "datafield",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string",
-                                                "minChars": "number",
-                                                "store": "store",
-                                                "typeAhead": "boolean",
-                                                "valueField": "datafield"
-                                            },
-                                            "name": "MyComboBox18",
-                                            "designerId": "562755b1-6872-4b19-8f92-ac93710efcf1"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Patient Name",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "Names",
-                                                "labelAlign": "right",
-                                                "labelWidth": 130,
-                                                "layout|x": 220,
-                                                "layout|y": 5,
-                                                "name": "patientName",
-                                                "width": 230
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "labelWidth": "number",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "name": "string",
-                                                "itemId": "string",
-                                                "width": "auto",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string"
-                                            },
-                                            "name": "MyTextField6",
-                                            "designerId": "795e34ea-c21e-45a8-90bf-d6be968bee21"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Pid",
-                                                "fieldLabel": "Patient",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "Pid",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 150,
-                                                "layout|x": -40,
-                                                "layout|y": 5,
-                                                "name": "pid",
-                                                "width": 260
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "allowBlank": "boolean",
-                                                "displayField": "datafield",
-                                                "itemId": "string",
-                                                "labelStyle": "string",
-                                                "labelWidth": "number",
-                                                "minChars": "number",
-                                                "name": "string",
-                                                "queryMode": "string",
-                                                "store": "store",
-                                                "typeAhead": "boolean",
-                                                "valueField": "datafield",
-                                                "width": "auto",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string"
-                                            },
-                                            "name": "MyTextField20",
-                                            "designerId": "983d31f4-e834-4603-bd38-5d0828151d11"
-                                        },
-                                        {
-                                            "type": "Ext.form.field.Text",
-                                            "reference": {
-                                                "name": "items",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "emptyText": "Enter person paying if not patient",
-                                                "fieldLabel": "Payer",
-                                                "fieldStyle": "color:red; font-weight:bold;",
-                                                "itemId": "Payer",
-                                                "labelAlign": "right",
-                                                "labelStyle": "color:green; font-weight:bold;",
-                                                "labelWidth": 150,
-                                                "layout|x": -39,
-                                                "layout|y": 40,
-                                                "name": "payer",
-                                                "width": 490
-                                            },
-                                            "configAlternates": {
-                                                "fieldLabel": "string",
-                                                "labelAlign": "string",
-                                                "layout|x": "number",
-                                                "layout|y": "number",
-                                                "allowBlank": "boolean",
-                                                "displayField": "datafield",
-                                                "itemId": "string",
-                                                "labelStyle": "string",
-                                                "labelWidth": "number",
-                                                "minChars": "number",
-                                                "name": "string",
-                                                "queryMode": "string",
-                                                "store": "store",
-                                                "typeAhead": "boolean",
-                                                "valueField": "datafield",
-                                                "width": "auto",
-                                                "emptyText": "string",
-                                                "fieldStyle": "string"
-                                            },
-                                            "name": "MyTextField24",
-                                            "designerId": "bf905bbe-6eae-4b9a-a478-33a74dbeb639"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "Ext.grid.Panel",
-                                    "reference": {
-                                        "name": "items",
-                                        "type": "array"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "columnLines": true,
-                                        "height": 250,
-                                        "itemId": "itemsGrid",
-                                        "resizable": false,
-                                        "scrollable": "both",
-                                        "store": "CashSaleStore"
-                                    },
-                                    "configAlternates": {
-                                        "height": "auto",
-                                        "store": "store",
-                                        "columnLines": "boolean",
-                                        "resizable": "boolean",
-                                        "itemId": "string",
-                                        "scrollable": "auto"
-                                    },
-                                    "name": "MyGridPanel2",
-                                    "designerId": "17581e1e-4d09-4971-b4a4-f054c7b1a28b",
-                                    "cn": [
-                                        {
-                                            "type": "Ext.view.Table",
-                                            "reference": {
-                                                "name": "viewConfig",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "name": "MyTable1",
-                                            "designerId": "f08fd261-7940-4f86-8500-5ba914fd5f96"
-                                        },
-                                        {
-                                            "type": "Ext.selection.RowModel",
-                                            "reference": {
-                                                "name": "selModel",
-                                                "type": "object"
-                                            },
-                                            "codeClass": null,
-                                            "name": "MyRowSelectionModel",
-                                            "designerId": "7e1e9634-cd48-475d-8681-dd95cd03d22c"
-                                        },
-                                        {
-                                            "type": "Ext.grid.plugin.CellEditing",
-                                            "reference": {
-                                                "name": "plugins",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "clicksToEdit": 1
-                                            },
-                                            "configAlternates": {
-                                                "clicksToEdit": "number"
-                                            },
-                                            "name": "MyCellEditingPlugin",
-                                            "designerId": "b81b01a8-d809-452c-ace7-90938a82d15d"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "ID",
-                                                "hidden": true,
-                                                "text": "ID"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string",
-                                                "hidden": "boolean"
-                                            },
-                                            "name": "MyColumn60",
-                                            "designerId": "3337e2ac-9589-416f-9874-7a1d8922bd5e"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "CatID",
-                                                "hidden": true,
-                                                "text": "CatID"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string",
-                                                "hidden": "boolean"
-                                            },
-                                            "name": "MyColumn124",
-                                            "designerId": "cf627bf5-4b7f-4ddc-8065-bff3131e28d3"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "Names",
-                                                "hidden": true,
-                                                "text": "Category"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string",
-                                                "hidden": "boolean"
-                                            },
-                                            "name": "MyColumn61",
-                                            "designerId": "48492abf-ab4b-4812-b722-31ac5c904a8c"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "PartCode",
-                                                "text": "PartCode"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn62",
-                                            "designerId": "9f1961ea-2930-4154-965f-176a28e6b7f7"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "Description",
-                                                "text": "Description",
-                                                "width": 299
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string",
-                                                "width": "auto"
-                                            },
-                                            "name": "MyColumn80",
-                                            "designerId": "01ca495f-8a7b-4d1b-8faf-5259598bfc9a"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "Price",
-                                                "text": "Amount"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn69",
-                                            "designerId": "3b4739f8-2db5-4033-9b4b-35765728c11e",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.form.field.Text",
-                                                    "reference": {
-                                                        "name": "editor",
-                                                        "type": "object"
-                                                    },
-                                                    "codeClass": null,
-                                                    "name": "MyTextField27",
-                                                    "designerId": "b2fd0a39-1164-4dea-a96f-53479a77d97f"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "qty",
-                                                "text": "Qty"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn70",
-                                            "designerId": "d6470df8-a28e-4e3e-a79c-6de11fa044a8",
-                                            "cn": [
-                                                {
-                                                    "type": "Ext.form.field.Number",
-                                                    "reference": {
-                                                        "name": "editor",
-                                                        "type": "object"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "minValue": 0
-                                                    },
-                                                    "configAlternates": {
-                                                        "minValue": "number"
-                                                    },
-                                                    "name": "MyNumberField2",
-                                                    "designerId": "47b6330c-67cd-4a7a-a48c-9985a19ea845"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "Total",
-                                                "text": "Total"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn76",
-                                            "designerId": "e261aa0e-5feb-4e1e-95e9-f38a09049a7e",
-                                            "cn": [
-                                                {
-                                                    "type": "fixedfunction",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|params": [
-                                                            "value",
-                                                            "metaData",
-                                                            "record",
-                                                            "rowIndex",
-                                                            "colIndex",
-                                                            "store",
-                                                            "view"
-                                                        ],
-                                                        "fn": "renderer",
-                                                        "implHandler": [
-                                                            "var strSum=0;",
-                                                            "var totalPrice=record.get('Price')*record.get('qty');",
-                                                            "var totals=Math.ceil(totalPrice / 10) * 10;",
-                                                            "store.getRange().forEach(function(rec) {",
-                                                            "    // console.log(rec.get('unit_price'));",
-                                                            "    totalAmount=rec.get('Price')*rec.get('qty');",
-                                                            "    strSum += Math.ceil(totalAmount / 10) * 10;",
-                                                            "    console.log(rec.get('strSum'));",
-                                                            "});",
-                                                            "",
-                                                            "view.up('grid').up('panel').down('#total').setValue(strSum);",
-                                                            "",
-                                                            "",
-                                                            "return Math.round(totals);"
-                                                        ]
-                                                    },
-                                                    "configAlternates": {
-                                                        "designer|params": "typedarray",
-                                                        "fn": "string",
-                                                        "implHandler": "code"
-                                                    },
-                                                    "name": "renderer",
-                                                    "designerId": "1936b66b-9b30-4050-bbee-54c866825c12"
-                                                },
-                                                {
-                                                    "type": "Ext.form.field.Text",
-                                                    "reference": {
-                                                        "name": "editor",
-                                                        "type": "object"
-                                                    },
-                                                    "codeClass": null,
-                                                    "name": "MyTextField46",
-                                                    "designerId": "4fc1405e-cfc1-47a7-bc4c-64aec8e7c2bd"
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "BillDate",
-                                                "text": "Bill Date"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn77",
-                                            "designerId": "e697208a-25af-4a49-ba2d-bd3326f8a84c"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Column",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "dataIndex": "BillTime",
-                                                "text": "Bill Time"
-                                            },
-                                            "configAlternates": {
-                                                "dataIndex": "datafield",
-                                                "text": "string"
-                                            },
-                                            "name": "MyColumn78",
-                                            "designerId": "f7f458ef-810e-4f19-8bd4-6e4a48f2e7eb"
-                                        },
-                                        {
-                                            "type": "Ext.grid.column.Action",
-                                            "reference": {
-                                                "name": "columns",
-                                                "type": "array"
-                                            },
-                                            "codeClass": null,
-                                            "userConfig": {
-                                                "align": "center",
-                                                "iconCls": "icons/delete1.jpg",
-                                                "text": "Remove"
-                                            },
-                                            "configAlternates": {
-                                                "align": "string",
-                                                "iconCls": "string",
-                                                "text": "string"
-                                            },
-                                            "name": "MyActionColumn9",
-                                            "designerId": "7560adfa-ed3c-4f7f-b4f2-3d674355a0dc",
-                                            "cn": [
-                                                {
-                                                    "type": "actioncolumnitem",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "icon": "icons/delete1.jpg"
-                                                    },
-                                                    "configAlternates": {
-                                                        "icon": "string"
-                                                    },
-                                                    "name": "MyActionColumnItem4",
-                                                    "designerId": "b62684e2-aa65-4918-a353-cce296edd94d",
-                                                    "cn": [
-                                                        {
-                                                            "type": "fixedfunction",
-                                                            "reference": {
-                                                                "name": "items",
-                                                                "type": "array"
-                                                            },
-                                                            "codeClass": null,
-                                                            "userConfig": {
-                                                                "designer|params": [
-                                                                    "view",
-                                                                    "rowIndex",
-                                                                    "colIndex",
-                                                                    "item",
-                                                                    "e",
-                                                                    "record",
-                                                                    "row"
-                                                                ],
-                                                                "fn": "handler",
-                                                                "implHandler": [
-                                                                    "Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+\"?\", function() {",
-                                                                    "    // process text value and close...",
-                                                                    "    view.getStore().remove(record);",
-                                                                    "",
-                                                                    "        Ext.Ajax.request({",
-                                                                    "                    url: 'data/getDataFunctions.php?task=deleteCashItem',",
-                                                                    "                    params: {",
-                                                                    "                        ID:record.get(\"ID\"),",
-                                                                    "                        tableName:'care_ke_billing',",
-                                                                    "                        idColumn:'ID',",
-                                                                    "                        batch_nr:record.get(\"ID\")",
-                                                                    "                    },",
-                                                                    "                    success: function(response){",
-                                                                    "                        var resp = Ext.JSON.decode(response.responseText);",
-                                                                    "                       // Ext.Msg.alert(\"Success\",\"Successfully Removed \"+record.get('Description'));",
-                                                                    "",
-                                                                    "                        //this.getNotes(encounterNo);",
-                                                                    "",
-                                                                    "                    },",
-                                                                    "                     failure: function (form, action) {",
-                                                                    "                         var jsonResp = Ext.decode(action.response.responseText);",
-                                                                    "",
-                                                                    "                         Ext.Msg.alert('Failed', 'There was a problem with the Request. \\n Error=' + jsonResp.error);",
-                                                                    "                     },",
-                                                                    "                    scope:this",
-                                                                    "        });",
-                                                                    "",
-                                                                    "});",
-                                                                    "",
-                                                                    ""
-                                                                ]
-                                                            },
-                                                            "configAlternates": {
-                                                                "designer|params": "typedarray",
-                                                                "fn": "string",
-                                                                "implHandler": "code"
-                                                            },
-                                                            "name": "handler",
-                                                            "designerId": "b0782443-1b46-420c-9bae-3672a2b3ac79"
-                                                        }
-                                                    ]
-                                                },
-                                                {
-                                                    "type": "basicfunction",
-                                                    "reference": {
-                                                        "name": "items",
-                                                        "type": "array"
-                                                    },
-                                                    "codeClass": null,
-                                                    "userConfig": {
-                                                        "designer|params": [
-                                                            "choice"
-                                                        ],
-                                                        "fn": "onConfirm",
-                                                        "implHandler": [
-                                                            ""
-                                                        ]
-                                                    },
-                                                    "configAlternates": {
-                                                        "designer|params": "typedarray",
-                                                        "fn": "string",
-                                                        "implHandler": "code"
-                                                    },
-                                                    "name": "onConfirm",
-                                                    "designerId": "748e39d8-2f4b-42e9-96a9-f8c992a2dd2a"
-                                                }
-                                            ]
-                                        }
-                                    ]
-                                },
                                 {
                                     "type": "Ext.form.FieldSet",
                                     "reference": {
@@ -1285,7 +1286,7 @@
                                     "codeClass": null,
                                     "userConfig": {
                                         "designer|snapToGrid": 5,
-                                        "height": 345,
+                                        "height": 205,
                                         "layout": "absolute",
                                         "padding": 0,
                                         "style": "background-color: #d9f2e6;"
@@ -1312,7 +1313,7 @@
                                                 "itemId": "cmdSaveSales",
                                                 "layout|x": 635,
                                                 "layout|y": 110,
-                                                "text": "Save",
+                                                "text": "<b>Save</b>",
                                                 "width": 120
                                             },
                                             "configAlternates": {
@@ -1337,7 +1338,7 @@
                                                 "iconCls": "x-fa fa-close",
                                                 "layout|x": 815,
                                                 "layout|y": 110,
-                                                "text": "Close",
+                                                "text": "<b>Close</b>",
                                                 "width": 95
                                             },
                                             "configAlternates": {

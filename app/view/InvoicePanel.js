@@ -170,6 +170,7 @@ Ext.define('CarePortal.view.InvoicePanel', {
                     x: 1080,
                     y: 10,
                     formBind: true,
+                    itemId: 'cmdPrintMiniInvoice',
                     width: 160,
                     iconCls: 'x-fa fa-print',
                     text: 'Print Mini Invoice'

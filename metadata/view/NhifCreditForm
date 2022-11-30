@@ -93,6 +93,7 @@
                     "userConfig": {
                         "emptyText": "Ward No",
                         "fieldLabel": "Ward No",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "ward",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -114,7 +115,8 @@
                         "name": "string",
                         "readOnly": "boolean",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField22",
                     "designerId": "07356f7c-59ac-4706-8dd4-c26c38367bf1"
@@ -129,6 +131,7 @@
                     "userConfig": {
                         "emptyText": "Encounter No",
                         "fieldLabel": "Encounter No",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "encounterNr",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -150,7 +153,8 @@
                         "name": "string",
                         "readOnly": "boolean",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField23",
                     "designerId": "1714301d-1309-4a9b-bf3c-fa944aa30212"
@@ -167,6 +171,7 @@
                         "displayField": "BillNumbers",
                         "emptyText": "Bill Number",
                         "fieldLabel": "Bill Number",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "billNumber",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -194,7 +199,8 @@
                         "queryMode": "string",
                         "store": "store",
                         "valueField": "datafield",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyComboBox12",
                     "designerId": "4f10c17d-f92f-4cbc-89a9-7707262381b6"
@@ -208,6 +214,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": null,
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "pname",
                         "layout|x": 220,
                         "layout|y": 0,
@@ -220,7 +227,8 @@
                         "layout|y": "number",
                         "width": "auto",
                         "itemId": "string",
-                        "name": "string"
+                        "name": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField16",
                     "designerId": "4bd68482-cf27-4c41-959d-b0ad3270e42c"
@@ -235,6 +243,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Days",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "days",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -256,7 +265,8 @@
                         "name": "string",
                         "readOnly": "boolean",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField17",
                     "designerId": "fd0b2362-c1d2-449e-9e36-3d977c412bd3"
@@ -271,6 +281,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Admission Date",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "admissionDate",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -290,7 +301,8 @@
                         "itemId": "string",
                         "name": "string",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField18",
                     "designerId": "bd49569d-602b-41d3-bcb4-ab685bb3ebcc"
@@ -305,6 +317,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Release Date",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "releaseDate",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -324,7 +337,8 @@
                         "itemId": "string",
                         "name": "string",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField20",
                     "designerId": "99b99687-b6bf-4d99-800c-b7d0115429d6"
@@ -339,6 +353,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Discharge Date",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "dischargeDate",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -358,7 +373,8 @@
                         "itemId": "string",
                         "name": "string",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField21",
                     "designerId": "fb68f317-f0ce-45aa-bf46-bcce1dd6e2ee"
@@ -373,6 +389,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Patient No",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "txtNhifPid",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -392,7 +409,8 @@
                         "itemId": "string",
                         "name": "string",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField19",
                     "designerId": "98f364f6-6ecb-4c9e-8445-85337fe48876",
@@ -500,6 +518,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "NHIF No",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "nhifNo",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -519,7 +538,8 @@
                         "name": "string",
                         "width": "auto",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField25",
                     "designerId": "1c15f80a-dacf-4fbc-a703-fa13c7f3c181"
@@ -535,6 +555,7 @@
                         "allowBlank": false,
                         "displayField": "RateType",
                         "fieldLabel": "NHIF Client Type",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "nhifClientType",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -565,7 +586,8 @@
                         "store": "store",
                         "typeAhead": "boolean",
                         "valueField": "datafield",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyComboBox9",
                     "designerId": "ddf240c6-517c-458f-ba48-2307395efe23",
@@ -614,6 +636,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "NHIF Credit Per Day",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "creditPerDay",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -633,7 +656,8 @@
                         "itemId": "string",
                         "name": "string",
                         "allowBlank": "boolean",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField41",
                     "designerId": "6c88bf29-f0ed-400e-b49b-36d4d26b13ee"
@@ -648,6 +672,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Total credit",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "creditAmount",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -667,7 +692,8 @@
                         "allowBlank": "boolean",
                         "itemId": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField32",
                     "designerId": "2e377184-8440-4824-af24-f30d276220d6"
@@ -681,6 +707,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "NHIF Debtor Acc",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "accno",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -703,7 +730,8 @@
                         "name": "string",
                         "value": "object",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyComboBox11",
                     "designerId": "9c2b4306-c14c-4b07-befa-633af78b56d7"
@@ -717,6 +745,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": null,
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "name",
                         "layout|x": 225,
                         "layout|y": 35,
@@ -733,7 +762,8 @@
                         "width": "auto",
                         "itemId": "string",
                         "name": "string",
-                        "value": "object"
+                        "value": "object",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField28",
                     "designerId": "c02bf950-e3f6-4a27-9bfd-793f9750fefc"
@@ -747,6 +777,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "NHIF Category",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "nhifCat",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -769,7 +800,8 @@
                         "value": "object",
                         "width": "auto",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField27",
                     "designerId": "c16a5bbf-abdd-40af-93b4-f038e39b3e9b"
@@ -820,6 +852,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Incoice Amount",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "invoiceAmount",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -839,7 +872,8 @@
                         "name": "string",
                         "width": "auto",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField33",
                     "designerId": "991c4e80-d0ba-4590-8adb-f5b162680f68",
@@ -882,6 +916,7 @@
                     "userConfig": {
                         "allowBlank": false,
                         "fieldLabel": "Balance",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "balance",
                         "labelAlign": "right",
                         "labelStyle": "color:#1b5f87; font-weight:bold;",
@@ -901,7 +936,8 @@
                         "name": "string",
                         "width": "auto",
                         "labelStyle": "string",
-                        "labelWidth": "number"
+                        "labelWidth": "number",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField34",
                     "designerId": "d5a1d209-1358-4292-a73f-11cd0be3a773"
@@ -920,7 +956,7 @@
                         "itemId": "cmdSaveNhif",
                         "layout|x": 245,
                         "layout|y": 45,
-                        "text": "Save",
+                        "text": "<b>Save</b>",
                         "width": 105
                     },
                     "configAlternates": {
@@ -949,7 +985,7 @@
                         "itemId": "cmdClose",
                         "layout|x": 430,
                         "layout|y": 45,
-                        "text": "Cancel",
+                        "text": "<b>Close</b>",
                         "width": 105
                     },
                     "configAlternates": {

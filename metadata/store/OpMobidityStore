@@ -45,9 +45,6 @@
                         "type": "object"
                     },
                     "codeClass": null,
-                    "userConfig": {
-                        "rootProperty": "mobidity"
-                    },
                     "configAlternates": {
                         "root": "string",
                         "rootProperty": "string"

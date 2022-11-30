@@ -63,6 +63,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'ward',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     readOnly: true,
                     emptyText: 'Ward No'
                 },
@@ -77,6 +78,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'encounterNr',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     readOnly: true,
                     emptyText: 'Encounter No'
                 },
@@ -90,6 +92,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     name: 'billNumber',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     readOnly: true,
                     allowBlank: false,
                     emptyText: 'Bill Number',
@@ -104,7 +107,8 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     y: 0,
                     itemId: 'pname',
                     width: 260,
-                    name: 'pname'
+                    name: 'pname',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -117,6 +121,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'days',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     readOnly: true,
                     allowBlank: false
                 },
@@ -131,6 +136,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'admissionDate',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -144,6 +150,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'releaseDate',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -157,6 +164,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'dischargeDate',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -170,6 +178,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'pid',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false,
                     listeners: {
                         change: 'onTxtNhifPidChange'
@@ -199,6 +208,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'nhifNo',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -212,6 +222,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 120,
                     name: 'nhifClientType',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false,
                     displayField: 'RateType',
                     minChars: 2,
@@ -234,6 +245,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 140,
                     name: 'creditPerDay',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -247,6 +259,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 120,
                     name: 'totalCredit',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -260,7 +273,8 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'accno',
-                    value: 'NHIF'
+                    value: 'NHIF',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -269,7 +283,8 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     itemId: 'name',
                     width: 265,
                     name: 'nhifAccount',
-                    value: 'NHIF DEBTORS ACCOUNT'
+                    value: 'NHIF DEBTORS ACCOUNT',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -282,7 +297,8 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'nhifCat',
-                    value: 'A'
+                    value: 'A',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 }
             ]
         },
@@ -308,6 +324,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'invoiceAmount',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false,
                     listeners: {
                         change: 'onInvoiceAmountChange'
@@ -324,6 +341,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     labelStyle: 'color:#1b5f87; font-weight:bold;',
                     labelWidth: 110,
                     name: 'balance',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     allowBlank: false
                 },
                 {
@@ -335,7 +353,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     itemId: 'cmdSaveNhif',
                     width: 105,
                     iconCls: 'x-fa fa-save',
-                    text: 'Save'
+                    text: '<b>Save</b>'
                 },
                 {
                     xtype: 'button',
@@ -345,7 +363,7 @@ Ext.define('CarePortal.view.NhifCreditForm', {
                     itemId: 'cmdClose',
                     width: 105,
                     iconCls: 'x-fa fa-close',
-                    text: 'Cancel'
+                    text: '<b>Close</b>'
                 }
             ]
         }

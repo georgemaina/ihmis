@@ -1,0 +1,52 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordersservicestore",
+        "designer|userClassName": "OrdersServiceStore",
+        "model": "ServiceOrdesrModel",
+        "storeId": "OrdersServiceStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "7e8189e2-90a6-424b-b631-1fe83d6c1f71",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=selectPendingOrders"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy19",
+            "designerId": "b7e664b8-6866-49ee-9ea0-be83cb805d3e",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader18",
+                    "designerId": "ec02090a-898c-4bf3-a6c2-105df7f2c4ba"
+                }
+            ]
+        }
+    ]
+}

@@ -25,7 +25,7 @@ body{
 }
 
 .page{
-    width: 100mm;
+    width: 120mm;
     height: 279mm;
     padding: 1mm 2mm 2mm 2mm;
     margin: 1mm auto;
@@ -39,7 +39,7 @@ body{
         padding: 1mm 5mm 1mm 1mm;
         border: 0px green solid;
         height: 150mm; /* .page height -40mm (20 off top/bottom) */
-        width: 100mm;
+        width: 120mm;
         /*outline: 2cm #d3dfea solid;*/
         display: table;
     }
@@ -50,7 +50,7 @@ body{
     }
     @media print {
         html, body {
-            width: 100mm;
+            width: 120mm;
             height: 279mm;        
         }
         .page {

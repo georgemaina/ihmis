@@ -129,6 +129,9 @@
                     "    },",
                     "    '#cmdSavePriceCat':{",
                     "        click:this.savePriceCat",
+                    "    },",
+                    "    '#cmdSavePrices':{",
+                    "        click:this.savePrices",
                     "    }",
                     "",
                     "});"
@@ -544,14 +547,14 @@
                 ],
                 "fn": "openNewPrices",
                 "implHandler": [
-                    "var priceTypes=Ext.create('CarePortal.view.PriceTypes', {});",
+                    "var priceTypes=Ext.create('CarePortal.view.PriceType', {});",
                     "var priceTypesWin=Ext.create('Ext.window.Window',{",
                     "    title: 'Price Management Settings',",
                     "    resizable:false",
                     "",
                     "});",
                     "",
-                    "this.getPricetypes().down('#formStatus').setValue('insert');",
+                    "this.getPricetype().down('#formStatus').setValue('insert');",
                     "",
                     "priceTypesWin.add(priceTypes);",
                     "priceTypesWin.show();",
@@ -609,16 +612,16 @@
             },
             "codeClass": null,
             "userConfig": {
-                "ref": "pricetypes",
-                "selector": "pricetypes",
-                "xtype": "pricetypes"
+                "ref": "pricetype",
+                "selector": "pricetype",
+                "xtype": "pricetype"
             },
             "configAlternates": {
                 "ref": "string",
                 "selector": "string",
                 "xtype": "string"
             },
-            "name": "pricetypes",
+            "name": "pricetype",
             "designerId": "23451a4f-d216-430e-852f-bb0a00700707"
         },
         {
@@ -739,14 +742,14 @@
                 ],
                 "fn": "loadPriceTypesForm",
                 "implHandler": [
-                    "var priceTypes=Ext.create('CarePortal.view.PriceTypes', {});",
+                    "var priceTypes=Ext.create('CarePortal.view.PriceType', {});",
                     "var priceTypesWin=Ext.create('Ext.window.Window',{",
                     "    title: 'Price Management Settings',",
                     "    resizable:false",
                     "",
                     "});",
                     "",
-                    "this.getPricetypes().down('#formStatus').setValue('update');",
+                    "this.getPricetype().down('#formStatus').setValue('update');",
                     "",
                     "priceTypesWin.add(priceTypes);",
                     "priceTypesWin.show();",
@@ -1233,6 +1236,46 @@
             },
             "name": "filterProducts",
             "designerId": "22e21dae-7325-4361-8166-ef16d6481832"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "savePrices",
+                "implHandler": [
+                    "var form = button.up('form'); // get the form panel",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', 'Item Saved Successfully');",
+                    "",
+                    "            var win=button.up('window');",
+                    "            win.destroy();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed',  action.result.msg);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "savePrices",
+            "designerId": "ab93a240-8497-437f-85ba-a91941c15dad"
         }
     ]
 }

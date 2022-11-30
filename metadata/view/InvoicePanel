@@ -402,6 +402,7 @@
                     "userConfig": {
                         "formBind": true,
                         "iconCls": "x-fa fa-print",
+                        "itemId": "cmdPrintMiniInvoice",
                         "layout|x": 1080,
                         "layout|y": 10,
                         "text": "Print Mini Invoice",
@@ -413,7 +414,8 @@
                         "text": "string",
                         "width": "auto",
                         "iconCls": "string",
-                        "formBind": "boolean"
+                        "formBind": "boolean",
+                        "itemId": "string"
                     },
                     "name": "MyButton29",
                     "designerId": "feb0a080-8987-4f76-8837-83b1ebf22777"

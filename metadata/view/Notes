@@ -519,7 +519,7 @@
                         "iconCls": "x-fa fa-sync",
                         "layout|x": 235,
                         "layout|y": 0,
-                        "text": "Preview Note",
+                        "text": "<b>Preview Note</b>",
                         "width": 150
                     },
                     "configAlternates": {
@@ -543,9 +543,9 @@
                         "height": 32,
                         "iconCls": "x-fa fa-save",
                         "itemId": "cmdAddComplaints",
-                        "layout|x": 560,
+                        "layout|x": 535,
                         "layout|y": 0,
-                        "text": "Save",
+                        "text": "<b>Save</b>",
                         "width": 140
                     },
                     "configAlternates": {
@@ -559,6 +559,34 @@
                     },
                     "name": "MyButton17",
                     "designerId": "519c73de-5a6b-44e3-883f-bd08f26895cd"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 32,
+                        "iconCls": "x-fa fa-arrow-down",
+                        "itemId": "cmdClose",
+                        "layout|x": 815,
+                        "layout|y": -4,
+                        "text": "<b>Close</b>",
+                        "width": 140
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "text": "string",
+                        "itemId": "string",
+                        "iconCls": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyButton38",
+                    "designerId": "5d5e4217-9572-4da2-a51e-b555535933f3"
                 }
             ]
         }

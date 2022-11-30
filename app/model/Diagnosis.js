@@ -23,6 +23,9 @@ Ext.define('CarePortal.model.Diagnosis', {
 
     fields: [
         {
+            name: 'Case_nr'
+        },
+        {
             name: 'EncounterNo'
         },
         {

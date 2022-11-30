@@ -10,6 +10,7 @@
         "designer|userAlias": "paidreceiptsstore",
         "designer|userClassName": "PaidReceiptsStore",
         "model": "ReceiptModel",
+        "pageSize": 500,
         "storeId": "PaidReceiptsStore"
     },
     "configAlternates": {
@@ -17,7 +18,8 @@
         "designer|userClassName": "string",
         "model": "model",
         "storeId": "string",
-        "autoLoad": "boolean"
+        "autoLoad": "boolean",
+        "pageSize": "number"
     },
     "name": "MyJsonStore1",
     "designerId": "be0c0565-4efb-4adf-9fb4-078240c63557",
@@ -45,6 +47,12 @@
                         "type": "object"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "receipts"
+                    },
+                    "configAlternates": {
+                        "rootProperty": "string"
+                    },
                     "name": "MyJsonReader20",
                     "designerId": "e3c8a194-6a5b-484b-bd56-f48d6c1e963b"
                 }

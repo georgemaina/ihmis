@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "labtests",
+        "designer|userClassName": "PrescriptionFormViewModel1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "PrescriptionFormViewModel1",
+    "designerId": "103a11d7-7fb9-4392-8e9b-52b7b9d0512a"
+}

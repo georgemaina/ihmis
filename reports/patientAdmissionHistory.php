@@ -121,13 +121,11 @@ require($root_path . 'include/inc_environment_global.php');
                            echo "<tr><td class='invDetails'>Lab</td><td class='invDetails' colspan=5>".$row['labtest']."</td><td class='invDetails'></td></tr>";
                        } 
                        
-                       $sql3 = "SELECT d.item_description FROM care_test_request_radio r 
-                           LEFT JOIN care_tz_drugsandservices d on r.test_request=d.partcode
-                                    where encounter_nr=$encNo";
+                       $sql3 = "SELECT radiologyTest FROM care_ke_radiologytests where encounter_nr=$encNo";
                       //echo $sql3;
                       $results = $db->Execute($sql3);
                        while ($row = $results->FetchRow()) {
-                           echo "<tr><td class='invDetails'>x-ray</td><td class='invDetails' colspan=5>".$row['item_description']."</td></tr>";
+                           echo "<tr><td class='invDetails'>x-ray</td><td class='invDetails' colspan=5>".$row['radiologyTest']."</td></tr>";
                        } 
                        
                        echo "<tr><td colspan='7'><hr></td></tr>";

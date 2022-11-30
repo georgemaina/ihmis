@@ -8,7 +8,7 @@
     "userConfig": {
         "bodyPadding": 10,
         "designer|snapToGrid": 5,
-        "designer|userAlias": "pricetypes",
+        "designer|userAlias": "pricetype",
         "designer|userClassName": "PriceType",
         "height": 167,
         "layout": "absolute",
@@ -42,6 +42,7 @@
             "userConfig": {
                 "fieldLabel": "PartCode",
                 "itemId": "partcode",
+                "labelStyle": "color:green; font-weight:bold;",
                 "layout|x": 10,
                 "layout|y": 10,
                 "name": "PartCode"
@@ -51,7 +52,8 @@
                 "layout|x": "number",
                 "layout|y": "number",
                 "name": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "labelStyle": "string"
             },
             "name": "MyTextField28",
             "designerId": "5787e08c-5987-4091-b7e0-98f7faab3ea3"
@@ -66,6 +68,7 @@
             "userConfig": {
                 "fieldLabel": "Price",
                 "itemId": "price",
+                "labelStyle": "color:green; font-weight:bold;",
                 "layout|x": 10,
                 "layout|y": 80,
                 "name": "Price"
@@ -75,7 +78,8 @@
                 "layout|x": "number",
                 "layout|y": "number",
                 "name": "string",
-                "itemId": "string"
+                "itemId": "string",
+                "labelStyle": "string"
             },
             "name": "MyTextField29",
             "designerId": "6916e4e4-64a9-403a-8a5d-29912dd956ff"
@@ -89,10 +93,9 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": null,
-                "hidden": true,
                 "itemId": "formStatus",
-                "layout|x": 140,
-                "layout|y": 120,
+                "layout|x": 285,
+                "layout|y": 80,
                 "name": "formStatus",
                 "width": 55
             },
@@ -119,6 +122,7 @@
                 "displayField": "PriceType",
                 "fieldLabel": "Price Type",
                 "itemId": "pricetype",
+                "labelStyle": "color:green; font-weight:bold;",
                 "layout|x": 10,
                 "layout|y": 45,
                 "minChars": 2,
@@ -139,7 +143,8 @@
                 "store": "store",
                 "typeAhead": "boolean",
                 "valueField": "datafield",
-                "itemId": "string"
+                "itemId": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox15",
             "designerId": "60c55805-7b6a-43f1-a9d1-b408199c9560"
@@ -152,7 +157,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "itemId": "cmdSave",
+                "itemId": "cmdSavePrices",
                 "layout|x": 45,
                 "layout|y": 120,
                 "text": "Save",

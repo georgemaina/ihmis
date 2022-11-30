@@ -1304,10 +1304,10 @@ function getReceiptsSummary($cashpoint, $shiftNo, $cashier) {
 
 function getPatientNames($pid){
     global $conn;
-    $debug=true;
+    $debug=false;
 
-    $sql="select pid, CONCAT(name_first,' ',name_last,' ',name_2) AS names from care_person 
-    where pid=$pid";
+    $sql="SELECT p.pid, CONCAT(p.name_first,' ',p.name_last,' ',p.name_2) AS names,MAX(encounter_nr) AS EncounterNr  
+    FROM care_person p LEFT JOIN care_encounter e ON p.pid=e.pid where p.pid=$pid";
    
     if($debug) echo $sql;
      $request=$conn->query($sql);
@@ -1416,7 +1416,7 @@ function getlastPatient(){
 
 function getCurrentShift(){
     global $db;
-    $debug=true;
+    $debug=false;
 }
 
 
@@ -2195,13 +2195,13 @@ function startShift(){
                         '$start_time', '1')";
                         if($debug) echo $sql2;
                     if($db->Execute($sql2)){
-                        echo '{success:true,"ShiftNo":"'.$curr_shiftNo.'"}';
+                        echo '{"success":true,"ShiftNo":"'.$curr_shiftNo.'"}';
                     }else{
                         echo '{"Failure":true}';
                     }
         }
     }else{
-        echo '{failure:true,"ShiftStatus":"Active"}';
+        echo '{"failure":true,"ShiftStatus":"Active"}';
     }
     
 
@@ -2269,10 +2269,10 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
     $sql=$sql." group by sale_id order by sale_id desc limit $start,$limit";
     
     if($debug) echo $sql;
-
-    echo "[";
     $request=$db->Execute($sql);
     $total=$request->RecordCount();
+    echo '{"total":'.$total.',"receipts":[';
+    
     $counter=0;
     while($row=$request->FetchRow()){
         $names=preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['name']);
@@ -2298,7 +2298,7 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
             echo ",";
         }
     }
-    echo ']';
+    echo ']}';
 
 }
 
@@ -2336,7 +2336,7 @@ function login($username,$password,$userGroup){
     session_start();
 
     $pass=md5($password);
-    $sql="SELECT `username`,userGroup FROM user_list where `username`='$username' and password='$pass' and userGroup='$userGroup'";
+    $sql="SELECT `username`,userGroup,clinics FROM user_list where `username`='$username' and password='$pass' and userGroup='$userGroup'";
     if($debug) echo $sql;
 
     $request=$db->Execute($sql);
@@ -2345,8 +2345,11 @@ function login($username,$password,$userGroup){
         $_SESSION['logged']="Signed True";
         $_SESSION['sess_login_userid']=$row['username'];
         $_SESSION['sess_login_username']=$row['username'];
+        $_SESSION['clinics']=$row['clinics'];
                 
-        echo '{"success":true,"username":"'.$row['username'].'","userGroup":"'.$row['userGroup'].'","userNameSession":"'.$_SESSION['sess_login_username'].'"}';
+        echo '{"success":true,"username":"'.$row['username'].'","userGroup":"'.$row['userGroup']
+            .'","userNameSession":"'.$_SESSION['sess_login_username']
+            .'","clinics":'.$row['clinics'].'}';
 
    }else{
         echo '{failure:true,"Error":"Invalid Username or Password"}';
@@ -2517,9 +2520,9 @@ function insertNhifCredit($nhifDetails, $bill_obj) {
         if ($invBalance <> 0) {
             updateNhifGainloss($nhifDetails, $bill_obj);
         }
-        echo '{success:true,"msg":"Successfully saved NHIF Credit"}';
+        echo '{"success":true,"msg":"Successfully saved NHIF Credit"}';
     } else {
-        echo '{failure:true,"msg":"Could not save NHIF Credit, Please check your values"}';
+        echo '{"failure":true,"msg":"Could not save NHIF Credit, Please check your values"}';
     }
 }
 
@@ -3660,7 +3663,7 @@ function cancelOrder(){
 
 function getValuationReport(){
     global $db;
-    $debug=true;
+    $debug=false;
 
     $accDB=$_SESSION['sess_accountingdb'];
     $pharmLoc=$_SESSION['sess_pharmloc'];
@@ -3701,7 +3704,7 @@ function getValuationReport(){
 
 function getStockMovements(){
     global $db;
-    $debug=true;
+    $debug=false;
 
 }
 
@@ -3783,7 +3786,7 @@ function getPendingOpPatients(){
                 $sql=$sql. " AND  b.`status`='pending' AND e.encounter_class_nr=2 AND p.`insurance_ID` IN('CASH','-1')";
             }
 
-            $sql=$sql."  GROUP BY encounter_nr";
+            $sql=$sql."  GROUP BY encounter_nr order by b.bill_date desc";
 
             if ($debug) echo $sql;
 
@@ -4626,6 +4629,7 @@ function saveCashSales(){
         $payer=$_REQUEST['payer'];
         $pid=$_REQUEST['pid'];
         $patient=$_REQUEST['patientName'];
+        $encounter_No=$_REQUEST['encNr'];
     }
 
     $payMode=$_REQUEST['payMode'];
@@ -4671,6 +4675,16 @@ function saveCashSales(){
                 reduceStock($db, $partcode, 'Dispens', $qty,$bal, $partcode, $receiptNo);
                 updateStockMovement($partcode, 'Dispens', 'Dispens', $qty, $inputUser, $items_obj);
             }
+
+            $sql2="INSERT INTO care_ke_billing(pid,encounter_nr,`IP-OP`, bill_date,bill_number,service_type,Description,
+                price,qty,total,input_user,notes, STATUS,batch_no,bill_time,rev_code,partcode,item_number,weberpsync)
+            VALUES('$pid','$encounter_No','2','$currDate','$billNumber','Payment',
+                    '$description','$price','$qty','$total','$inputUser','Receipt Payment','Paid','$receiptNo',
+                    '".date('H:i:s')."','$partcode','$partcode','$partcode',0)";
+
+                if($debug) echo $sql2;
+
+                $result=$db->Execute($sql2);
 
             $sql="Update care_ke_billing set status='paid',billed='paid' where ID='$ID'";
             if($debug) echo $sql;
@@ -6080,7 +6094,7 @@ function getDiagnosis($encNo)
     global $db;
     $debug = false;
     $encNr=$_REQUEST['encNr'];
-    $sql = "SELECT ICD_10_code,icd_10_description,TIMESTAMP,TYPE FROM care_tz_diagnosis
+    $sql = "SELECT Case_nr,encounter_nr,ICD_10_code,icd_10_description,`timestamp`,`type` FROM care_tz_diagnosis
             WHERE encounter_nr='$encNr'";
 
     if ($debug) echo $sql;
@@ -6092,7 +6106,8 @@ function getDiagnosis($encNo)
     $counter = 0;
     while ($row = $result->FetchRow()) {
 
-        echo '{"Code":"' . $row['ICD_10_code'] . '","Description":"' . $row['icd_10_description']  . '","Time":"' . $row['TIMESTAMP'] . '","Type":"' . $row['TYPE']. '"}';
+        echo '{"Case_nr":"' . $row['Case_nr'] . '","EncounterNo":"' . $row['encounter_nr'] . '","Code":"' . $row['ICD_10_code'] . '","Description":"' . $row['icd_10_description'] 
+             . '","TimeStamp":"' . $row['timestamp'] . '","Type":"' . $row['type']. '"}';
 
         $counter++;
         if ($counter <> $numRows) {
@@ -7817,18 +7832,50 @@ function getOpdPatients($dept_obj,$ward_obj,$items_obj,$person){
     $debug=false;
     $searchParam=$_REQUEST['searchParam'];
 
+    $date1=date_create($_REQUEST['startDate']);
+    $date2=date_create($_REQUEST['endDate']);
+    $startDate=date_format($date1,"Y-m-d");
+    $endDate=date_format($date2,"Y-m-d");
+    $showAll=$_REQUEST['showAll'];
+
+    if($_REQUEST['department']<>''){
+        $strClinics=$_REQUEST['department'];
+    }else if($_SESSION['clinics']<>''){
+        $clinics=$_SESSION['clinics'];
+        $userClinics=json_decode($clinics, TRUE);
+        $strClinics=implode(",",$userClinics);
+    }
+
     $sql = "SELECT d.`status`,c.`pid`,CONCAT(c.`name_first`,' ',c.`name_2`,' ', c.`name_last`) AS pnames, c.`insurance_ID`,t.`name`,c.`date_birth`, c.`sex`,e.`name_formal`,
               d.`encounter_date`,d.encounter_nr,d.encounter_time,d.encounter_class_nr,d.current_ward_nr,d.current_dept_nr,d.consultation_fee
             FROM care_person c
             INNER JOIN care_encounter d ON c.pid=d.pid 
             INNER JOIN care_department e ON e.nr=d.current_dept_nr
             LEFT JOIN care_tz_company t ON c.`insurance_ID`=t.`accno`
-            WHERE e.`type`=1 AND d.encounter_class_nr=2 and is_discharged=0 and d.encounter_date='".date('Y-m-d')."'";
+            WHERE e.`type`=1 AND d.encounter_class_nr=2";
+
+    if($startDate<>"" && $endDate<>""){
+        $sql.=" and d.encounter_date between '$startDate' and '$endDate'";
+    }else{
+        $sql.=" and d.encounter_date='".date('Y-m-d')."'";
+    }
 
     if($searchParam<>""){
         $sql.=" and c.name_first like '%$searchParam%' or c.name_2 like '%$searchParam%' 
-                    or c.name_last like '%$searchParam%' or c.pid like '%$searchParam%' and d.`is_discharged`=0";
+                    or c.name_last like '%$searchParam%' or c.pid like '%$searchParam%' 
+                    and d.`is_discharged`=0";
     }
+
+   // echo "<br>Clinic are ".$showAll;
+    if($showAll=="true"){
+        $sql.=" and d.current_dept_nr>0";
+    }else if($strClinics<>'' && $strClinics<>'0'){
+        $sql.=" and d.current_dept_nr in($strClinics)";
+    }else if($strClinics=='["0"]' || $strClinics==0){
+        $sql.=" and d.current_dept_nr >0";
+    }
+
+
 
     $sql.=" order by d.encounter_time desc";
 

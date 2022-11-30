@@ -1,0 +1,280 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 1,
+        "container|align": "stretch",
+        "designer|userAlias": "services",
+        "designer|userClassName": "Services",
+        "height": 525,
+        "itemId": "Services",
+        "layout": "vbox",
+        "width": 944
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "itemId": "string",
+        "layout": "string",
+        "container|align": "string",
+        "width": "auto"
+    },
+    "name": "MyForm3",
+    "designerId": "75eb4cea-ec86-468e-87d6-d385a66d4f2f",
+    "viewControllerInstanceId": "9f0a8167-22cb-4710-a0d7-5f9511355396",
+    "viewModelInstanceId": "d69497ac-77fe-4716-a4b1-8bf8ddc05ca9",
+    "cn": [
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "dock": "string",
+                "layout|flex": "number"
+            },
+            "name": "patientdetais",
+            "designerId": "03528feb-553c-453d-8633-9308de5663ef",
+            "masterInstanceId": "3d257ecb-2ca1-40bf-b7ca-31282ca4bf4d"
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "margin": "auto",
+                "padding": "auto",
+                "width": "auto"
+            },
+            "name": "MyFieldSet16",
+            "designerId": "534289f5-0f1b-4f02-8887-134781d18e67",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "Description",
+                        "emptyText": "Services",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Services",
+                        "layout|flex": 2,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "minChars": 2,
+                        "name": "Services",
+                        "queryMode": "local",
+                        "store": "ServicesStore",
+                        "typeAhead": true,
+                        "valueField": "PartCode"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield"
+                    },
+                    "name": "MyComboBox12",
+                    "designerId": "a07f8029-b834-4130-9475-ae8df1b14e2a"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Frequency",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Qty",
+                        "layout|flex": 0,
+                        "margin": "2 5 2 2",
+                        "name": "Qty",
+                        "width": 97
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "name": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField53",
+                    "designerId": "e9562e68-313e-4ebd-9cee-bb2f1a5e1983"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Price",
+                        "fieldLabel": "Price",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Price",
+                        "labelAlign": "right",
+                        "labelStyle": "color:maroon; font-weight:bold;",
+                        "labelWidth": 50,
+                        "layout|flex": 0,
+                        "margin": "2 5 2 2",
+                        "name": "Price"
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "margin": "auto",
+                        "name": "string"
+                    },
+                    "name": "MyTextField54",
+                    "designerId": "b990b00d-3fbd-44bd-8ccb-f19111a1fe4d"
+                }
+            ]
+        },
+        {
+            "type": "Ext.form.FieldSet",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout": "hbox",
+                "layout|flex": 0,
+                "margin": 2,
+                "padding": 0
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string",
+                "layout|flex": "number",
+                "padding": "auto",
+                "width": "auto",
+                "margin": "auto"
+            },
+            "name": "MyFieldSet18",
+            "designerId": "6781c650-20ca-4dc1-8049-846734f4f8cf",
+            "cn": [
+                {
+                    "type": "Ext.form.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Comments",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
+                        "itemId": "Comments",
+                        "layout|flex": 2,
+                        "layout|margins": "",
+                        "margin": "2 5 2 2",
+                        "name": "Comments"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "layout|flex": "number",
+                        "layout|margins": "string",
+                        "margin": "auto",
+                        "minChars": "number",
+                        "name": "string",
+                        "queryMode": "string",
+                        "store": "store",
+                        "typeAhead": "boolean",
+                        "valueField": "datafield",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyTextArea5",
+                    "designerId": "e0de9cd1-df47-4837-8d54-8d0918b9655d"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "cmdAddServices",
+                        "text": "Add Services"
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|flex": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton31",
+                    "designerId": "9b0f74c2-994f-4289-8dd4-33855d99fa72"
+                }
+            ]
+        },
+        {
+            "type": "linkedinstance",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "layout|flex": "number"
+            },
+            "name": "servicesprocedures1",
+            "designerId": "7a58b493-aedf-4ce3-89d3-4d78a9d29353",
+            "masterInstanceId": "442b0dfa-255b-4f31-93cc-cfff5ee65e52"
+        }
+    ]
+}

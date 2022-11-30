@@ -1,0 +1,134 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "userroles",
+        "designer|userClassName": "UserRoles",
+        "idProperty": "ID"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "idProperty": "string"
+    },
+    "name": "MyModel1",
+    "designerId": "48b02929-2938-457e-8e15-a8a9fd18af91",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Module"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField149",
+            "designerId": "bb119e2c-b988-4725-916a-3f83583b5cb0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "ID"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField227",
+            "designerId": "9d595c83-3f95-40c0-89e0-d73140c6c907"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Role"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField63",
+            "designerId": "a87ca660-248c-4ae9-abc4-86f0c0b34208"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "RoleName"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField83",
+            "designerId": "e1b70a08-0805-41d8-b9bb-19e864f80e15"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "View"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField228",
+            "designerId": "0d46f101-8da9-4f52-9bc4-345c20a041f3"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Edit"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField229",
+            "designerId": "639c5511-898b-4df3-9b0f-8d24849842d4"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Delete"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField230",
+            "designerId": "757a1609-8dc8-4ce2-859c-e4b7233895fb"
+        }
+    ]
+}

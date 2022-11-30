@@ -66,10 +66,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|snapToGrid": 5,
+                "container|align": "stretch",
                 "dock": "top",
                 "height": 44,
-                "layout": "absolute",
+                "layout": "hbox",
                 "padding": 0,
                 "width": 100
             },
@@ -79,7 +79,8 @@
                 "height": "auto",
                 "layout": "string",
                 "width": "auto",
-                "padding": "auto"
+                "padding": "auto",
+                "container|align": "string"
             },
             "name": "MyFieldSet20",
             "designerId": "a50edd29-4bb7-4299-948b-5b511999dc99",
@@ -93,18 +94,66 @@
                     "codeClass": null,
                     "userConfig": {
                         "itemId": "txtSearchParam",
-                        "layout|x": 10,
-                        "layout|y": 5,
+                        "margin": 5,
                         "width": 455
                     },
                     "configAlternates": {
                         "itemId": "string",
                         "layout|x": "number",
                         "layout|y": "number",
-                        "width": "auto"
+                        "width": "auto",
+                        "margin": "auto"
                     },
                     "name": "MyTextField62",
                     "designerId": "179bbad4-8521-41b3-ba98-13d5bb3553f8"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Start Date",
+                        "itemId": "startDate",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "margin": 5
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField9",
+                    "designerId": "c51b539e-14cd-4405-b36c-f4140657ce7a"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "End Date",
+                        "itemId": "startDate1",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "margin": 5
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyDateField10",
+                    "designerId": "46f73ee9-20e0-4640-91b0-af486d4cdb9d"
                 },
                 {
                     "type": "Ext.button.Button",
@@ -116,8 +165,7 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-search",
                         "itemId": "cmdPreviewIpReports",
-                        "layout|x": 470,
-                        "layout|y": 5,
+                        "margin": 5,
                         "text": "Search",
                         "width": 120
                     },
@@ -127,10 +175,29 @@
                         "layout|y": "number",
                         "text": "string",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "margin": "auto"
                     },
                     "name": "MyButton35",
                     "designerId": "bf56ea78-6ea5-44f0-b707-91a000a59945"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "margin": 5
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "margin": "auto"
+                    },
+                    "name": "MyTextField41",
+                    "designerId": "ec3990b9-a042-4783-bddf-7bacbdc31d77"
                 }
             ]
         },

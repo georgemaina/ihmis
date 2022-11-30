@@ -1422,7 +1422,7 @@ Ext.define('CarePortal.controller.Inpatient', {
     openXray: function(view, rowIndex, colIndex, item, e, record, row) {
         var Services=Ext.create('CarePortal.view.Radiology', {});
         var ServicesWindow=Ext.create('Ext.window.Window', {
-            title: 'Patients Services',
+            title: 'Radiology Services',
             resizable:false
         });
 
@@ -1438,7 +1438,7 @@ Ext.define('CarePortal.controller.Inpatient', {
     openDiagnosis: function(view, rowIndex, colIndex, item, e, record, row) {
         var Services=Ext.create('CarePortal.view.Diagnosis', {});
         var ServicesWindow=Ext.create('Ext.window.Window', {
-            title: 'Patients Services',
+            //title: 'Patients Services',
             resizable:false
         });
 
@@ -1670,6 +1670,8 @@ Ext.define('CarePortal.controller.Inpatient', {
                     },
                     scope: this
                 });
+        }else if(formSource=='Discharges'){
+
         }
     },
 

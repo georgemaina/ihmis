@@ -27,6 +27,7 @@ Ext.define('CarePortal.store.PaidReceiptsStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            pageSize: 500,
             storeId: 'PaidReceiptsStore',
             autoLoad: true,
             model: 'CarePortal.model.ReceiptModel',
@@ -34,7 +35,8 @@ Ext.define('CarePortal.store.PaidReceiptsStore', {
                 type: 'ajax',
                 url: 'data/getDataFunctions.php?task=getReceipts',
                 reader: {
-                    type: 'json'
+                    type: 'json',
+                    rootProperty: 'receipts'
                 }
             }
         }, cfg)]);

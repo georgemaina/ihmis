@@ -1,6 +1,6 @@
 <?php
 # This is the database name
-$dbname='careWesley';
+$dbname='careNyanchwa';
 # Database user name, default is root or httpd for mysql, or postgres for postgresql
 $dbusername='george';
 
@@ -32,3 +32,10 @@ $httprotocol='http';
 # Set this to your database type. For details refer to ADODB manual or goto http://php.weblogs.com/ADODB/
 $dbtype='mysqli';
 
+//lab wesley
+//8wv19d47
+//1270852122
+
+//reception
+//973582884
+//72xiikx7

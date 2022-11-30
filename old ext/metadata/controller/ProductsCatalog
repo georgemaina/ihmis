@@ -1,0 +1,1238 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "productscatalog",
+        "designer|userClassName": "ProductsCatalog",
+        "models": [
+            "Locations",
+            "PriceTypes"
+        ],
+        "stores": [
+            "PricesTypeStore",
+            "PricesStore",
+            "LocationsStore",
+            "UnitsMeasureStore",
+            "CategoryStore",
+            "SubCategoryStore"
+        ],
+        "views": [
+            "ItemsMaster",
+            "ItemRegister",
+            "PriceType",
+            "ItemLocations"
+        ]
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "models": "typedarray",
+        "stores": "typedarray",
+        "views": "typedarray"
+    },
+    "name": "MyController",
+    "designerId": "edb763f5-a80b-482f-92bc-78d71d0b1d96",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "application"
+                ],
+                "fn": "init",
+                "implHandler": [
+                    "this.control({",
+                    "    '#cmdNewProduct':{",
+                    "        click:this.openItemRegister",
+                    "    },",
+                    "    '#cmdSaveProducts':{",
+                    "        click:this.saveItem",
+                    "    },",
+                    "    '#cmdSaveCategory':{",
+                    "        click:this.saveCategory",
+                    "    },",
+                    "    '#cmdSearchProduct':{",
+                    "        click:this.searchProducts",
+                    "    },",
+                    "    '#itemsMaster':{",
+                    "        itemdblclick:this.openItemDetails",
+                    "    },",
+                    "    '#cmdClose':{",
+                    "        click:this.Close",
+                    "    },",
+                    "    '#cmbCategory':{",
+                    "        change:this.filterByCategory",
+                    "    },",
+                    "    '#cmdSearchPrices':{",
+                    "        click:this.SearchPrices",
+                    "    },",
+                    "    '#cmdSearchItems':{",
+                    "        click:this.searchItemsInLocation",
+                    "    },",
+                    "    '#cmdNewPrice':{",
+                    "        click:this.openNewPrices",
+                    "    },",
+                    "    '#cmdAddLocationItems':{",
+                    "        click:this.openAddLocationItems",
+                    "    },",
+                    "    '#cmbLocation':{",
+                    "        change:this.searchByLocation",
+                    "    },",
+                    "    '#itemLocationsGrid':{",
+                    "        itemdblclick:this.loadItemsLocationForm",
+                    "    },",
+                    "    '#ItemPrices':{",
+                    "        itemdblclick:this.loadPriceTypesForm",
+                    "    },",
+                    "    '#cmbPriceTypes':{",
+                    "        change:this.filterPricesByType",
+                    "    },",
+                    "    '#subCategory':{",
+                    "        itemclick:this.loadSubCategory",
+                    "    },",
+                    "    '#categories':{",
+                    "        itemclick:this.loadCategories",
+                    "    },",
+                    "    '#locations':{",
+                    "        itemclick:this.loadLocations",
+                    "    },",
+                    "    '#cmdNewItem':{",
+                    "        click:this.resetForm",
+                    "    },",
+                    "    \"#storeusers\":{",
+                    "        itemclick:this.loadUsers",
+                    "    },",
+                    "    \"#cmdRemove\":{",
+                    "        click:this.removeUserFromStore",
+                    "    },",
+                    "    '#txtSearchProducts':{",
+                    "        specialkey:this.getPressedKey2,",
+                    "        change:this.filterProducts",
+                    "    },",
+                    "    '#cmdDelete':{",
+                    "        click:this.deleteItem",
+                    "    },",
+                    "    '#cmdExportToExcel':{",
+                    "        click:this.exportToExel",
+                    "    },",
+                    "    '#cmdExportPrices':{",
+                    "        click:this.exportPrices",
+                    "    },",
+                    "    '#cmdSavePriceCat':{",
+                    "        click:this.savePriceCat",
+                    "    }",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "init",
+            "designerId": "c17a2823-85cd-495b-9892-c09447dc3282",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "id",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openItemRegister",
+                "implHandler": [
+                    "//alert(\"Test Register\");",
+                    "var itemsRegister=Ext.create('CarePortal.view.ItemRegister', {});",
+                    "var registerWin=Ext.create('Ext.window.Window',{",
+                    "                   //title: 'Products Catalog',",
+                    "                    resizable:false",
+                    "",
+                    "               });",
+                    "",
+                    "this.getItemregister().down('#formStatus').setValue('insert');",
+                    "// var theForm = itemsRegister.getForm();",
+                    "// var theField = theForm.findField('formStatus');",
+                    "// theField.setValue('insert');",
+                    "",
+                    "",
+                    "registerWin.add(itemsRegister);",
+                    "registerWin.show();",
+                    "",
+                    "",
+                    "// categoroyStore.load({",
+                    "//     params:{",
+                    "//         start:0,",
+                    "//         limit:200",
+                    "//     }",
+                    "// });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openItemRegister",
+            "designerId": "436a7d7e-9005-4dc8-a1bb-055cea2deec0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveItem",
+                "implHandler": [
+                    "var form = button.up('form'); // get the form panel",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', 'Item Saved Successfully');",
+                    "",
+                    "            var win=button.up('window');",
+                    "            win.destroy();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed',  action.result.msg);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveItem",
+            "designerId": "01ba6243-2cc6-4a30-9640-4ed7a5ffd8dd"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemregister",
+                "selector": "itemregister",
+                "xtype": "itemregister"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "itemregister",
+            "designerId": "070b61ee-ae7a-4295-af83-c67e7df19c88"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "saveCategory",
+                "implHandler": [
+                    "   var form = button.up('form'); // get the form panel",
+                    "        if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "            form.submit({",
+                    "                success: function(form, action) {",
+                    "                    Ext.Msg.alert('Success', 'item Saved Successfull');",
+                    "                },",
+                    "                failure: function(form, action) {",
+                    "                    Ext.Msg.alert('Failed', 'Failed to save Item');",
+                    "                }",
+                    "            });",
+                    "        } else { // display error alert if the data is invalid",
+                    "            Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "        }"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "saveCategory",
+            "designerId": "d6aeeb95-6345-42cb-bfdc-a7a49db5a5bd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchProducts",
+                "implHandler": [
+                    "// Ext.Msg.alert('Test',button.getValue());",
+                    "var itemsStore=Ext.data.StoreManager.lookup('InventoryItemStore');",
+                    "var searchParam=this.getItemsmaster().down('#txtSearchProducts').getValue();",
+                    "itemsStore.load({",
+                    "    params: {",
+                    "        searchParam: searchParam",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //var data1=this.getStore('DebtorDetails').getAt(0);",
+                    "        // myform.loadRecord(data1);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchProducts",
+            "designerId": "367f6f51-09d1-4865-abb0-0b2352764d4c"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemsmaster",
+                "selector": "itemsmaster",
+                "xtype": "itemsmaster"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "itemsmaster",
+            "designerId": "59dee940-7c7c-478d-898e-4b76c165c073"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "openItemDetails",
+                "implHandler": [
+                    "       //alert(\"Test Register\");",
+                    "        var itemsRegister=Ext.create('CarePortal.view.ItemRegister', {});",
+                    "        var registerWin=Ext.create('Ext.window.Window',{",
+                    "                           title: 'Products Catalog',",
+                    "                            resizable:false",
+                    "",
+                    "                       });",
+                    "",
+                    "        this.getItemregister().down('#formStatus').setValue('update');",
+                    "",
+                    "        registerWin.add(itemsRegister);",
+                    "        registerWin.show();",
+                    "",
+                    "        itemsRegister.getForm().loadRecord(record);",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openItemDetails",
+            "designerId": "5459bd8a-9236-49db-957a-2aadec51c2cd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "Close",
+                "implHandler": [
+                    "        var win = button.up('window');",
+                    "        win.close();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "Close",
+            "designerId": "d8f959ba-9544-42f9-9b1f-e9f07165cca0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterByCategory",
+                "implHandler": [
+                    "        var invItemStore=Ext.data.StoreManager.lookup('InventoryItemStore');",
+                    "        invItemStore.load({",
+                    "            params: {",
+                    "                category: newValue",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "                //var data1=this.getStore('DebtorDetails').getAt(0);",
+                    "                // myform.loadRecord(data1);",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "",
+                    "        });",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterByCategory",
+            "designerId": "b9c9ad33-7bb3-44c1-9841-421859cd0fa6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "SearchPrices",
+                "implHandler": [
+                    "//   alert(\"Test Register\");",
+                    "var pricesParam=this.getItemsmaster().down('#txtSearchPrices').getValue();",
+                    "",
+                    "var itemPrices=Ext.data.StoreManager.lookup('PricesStore');",
+                    "itemPrices.load({",
+                    "    params: {",
+                    "        searchParam:pricesParam",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //company=\"records[1].data.CompanyName\";",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "SearchPrices",
+            "designerId": "0606c717-f0e1-495c-a9ee-b03e84e20ee0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "searchItemsInLocation",
+                "implHandler": [
+                    "var itemsParam=this.getItemsmaster().down('#txtSearchItemlocs').getValue();",
+                    "var itemStore=Ext.data.StoreManager.lookup('ItemLocationStore');",
+                    "itemStore.load({",
+                    "    params: {",
+                    "        searchParam:itemsParam",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //company=\"records[1].data.CompanyName\";",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchItemsInLocation",
+            "designerId": "0d248ba4-6bf2-41a5-8724-3ecf0e4ba1b6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openNewPrices",
+                "implHandler": [
+                    "var priceTypes=Ext.create('CarePortal.view.PriceTypes', {});",
+                    "var priceTypesWin=Ext.create('Ext.window.Window',{",
+                    "    title: 'Price Management Settings',",
+                    "    resizable:false",
+                    "",
+                    "});",
+                    "",
+                    "this.getPricetypes().down('#formStatus').setValue('insert');",
+                    "",
+                    "priceTypesWin.add(priceTypes);",
+                    "priceTypesWin.show();",
+                    "",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openNewPrices",
+            "designerId": "9065070b-5eb1-444c-8e0c-ac820e376aea"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openAddLocationItems",
+                "implHandler": [
+                    "        var itemsLoc=Ext.create('CarePortal.view.ItemLocations', {});",
+                    "        var itemsLocWin=Ext.create('Ext.window.Window',{",
+                    "            title: 'Item Locations',",
+                    "            resizable:false",
+                    "",
+                    "        });",
+                    "",
+                    "        this.getItemlocations().down('#formStatus').setValue('insert');",
+                    "",
+                    "        itemsLocWin.add(itemsLoc);",
+                    "        itemsLocWin.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openAddLocationItems",
+            "designerId": "ba2c7a78-4ba7-4ee7-98d9-693a992cf635"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "pricetypes",
+                "selector": "pricetypes",
+                "xtype": "pricetypes"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "pricetypes",
+            "designerId": "23451a4f-d216-430e-852f-bb0a00700707"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "itemlocations",
+                "selector": "itemlocations",
+                "xtype": "itemlocations"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "itemlocations",
+            "designerId": "041125a2-4da4-4eeb-92e7-c0153c889602"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "searchByLocation",
+                "implHandler": [
+                    "var invItemStore=Ext.data.StoreManager.lookup('ItemLocationStore');",
+                    "invItemStore.load({",
+                    "    params: {",
+                    "        location: newValue",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //var data1=this.getStore('DebtorDetails').getAt(0);",
+                    "        // myform.loadRecord(data1);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "searchByLocation",
+            "designerId": "69f3aae5-2ca8-4dc1-8839-ca1ae00520ea"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadItemsLocationForm",
+                "implHandler": [
+                    "var itemsLoc=Ext.create('CarePortal.view.ItemLocations', {});",
+                    "var itemsLocWin=Ext.create('Ext.window.Window',{",
+                    "    title: 'Item Locations',",
+                    "    resizable:false",
+                    "",
+                    "});",
+                    "",
+                    "this.getItemlocations().down('#formStatus').setValue('update');",
+                    "",
+                    "itemsLocWin.add(itemsLoc);",
+                    "itemsLocWin.show();",
+                    "",
+                    "itemsLoc.getForm().loadRecord(record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadItemsLocationForm",
+            "designerId": "ca613cbc-6130-41e3-bf13-ea018110239a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "fn": "loadPriceTypesForm",
+                "implHandler": [
+                    "var priceTypes=Ext.create('CarePortal.view.PriceTypes', {});",
+                    "var priceTypesWin=Ext.create('Ext.window.Window',{",
+                    "    title: 'Price Management Settings',",
+                    "    resizable:false",
+                    "",
+                    "});",
+                    "",
+                    "this.getPricetypes().down('#formStatus').setValue('update');",
+                    "",
+                    "priceTypesWin.add(priceTypes);",
+                    "priceTypesWin.show();",
+                    "",
+                    "priceTypes.getForm().loadRecord(record);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadPriceTypesForm",
+            "designerId": "88fcfbd4-5d11-46e2-8b03-9c707086cde7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "newValue",
+                    "oldValue",
+                    "eOpts"
+                ],
+                "fn": "filterPricesByType",
+                "implHandler": [
+                    "var pricesStore=Ext.data.StoreManager.lookup('PricesStore');",
+                    "pricesStore.load({",
+                    "    params: {",
+                    "        priceType: newValue",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "        //var data1=this.getStore('DebtorDetails').getAt(0);",
+                    "        // myform.loadRecord(data1);",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterPricesByType",
+            "designerId": "726147d5-2310-4af4-9905-e19ce0639035"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadSubCategory",
+                "implHandler": [
+                    "this.getItemsmaster().down('#CatID').setValue(record.get('CatID'));",
+                    "this.getItemsmaster().down('#itemCat').setValue(record.get('ItemCat'));",
+                    "this.getItemsmaster().down('#ParentID').setValue(record.get('ParentID'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadSubCategory",
+            "designerId": "51b75319-6f1a-4b25-ad75-9be157315a97"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadCategories",
+                "implHandler": [
+                    "this.getItemsmaster().down('#category').setValue(record.get('CatName'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadCategories",
+            "designerId": "33a91127-60d7-4fa0-8cbe-e98be5e5e329"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadLocations",
+                "implHandler": [
+                    "this.getItemsmaster().down('#ID').setValue(record.get('ID'));",
+                    "this.getItemsmaster().down('#Description').setValue(record.get('Description'));",
+                    "this.getItemsmaster().down('#subStore').setValue(record.get('Store'));",
+                    "this.getItemsmaster().down('#mainStore').setValue(record.get('MainStore'));",
+                    "this.getItemsmaster().down('#dispensStore').setValue(record.get('DispensStore'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadLocations",
+            "designerId": "bb457bfb-6326-45bb-9480-e4e6dce5a731"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "resetForm",
+                "implHandler": [
+                    "button.up('form').reset();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "resetForm",
+            "designerId": "a9e8f092-38f6-4ce4-96a3-87f9d9b676d4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "options"
+                ],
+                "fn": "loadUsers",
+                "implHandler": [
+                    "this.getItemsmaster().down('#UserName').setValue(record.get('UserName'));",
+                    "this.getItemsmaster().down('#StoreID').setValue(record.get('StoreID'));"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadUsers",
+            "designerId": "d4845cf4-72e0-4163-8bc8-6fb321565a05"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "removeUserFromStore",
+                "implHandler": [
+                    "var UserName=this.getItemsmaster().down('#UserName').getValue();",
+                    "var StoreID=this.getItemsmaster().down('#StoreID').getValue();",
+                    "Ext.Ajax.request({",
+                    "    url: 'data/getDataFunctions.php?task=removeUser',",
+                    "    params:{",
+                    "        UserName:UserName,",
+                    "        StoreID:StoreID",
+                    "    },",
+                    "     success: function(response, opts) {",
+                    "         var obj = Ext.decode(response.responseText);",
+                    "         Ext.Msg.alert(\"Remove\",\"User removed successfully\"+obj);",
+                    "         console.dir(obj);",
+                    "     },",
+                    "",
+                    "     failure: function(response, opts) {",
+                    "         console.log('server-side failure with status code ' + response.status);",
+                    "     }",
+                    " });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "removeUserFromStore",
+            "designerId": "cc048481-0ebe-4d64-9c15-4d78e9283e9c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field",
+                    "e",
+                    "options"
+                ],
+                "fn": "getPressedKey2",
+                "implHandler": [
+                    "if (e.getKey() == e.ENTER) {",
+                    "    ",
+                    "   this.searchProducts(field);",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getPressedKey2",
+            "designerId": "ce0f5177-07a4-4dde-846a-a4b268bb5965"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "deleteItem",
+                "implHandler": [
+                    "var partcode=this.getPricetypes().down('#partcode').getValue();",
+                    "var pricetype=this.getPricetypes().down('#pricetype').getValue();",
+                    "",
+                    "Ext.Msg.show({",
+                    "    title:'Delete Rates?',",
+                    "    msg: 'Are you sure you want to delete Price',",
+                    "    buttons: Ext.Msg.YESNOCANCEL,",
+                    "    icon: Ext.Msg.QUESTION,",
+                    "    fn: function(rec) {",
+                    "        if (rec === \"yes\") {",
+                    "            Ext.Ajax.request({",
+                    "                url: 'data/getDataFunctions.php?task=deletePrices',",
+                    "                params: {",
+                    "                    partcode:partcode,",
+                    "                    pricetype:pricetype",
+                    "                },",
+                    "                waitMsg: 'Deleting Rates ...',",
+                    "                success: function(response){",
+                    "                    var text = response.responseText;",
+                    "                    Ext.Msg.alert('Delete','Price Successfully deleted');",
+                    "                    var pricestore=Ext.data.StoreManager.lookup('PricesStore');",
+                    "                    pricestore.load({});",
+                    "",
+                    "                   var win = button.up('window');",
+                    "                    win.close();",
+                    "",
+                    "                },",
+                    "                failure:function(response){",
+                    "                    var resp = JSON.parseJSON(response);",
+                    "                    Ext.Msg.alert('Error','There was a problem deleting the Prices, Contact System Administrator');",
+                    "                }",
+                    "            });",
+                    "",
+                    "        }",
+                    "    }",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "deleteItem",
+            "designerId": "ab9fec11-d6b1-46d4-a972-764000f5a9db"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "exportToExel",
+                "implHandler": [
+                    "var searchParam=this.getItemsmaster().down('#txtSearchItem').getValue();",
+                    "var category=this.getItemsmaster().down('#cmbCategory').getValue();",
+                    "",
+                    "if(!category){",
+                    "    var cat=\"\";",
+                    "}else{",
+                    "    var cat=category;",
+                    "}",
+                    "",
+                    "window.open('../data/exportItems.php?searchParam='+searchParam+'&category='+cat,",
+                    "            \"Items List\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportToExel",
+            "designerId": "c9d9d2dc-fe03-4c42-bbfd-6a50e213c609"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "exportPrices",
+                "implHandler": [
+                    "var searchParam=this.getItemsmaster().down('#txtSearchPrices').getValue();",
+                    "var priceType=this.getItemsmaster().down('#cmbPriceTypes').getValue();",
+                    "",
+                    "if(!priceType){",
+                    "    var ptype=\"\";",
+                    "}else{",
+                    "    var ptype=priceType;",
+                    "}",
+                    "",
+                    "",
+                    "window.open('../data/exportPrices.php?searchParam='+searchParam+'&priceType='+ptype,",
+                    "            \"Items List\",\"menubar=yes,toolbar=yes,width=500,height=550,location=yes,resizable=no,scrollbars=yes,status=yes\");",
+                    ""
+                ]
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportPrices",
+            "designerId": "e600d2ea-ca52-449d-8541-22381f2624b3"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "pricetypescat",
+                "selector": "pricetypescat",
+                "xtype": "pricetypescat"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "pricetypescat",
+            "designerId": "a371c159-6ddc-4ae7-a06c-10f43bc21f58"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "savePriceCat",
+                "implHandler": [
+                    "var form = button.up('form'); // get the form panel",
+                    "if (form.isValid()) { // make sure the form contains valid data before submitting",
+                    "    form.submit({",
+                    "        success: function(form, action) {",
+                    "            Ext.Msg.alert('Success', action.result.msg);",
+                    "",
+                    "            var win=button.up('window');",
+                    "            win.destroy();",
+                    "",
+                    "        },",
+                    "        failure: function(form, action) {",
+                    "            Ext.Msg.alert('Failed',  action.result.msg);",
+                    "        }",
+                    "    });",
+                    "} else { // display error alert if the data is invalid",
+                    "    Ext.Msg.alert('Invalid Data', 'Please correct form errors.');",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "savePriceCat",
+            "designerId": "b7df60dd-8ecd-4ee3-b392-1b30e0cd61b5"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "field,newValue,oldValue,eOpts"
+                ],
+                "fn": "filterProducts",
+                "implHandler": [
+                    "var grid = field.up('grid');",
+                    "grid.store.clearFilter();",
+                    "if (newValue) {",
+                    "    var matcher = new RegExp(Ext.String.escapeRegex(newValue), \"i\");",
+                    "    grid.store.filter({",
+                    "        filterFn: function(item) {",
+                    "            return matcher.test(item.get('Item_Description')) ||",
+                    "                matcher.test(item.get('PartCode'));",
+                    "        }",
+                    "    });",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "filterProducts",
+            "designerId": "22e21dae-7325-4361-8166-ef16d6481832"
+        }
+    ]
+}

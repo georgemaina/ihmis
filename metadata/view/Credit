@@ -733,7 +733,7 @@
                     "userConfig": {
                         "height": 30,
                         "iconCls": "x-fa fa-plus",
-                        "itemId": "cmdServiceList",
+                        "itemId": "cmdGetDrugsItems",
                         "layout|x": 0,
                         "layout|y": 10,
                         "text": "Get Items List",

@@ -53,7 +53,7 @@ Ext.define('CarePortal.view.Login', {
                     items: [
                         {
                             xtype: 'displayfield',
-                            value: 'ACK MT KENYA HOSPITAL MWEA',
+                            value: 'WESLEY MISSION HOSPITAL',
                             fieldStyle: 'color:white;font-weight:bold;font-size:16px;'
                         }
                     ]

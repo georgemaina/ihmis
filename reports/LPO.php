@@ -41,7 +41,7 @@ function createInvoiceTitle($db, $cashpoint, $shiftno, $pdf, $pdfBase) {
     }
 
     $title = 'LOCAL PURCHASE ORDER';
-    $imagePath="../icons/logo3.jpg";
+    $imagePath="../icons/logo.jpg";
 
     $image = Zend_Pdf_Image::imageWithPath($imagePath);
     $page->drawImage($image, $leftPos+20, $topPos-70, $leftPos+500, $topPos+10);

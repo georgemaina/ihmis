@@ -851,8 +851,7 @@ function getMorbidity($date1,$date2,$reportType,$limit, $start) {
 
 //    $date1='2018-01-01';
 //    $date2='2018-03-31';
-    echo '{
-   "mobidity":[';
+    echo '[';
 
     $sql="SELECT `ID`,`ReportMonth`,`DateUpdated`,`ICDCode`,`Disease`,`1`,`2`,`3`,`4`,`5`,`6`,`7`,`8`,`9`,`10`,`11`,`12`,`13`,`14`,
             `15`,`16`,`17`,`18`,`19`,`20`,`21`,`22`,`23`,`24`,`25`,`26`,`27`,`28`,`29` `30`,`31` 
@@ -860,7 +859,9 @@ function getMorbidity($date1,$date2,$reportType,$limit, $start) {
             where DateUpdated between '$date1' and '$date2' and i.type='$reportType'";
     if($debug) echo $sql;
     $results=$db->Execute($sql);
+    $total = $results->RecordCount();
 
+    $counter = 0;
        while($row = $results->FetchRow()){
            $disease= $desc= escapeJsonString($row['Disease']);
            echo '{"icdCode":"' . $row['ICDCode'] . '","disease":"' . $disease . '",';
@@ -869,10 +870,15 @@ function getMorbidity($date1,$date2,$reportType,$limit, $start) {
                 echo '"'.$i.'":"' . $row[$i] .'",';
                 $totals=$totals+$row[$i];
             }
-           echo '"TOTALS":"' . $totals. '"},';
+           echo '"TOTALS":"' . $totals. '"}';
+
+           $counter++;
+        if ($counter < $total) {
+            echo ",";
+        }
        }
 
-    echo ']}';
+    echo ']';
 }
 
 
@@ -1369,11 +1375,19 @@ function getOPvisits($date1,$date2) {
                 FROM  `care_ke_opworkload` WHERE ReportDate BETWEEN '$date1' AND '$date2' GROUP BY OpCode";
                 if($debug) echo $sql;
     $result = $db->Execute($sql);
+    $total = $result->RecordCount();
+
+    $counter = 0;
     echo '[';
     while ($row = $result->FetchRow()) {      
         echo '{"parent":"' . $row['Parent'] . '","opCode":"' . $row['OpCode'] . '",
                 "Description":"' . $row['Description'] . '","New":"' . number_format($row['newPatients'],0)
-                . '","Ret":"' . number_format($row['returnPatients'],0) . '","Total":"' .number_format($row['newPatients']+$row['returnPatients'],0) . '"},';
+                . '","Ret":"' . number_format($row['returnPatients'],0) . '","Total":"' .number_format($row['newPatients']+$row['returnPatients'],0) . '"}';
+
+                $counter++;
+                if ($counter <> $total) {
+                    echo ",";
+                }
     }
     echo ']';
 }

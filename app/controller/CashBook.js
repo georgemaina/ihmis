@@ -1129,7 +1129,11 @@ Ext.define('CarePortal.controller.CashBook', {
             this.getCashsales().down('#Names').setValue(names);
             this.getCashsales().down('#Pid').setValue(pid);
             this.getCashsales().down('#Payer').setValue(names);
-            billNumber=record.get('Pid');
+            billNumber=record.get('BillNumber');
+            encNr=record.get('EncounterNo');
+            this.getCashsales().down('#BillNumber').setValue(billNumber);
+            this.getCashsales().down('#encNr').setValue(encNr);
+
 
             CashPoint=this.getCashsales().down('#CashPoint').getValue();
             ShiftNo=this.getCashsales().down('#ShiftNo').getValue();
