@@ -29,7 +29,7 @@ Ext.define('CarePortal.store.SubCategoryStore', {
         me.callParent([Ext.apply({
             pageSize: 500,
             storeId: 'SubCategoryStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.SubCategories',
             proxy: {
                 type: 'ajax',

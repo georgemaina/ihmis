@@ -9,7 +9,7 @@
         "designer|userClassName": "js_84ey9ut8",
         "id": "charts",
         "includeInBundle": true,
-        "url": "../ext-6.5/build//packages/charts/classic/charts.js"
+        "url": "../ext-7.6.0/build//packages/charts/classic/charts.js"
     },
     "configAlternates": {
         "designer|userClassName": "string",

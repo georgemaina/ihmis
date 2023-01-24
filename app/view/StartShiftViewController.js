@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.StartShiftViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.startshift'
+    alias: 'controller.startshift',
+
+    onFormAfterRender: function(component, eOpts) {
+
+        var cashPointsStore=Ext.data.StoreManager.lookup('CashPointsStore');
+        cashPointsStore.load({});
+    }
+
 });

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "createdentalservice",
+        "designer|userClassName": "ServicesViewController4"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ServicesViewController4",
+    "designerId": "de2f0996-6cc1-4f2e-b53a-8ff8bfd14e6e"
+}

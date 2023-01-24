@@ -15,5 +15,13 @@
 
 Ext.define('CarePortal.view.LaboratoryParamsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.laboratoryparams'
+    alias: 'controller.laboratoryparams',
+
+    onLabParamsGridAfterRender: function(component, eOpts) {
+
+        var labsStore=Ext.data.StoreManager.lookup('LabParamsStore');
+        labsStore.load({});
+
+    }
+
 });

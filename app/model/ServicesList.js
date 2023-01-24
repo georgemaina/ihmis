@@ -33,6 +33,12 @@ Ext.define('CarePortal.model.ServicesList', {
         },
         {
             name: 'Category'
+        },
+        {
+            name: 'Speciality'
+        },
+        {
+            name: 'Complexity'
         }
     ]
 });

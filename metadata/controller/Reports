@@ -52,7 +52,7 @@
                 "fn": "init",
                 "implHandler": [
                     "this.control({",
-                    "    '#cmdSearch':{",
+                    "    '#cmdSearchLabTests':{",
                     "        click:this.searchlabTests",
                     "    },",
                     "    '#cmdPrint':{",

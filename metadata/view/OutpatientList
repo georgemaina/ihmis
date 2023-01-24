@@ -289,7 +289,7 @@
                         "emptyText": "Search by PId, Names",
                         "fieldLabel": null,
                         "itemId": "txtOpSearch",
-                        "layout|x": 0,
+                        "layout|x": 10,
                         "layout|y": 5,
                         "width": 470
                     },
@@ -380,6 +380,26 @@
                     },
                     "name": "MyCheckbox11",
                     "designerId": "a029259e-33f8-478f-bcae-4b01182f3dd0"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "layout|x": 1175,
+                        "layout|y": 1
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField137",
+                    "designerId": "52f72ddd-a744-4768-9d41-6bbf5bb1ab61"
                 }
             ]
         },

@@ -15,5 +15,39 @@
 
 Ext.define('CarePortal.view.OpMobidityViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.opmobidity'
+    alias: 'controller.opmobidity',
+
+    requires: [
+        'Ext.exporter.text.CSV',
+        'Ext.exporter.text.TSV',
+        'Ext.exporter.text.Html',
+        'Ext.exporter.excel.Xml',
+        'Ext.exporter.excel.Xlsx'
+    ],
+
+    exportTo: function(btn) {
+         var cfg = Ext.merge({
+                    title: 'Outpatien Mobidity Report',
+                    fileName: 'OPMobidity' + '.' + (btn.cfg.ext || btn.cfg.type)
+                }, btn.cfg);
+
+                this.getView().saveDocumentAs(cfg);
+    },
+
+    onDocumentsave: function(gridpanel) {
+        gridpanel.unmask();
+        Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));
+    },
+
+    onBeforeDocumentsave: function(gridpanel) {
+        this.timeStarted = Date.now();
+        gridpanel.mask('Document is prepared for export. Please wait ...');
+        Ext.log('export started');
+    },
+
+    onDataReady: function() {
+        Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));
+
+    }
+
 });

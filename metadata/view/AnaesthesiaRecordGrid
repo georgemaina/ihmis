@@ -1,0 +1,152 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "animCollapse": true,
+        "closable": true,
+        "collapsible": true,
+        "designer|userAlias": "anaesthesiarecordgrid",
+        "designer|userClassName": "AnaesthesiaRecordGrid",
+        "height": null,
+        "minHeight": 600,
+        "minWidth": 1000,
+        "title": "Anaesthesia Records",
+        "width": null
+    },
+    "configAlternates": {
+        "animCollapse": "boolean",
+        "closable": "boolean",
+        "collapsible": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "minHeight": "number",
+        "minWidth": "number",
+        "title": "string",
+        "width": "auto"
+    },
+    "name": "AnaesthesiaRecordGrid1",
+    "designerId": "2baa6df5-490b-4add-bd61-33edb1f20d21",
+    "viewControllerInstanceId": "7fbeb8c4-7573-48c0-8ade-83b5999f522c",
+    "viewModelInstanceId": "954ab1a4-7641-4259-acff-33464440117e",
+    "cn": [
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "string",
+                "text": "String"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn148",
+            "designerId": "a87f28fa-3704-402e-8492-3539f49c84f9"
+        },
+        {
+            "type": "Ext.grid.column.Number",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "number",
+                "text": "Number"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyNumberColumn",
+            "designerId": "720ecd20-3ae7-41d3-b3c9-e6de34ccd0e3"
+        },
+        {
+            "type": "Ext.grid.column.Date",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "date",
+                "text": "Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyDateColumn",
+            "designerId": "002bfd43-be13-4cac-8bc2-7cf0a4a2ea58"
+        },
+        {
+            "type": "Ext.grid.column.Boolean",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bool",
+                "text": "Boolean"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyBooleanColumn",
+            "designerId": "348a8759-3ccb-423e-81e8-da524f599350"
+        },
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyGridView7",
+            "designerId": "2ffdba90-5f1b-4e76-8fa6-d1745727e14a"
+        },
+        {
+            "type": "Ext.panel.Tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "type": "maximize"
+            },
+            "configAlternates": {
+                "type": "string"
+            },
+            "name": "MyTool2",
+            "designerId": "969e9382-39ee-4721-8af4-755825e8201e"
+        },
+        {
+            "type": "Ext.panel.Tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "type": "minimize"
+            },
+            "configAlternates": {
+                "type": "string"
+            },
+            "name": "MyTool3",
+            "designerId": "bbb4f930-a005-46c8-b726-f7cd02ebcac0"
+        }
+    ]
+}

@@ -64,7 +64,9 @@
             "userConfig": {
                 "displayField": "Description",
                 "fieldLabel": "Clinic or Department",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "minChars": 2,
                 "name": "current_dept_nr",
@@ -85,7 +87,9 @@
                 "minChars": "number",
                 "name": "string",
                 "queryMode": "string",
-                "typeAhead": "boolean"
+                "typeAhead": "boolean",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox4",
             "designerId": "d5c923b8-4cba-4a2a-abb4-c377762b102d"
@@ -100,7 +104,9 @@
             "userConfig": {
                 "displayField": "Item_Description",
                 "fieldLabel": "Registration or Consultation Fee",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "minChars": 2,
                 "name": "consultation_fee",
@@ -121,7 +127,9 @@
                 "minChars": "number",
                 "name": "string",
                 "queryMode": "string",
-                "typeAhead": "boolean"
+                "typeAhead": "boolean",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox5",
             "designerId": "1b6cb7aa-5bf5-4ea0-980c-3b50909a02b7"
@@ -136,7 +144,9 @@
             "userConfig": {
                 "displayField": null,
                 "fieldLabel": "Payment Plan",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "name": "financial_class",
                 "store": [
@@ -153,7 +163,9 @@
                 "displayField": "datafield",
                 "store": "array",
                 "valueField": "datafield",
-                "name": "string"
+                "name": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox6",
             "designerId": "b7656a52-2cea-46be-843f-b509871222cc"
@@ -167,7 +179,9 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Referal Method",
+                "fieldStyle": "color:#630921; font-weight:bold;",
                 "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
                 "labelWidth": 200,
                 "name": "referalMethod",
                 "width": 416
@@ -178,7 +192,9 @@
                 "labelAlign": "string",
                 "labelWidth": "number",
                 "name": "string",
-                "store": "array"
+                "store": "array",
+                "fieldStyle": "string",
+                "labelStyle": "string"
             },
             "name": "MyComboBox7",
             "designerId": "941cfc1e-ed3c-4018-96d9-cb004e5c03a3"
@@ -267,21 +283,19 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-plus",
-                        "itemId": "saveOpAdmission",
-                        "margin": "0 0 0 5",
-                        "text": "Save Admission",
-                        "width": 146
+                        "iconCls": "x-fa fa-trash",
+                        "itemId": "cancelAdmit",
+                        "text": "Cancel",
+                        "width": 126
                     },
                     "configAlternates": {
                         "text": "string",
                         "width": "auto",
                         "iconCls": "string",
-                        "margin": "auto",
                         "itemId": "string"
                     },
-                    "name": "MyButton16",
-                    "designerId": "76389a3a-74cf-4604-8e8b-98bf0df45601"
+                    "name": "MyButton13",
+                    "designerId": "8e83e3e4-0532-4109-996d-0cf774412a6b"
                 },
                 {
                     "type": "Ext.toolbar.Spacer",
@@ -307,21 +321,55 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-trash",
-                        "itemId": "cancelAdmit",
-                        "text": "Cancel",
-                        "width": 126
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "saveOpAdmission",
+                        "margin": "0 0 0 5",
+                        "text": "Save Admission",
+                        "width": 146
                     },
                     "configAlternates": {
                         "text": "string",
                         "width": "auto",
                         "iconCls": "string",
+                        "margin": "auto",
                         "itemId": "string"
                     },
-                    "name": "MyButton13",
-                    "designerId": "8e83e3e4-0532-4109-996d-0cf774412a6b"
+                    "name": "MyButton16",
+                    "designerId": "76389a3a-74cf-4604-8e8b-98bf0df45601"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    " var deptStore=Ext.data.StoreManager.lookup('DepartmentsStore');",
+                    "deptStore.load({});",
+                    "",
+                    " var consStore=Ext.data.StoreManager.lookup('Consultations');",
+                    "consStore.load({});",
+                    "",
+                    " var consStore=Ext.data.StoreManager.lookup('Consultations');",
+                    "consStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "7c549d67-f596-4890-bad7-509c7cd38357"
         }
     ]
 }

@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
+        "autoLoad": false,
         "designer|userAlias": "wardsliststore",
         "designer|userClassName": "WardsListStore",
         "model": "Wards",

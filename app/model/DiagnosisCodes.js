@@ -23,10 +23,10 @@ Ext.define('CarePortal.model.DiagnosisCodes', {
 
     fields: [
         {
-            name: 'DiagnosisCode'
+            name: 'diagnosis_code'
         },
         {
-            name: 'Description'
+            name: 'description'
         }
     ]
 });

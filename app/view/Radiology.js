@@ -19,12 +19,14 @@ Ext.define('CarePortal.view.Radiology', {
 
     requires: [
         'CarePortal.view.NotesViewModel3',
+        'CarePortal.view.NotesViewController3',
         'Ext.form.FieldSet',
         'Ext.form.field.Display',
         'Ext.form.field.ComboBox',
         'Ext.button.Button'
     ],
 
+    controller: 'radiology',
     viewModel: {
         type: 'radiology'
     },
@@ -142,6 +144,9 @@ Ext.define('CarePortal.view.Radiology', {
             height: 300,
             itemId: 'radiologyPanel'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

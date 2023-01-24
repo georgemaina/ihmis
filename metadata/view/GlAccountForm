@@ -1,0 +1,174 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 10,
+        "bodyStyle": "background-color: #d9f2e6;",
+        "designer|userAlias": "glaccountform",
+        "designer|userClassName": "GlAccountForm",
+        "layout": "form",
+        "width": 476
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "bodyStyle": "string",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "layout": "string",
+        "width": "auto"
+    },
+    "name": "MyForm6",
+    "designerId": "4a409258-266a-4fd2-94f4-d210a092bbba",
+    "viewControllerInstanceId": "e4edf330-e3d1-48ca-af36-59555db0bb4d",
+    "viewModelInstanceId": "1b0ec7d6-5833-4377-8c70-e5f027a0b444",
+    "cn": [
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Account Code",
+                "fieldStyle": "color:#630921; font-weight:bold;",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyTextField41",
+            "designerId": "f05c8cb7-4c7b-4c2b-a3fc-0aa3abd70e19"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Account Name",
+                "fieldStyle": "color:#630921; font-weight:bold;",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string",
+                "labelAlign": "string"
+            },
+            "name": "MyTextField42",
+            "designerId": "0c685b81-d395-437c-8bac-ef26897e99c2"
+        },
+        {
+            "type": "Ext.form.field.ComboBox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayField": "groupname",
+                "fieldLabel": "Account Group",
+                "fieldStyle": "color:#630921; font-weight:bold;",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;",
+                "minChars": 2,
+                "queryMode": "local",
+                "store": "AccountGroupsStore",
+                "typeAhead": true,
+                "valueField": "groupname"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "fieldStyle": "string",
+                "labelStyle": "string",
+                "labelAlign": "string",
+                "displayField": "datafield",
+                "minChars": "number",
+                "queryMode": "string",
+                "store": "store",
+                "typeAhead": "boolean",
+                "valueField": "datafield"
+            },
+            "name": "MyComboBox30",
+            "designerId": "aaac3cd3-144b-4aa8-a425-f7f7c0059e9e"
+        },
+        {
+            "type": "Ext.form.field.Checkbox",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Allow Reconcilliation",
+                "labelAlign": "right",
+                "labelStyle": "color:green; font-weight:bold;"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "labelAlign": "string",
+                "labelStyle": "string"
+            },
+            "name": "MyCheckbox10",
+            "designerId": "adccddab-334a-4749-9cdb-c4a1fc679a98"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "height": 36,
+                "layout": "center",
+                "style": "background-color: #d9f2e6;"
+            },
+            "configAlternates": {
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "style": "string"
+            },
+            "name": "MyContainer26",
+            "designerId": "5f364bc0-db4c-4b6c-908e-2080dd3eb3c0",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-save",
+                        "itemId": "cmdSaveGlAccount",
+                        "text": "Save",
+                        "width": 115
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "4258bb77-1324-43cd-9c24-00aad27aec42"
+                }
+            ]
+        }
+    ]
+}

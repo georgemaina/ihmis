@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "createeyeservice",
+        "designer|userClassName": "ServicesViewController3"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ServicesViewController3",
+    "designerId": "efb5e0d8-d445-4d06-b454-ee982c703ec1"
+}

@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "receiptsadj",
+        "designer|userClassName": "ReceiptsAdjViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CashSalesViewController1",
+    "designerId": "ddc9a361-ab30-490c-8455-f705166bfa80"
+}

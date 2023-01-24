@@ -15,5 +15,13 @@
 
 Ext.define('CarePortal.view.NotesViewController3', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.radiology'
+    alias: 'controller.radiology',
+
+    onFormAfterRender: function(component, eOpts) {
+
+        var xrayStore=Ext.data.StoreManager.lookup('RadiologyListStore');
+        xrayStore.load({});
+
+    }
+
 });

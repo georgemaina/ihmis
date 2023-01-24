@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.PendingBillsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.pendingbills'
+    alias: 'controller.pendingbills',
+
+    onPendingBillsAfterRender: function(component, eOpts) {
+
+        var pendingStore=Ext.data.StoreManager.lookup('PendingPatientBills');
+        pendingStore.load({});
+    }
+
 });

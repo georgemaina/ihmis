@@ -27,12 +27,13 @@ Ext.define('CarePortal.store.DiseaseCodeStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            pageSize: 300,
             storeId: 'DiseaseCodeStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.DiagnosisCodes',
             proxy: {
                 type: 'ajax',
-                url: 'data/getDataFunctions.php?task=getIcd10Code',
+                url: 'data/getDataFunctions.php?task=getIcd10Codes',
                 reader: {
                     type: 'json'
                 }

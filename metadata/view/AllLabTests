@@ -315,7 +315,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "iconCls": "x-fa fa-search",
-                        "itemId": "cmdSearch",
+                        "itemId": "cmdSearchLabTests",
                         "layout|x": 615,
                         "layout|y": 5,
                         "text": "Search",

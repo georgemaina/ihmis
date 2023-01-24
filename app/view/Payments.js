@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.Payments', {
 
     requires: [
         'CarePortal.view.CashSalesViewModel4',
+        'CarePortal.view.CashSalesViewController4',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
@@ -31,6 +32,7 @@ Ext.define('CarePortal.view.Payments', {
         'Ext.button.Button'
     ],
 
+    controller: 'payments',
     viewModel: {
         type: 'payments'
     },
@@ -348,6 +350,9 @@ Ext.define('CarePortal.view.Payments', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

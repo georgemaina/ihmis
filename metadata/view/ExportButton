@@ -1,0 +1,238 @@
+{
+    "type": "Ext.button.Button",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "exportbutton",
+        "designer|userClassName": "ExportButton",
+        "iconCls": "x-fa fa-download",
+        "itemId": "cmdExportVisits",
+        "text": "<b>Export to...</b>",
+        "width": 110
+    },
+    "configAlternates": {
+        "itemId": "string",
+        "layout|flex": "number",
+        "text": "string",
+        "width": "auto",
+        "scrollable": "boolean",
+        "iconCls": "string",
+        "layout|x": "number",
+        "layout|y": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyButton6",
+    "designerId": "15d94679-1fbf-405f-98d7-69c54c477c25",
+    "viewControllerInstanceId": "f959d974-6231-4070-ada8-66f1f17ac6c9",
+    "viewModelInstanceId": "b87578c7-2cad-4428-86e2-0978b4a29a0d",
+    "cn": [
+        {
+            "type": "Ext.menu.Menu",
+            "reference": {
+                "name": "menu",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "defaults": [
+                    "{",
+                    "handler: 'exportTo'",
+                    "}"
+                ]
+            },
+            "configAlternates": {
+                "defaults": "object"
+            },
+            "name": "MyMenu3",
+            "designerId": "7d74648d-5681-4e9a-ae69-d14924e0d93b",
+            "cn": [
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            "{",
+                            "type: 'excel07',",
+                            "ext: 'xlsx'",
+                            "}"
+                        ],
+                        "text": "Excel Xlsx"
+                    },
+                    "configAlternates": {
+                        "cfg": "object",
+                        "text": "string"
+                    },
+                    "name": "MyMenuItem11",
+                    "designerId": "33edb8ba-8255-450a-9ee9-b8fb69f6aa51",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            "{",
+                            "type: 'excel07',",
+                            "ext: 'xlsx',",
+                            "includeGroups: true,",
+                            "includeSummary: true",
+                            "}"
+                        ],
+                        "text": "Excel xlsx (include groups)"
+                    },
+                    "configAlternates": {
+                        "cfg": "object",
+                        "text": "string"
+                    },
+                    "name": "MyMenuItem12",
+                    "designerId": "638895ee-e2eb-45d0-9f40-ba8e59985610",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            "{",
+                            "type: 'csv'",
+                            "}"
+                        ],
+                        "text": "CSV"
+                    },
+                    "configAlternates": {
+                        "cfg": "object",
+                        "text": "string"
+                    },
+                    "name": "MyMenuItem13",
+                    "designerId": "d45b5098-1f36-4fc4-b141-97a2adadfb2a",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            " {",
+                            " type: 'tsv',",
+                            " ext: 'csv'",
+                            " }"
+                        ],
+                        "text": "TSV"
+                    },
+                    "configAlternates": {
+                        "cfg": "object",
+                        "text": "string"
+                    },
+                    "name": "MyMenuItem14",
+                    "designerId": "52ca7e5a-bc73-44e5-bef0-3c1929c843bb",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            " {",
+                            " type: 'html',",
+                            " includeGroups: true,",
+                            " includeSummary: true",
+                            " }"
+                        ],
+                        "text": "HTML"
+                    },
+                    "configAlternates": {
+                        "cfg": "object",
+                        "text": "string"
+                    },
+                    "name": "MyMenuItem15",
+                    "designerId": "9c4c78f7-af5b-4278-a2c6-d7d44e87e63a",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.menu.Item",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "cfg": [
+                            " {",
+                            " type: 'pdf',",
+                            " //ext: 'pdf'",
+                            " }"
+                        ],
+                        "text": "PDF"
+                    },
+                    "configAlternates": {
+                        "text": "string",
+                        "cfg": "object"
+                    },
+                    "name": "MyMenuItem16",
+                    "designerId": "12c83e9c-ac84-4dbb-9625-1fbdb152688d",
+                    "customConfigs": [
+                        {
+                            "group": "(Custom Properties)",
+                            "name": "cfg",
+                            "type": "string"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

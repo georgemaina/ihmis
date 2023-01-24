@@ -15,5 +15,21 @@
 
 Ext.define('CarePortal.view.ItemRegisterViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.itemregister'
+    alias: 'controller.itemregister',
+
+    onFormAfterRender: function(component, eOpts) {
+
+        var unitsStore=Ext.data.StoreManager.lookup('UnitsMeasureStore');
+        unitsStore.load({});
+
+        var catStore=Ext.data.StoreManager.lookup('CategoryStore');
+        catStore.load({});
+
+        var subCatStore=Ext.data.StoreManager.lookup('SubCategoryStore');
+        subCatStore.load({});
+
+        var statusStore=Ext.data.StoreManager.lookup('ItemStatusStore');
+        statusStore.load({});
+    }
+
 });

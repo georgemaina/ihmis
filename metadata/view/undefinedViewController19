@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "anaesthesiarecord",
+        "designer|userClassName": "undefinedViewController19"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewController19",
+    "designerId": "d504580f-391b-4549-96a6-a79ef629e74f"
+}

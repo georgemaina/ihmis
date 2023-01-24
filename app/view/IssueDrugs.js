@@ -388,7 +388,17 @@ Ext.define('CarePortal.view.IssueDrugs', {
                     inputValue: '3'
                 }
             ]
+        },
+        {
+            xtype: 'textfield',
+            x: 740,
+            y: 580,
+            itemId: 'formStatus',
+            width: 110
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onIssueDrugsAfterRender'
+    }
 
 });

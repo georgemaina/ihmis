@@ -138,7 +138,7 @@ FROM
         $page->setStyle($resultsStyle);
         $page->drawText($row ['ref_no'], $leftPos + 36, $topPos - $currpoint);
         $page->drawText($row ['patient'], $leftPos + 80, $topPos - $currpoint);
-        $page->drawText($row['name'], $leftPos + 150, $topPos - $currpoint);
+        $page->drawText(strtoupper($row['payer']), $leftPos + 150, $topPos - $currpoint);
 //        $page->drawText($row ['total'], $leftPos + 300, $topPos - $currpoint);
         $pdfBase->drawText($page, number_format($row['total'], 2), $leftPos + 320, $topPos - $currpoint, $leftPos + 320, right);
         $pdfBase->drawText($page, number_format($row['cash'], 2), $leftPos + 380, $topPos - $currpoint, $leftPos + 350, right);

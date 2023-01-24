@@ -6,10 +6,11 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
+        "autoLoad": false,
         "designer|userAlias": "diseasecodestore",
         "designer|userClassName": "DiseaseCodeStore",
         "model": "DiagnosisCodes",
+        "pageSize": 300,
         "storeId": "DiseaseCodeStore"
     },
     "configAlternates": {
@@ -17,7 +18,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "model": "model",
-        "storeId": "string"
+        "storeId": "string",
+        "pageSize": "number"
     },
     "name": "MyJsonStore1",
     "designerId": "1d992d1e-ff37-4645-a03b-36a0b8de0b9a",
@@ -30,7 +32,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "url": "data/getDataFunctions.php?task=getIcd10Code"
+                "url": "data/getDataFunctions.php?task=getIcd10Codes"
             },
             "configAlternates": {
                 "url": "string"

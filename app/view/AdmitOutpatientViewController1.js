@@ -15,5 +15,14 @@
 
 Ext.define('CarePortal.view.AdmitOutpatientViewController1', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.admitinpatient'
+    alias: 'controller.admitinpatient',
+
+    onFormAfterRender: function(component, eOpts) {
+        var WardsStore=Ext.data.StoreManager.lookup('Wards');
+        WardsStore.load({});
+
+        var consStore=Ext.data.StoreManager.lookup('Consultations');
+        consStore.load({});
+    }
+
 });

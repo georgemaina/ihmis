@@ -11,6 +11,7 @@
         "designer|userClassName": "CreditSlips",
         "height": 720,
         "itemId": "creditSlips",
+        "reference": "CreditSlips",
         "store": "CreditSlipsStore"
     },
     "configAlternates": {
@@ -19,10 +20,19 @@
         "designer|userClassName": "string",
         "height": "auto",
         "store": "store",
-        "itemId": "string"
+        "itemId": "string",
+        "listeners": "object",
+        "reference": "string"
     },
     "name": "MyGridPanel8",
     "designerId": "07fd1d8f-5d3f-4565-9ee1-aae36590c649",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "listeners",
+            "type": "string"
+        }
+    ],
     "viewControllerInstanceId": "e809b904-f53c-4fb6-b6b6-7a9b657ccbb8",
     "viewModelInstanceId": "43f4edd9-24e7-4ac3-bd4e-61b3235083f0",
     "cn": [
@@ -33,6 +43,12 @@
                 "type": "object"
             },
             "codeClass": null,
+            "userConfig": {
+                "defaultListenerScope": true
+            },
+            "configAlternates": {
+                "defaultListenerScope": "boolean"
+            },
             "name": "MyTable12",
             "designerId": "f09e872d-52c2-40bb-830f-de1fab74fcbf"
         },
@@ -103,11 +119,19 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "SlipDate",
+                "exportStyle": [
+                    "{alignment:{",
+                    "horizontal:\"Right\"",
+                    "},",
+                    "format:\"Short Date\"",
+                    "}"
+                ],
                 "text": "Slip Date"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "exportStyle": "object"
             },
             "name": "MyColumn185",
             "designerId": "3410282c-2669-468f-81a7-de0a0fbda06a"
@@ -140,7 +164,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Accno",
+                "dataIndex": "AccNo",
                 "text": "Accno"
             },
             "configAlternates": {
@@ -158,7 +182,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Company",
+                "dataIndex": "AccName",
                 "text": "Company",
                 "width": 212
             },
@@ -220,7 +244,7 @@
             "userConfig": {
                 "designer|snapToGrid": 5,
                 "dock": "top",
-                "height": 56,
+                "height": 47,
                 "layout": "absolute",
                 "width": 100
             },
@@ -243,7 +267,8 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Pid",
-                        "itemId": "txtPid",
+                        "fieldStyle": "color:green; font-weight:bold;",
+                        "itemId": "txtSlipPid",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 30,
                         "layout|x": 5,
@@ -257,7 +282,8 @@
                         "labelWidth": "number",
                         "layout|x": "number",
                         "layout|y": "number",
-                        "width": "auto"
+                        "width": "auto",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField122",
                     "designerId": "985c7de0-012e-4658-a00d-1d249fc97a09"
@@ -270,12 +296,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "fieldStyle": "color:green; font-weight:bold;",
                         "itemId": "txtNames",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 30,
                         "layout|x": 145,
                         "layout|y": 10,
-                        "width": 310
+                        "width": 215
                     },
                     "configAlternates": {
                         "fieldLabel": "string",
@@ -284,7 +311,8 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField124",
                     "designerId": "bb08293b-efa6-4bcc-bd46-0d9dccfdbb95"
@@ -297,13 +325,16 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "fieldLabel": "Slip No",
+                        "emptyText": "Slip No",
+                        "fieldStyle": "color:green; font-weight:bold;",
                         "itemId": "txtSlipNo",
+                        "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
-                        "layout|x": 925,
+                        "layout|x": 1200,
                         "layout|y": 10,
-                        "width": 200
+                        "readOnly": true,
+                        "width": 100
                     },
                     "configAlternates": {
                         "fieldLabel": "string",
@@ -312,10 +343,51 @@
                         "layout|x": "number",
                         "layout|y": "number",
                         "width": "auto",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "labelAlign": "string",
+                        "readOnly": "boolean"
                     },
                     "name": "MyTextField116",
                     "designerId": "32ee4d5e-4918-486b-8aaa-3d6dce78e61e"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "source",
+                        "fieldStyle": "color:green; font-weight:bold;",
+                        "hidden": true,
+                        "itemId": "formStatus",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "labelWidth": 80,
+                        "layout|x": 1130,
+                        "layout|y": 10,
+                        "readOnly": true,
+                        "width": 100
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto",
+                        "itemId": "string",
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "labelAlign": "string",
+                        "hidden": "boolean",
+                        "readOnly": "boolean"
+                    },
+                    "name": "MyTextField85",
+                    "designerId": "582ba523-0ce1-4983-860b-b672b5cc06b0"
                 },
                 {
                     "type": "Ext.button.Button",
@@ -327,7 +399,7 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-print",
                         "itemId": "cmdPrintCreditSlip",
-                        "layout|x": 455,
+                        "layout|x": 365,
                         "layout|y": 10,
                         "text": "Print Credit Slip"
                     },
@@ -351,7 +423,7 @@
                     "userConfig": {
                         "iconCls": "x-fa fa-print",
                         "itemId": "cmdRePrintCreditSlip",
-                        "layout|x": 615,
+                        "layout|x": 500,
                         "layout|y": 10,
                         "text": "Re Print Credit Slip"
                     },
@@ -364,6 +436,303 @@
                     },
                     "name": "MyButton51",
                     "designerId": "e56e0f35-ef5f-42b0-9302-0554932eb417"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Start Date",
+                        "fieldStyle": "color:green; font-weight:bold;",
+                        "itemId": "startDate",
+                        "layout|x": 655,
+                        "layout|y": 10,
+                        "width": 130
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyDateField8",
+                    "designerId": "3384b25a-1578-4861-a759-cf196c4633d3"
+                },
+                {
+                    "type": "Ext.form.field.Date",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "End Date",
+                        "fieldStyle": "color:green; font-weight:bold;",
+                        "itemId": "endDate",
+                        "layout|x": 790,
+                        "layout|y": 10,
+                        "width": 130
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto",
+                        "fieldStyle": "string"
+                    },
+                    "name": "MyDateField9",
+                    "designerId": "a6cec2b2-42cb-4c82-953f-f0670578bd14"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "cmdPreviewSlips",
+                        "layout|x": 925,
+                        "layout|y": 10,
+                        "text": "<b>Preview</b>"
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string"
+                    },
+                    "name": "MyButton35",
+                    "designerId": "3a5fe5fc-7a13-46b6-a4f7-75907d8bc6e9"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "cmdPreviewSlips1",
+                        "layout|x": 1025,
+                        "layout|y": 10,
+                        "text": "Export to....",
+                        "width": 170
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton43",
+                    "designerId": "d6203535-54d4-491f-aa81-9b5d7fbfdd50",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaults": [
+                                    "{handler:\"exportTo\"}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "defaults": "object"
+                            },
+                            "name": "MyMenu1",
+                            "designerId": "d137e0e4-2174-4b08-a3fd-fe9a9a59638f",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "type:\"excel07\",",
+                                            "ext:\"xlsx\"",
+                                            "}"
+                                        ],
+                                        "text": "Excel xlsx"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem",
+                                    "designerId": "2ae017f7-7d80-4de0-830d-4af08f943f96",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                        type: 'excel07',",
+                                            "                        ext: 'xlsx',",
+                                            "                        includeGroups: true,",
+                                            "                        includeSummary: true",
+                                            "                    }"
+                                        ],
+                                        "text": "Excel xlsx (include groups)"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem1",
+                                    "designerId": "b9dcd4bb-5890-4568-924b-6d5fdb63ae38",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{ type: 'csv'}"
+                                        ],
+                                        "text": "CSV"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem2",
+                                    "designerId": "94cb1511-b23a-432d-a716-b3a3e4882018",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                        type: 'tsv',",
+                                            "                        ext: 'csv'",
+                                            "                    }"
+                                        ],
+                                        "text": "TSV"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "cfg": "object"
+                                    },
+                                    "name": "MyMenuItem3",
+                                    "designerId": "7275d47f-6308-49f8-b385-ff0666b0994a",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                        type: 'html',",
+                                            "                        includeGroups: true,",
+                                            "                        includeSummary: true",
+                                            "                    }"
+                                        ],
+                                        "text": "HTML"
+                                    },
+                                    "configAlternates": {
+                                        "text": "string",
+                                        "cfg": "object"
+                                    },
+                                    "name": "MyMenuItem4",
+                                    "designerId": "9ecb4d06-3f3c-4cc1-b936-66e6a2a81149",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "e"
+                                ],
+                                "fn": "handler",
+                                "implHandler": null
+                            },
+                            "configAlternates": {
+                                "designer|params": "typedarray",
+                                "fn": "string",
+                                "implHandler": "code"
+                            },
+                            "name": "handler",
+                            "designerId": "ff005fe4-4248-46c7-9cd1-916f7c9bc94a"
+                        }
+                    ]
                 }
             ]
         },
@@ -376,6 +745,99 @@
             "codeClass": null,
             "name": "MyRowSelectionModel2",
             "designerId": "31120f47-14b9-4a7e-bcf7-30b1e5346640"
+        },
+        {
+            "type": "Ext.grid.plugin.Exporter",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyGridExporterPlugin",
+            "designerId": "ecd5d2a6-6496-4088-b45d-05e83d3712c0"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onDocumentsave",
+                "implHandler": [
+                    "gridpanel.unmask();",
+                    "Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "documentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDocumentsave",
+            "designerId": "41076feb-25cb-42ed-a1b8-c2372194ad38"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onBeforeDocumentsave",
+                "implHandler": [
+                    "this.timeStarted = Date.now();",
+                    "gridpanel.mask('Document is prepared for export. Please wait ...');",
+                    "Ext.log('export started');"
+                ],
+                "name": "beforedocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onBeforeDocumentsave",
+            "designerId": "bf3f846b-1f0d-4d1d-a6ab-e09957180972"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDataReady",
+                "implHandler": [
+                    "Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "dataready",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDataReady",
+            "designerId": "c37c2ee2-fb0c-4c5e-8c20-fe46338ab8f0"
         }
     ]
 }

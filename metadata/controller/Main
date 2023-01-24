@@ -404,6 +404,15 @@
                     "    '#btnReports':{",
                     "        afterrender:this.openAdmissionHistory",
                     "    },",
+                    "    '#btnProcedures':{",
+                    "        afterrender:this.createProcedures",
+                    "    },",
+                    "    '#btnEye':{",
+                    "        afterrender:this.createEyeService",
+                    "    },",
+                    "    '#btnDental':{",
+                    "        afterrender:this.createDentalService",
+                    "    },",
                     "    '#cmdAddComplaints':{",
                     "        click:this.addComplaints",
                     "    },",
@@ -533,6 +542,15 @@
                     "    },",
                     "    '#cmdSearchOpVisits':{",
                     "        click:this.filterOpVisits",
+                    "    },",
+                    "    '#cmdPreviewSlips':{",
+                    "        click:this.viewCreditSlips",
+                    "    },",
+                    "    '#txtSlipPid':{",
+                    "        blur:this.getSlipPatient",
+                    "    },",
+                    "    '#scheduleProcedure':{",
+                    "        click:this.openProcScheduler",
                     "    }",
                     "});"
                 ]
@@ -1670,6 +1688,8 @@
                     "",
                     "        centerContainer.add(centerDetails);",
                     "        centerContainer.setTitle(item.text);",
+                    "        ",
+                    "        centerDetails.down('#formStatus').setValue(item.link);",
                     "",
                     "        if(item.admType==\"122\"){",
                     "            centerDetails.down('#formStatus').setValue('IP');",
@@ -1678,7 +1698,7 @@
                     "            centerDetails.down('#formStatus').setValue('OP');",
                     "            centerContainer.setTitle(\"Outpatient Invoices\");",
                     "        }",
-                    "        ",
+                    "",
                     "        if(item.link===\"OutpatientVisits\"){",
                     "            var opVisits =Ext.data.StoreManager.lookup('OPAdmissionsStore');",
                     "            opVisits.load({});",
@@ -2496,7 +2516,11 @@
                     "    });",
                     "",
                     "    var dob=component.up('panel').up('panel').down('#dob').getValue();",
+                    "    //var diagType=component.up('panel').up('panel').down('#formStatus').getValue();",
                     "",
+                    "    containterWindows.add(diagnosis);",
+                    "    containterWindows.show();",
+                    "    ",
                     "    var icd10Store =Ext.data.StoreManager.lookup('DiseaseCodeStore');",
                     "    icd10Store.load({",
                     "        params:{",
@@ -2504,10 +2528,6 @@
                     "            diagType:'OP'",
                     "        }",
                     "    });",
-                    "",
-                    "",
-                    "    containterWindows.add(diagnosis);",
-                    "    containterWindows.show();",
                     "",
                     "    var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
                     "    diagnosis.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
@@ -2954,9 +2974,48 @@
             "codeClass": null,
             "userConfig": {
                 "designer|params": [
-                    "encounterNr,component"
+                    "encounterNr,purchasingClass,component"
                 ],
                 "fn": "loadServices",
+                "implHandler": [
+                    "//vitalsPanel = Ext.create('CarePortal.view.Vitals', {});",
+                    "//servicesPanel=this.getServices().down(\"#servicesPanel\");",
+                    "",
+                    "",
+                    "var serviceStore=Ext.data.StoreManager.lookup(\"ProceduresAndServices\");",
+                    "",
+                    "serviceStore.load({",
+                    "    params: {",
+                    "        encNr:encounterNr,",
+                    "        purchasingClass:purchasingClass",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadServices",
+            "designerId": "b20fa87b-cbd6-4dbb-856a-ea552dc1a46a"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "encounterNr,component"
+                ],
+                "fn": "loadServices1",
                 "implHandler": [
                     "//vitalsPanel = Ext.create('CarePortal.view.Vitals', {});",
                     "servicesPanel=this.getServices().down(\"#servicesPanel\");",
@@ -3007,8 +3066,8 @@
                 "fn": "string",
                 "implHandler": "code"
             },
-            "name": "loadServices",
-            "designerId": "b20fa87b-cbd6-4dbb-856a-ea552dc1a46a"
+            "name": "loadServices1",
+            "designerId": "9a9efe78-41d0-4f2a-ad87-27d2c6ffad59"
         },
         {
             "type": "basicfunction",
@@ -3795,9 +3854,6 @@
                     "",
                     "//(Ext.Date.diff(new Date(2000, 02, 29), new Date(2015, 03, 03), Ext.Date.YEAR); // returns 4 expected 5!",
                     "",
-                    "var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR); // returns 4 expected 5!",
-                    "",
-                    "register.down('#age').setValue(age);",
                     "register.down('#months').setValue(rec.get('Months'));",
                     "register.down('#sex').setValue(rec.get('Gender'));",
                     "register.down('#citizenship').setValue(rec.get('Village'));",
@@ -3810,7 +3866,10 @@
                     "register.down('#next_of_kin2').setValue(rec.get('NextOfKin'));",
                     "register.down('#kin_relations2').setValue(rec.get('KinRelations'));",
                     "register.down('#insurance').setValue(rec.get('PaymentMode'));",
-                    "register.down('#formStatus').setValue(\"Update\");"
+                    "register.down('#formStatus').setValue(\"Update\");",
+                    "",
+                    "var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR); // returns 4 expected 5!",
+                    "register.down('#age').setValue(age);"
                 ]
             },
             "configAlternates": {
@@ -3959,7 +4018,7 @@
                     "        comments:comment",
                     "    },",
                     "    success: function(response){",
-                    "        ",
+                    "",
                     "        var resp = Ext.JSON.decode(response.responseText);",
                     "       // Ext.Msg.alert('Success','Procedure/Service Added Successfully');",
                     "",
@@ -3973,7 +4032,17 @@
                     "     button.enable();",
                     " }, 2000);",
                     "",
-                    "this.loadServices(encounterNo,servicesPanel);"
+                    "",
+                    "var currForm=button.up('form').getItemId();",
+                    "if(currForm==='Procedures'){",
+                    "    purchasingClass=\"Theatre\";",
+                    "}else if(currForm==='DentalServices'){",
+                    "    purchasingClass=\"Dental\";",
+                    "}else if(currForm==='EyeServices'){",
+                    "    purchasingClass=\"Eye\";",
+                    "}",
+                    "",
+                    "this.loadServices(encounterNo,purchasingClass,servicesPanel);"
                 ]
             },
             "configAlternates": {
@@ -4133,7 +4202,13 @@
                     "//Ext.Msg.alert('Test',record.get('Price'));",
                     "",
                     "field.up('form').down('#Price').setValue(record.get('Price'));",
-                    "field.up('form').down('#Qty').setValue(1);"
+                    "field.up('form').down('#Qty').setValue(1);",
+                    "",
+                    "var currPanel=field.up('form').getItemId();",
+                    "if(currPanel==='Procedures'){",
+                    "    field.up('form').down('#Speciality').setValue(record.get('Speciality'));",
+                    "    field.up('form').down('#Complexity').setValue(record.get('Complexity'));",
+                    "}"
                 ],
                 "name": "change"
             },
@@ -5010,7 +5085,7 @@
                 ],
                 "fn": "printCreditSlip",
                 "implHandler": [
-                    "var pid=button.up('grid').down(\"#txtPid\").getValue();",
+                    "var pid=button.up('grid').down(\"#txtSlipPid\").getValue();",
                     "window.open('reports/creditslipnew.php?pid='+pid, \"Cridit Slips\",\"menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes\");",
                     "",
                     ""
@@ -5083,7 +5158,7 @@
                 "fn": "rePrintCreditSlip",
                 "implHandler": [
                     "var slipNo=button.up('grid').down(\"#txtSlipNo\").getValue();",
-                    "var pid=button.up('grid').down(\"#txtPid\").getValue();",
+                    "var pid=button.up('grid').down(\"#txtSlipPid\").getValue();",
                     "",
                     "",
                     "if(pid!==''){",
@@ -5125,7 +5200,7 @@
                 "fn": "populateSlip",
                 "implHandler": [
                     "//Ext.Msg.alert('Test',record.get('Pid'));",
-                    "gridpanel.up('grid').down(\"#txtPid\").setValue(record.get('Pid'));",
+                    "gridpanel.up('grid').down(\"#txtSlipPid\").setValue(record.get('Pid'));",
                     "gridpanel.up('grid').down(\"#txtNames\").setValue(record.get('Names'));",
                     "gridpanel.up('grid').down(\"#txtSlipNo\").setValue(record.get('SlipNo'));",
                     "",
@@ -6130,6 +6205,461 @@
             },
             "name": "filterOpVisits",
             "designerId": "2621d323-9807-4d8d-9039-3ade21a4c8e5"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "calendar",
+                "selector": "calendar",
+                "xtype": "calendar"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "calendar",
+            "designerId": "f54c20f4-3429-4105-af8d-165be8133d73"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "viewCreditSlips",
+                "implHandler": [
+                    "var searchParam=button.up('grid').down('#txtSlipPid').getValue();",
+                    "var startDate=button.up('grid').down('#startDate').getValue();",
+                    "var endDate=button.up('grid').down('#endDate').getValue();",
+                    "",
+                    "var slipsStore=Ext.data.StoreManager.lookup(\"CreditSlipsStore\");",
+                    "",
+                    "slipsStore.load({",
+                    "    params: {",
+                    "        sparam:searchParam,",
+                    "        startDate:startDate,",
+                    "        endDate:endDate",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "    },",
+                    "    scope: this",
+                    "});"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "viewCreditSlips",
+            "designerId": "e34dfbda-04ad-4429-8911-f44ceea8ae52"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "textfield",
+                    "The",
+                    "eOpts"
+                ],
+                "fn": "getSlipPatient",
+                "implHandler": [
+                    " var pid=textfield.getValue();",
+                    "",
+                    "        Ext.Ajax.request({",
+                    "             url: 'data/getDataFunctions.php?task=getEncounter',",
+                    "            params: {",
+                    "                pid: pid",
+                    "            },",
+                    "            success: function(response){",
+                    "",
+                    "                var encDetails= Ext.decode(response.responseText);",
+                    "",
+                    "                 pnames=encDetails.encounterNr[0].FirstName+\" \"+encDetails.encounterNr[0].LastName+\" \"+encDetails.encounterNr[0].SurName;",
+                    "                textfield.up('grid').down('#txtNames').setValue(pnames);",
+                    "",
+                    "                this.getDebitNo();",
+                    "            },",
+                    "            scope:this",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "getSlipPatient",
+            "designerId": "56eb3a28-7571-4717-ab2b-1d24381f047e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "gridpanel",
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "designer|targetType": "DiagnosisReport",
+                "fn": "onDocumentsave",
+                "implHandler": [
+                    " gridpanel.unmask();",
+                    "        Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "onDocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDocumentsave",
+            "designerId": "d868803c-5aab-4bc2-81e7-5ff5e9401434"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "btn",
+                    "title"
+                ],
+                "fn": "exportTo",
+                "implHandler": [
+                    "var cfg = Ext.merge({",
+                    "    title: 'Credit Slips'+title,",
+                    "    fileName: 'creditSlips' +title+ '.' + (btn.cfg.ext || btn.cfg.type)",
+                    "}, btn.cfg);",
+                    "",
+                    "this.getView().saveDocumentAs(cfg);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportTo",
+            "designerId": "cb6f0226-f3f0-46a1-9307-1a9eafc08e29"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "gridpanel",
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "designer|targetType": "DiagnosisReport",
+                "fn": "onBeforeDocumentsave",
+                "implHandler": [
+                    "this.timeStarted = Date.now();",
+                    "gridpanel.mask('Document is prepared for export. Please wait ...');",
+                    "Ext.log('export started');"
+                ],
+                "name": "onBeforeDocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|params": "typedarray",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onBeforeDocumentsave",
+            "designerId": "f6ad76b4-13c8-4a38-ae82-a273bb74b375"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "gridpanel",
+                "designer|targetType": "DiagnosisReport",
+                "fn": "onDataReady",
+                "implHandler": [
+                    "Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "onDataReady",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|controlQuery": "string",
+                "designer|targetType": "view",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDataReady",
+            "designerId": "891a2d25-ba97-4efd-90b1-c830ca541121"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "mycalendar",
+                "selector": "mycalendar",
+                "xtype": "mycalendar"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "mycalendar",
+            "designerId": "2a015eb9-9373-4572-871d-a8387a9d61ba"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "fn": "createProcedures",
+                "implHandler": [
+                    "  component.getEl().on('click', function() {",
+                    "",
+                    "      var services=Ext.create(\"CarePortal.view.CreateProcedures\",{});",
+                    "      var containterWindows=Ext.create('Ext.window.Window', {",
+                    "          title:\"Theatre Procedures Entry Form\",",
+                    "          resizable:false,",
+                    "          closable:true",
+                    "      });",
+                    "",
+                    "      containterWindows.add(services);",
+                    "      containterWindows.show();",
+                    "      var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
+                    "",
+                    "      services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
+                    "      services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
+                    "      services.down('#encounterNo').setValue(encNr);",
+                    "      services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
+                    "",
+                    "      var control = Ext.create('CarePortal.controller.Main');",
+                    "      control.loadServices2(encNr,\"TheatreProcedures\",\"Theatre\",component);",
+                    "      control.loadServices(encNr,'Theatre',component);",
+                    "  });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "createProcedures",
+            "designerId": "51c398d1-a66e-4f6c-a7f8-1506a8322a7d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "fn": "createEyeService",
+                "implHandler": [
+                    "  component.getEl().on('click', function() {",
+                    "",
+                    "      var services=Ext.create(\"CarePortal.view.CreateEyeService\",{});",
+                    "      var containterWindows=Ext.create('Ext.window.Window', {",
+                    "          title:\"Eye Services Entry Form\",",
+                    "          resizable:false,",
+                    "          closable:true",
+                    "      });",
+                    "",
+                    "      containterWindows.add(services);",
+                    "      containterWindows.show();",
+                    "      var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
+                    "",
+                    "      services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
+                    "      services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
+                    "      services.down('#encounterNo').setValue(encNr);",
+                    "      services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
+                    "",
+                    "      var control = Ext.create('CarePortal.controller.Main');",
+                    "      control.loadServices2(encNr,\"EyeServices\",\"EYE\",component);",
+                    "       control.loadServices(encNr,'EYE',component);",
+                    "  });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "createEyeService",
+            "designerId": "07c3b4d0-09c3-4327-8cbd-e87c99df880c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "fn": "createDentalService",
+                "implHandler": [
+                    "  component.getEl().on('click', function() {",
+                    "",
+                    "      var services=Ext.create(\"CarePortal.view.CreateDentalService\",{});",
+                    "      var containterWindows=Ext.create('Ext.window.Window', {",
+                    "          title:\"Dental Services Entry Form\",",
+                    "          resizable:false,",
+                    "          closable:true",
+                    "      });",
+                    "",
+                    "      containterWindows.add(services);",
+                    "      containterWindows.show();",
+                    "      var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();",
+                    "",
+                    "      services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());",
+                    "      services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());",
+                    "      services.down('#encounterNo').setValue(encNr);",
+                    "      services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());",
+                    "",
+                    "      var control = Ext.create('CarePortal.controller.Main');",
+                    "      control.loadServices2(encNr,\"DentalServices\",\"Dental\",component);",
+                    "       control.loadServices(encNr,'Dental',component);",
+                    "  });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "createDentalService",
+            "designerId": "867ff60a-36e5-4d91-88bf-31a652f3ca45"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "encNr",
+                    "serviceStore",
+                    "purchasingClass",
+                    "component"
+                ],
+                "fn": "loadServices2",
+                "implHandler": [
+                    " var serviceStore=Ext.data.StoreManager.lookup(serviceStore);",
+                    "",
+                    "        serviceStore.load({",
+                    "            params: {",
+                    "                encNr:encNr,",
+                    "                purchasingClass:purchasingClass",
+                    "            },",
+                    "            callback: function(records, operation, success) {",
+                    "",
+                    "            },",
+                    "            scope: this",
+                    "        });"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "loadServices2",
+            "designerId": "458be88e-290d-4e83-9725-d05f7ce1c8df"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "button"
+                ],
+                "fn": "openProcScheduler",
+                "implHandler": [
+                    "var BookingForm=Ext.create(\"CarePortal.view.BookingForm\",{});",
+                    "var bookingWindows=Ext.create('Ext.window.Window', {",
+                    "    title: 'Theatre Booking Form',",
+                    "    resizable:false,",
+                    "    closable:true",
+                    "});",
+                    "",
+                    "bookingWindows.add(BookingForm);",
+                    "bookingWindows.show();"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "openProcScheduler",
+            "designerId": "cb955272-f4c8-43ee-91fe-6cc650fa58fb"
         }
     ]
 }

@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.Services', {
 
     requires: [
         'CarePortal.view.ServicesViewModel',
+        'CarePortal.view.ServicesViewController',
         'CarePortal.view.PatientDetais',
         'CarePortal.view.ServicesProcedures',
         'Ext.form.FieldSet',
@@ -28,6 +29,7 @@ Ext.define('CarePortal.view.Services', {
         'Ext.grid.Panel'
     ],
 
+    controller: 'services',
     viewModel: {
         type: 'services'
     },
@@ -128,6 +130,9 @@ Ext.define('CarePortal.view.Services', {
             xtype: 'servicesprocedures',
             flex: 1
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onServicesAfterRender'
+    }
 
 });

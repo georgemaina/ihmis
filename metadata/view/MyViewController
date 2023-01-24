@@ -1,0 +1,57 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "grid-exporter",
+        "designer|userClassName": "MyViewController",
+        "requires": [
+            "Ext.exporter.text.CSV",
+            "Ext.exporter.text.TSV",
+            "Ext.exporter.text.Html",
+            "Ext.exporter.excel.Xml",
+            "Ext.exporter.excel.Xlsx"
+        ]
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "requires": "typedarray"
+    },
+    "name": "MyViewController",
+    "designerId": "e809b904-f53c-4fb6-b6b6-7a9b657ccbb8",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "btn"
+                ],
+                "fn": "exportTo",
+                "implHandler": [
+                    "var cfg = Ext.merge({",
+                    "    title: 'Credit Slips',",
+                    "    fileName: 'creditSlips' + '.' + (btn.cfg.ext || btn.cfg.type)",
+                    "}, btn.cfg);",
+                    "",
+                    "this.getView().saveDocumentAs(cfg);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportTo",
+            "designerId": "7142c7f1-813b-4142-b600-c47f12f23235"
+        }
+    ]
+}

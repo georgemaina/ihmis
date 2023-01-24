@@ -34,6 +34,7 @@ Ext.define('CarePortal.view.GeneralLedger', {
     width: 628,
     columnLines: true,
     store: 'GeneralLedgerStore',
+    defaultListenerScope: true,
 
     columns: [
         {
@@ -77,6 +78,14 @@ Ext.define('CarePortal.view.GeneralLedger', {
     ],
     selModel: {
         selType: 'rowmodel'
+    },
+    listeners: {
+        afterrender: 'onGeneralledgersAfterRender'
+    },
+
+    onGeneralledgersAfterRender: function(component, eOpts) {
+        var glStore=Ext.data.StoreManager.lookup('GeneralLedgerStore');
+        glStore.load({});
     }
 
 });

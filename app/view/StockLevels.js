@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.StockLevels', {
 
     requires: [
         'CarePortal.view.StockLevelsViewModel',
+        'CarePortal.view.StockLevelsViewController',
         'Ext.grid.Panel',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
@@ -28,6 +29,7 @@ Ext.define('CarePortal.view.StockLevels', {
         'Ext.toolbar.Paging'
     ],
 
+    controller: 'stocklevels',
     viewModel: {
         type: 'stocklevels'
     },
@@ -80,6 +82,12 @@ Ext.define('CarePortal.view.StockLevels', {
                             width: 135,
                             iconCls: 'x-fa fa-search',
                             text: 'Search'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 670,
+                            y: 5,
+                            itemId: 'formStatus'
                         }
                     ]
                 },
@@ -218,6 +226,9 @@ Ext.define('CarePortal.view.StockLevels', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

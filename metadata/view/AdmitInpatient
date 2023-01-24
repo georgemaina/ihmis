@@ -383,21 +383,19 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-plus",
-                        "itemId": "saveIpAdmission",
-                        "margin": "0 0 0 10",
-                        "text": "Save Admission",
-                        "width": 145
+                        "iconCls": "x-fa fa-trash",
+                        "itemId": "cancelAdmit",
+                        "text": "Cancel",
+                        "width": 126
                     },
                     "configAlternates": {
                         "text": "string",
                         "width": "auto",
                         "iconCls": "string",
-                        "itemId": "string",
-                        "margin": "auto"
+                        "itemId": "string"
                     },
-                    "name": "MyButton16",
-                    "designerId": "f38e0661-cba1-4e36-a815-2981c6aa5353"
+                    "name": "MyButton13",
+                    "designerId": "7d759b2b-4a2e-46d0-a662-37323be2b0fd"
                 },
                 {
                     "type": "Ext.toolbar.Spacer",
@@ -423,21 +421,51 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-trash",
-                        "itemId": "cancelAdmit",
-                        "text": "Cancel",
-                        "width": 126
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "saveIpAdmission",
+                        "margin": "0 0 0 10",
+                        "text": "Save Admission",
+                        "width": 145
                     },
                     "configAlternates": {
                         "text": "string",
                         "width": "auto",
                         "iconCls": "string",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "margin": "auto"
                     },
-                    "name": "MyButton13",
-                    "designerId": "7d759b2b-4a2e-46d0-a662-37323be2b0fd"
+                    "name": "MyButton16",
+                    "designerId": "f38e0661-cba1-4e36-a815-2981c6aa5353"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    " var WardsStore=Ext.data.StoreManager.lookup('Wards');",
+                    "        WardsStore.load({});",
+                    "",
+                    " var consStore=Ext.data.StoreManager.lookup('Consultations');",
+                    "        consStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "2ea90fa8-eebd-4b6b-bbd0-ea742cd880cb"
         }
     ]
 }

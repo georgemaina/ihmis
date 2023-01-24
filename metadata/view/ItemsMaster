@@ -304,6 +304,26 @@
                                     },
                                     "name": "MyButton4",
                                     "designerId": "98dcf5ee-aa1b-4823-b10d-2f40e8160049"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "itemId": "formStatus",
+                                        "layout|x": 1005,
+                                        "layout|y": 5
+                                    },
+                                    "configAlternates": {
+                                        "itemId": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number"
+                                    },
+                                    "name": "MyTextField129",
+                                    "designerId": "e5f5170c-93b5-4634-aeb7-ed1a40bbc1f2"
                                 }
                             ]
                         },
@@ -3406,6 +3426,48 @@
                     "designerId": "5ee0c623-4acf-4fc3-a5c2-9425baee7579"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onTabpanelAfterRender",
+                "implHandler": [
+                    "",
+                    "var itemsStore=Ext.data.StoreManager.lookup('InventoryItemStore');",
+                    "        itemsStore.load({});",
+                    "",
+                    "",
+                    "var locStore=Ext.data.StoreManager.lookup('LocationsStore');",
+                    "        locStore.load({});",
+                    "",
+                    "var statusStore=Ext.data.StoreManager.lookup('ItemStatusStore');",
+                    "        statusStore.load({});",
+                    "",
+                    "var priceTypeStore=Ext.data.StoreManager.lookup('PricesTypeStore');",
+                    "        priceTypeStore.load({});",
+                    "",
+                    "var pricesStore=Ext.data.StoreManager.lookup('PricesStore');",
+                    "        pricesStore.load({});",
+                    "",
+                    "var itemStore=Ext.data.StoreManager.lookup('ItemLocationStore');",
+                    "        itemStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onTabpanelAfterRender",
+            "designerId": "7f833534-3341-49be-b3a0-fb1c3d2d937e"
         }
     ]
 }

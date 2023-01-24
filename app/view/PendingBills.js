@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.PendingBills', {
 
     requires: [
         'CarePortal.view.PendingBillsViewModel',
+        'CarePortal.view.PendingBillsViewController',
         'Ext.view.Table',
         'Ext.toolbar.Paging',
         'Ext.form.FieldContainer',
@@ -26,6 +27,7 @@ Ext.define('CarePortal.view.PendingBills', {
         'Ext.grid.column.Column'
     ],
 
+    controller: 'pendingbills',
     viewModel: {
         type: 'pendingbills'
     },
@@ -113,6 +115,9 @@ Ext.define('CarePortal.view.PendingBills', {
             dataIndex: 'BillNumber',
             text: 'Bill Number'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onPendingBillsAfterRender'
+    }
 
 });

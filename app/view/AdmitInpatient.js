@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.AdmitInpatient', {
 
     requires: [
         'CarePortal.view.AdmitOutpatientViewModel1',
+        'CarePortal.view.AdmitOutpatientViewController1',
         'Ext.form.Label',
         'Ext.form.field.ComboBox',
         'Ext.toolbar.Spacer',
@@ -26,6 +27,7 @@ Ext.define('CarePortal.view.AdmitInpatient', {
         'Ext.button.Button'
     ],
 
+    controller: 'admitinpatient',
     viewModel: {
         type: 'admitinpatient'
     },
@@ -165,11 +167,10 @@ Ext.define('CarePortal.view.AdmitInpatient', {
             items: [
                 {
                     xtype: 'button',
-                    itemId: 'saveIpAdmission',
-                    margin: '0 0 0 10',
-                    width: 145,
-                    iconCls: 'x-fa fa-plus',
-                    text: 'Save Admission'
+                    itemId: 'cancelAdmit',
+                    width: 126,
+                    iconCls: 'x-fa fa-trash',
+                    text: 'Cancel'
                 },
                 {
                     xtype: 'tbspacer',
@@ -177,13 +178,17 @@ Ext.define('CarePortal.view.AdmitInpatient', {
                 },
                 {
                     xtype: 'button',
-                    itemId: 'cancelAdmit',
-                    width: 126,
-                    iconCls: 'x-fa fa-trash',
-                    text: 'Cancel'
+                    itemId: 'saveIpAdmission',
+                    margin: '0 0 0 10',
+                    width: 145,
+                    iconCls: 'x-fa fa-plus',
+                    text: 'Save Admission'
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

@@ -1,0 +1,100 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "accountgroupsmodel",
+        "designer|userClassName": "AccountGroupsModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "8b6c6f5a-ab54-48eb-ab23-876848e30ba5",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "groupname"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField199",
+            "designerId": "f6d6067a-d7d1-4b04-bc57-289cdde2d323"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sectioninaccounts"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField200",
+            "designerId": "734a9796-d6f9-4d4d-9450-d8a3839fb757"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "pandl"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField201",
+            "designerId": "850a76cb-d8ab-449f-af22-2643786d0998"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "sequenceintb"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField207",
+            "designerId": "a66ca4a6-16f0-49a6-ae2d-40ba1eb8d565"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "parentgroupname"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField208",
+            "designerId": "c7eb052c-6885-466f-9640-18bd4ad03b51"
+        }
+    ]
+}

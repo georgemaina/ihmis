@@ -61,6 +61,26 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "Status",
+                "text": "Status",
+                "width": 119
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn19",
+            "designerId": "a79ff00d-af93-4831-aa01-62d4f1de37ce"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "Batch_Nr",
                 "hidden": true,
                 "text": "BatchNr"
@@ -101,48 +121,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "InputDate",
-                "text": "Input Date"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn4",
-            "designerId": "10930070-2457-4675-9f22-001c95efbca7"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "PartCode",
-                "text": "Part Code"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn5",
-            "designerId": "56001bf1-3667-4056-b208-6eeb032809fa"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "dataIndex": "Description",
-                "text": "Description"
+                "text": "Description",
+                "width": 227
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn6",
             "designerId": "47ab19fd-0977-4663-b2c2-35226c46cfb3"
@@ -209,6 +195,42 @@
             },
             "codeClass": null,
             "userConfig": {
+                "dataIndex": "InputDate",
+                "text": "Input Date"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn4",
+            "designerId": "10930070-2457-4675-9f22-001c95efbca7"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "PartCode",
+                "text": "Part Code"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn5",
+            "designerId": "56001bf1-3667-4056-b208-6eeb032809fa"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "dataIndex": "InputBy",
                 "text": "Input By"
             },
@@ -236,24 +258,6 @@
             },
             "name": "MyColumn11",
             "designerId": "e90c5fbd-05c6-4106-99b2-b3f215b8f5c5"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Status",
-                "text": "Status"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn19",
-            "designerId": "a79ff00d-af93-4831-aa01-62d4f1de37ce"
         },
         {
             "type": "Ext.toolbar.Paging",

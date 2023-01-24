@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userAlias": "eyeservices",
+        "designer|userClassName": "EyeServices",
+        "model": "ServicesList",
+        "storeId": "EyeServices"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "DentalServices1",
+    "designerId": "c6a0f414-2062-4320-b851-dadb160ca7fa",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getClinicServices"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy28",
+            "designerId": "944ff891-9011-44ed-bc59-d6e955ef9ebd",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader27",
+                    "designerId": "da0282f1-3a80-4fd5-bdd3-05a50640c834"
+                }
+            ]
+        }
+    ]
+}

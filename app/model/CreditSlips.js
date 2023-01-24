@@ -38,10 +38,10 @@ Ext.define('CarePortal.model.CreditSlips', {
             name: 'Names'
         },
         {
-            name: 'Accno'
+            name: 'AccNo'
         },
         {
-            name: 'Company'
+            name: 'AccName'
         },
         {
             name: 'SlipTime'

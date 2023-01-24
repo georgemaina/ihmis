@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.ItemStatusStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'ItemStatusStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.ItemStatus',
             proxy: {
                 type: 'ajax',

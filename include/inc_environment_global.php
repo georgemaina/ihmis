@@ -168,22 +168,22 @@ $conn=new mysqli($dbhost, $dbusername, $dbpassword,$dbname);
 #
 # Function to return the <html> or <html dir-rtl> tag
 #
-function html_ret_rtl($lang){
-	global $TP_ALIGN,$TP_ANTIALIGN, $TP_DIR;
-	if(($lang=='ar')||($lang=='fa')){
-		$TP_ANTIALIGN=$TP_ALIGN;
-		$TP_ALIGN='right';
-		$TP_DIR='rtl';
-		return '<HTML dir=rtl>';
-		}else{
-			return '<HTML>';
-		}
-}
+// function html_ret_rtl($lang){
+// 	global $TP_ALIGN,$TP_ANTIALIGN, $TP_DIR;
+// 	if(($lang=='ar')||($lang=='fa')){
+// 		$TP_ANTIALIGN=$TP_ALIGN;
+// 		$TP_ALIGN='right';
+// 		$TP_DIR='rtl';
+// 		return '<HTML dir=rtl>';
+// 		}else{
+// 			return '<HTML>';
+// 		}
+// }
 
-#
-# Function to echo the returned value from function html_ret_rtl()
-#
-function html_rtl($lang){
-	echo html_ret_rtl($lang);
-}
+// #
+// # Function to echo the returned value from function html_ret_rtl()
+// #
+// function html_rtl($lang){
+// 	echo html_ret_rtl($lang);
+// }
 ?>

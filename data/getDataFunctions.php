@@ -1,10 +1,13 @@
 
 <?php   //111380
-error_reporting(E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR);
+// error_reporting(E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+error_reporting(E_ALL);
 require_once('roots.php');
+require 'conn.php';
+
+
 require ($root_path . 'include/inc_environment_global.php');
 require ($root_path . 'include/inc_date_format_functions.php');
 require_once($root_path.'include/care_api_classes/class_measurement.php');
@@ -16,11 +19,8 @@ require_once($root_path.'include/care_api_classes/class_tz_billing.php');
 require_once($root_path . 'include/care_api_classes/class_department.php');
 require_once($root_path . 'include/care_api_classes/class_tz_drugsandservices.php');
 require_once ($root_path . 'include/care_api_classes/class_lab.php');
-require_once($root_path.'include/care_api_classes/class_tz_drugsandservices.php');
 
 require_once ('weberpFunctions.php');
-
-require 'conn.php';
 
 $ward_obj= new Ward;
 $bill_obj= new Bill;
@@ -119,13 +119,15 @@ $lastDay=date("Y-m-t", strtotime($dt));
 //echo 'First day : '.$firstDay.' - Last day : '. $lastDay."<br>"; 
 
 if($_REQUEST['startDate']<>''){
-    $startDate=$_REQUEST['startDate'];
+    $date=date_create($_REQUEST['startDate']);
+    $startDate=date_format($date,"Y-m-d");
 }else{
     $startDate=$firstDay;
 }
 
 if($_REQUEST['endDate']<>''){
-    $endDate=$_REQUEST['endDate'];
+    $date=date_create($_REQUEST['endDate']);
+    $endDate=date_format($date,"Y-m-d");
 }else{
     $endDate=$lastDay;
 }
@@ -155,6 +157,8 @@ $Description=$_POST['Description'];
 $GroupID=$_POST['GroupID'];
 $Price=$_POST['Price'];
 $FieldType=$_POST['FieldType'];
+
+$purchasingClass=$_REQUEST['purchasingClass'];
 
 $diagType=$_REQUEST['diagType'];
        
@@ -327,8 +331,8 @@ switch ($task) {
     case "getOpdPatients":
         getOpdPatients($dept_obj,$ward_obj,$items_obj,$person);
         break;
-    case "getIcd10Code":
-        getIcd10Codes($diagType);
+    case "getIcd10Codes":
+        getIcd10Codes($diagType,$start,$limit);
         break;
     case "saveComplaints":
         saveComplaints();
@@ -634,13 +638,16 @@ switch ($task) {
         getNoteTypes();
         break;
     case "getProceduresAndServices":
-        getProceduresAndServices($encNr);
+        getProceduresAndServices($encNr,$purchasingClass);
         break;
     case "saveProcedures":
         saveProcedures($encNr,$bill_obj,$enc_obj);
         break;
     case "getCashSales":
         getCashSales();
+        break;
+    case "getCashReceipts":
+        getCashReceipts();
         break;
     case "getDOB":
         getDOB();
@@ -769,24 +776,89 @@ switch ($task) {
     case "updateAdmDis":
         updateAdmDis();
         break;    
+    case "getClinicServices":
+        getClinicServices($sParams,$purchasingClass);
+        break;
+    case "getDrugsIssued":
+        getDrugsIssued($sParams);
+        break;
     default:
         echo '{"Failure":true}';
         break;
 }//end switch
 
+function getDrugsIssued($sParams){
+    global $conn;
+    $debug=true;
 
+    $sql= "SELECT `id`,`presc_nr`,`order_date`,`order_time`,`store_loc`,`adm_no`,`patient_name`,`item_id`,`Item_desc`
+    ,`qty`,`price`,`unit_cost`,`issued`,`balance`,`total` FROM `care_ke_internal_orders`";
 
-function getIcd10Codes($diagType){
+                if($sParams){
+                $sql=$sql." where patient_name like '%$sParams%'";
+                }
+
+                $sql=$sql." order by order_date desc ";
+
+                if($debug) echo $sql;
+            //     $request=$conn->query($sql);
+            //    if($request->num_rows>0){
+            //        while($row[]=$request->fetch_assoc()){
+            //            $item=$row;
+            //            $json=json_encode($item,JSON_NUMERIC_CHECK);
+            //        }
+            //     }else{
+            //         echo '';
+            //     }
+              
+            //    echo $json;
+            //    $conn->close();
+}
+
+function getClinicServices($sParams,$purchasingClass){
     global $conn;
     $debug=false;
-    $diagType=$diagType;
+
+    $sql= "SELECT PartCode,item_description as Description,unit_price as Price,
+                    purchasing_class AS Category,item_status,speciality,complexity FROM care_tz_drugsandservices
+                    WHERE purchasing_class='$purchasingClass' AND item_status='1'";
+
+                if($sParams){
+                $sql=$sql." where item_description like '%$sParams%'";
+                }
+
+                $sql=$sql." order by item_description asc ";
+
+                if($debug) echo $sql;
+                $request=$conn->query($sql);
+               if($request->num_rows>0){
+                   while($row[]=$request->fetch_assoc()){
+                       $item=$row;
+                       $json=json_encode($item,JSON_NUMERIC_CHECK);
+                   }
+                }else{
+                    echo '';
+                }
+              
+               echo $json;
+               $conn->close();
+                
+}
+
+function getIcd10Codes($diagType,$start,$limit){
+    global $conn;
+    $debug=false;
 
     $birthDate = $_REQUEST['dob'];
     $currentDate = date("d-m-Y"); 
     $age1 = date_diff(date_create($birthDate), date_create($currentDate));
     $age=$age1->format("%y");
 
-    $sql = "SELECT diagnosis_code as DiagnosisCode,`Description`  FROM care_icd10_en";
+    $sqlTotal="select diagnosis_code from `care_icd10_en`";
+    $request1=$conn->query($sqlTotal);
+    $totalRecs=$request1->num_rows>
+
+    $sql = "SELECT diagnosis_code ,`description`  FROM care_icd10_en";
 
     if ($diagType=='OP' && $age<5) {
         $sql = $sql . " where `type`='OPC'";
@@ -795,6 +867,10 @@ function getIcd10Codes($diagType){
     }else{
         $sql = $sql . " where `type`=''";
     }
+
+    // if($start<>'' && $limit<>''){
+    //     $sql .= " limit $start,$limit";
+    // }
 
     if($debug) echo $sql;
         $request=$conn->query($sql);
@@ -808,7 +884,7 @@ function getIcd10Codes($diagType){
         }
       
        echo $json;
-       $conn->close();;
+       $conn->close();
 } 
 
 
@@ -868,7 +944,7 @@ function  getPatientSummary($cashpoint, $shiftNo){
     $debug=false;
    // echo "Start ". $startDate." End date ".$endDate ."<br>";
 
-    $sql = "SELECT b.ref_no AS ReceiptNo,b.Name,b.Pay_Mode,SUM(b.total) AS Total,b.Cash,
+    $sql = "SELECT b.ref_no AS ReceiptNo,b.payer as Name,b.Pay_Mode,SUM(b.total) AS Total,b.Cash,
                 b.Mpesa,b.Visa,b.currdate as InputDate,b.input_Time as InputTime,b.Balance from care_ke_receipts b
             WHERE b.cash_point='$cashpoint' AND b.shift_no='$shiftNo' GROUP BY ref_no ORDER BY patient asc";
   
@@ -1348,11 +1424,12 @@ function getSlips($sparam,$startDate,$endDate) {
 
       if($debug) echo $sql;
     $request2 = $db->Execute($sql);
+    $total=$request2->RecordCount();
 
-    $sql1="Select count(pid) as totai from care_ke_slips";
-    $results1=$db->Execute($sql1);
-    $row=$results1->FetchRow();
-    $total = $row[0];
+    // $sql1="Select count(pid) as totai from care_ke_slips";
+    // $results1=$db->Execute($sql1);
+    // $row=$results1->FetchRow();
+    // $total = $row[0];
 
     echo '[';
     $counter = 0;
@@ -1371,11 +1448,12 @@ function getSlips($sparam,$startDate,$endDate) {
        "SlipDate":"' . $slipDate . '","SlipTime":"' . $slipTime . '","Names":"' . $name_first . ' ' . $name_last . ' ' . $name_2 .'",
            "AccNo":"' . trim($row[7]) .'","AccName":"' . trim($row[8]) . '"}';
 
-        $counter++;
-
+           $counter++;   
         if ($counter < $total) {
             echo ",";
         }
+        
+       
 
     }
     echo ']';
@@ -1449,7 +1527,7 @@ function getLedgers(){
     global $db;
     $debug=false;
 
-    $sql="SELECT `code`,`desc` FROM `care_ke_casbookledger";
+    $sql="SELECT `code`,`desc` FROM care_ke_casbookledger";
     if($debug) echo $sql;
     echo "[";
     $request=$db->Execute($sql);
@@ -1631,12 +1709,19 @@ function saveRadiology($bill_obj,$enc_obj){
     $currUser=$_SESSION['sess_login_username'];
     $encDetails=$enc_obj->loadEncounterData($encounter_nr);
     $billDate=date('Y-m-d');
+    $financialClass=$bill_obj->getFinancialClass($encounter_nr);
+    if($financialClass=='-1' || $financialClass=='CASH'){
+        $financialClass = '1';
+    }else{
+        $financialClass = '2';
+    }
 
     //$dosage =$_POST['dose'.$i];
     $notes = $_REQUEST['comment'];
     $partCode = $_REQUEST['radiology'];
     $description = getItemDescription($_REQUEST['radiology']);
-    $price=$_REQUEST['price'];
+   // $price=$_REQUEST['price'];
+    $price=$bill_obj->getItemPrice($partCode, $financialClass);
 
     $sql = "INSERT INTO `care_ke_radiologytests` (
             `batch_nr`,`encounter_nr`,`partcode`,`radiologyTest`,`price`,`TestStatus`,`RequestedBy`,`RequestTime`,`Notes`)
@@ -1801,6 +1886,33 @@ function getAge($dob) {
 }
 
 
+function getCashReceipts(){
+    global $db;
+    $debug=false;
+    
+    $currDate=date('Y-m-d');
+    $sql="SELECT patient,`name`,ref_no,cash_point,shift_no,currdate,SUM(amount) AS Total 
+    FROM care_ke_receipts  where currdate='$currDate'   GROUP BY ref_no order by currdate desc";
+
+    if($debug) echo $sql;
+    echo "[";
+    $request=$db->Execute($sql);
+    $total=$request->RecordCount();
+    $counter=0;
+    while($row=$request->FetchRow()){
+
+            echo '{"Pid":"' .  $row['patient'] . '","Names":"' . $row['name']. '","ref_no":"' . $row['ref_no']
+                . '","cash_point":"' . $row['cash_point']. '","Total":"' . $row['Total']
+                . '","currdate":"' . $row['currdate']. '","Shift_no":"' . $row['shift_no'].'"}';
+
+        $counter++;
+        if ($counter <> $total) {
+            echo ",";
+        }
+    }
+    echo ']';
+}
+
 function getCashSales(){
     global $db;
     $debug=false;
@@ -1833,11 +1945,19 @@ function saveProcedures($encNr,$bill_obj,$enc_obj){
     $pid=$_REQUEST['pid'];
     $debug=false;
     // $encounterNo=$_REQUEST['encNr'];
+    $financialClass=$bill_obj->getFinancialClass($encNr);
+    if($financialClass=='-1' || $financialClass=='CASH'){
+        $financialClass = '1';
+    }else{
+        $financialClass = '2';
+    }
+
     $batch_nr = $bill_obj->getTransNo(10);
     $service=$_REQUEST['service'];
-    $price=$_REQUEST['price'];
+    //$price=$_REQUEST['price'];
+    $price=$bill_obj->getItemPrice($service, $financialClass);
     $qty=$_REQUEST['qty'];
-    $total=$_REQUEST['price']*$_REQUEST['qty'];
+    $total=$price*$_REQUEST['qty'];
     $comments=$_POST['comments'];
     $inputDate=date('Y-m-d H:i:s');;
     $inputUser=$_SESSION["sess_login_username"];
@@ -1865,8 +1985,8 @@ function saveProcedures($encNr,$bill_obj,$enc_obj){
             if($debug) echo $sql2;
         
         if($db->Execute($sql2)){
-            $status="Services Requested";
-            $statusDesc="Services Requested by ".$inputUser;
+            $status=$service." Services Requested";
+            $statusDesc=$itemDescription." Services Requested by ".$inputUser;
             $currUser=$_SESSION['sess_login_username'];
 
             updatePatientStatus($encNr,$encNr,'Doctors Rooms',$status,$statusDesc,$inputUser);
@@ -1889,7 +2009,7 @@ function saveProcedures($encNr,$bill_obj,$enc_obj){
 
 }
 
-function getProceduresAndServices($encounter_nr){
+function getProceduresAndServices($encounter_nr,$purchasingClass){
     global $db;
     $debug=false;
 
@@ -1898,7 +2018,12 @@ function getProceduresAndServices($encounter_nr){
         FROM `care_encounter_procedure` p 
         LEFT JOIN `care_tz_drugsandservices` d ON p.`partcode`=d.`partcode` where encounter_nr='$encounter_nr'";
 
+    if($purchasingClass<>''){
+        $sql.=" AND d.purchasing_class='$purchasingClass'";
+    }
+
     if($debug) echo $sql;
+
     echo "[";
     $request=$db->Execute($sql);
 
@@ -1908,7 +2033,7 @@ function getProceduresAndServices($encounter_nr){
 
             echo '{"ID":"' .  $row['procedure_nr'] . '","encounter_nr":"' . $row['encounter_nr']. '","InputDate":"' . $row['inputdate']
                 . '","PartCode":"' . $row['partcode']. '","Price":"' . $row['price']. '","Qty":"' . $row['qty']
-                . '","Total":"' . $row['total']
+                . '","Total":"' . $row['total']. '","Status":"' . $row['status']. '","Department":"' . $row['department']
                 . '","Description":"' . $row['item_description']. '","Comment":"' . $row['comment']
                 . '","InputBy":"' . $row['inputby']. '","Batch_Nr":"' . $row['batch_nr']. '"}';
 
@@ -1976,13 +2101,21 @@ function saveLabRequest($bill_obj,$enc_obj,$encounter_nr,$currUser){
     $billTime=date('H:i:s');
     $encDetails=$enc_obj->loadEncounterData($encounter_nr);
     $billDate=date('Y-m-d');
+    $financialClass=$bill_obj->getFinancialClass($encounter_nr);
+    if($financialClass=='-1' || $financialClass=='CASH'){
+        $financialClass = '1';
+    }else{
+        $financialClass = '2';
+    }
+        
     for($i=0;$i<$_POST['counter'];$i++) {
 
            //$dosage =$_POST['dose'.$i];
             $notes = $_POST['notes'.$i];
             $partCode = $_POST['partCode'.$i];
             $description = $_POST['description'.$i];
-            $price=$_REQUEST['unitCost'.$i];
+           // $price=$_REQUEST['unitCost'.$i];
+            $price=$bill_obj->getItemPrice($partCode, $financialClass);
             $priority=$_REQUEST['priority'.$i];
 
             $sql = "INSERT INTO `care_ke_labrequests` (
@@ -2244,8 +2377,8 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
     $start=$_REQUEST['start'];
     $limit=$_REQUEST['limit'];
 
-    $sql = "SELECT b.sale_id,b.cash_point,b.Shift_no,b.ref_no,b.`type`,b.input_time,b.patient,b.name,b.rev_code,b.rev_desc,
-    b.proc_code,b.prec_desc,b.payer,b.location,b.pay_mode,b.amount,b.proc_qty,b.total,
+    $sql = "SELECT b.sale_id,b.cash_point,b.Shift_no,b.ref_no,b.`type`,b.input_time,b.patient,
+    b.rev_code,b.rev_desc,b.proc_code,b.prec_desc,b.payer,b.location,b.pay_mode,b.amount,b.proc_qty,b.total,
     a.start_date,a.start_time,b.currdate,
     b.pay_mode ,b.towards,b.`cash`,b.`mpesa`,a.cashier FROM care_ke_receipts b 
     LEFT JOIN care_ke_shifts a  ON b.shift_no=a.shift_no WHERE b.ref_no<>''";
@@ -2271,7 +2404,7 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
     if($debug) echo $sql;
     $request=$db->Execute($sql);
     $total=$request->RecordCount();
-    echo '{"total":'.$total.',"receipts":[';
+    echo '[';
     
     $counter=0;
     while($row=$request->FetchRow()){
@@ -2298,7 +2431,7 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
             echo ",";
         }
     }
-    echo ']}';
+    echo ']';
 
 }
 
@@ -2740,23 +2873,24 @@ function getBills($pid, $bill_number) {
 
 
 function getXrayItems(){
-    global $db;
-    $$deub=true;
+    global $conn;
+    $debug=false;
 
     $sql="SELECT partcode,item_description,unit_price,purchasing_class FROM care_tz_drugsandservices WHERE purchasing_class='xray'";
-
-    echo "[";
-    $request=$db->Execute($sql);
-    $counter=0;
-    while($row=$request->FetchRow()){
-        echo '{"PartCode":"' .  $row['partcode'] . '","Description":"' . $row['item_description'] . '","Price":"' .  $row['unit_price'] . '"}';
-
-        $counter++;
-        if ($counter <> $total) {
-            echo ",";
-        }
+    
+    if($debug) echo $sql;
+    $request=$conn->query($sql);
+    if($request->num_rows>0){
+       while($row[]=$request->fetch_assoc()){
+           $item=$row;
+           $json=json_encode($item,JSON_NUMERIC_CHECK);
+       }
+    }else{
+        echo "no Data Found";
     }
-    echo ']}';
+  
+   echo $json;
+   $conn->close();
 }
 
 
@@ -4333,13 +4467,17 @@ function reduceStock($db, $stockid, $store, $qtyIssued,$bal, $presc_nr){
 }
 
 function returnOrderedDrugs(){
-    global $db;
+    global $db,$items_obj;
     $debug = false;
 //ID PrescNo STATUS OrderDate OrderTime Store EncounterNr PID PatientName PartCode Description Qty Price Issued Balance QtyReturn
     $returnDate =date("Y-m-d");
     $returnTime=date('H:i:s');
     $inputUser = $_SESSION['sess_login_username'];
-    $transNo=getTransNos(6);
+    // $transNo1=getTransNos(6);
+    // // $transNo=getTransNos(4);
+    // $obj = json_decode($transNo1);
+    // $transNo=$obj->transNo;
+
     $returnData = $_REQUEST['gridData'];
     $data = json_decode($returnData, true);
     $supStore = $_POST['Store'];
@@ -4360,14 +4498,14 @@ function returnOrderedDrugs(){
         $total=$row['Price']*$qtyReturn;
 
         $sql = "INSERT INTO `care_ke_internal_returns` (
-                  `return_no`,`presc_nr`,`status`,`return_date`,`return_time`,`return_type`,`store_loc`,`store_desc`,
+                  `presc_nr`,`status`,`return_date`,`return_time`,`return_type`,`store_loc`,`store_desc`,
                   `OP_no`,`patient_name`,`item_id`,`Item_desc`,`qty`,`price`,`return_qty`,`total`,`period`,`input_user`, ) 
-	            VALUES('$transNo','$prescNo','Returned','$returnDate','$returnTime','Patient Return','$supStore','$supStore'
+	            VALUES('$prescNo','Returned','$returnDate','$returnTime','Patient Return','$supStore','$supStore'
 	            ,'$pid','$pnames','$partcode','$description','$qty','$price','$qtyReturn','$total','$period','$inputUser')";
         if ($debug) echo $sql;
 
         if ($db->Execute($sql)) {
-             adjustStock($db,$pid,$partcode,$description,$supStore,$qty,$prescNo,$transNo,$enc_nr,$enc_nr,$price,$inputUser,$prescNo) ;
+             adjustStock($inputUser,$items_obj);
              updateStockMovement($partcode,$supStore,$pid,$price,$qtyReturn,$price);
             $error=0;
         } else {
@@ -4628,7 +4766,7 @@ function saveCashSales(){
     }else{
         $payer=$_REQUEST['payer'];
         $pid=$_REQUEST['pid'];
-        $patient=$_REQUEST['patientName'];
+        $patient=$_REQUEST['patient'];
         $encounter_No=$_REQUEST['encNr'];
     }
 
@@ -4654,7 +4792,8 @@ function saveCashSales(){
         $price = $row['Price'];
         $catID = $row['CatID'];
         $Category= $row['Category'];
-        $total= $row['Price']*$row['qty'];
+        $number= $row['Price']*$row['qty'];
+        $total = ceil($number / 10) * 10;
         $billDate=date('Y-m-d'); // $row['Bill_date'];
         $billTime= date('H:i:s'); //$row['Bill_time'];
         $ID=$row['ID'];
@@ -5176,6 +5315,12 @@ function savePrescription($bill_obj,$encounter_nr,$currUser){
             $row = $searchresult->FetchRow();
 
             $financialClass=$bill_obj->getFinancialClass($encounter_nr);
+            if($financialClass=='-1' || $financialClass=='CASH'){
+                $financialClass = '1';
+            }else{
+                $financialClass = '2';
+            }
+
             $price=$bill_obj->getItemPrice($partCode, $financialClass);
 
             $sql = "INSERT INTO care_encounter_prescription (`encounter_nr`,`prescription_type_nr`,
@@ -7463,7 +7608,7 @@ function getServicesList($start, $limit) {
     $sql = "SELECT partcode,item_description,unit_price,
             purchasing_class AS category,item_status FROM care_tz_drugsandservices
             WHERE purchasing_class IN ('Service','CONSULTATION','Daily Charges','DENTAL','MCH','MORGUE','OUTPATIENT',
-            'OTHERS','PHYSIOTHERAPY','sales','SERVICE','THEATRE')
+            'OTHERS','PHYSIOTHERAPY','sales','SERVICE')
             AND item_status='1'";
 
     if($sParams){

@@ -242,9 +242,35 @@
             "codeClass": null,
             "userConfig": {
                 "height": 120,
+                "itemId": "btnEye",
+                "layout|x": 75,
+                "layout|y": 375,
+                "src": "resources/eye.png",
+                "width": 115
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "src": "uri",
+                "width": "auto",
+                "itemId": "string"
+            },
+            "name": "MyImg16",
+            "designerId": "76204ec4-00b0-4828-b090-69bb8f56aa94"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 120,
                 "itemId": "btnImmunization",
-                "layout|x": 255,
-                "layout|y": 280,
+                "layout|x": 250,
+                "layout|y": 275,
                 "src": "resources/immunization.fw.png",
                 "width": 115
             },
@@ -258,6 +284,32 @@
             },
             "name": "MyImg",
             "designerId": "5cf75d83-4200-4667-9ce3-ed31ad7fe2df"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 120,
+                "itemId": "btnDental",
+                "layout|x": 195,
+                "layout|y": 370,
+                "src": "resources/dental.png",
+                "width": 115
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "src": "uri",
+                "width": "auto",
+                "itemId": "string"
+            },
+            "name": "MyImg18",
+            "designerId": "4e15ec36-d257-4a28-b3ec-6304e526808d"
         },
         {
             "type": "Ext.Img",
@@ -312,6 +364,34 @@
             },
             "name": "MyImg1",
             "designerId": "77e3486d-f741-427b-8468-622ff8fc8d8d"
+        },
+        {
+            "type": "Ext.Img",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "height": 120,
+                "id": "btnMch1",
+                "itemId": "btnProcedures",
+                "layout|x": 310,
+                "layout|y": 185,
+                "src": "resources/procedures.png",
+                "width": 115
+            },
+            "configAlternates": {
+                "height": "auto",
+                "layout|x": "number",
+                "layout|y": "number",
+                "src": "uri",
+                "width": "auto",
+                "itemId": "string",
+                "id": "string"
+            },
+            "name": "MyImg15",
+            "designerId": "d017ba51-edb8-4643-af39-f50af3a1a304"
         }
     ]
 }

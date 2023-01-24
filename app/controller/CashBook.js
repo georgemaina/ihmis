@@ -25,7 +25,8 @@ Ext.define('CarePortal.controller.CashBook', {
         'Suppliers',
         'ReceiptModel',
         'CashSaleSummaries',
-        'ItemSalesSummary'
+        'ItemSalesSummary',
+        'cataloglist'
     ],
     stores: [
         'PendingPrescription',
@@ -38,7 +39,8 @@ Ext.define('CarePortal.controller.CashBook', {
         'GeneralLedgerStore',
         'CashpointsSummaryStore',
         'CashSaleSummariesStore',
-        'ItemSalesSummaryStore'
+        'ItemSalesSummaryStore',
+        'CatalogListStore'
     ],
     views: [
         'ItemsList',
@@ -46,7 +48,6 @@ Ext.define('CarePortal.controller.CashBook', {
         'CashSales',
         'Receipts',
         'Payments',
-        'ReceiptsAdj',
         'PaymentsAdj',
         'PrescriptionForm',
         'Dosage',
@@ -63,7 +64,9 @@ Ext.define('CarePortal.controller.CashBook', {
         'CollectionsBreakdown',
         'ItemSalesSummary',
         'DailyRevenueBreakdown',
-        'CashbookReportsHeader'
+        'CashbookReportsHeader',
+        'CatalogList',
+        'ReceiptsAdj'
     ],
 
     refs: {
@@ -146,6 +149,10 @@ Ext.define('CarePortal.controller.CashBook', {
         cashbookreportsheader: {
             selector: 'cashbookreportsheader',
             xtype: 'cashbookreportsheader'
+        },
+        cataloglist: {
+            selector: 'cataloglist',
+            xtype: 'cataloglist'
         }
     },
 
@@ -174,6 +181,9 @@ Ext.define('CarePortal.controller.CashBook', {
             },
             '#itemsList':{
                 itemdblclick:this.addSelectedItems2
+            },
+            '#cataloglist':{
+                itemdblclick:this.addSelectedItems3
             },
             '#cmdSaveSales':{
                 click:this.saveSales
@@ -332,7 +342,7 @@ Ext.define('CarePortal.controller.CashBook', {
             '#cmdGetLedgers':{
                 click:this.openLedgers
             },
-            '#debtorslist':{
+            '#debtorslist2':{
                 itemdblclick:this.addReceiptItems
             },
             '#supplierslist':{
@@ -367,6 +377,9 @@ Ext.define('CarePortal.controller.CashBook', {
             },
             '#ItemSalesSummary':{
                 click:this.openReports
+            },
+            '#cmdNewGlAccount':{
+                click:this.openGlAccountsForm
             }
 
         });
@@ -403,11 +416,8 @@ Ext.define('CarePortal.controller.CashBook', {
     openCashItemsList: function(button) {
 
         //Ext.Msg.alert('Test','test');
-        var itesmStore=Ext.data.StoreManager.lookup("ItemsListStore");
+        var itesmStore=Ext.data.StoreManager.lookup("CatalogListStore");
         itesmStore.load({
-            params: {
-                storeLoc:'Dispens'
-            },
             callback: function(records, operation, success) {
 
             },
@@ -415,7 +425,7 @@ Ext.define('CarePortal.controller.CashBook', {
         });
 
         //var storeLoc=button.up("panel").down('#suppStore').getValue();
-        var itemsList=Ext.create("CarePortal.view.ItemsList",{});
+        var itemsList=Ext.create("CarePortal.view.CatalogList",{});
         var ordersWindow=Ext.create('Ext.window.Window', {
             title: 'Items List',
             resizable:false
@@ -480,45 +490,12 @@ Ext.define('CarePortal.controller.CashBook', {
 
     addSelectedItems2: function(gridpanel, record, item, index, e, options) {
         var sourceID=this.getItemslist().down('#sourceID').getValue();
-        if(sourceID=='Orders'){
-            var store =Ext.data.StoreManager.lookup('ItemsListStore');
-            var store1 =Ext.data.StoreManager.lookup('OrderStocksStore');
-            store.remove(record);
-            store1.add(record);
-        }else if(sourceID=='Cashbook'){
-            var store =Ext.data.StoreManager.lookup('ItemsListStore');
-            var store1 =Ext.data.StoreManager.lookup('CashSaleStore');
-            store.remove(record);
-            store1.add(record);
-        }
-        // else{
-        //     var counter=this.getPrescriptionform().down("#counter").getValue();
-        //     var dosage=Ext.create("CarePortal.view.Dosage",{});
-        //     dosage.itemId=record.get('partcode');
+        var store =Ext.data.StoreManager.lookup('ItemsListStore');
+        var store1 =Ext.data.StoreManager.lookup('OrderStocksStore');
+        store.remove(record);
+        store1.add(record);
 
 
-        //     dosage.down('#partCode').setValue(record.get('partcode'));
-        //     dosage.down('#description').setValue(record.get('item_description'));
-        //     dosage.down('#qty').setValue(record.get('qty'));
-        //     dosage.down('#unitCost').setValue(record.get('unit_price'));
-        //     dosage.down('#dose').setValue(1);
-        //     dosage.down('#itemNumber').setValue(counter);
-
-        //     var i=counter;
-        //     dosage.down('#partCode').name='partCode'+ i;
-        //     dosage.down('#description').name='description'+ i;
-        //     dosage.down('#dose').name='dose'+ i ;
-        //     dosage.down('#timesperday').name='timesperday'+ i;
-        //     dosage.down('#days').name='days'+ i ;
-        //     dosage.down('#total').name='total'+ i ;
-        //     dosage.down('#comment').name='comment'+ i;
-
-
-        //     newVar=parseInt(counter)+1;
-
-        //     this.getPrescriptionform().down('#dosageList').add(dosage);
-        //     this.getPrescriptionform().down("#counter").setValue(newVar);
-        // }
 
     },
 
@@ -1435,9 +1412,6 @@ Ext.define('CarePortal.controller.CashBook', {
         var formSource=button.up('panel').down('#formStatus').getValue();
                // Ext.Msg.alert('Test',button.up('panel').down('#formStatus').getValue());
 
-        var startDate=this.getCashbookreportsheader().down('#startDate').getValue();
-        var endDate=this.getCashbookreportsheader().down('#endDate').getValue();
-
         if(formSource=='ShiftReport'){
             var cashpoint=this.getCashbookreportsheader().down('#cashPoint').getValue();
             var shiftNo=this.getCashbookreportsheader().down('#shiftNo').getValue();
@@ -1455,6 +1429,8 @@ Ext.define('CarePortal.controller.CashBook', {
                 scope: this
             });
         }else if(formSource=='CashPointsSummary'){
+            var startDate=this.getCashbookreportsheader().down('#startDate').getValue();
+            var endDate=this.getCashbookreportsheader().down('#endDate').getValue();
             var summaryStore =Ext.data.StoreManager.lookup('CashpointsSummaryStore');
             summaryStore.load({
                 params:{
@@ -1468,7 +1444,8 @@ Ext.define('CarePortal.controller.CashBook', {
                 scope: this
             });
         }else if(formSource=='CollectionsBreakdown'){
-
+            var startDate=this.getCashbookreportsheader().down('#startDate').getValue();
+            var endDate=this.getCashbookreportsheader().down('#endDate').getValue();
             var collectionsStore =Ext.data.StoreManager.lookup('CashSaleSummariesStore');
             collectionsStore.load({
                 params:{
@@ -1597,7 +1574,7 @@ Ext.define('CarePortal.controller.CashBook', {
         var sourcePanel=gridpanel.up('grid').getItemId();
         var store1 =Ext.data.StoreManager.lookup('LedgersStore');
 
-        if(sourcePanel=='debtorslist'){
+        if(sourcePanel=='debtorslist2'){
             var store =Ext.data.StoreManager.lookup('DebtorsList');
             store1.add([
                 {ledger: 'DB',code: record.get('accno') ,Name: record.get('name'),Amount: ''}
@@ -1630,6 +1607,7 @@ Ext.define('CarePortal.controller.CashBook', {
                 var pid=button.up('form').down('#Pid').getValue();
                 var patient=button.up('form').down('#Pid').getValue();
                 var cashpoint=button.up('form').down('#CashPoint').getValue();
+                var shiftno=button.up('form').down('#ShiftNo').getValue();
                 var names=button.up('form').down('#PatientName').getValue();
                 var cashier=localStorage.getItem('UserName');
         //         var salesType=button.up('form').down('#salesType').getValue().salesType;
@@ -1646,10 +1624,13 @@ Ext.define('CarePortal.controller.CashBook', {
                             gridData: Ext.util.JSON.encode(gridData)
                         },
                         success: function(form, action) {
-                                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint,"receipt","menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes");
+                                window.open('reports/newreceipt.php?refno='+receiptNo+'&cashier='+cashier+'&paymode='+payMode+'&patientid='+pid+'&patientname='+names+'&total=total&rtext=rtext&cash_point='+cashpoint+"&shiftNo="+shiftno,"receipt","menubar=no,toolbar=no,width=300,height=550,location=yes,resizable=no,scrollbars=no,status=yes");
 
                             form.reset();
-                            ledgerStore.load({});
+        //                     ledgerStore.clearData();
+        //                     ledgerStore.removeAll();
+                            button.up('form').down('#receiptsGrid').getStore().removeAll();
+                            button.up('form').down('#receiptsGrid').getStore().sync();
 
                             this.setReceiptNo1();
 
@@ -1743,6 +1724,29 @@ Ext.define('CarePortal.controller.CashBook', {
 
         shiftReport.down('#formStatus').setValue(strReport);
 
+    },
+
+    addSelectedItems3: function(gridpanel, record, item, index, e, options) {
+        var store =Ext.data.StoreManager.lookup('ItemsListStore');
+        var store1 =Ext.data.StoreManager.lookup('CashSaleStore');
+        store.remove(record);
+        store1.add(record);
+
+    },
+
+    openGlAccountsForm: function(button) {
+        var glAccountForm=Ext.create("CarePortal.view.GlAccountForm",{});
+        var glAccounWindows=Ext.create('Ext.window.Window', {
+            title: 'GL Accounts Entry Form',
+            resizable:false,
+            closable:true
+        });
+
+        glAccounWindows.add(glAccountForm);
+        glAccounWindows.show();
+
+         var store =Ext.data.StoreManager.lookup('AccountGroupsStore');
+        store.load({});
     }
 
 });

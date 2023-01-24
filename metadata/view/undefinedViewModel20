@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "checklist",
+        "designer|userClassName": "undefinedViewModel20"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewModel20",
+    "designerId": "b7fac35b-b73e-4dfc-aff9-c1ee1abf2a9b"
+}

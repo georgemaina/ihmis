@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "anaesthesiarecord",
+        "designer|userClassName": "undefinedViewModel19"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewModel19",
+    "designerId": "ca2810d4-2875-4e3a-8f39-e89252e79f61"
+}

@@ -1001,6 +1001,31 @@
                     "designerId": "41a7d5a9-817d-46e1-9c1d-a332af19fbdd"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "var nhifStore=Ext.data.StoreManager.lookup('NhifRatesStore');",
+                    "        nhifStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "db49d46c-ed9f-4df1-938b-f9acaa7235cf"
         }
     ]
 }

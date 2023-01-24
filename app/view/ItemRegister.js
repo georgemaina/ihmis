@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.ItemRegister', {
 
     requires: [
         'CarePortal.view.ItemRegisterViewModel',
+        'CarePortal.view.ItemRegisterViewController',
         'Ext.tab.Panel',
         'Ext.tab.Tab',
         'Ext.form.FieldSet',
@@ -27,6 +28,7 @@ Ext.define('CarePortal.view.ItemRegister', {
         'Ext.form.field.TextArea'
     ],
 
+    controller: 'itemregister',
     viewModel: {
         type: 'itemregister'
     },
@@ -357,6 +359,9 @@ Ext.define('CarePortal.view.ItemRegister', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

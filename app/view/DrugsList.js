@@ -31,6 +31,7 @@ Ext.define('CarePortal.view.DrugsList', {
     bodyStyle: 'background-color: #d9f2e6;',
     columnLines: true,
     store: 'DrugsList',
+    defaultListenerScope: true,
 
     dockedItems: [
         {
@@ -104,6 +105,15 @@ Ext.define('CarePortal.view.DrugsList', {
             dataIndex: 'IsConsultation',
             text: 'Is Consultation'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onDrugsListAfterRender'
+    },
+
+    onDrugsListAfterRender: function(component, eOpts) {
+
+        var drugsStore=Ext.data.StoreManager.lookup('DrugsList');
+                drugsStore.load({});
+    }
 
 });

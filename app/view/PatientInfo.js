@@ -86,6 +86,11 @@ Ext.define('CarePortal.view.PatientInfo', {
                     text: 'Schedule New Appointments'
                 },
                 {
+                    xtype: 'textfield',
+                    flex: 1,
+                    itemId: 'formStatus'
+                },
+                {
                     xtype: 'tbspacer',
                     flex: 1
                 }

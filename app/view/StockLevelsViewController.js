@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.StockLevelsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.stocklevels'
+    alias: 'controller.stocklevels',
+
+    onFormAfterRender: function(component, eOpts) {
+
+        var levelStore=Ext.data.StoreManager.lookup('StockLevelsStore');
+        levelStore.load({});
+    }
+
 });

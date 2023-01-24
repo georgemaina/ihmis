@@ -183,6 +183,24 @@
                     "designerId": "7c476f20-5637-4340-b3f1-1449cec55188"
                 },
                 {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "layout|flex": 1
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyTextField136",
+                    "designerId": "c4313aa8-587e-4759-a12b-ac641135511d"
+                },
+                {
                     "type": "Ext.toolbar.Spacer",
                     "reference": {
                         "name": "items",

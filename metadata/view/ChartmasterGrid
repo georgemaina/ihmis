@@ -1,0 +1,247 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "chartmastergrid",
+        "designer|userClassName": "ChartmasterGrid",
+        "store": "ChartMasterStore"
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "store": "store"
+    },
+    "name": "MyGridPanel10",
+    "designerId": "cc99cf32-42a8-438e-891e-a04ab4835f7b",
+    "viewControllerInstanceId": "dc3d2dc9-2f69-41d5-b251-9844be563282",
+    "viewModelInstanceId": "9b1d9d1d-ff80-477a-bbaf-fd7622a8f56e",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable10",
+            "designerId": "c66a1a8c-43d2-4a4c-9765-9dd7a66c77a6"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "accountcode",
+                "text": "Accountcode"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn153",
+            "designerId": "e564e940-abc4-4176-abb3-20859f12bbd5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "accountname",
+                "text": "Accountname",
+                "width": 265
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn154",
+            "designerId": "179bbaca-bf23-4405-a218-384859452fd5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "group_",
+                "text": "Group"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn155",
+            "designerId": "60452442-976c-488c-bf4d-34dda7a224b4"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "acttype",
+                "text": "PL or BL",
+                "width": 312
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn152",
+            "designerId": "32147e8f-ce57-41e1-b67b-551dd7deef19"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "ChartMasterStore"
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store"
+            },
+            "name": "MyPagingToolbar11",
+            "designerId": "c47beba2-d8c4-4aea-9d13-04c60382ee76"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "dock": "top",
+                "height": 43,
+                "layout": "hbox",
+                "padding": 5,
+                "width": 100
+            },
+            "configAlternates": {
+                "dock": "string",
+                "height": "auto",
+                "width": "auto",
+                "container|align": "string",
+                "layout": "string",
+                "padding": "auto"
+            },
+            "name": "MyContainer34",
+            "designerId": "d88c60ed-4cdd-48f5-ab00-1914f5a5821e",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Search GL Accounts",
+                        "width": 307
+                    },
+                    "configAlternates": {
+                        "emptyText": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField133",
+                    "designerId": "fa300a24-b1aa-4bf2-98be-a2c71c58b85e"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-search",
+                        "margin": "0 0 0 5",
+                        "text": "Search",
+                        "width": 101
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "margin": "auto",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton41",
+                    "designerId": "96f11cca-17d7-4ecc-ae1f-3271894b99f7"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-plus",
+                        "itemId": "cmdNewGlAccount",
+                        "margin": "0 0 0 50",
+                        "text": "New Account"
+                    },
+                    "configAlternates": {
+                        "margin": "auto",
+                        "text": "string",
+                        "iconCls": "string",
+                        "itemId": "string"
+                    },
+                    "name": "MyButton42",
+                    "designerId": "468103db-8434-4545-9900-a4c72a65355f"
+                }
+            ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onGridpanelAfterRender",
+                "implHandler": [
+                    "var glStore=Ext.data.StoreManager.lookup('ChartMasterStore');",
+                    "glStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelAfterRender",
+            "designerId": "ea6386cc-595c-4574-a6e9-d94ec13966fe"
+        }
+    ]
+}

@@ -8,7 +8,7 @@
     "userConfig": {
         "designer|userClassName": "css_mcimim66",
         "id": "Charts",
-        "url": "../ext-6.5/build//packages/charts/classic/triton/resources/charts-all.css"
+        "url": "../ext-7.6.0/build//packages/charts/classic/triton/resources/charts-all.css"
     },
     "configAlternates": {
         "designer|userClassName": "string",

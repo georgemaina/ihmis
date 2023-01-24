@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "receiptsadj",
+        "designer|userClassName": "ReceiptsAdjViewModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "CashSalesViewModel1",
+    "designerId": "31172ab1-fa0c-4f0d-8c52-d8be7ae49c7f"
+}

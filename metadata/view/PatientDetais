@@ -136,6 +136,7 @@
                 "fieldStyle": "color:#a7e88b;font-weight-bold;",
                 "itemId": "Dob",
                 "labelStyle": "font-weight:bold; color:#f4f6fc;",
+                "reference": "Dob",
                 "width": 239
             },
             "configAlternates": {
@@ -147,7 +148,8 @@
                 "width": "auto",
                 "itemId": "string",
                 "fieldStyle": "string",
-                "labelStyle": "string"
+                "labelStyle": "string",
+                "reference": "string"
             },
             "name": "MyDisplayField2",
             "designerId": "dae13e1f-fadd-4749-a30d-b2c0ccc97174"

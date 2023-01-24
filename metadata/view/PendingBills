@@ -267,6 +267,32 @@
             },
             "name": "MyColumn136",
             "designerId": "ea5905b1-979c-4cb9-aabd-0a7f729ed490"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPendingBillsAfterRender",
+                "implHandler": [
+                    "",
+                    "var pendingStore=Ext.data.StoreManager.lookup('PendingPatientBills');",
+                    "        pendingStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onPendingBillsAfterRender",
+            "designerId": "36250602-4888-4d63-b07f-44eeb8d275d4"
         }
     ]
 }

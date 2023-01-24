@@ -104,12 +104,30 @@ Ext.define('CarePortal.view.MenuDiagram', {
         },
         {
             xtype: 'image',
-            x: 255,
-            y: 280,
+            x: 75,
+            y: 375,
+            height: 120,
+            itemId: 'btnEye',
+            width: 115,
+            src: 'resources/eye.png'
+        },
+        {
+            xtype: 'image',
+            x: 250,
+            y: 275,
             height: 120,
             itemId: 'btnImmunization',
             width: 115,
             src: 'resources/immunization.fw.png'
+        },
+        {
+            xtype: 'image',
+            x: 195,
+            y: 370,
+            height: 120,
+            itemId: 'btnDental',
+            width: 115,
+            src: 'resources/dental.png'
         },
         {
             xtype: 'image',
@@ -129,6 +147,16 @@ Ext.define('CarePortal.view.MenuDiagram', {
             itemId: 'btnMch',
             width: 115,
             src: 'resources/mch.fw.png'
+        },
+        {
+            xtype: 'image',
+            x: 310,
+            y: 185,
+            height: 120,
+            id: 'btnMch1',
+            itemId: 'btnProcedures',
+            width: 115,
+            src: 'resources/procedures.png'
         }
     ]
 

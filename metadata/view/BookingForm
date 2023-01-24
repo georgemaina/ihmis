@@ -1,0 +1,593 @@
+{
+    "type": "Ext.form.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "bodyPadding": 2,
+        "container|align": "stretch",
+        "designer|userAlias": "bookingform",
+        "designer|userClassName": "BookingForm",
+        "frame": true,
+        "layout": "vbox",
+        "title": null,
+        "url": "../data/getDataFunctions.php?task=createBooking",
+        "width": 924
+    },
+    "configAlternates": {
+        "bodyPadding": "auto",
+        "designer|snapToGrid": "number",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "frame": "boolean",
+        "height": "auto",
+        "layout": "string",
+        "title": "string",
+        "url": "string",
+        "width": "auto",
+        "container|align": "string"
+    },
+    "name": "BookingForm1",
+    "designerId": "8cb2f5ce-09c5-445b-aa7c-0d0d2ddbf527",
+    "viewControllerInstanceId": "52a62b70-5bbf-4250-b3eb-349f71f545f4",
+    "viewModelInstanceId": "abff0459-f7fe-431f-8261-ac959ec0bc84",
+    "cn": [
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "container|padding": 2,
+                "layout": "hbox",
+                "layout|flex": 1
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "container|padding": "auto",
+                "layout": "string",
+                "layout|flex": "number"
+            },
+            "name": "MyContainer26",
+            "designerId": "eecff3ed-ec0c-4ff8-8713-9e65d8bc1084",
+            "cn": [
+                {
+                    "type": "Ext.form.field.ComboBox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "displayField": "sname",
+                        "fieldLabel": "Procedure Status",
+                        "labelWidth": 120,
+                        "layout|flex": 1,
+                        "margin": 5,
+                        "name": "status",
+                        "store": "ProcedureStatusStore",
+                        "valueField": "sname"
+                    },
+                    "configAlternates": {
+                        "displayField": "datafield",
+                        "fieldLabel": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "store": "store",
+                        "valueField": "datafield",
+                        "labelWidth": "number",
+                        "layout|flex": "number",
+                        "margin": "auto"
+                    },
+                    "name": "MyComboBox7",
+                    "designerId": "40dd54a4-60e6-4210-93aa-e7a32d493066"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "Booking No",
+                        "layout|flex": 1,
+                        "margin": 5,
+                        "name": "BookingNo",
+                        "readOnly": true
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "name": "string",
+                        "readOnly": "boolean",
+                        "layout|flex": "number",
+                        "margin": "auto"
+                    },
+                    "name": "MyTextField9",
+                    "designerId": "cb22adca-ff82-4d41-9e64-39c88b924f85"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "layout": "hbox"
+            },
+            "configAlternates": {
+                "container|align": "string",
+                "layout": "string"
+            },
+            "name": "MyContainer17",
+            "designerId": "4078b016-c47b-46ee-98de-2cbe99bf33b8",
+            "cn": [
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "title": "Procedure Details",
+                        "width": 430
+                    },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "dock": "string",
+                        "height": "auto",
+                        "layout": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "title": "string",
+                        "width": "auto",
+                        "container|align": "string",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyFieldSet2",
+                    "designerId": "18de8408-9b40-4a77-9084-604b0b29892d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "proc_class",
+                                "fieldLabel": "Procedure Class",
+                                "name": "procedure_class",
+                                "store": "ProcedureClassStore",
+                                "valueField": "ID"
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield"
+                            },
+                            "name": "MyComboBox3",
+                            "designerId": "eb7daa58-32e6-4d78-86cf-fc21da163149"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "description",
+                                "fieldLabel": "Diagnosis",
+                                "hideTrigger": true,
+                                "name": "diagnosis",
+                                "store": "DiagnosisStore",
+                                "valueField": "diagnosis_code",
+                                "width": 390
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "hideTrigger": "boolean",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "width": "auto"
+                            },
+                            "name": "MyComboBox5",
+                            "designerId": "2f4bd0af-6167-4ae0-8e57-02d8b6f6f5ec"
+                        },
+                        {
+                            "type": "Ext.form.field.Time",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "OP Start Time",
+                                "format": "H:i:s",
+                                "name": "op_starttime"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "format": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string"
+                            },
+                            "name": "MyTimeField",
+                            "designerId": "bf4cc4d9-7d39-4cfa-9636-4bb8be7eb9a6"
+                        },
+                        {
+                            "type": "Ext.form.field.Time",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "OP End Time",
+                                "format": "H:i:s",
+                                "name": "op_endtime"
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "format": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string"
+                            },
+                            "name": "MyTimeField1",
+                            "designerId": "43103f3e-c3f1-473e-9351-f7326783dd5c"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "room_name",
+                                "fieldLabel": "Operation Room",
+                                "name": "op_room",
+                                "store": "TheatreRoomsStore",
+                                "valueField": "room_no"
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield"
+                            },
+                            "name": "MyComboBox6",
+                            "designerId": "972c3201-d8a5-41b1-8e48-e73828b34da2"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Scrub Nurse/Tech",
+                                "name": "scrub_nurse",
+                                "width": 395
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyTextField6",
+                            "designerId": "f5087a45-0451-4b1b-bcb8-bc49aea79ec1"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "layout": "vbox",
+                        "layout|flex": 1,
+                        "title": "Surgeons",
+                        "width": 380
+                    },
+                    "configAlternates": {
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "title": "string",
+                        "width": "auto",
+                        "container|align": "string",
+                        "layout": "string",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyFieldSet1",
+                    "designerId": "87149aee-fe12-4653-b040-60995db709fa",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "blankText": "Surgeon is required",
+                                "displayField": "staff_name",
+                                "fieldLabel": "Surgeon",
+                                "minChars": 1,
+                                "name": "surgeon",
+                                "store": "StaffStore",
+                                "valueField": "ID",
+                                "width": 319
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "blankText": "string",
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "minChars": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "width": "auto"
+                            },
+                            "name": "MyComboBox",
+                            "designerId": "98a1f5e7-1cbb-47fa-be3b-a4542a97f09d"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "staff_name",
+                                "fieldLabel": "Asst. Surgeon",
+                                "minChars": 1,
+                                "name": "asst_surgeon",
+                                "store": "StaffStore",
+                                "valueField": "ID",
+                                "width": 319
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "minChars": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "width": "auto"
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "a7b4b6c7-3008-4e74-a07b-c93f4d3d04fe"
+                        },
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "item_description",
+                                "fieldLabel": "Planned Surgery",
+                                "minChars": 3,
+                                "name": "procedure_type",
+                                "store": "ProcedureNamesStore",
+                                "valueField": "partcode",
+                                "width": 354
+                            },
+                            "configAlternates": {
+                                "displayField": "datafield",
+                                "fieldLabel": "string",
+                                "minChars": "number",
+                                "name": "string",
+                                "store": "store",
+                                "valueField": "datafield",
+                                "width": "auto"
+                            },
+                            "name": "MyComboBox2",
+                            "designerId": "bbbf5421-2861-479b-9fbe-2c0657cc9e14"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "allowBlank": false,
+                                "fieldLabel": "Procedure Date",
+                                "name": "procedure_date"
+                            },
+                            "configAlternates": {
+                                "allowBlank": "boolean",
+                                "fieldLabel": "string",
+                                "name": "string"
+                            },
+                            "name": "MyDateField",
+                            "designerId": "5c479be8-54f7-40a1-b893-95b29c6d1e62"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "container|align": "stretch",
+                                "container|pack": "center",
+                                "layout": "hbox",
+                                "layout|flex": 0
+                            },
+                            "configAlternates": {
+                                "container|align": "string",
+                                "container|pack": "string",
+                                "layout": "string",
+                                "layout|flex": "number"
+                            },
+                            "name": "MyContainer33",
+                            "designerId": "d69805cd-b5d2-4f66-963c-db0fc2191d69",
+                            "cn": [
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 40,
+                                        "id": "cmdSave",
+                                        "margin": 5,
+                                        "text": "Save Form",
+                                        "width": 180
+                                    },
+                                    "configAlternates": {
+                                        "height": "auto",
+                                        "id": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "text": "string",
+                                        "width": "auto",
+                                        "margin": "auto"
+                                    },
+                                    "name": "MyButton",
+                                    "designerId": "a2b828d7-bd76-4b16-9b08-b3e3e27692b1"
+                                },
+                                {
+                                    "type": "Ext.button.Button",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "height": 50,
+                                        "id": "cmdClose",
+                                        "margin": 5,
+                                        "text": "Close",
+                                        "width": 180
+                                    },
+                                    "configAlternates": {
+                                        "height": "auto",
+                                        "id": "string",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "text": "string",
+                                        "width": "auto",
+                                        "margin": "auto"
+                                    },
+                                    "name": "MyButton1",
+                                    "designerId": "7c3b83c1-e722-466a-9643-b383399a6e41"
+                                },
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fieldLabel": null,
+                                        "hidden": true,
+                                        "layout|flex": 1,
+                                        "name": "formStatus",
+                                        "value": null
+                                    },
+                                    "configAlternates": {
+                                        "fieldLabel": "string",
+                                        "hidden": "boolean",
+                                        "layout|x": "number",
+                                        "layout|y": "number",
+                                        "name": "string",
+                                        "value": "object",
+                                        "layout|flex": "number"
+                                    },
+                                    "name": "MyTextField7",
+                                    "designerId": "833d7be3-2c4b-403f-a352-178a73a60f83"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyContainer32",
+            "designerId": "1793e7f7-1c27-4d90-9a3f-8cb46d7ce7c3"
+        },
+        {
+            "type": "Ext.form.field.HtmlEditor",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Other Notes",
+                "height": 200,
+                "labelAlign": "top",
+                "name": "notes"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "height": "auto",
+                "labelAlign": "string",
+                "layout|anchor": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "name": "string"
+            },
+            "name": "MyHtmlEditor",
+            "designerId": "e5917534-d3af-44b3-aca2-aebc454c1d6a"
+        }
+    ]
+}

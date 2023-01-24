@@ -27,7 +27,7 @@ Ext.define('CarePortal.store.Prescriptions', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'Prescriptions',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.Prescriptions',
             proxy: {
                 type: 'memory'

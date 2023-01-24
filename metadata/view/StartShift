@@ -354,6 +354,32 @@
             },
             "name": "MyButton",
             "designerId": "561c4f6b-1d3b-47dd-8846-a7acaea13bd5"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    "var cashPointsStore=Ext.data.StoreManager.lookup('CashPointsStore');",
+                    "        cashPointsStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "18a71110-4e12-4419-8def-4eb217ee6328"
         }
     ]
 }

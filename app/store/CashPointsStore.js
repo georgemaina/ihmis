@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.CashPointsStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'CashPointsStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.CashPoints',
             proxy: {
                 type: 'ajax',

@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.PendingBills', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'PendingBills',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.PendingBills',
             proxy: {
                 type: 'ajax',

@@ -275,6 +275,32 @@
             "name": "servicesprocedures1",
             "designerId": "7a58b493-aedf-4ce3-89d3-4d78a9d29353",
             "masterInstanceId": "442b0dfa-255b-4f31-93cc-cfff5ee65e52"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onServicesAfterRender",
+                "implHandler": [
+                    "",
+                    "var serviceStore=Ext.data.StoreManager.lookup('ServicesStore');",
+                    "        serviceStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onServicesAfterRender",
+            "designerId": "050bc6fe-ec00-4111-87f4-f272af142184"
         }
     ]
 }

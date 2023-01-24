@@ -154,6 +154,26 @@
                             },
                             "name": "MyButton",
                             "designerId": "aa379889-c6f2-41d9-a5b6-36ecdd124599"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "itemId": "formStatus",
+                                "layout|x": 670,
+                                "layout|y": 5
+                            },
+                            "configAlternates": {
+                                "itemId": "string",
+                                "layout|x": "number",
+                                "layout|y": "number"
+                            },
+                            "name": "MyTextField132",
+                            "designerId": "d5cd5f46-8794-4ea6-ad3f-15cd99c4e43c"
                         }
                     ]
                 },
@@ -611,6 +631,32 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    "var levelStore=Ext.data.StoreManager.lookup('StockLevelsStore');",
+                    "        levelStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "67818af9-2e0c-40c5-9b36-c0635cdc9379"
         }
     ]
 }

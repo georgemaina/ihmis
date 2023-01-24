@@ -14,7 +14,6 @@
             "{moveOnDrag:false}"
         ],
         "frame": true,
-        "height": 800,
         "itemId": "OutpatientVisits",
         "minHeight": null,
         "scrollable": "both",

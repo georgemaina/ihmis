@@ -1,0 +1,57 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userAlias": "theatreroomsstore",
+        "designer|userClassName": "TheatreRoomsStore",
+        "model": "TheatreRooms",
+        "storeId": "TheatreRoomsStore"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore4",
+    "designerId": "67a66619-8ffa-479d-a9a9-5082c3a6cbd0",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getTheatreRooms"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy8",
+            "designerId": "257f0c44-b977-4ee8-9f97-eb0175dd2038",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "configAlternates": {
+                        "root": "string"
+                    },
+                    "name": "MyJsonReader8",
+                    "designerId": "e36f11f5-0624-44b0-a153-a001d52fe6e9"
+                }
+            ]
+        }
+    ]
+}

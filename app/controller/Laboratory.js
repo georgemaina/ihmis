@@ -450,8 +450,6 @@ Ext.define('CarePortal.controller.Laboratory', {
     },
 
     collectSpecimen: function(component, eOpts) {
-        var specimen=Ext.create("CarePortal.view.SpecimenCollection",{});
-
         component.getEl().on('click', function() {
           Ext.Ajax.request(
              {
@@ -463,6 +461,8 @@ Ext.define('CarePortal.controller.Laboratory', {
                  success: function(response, options) {
                      //return true;
                       var strErr=Ext.decode(response.responseText);
+                     var specimen=Ext.create("CarePortal.view.SpecimenCollection",{});
+
                          //Ext.Msg.alert('Response',strErr.Resp);
                         if(strErr.Resp==='Access'){
                             var containterWindows=Ext.create('Ext.window.Window', {
@@ -522,7 +522,6 @@ Ext.define('CarePortal.controller.Laboratory', {
     },
 
     receiveSpecimen: function(component, eOpts) {
-        var specimen=Ext.create("CarePortal.view.SpecimenReceived",{});
         component.getEl().on('click', function() {
         Ext.Ajax.request(
              {
@@ -534,6 +533,8 @@ Ext.define('CarePortal.controller.Laboratory', {
                  success: function(response, options) {
                      //return true;
                       var strErr=Ext.decode(response.responseText);
+                     var specimen=Ext.create("CarePortal.view.SpecimenReceived",{});
+
                         // Ext.Msg.alert('Response',strErr.Resp);
                         if(strErr.Resp==='Access'){
                             var containterWindows=Ext.create('Ext.window.Window', {

@@ -346,6 +346,24 @@
                     },
                     "name": "MyComboBox8",
                     "designerId": "fc96f2f9-3846-4009-b992-0de891201a81"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|x": 809,
+                        "layout|y": 17
+                    },
+                    "configAlternates": {
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField130",
+                    "designerId": "df66044c-3269-4d87-b695-0d2becaf9688"
                 }
             ]
         },
@@ -636,6 +654,39 @@
                     "designerId": "c95c0b6d-921e-4200-8282-e865effde640"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    "var deptStore=Ext.data.StoreManager.lookup('LocationsStore');",
+                    "        deptStore.load({});",
+                    "",
+                    "",
+                    "var locStore=Ext.data.StoreManager.lookup('StoreLocationsStore');",
+                    "        locStore.load({});",
+                    "",
+                    "var drugStore=Ext.data.StoreManager.lookup('DrugsList');",
+                    "        drugStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "f154208f-2e92-44dd-8f26-dc6d9e25f909"
         }
     ]
 }

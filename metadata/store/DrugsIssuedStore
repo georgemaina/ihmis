@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "drugsissuedstore",
+        "designer|userClassName": "DrugsIssuedStore",
+        "model": "DrugsIssued"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "7f5d3f52-67dd-4373-a885-628eb84a8d9d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getDrugsIssued"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy30",
+            "designerId": "652599b4-7ef4-46d7-9c12-7d8d55fb2565",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader29",
+                    "designerId": "653737b3-23f1-48a4-8287-1122786672cc"
+                }
+            ]
+        }
+    ]
+}

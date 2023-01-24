@@ -20,6 +20,28 @@ Ext.define('CarePortal.view.ItemsMasterViewController', {
     showView1: function(view) {
         var layout = this.getReferences().display.getLayout();
         layout.setActiveItem(this.lookupReference(view));
+    },
+
+    onTabpanelAfterRender: function(component, eOpts) {
+
+        var itemsStore=Ext.data.StoreManager.lookup('InventoryItemStore');
+        itemsStore.load({});
+
+
+        var locStore=Ext.data.StoreManager.lookup('LocationsStore');
+        locStore.load({});
+
+        var statusStore=Ext.data.StoreManager.lookup('ItemStatusStore');
+        statusStore.load({});
+
+        var priceTypeStore=Ext.data.StoreManager.lookup('PricesTypeStore');
+        priceTypeStore.load({});
+
+        var pricesStore=Ext.data.StoreManager.lookup('PricesStore');
+        pricesStore.load({});
+
+        var itemStore=Ext.data.StoreManager.lookup('ItemLocationStore');
+        itemStore.load({});
     }
 
 });

@@ -365,32 +365,23 @@
                     "designerId": "367682d1-55fd-44b5-9b44-f5349382e6a4"
                 },
                 {
-                    "type": "Ext.button.Button",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-share-square-o",
-                        "itemId": "cmdExportVisits",
                         "layout|x": 650,
-                        "layout|y": 5,
-                        "text": "<b>Export</b>",
-                        "width": 110
+                        "layout|y": 5
                     },
                     "configAlternates": {
-                        "itemId": "string",
-                        "layout|flex": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean",
-                        "iconCls": "string",
                         "layout|x": "number",
                         "layout|y": "number"
                     },
-                    "name": "MyButton6",
-                    "designerId": "eb0b239b-1d10-4568-ac2f-b1a54f0b145b"
+                    "name": "exportbutton1",
+                    "designerId": "ef153580-e62d-42be-b54e-dd7c5424e460",
+                    "masterInstanceId": "15d94679-1fbf-405f-98d7-69c54c477c25"
                 },
                 {
                     "type": "Ext.button.Button",
@@ -449,6 +440,103 @@
                     "designerId": "9cacfbb4-e293-4ceb-bfe4-73ef56f7d3d5"
                 }
             ]
+        },
+        {
+            "type": "Ext.grid.plugin.Exporter",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyGridExporterPlugin2",
+            "designerId": "d5f6eec0-8dbb-4a76-a89b-cf1ec70382b5"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelDocumentsave",
+                "implHandler": [
+                    "gridpanel.unmask();",
+                    "Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "documentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelDocumentsave",
+            "designerId": "03317d68-c069-404f-8e42-c5584cc6d590"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelBeforeDocumentsave",
+                "implHandler": [
+                    "this.timeStarted = Date.now();",
+                    "gridpanel.mask('Document is prepared for export. Please wait ...');",
+                    "Ext.log('export started');"
+                ],
+                "name": "beforedocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelBeforeDocumentsave",
+            "designerId": "0f61511f-ea0a-45d0-b9bf-a48c2b993c03"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelDataReady",
+                "implHandler": [
+                    "Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "dataready",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelDataReady",
+            "designerId": "812b8b81-f158-47a3-b8e5-f63011da5698"
         }
     ]
 }

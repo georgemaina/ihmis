@@ -293,6 +293,32 @@
                     "designerId": "d2c458ae-b86a-4abf-8a79-748d6e1e8a14"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onShiftsGridAfterRender",
+                "implHandler": [
+                    "",
+                    "var shiftsStore=Ext.data.StoreManager.lookup('ShiftsStore');",
+                    "        shiftsStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onShiftsGridAfterRender",
+            "designerId": "f1e98df2-8953-48d7-8a7f-19fb6cdb37c0"
         }
     ]
 }

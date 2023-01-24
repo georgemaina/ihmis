@@ -207,7 +207,7 @@ Ext.define('CarePortal.view.OutpatientList', {
             items: [
                 {
                     xtype: 'textfield',
-                    x: 0,
+                    x: 10,
                     y: 5,
                     itemId: 'txtOpSearch',
                     width: 470,
@@ -238,6 +238,12 @@ Ext.define('CarePortal.view.OutpatientList', {
                     fieldLabel: 'Show all Patients',
                     labelStyle: 'color:green;font-size:14px;font-weight:bold;',
                     labelWidth: 130
+                },
+                {
+                    xtype: 'textfield',
+                    x: 1175,
+                    y: 1,
+                    itemId: 'formStatus'
                 }
             ]
         }

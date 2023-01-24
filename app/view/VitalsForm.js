@@ -59,7 +59,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 80,
-                    name: 'weight'
+                    name: 'weight',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -72,6 +73,7 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 120,
                     name: 'height',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     listeners: {
                         change: 'onHeightChange'
                     }
@@ -84,7 +86,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 160,
-                    name: 'head_c'
+                    name: 'head_c',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -96,6 +99,7 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 120,
                     name: 'bp',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     emptyText: 'Systoric'
                 },
                 {
@@ -105,6 +109,7 @@ Ext.define('CarePortal.view.VitalsForm', {
                     width: 91,
                     labelAlign: 'right',
                     name: 'bp2',
+                    fieldStyle: 'color:#630921; font-weight:bold;',
                     emptyText: 'Diastoric'
                 },
                 {
@@ -115,7 +120,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 80,
-                    name: 'pulse'
+                    name: 'pulse',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -126,7 +132,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 80,
-                    name: 'notes'
+                    name: 'notes',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -136,7 +143,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 120,
-                    name: 'resprate'
+                    name: 'resprate',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -146,7 +154,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 120,
-                    name: 'temperature'
+                    name: 'temperature',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -156,7 +165,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 80,
-                    name: 'spo2'
+                    name: 'spo2',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'textfield',
@@ -167,7 +177,8 @@ Ext.define('CarePortal.view.VitalsForm', {
                     labelAlign: 'right',
                     labelStyle: 'color:green; font-weight:bold;',
                     labelWidth: 80,
-                    name: 'bmi'
+                    name: 'bmi',
+                    fieldStyle: 'color:#630921; font-weight:bold;'
                 },
                 {
                     xtype: 'button',
@@ -216,7 +227,7 @@ Ext.define('CarePortal.view.VitalsForm', {
                     fieldLabel: 'PID',
                     labelStyle: 'font-weight:bold; color:#f4f6fc;',
                     labelWidth: 30,
-                    fieldStyle: 'color:#a7e88b;font-weight-bold;'
+                    fieldStyle: 'color:#a7e88b;font-weight-bold;font-size:14px;'
                 },
                 {
                     xtype: 'displayfield',

@@ -1,0 +1,71 @@
+{
+    "type": "Ext.calendar.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "mycalendar",
+        "designer|userClassName": "MyCalendar",
+        "height": 1000,
+        "width": 1200
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "height": "auto",
+        "store": "store",
+        "width": "auto"
+    },
+    "name": "MyCalendar",
+    "designerId": "1f444311-8768-495b-90dd-1fa16a483445",
+    "viewControllerInstanceId": "f0d56f64-bc65-44ba-b576-ad7893fe3e24",
+    "viewModelInstanceId": "8360709d-543e-486f-ba62-d5ae54346d44",
+    "cn": [
+        {
+            "type": "Ext.calendar.panel.Day",
+            "reference": {
+                "name": "views",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "endTime": 22,
+                "label": "Day",
+                "startTime": 6
+            },
+            "configAlternates": {
+                "endTime": "number",
+                "label": "string",
+                "startTime": "number"
+            },
+            "name": "MyDay",
+            "designerId": "38922e07-ca97-43d8-895e-5527f35a43c8"
+        },
+        {
+            "type": "Ext.calendar.panel.Week",
+            "reference": {
+                "name": "views",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dayHeaderFormat": "D d",
+                "firstDayOfWeek": 1,
+                "label": "Work Week",
+                "titleTpl": "{start:date(\"j M\")} - {end:date(\"j M\")}",
+                "weight": 15
+            },
+            "configAlternates": {
+                "dayHeaderFormat": "string",
+                "firstDayOfWeek": "number",
+                "label": "string",
+                "titleTpl": "string",
+                "weight": "number"
+            },
+            "name": "MyWeek",
+            "designerId": "68c7577f-ac7c-4e10-a687-ff8c9774bdea"
+        }
+    ]
+}

@@ -56,7 +56,7 @@ require_once($root_path .'include/myFunctions.php');
 
             $sql2="SELECT DISTINCT b.pid,CONCAT(b.name_first,' ',name_last,' ',name_2) AS PatientNames,c.`name` as company,s.`Slip_no`,
                                 s.slip_date,s.served_by,m.memberID, b.date_birth
-                    FROM care_person b LEFT JOIN care_tz_company c ON b.`insurance_ID`=c.`accno` LEFT JOIN care_ke_slips s ON b.`pid`=s.`pid`
+                    FROM care_person b LEFT JOIN care_tz_company c ON b.`insurance_ID`=c.`id` LEFT JOIN care_ke_slips s ON b.`pid`=s.`pid`
                      LEFT JOIN care_ke_debtormembers m on b.pid=m.PID
                 WHERE b.pid='$pid' ";
 

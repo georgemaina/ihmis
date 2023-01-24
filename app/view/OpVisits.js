@@ -19,14 +19,18 @@ Ext.define('CarePortal.view.OpVisits', {
 
     requires: [
         'CarePortal.view.OpVisitsViewModel',
+        'CarePortal.view.OpVisitsViewController',
+        'CarePortal.view.ExportButton',
         'Ext.view.Table',
         'Ext.grid.column.Number',
         'Ext.grid.feature.GroupingSummary',
         'Ext.XTemplate',
         'Ext.form.field.Date',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.grid.plugin.Exporter'
     ],
 
+    controller: 'opvisits',
     viewModel: {
         type: 'opvisits'
     },
@@ -131,13 +135,9 @@ Ext.define('CarePortal.view.OpVisits', {
                     text: '<b>Preview</b>'
                 },
                 {
-                    xtype: 'button',
+                    xtype: 'exportbutton',
                     x: 650,
-                    y: 5,
-                    itemId: 'cmdExportVisits',
-                    width: 110,
-                    iconCls: 'x-fa fa-share-square-o',
-                    text: '<b>Export</b>'
+                    y: 5
                 },
                 {
                     xtype: 'button',
@@ -159,6 +159,16 @@ Ext.define('CarePortal.view.OpVisits', {
                 }
             ]
         }
-    ]
+    ],
+    plugins: [
+        {
+            ptype: 'gridexporter'
+        }
+    ],
+    listeners: {
+        documentsave: 'onGridpanelDocumentsave',
+        beforedocumentsave: 'onGridpanelBeforeDocumentsave',
+        dataready: 'onGridpanelDataReady'
+    }
 
 });

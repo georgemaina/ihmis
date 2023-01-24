@@ -1,0 +1,50 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "accountsectionstore",
+        "designer|userClassName": "AccountSectionStore",
+        "model": "AccountSectionModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "1d92ef03-1630-4ef8-a6a0-dabf0fa671ca",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getAccountingFunctions.php?task=getAccountSection"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy30",
+            "designerId": "ccf37e79-6bc4-4147-8740-b0f1f183a5a4",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader29",
+                    "designerId": "898aebad-68db-4ff1-bbb8-6c94e286a8c9"
+                }
+            ]
+        }
+    ]
+}

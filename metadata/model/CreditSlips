@@ -104,7 +104,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Accno"
+                "name": "AccNo"
             },
             "configAlternates": {
                 "name": "string"
@@ -120,7 +120,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Company"
+                "name": "AccName"
             },
             "configAlternates": {
                 "name": "string"

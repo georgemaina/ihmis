@@ -84,6 +84,9 @@ switch ($caller) {
     case "getItemsList":
         getItemsList($searchParam,$start,$limit);
         break;
+    case "getCatalogList":
+        getCatalogList($searchParam,$start,$limit);;
+        break;
     case "saveDebit":
         saveDebits($enc_obj,$insurance_obj);
         break;
@@ -1297,13 +1300,55 @@ function saveDebits($enc_obj, $insurance_obj) {
         }
 }
 
+function getCatalogList($searchParam,$start,$limit) {
+    global $db;
+    $debug = false;
+
+    $storeLoc=$_REQUEST['storeLoc'];
+
+    $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`,c.`catID`
+            FROM care_tz_drugsandservices d 
+            LEFT JOIN care_tz_itemscat c ON d.`category`=c.`catID`
+            where d.purchasing_class <>''";
+
+    if($searchParam<>''){
+        $sql=$sql." and partcode='$searchParam' OR d.item_description like '%$searchParam%'";
+    }
+
+    $sql=$sql."order by d.`item_description` asc";
+
+    if ($debug)
+        echo $sql;
+
+    $result = $db->Execute($sql);
+    $total = $result->RecordCount();
+    echo '[';
+    $counter = 0;
+    while ($row = $result->FetchRow()) {
+        $description = preg_replace('/[^a-zA-Z0-9_ -]/s', '', $row['item_description']);
+
+        echo '{"PartCode":"' . $row['partcode'] . '","Description":"' . $description
+            . '","CatID":"' . $row['catID']. '","Category":"' . $row['item_Cat'] 
+            . '","Price":"' . $row['unit_price'] .'"}';
+
+        $counter++;
+
+        if ($counter <> $total) {
+            echo ",";
+        }
+    }
+    echo ']';
+}
+
+
 function getItemsList($searchParam,$start,$limit) {
     global $db;
     $debug = false;
 
     $storeLoc=$_REQUEST['storeLoc'];
 
-    $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`,c.`catID`,s.quantity,s.`loccode`
+    $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`,c.`catID`
+                 ,s.quantity,s.`loccode`
             FROM care_tz_drugsandservices d 
             LEFT JOIN care_tz_itemscat c ON d.`category`=c.`catID` 
             LEFT JOIN care_ke_locstock s ON d.`partcode`=s.stockid

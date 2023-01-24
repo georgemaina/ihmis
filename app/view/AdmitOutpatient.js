@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
 
     requires: [
         'CarePortal.view.AdmitOutpatientViewModel',
+        'CarePortal.view.AdmitOutpatientViewController',
         'Ext.form.Label',
         'Ext.form.field.ComboBox',
         'Ext.form.FieldContainer',
@@ -26,6 +27,7 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
         'Ext.toolbar.Spacer'
     ],
 
+    controller: 'admitoutpatient',
     viewModel: {
         type: 'admitoutpatient'
     },
@@ -51,8 +53,10 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
             width: 418,
             fieldLabel: 'Clinic or Department',
             labelAlign: 'right',
+            labelStyle: 'color:green; font-weight:bold;',
             labelWidth: 200,
             name: 'current_dept_nr',
+            fieldStyle: 'color:#630921; font-weight:bold;',
             displayField: 'Description',
             minChars: 2,
             queryMode: 'local',
@@ -65,8 +69,10 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
             width: 416,
             fieldLabel: 'Registration or Consultation Fee',
             labelAlign: 'right',
+            labelStyle: 'color:green; font-weight:bold;',
             labelWidth: 200,
             name: 'consultation_fee',
+            fieldStyle: 'color:#630921; font-weight:bold;',
             displayField: 'Item_Description',
             minChars: 2,
             queryMode: 'local',
@@ -79,8 +85,10 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
             width: 416,
             fieldLabel: 'Payment Plan',
             labelAlign: 'right',
+            labelStyle: 'color:green; font-weight:bold;',
             labelWidth: 200,
             name: 'financial_class',
+            fieldStyle: 'color:#630921; font-weight:bold;',
             store: [
                 'Self',
                 'Insurance'
@@ -91,8 +99,10 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
             width: 416,
             fieldLabel: 'Referal Method',
             labelAlign: 'right',
+            labelStyle: 'color:green; font-weight:bold;',
             labelWidth: 200,
-            name: 'referalMethod'
+            name: 'referalMethod',
+            fieldStyle: 'color:#630921; font-weight:bold;'
         },
         {
             xtype: 'combobox',
@@ -124,11 +134,10 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
             items: [
                 {
                     xtype: 'button',
-                    itemId: 'saveOpAdmission',
-                    margin: '0 0 0 5',
-                    width: 146,
-                    iconCls: 'x-fa fa-plus',
-                    text: 'Save Admission'
+                    itemId: 'cancelAdmit',
+                    width: 126,
+                    iconCls: 'x-fa fa-trash',
+                    text: 'Cancel'
                 },
                 {
                     xtype: 'tbspacer',
@@ -136,13 +145,17 @@ Ext.define('CarePortal.view.AdmitOutpatient', {
                 },
                 {
                     xtype: 'button',
-                    itemId: 'cancelAdmit',
-                    width: 126,
-                    iconCls: 'x-fa fa-trash',
-                    text: 'Cancel'
+                    itemId: 'saveOpAdmission',
+                    margin: '0 0 0 5',
+                    width: 146,
+                    iconCls: 'x-fa fa-plus',
+                    text: 'Save Admission'
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

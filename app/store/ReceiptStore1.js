@@ -29,7 +29,7 @@ Ext.define('CarePortal.store.ReceiptStore1', {
         me.callParent([Ext.apply({
             pageSize: 500,
             storeId: 'NhifRateStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.NhifRates',
             proxy: {
                 type: 'ajax',

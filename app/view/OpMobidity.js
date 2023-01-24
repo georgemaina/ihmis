@@ -19,13 +19,18 @@ Ext.define('CarePortal.view.OpMobidity', {
 
     requires: [
         'CarePortal.view.OpMobidityViewModel',
+        'CarePortal.view.OpMobidityViewController',
         'Ext.view.Table',
         'Ext.grid.column.Column',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
-        'Ext.button.Button'
+        'Ext.button.Button',
+        'Ext.menu.Menu',
+        'Ext.menu.Item',
+        'Ext.grid.plugin.Exporter'
     ],
 
+    controller: 'opmobidity',
     viewModel: {
         type: 'opmobidity'
     },
@@ -308,10 +313,69 @@ Ext.define('CarePortal.view.OpMobidity', {
                 },
                 {
                     xtype: 'button',
-                    itemId: 'cmdExport',
+                    itemId: 'cmdExportOld',
                     margin: '0 10 0 0',
                     iconCls: 'x-fa fa-download',
-                    text: '<b>Export to Excel'
+                    text: '<b>Export to ..',
+                    menu: {
+                        xtype: 'menu',
+                        defaults: {
+                            handler: 'exportTo'
+                        },
+                        items: [
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'excel07',
+                                    ext: 'xlsx'
+                                },
+                                text: 'Excel xlsx'
+                            },
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'excel07',
+                                    ext: 'xlsx',
+                                    includeGroups: true,
+                                    includeSummary: true
+                                },
+                                text: 'Excel xlsx (include groups)'
+                            },
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'csv'
+                                },
+                                text: 'CSV'
+                            },
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'tsv',
+                                    ext: 'csv'
+                                },
+                                text: 'TSV'
+                            },
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'html',
+                                    includeGroups: true,
+                                    includeSummary: true
+                                },
+                                text: 'HTML'
+                            },
+                            {
+                                xtype: 'menuitem',
+                                cfg: {
+                                    type: 'pdf',
+                                    includeGroups: true,
+                                    includeSummary: true
+                                },
+                                text: 'PDF'
+                            }
+                        ]
+                    }
                 },
                 {
                     xtype: 'button',
@@ -321,6 +385,16 @@ Ext.define('CarePortal.view.OpMobidity', {
                 }
             ]
         }
-    ]
+    ],
+    plugins: [
+        {
+            ptype: 'gridexporter'
+        }
+    ],
+    listeners: {
+        documentsave: 'onDocumentsave',
+        beforedocumentsave: 'onBeforeDocumentsave',
+        dataready: 'onDataReady'
+    }
 
 });

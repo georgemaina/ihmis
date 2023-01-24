@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "createdentalservice",
+        "designer|userClassName": "ServicesViewModel4"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "ServicesViewModel4",
+    "designerId": "35255d62-5940-4f2e-a438-bda32f790295"
+}

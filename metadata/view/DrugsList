@@ -266,6 +266,32 @@
             },
             "name": "MyColumn85",
             "designerId": "71dde4e1-88d8-4376-8ad7-0565ee141f90"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDrugsListAfterRender",
+                "implHandler": [
+                    "",
+                    "var drugsStore=Ext.data.StoreManager.lookup('DrugsList');",
+                    "        drugsStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDrugsListAfterRender",
+            "designerId": "c8431eee-4167-45b2-94c0-eca88e3c9c66"
         }
     ]
 }

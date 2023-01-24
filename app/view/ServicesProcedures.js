@@ -39,6 +39,12 @@ Ext.define('CarePortal.view.ServicesProcedures', {
         },
         {
             xtype: 'gridcolumn',
+            width: 119,
+            dataIndex: 'Status',
+            text: 'Status'
+        },
+        {
+            xtype: 'gridcolumn',
             hidden: true,
             dataIndex: 'Batch_Nr',
             text: 'BatchNr'
@@ -51,16 +57,7 @@ Ext.define('CarePortal.view.ServicesProcedures', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'InputDate',
-            text: 'Input Date'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'PartCode',
-            text: 'Part Code'
-        },
-        {
-            xtype: 'gridcolumn',
+            width: 227,
             dataIndex: 'Description',
             text: 'Description'
         },
@@ -81,6 +78,16 @@ Ext.define('CarePortal.view.ServicesProcedures', {
         },
         {
             xtype: 'gridcolumn',
+            dataIndex: 'InputDate',
+            text: 'Input Date'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'PartCode',
+            text: 'Part Code'
+        },
+        {
+            xtype: 'gridcolumn',
             dataIndex: 'InputBy',
             text: 'Input By'
         },
@@ -88,11 +95,6 @@ Ext.define('CarePortal.view.ServicesProcedures', {
             xtype: 'gridcolumn',
             dataIndex: 'Departmant',
             text: 'Departmant'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Status',
-            text: 'Status'
         },
         {
             xtype: 'actioncolumn',

@@ -247,7 +247,7 @@ Ext.define('CarePortal.controller.Reports', {
 
     init: function(application) {
         this.control({
-            '#cmdSearch':{
+            '#cmdSearchLabTests':{
                 click:this.searchlabTests
             },
             '#cmdPrint':{

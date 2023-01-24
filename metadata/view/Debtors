@@ -11,8 +11,8 @@
         "designer|userAlias": "debtors",
         "designer|userClassName": "Debtors",
         "height": 590,
-        "itemId": "mdebtorslist",
-        "title": "Debtors List",
+        "itemId": "debtorslist2",
+        "store": "DebtorsList",
         "width": 360
     },
     "configAlternates": {
@@ -906,6 +906,32 @@
             },
             "name": "MyPagingToolbar10",
             "designerId": "0783d99b-4445-44ef-9df4-bfd070da5b7c"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onMdebtorslistAfterRender",
+                "implHandler": [
+                    "var debtorsStore=Ext.data.StoreManager.lookup('DebtorsList');",
+                    "",
+                    "debtorsStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onMdebtorslistAfterRender",
+            "designerId": "7ab68880-b8e3-43cb-a0ef-32fcce9ec7b5"
         }
     ]
 }

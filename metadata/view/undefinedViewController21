@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "checklistgrid",
+        "designer|userClassName": "undefinedViewController21"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewController21",
+    "designerId": "3a8e8c81-70f4-436e-83b3-03f09ea13f68"
+}

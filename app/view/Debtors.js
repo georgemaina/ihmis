@@ -24,10 +24,11 @@ Ext.define('CarePortal.view.Debtors', {
     ],
 
     height: 590,
-    itemId: 'mdebtorslist',
+    itemId: 'debtorslist2',
     width: 360,
-    title: 'Debtors List',
     columnLines: true,
+    store: 'DebtorsList',
+    defaultListenerScope: true,
 
     columns: [
         {
@@ -277,6 +278,15 @@ Ext.define('CarePortal.view.Debtors', {
             width: 360,
             displayInfo: true
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onMdebtorslistAfterRender'
+    },
+
+    onMdebtorslistAfterRender: function(component, eOpts) {
+        var debtorsStore=Ext.data.StoreManager.lookup('DebtorsList');
+
+        debtorsStore.load({});
+    }
 
 });

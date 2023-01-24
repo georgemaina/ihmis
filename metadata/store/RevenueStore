@@ -9,7 +9,7 @@
         "autoLoad": false,
         "designer|userAlias": "revenuestore",
         "designer|userClassName": "RevenueStore",
-        "model": "RevenueModel",
+        "model": "RevenuesModel",
         "pageSize": 200,
         "storeId": "RevenueStore"
     },

@@ -1,0 +1,22 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js_2xfwlewn",
+        "id": "exporter",
+        "includeInBundle": true,
+        "url": "../ext-7.6.0/packages/exporter/build/classic/exporter.js"
+    },
+    "configAlternates": {
+        "designer|userClassName": "string",
+        "id": "string",
+        "includeInBundle": "boolean",
+        "url": "uri"
+    },
+    "name": "js1",
+    "designerId": "7c755cc7-2027-48cb-9787-5bcf81ccdb06"
+}

@@ -18,28 +18,29 @@ Ext.define('CarePortal.view.ReceiptsAdj', {
     alias: 'widget.receiptsadj',
 
     requires: [
-        'CarePortal.view.CashSalesViewModel3',
+        'CarePortal.view.ReceiptsAdjViewModel',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.grid.Panel',
         'Ext.view.Table',
-        'Ext.grid.column.Column',
-        'Ext.form.field.Number',
         'Ext.selection.RowModel',
         'Ext.grid.plugin.CellEditing',
+        'Ext.grid.column.Action',
         'Ext.button.Button'
     ],
 
     viewModel: {
         type: 'receiptsadj'
     },
-    height: 600,
+    height: 624,
+    itemId: 'receipts',
     style: 'background-color: #d9f2e6;',
     layout: 'border',
     bodyPadding: '1 0 0 4',
     bodyStyle: 'background-color: #d9f2e6;',
-    url: 'data/getDataFunctions.php?task=saveInternalOrder',
+    url: 'data/getDataFunctions.php?task=saveCashReceipts',
+    defaultListenerScope: true,
 
     items: [
         {
@@ -57,31 +58,40 @@ Ext.define('CarePortal.view.ReceiptsAdj', {
                             xtype: 'textfield',
                             x: 5,
                             y: 5,
-                            itemId: 'orderDate',
+                            itemId: 'CashPoint',
                             width: 205,
                             fieldLabel: 'Cash Point',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
-                            name: 'orderDate',
+                            name: 'cashPoint',
+                            fieldStyle: 'color:red; font-weight:bold;',
+                            readOnly: false,
                             allowBlank: false
                         },
                         {
                             xtype: 'combobox',
                             x: -46,
                             y: 40,
-                            itemId: 'department',
+                            itemId: 'PayMode',
+                            tabIndex: 0,
                             width: 255,
                             fieldLabel: 'Payment Mode',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 150,
-                            name: 'department',
+                            name: 'payMode',
                             allowBlank: false,
                             emptyText: 'Select department',
                             displayField: 'Description',
                             minChars: 2,
                             queryMode: 'local',
-                            store: 'DepartmentStore',
+                            store: [
+                                'Cash',
+                                'Mpesa',
+                                'Cheque',
+                                'Both',
+                                'Visa'
+                            ],
                             typeAhead: true,
                             valueField: 'ID'
                         },
@@ -89,189 +99,144 @@ Ext.define('CarePortal.view.ReceiptsAdj', {
                             xtype: 'textfield',
                             x: 525,
                             y: 5,
-                            itemId: 'orderNo',
+                            itemId: 'ReceiptNo',
                             fieldLabel: 'Receipt No',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'receiptNo',
                             fieldStyle: 'color:red; font-weight:bold;',
+                            readOnly: false,
                             emptyText: 'Receipt Number'
                         },
                         {
                             xtype: 'textfield',
-                            x: 830,
-                            y: 75,
-                            itemId: 'orderNo2',
+                            x: 165,
+                            y: 5,
+                            itemId: 'ShiftNo',
+                            fieldLabel: 'Shift No',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'shiftNo',
                             fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            readOnly: false,
+                            emptyText: 'Shift Number'
                         },
                         {
                             xtype: 'textfield',
                             x: 525,
                             y: 75,
-                            itemId: 'orderNo5',
+                            itemId: 'GlAccount',
                             fieldLabel: 'GL Account',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'glAccount',
                             fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            emptyText: 'GL Account'
                         },
                         {
                             xtype: 'textfield',
                             x: 525,
                             y: 110,
-                            itemId: 'orderNo3',
+                            itemId: 'Bank',
                             fieldLabel: 'Drawers Bank',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'bank',
                             fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            emptyText: 'Drawers Bank'
                         },
                         {
                             xtype: 'textfield',
                             x: 525,
                             y: 145,
-                            itemId: 'orderNo6',
+                            itemId: 'chequeNo',
                             fieldLabel: 'Cheque No',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'chequeNo',
                             fieldStyle: 'color:red; font-weight:bold;',
-                            emptyText: 'Receipt Number'
+                            emptyText: 'Cheque No'
                         },
                         {
                             xtype: 'datefield',
                             x: 525,
                             y: 40,
-                            itemId: 'orderNo1',
+                            itemId: 'CurrDate',
                             fieldLabel: 'Date',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'orderNo',
+                            name: 'currDate',
                             fieldStyle: 'color:red; font-weight:bold;',
                             emptyText: 'Date'
                         },
                         {
                             xtype: 'textfield',
-                            x: 210,
-                            y: 5,
-                            itemId: 'orderNo4',
-                            labelAlign: 'right',
-                            labelWidth: 130,
-                            name: 'orderNo',
-                            emptyText: 'Order Number'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 210,
-                            y: 40,
-                            itemId: 'deptName',
-                            labelAlign: 'right',
-                            labelWidth: 130,
-                            name: 'deptName'
-                        },
-                        {
-                            xtype: 'textfield',
                             x: -27,
                             y: 110,
-                            itemId: 'suppName',
+                            itemId: 'Payee',
+                            tabIndex: 1,
                             width: 475,
-                            fieldLabel: 'Payee',
+                            fieldLabel: 'Payer',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'suppName'
+                            name: 'payer'
                         },
                         {
                             xtype: 'textfield',
                             x: -26,
                             y: 145,
-                            itemId: 'suppName1',
+                            itemId: 'Towards',
+                            tabIndex: 2,
                             width: 475,
                             fieldLabel: 'Towards',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 130,
-                            name: 'suppName'
+                            name: 'towards'
                         },
                         {
                             xtype: 'textfield',
                             x: -45,
                             y: 75,
-                            itemId: 'suppStore',
+                            itemId: 'Pid',
                             width: 255,
                             fieldLabel: 'Patient',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 150,
-                            name: 'suppStore',
-                            allowBlank: false
+                            name: 'pid'
                         },
                         {
                             xtype: 'textfield',
                             x: 210,
                             y: 75,
-                            itemId: 'suppStore1',
+                            itemId: 'PatientName',
                             width: 240,
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
                             labelWidth: 150,
-                            name: 'suppStore',
-                            allowBlank: false
+                            name: 'names'
                         }
                     ]
                 },
                 {
                     xtype: 'gridpanel',
+                    reference: 'receiptsGrid',
                     height: 203,
+                    itemId: 'receiptsGrid',
                     resizable: true,
                     columnLines: true,
-                    store: 'OrderStocksStore',
-                    columns: [
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'partcode',
-                            text: 'PartCode'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            width: 249,
-                            dataIndex: 'item_description',
-                            text: 'Description'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'qty',
-                            text: 'Qty In Store'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            dataIndex: 'unit_price',
-                            text: 'Price'
-                        },
-                        {
-                            xtype: 'gridcolumn',
-                            width: 133,
-                            dataIndex: 'Qty_to_Order',
-                            text: 'Qty To Order',
-                            editor: {
-                                xtype: 'numberfield',
-                                minLength: 1,
-                                minValue: 1
-                            }
-                        }
-                    ],
+                    store: 'LedgersStore',
+                    viewConfig: {
+                        tabIndex: 3
+                    },
                     selModel: {
                         selType: 'rowmodel'
                     },
@@ -280,11 +245,65 @@ Ext.define('CarePortal.view.ReceiptsAdj', {
                             ptype: 'cellediting',
                             clicksToEdit: 1
                         }
+                    ],
+                    columns: [
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'ledger',
+                            text: 'Ledger'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            dataIndex: 'code',
+                            text: 'Code'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            width: 320,
+                            dataIndex: 'Name',
+                            text: 'Name'
+                        },
+                        {
+                            xtype: 'gridcolumn',
+                            renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                                var strSum=0;
+                                store.getRange().forEach(function(rec) {
+                                    strSum += rec.get('Amount');
+                                    console.log(rec.get('strSum'));
+                                } );
+                                view.up('grid').up('panel').down('#total').setValue(strSum);
+
+                                return strSum;
+
+                            },
+                            dataIndex: 'Amount',
+                            text: 'Amount',
+                            editor: {
+                                xtype: 'textfield'
+                            }
+                        },
+                        {
+                            xtype: 'actioncolumn',
+                            text: 'Remove',
+                            items: [
+                                {
+                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                        Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+"?", function() {
+                                            // process text value and close...
+                                            view.getStore().remove(record);
+
+                                        });
+
+                                    },
+                                    icon: 'icons/delete1.jpg'
+                                }
+                            ]
+                        }
                     ]
                 },
                 {
                     xtype: 'fieldset',
-                    height: 36,
+                    height: 178,
                     margin: 0,
                     padding: 0,
                     style: 'background-color: #d9f2e6;',
@@ -294,60 +313,157 @@ Ext.define('CarePortal.view.ReceiptsAdj', {
                             xtype: 'button',
                             x: 5,
                             y: 0,
-                            itemId: 'cmdGetItems',
+                            itemId: 'cmdGetDebtors',
                             width: 145,
-                            iconCls: 'x-fa fa-ellipsis-h',
-                            text: 'Get Products List'
+                            iconCls: 'x-fa fa-users',
+                            text: 'Debtors Ledger'
                         },
                         {
                             xtype: 'button',
-                            x: 175,
+                            x: 155,
                             y: 0,
-                            width: 95,
-                            iconCls: 'x-fa fa-trash',
-                            text: 'Delete'
+                            itemId: 'cmdGetSuppliers',
+                            width: 145,
+                            iconCls: 'x-fa fa-user',
+                            text: 'Suppliers Ledger'
+                        },
+                        {
+                            xtype: 'button',
+                            x: 305,
+                            y: 0,
+                            itemId: 'cmdGetLedgers',
+                            width: 145,
+                            iconCls: 'x-fa fa-cog',
+                            text: 'General Ledger'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 440,
+                            y: -0.6666670000000181,
+                            itemId: 'total',
+                            width: 230,
+                            fieldLabel: 'Total',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            name: 'total'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 440,
+                            y: 105,
+                            itemId: 'visa',
+                            tabIndex: 7,
+                            width: 230,
+                            fieldLabel: 'Visa',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            name: 'visa'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 440,
+                            y: 140,
+                            itemId: 'balance',
+                            width: 230,
+                            fieldLabel: 'Balance',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            name: 'balance',
+                            readOnly: true
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 420,
+                            y: 70,
+                            itemId: 'mpesa',
+                            tabIndex: 5,
+                            width: 250,
+                            fieldLabel: 'Received Mpesa',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 120,
+                            name: 'mpesa',
+                            listeners: {
+                                change: 'onMpesaChange'
+                            }
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 670,
+                            y: 70,
+                            itemId: 'mpesa1',
+                            tabIndex: 6,
+                            width: 210,
+                            fieldLabel: 'Mpesa Ref',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 80,
+                            name: 'mpesaRef'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 440,
+                            y: 35,
+                            itemId: 'cash',
+                            tabIndex: 4,
+                            width: 230,
+                            fieldLabel: 'Received Cash',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            name: 'cash',
+                            listeners: {
+                                change: 'onCashChange'
+                            }
                         }
                     ]
                 },
                 {
                     xtype: 'fieldset',
-                    height: 83,
+                    height: 43,
                     padding: 0,
                     style: 'background-color: #d9f2e6;',
                     layout: 'absolute',
                     items: [
                         {
                             xtype: 'button',
-                            x: 660,
-                            y: 40,
-                            itemId: 'cmdSaveOrder',
+                            x: 545,
+                            y: 5,
+                            itemId: 'cmdSaveReceipt',
                             width: 120,
                             iconCls: 'x-fa fa-save',
                             text: 'Save'
                         },
                         {
                             xtype: 'button',
-                            x: 815,
-                            y: 40,
-                            width: 95,
+                            x: 715,
+                            y: 5,
+                            width: 130,
                             iconCls: 'x-fa fa-close',
                             text: 'Close'
-                        },
-                        {
-                            xtype: 'textfield',
-                            x: 555,
-                            y: -1,
-                            itemId: 'total',
-                            width: 225,
-                            fieldLabel: 'Total',
-                            labelAlign: 'right',
-                            labelStyle: 'color:green; font-weight:bold;',
-                            name: 'total'
                         }
                     ]
                 }
             ]
         }
-    ]
+    ],
+
+    onMpesaChange: function(field, newValue, oldValue, eOpts) {
+        var total=field.up('form').down('#total').getValue();
+        var cash=field.up('form').down('#cash').getValue();
+        if(cash>0){
+            var bal=parseInt(newValue)+parseInt(cash)-parseInt(total);
+        }else{
+            var bal=newValue-total;
+        }
+
+        field.up('form').down('#balance').setValue(bal);
+    },
+
+    onCashChange: function(field, newValue, oldValue, eOpts) {
+        var total=field.up('form').down('#total').getValue();
+        var bal=newValue-total;
+        field.up('form').down('#balance').setValue(bal);
+
+    }
 
 });

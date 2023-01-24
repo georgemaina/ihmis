@@ -19,12 +19,14 @@ Ext.define('CarePortal.view.StartShift', {
 
     requires: [
         'CarePortal.view.StartShiftViewModel',
+        'CarePortal.view.StartShiftViewController',
         'Ext.form.Label',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.button.Button'
     ],
 
+    controller: 'startshift',
     viewModel: {
         type: 'startshift'
     },
@@ -130,6 +132,12 @@ Ext.define('CarePortal.view.StartShift', {
             text: 'Start Shift'
         }
     ],
+    listeners: {
+        afterrender: {
+            fn: 'onFormAfterRender',
+            scope: 'controller'
+        }
+    },
 
     onCashierRender: function(component, eOpts) {
         component.setValue(localStorage.getItem('UserName'));

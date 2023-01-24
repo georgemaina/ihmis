@@ -6,11 +6,14 @@
     },
     "codeClass": null,
     "userConfig": {
+        "basePath": "ext/",
         "debug": true,
         "designer|userClassName": "Library",
         "libraryRequires": [
             "sencha-charts",
-            "calendar"
+            "calendar",
+            "exporter",
+            "font-awesome"
         ]
     },
     "configAlternates": {

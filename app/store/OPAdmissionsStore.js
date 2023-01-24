@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.OPAdmissionsStore', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'OPAdmissionsStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.OPAdmissions',
             proxy: {
                 type: 'ajax',

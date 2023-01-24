@@ -18,7 +18,7 @@ Ext.define('CarePortal.view.Receipts', {
     alias: 'widget.receipts',
 
     requires: [
-        'CarePortal.view.CashSalesViewModel2',
+        'CarePortal.view.ReceiptsViewModel',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
@@ -26,7 +26,7 @@ Ext.define('CarePortal.view.Receipts', {
         'Ext.view.Table',
         'Ext.selection.RowModel',
         'Ext.grid.plugin.CellEditing',
-        'Ext.grid.column.Column',
+        'Ext.grid.column.Action',
         'Ext.button.Button'
     ],
 
@@ -65,6 +65,7 @@ Ext.define('CarePortal.view.Receipts', {
                             labelStyle: 'color:green; font-weight:bold;',
                             name: 'cashPoint',
                             fieldStyle: 'color:red; font-weight:bold;',
+                            readOnly: true,
                             allowBlank: false
                         },
                         {
@@ -72,6 +73,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: -46,
                             y: 40,
                             itemId: 'PayMode',
+                            tabIndex: 0,
                             width: 255,
                             fieldLabel: 'Payment Mode',
                             labelAlign: 'right',
@@ -104,6 +106,7 @@ Ext.define('CarePortal.view.Receipts', {
                             labelWidth: 130,
                             name: 'receiptNo',
                             fieldStyle: 'color:red; font-weight:bold;',
+                            readOnly: true,
                             emptyText: 'Receipt Number'
                         },
                         {
@@ -117,6 +120,7 @@ Ext.define('CarePortal.view.Receipts', {
                             labelWidth: 130,
                             name: 'shiftNo',
                             fieldStyle: 'color:red; font-weight:bold;',
+                            readOnly: true,
                             emptyText: 'Shift Number'
                         },
                         {
@@ -176,6 +180,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: -27,
                             y: 110,
                             itemId: 'Payee',
+                            tabIndex: 1,
                             width: 475,
                             fieldLabel: 'Payer',
                             labelAlign: 'right',
@@ -188,6 +193,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: -26,
                             y: 145,
                             itemId: 'Towards',
+                            tabIndex: 2,
                             width: 475,
                             fieldLabel: 'Towards',
                             labelAlign: 'right',
@@ -222,10 +228,15 @@ Ext.define('CarePortal.view.Receipts', {
                 },
                 {
                     xtype: 'gridpanel',
+                    reference: 'receiptsGrid',
                     height: 203,
+                    itemId: 'receiptsGrid',
                     resizable: true,
                     columnLines: true,
                     store: 'LedgersStore',
+                    viewConfig: {
+                        tabIndex: 3
+                    },
                     selModel: {
                         selType: 'rowmodel'
                     },
@@ -270,6 +281,23 @@ Ext.define('CarePortal.view.Receipts', {
                             editor: {
                                 xtype: 'textfield'
                             }
+                        },
+                        {
+                            xtype: 'actioncolumn',
+                            text: 'Remove',
+                            items: [
+                                {
+                                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                        Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+"?", function() {
+                                            // process text value and close...
+                                            view.getStore().remove(record);
+
+                                        });
+
+                                    },
+                                    icon: 'icons/delete1.jpg'
+                                }
+                            ]
                         }
                     ]
                 },
@@ -309,14 +337,6 @@ Ext.define('CarePortal.view.Receipts', {
                             text: 'General Ledger'
                         },
                         {
-                            xtype: 'button',
-                            x: 995,
-                            y: -1.666667000000018,
-                            width: 95,
-                            iconCls: 'x-fa fa-trash',
-                            text: 'Remove Item'
-                        },
-                        {
                             xtype: 'textfield',
                             x: 440,
                             y: -0.6666670000000181,
@@ -332,6 +352,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: 440,
                             y: 105,
                             itemId: 'visa',
+                            tabIndex: 7,
                             width: 230,
                             fieldLabel: 'Visa',
                             labelAlign: 'right',
@@ -347,13 +368,15 @@ Ext.define('CarePortal.view.Receipts', {
                             fieldLabel: 'Balance',
                             labelAlign: 'right',
                             labelStyle: 'color:green; font-weight:bold;',
-                            name: 'balance'
+                            name: 'balance',
+                            readOnly: true
                         },
                         {
                             xtype: 'textfield',
                             x: 420,
                             y: 70,
                             itemId: 'mpesa',
+                            tabIndex: 5,
                             width: 250,
                             fieldLabel: 'Received Mpesa',
                             labelAlign: 'right',
@@ -369,6 +392,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: 670,
                             y: 70,
                             itemId: 'mpesa1',
+                            tabIndex: 6,
                             width: 210,
                             fieldLabel: 'Mpesa Ref',
                             labelAlign: 'right',
@@ -381,6 +405,7 @@ Ext.define('CarePortal.view.Receipts', {
                             x: 440,
                             y: 35,
                             itemId: 'cash',
+                            tabIndex: 4,
                             width: 230,
                             fieldLabel: 'Received Cash',
                             labelAlign: 'right',

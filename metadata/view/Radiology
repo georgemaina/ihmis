@@ -336,6 +336,33 @@
             },
             "name": "MyFieldSet11",
             "designerId": "21f70d6f-546d-4508-9d86-20ec6a696e84"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    " var xrayStore=Ext.data.StoreManager.lookup('RadiologyListStore');",
+                    "        xrayStore.load({});",
+                    "    "
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "4c71e3c8-c2e6-40a5-a61b-27674aa99921"
         }
     ]
 }

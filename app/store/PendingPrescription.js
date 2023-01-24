@@ -29,7 +29,7 @@ Ext.define('CarePortal.store.PendingPrescription', {
         me.callParent([Ext.apply({
             groupField: 'PrescribeDate',
             storeId: 'PendingPrescription',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.PendingPrescription',
             proxy: {
                 type: 'ajax',

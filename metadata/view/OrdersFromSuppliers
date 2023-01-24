@@ -535,6 +535,28 @@
                     },
                     "name": "MyButton13",
                     "designerId": "21e62b9e-528a-4bda-8e3e-9e021cd06fbd"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "formStatus",
+                        "layout|x": 305,
+                        "layout|y": -1,
+                        "width": 110
+                    },
+                    "configAlternates": {
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto"
+                    },
+                    "name": "MyTextField134",
+                    "designerId": "4f0bf9bd-6c2a-44b2-b556-c89ea1a9bdd5"
                 }
             ]
         }

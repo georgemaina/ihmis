@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userAlias": "dentalservices",
+        "designer|userClassName": "DentalServices",
+        "model": "ServicesList",
+        "storeId": "DentalServices"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "TheatreProcedures1",
+    "designerId": "a4874e6d-58ed-4b66-b651-7a11c79c5342",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getDataFunctions.php?task=getClinicServices"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy28",
+            "designerId": "e87cf8ef-7847-463f-b83d-cf5151108511",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader27",
+                    "designerId": "9a20f1a1-f5e1-4623-97ea-75ede8471bb2"
+                }
+            ]
+        }
+    ]
+}

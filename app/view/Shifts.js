@@ -19,12 +19,14 @@ Ext.define('CarePortal.view.Shifts', {
 
     requires: [
         'CarePortal.view.ShiftsViewModel',
+        'CarePortal.view.ShiftsViewController',
         'Ext.view.Table',
         'Ext.grid.column.Column',
         'Ext.toolbar.Paging',
         'Ext.form.field.Text'
     ],
 
+    controller: 'shifts',
     viewModel: {
         type: 'shifts'
     },
@@ -116,6 +118,9 @@ Ext.define('CarePortal.view.Shifts', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onShiftsGridAfterRender'
+    }
 
 });

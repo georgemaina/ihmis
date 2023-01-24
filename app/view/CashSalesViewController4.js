@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.CashSalesViewController4', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.payments'
+    alias: 'controller.payments',
+
+    onFormAfterRender: function(component, eOpts) {
+
+        var glStore=Ext.data.StoreManager.lookup('GeneralLedgerStore');
+        glStore.load({});
+    }
+
 });

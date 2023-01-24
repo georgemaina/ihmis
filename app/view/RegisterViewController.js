@@ -25,6 +25,18 @@ Ext.define('CarePortal.view.RegisterViewController', {
         var strTime=hours+":"+mins+":"+secs;
 
         component.setValue(strTime);
+    },
+
+    onFormAfterRender: function(component, eOpts) {
+        var insuComapaniesStore=Ext.data.StoreManager.lookup('InsuranceCompaniesStore');
+        insuComapaniesStore.load({});
+
+        var kinsStore=Ext.data.StoreManager.lookup('NextOfKin');
+        kinsStore.load({});
+
+        var countiesStore=Ext.data.StoreManager.lookup('CountyStore');
+        countiesStore.load({});
+
     }
 
 });

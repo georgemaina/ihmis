@@ -7,7 +7,10 @@
  */
 error_reporting(E_COMPILE_ERROR | E_ERROR | E_CORE_ERROR);
 
-require_once('getDataFunctions.php');
+//require 'conn.php';
+require_once ('getDataFunctions.php');
+
+// require ($root_path . 'include/inc_environment_global.php');
 
 $limit = $_REQUEST['limit'];
 $start = $_REQUEST['start'];
@@ -134,11 +137,12 @@ function admitPatient($pid,$encoder,$insurance_obj,$encounter_obj,$bill_obj,$per
     $_POST['create_id'] = $encoder;
     $_POST['create_time'] = date('YmdHis');
     $_POST['history'] = 'Create: ' . date('Y-m-d H:i:s') . ' = ' . $encoder;
+    $encounter_nr = $_POST['encounter_nr'];
 
     $disDate=date('Y-m-d');
     $disTime=date('H:i:s');
     $sql3 = "Update care_encounter set is_discharged='1',discharge_date='$disDate',discharge_time='$disTime',
-            status='discharged'  where encounter_nr='".$_POST['encounter_nr']."'";
+            status='discharged'  where encounter_nr='".$encounter_nr."'";
     $db->Execute($sql3);
 
     if (isset($_POST['encounter_nr']))
@@ -148,6 +152,13 @@ function admitPatient($pid,$encoder,$insurance_obj,$encounter_obj,$bill_obj,$per
     $is_transmit_to_weberp_enable=1;
 
     $current_dept_nr=$_POST['current_dept_nr'];
+    $financialClass=$bill_obj->getFinancialClass($encounter_nr);
+    if($financialClass=='-1' || $financialClass=='CASH'){
+        $financialClass = '1';
+    }else{
+        $financialClass = '2';
+    }
+    
     $paymentPlan=$_POST['financial_class'];
     $consultation_fee=$_POST['consultation_fee'];
 

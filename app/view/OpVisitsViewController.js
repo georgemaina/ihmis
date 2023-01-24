@@ -15,5 +15,38 @@
 
 Ext.define('CarePortal.view.OpVisitsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.opvisits'
+    alias: 'controller.opvisits',
+
+    requires: [
+        'Ext.exporter.text.CSV',
+        'Ext.exporter.text.TSV',
+        'Ext.exporter.text.Html',
+        'Ext.exporter.excel.Xml',
+        'Ext.exporter.excel.Xlsx'
+    ],
+
+    exportTo: function(btn) {
+         var cfg = Ext.merge({
+                    title: 'Credit Slips',
+                    fileName: 'creditSlips' + '.' + (btn.cfg.ext || btn.cfg.type)
+                }, btn.cfg);
+
+                this.getView().saveDocumentAs(cfg);
+    },
+
+    onGridpanelDocumentsave: function(gridpanel) {
+        gridpanel.unmask();
+        Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));
+    },
+
+    onGridpanelBeforeDocumentsave: function(gridpanel) {
+        this.timeStarted = Date.now();
+        gridpanel.mask('Document is prepared for export. Please wait ...');
+        Ext.log('export started');
+    },
+
+    onGridpanelDataReady: function(gridpanel) {
+        Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));
+    }
+
 });

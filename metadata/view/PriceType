@@ -13,7 +13,7 @@
         "height": 167,
         "layout": "absolute",
         "title": null,
-        "url": "data/getDataFunctions.php?task=insertNewPrice",
+        "url": "data/getProductsFunctions.php?task=insertNewPrice",
         "width": 347
     },
     "configAlternates": {
@@ -93,6 +93,7 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": null,
+                "hidden": true,
                 "itemId": "formStatus",
                 "layout|x": 285,
                 "layout|y": 80,

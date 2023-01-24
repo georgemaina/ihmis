@@ -65,18 +65,18 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "displayField": "Description",
+                        "displayField": "description",
                         "emptyText": "Diagnosis",
                         "itemId": "ICD_10_code",
                         "labelAlign": "top",
                         "layout|flex": 1,
                         "margin": "0 5 0 0",
-                        "minChars": 2,
+                        "minChars": 3,
                         "name": "ICD_10_code",
-                        "queryMode": "local",
+                        "pageSize": 1,
                         "store": "DiseaseCodeStore",
                         "typeAhead": true,
-                        "valueField": "DiagnosisCode",
+                        "valueField": "diagnosis_code",
                         "width": 340
                     },
                     "configAlternates": {
@@ -92,10 +92,70 @@
                         "queryMode": "string",
                         "store": "store",
                         "valueField": "datafield",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "pageSize": "number"
                     },
                     "name": "MyComboBox2",
                     "designerId": "46b5d64c-afaa-41f2-adff-ae7cd6d669db"
+                },
+                {
+                    "type": "Ext.form.field.Checkbox",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "boxLabel": "Include ICD 10 List",
+                        "itemId": "showIcd10",
+                        "layout|flex": 0
+                    },
+                    "configAlternates": {
+                        "boxLabel": "string",
+                        "itemId": "string",
+                        "layout|flex": "number"
+                    },
+                    "name": "MyCheckbox10",
+                    "designerId": "c3785146-3467-4202-8b9d-3530dbf3e060",
+                    "cn": [
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onShowIcd10Change",
+                                "implHandler": [
+                                    "",
+                                    "var diagStore=Ext.data.StoreManager.lookup('DiseaseCodeStore');",
+                                    "",
+                                    "//var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR);",
+                                    "var diagType=this.lookupReference('formStatus').getValue();",
+                                    "var diagStore=Ext.data.StoreManager.lookup('DiseaseCodeStore');",
+                                    "var dob=this.lookupReference('Dob').getValue();",
+                                    "",
+                                    "diagStore.load({",
+                                    "    params:{",
+                                    "        dob:dob,",
+                                    "        diagType:'ALL'",
+                                    "    }",
+                                    "});"
+                                ],
+                                "name": "change",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onShowIcd10Change",
+                            "designerId": "2a7b7d5b-6b76-4466-a9c5-c8384c07b6d8"
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.form.field.Text",
@@ -136,10 +196,12 @@
                     "codeClass": null,
                     "userConfig": {
                         "emptyText": "Comments",
+                        "hidden": true,
                         "itemId": "formStatus",
                         "labelAlign": "top",
                         "margin": "0 3 0 0",
                         "name": "comment",
+                        "reference": "formStatus",
                         "width": 150
                     },
                     "configAlternates": {
@@ -152,7 +214,9 @@
                         "margin": "auto",
                         "width": "auto",
                         "name": "string",
-                        "itemId": "string"
+                        "itemId": "string",
+                        "hidden": "boolean",
+                        "reference": "string"
                     },
                     "name": "MyTextField62",
                     "designerId": "6785db35-aba7-4ea3-bd7b-c578acdb4998"
@@ -554,6 +618,44 @@
             },
             "name": "MyFieldSet11",
             "designerId": "f7a44161-e851-41e7-8727-136438112ebc"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    "var diagStore=Ext.data.StoreManager.lookup('DiseaseCodeStore');",
+                    "var dob=this.lookupReference('Dob').getValue();",
+                    "",
+                    "//var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR);",
+                    "var caller=this.lookupReference('formStatus').getValue();",
+                    "",
+                    "diagStore.load({",
+                    "    params:{",
+                    "        dob:dob,",
+                    "        diagType:caller",
+                    "    }",
+                    "});",
+                    "",
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "c715a824-5619-497a-b5a1-cfc3880ad2a2"
         }
     ]
 }

@@ -1,0 +1,42 @@
+{
+    "type": "Ext.calendar.store.EventSource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userAlias": "calendarstore",
+        "designer|userClassName": "CalendarStore",
+        "model": "CalendarModel",
+        "storeId": "CalendarStore"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "autoLoad": "boolean",
+        "eventStoreDefaults": "object",
+        "storeId": "string"
+    },
+    "designerId": "f6eed10f-a729-4c72-a32b-8856af75d00d",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "resources/data/calendars.json"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy29",
+            "designerId": "735d76ec-af54-4dc0-9fbb-ae161dd9d0ee"
+        }
+    ]
+}

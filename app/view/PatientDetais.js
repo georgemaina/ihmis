@@ -65,6 +65,7 @@ Ext.define('CarePortal.view.PatientDetais', {
         },
         {
             xtype: 'displayfield',
+            reference: 'Dob',
             itemId: 'Dob',
             width: 239,
             fieldLabel: 'Date of Birth',

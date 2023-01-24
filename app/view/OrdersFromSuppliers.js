@@ -205,6 +205,13 @@ Ext.define('CarePortal.view.OrdersFromSuppliers', {
                     width: 95,
                     iconCls: 'x-fa fa-close',
                     text: 'Close'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 305,
+                    y: -1,
+                    itemId: 'formStatus',
+                    width: 110
                 }
             ]
         }

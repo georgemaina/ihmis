@@ -19,11 +19,13 @@ Ext.define('CarePortal.view.NhifCreditForm', {
 
     requires: [
         'CarePortal.view.NhifCreditFormViewModel',
+        'CarePortal.view.NhifCreditFormViewController',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
         'Ext.button.Button'
     ],
 
+    controller: 'nhifcreditform',
     viewModel: {
         type: 'nhifcreditform'
     },
@@ -368,6 +370,12 @@ Ext.define('CarePortal.view.NhifCreditForm', {
             ]
         }
     ],
+    listeners: {
+        afterrender: {
+            fn: 'onFormAfterRender',
+            scope: 'controller'
+        }
+    },
 
     onTxtNhifPidChange: function(field, newValue, oldValue, eOpts) {
         var dischargesStore=Ext.data.StoreManager.lookup("DischargesStore");

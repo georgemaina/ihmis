@@ -35,7 +35,6 @@ Ext.define('CarePortal.view.OutpatientVisits', {
         moveOnDrag: false
     },
     frame: true,
-    height: 800,
     itemId: 'OutpatientVisits',
     scrollable: 'both',
     autoDestroy: false,

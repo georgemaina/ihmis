@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.StoreUsers', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'StoreUsers',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.StoreUsers',
             proxy: {
                 type: 'ajax',

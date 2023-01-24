@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.LaboratoryParams', {
 
     requires: [
         'CarePortal.view.LaboratoryParamsViewModel',
+        'CarePortal.view.LaboratoryParamsViewController',
         'Ext.view.Table',
         'Ext.grid.column.Column',
         'Ext.toolbar.Paging',
@@ -26,6 +27,7 @@ Ext.define('CarePortal.view.LaboratoryParams', {
         'Ext.form.field.ComboBox'
     ],
 
+    controller: 'laboratoryparams',
     viewModel: {
         type: 'laboratoryparams'
     },
@@ -120,6 +122,9 @@ Ext.define('CarePortal.view.LaboratoryParams', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onLabParamsGridAfterRender'
+    }
 
 });

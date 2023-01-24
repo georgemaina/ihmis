@@ -69,6 +69,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Weight",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -88,7 +89,8 @@
                         "name": "string",
                         "reference": "string",
                         "labelStyle": "string",
-                        "padding": "auto"
+                        "padding": "auto",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField6",
                     "designerId": "afc01c86-033e-4a98-9c24-20d1d58d4e4d"
@@ -102,6 +104,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Height",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "itemId": "height",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
@@ -121,7 +124,8 @@
                         "name": "string",
                         "itemId": "string",
                         "reference": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField11",
                     "designerId": "3779b6e1-0a98-4620-a3a1-e1eba6f837a3",
@@ -167,6 +171,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Head Circumference",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 160,
@@ -182,7 +187,8 @@
                         "layout|y": "number",
                         "emptyText": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField12",
                     "designerId": "8131f7f3-f2f6-4f81-a549-99e4c24d4da7"
@@ -197,6 +203,7 @@
                     "userConfig": {
                         "emptyText": "Systoric",
                         "fieldLabel": "Blood Pressure",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 120,
@@ -214,7 +221,8 @@
                         "emptyText": "string",
                         "name": "string",
                         "width": "auto",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField13",
                     "designerId": "71832923-c038-4139-894d-bb6591800163"
@@ -228,6 +236,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "emptyText": "Diastoric",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "layout|x": 220,
                         "layout|y": 105,
@@ -242,7 +251,8 @@
                         "layout|y": "number",
                         "width": "auto",
                         "emptyText": "string",
-                        "name": "string"
+                        "name": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField20",
                     "designerId": "c8d03d71-518d-44e0-bc83-6f962eb21e00"
@@ -256,6 +266,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Pulse rate",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -271,7 +282,8 @@
                         "layout|y": "number",
                         "emptyText": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField14",
                     "designerId": "80ffe0b6-e386-46e5-891a-5b80672c36df"
@@ -285,6 +297,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Notes",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -303,7 +316,8 @@
                         "name": "string",
                         "height": "auto",
                         "width": "auto",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField58",
                     "designerId": "b05990f8-62e6-40f1-96d2-4e5d141f049c"
@@ -317,6 +331,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Respiratory rate",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 120,
@@ -332,7 +347,8 @@
                         "layout|y": "number",
                         "emptyText": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField15",
                     "designerId": "709ee42c-7b03-43be-a3e4-035f464ac498"
@@ -346,6 +362,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "Temperature",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 120,
@@ -361,7 +378,8 @@
                         "layout|y": "number",
                         "emptyText": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField16",
                     "designerId": "6916ef6f-ff2c-4973-a2db-7624abdce762"
@@ -375,6 +393,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "SPO2",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -390,7 +409,8 @@
                         "layout|y": "number",
                         "emptyText": "string",
                         "name": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField18",
                     "designerId": "14cf3e8d-dc02-4c7f-8dd8-6a6650be2cb8"
@@ -404,6 +424,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "BMI",
+                        "fieldStyle": "color:#630921; font-weight:bold;",
                         "labelAlign": "right",
                         "labelStyle": "color:green; font-weight:bold;",
                         "labelWidth": 80,
@@ -421,7 +442,8 @@
                         "emptyText": "string",
                         "name": "string",
                         "reference": "string",
-                        "labelStyle": "string"
+                        "labelStyle": "string",
+                        "fieldStyle": "string"
                     },
                     "name": "MyTextField19",
                     "designerId": "e8a81a23-ee4f-4f34-b892-b6f8f86974a9"
@@ -524,7 +546,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "fieldLabel": "PID",
-                        "fieldStyle": "color:#a7e88b;font-weight-bold;",
+                        "fieldStyle": "color:#a7e88b;font-weight-bold;font-size:14px;",
                         "itemId": "pid",
                         "labelStyle": "font-weight:bold; color:#f4f6fc;",
                         "labelWidth": 30,

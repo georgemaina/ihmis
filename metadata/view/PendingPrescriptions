@@ -322,6 +322,32 @@
             },
             "name": "MyColumn213",
             "designerId": "07b245c5-960b-4245-93f2-bda325de27c2"
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPrescGridAfterRender",
+                "implHandler": [
+                    "",
+                    "var prescStore=Ext.data.StoreManager.lookup('PendingPrescription');",
+                    "        prescStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onPrescGridAfterRender",
+            "designerId": "d3ee1410-ac32-4f75-aefa-904bd6635807"
         }
     ]
 }

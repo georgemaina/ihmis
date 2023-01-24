@@ -965,6 +965,41 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "",
+                    "var unitsStore=Ext.data.StoreManager.lookup('UnitsMeasureStore');",
+                    "        unitsStore.load({});",
+                    "",
+                    "var catStore=Ext.data.StoreManager.lookup('CategoryStore');",
+                    "        catStore.load({});",
+                    "",
+                    "var subCatStore=Ext.data.StoreManager.lookup('SubCategoryStore');",
+                    "        subCatStore.load({});",
+                    "",
+                    "var statusStore=Ext.data.StoreManager.lookup('ItemStatusStore');",
+                    "        statusStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "1eebceaf-0f9d-4fdc-b1b5-c004c4a8abc9"
         }
     ]
 }

@@ -1,0 +1,84 @@
+{
+    "type": "Ext.data.Model",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "chartmastermodel",
+        "designer|userClassName": "ChartmasterModel"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyModel",
+    "designerId": "e4f5d9f5-cdb7-48ba-8046-09c80848e0ce",
+    "cn": [
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "accountcode"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField195",
+            "designerId": "b2a57a35-f712-4230-96e3-48f7edc7a758"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "accountname"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField196",
+            "designerId": "5077c118-f4a6-4cf0-84e9-418250f33514"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "group_"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField197",
+            "designerId": "18a1fca0-9727-4958-8dd7-1dc71d8c6eb2"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "acttype"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField198",
+            "designerId": "2304decb-73ec-4869-bfec-bccf21798f00"
+        }
+    ]
+}

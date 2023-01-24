@@ -19,6 +19,12 @@ Ext.define('CarePortal.view.IssueDrugsViewController', {
 
     onStoreSelect: function(combo, record, eOpts) {
 
+    },
+
+    onIssueDrugsAfterRender: function(component, eOpts) {
+
+        var locStore=Ext.data.StoreManager.lookup('StoreLocationsStore');
+        locStore.load({});
     }
 
 });

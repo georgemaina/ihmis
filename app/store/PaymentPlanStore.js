@@ -30,7 +30,7 @@ Ext.define('CarePortal.store.PaymentPlanStore', {
             groupField: 'Group',
             pageSize: 200,
             storeId: 'PaymentPlanStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.PaymentPlans',
             proxy: {
                 type: 'ajax',

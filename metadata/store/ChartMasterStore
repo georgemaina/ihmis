@@ -1,0 +1,54 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userAlias": "chartmasterstore",
+        "designer|userClassName": "ChartMasterStore",
+        "model": "ChartmasterModel",
+        "storeId": "ChartMasterStore"
+    },
+    "configAlternates": {
+        "autoLoad": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "model": "model",
+        "storeId": "string"
+    },
+    "name": "MyJsonStore1",
+    "designerId": "17d388d3-b99b-414a-9470-887bde7a4a75",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "data/getAccountingFunctions.php?task=getChartMaster"
+            },
+            "configAlternates": {
+                "url": "string"
+            },
+            "name": "MyAjaxProxy29",
+            "designerId": "f10a89ad-aec3-4774-9e98-5705829481fd",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "name": "MyJsonReader28",
+                    "designerId": "3e5fe14e-eef9-4e05-a345-cf75402bb060"
+                }
+            ]
+        }
+    ]
+}

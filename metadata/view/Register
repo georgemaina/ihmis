@@ -1497,19 +1497,19 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "hidden": true,
                         "itemId": "formStatus",
                         "layout|flex": 1,
-                        "name": "formStatus",
-                        "value": [
-                            "Insert"
-                        ]
+                        "margin": 3,
+                        "name": "formStatus"
                     },
                     "configAlternates": {
                         "hidden": "boolean",
                         "itemId": "string",
                         "layout|flex": "number",
                         "name": "string",
-                        "value": "object"
+                        "value": "object",
+                        "margin": "auto"
                     },
                     "name": "MyTextField9",
                     "designerId": "fe0c2b95-c6f9-4a72-a9bf-ae4a26f6f765"
@@ -1557,6 +1557,38 @@
                     "designerId": "9fa39678-6700-44ed-92b7-9341a1913c05"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onFormAfterRender",
+                "implHandler": [
+                    "var insuComapaniesStore=Ext.data.StoreManager.lookup('InsuranceCompaniesStore');",
+                    "insuComapaniesStore.load({});",
+                    "",
+                    "var kinsStore=Ext.data.StoreManager.lookup('NextOfKin');",
+                    "kinsStore.load({});",
+                    "",
+                    "var countiesStore=Ext.data.StoreManager.lookup('CountyStore');",
+                    "countiesStore.load({});",
+                    ""
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onFormAfterRender",
+            "designerId": "cb2db54e-6042-4a66-ba67-b738dee7d14d"
         }
     ]
 }

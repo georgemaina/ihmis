@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.ServiceOrders', {
 
     requires: [
         'CarePortal.view.ServiceOrdersViewModel',
+        'CarePortal.view.ServiceOrdersViewController',
         'Ext.form.field.ComboBox',
         'Ext.grid.Panel',
         'Ext.view.Table',
@@ -29,6 +30,7 @@ Ext.define('CarePortal.view.ServiceOrders', {
         'Ext.button.Button'
     ],
 
+    controller: 'serviceorders',
     viewModel: {
         type: 'serviceorders'
     },
@@ -293,7 +295,16 @@ Ext.define('CarePortal.view.ServiceOrders', {
             itemId: 'serviceOrders',
             width: 115,
             text: 'Send'
+        },
+        {
+            xtype: 'textfield',
+            x: 460,
+            y: 5,
+            itemId: 'formStatus'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

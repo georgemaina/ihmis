@@ -18,7 +18,8 @@ Ext.define('CarePortal.view.Diagnosis', {
     alias: 'widget.diagnosis',
 
     requires: [
-        'CarePortal.view.NotesViewModel1',
+        'CarePortal.view.DiagnosisViewModel',
+        'CarePortal.view.DiagnosisViewController',
         'CarePortal.view.PatientDetais',
         'Ext.form.FieldSet',
         'Ext.form.field.ComboBox',
@@ -30,6 +31,7 @@ Ext.define('CarePortal.view.Diagnosis', {
         'Ext.grid.column.Action'
     ],
 
+    controller: 'diagnosis',
     viewModel: {
         type: 'diagnosis'
     },
@@ -59,12 +61,21 @@ Ext.define('CarePortal.view.Diagnosis', {
                     labelAlign: 'top',
                     name: 'ICD_10_code',
                     emptyText: 'Diagnosis',
-                    displayField: 'Description',
-                    minChars: 2,
-                    queryMode: 'local',
+                    displayField: 'description',
+                    minChars: 3,
+                    pageSize: 1,
                     store: 'DiseaseCodeStore',
                     typeAhead: true,
-                    valueField: 'DiagnosisCode'
+                    valueField: 'diagnosis_code'
+                },
+                {
+                    xtype: 'checkboxfield',
+                    flex: 0,
+                    itemId: 'showIcd10',
+                    boxLabel: 'Include ICD 10 List',
+                    listeners: {
+                        change: 'onShowIcd10Change'
+                    }
                 },
                 {
                     xtype: 'textfield',
@@ -77,6 +88,8 @@ Ext.define('CarePortal.view.Diagnosis', {
                 },
                 {
                     xtype: 'textfield',
+                    reference: 'formStatus',
+                    hidden: true,
                     itemId: 'formStatus',
                     margin: '0 3 0 0',
                     width: 150,
@@ -218,6 +231,9 @@ Ext.define('CarePortal.view.Diagnosis', {
             hidden: true,
             itemId: 'diagnosisPanel'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

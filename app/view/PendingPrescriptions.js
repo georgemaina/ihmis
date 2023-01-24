@@ -33,6 +33,7 @@ Ext.define('CarePortal.view.PendingPrescriptions', {
     title: 'Pending Prescriptions',
     columnLines: true,
     store: 'PendingPrescription',
+    defaultListenerScope: true,
 
     features: [
         {
@@ -123,6 +124,15 @@ Ext.define('CarePortal.view.PendingPrescriptions', {
             dataIndex: 'PaymentMode',
             text: 'Payment Mode'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onPrescGridAfterRender'
+    },
+
+    onPrescGridAfterRender: function(component, eOpts) {
+
+        var prescStore=Ext.data.StoreManager.lookup('PendingPrescription');
+                prescStore.load({});
+    }
 
 });

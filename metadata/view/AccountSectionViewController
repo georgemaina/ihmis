@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "accountsection",
+        "designer|userClassName": "AccountSectionViewController"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "AccountGroupsViewController1",
+    "designerId": "6ae12c8f-bfbd-43bc-bf1e-667775592965"
+}

@@ -430,7 +430,8 @@ Ext.define('CarePortal.controller.Inpatient', {
     },
 
     getEncounter: function(textfield, The, eOpts) {
-        var pid=textfield.up('form').down('#txtPid').getValue();
+        Ext.Msg.alert('test',textfield.up);
+        var pid=textfield.getValue();
 
         Ext.Ajax.request({
              url: 'data/getDataFunctions.php?task=getEncounter',

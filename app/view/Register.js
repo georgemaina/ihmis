@@ -600,9 +600,10 @@ Ext.define('CarePortal.view.Register', {
                 {
                     xtype: 'textfield',
                     flex: 1,
+                    hidden: true,
                     itemId: 'formStatus',
-                    name: 'formStatus',
-                    value: 'Insert'
+                    margin: 3,
+                    name: 'formStatus'
                 },
                 {
                     xtype: 'tbspacer',
@@ -618,6 +619,9 @@ Ext.define('CarePortal.view.Register', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });

@@ -10,6 +10,7 @@
         "designer|userAlias": "shiftreport",
         "designer|userClassName": "ShiftReport",
         "itemId": "ShiftReport",
+        "minHeight": 800,
         "scrollable": "both",
         "store": "ReceiptStore"
     },
@@ -21,7 +22,8 @@
         "scrollable": "auto",
         "maxHeight": "number",
         "height": "auto",
-        "itemId": "string"
+        "itemId": "string",
+        "minHeight": "number"
     },
     "name": "MyGridPanel7",
     "designerId": "3b879603-a593-44b9-b4b4-3b522cd11cb0",
@@ -143,7 +145,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Names",
+                "dataIndex": "payer",
                 "text": "Names",
                 "width": 142
             },

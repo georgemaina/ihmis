@@ -6,7 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
-        "autoLoad": true,
+        "autoLoad": false,
         "designer|userAlias": "nhifratestore",
         "designer|userClassName": "ReceiptStore1",
         "model": "NhifRates",

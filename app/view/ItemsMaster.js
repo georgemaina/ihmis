@@ -121,6 +121,12 @@ Ext.define('CarePortal.view.ItemsMaster', {
                                     y: 5,
                                     width: 110,
                                     text: 'Import from Excel'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    x: 1005,
+                                    y: 5,
+                                    itemId: 'formStatus'
                                 }
                             ]
                         }
@@ -1053,6 +1059,9 @@ Ext.define('CarePortal.view.ItemsMaster', {
             xtype: 'panel',
             title: 'Kits'
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onTabpanelAfterRender'
+    }
 
 });

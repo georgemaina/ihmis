@@ -91,6 +91,7 @@
                                 "layout|x": 5,
                                 "layout|y": 5,
                                 "name": "cashPoint",
+                                "readOnly": true,
                                 "width": 205
                             },
                             "configAlternates": {
@@ -109,7 +110,8 @@
                                 "store": "store",
                                 "typeAhead": "boolean",
                                 "valueField": "datafield",
-                                "fieldStyle": "string"
+                                "fieldStyle": "string",
+                                "readOnly": "boolean"
                             },
                             "name": "MyTextField16",
                             "designerId": "dfd970be-1417-401a-b5b0-8fe974b4161e"
@@ -138,6 +140,7 @@
                                 "store": [
                                     "['Cash','Mpesa','Cheque','Both','Visa']"
                                 ],
+                                "tabIndex": 0,
                                 "typeAhead": true,
                                 "valueField": "ID",
                                 "width": 255
@@ -159,7 +162,8 @@
                                 "store": "array",
                                 "typeAhead": "boolean",
                                 "valueField": "datafield",
-                                "width": "auto"
+                                "width": "auto",
+                                "tabIndex": "number"
                             },
                             "name": "MyComboBox2",
                             "designerId": "b3c6d97f-4679-425d-99aa-66e3dfcefb8f"
@@ -181,7 +185,8 @@
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 5,
-                                "name": "receiptNo"
+                                "name": "receiptNo",
+                                "readOnly": true
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -193,7 +198,8 @@
                                 "emptyText": "string",
                                 "itemId": "string",
                                 "fieldStyle": "string",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "readOnly": "boolean"
                             },
                             "name": "MyTextField3",
                             "designerId": "900571f0-a5fd-45cf-b933-35d324d2e4fe"
@@ -215,7 +221,8 @@
                                 "labelWidth": 130,
                                 "layout|x": 165,
                                 "layout|y": 5,
-                                "name": "shiftNo"
+                                "name": "shiftNo",
+                                "readOnly": true
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -227,7 +234,8 @@
                                 "emptyText": "string",
                                 "itemId": "string",
                                 "fieldStyle": "string",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "readOnly": "boolean"
                             },
                             "name": "MyTextField14",
                             "designerId": "50cc4ea9-7c37-4714-8059-2840c603e0bf"
@@ -384,6 +392,7 @@
                                 "layout|x": -27,
                                 "layout|y": 110,
                                 "name": "payer",
+                                "tabIndex": 1,
                                 "width": 475
                             },
                             "configAlternates": {
@@ -395,7 +404,8 @@
                                 "name": "string",
                                 "itemId": "string",
                                 "width": "auto",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField6",
                             "designerId": "2709f0df-9667-4249-978c-24b65a327b5b"
@@ -416,6 +426,7 @@
                                 "layout|x": -26,
                                 "layout|y": 145,
                                 "name": "towards",
+                                "tabIndex": 2,
                                 "width": 475
                             },
                             "configAlternates": {
@@ -427,7 +438,8 @@
                                 "name": "string",
                                 "itemId": "string",
                                 "width": "auto",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField1",
                             "designerId": "9dfd3101-4cfa-4761-8c02-044d157b4758"
@@ -521,6 +533,8 @@
                     "userConfig": {
                         "columnLines": true,
                         "height": 203,
+                        "itemId": "receiptsGrid",
+                        "reference": "receiptsGrid",
                         "resizable": true,
                         "store": "LedgersStore"
                     },
@@ -528,7 +542,9 @@
                         "height": "auto",
                         "store": "store",
                         "columnLines": "boolean",
-                        "resizable": "boolean"
+                        "resizable": "boolean",
+                        "itemId": "string",
+                        "reference": "string"
                     },
                     "name": "MyGridPanel2",
                     "designerId": "df109a33-a5da-4ba3-a373-ed7acb69e53e",
@@ -540,6 +556,12 @@
                                 "type": "object"
                             },
                             "codeClass": null,
+                            "userConfig": {
+                                "tabIndex": 3
+                            },
+                            "configAlternates": {
+                                "tabIndex": "number"
+                            },
                             "name": "MyTable1",
                             "designerId": "bab8729d-b018-406e-a9b1-19d78b1e7862"
                         },
@@ -692,6 +714,77 @@
                                     "designerId": "ff55773e-39f2-451c-b47d-af977363ead2"
                                 }
                             ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Action",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Remove"
+                            },
+                            "configAlternates": {
+                                "text": "string"
+                            },
+                            "name": "MyActionColumn21",
+                            "designerId": "038f8289-588d-4547-b7d5-38eeb4cdcbc8",
+                            "cn": [
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "icons/delete1.jpg"
+                                    },
+                                    "configAlternates": {
+                                        "icon": "string"
+                                    },
+                                    "name": "MyActionColumnItem7",
+                                    "designerId": "f64089c4-a21f-4b5c-a10a-c358e51d612e",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+\"?\", function() {",
+                                                    "    // process text value and close...",
+                                                    "    view.getStore().remove(record);",
+                                                    "",
+                                                    "});",
+                                                    ""
+                                                ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
+                                            "name": "handler",
+                                            "designerId": "757e14b6-261b-404e-8869-e3490927a7ae"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -800,30 +893,6 @@
                             "designerId": "350186c3-9b61-4347-819d-767792ae6f53"
                         },
                         {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "iconCls": "x-fa fa-trash",
-                                "layout|x": 995,
-                                "layout|y": -1.666667000000018,
-                                "text": "Remove Item",
-                                "width": 95
-                            },
-                            "configAlternates": {
-                                "layout|x": "number",
-                                "layout|y": "number",
-                                "text": "string",
-                                "width": "auto",
-                                "iconCls": "string"
-                            },
-                            "name": "MyButton5",
-                            "designerId": "f379eb7f-2185-43ce-ad36-df7942fc953e"
-                        },
-                        {
                             "type": "Ext.form.field.Text",
                             "reference": {
                                 "name": "items",
@@ -868,6 +937,7 @@
                                 "layout|x": 440,
                                 "layout|y": 105,
                                 "name": "visa",
+                                "tabIndex": 7,
                                 "width": 230
                             },
                             "configAlternates": {
@@ -878,7 +948,8 @@
                                 "layout|x": "number",
                                 "layout|y": "number",
                                 "name": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField13",
                             "designerId": "520d08f9-f00f-4e0c-8ff8-0e418b8f4df9"
@@ -898,6 +969,7 @@
                                 "layout|x": 440,
                                 "layout|y": 140,
                                 "name": "balance",
+                                "readOnly": true,
                                 "width": 230
                             },
                             "configAlternates": {
@@ -908,7 +980,8 @@
                                 "layout|x": "number",
                                 "layout|y": "number",
                                 "name": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "readOnly": "boolean"
                             },
                             "name": "MyTextField19",
                             "designerId": "82845666-a531-4bce-931c-bf5f85130ea1"
@@ -929,6 +1002,7 @@
                                 "layout|x": 420,
                                 "layout|y": 70,
                                 "name": "mpesa",
+                                "tabIndex": 5,
                                 "width": 250
                             },
                             "configAlternates": {
@@ -940,7 +1014,8 @@
                                 "layout|y": "number",
                                 "name": "string",
                                 "width": "auto",
-                                "labelWidth": "number"
+                                "labelWidth": "number",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField17",
                             "designerId": "58132d10-e0ee-4860-9fac-1a79443218ec",
@@ -995,6 +1070,7 @@
                                 "layout|x": 670,
                                 "layout|y": 70,
                                 "name": "mpesaRef",
+                                "tabIndex": 6,
                                 "width": 210
                             },
                             "configAlternates": {
@@ -1006,7 +1082,8 @@
                                 "layout|y": "number",
                                 "name": "string",
                                 "width": "auto",
-                                "labelWidth": "number"
+                                "labelWidth": "number",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField22",
                             "designerId": "2b3caec4-d5d5-4d29-a17b-c208fc4d729d"
@@ -1026,6 +1103,7 @@
                                 "layout|x": 440,
                                 "layout|y": 35,
                                 "name": "cash",
+                                "tabIndex": 4,
                                 "width": 230
                             },
                             "configAlternates": {
@@ -1036,7 +1114,8 @@
                                 "layout|x": "number",
                                 "layout|y": "number",
                                 "name": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField18",
                             "designerId": "def53fb4-0fca-47d3-8382-11305fbcf6f5",

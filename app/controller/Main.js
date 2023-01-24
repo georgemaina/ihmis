@@ -297,6 +297,14 @@ Ext.define('CarePortal.controller.Main', {
         outpatientvisits: {
             selector: 'outpatientvisits',
             xtype: 'outpatientvisits'
+        },
+        calendar: {
+            selector: 'calendar',
+            xtype: 'calendar'
+        },
+        mycalendar: {
+            selector: 'mycalendar',
+            xtype: 'mycalendar'
         }
     },
 
@@ -307,6 +315,11 @@ Ext.define('CarePortal.controller.Main', {
         },
         "#Services": {
             change: 'onServicesChange'
+        },
+        "gridpanel": {
+            onDocumentsave: 'onDocumentsave',
+            onBeforeDocumentsave: 'onBeforeDocumentsave',
+            onDataReady: 'onDataReady'
         }
     },
 
@@ -335,6 +348,27 @@ Ext.define('CarePortal.controller.Main', {
 
         field.up('form').down('#Price').setValue(record.get('Price'));
         field.up('form').down('#Qty').setValue(1);
+
+        var currPanel=field.up('form').getItemId();
+        if(currPanel==='Procedures'){
+            field.up('form').down('#Speciality').setValue(record.get('Speciality'));
+            field.up('form').down('#Complexity').setValue(record.get('Complexity'));
+        }
+    },
+
+    onDocumentsave: function(gridpanel) {
+         gridpanel.unmask();
+                Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));
+    },
+
+    onBeforeDocumentsave: function(gridpanel) {
+        this.timeStarted = Date.now();
+        gridpanel.mask('Document is prepared for export. Please wait ...');
+        Ext.log('export started');
+    },
+
+    onDataReady: function() {
+        Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));
     },
 
     showMsg: function(msg) {
@@ -466,6 +500,15 @@ Ext.define('CarePortal.controller.Main', {
             '#btnReports':{
                 afterrender:this.openAdmissionHistory
             },
+            '#btnProcedures':{
+                afterrender:this.createProcedures
+            },
+            '#btnEye':{
+                afterrender:this.createEyeService
+            },
+            '#btnDental':{
+                afterrender:this.createDentalService
+            },
             '#cmdAddComplaints':{
                 click:this.addComplaints
             },
@@ -595,6 +638,15 @@ Ext.define('CarePortal.controller.Main', {
             },
             '#cmdSearchOpVisits':{
                 click:this.filterOpVisits
+            },
+            '#cmdPreviewSlips':{
+                click:this.viewCreditSlips
+            },
+            '#txtSlipPid':{
+                blur:this.getSlipPatient
+            },
+            '#scheduleProcedure':{
+                click:this.openProcScheduler
             }
         });
     },
@@ -1195,6 +1247,8 @@ Ext.define('CarePortal.controller.Main', {
                 centerContainer.add(centerDetails);
                 centerContainer.setTitle(item.text);
 
+                centerDetails.down('#formStatus').setValue(item.link);
+
                 if(item.admType=="122"){
                     centerDetails.down('#formStatus').setValue('IP');
                     centerContainer.setTitle("Inpatient Invoices");
@@ -1621,6 +1675,10 @@ Ext.define('CarePortal.controller.Main', {
             });
 
             var dob=component.up('panel').up('panel').down('#dob').getValue();
+            //var diagType=component.up('panel').up('panel').down('#formStatus').getValue();
+
+            containterWindows.add(diagnosis);
+            containterWindows.show();
 
             var icd10Store =Ext.data.StoreManager.lookup('DiseaseCodeStore');
             icd10Store.load({
@@ -1629,10 +1687,6 @@ Ext.define('CarePortal.controller.Main', {
                     diagType:'OP'
                 }
             });
-
-
-            containterWindows.add(diagnosis);
-            containterWindows.show();
 
             var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();
             diagnosis.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());
@@ -1899,7 +1953,26 @@ Ext.define('CarePortal.controller.Main', {
         });
     },
 
-    loadServices: function(encounterNr,component) {
+    loadServices: function(encounterNr,purchasingClass,component) {
+        //vitalsPanel = Ext.create('CarePortal.view.Vitals', {});
+        //servicesPanel=this.getServices().down("#servicesPanel");
+
+
+        var serviceStore=Ext.data.StoreManager.lookup("ProceduresAndServices");
+
+        serviceStore.load({
+            params: {
+                encNr:encounterNr,
+                purchasingClass:purchasingClass
+            },
+            callback: function(records, operation, success) {
+
+            },
+            scope: this
+        });
+    },
+
+    loadServices1: function(encounterNr,component) {
         //vitalsPanel = Ext.create('CarePortal.view.Vitals', {});
         servicesPanel=this.getServices().down("#servicesPanel");
 
@@ -2269,9 +2342,6 @@ Ext.define('CarePortal.controller.Main', {
 
         //(Ext.Date.diff(new Date(2000, 02, 29), new Date(2015, 03, 03), Ext.Date.YEAR); // returns 4 expected 5!
 
-        var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR); // returns 4 expected 5!
-
-        register.down('#age').setValue(age);
         register.down('#months').setValue(rec.get('Months'));
         register.down('#sex').setValue(rec.get('Gender'));
         register.down('#citizenship').setValue(rec.get('Village'));
@@ -2285,6 +2355,9 @@ Ext.define('CarePortal.controller.Main', {
         register.down('#kin_relations2').setValue(rec.get('KinRelations'));
         register.down('#insurance').setValue(rec.get('PaymentMode'));
         register.down('#formStatus').setValue("Update");
+
+        var age=Ext.Date.diff(dob, new Date(), Ext.Date.YEAR); // returns 4 expected 5!
+        register.down('#age').setValue(age);
     },
 
     getStatusLogs: function(encounterNr) {
@@ -2407,7 +2480,17 @@ Ext.define('CarePortal.controller.Main', {
              button.enable();
          }, 2000);
 
-        this.loadServices(encounterNo,servicesPanel);
+
+        var currForm=button.up('form').getItemId();
+        if(currForm==='Procedures'){
+            purchasingClass="Theatre";
+        }else if(currForm==='DentalServices'){
+            purchasingClass="Dental";
+        }else if(currForm==='EyeServices'){
+            purchasingClass="Eye";
+        }
+
+        this.loadServices(encounterNo,purchasingClass,servicesPanel);
     },
 
     getDob: function(field, newValue, oldValue, eOpts) {
@@ -2897,7 +2980,7 @@ Ext.define('CarePortal.controller.Main', {
     },
 
     printCreditSlip: function(button) {
-        var pid=button.up('grid').down("#txtPid").getValue();
+        var pid=button.up('grid').down("#txtSlipPid").getValue();
         window.open('reports/creditslipnew.php?pid='+pid, "Cridit Slips","menubar=yes,toolbar=yes,width=400,height=400,location=yes,resizable=no,scrollbars=yes,status=yes");
 
 
@@ -2927,7 +3010,7 @@ Ext.define('CarePortal.controller.Main', {
 
     rePrintCreditSlip: function(button) {
         var slipNo=button.up('grid').down("#txtSlipNo").getValue();
-        var pid=button.up('grid').down("#txtPid").getValue();
+        var pid=button.up('grid').down("#txtSlipPid").getValue();
 
 
         if(pid!==''){
@@ -2944,7 +3027,7 @@ Ext.define('CarePortal.controller.Main', {
 
     populateSlip: function(gridpanel, record, item, index, e, eOpts) {
         //Ext.Msg.alert('Test',record.get('Pid'));
-        gridpanel.up('grid').down("#txtPid").setValue(record.get('Pid'));
+        gridpanel.up('grid').down("#txtSlipPid").setValue(record.get('Pid'));
         gridpanel.up('grid').down("#txtNames").setValue(record.get('Names'));
         gridpanel.up('grid').down("#txtSlipNo").setValue(record.get('SlipNo'));
 
@@ -3423,6 +3506,157 @@ Ext.define('CarePortal.controller.Main', {
             },
             scope: this
         });
+    },
+
+    viewCreditSlips: function(button) {
+        var searchParam=button.up('grid').down('#txtSlipPid').getValue();
+        var startDate=button.up('grid').down('#startDate').getValue();
+        var endDate=button.up('grid').down('#endDate').getValue();
+
+        var slipsStore=Ext.data.StoreManager.lookup("CreditSlipsStore");
+
+        slipsStore.load({
+            params: {
+                sparam:searchParam,
+                startDate:startDate,
+                endDate:endDate
+            },
+            callback: function(records, operation, success) {
+            },
+            scope: this
+        });
+    },
+
+    getSlipPatient: function(textfield, The, eOpts) {
+         var pid=textfield.getValue();
+
+                Ext.Ajax.request({
+                     url: 'data/getDataFunctions.php?task=getEncounter',
+                    params: {
+                        pid: pid
+                    },
+                    success: function(response){
+
+                        var encDetails= Ext.decode(response.responseText);
+
+                         pnames=encDetails.encounterNr[0].FirstName+" "+encDetails.encounterNr[0].LastName+" "+encDetails.encounterNr[0].SurName;
+                        textfield.up('grid').down('#txtNames').setValue(pnames);
+
+                        this.getDebitNo();
+                    },
+                    scope:this
+                });
+    },
+
+    exportTo: function(btn, title) {
+        var cfg = Ext.merge({
+            title: 'Credit Slips'+title,
+            fileName: 'creditSlips' +title+ '.' + (btn.cfg.ext || btn.cfg.type)
+        }, btn.cfg);
+
+        this.getView().saveDocumentAs(cfg);
+    },
+
+    createProcedures: function(component, eOpts) {
+          component.getEl().on('click', function() {
+
+              var services=Ext.create("CarePortal.view.CreateProcedures",{});
+              var containterWindows=Ext.create('Ext.window.Window', {
+                  title:"Theatre Procedures Entry Form",
+                  resizable:false,
+                  closable:true
+              });
+
+              containterWindows.add(services);
+              containterWindows.show();
+              var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();
+
+              services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());
+              services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());
+              services.down('#encounterNo').setValue(encNr);
+              services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());
+
+              var control = Ext.create('CarePortal.controller.Main');
+              control.loadServices2(encNr,"TheatreProcedures","Theatre",component);
+              control.loadServices(encNr,'Theatre',component);
+          });
+    },
+
+    createEyeService: function(component, eOpts) {
+          component.getEl().on('click', function() {
+
+              var services=Ext.create("CarePortal.view.CreateEyeService",{});
+              var containterWindows=Ext.create('Ext.window.Window', {
+                  title:"Eye Services Entry Form",
+                  resizable:false,
+                  closable:true
+              });
+
+              containterWindows.add(services);
+              containterWindows.show();
+              var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();
+
+              services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());
+              services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());
+              services.down('#encounterNo').setValue(encNr);
+              services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());
+
+              var control = Ext.create('CarePortal.controller.Main');
+              control.loadServices2(encNr,"EyeServices","EYE",component);
+               control.loadServices(encNr,'EYE',component);
+          });
+    },
+
+    createDentalService: function(component, eOpts) {
+          component.getEl().on('click', function() {
+
+              var services=Ext.create("CarePortal.view.CreateDentalService",{});
+              var containterWindows=Ext.create('Ext.window.Window', {
+                  title:"Dental Services Entry Form",
+                  resizable:false,
+                  closable:true
+              });
+
+              containterWindows.add(services);
+              containterWindows.show();
+              var encNr=component.up('panel').up('panel').down('#encounterNr').getValue();
+
+              services.down('#pid').setValue(component.up('panel').up('panel').down('#pid').getValue());
+              services.down('#names').setValue(component.up('panel').up('panel').down('#names').getValue());
+              services.down('#encounterNo').setValue(encNr);
+              services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());
+
+              var control = Ext.create('CarePortal.controller.Main');
+              control.loadServices2(encNr,"DentalServices","Dental",component);
+               control.loadServices(encNr,'Dental',component);
+          });
+    },
+
+    loadServices2: function(encNr, serviceStore, purchasingClass, component) {
+         var serviceStore=Ext.data.StoreManager.lookup(serviceStore);
+
+                serviceStore.load({
+                    params: {
+                        encNr:encNr,
+                        purchasingClass:purchasingClass
+                    },
+                    callback: function(records, operation, success) {
+
+                    },
+                    scope: this
+                });
+    },
+
+    openProcScheduler: function(button) {
+        var BookingForm=Ext.create("CarePortal.view.BookingForm",{});
+        var bookingWindows=Ext.create('Ext.window.Window', {
+            title: 'Theatre Booking Form',
+            resizable:false,
+            closable:true
+        });
+
+        bookingWindows.add(BookingForm);
+        bookingWindows.show();
     }
 
 });

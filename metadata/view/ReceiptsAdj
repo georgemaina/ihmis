@@ -10,10 +10,11 @@
         "bodyStyle": "background-color: #d9f2e6;",
         "designer|userAlias": "receiptsadj",
         "designer|userClassName": "ReceiptsAdj",
-        "height": 600,
+        "height": 624,
+        "itemId": "receipts",
         "layout": "border",
         "style": "background-color: #d9f2e6;",
-        "url": "data/getDataFunctions.php?task=saveInternalOrder"
+        "url": "data/getDataFunctions.php?task=saveCashReceipts"
     },
     "configAlternates": {
         "bodyPadding": "auto",
@@ -25,12 +26,13 @@
         "title": "string",
         "style": "string",
         "bodyStyle": "string",
-        "url": "string"
+        "url": "string",
+        "itemId": "string"
     },
     "name": "Receipts1",
-    "designerId": "6c10b2a5-bab9-4178-99c6-227fa6089ad6",
-    "viewControllerInstanceId": "e29f7306-a79e-4880-90c3-e6685cdae98d",
-    "viewModelInstanceId": "7d786d39-388f-4c51-8b13-52eb30796c3c",
+    "designerId": "90f6843c-ec02-4fdd-a51c-f904b3507532",
+    "viewControllerInstanceId": "ddc9a361-ab30-490c-8455-f705166bfa80",
+    "viewModelInstanceId": "31172ab1-fa0c-4f0d-8c52-d8be7ae49c7f",
     "cn": [
         {
             "type": "Ext.container.Container",
@@ -46,7 +48,7 @@
                 "layout|region": "string"
             },
             "name": "MyContainer1",
-            "designerId": "43e9b67e-8fc2-459c-916b-c88b26d3ece5",
+            "designerId": "93943b97-3b98-46f6-aba1-2388da3e4015",
             "cn": [
                 {
                     "type": "Ext.form.FieldSet",
@@ -70,7 +72,7 @@
                         "padding": "auto"
                     },
                     "name": "MyFieldSet",
-                    "designerId": "4c398360-e43d-4932-a407-6ec585afeee9",
+                    "designerId": "89fe9a31-14df-45cb-bb67-829b8384d6ba",
                     "cn": [
                         {
                             "type": "Ext.form.field.Text",
@@ -82,12 +84,14 @@
                             "userConfig": {
                                 "allowBlank": false,
                                 "fieldLabel": "Cash Point",
-                                "itemId": "orderDate",
+                                "fieldStyle": "color:red; font-weight:bold;",
+                                "itemId": "CashPoint",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "layout|x": 5,
                                 "layout|y": 5,
-                                "name": "orderDate",
+                                "name": "cashPoint",
+                                "readOnly": false,
                                 "width": 205
                             },
                             "configAlternates": {
@@ -99,10 +103,18 @@
                                 "labelStyle": "string",
                                 "name": "string",
                                 "itemId": "string",
-                                "width": "auto"
+                                "width": "auto",
+                                "displayField": "datafield",
+                                "minChars": "number",
+                                "queryMode": "string",
+                                "store": "store",
+                                "typeAhead": "boolean",
+                                "valueField": "datafield",
+                                "fieldStyle": "string",
+                                "readOnly": "boolean"
                             },
-                            "name": "MyTextField15",
-                            "designerId": "b7593488-8638-41e2-8db2-f99d3a46809b"
+                            "name": "MyTextField16",
+                            "designerId": "a7de06eb-4f66-4a5b-a39b-9fec8e950b83"
                         },
                         {
                             "type": "Ext.form.field.ComboBox",
@@ -116,16 +128,19 @@
                                 "displayField": "Description",
                                 "emptyText": "Select department",
                                 "fieldLabel": "Payment Mode",
-                                "itemId": "department",
+                                "itemId": "PayMode",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 150,
                                 "layout|x": -46,
                                 "layout|y": 40,
                                 "minChars": 2,
-                                "name": "department",
+                                "name": "payMode",
                                 "queryMode": "local",
-                                "store": "DepartmentStore",
+                                "store": [
+                                    "['Cash','Mpesa','Cheque','Both','Visa']"
+                                ],
+                                "tabIndex": 0,
                                 "typeAhead": true,
                                 "valueField": "ID",
                                 "width": 255
@@ -144,13 +159,14 @@
                                 "minChars": "number",
                                 "name": "string",
                                 "queryMode": "string",
-                                "store": "store",
+                                "store": "array",
                                 "typeAhead": "boolean",
                                 "valueField": "datafield",
-                                "width": "auto"
+                                "width": "auto",
+                                "tabIndex": "number"
                             },
                             "name": "MyComboBox2",
-                            "designerId": "c15640de-012f-456e-80af-0aa8dd7ed638"
+                            "designerId": "ee560af6-fc14-425b-a917-bfe7ccefe341"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -163,13 +179,14 @@
                                 "emptyText": "Receipt Number",
                                 "fieldLabel": "Receipt No",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo",
+                                "itemId": "ReceiptNo",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 5,
-                                "name": "orderNo"
+                                "name": "receiptNo",
+                                "readOnly": false
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -181,10 +198,11 @@
                                 "emptyText": "string",
                                 "itemId": "string",
                                 "fieldStyle": "string",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "readOnly": "boolean"
                             },
                             "name": "MyTextField3",
-                            "designerId": "ebfb52c8-f909-456e-a1d6-5809cd7bc625"
+                            "designerId": "e871c702-ad0e-4271-9f2f-ed479ef2a51f"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -194,15 +212,17 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Shift Number",
+                                "fieldLabel": "Shift No",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo2",
+                                "itemId": "ShiftNo",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
-                                "layout|x": 830,
-                                "layout|y": 75,
-                                "name": "orderNo"
+                                "layout|x": 165,
+                                "layout|y": 5,
+                                "name": "shiftNo",
+                                "readOnly": false
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -214,10 +234,11 @@
                                 "emptyText": "string",
                                 "itemId": "string",
                                 "fieldStyle": "string",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "readOnly": "boolean"
                             },
-                            "name": "MyTextField29",
-                            "designerId": "72d0080c-5b56-4979-829f-ad3b57d6823d"
+                            "name": "MyTextField14",
+                            "designerId": "d644d7c7-75c8-48b4-b030-65d50afe90bd"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -227,16 +248,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "GL Account",
                                 "fieldLabel": "GL Account",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo5",
+                                "itemId": "GlAccount",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 75,
-                                "name": "orderNo"
+                                "name": "glAccount"
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -251,7 +272,7 @@
                                 "labelStyle": "string"
                             },
                             "name": "MyTextField",
-                            "designerId": "055df2af-628a-4209-9104-f8c908408069"
+                            "designerId": "341ee293-9493-4992-bc9d-84fb0788b9f3"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -261,16 +282,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Drawers Bank",
                                 "fieldLabel": "Drawers Bank",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo3",
+                                "itemId": "Bank",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 110,
-                                "name": "orderNo"
+                                "name": "bank"
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -285,7 +306,7 @@
                                 "labelStyle": "string"
                             },
                             "name": "MyTextField30",
-                            "designerId": "165eb41a-0a83-4dfb-a07f-660566388a67"
+                            "designerId": "c215df60-66e9-46ec-bfb8-fda0fdab0968"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -295,16 +316,16 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Receipt Number",
+                                "emptyText": "Cheque No",
                                 "fieldLabel": "Cheque No",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo6",
+                                "itemId": "chequeNo",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 145,
-                                "name": "orderNo"
+                                "name": "chequeNo"
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -319,7 +340,7 @@
                                 "labelStyle": "string"
                             },
                             "name": "MyTextField4",
-                            "designerId": "4a1c7ff8-3540-402b-962b-531bcb19f740"
+                            "designerId": "d91f6c76-b775-468a-8216-3a5bb96ed7ab"
                         },
                         {
                             "type": "Ext.form.field.Date",
@@ -332,13 +353,13 @@
                                 "emptyText": "Date",
                                 "fieldLabel": "Date",
                                 "fieldStyle": "color:red; font-weight:bold;",
-                                "itemId": "orderNo1",
+                                "itemId": "CurrDate",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": 525,
                                 "layout|y": 40,
-                                "name": "orderNo"
+                                "name": "currDate"
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -353,7 +374,7 @@
                                 "labelStyle": "string"
                             },
                             "name": "MyDateField1",
-                            "designerId": "1414be7f-4430-45f6-9660-b23b470459b4"
+                            "designerId": "d3cd36e2-b657-4625-b66e-0cfcd06f1444"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -363,70 +384,15 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "emptyText": "Order Number",
-                                "itemId": "orderNo4",
-                                "labelAlign": "right",
-                                "labelWidth": 130,
-                                "layout|x": 210,
-                                "layout|y": 5,
-                                "name": "orderNo"
-                            },
-                            "configAlternates": {
-                                "fieldLabel": "string",
-                                "labelAlign": "string",
-                                "labelWidth": "number",
-                                "layout|x": "number",
-                                "layout|y": "number",
-                                "name": "string",
-                                "emptyText": "string",
-                                "itemId": "string"
-                            },
-                            "name": "MyTextField31",
-                            "designerId": "2d364a77-e53e-467e-b94f-00b99b38f43d"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "itemId": "deptName",
-                                "labelAlign": "right",
-                                "labelWidth": 130,
-                                "layout|x": 210,
-                                "layout|y": 40,
-                                "name": "deptName"
-                            },
-                            "configAlternates": {
-                                "fieldLabel": "string",
-                                "labelAlign": "string",
-                                "labelWidth": "number",
-                                "layout|x": "number",
-                                "layout|y": "number",
-                                "name": "string",
-                                "itemId": "string"
-                            },
-                            "name": "MyTextField5",
-                            "designerId": "d38c976c-420a-4fdc-b4d4-2fe7c7d5958f"
-                        },
-                        {
-                            "type": "Ext.form.field.Text",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "fieldLabel": "Payee",
-                                "itemId": "suppName",
+                                "fieldLabel": "Payer",
+                                "itemId": "Payee",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": -27,
                                 "layout|y": 110,
-                                "name": "suppName",
+                                "name": "payer",
+                                "tabIndex": 1,
                                 "width": 475
                             },
                             "configAlternates": {
@@ -438,10 +404,11 @@
                                 "name": "string",
                                 "itemId": "string",
                                 "width": "auto",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField6",
-                            "designerId": "15479eb1-b98a-465a-8cc9-119d3fa761c1"
+                            "designerId": "b9a45c48-cb0e-4a28-8bf8-d13a99a5447e"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -452,13 +419,14 @@
                             "codeClass": null,
                             "userConfig": {
                                 "fieldLabel": "Towards",
-                                "itemId": "suppName1",
+                                "itemId": "Towards",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 130,
                                 "layout|x": -26,
                                 "layout|y": 145,
-                                "name": "suppName",
+                                "name": "towards",
+                                "tabIndex": 2,
                                 "width": 475
                             },
                             "configAlternates": {
@@ -470,10 +438,11 @@
                                 "name": "string",
                                 "itemId": "string",
                                 "width": "auto",
-                                "labelStyle": "string"
+                                "labelStyle": "string",
+                                "tabIndex": "number"
                             },
                             "name": "MyTextField1",
-                            "designerId": "1a6e90f6-68cc-427d-8b75-7f304fa22cf1"
+                            "designerId": "d70b30ae-c846-47f4-88bd-2f9ffb1a49a1"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -483,15 +452,14 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "allowBlank": false,
                                 "fieldLabel": "Patient",
-                                "itemId": "suppStore",
+                                "itemId": "Pid",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 150,
                                 "layout|x": -45,
                                 "layout|y": 75,
-                                "name": "suppStore",
+                                "name": "pid",
                                 "width": 255
                             },
                             "configAlternates": {
@@ -513,7 +481,7 @@
                                 "width": "auto"
                             },
                             "name": "MyTextField20",
-                            "designerId": "e338fef3-ee96-4f4b-b6c8-04b031111f41"
+                            "designerId": "492dd00f-7775-4154-8afa-5a46f27af5ce"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -523,14 +491,13 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "allowBlank": false,
-                                "itemId": "suppStore1",
+                                "itemId": "PatientName",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
                                 "labelWidth": 150,
                                 "layout|x": 210,
                                 "layout|y": 75,
-                                "name": "suppStore",
+                                "name": "names",
                                 "width": 240
                             },
                             "configAlternates": {
@@ -552,7 +519,7 @@
                                 "width": "auto"
                             },
                             "name": "MyTextField24",
-                            "designerId": "d85641bf-91f0-4ce0-8190-193f456e7e32"
+                            "designerId": "e17e0e7b-8388-4812-8e0a-339c91382c84"
                         }
                     ]
                 },
@@ -566,17 +533,21 @@
                     "userConfig": {
                         "columnLines": true,
                         "height": 203,
+                        "itemId": "receiptsGrid",
+                        "reference": "receiptsGrid",
                         "resizable": true,
-                        "store": "OrderStocksStore"
+                        "store": "LedgersStore"
                     },
                     "configAlternates": {
                         "height": "auto",
                         "store": "store",
                         "columnLines": "boolean",
-                        "resizable": "boolean"
+                        "resizable": "boolean",
+                        "itemId": "string",
+                        "reference": "string"
                     },
                     "name": "MyGridPanel2",
-                    "designerId": "b07902d9-8713-4b5e-929f-7a1f842c7bd3",
+                    "designerId": "460eddd0-0ebc-47c6-9c4a-c849a8139d30",
                     "cn": [
                         {
                             "type": "Ext.view.Table",
@@ -585,122 +556,14 @@
                                 "type": "object"
                             },
                             "codeClass": null,
+                            "userConfig": {
+                                "tabIndex": 3
+                            },
+                            "configAlternates": {
+                                "tabIndex": "number"
+                            },
                             "name": "MyTable1",
-                            "designerId": "5dda6b74-89ec-4801-b3df-df23a2bba636"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "partcode",
-                                "text": "PartCode"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string"
-                            },
-                            "name": "MyColumn7",
-                            "designerId": "5753f731-1d31-4054-839d-c30e7cc42814"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "item_description",
-                                "text": "Description",
-                                "width": 249
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string",
-                                "width": "auto"
-                            },
-                            "name": "MyColumn8",
-                            "designerId": "d38fc8d6-7482-4428-90ef-e6554f25dd3f"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "qty",
-                                "text": "Qty In Store"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string"
-                            },
-                            "name": "MyColumn9",
-                            "designerId": "7ac35693-cafa-4b4b-9f32-fc824c558cb9"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "unit_price",
-                                "text": "Price"
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string"
-                            },
-                            "name": "MyColumn10",
-                            "designerId": "78ecc498-6042-45d9-9e09-3caa5cd653c5"
-                        },
-                        {
-                            "type": "Ext.grid.column.Column",
-                            "reference": {
-                                "name": "columns",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "dataIndex": "Qty_to_Order",
-                                "text": "Qty To Order",
-                                "width": 133
-                            },
-                            "configAlternates": {
-                                "dataIndex": "datafield",
-                                "text": "string",
-                                "width": "auto"
-                            },
-                            "name": "MyColumn11",
-                            "designerId": "0cc2697d-abd4-4d8c-8cc3-a7244f46920d",
-                            "cn": [
-                                {
-                                    "type": "Ext.form.field.Number",
-                                    "reference": {
-                                        "name": "editor",
-                                        "type": "object"
-                                    },
-                                    "codeClass": null,
-                                    "userConfig": {
-                                        "minLength": 1,
-                                        "minValue": 1
-                                    },
-                                    "configAlternates": {
-                                        "minLength": "number",
-                                        "minValue": "number"
-                                    },
-                                    "name": "MyNumberField",
-                                    "designerId": "35028d20-915a-4834-9639-b53bb36fd157"
-                                }
-                            ]
+                            "designerId": "ca059c90-07ec-4be1-a561-e53cfb3282d0"
                         },
                         {
                             "type": "Ext.selection.RowModel",
@@ -710,7 +573,7 @@
                             },
                             "codeClass": null,
                             "name": "MyRowSelectionModel",
-                            "designerId": "6a1cbc47-d9ea-4bcf-b96f-37d5147558ce"
+                            "designerId": "2fcda595-007c-42dc-80c6-b6ee945078d6"
                         },
                         {
                             "type": "Ext.grid.plugin.CellEditing",
@@ -726,7 +589,202 @@
                                 "clicksToEdit": "number"
                             },
                             "name": "MyCellEditingPlugin",
-                            "designerId": "0399a3f7-d25b-4266-bedf-9b26fac0e240"
+                            "designerId": "8c1655d1-50a1-43af-9b94-d545c579bddc"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "ledger",
+                                "text": "Ledger"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn140",
+                            "designerId": "eef7ec6d-9f3e-47a6-becc-a3f040618b99"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "code",
+                                "text": "Code"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn141",
+                            "designerId": "21a52b81-43dc-40bd-b28a-ff835de70193"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Name",
+                                "text": "Name",
+                                "width": 320
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string",
+                                "width": "auto"
+                            },
+                            "name": "MyColumn142",
+                            "designerId": "cbe8adcd-3ea0-443b-900f-6a2c807cd216"
+                        },
+                        {
+                            "type": "Ext.grid.column.Column",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "dataIndex": "Amount",
+                                "text": "Amount"
+                            },
+                            "configAlternates": {
+                                "dataIndex": "datafield",
+                                "text": "string"
+                            },
+                            "name": "MyColumn143",
+                            "designerId": "e69847cc-e1b4-4972-89f8-5e7b2e0ab994",
+                            "cn": [
+                                {
+                                    "type": "Ext.form.field.Text",
+                                    "reference": {
+                                        "name": "editor",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "name": "MyTextField40",
+                                    "designerId": "7aa27b77-d856-4fda-9b73-31f4b55fc062"
+                                },
+                                {
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|params": [
+                                            "value",
+                                            "metaData",
+                                            "record",
+                                            "rowIndex",
+                                            "colIndex",
+                                            "store",
+                                            "view"
+                                        ],
+                                        "fn": "renderer",
+                                        "implHandler": [
+                                            "var strSum=0;",
+                                            "store.getRange().forEach(function(rec) {",
+                                            "    strSum += rec.get('Amount');",
+                                            "    console.log(rec.get('strSum'));",
+                                            "} );",
+                                            "view.up('grid').up('panel').down('#total').setValue(strSum);",
+                                            "",
+                                            "return strSum;",
+                                            ""
+                                        ]
+                                    },
+                                    "configAlternates": {
+                                        "designer|params": "typedarray",
+                                        "fn": "string",
+                                        "implHandler": "code"
+                                    },
+                                    "name": "renderer",
+                                    "designerId": "5461137f-56da-4efa-81b9-4c8f949cbca1"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.grid.column.Action",
+                            "reference": {
+                                "name": "columns",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Remove"
+                            },
+                            "configAlternates": {
+                                "text": "string"
+                            },
+                            "name": "MyActionColumn21",
+                            "designerId": "be3acfff-1421-4a68-8c24-3a9d1abfa549",
+                            "cn": [
+                                {
+                                    "type": "actioncolumnitem",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "icon": "icons/delete1.jpg"
+                                    },
+                                    "configAlternates": {
+                                        "icon": "string"
+                                    },
+                                    "name": "MyActionColumnItem7",
+                                    "designerId": "a3fec0c4-29f0-4239-b1af-096e0661b1e7",
+                                    "cn": [
+                                        {
+                                            "type": "fixedfunction",
+                                            "reference": {
+                                                "name": "items",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "designer|params": [
+                                                    "view",
+                                                    "rowIndex",
+                                                    "colIndex",
+                                                    "item",
+                                                    "e",
+                                                    "record",
+                                                    "row"
+                                                ],
+                                                "fn": "handler",
+                                                "implHandler": [
+                                                    "Ext.MessageBox.confirm('Confirm', 'Are you sure you want to remove '+record.get('Description')+\"?\", function() {",
+                                                    "    // process text value and close...",
+                                                    "    view.getStore().remove(record);",
+                                                    "",
+                                                    "});",
+                                                    ""
+                                                ]
+                                            },
+                                            "configAlternates": {
+                                                "designer|params": "typedarray",
+                                                "fn": "string",
+                                                "implHandler": "code"
+                                            },
+                                            "name": "handler",
+                                            "designerId": "cf9477b3-4612-4d29-8c9a-b8da5edd073d"
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 },
@@ -739,7 +797,7 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|snapToGrid": 5,
-                        "height": 36,
+                        "height": 178,
                         "layout": "absolute",
                         "margin": 0,
                         "padding": 0,
@@ -754,7 +812,7 @@
                         "padding": "auto"
                     },
                     "name": "MyFieldSet1",
-                    "designerId": "4c369ede-3b28-4253-9428-dc0f81275a4f",
+                    "designerId": "acab6c3a-ea5a-4c92-8a53-5de58558f133",
                     "cn": [
                         {
                             "type": "Ext.button.Button",
@@ -764,11 +822,11 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "iconCls": "x-fa fa-ellipsis-h",
-                                "itemId": "cmdGetItems",
+                                "iconCls": "x-fa fa-users",
+                                "itemId": "cmdGetDebtors",
                                 "layout|x": 5,
                                 "layout|y": 0,
-                                "text": "Get Products List",
+                                "text": "Debtors Ledger",
                                 "width": 145
                             },
                             "configAlternates": {
@@ -780,7 +838,7 @@
                                 "iconCls": "string"
                             },
                             "name": "MyButton4",
-                            "designerId": "5f92cb99-a40c-4320-a084-a8aef4af760c"
+                            "designerId": "8ab9d86b-4c81-4ffd-a445-fe70f4808428"
                         },
                         {
                             "type": "Ext.button.Button",
@@ -790,62 +848,12 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "iconCls": "x-fa fa-trash",
-                                "layout|x": 175,
+                                "iconCls": "x-fa fa-user",
+                                "itemId": "cmdGetSuppliers",
+                                "layout|x": 155,
                                 "layout|y": 0,
-                                "text": "Delete",
-                                "width": 95
-                            },
-                            "configAlternates": {
-                                "layout|x": "number",
-                                "layout|y": "number",
-                                "text": "string",
-                                "width": "auto",
-                                "iconCls": "string"
-                            },
-                            "name": "MyButton5",
-                            "designerId": "32251f1a-4eb2-4299-bd09-809e4f234cee"
-                        }
-                    ]
-                },
-                {
-                    "type": "Ext.form.FieldSet",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|snapToGrid": 5,
-                        "height": 83,
-                        "layout": "absolute",
-                        "padding": 0,
-                        "style": "background-color: #d9f2e6;"
-                    },
-                    "configAlternates": {
-                        "designer|snapToGrid": "number",
-                        "height": "auto",
-                        "layout": "string",
-                        "style": "string",
-                        "padding": "auto"
-                    },
-                    "name": "MyFieldSet7",
-                    "designerId": "f49954ea-3810-47a3-827e-c3e004a1f929",
-                    "cn": [
-                        {
-                            "type": "Ext.button.Button",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "iconCls": "x-fa fa-save",
-                                "itemId": "cmdSaveOrder",
-                                "layout|x": 660,
-                                "layout|y": 40,
-                                "text": "Save",
-                                "width": 120
+                                "text": "Suppliers Ledger",
+                                "width": 145
                             },
                             "configAlternates": {
                                 "layout|x": "number",
@@ -855,8 +863,8 @@
                                 "itemId": "string",
                                 "iconCls": "string"
                             },
-                            "name": "MyButton6",
-                            "designerId": "2352854a-74da-4f8a-875f-11fe05b5f8d5"
+                            "name": "MyButton27",
+                            "designerId": "e9d8d3f7-f501-4f42-91fa-7c988c72a9ca"
                         },
                         {
                             "type": "Ext.button.Button",
@@ -866,21 +874,23 @@
                             },
                             "codeClass": null,
                             "userConfig": {
-                                "iconCls": "x-fa fa-close",
-                                "layout|x": 815,
-                                "layout|y": 40,
-                                "text": "Close",
-                                "width": 95
+                                "iconCls": "x-fa fa-cog",
+                                "itemId": "cmdGetLedgers",
+                                "layout|x": 305,
+                                "layout|y": 0,
+                                "text": "General Ledger",
+                                "width": 145
                             },
                             "configAlternates": {
                                 "layout|x": "number",
                                 "layout|y": "number",
                                 "text": "string",
                                 "width": "auto",
+                                "itemId": "string",
                                 "iconCls": "string"
                             },
-                            "name": "MyButton13",
-                            "designerId": "4f09342d-82d1-486c-a588-999316383afe"
+                            "name": "MyButton34",
+                            "designerId": "e4b84be1-9d46-4289-8a50-da1618e8b80d"
                         },
                         {
                             "type": "Ext.form.field.Text",
@@ -894,10 +904,10 @@
                                 "itemId": "total",
                                 "labelAlign": "right",
                                 "labelStyle": "color:green; font-weight:bold;",
-                                "layout|x": 555,
-                                "layout|y": -1,
+                                "layout|x": 440,
+                                "layout|y": -0.6666670000000181,
                                 "name": "total",
-                                "width": 225
+                                "width": 230
                             },
                             "configAlternates": {
                                 "fieldLabel": "string",
@@ -910,7 +920,310 @@
                                 "width": "auto"
                             },
                             "name": "MyTextField32",
-                            "designerId": "bd6a1e8c-f26b-43b9-be30-30f31defb2c0"
+                            "designerId": "f7a3084c-9817-4719-b43c-cdd5936c0716"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Visa",
+                                "itemId": "visa",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 105,
+                                "name": "visa",
+                                "tabIndex": 7,
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "tabIndex": "number"
+                            },
+                            "name": "MyTextField13",
+                            "designerId": "597ed7d5-b226-4a69-bad1-4b02a0d4f348"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Balance",
+                                "itemId": "balance",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 140,
+                                "name": "balance",
+                                "readOnly": true,
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "readOnly": "boolean"
+                            },
+                            "name": "MyTextField19",
+                            "designerId": "a4b1e183-b9cc-4ce6-8fa6-7496252be52b"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Received Mpesa",
+                                "itemId": "mpesa",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "labelWidth": 120,
+                                "layout|x": 420,
+                                "layout|y": 70,
+                                "name": "mpesa",
+                                "tabIndex": 5,
+                                "width": 250
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "labelWidth": "number",
+                                "tabIndex": "number"
+                            },
+                            "name": "MyTextField17",
+                            "designerId": "23fb986a-23b9-4c37-a833-e313f8ae9550",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onMpesaChange",
+                                        "implHandler": [
+                                            "var total=field.up('form').down('#total').getValue();",
+                                            "var cash=field.up('form').down('#cash').getValue();",
+                                            "if(cash>0){",
+                                            "    var bal=parseInt(newValue)+parseInt(cash)-parseInt(total);",
+                                            "}else{",
+                                            "    var bal=newValue-total;",
+                                            "}",
+                                            "",
+                                            "field.up('form').down('#balance').setValue(bal);"
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onMpesaChange",
+                                    "designerId": "47b84e7b-82ab-4b6c-a676-0edb10b75452"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Mpesa Ref",
+                                "itemId": "mpesa1",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "labelWidth": 80,
+                                "layout|x": 670,
+                                "layout|y": 70,
+                                "name": "mpesaRef",
+                                "tabIndex": 6,
+                                "width": 210
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "labelWidth": "number",
+                                "tabIndex": "number"
+                            },
+                            "name": "MyTextField22",
+                            "designerId": "17333145-fa1f-48bc-b600-8f827bde2b55"
+                        },
+                        {
+                            "type": "Ext.form.field.Text",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Received Cash",
+                                "itemId": "cash",
+                                "labelAlign": "right",
+                                "labelStyle": "color:green; font-weight:bold;",
+                                "layout|x": 440,
+                                "layout|y": 35,
+                                "name": "cash",
+                                "tabIndex": 4,
+                                "width": 230
+                            },
+                            "configAlternates": {
+                                "fieldLabel": "string",
+                                "itemId": "string",
+                                "labelAlign": "string",
+                                "labelStyle": "string",
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "name": "string",
+                                "width": "auto",
+                                "tabIndex": "number"
+                            },
+                            "name": "MyTextField18",
+                            "designerId": "93dad11d-e20a-4181-91ef-26c6c0d89939",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "onCashChange",
+                                        "implHandler": [
+                                            "var total=field.up('form').down('#total').getValue();",
+                                            "var bal=newValue-total;",
+                                            "field.up('form').down('#balance').setValue(bal);",
+                                            ""
+                                        ],
+                                        "name": "change",
+                                        "scope": "me"
+                                    },
+                                    "configAlternates": {
+                                        "fn": "string",
+                                        "implHandler": "code",
+                                        "name": "string",
+                                        "scope": "string"
+                                    },
+                                    "name": "onCashChange",
+                                    "designerId": "e0a00f48-8664-49df-b811-aa84c42281b8"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.form.FieldSet",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|snapToGrid": 5,
+                        "height": 43,
+                        "layout": "absolute",
+                        "padding": 0,
+                        "style": "background-color: #d9f2e6;"
+                    },
+                    "configAlternates": {
+                        "designer|snapToGrid": "number",
+                        "height": "auto",
+                        "layout": "string",
+                        "style": "string",
+                        "padding": "auto"
+                    },
+                    "name": "MyFieldSet7",
+                    "designerId": "e472ce7a-4198-4e46-a35e-4cf0d4aa0fdf",
+                    "cn": [
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "x-fa fa-save",
+                                "itemId": "cmdSaveReceipt",
+                                "layout|x": 545,
+                                "layout|y": 5,
+                                "text": "Save",
+                                "width": 120
+                            },
+                            "configAlternates": {
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto",
+                                "itemId": "string",
+                                "iconCls": "string"
+                            },
+                            "name": "MyButton6",
+                            "designerId": "9368bc8f-abef-41a0-b880-3a320d3ec536"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "iconCls": "x-fa fa-close",
+                                "layout|x": 715,
+                                "layout|y": 5,
+                                "text": "Close",
+                                "width": 130
+                            },
+                            "configAlternates": {
+                                "layout|x": "number",
+                                "layout|y": "number",
+                                "text": "string",
+                                "width": "auto",
+                                "iconCls": "string"
+                            },
+                            "name": "MyButton13",
+                            "designerId": "a4f07c8a-8581-4804-8882-c5cec29827e6"
                         }
                     ]
                 }

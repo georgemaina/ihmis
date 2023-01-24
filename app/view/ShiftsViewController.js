@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.ShiftsViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.shifts'
+    alias: 'controller.shifts',
+
+    onShiftsGridAfterRender: function(component, eOpts) {
+
+        var shiftsStore=Ext.data.StoreManager.lookup('ShiftsStore');
+        shiftsStore.load({});
+    }
+
 });

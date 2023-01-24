@@ -1,0 +1,121 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "columnLines": true,
+        "designer|userAlias": "accountsection",
+        "designer|userClassName": "AccountSection",
+        "store": "AccountSectionStore"
+    },
+    "configAlternates": {
+        "columnLines": "boolean",
+        "designer|userAlias": "string",
+        "designer|userClassName": "string",
+        "store": "store"
+    },
+    "name": "AccountGroups1",
+    "designerId": "48a24fee-a8c9-4ccc-a17c-920162bde9f7",
+    "viewControllerInstanceId": "6ae12c8f-bfbd-43bc-bf1e-667775592965",
+    "viewModelInstanceId": "84a8ab5f-aa28-438d-b2dc-db18dd8991c8",
+    "cn": [
+        {
+            "type": "Ext.view.Table",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "name": "MyTable17",
+            "designerId": "50dca588-8f3b-473f-aa35-0c9820be5fb9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sectionid",
+                "text": "Section ID"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn225",
+            "designerId": "8b8a5b4c-e0a2-4800-a5e0-519f9f6933cf"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "sectionname",
+                "text": "Section Name",
+                "width": 284
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn233",
+            "designerId": "583d2c9e-8e69-4029-8dc0-7f8e97942545"
+        },
+        {
+            "type": "Ext.toolbar.Paging",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "displayInfo": true,
+                "dock": "bottom",
+                "store": "AccountSectionStore",
+                "width": 360
+            },
+            "configAlternates": {
+                "displayInfo": "boolean",
+                "dock": "string",
+                "store": "store",
+                "width": "auto"
+            },
+            "name": "MyPagingToolbar12",
+            "designerId": "98eea059-71db-4015-9010-85c78e11253b"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onAccountSectionAfterRender",
+                "implHandler": [
+                    "var sectionStore=Ext.data.StoreManager.lookup('AccountSectionStore');",
+                    "sectionStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onAccountSectionAfterRender",
+            "designerId": "fd1a2680-9c7a-4502-8fa0-fab63d1c5ebf"
+        }
+    ]
+}

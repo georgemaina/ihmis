@@ -7,12 +7,51 @@
     "codeClass": null,
     "userConfig": {
         "designer|userAlias": "opmobidity",
-        "designer|userClassName": "OpMobidityViewController"
+        "designer|userClassName": "OpMobidityViewController",
+        "requires": [
+            "Ext.exporter.text.CSV",
+            "Ext.exporter.text.TSV",
+            "Ext.exporter.text.Html",
+            "Ext.exporter.excel.Xml",
+            "Ext.exporter.excel.Xlsx"
+        ]
     },
     "configAlternates": {
         "designer|userAlias": "string",
-        "designer|userClassName": "string"
+        "designer|userClassName": "string",
+        "requires": "typedarray"
     },
     "name": "OpMobidity1ViewController",
-    "designerId": "edddcdfd-e232-4e09-bb94-ee1dcab87f36"
+    "designerId": "edddcdfd-e232-4e09-bb94-ee1dcab87f36",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "btn"
+                ],
+                "fn": "exportTo",
+                "implHandler": [
+                    " var cfg = Ext.merge({",
+                    "            title: 'Outpatien Mobidity Report',",
+                    "            fileName: 'OPMobidity' + '.' + (btn.cfg.ext || btn.cfg.type)",
+                    "        }, btn.cfg);",
+                    "",
+                    "        this.getView().saveDocumentAs(cfg);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "exportTo",
+            "designerId": "c4fb4044-388a-47bf-9fa8-8edc16779a3b"
+        }
+    ]
 }

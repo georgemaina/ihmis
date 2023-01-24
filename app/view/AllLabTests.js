@@ -124,7 +124,7 @@ Ext.define('CarePortal.view.AllLabTests', {
                     xtype: 'button',
                     x: 615,
                     y: 5,
-                    itemId: 'cmdSearch',
+                    itemId: 'cmdSearchLabTests',
                     width: 135,
                     iconCls: 'x-fa fa-search',
                     text: 'Search'

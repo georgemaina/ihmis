@@ -1,0 +1,18 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "theatrelistgrid",
+        "designer|userClassName": "undefinedViewController16"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "undefinedViewController16",
+    "designerId": "8c3b3b77-3e7f-4770-ae41-88fa6f792de7"
+}

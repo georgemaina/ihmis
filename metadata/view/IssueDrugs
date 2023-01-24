@@ -1116,6 +1116,54 @@
                     "designerId": "3f82b09e-41ca-4cf5-9f57-bfd7ae5b6182"
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onIssueDrugsAfterRender",
+                "implHandler": [
+                    "",
+                    "var locStore=Ext.data.StoreManager.lookup('StoreLocationsStore');",
+                    "        locStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onIssueDrugsAfterRender",
+            "designerId": "3cdf3394-451d-42ed-a783-48a1892e7496"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "formStatus",
+                "layout|x": 740,
+                "layout|y": 580,
+                "width": 110
+            },
+            "configAlternates": {
+                "itemId": "string",
+                "layout|x": "number",
+                "layout|y": "number",
+                "width": "auto"
+            },
+            "name": "MyTextField133",
+            "designerId": "5888d173-91cb-4b02-a27e-5ec79fde9568"
         }
     ]
 }

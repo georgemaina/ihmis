@@ -24,7 +24,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "DiagnosisCode"
+                "name": "diagnosis_code"
             },
             "configAlternates": {
                 "name": "string"
@@ -40,7 +40,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "Description"
+                "name": "description"
             },
             "configAlternates": {
                 "name": "string"

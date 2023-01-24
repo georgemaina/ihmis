@@ -330,11 +330,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "iconCls": "x-fa fa-search",
                         "itemId": "cmdPreviewDiagnosis",
-                        "layout|x": 105,
+                        "layout|x": 85,
                         "layout|y": 110,
                         "text": "<b>Preview</b>",
-                        "width": 135
+                        "width": 170
                     },
                     "configAlternates": {
                         "itemId": "string",
@@ -342,7 +343,8 @@
                         "layout|y": "number",
                         "text": "string",
                         "width": "auto",
-                        "scrollable": "boolean"
+                        "scrollable": "boolean",
+                        "iconCls": "string"
                     },
                     "name": "MyButton13",
                     "designerId": "ab49d70f-0a97-4631-8a5b-723c92bcc95f"
@@ -355,11 +357,12 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "cmdExportDiagnosis",
-                        "layout|x": 655,
+                        "iconCls": "x-fa fa-print",
+                        "itemId": "cmdPrintDiagnosis",
+                        "layout|x": 375,
                         "layout|y": 110,
-                        "text": "<b>Export</b>",
-                        "width": 130
+                        "text": "<b>Print</b>",
+                        "width": 170
                     },
                     "configAlternates": {
                         "itemId": "string",
@@ -367,35 +370,34 @@
                         "layout|y": "number",
                         "text": "string",
                         "width": "auto",
-                        "scrollable": "boolean"
+                        "scrollable": "boolean",
+                        "iconCls": "string"
                     },
-                    "name": "MyButton14",
-                    "designerId": "1dda2324-ca2e-4cd2-9289-e74411b1671e"
+                    "name": "MyButton15",
+                    "designerId": "7dd5fa2b-e03d-424f-9f2b-f7e76209a444"
                 },
                 {
-                    "type": "Ext.button.Button",
+                    "type": "linkedinstance",
                     "reference": {
                         "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "itemId": "cmdPrintDiagnosis",
-                        "layout|x": 395,
+                        "itemId": "ExportReports",
+                        "layout|x": 655,
                         "layout|y": 110,
-                        "text": "<b>Print</b>",
-                        "width": 130
+                        "width": 170
                     },
                     "configAlternates": {
                         "itemId": "string",
                         "layout|x": "number",
                         "layout|y": "number",
-                        "text": "string",
-                        "width": "auto",
-                        "scrollable": "boolean"
+                        "width": "auto"
                     },
-                    "name": "MyButton15",
-                    "designerId": "7dd5fa2b-e03d-424f-9f2b-f7e76209a444"
+                    "name": "exportbutton",
+                    "designerId": "fc87c357-8611-4cf6-9dac-85a7335d62f4",
+                    "masterInstanceId": "15d94679-1fbf-405f-98d7-69c54c477c25"
                 }
             ]
         },
@@ -619,6 +621,88 @@
             },
             "name": "MyPagingToolbar3",
             "designerId": "c0899b55-6c12-4784-aa64-8011112f0076"
+        },
+        {
+            "type": "Ext.grid.plugin.Exporter",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyGridExporterPlugin",
+            "designerId": "ca0481ac-dec6-4bfb-b193-0f31db2eda3b"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelDocumentsave",
+                "name": "documentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelDocumentsave",
+            "designerId": "9300f5aa-7d41-4fcd-94d5-1d9aa0f8177b"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelBeforeDocumentsave",
+                "name": "beforedocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelBeforeDocumentsave",
+            "designerId": "8225c7e4-e1f7-4350-a846-6ea87fb143ab"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onGridpanelDataReady",
+                "name": "dataready",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onGridpanelDataReady",
+            "designerId": "71bc4d88-6720-41cc-8979-aee294cfab4f"
         }
     ]
 }

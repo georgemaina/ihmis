@@ -944,10 +944,10 @@
                     "codeClass": null,
                     "userConfig": {
                         "iconCls": "x-fa fa-download",
-                        "itemId": "cmdExport",
+                        "itemId": "cmdExportOld",
                         "layout|flex": null,
                         "margin": "0 10 0 0",
-                        "text": "<b>Export to Excel"
+                        "text": "<b>Export to .."
                     },
                     "configAlternates": {
                         "itemId": "string",
@@ -958,7 +958,214 @@
                         "margin": "auto"
                     },
                     "name": "MyButton2",
-                    "designerId": "3c724ab9-7053-465c-824f-b3d7ac08fefa"
+                    "designerId": "3c724ab9-7053-465c-824f-b3d7ac08fefa",
+                    "cn": [
+                        {
+                            "type": "Ext.menu.Menu",
+                            "reference": {
+                                "name": "menu",
+                                "type": "object"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "defaults": [
+                                    "{",
+                                    "handler: 'exportTo'",
+                                    "}"
+                                ]
+                            },
+                            "configAlternates": {
+                                "defaults": "object"
+                            },
+                            "name": "MyMenu2",
+                            "designerId": "5563bd91-436f-4b88-9eab-db11225d21a6",
+                            "cn": [
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            " {",
+                                            "                                    type: 'excel07',",
+                                            "                                    ext: 'xlsx'",
+                                            "                                }"
+                                        ],
+                                        "text": "Excel xlsx"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem7",
+                                    "designerId": "00ab0de2-70b0-4e79-9fde-72bb035814bc",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                                    type: 'excel07',",
+                                            "                                    ext: 'xlsx',",
+                                            "                                    includeGroups: true,",
+                                            "                                    includeSummary: true",
+                                            "                                }"
+                                        ],
+                                        "text": "Excel xlsx (include groups)"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem5",
+                                    "designerId": "26cbb4fd-3d55-4a23-a7ea-a205eb5ded3f",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                                    type: 'csv'",
+                                            "                                }"
+                                        ],
+                                        "text": "CSV"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem6",
+                                    "designerId": "2100ca6d-1c1c-4350-a4ed-a7ad951396bb",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "type: 'tsv',",
+                                            "ext: 'csv'",
+                                            "}"
+                                        ],
+                                        "text": "TSV"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem8",
+                                    "designerId": "c4bab873-73df-4f31-af60-4c49b091b569",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                                    type: 'html',",
+                                            "                                    includeGroups: true,",
+                                            "                                    includeSummary: true",
+                                            "                                }"
+                                        ],
+                                        "text": "HTML"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem9",
+                                    "designerId": "459c840c-d152-403c-a5c8-cdff7e8dfabc",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "Ext.menu.Item",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "cfg": [
+                                            "{",
+                                            "                                    type: 'pdf',",
+                                            "                                    includeGroups: true,",
+                                            "                                    includeSummary: true",
+                                            "                                }"
+                                        ],
+                                        "text": "PDF"
+                                    },
+                                    "configAlternates": {
+                                        "cfg": "object",
+                                        "text": "string"
+                                    },
+                                    "name": "MyMenuItem10",
+                                    "designerId": "21ba8bfc-93ff-47ba-b24e-b5b961e4b12b",
+                                    "customConfigs": [
+                                        {
+                                            "group": "(Custom Properties)",
+                                            "name": "cfg",
+                                            "type": "string"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "type": "Ext.button.Button",
@@ -984,6 +1191,100 @@
                     "designerId": "7cb6faed-6f1c-412b-9b4c-e04e0124734a"
                 }
             ]
+        },
+        {
+            "type": "Ext.grid.plugin.Exporter",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "name": "MyGridExporterPlugin1",
+            "designerId": "c8cc20b3-44d7-40dc-ae5e-22295bf848d7"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onDocumentsave",
+                "implHandler": [
+                    "gridpanel.unmask();",
+                    "        Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
+                ],
+                "name": "documentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDocumentsave",
+            "designerId": "ee5c433f-aa7e-4c76-afef-66a54d7d4c86"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "gridpanel"
+                ],
+                "fn": "onBeforeDocumentsave",
+                "implHandler": [
+                    "this.timeStarted = Date.now();",
+                    "gridpanel.mask('Document is prepared for export. Please wait ...');",
+                    "Ext.log('export started');"
+                ],
+                "name": "beforedocumentsave",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onBeforeDocumentsave",
+            "designerId": "045b605a-f49a-48c1-a1d5-5811c1809b5c"
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onDataReady",
+                "implHandler": [
+                    "        Ext.log('data ready; time passed = ' + (Date.now() - this.timeStarted));",
+                    ""
+                ],
+                "name": "dataready",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onDataReady",
+            "designerId": "0562ced2-036d-410e-b8fc-22374de28dbe"
         }
     ]
 }

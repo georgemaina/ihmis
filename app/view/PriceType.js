@@ -30,7 +30,7 @@ Ext.define('CarePortal.view.PriceType', {
     width: 347,
     layout: 'absolute',
     bodyPadding: 10,
-    url: 'data/getDataFunctions.php?task=insertNewPrice',
+    url: 'data/getProductsFunctions.php?task=insertNewPrice',
 
     items: [
         {
@@ -55,6 +55,7 @@ Ext.define('CarePortal.view.PriceType', {
             xtype: 'textfield',
             x: 285,
             y: 80,
+            hidden: true,
             itemId: 'formStatus',
             width: 55,
             name: 'formStatus'

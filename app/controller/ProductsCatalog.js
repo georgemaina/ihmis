@@ -525,10 +525,10 @@ Ext.define('CarePortal.controller.ProductsCatalog', {
         if (form.isValid()) { // make sure the form contains valid data before submitting
             form.submit({
                 success: function(form, action) {
-                    Ext.Msg.alert('Success', action.result.msg);
+                    Ext.Msg.alert('Success',  'Item Saved Successfully');
 
                     var win=button.up('window');
-                    win.destroy();
+                    win.close();
 
                 },
                 failure: function(form, action) {
@@ -562,7 +562,7 @@ Ext.define('CarePortal.controller.ProductsCatalog', {
                     Ext.Msg.alert('Success', 'Item Saved Successfully');
 
                     var win=button.up('window');
-                    win.destroy();
+                    win.close();
 
                 },
                 failure: function(form, action) {

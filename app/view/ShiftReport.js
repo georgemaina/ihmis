@@ -29,6 +29,7 @@ Ext.define('CarePortal.view.ShiftReport', {
         type: 'shiftreport'
     },
     itemId: 'ShiftReport',
+    minHeight: 800,
     scrollable: 'both',
     columnLines: true,
     store: 'ReceiptStore',
@@ -74,7 +75,7 @@ Ext.define('CarePortal.view.ShiftReport', {
         {
             xtype: 'gridcolumn',
             width: 142,
-            dataIndex: 'Names',
+            dataIndex: 'payer',
             text: 'Names'
         },
         {

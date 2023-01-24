@@ -52,6 +52,7 @@ class Bill extends Encounter {
     var $used_budget = array('');
     var $res;
     var $result;
+    var $request;
     var $sql;
     var $debug;
     var $records;
@@ -867,7 +868,8 @@ class Bill extends Encounter {
         global $db;
         $debug=false;
         
-        $sql="Select financial_class from care_encounter where encounter_nr='$enc_nr'";
+        $sql="SELECT p.`insurance_ID` FROM care_encounter e LEFT JOIN care_person p 
+        ON e.`pid`=p.`pid` WHERE e.encounter_nr='$enc_nr'";
         if($debug) { echo $sql; }
         if($request=$db->Execute($sql)){
            $row=$request->FetchRow();
@@ -4397,14 +4399,11 @@ A:visited:hover {color: #cc0033;}
             $anzahl = 'count(*) AS anzahl,';
         }
         if (!$_REQUEST['sort']) {
-            $this->sql = "SELECT COUNT(*), encounter_nr, modify_time, status, care_encounter.pid, care_person.pid, care_person.selian_pid, care_person.name_first, care_person.name_last, care_person.date_birth';
-								FROM care_encounter_prescription, " .
-                    "				care_test_request_chemlabor, " .
-                    "				care_encounter_op, " .
-                    "				care_encounter_services, " .
-                    "				care_test_request_radio, " .
-                    "				care_encounter " .
-                    "				INNER JOIN care_person On care_person.pid=care_encounter.pid
+            $this->sql = "SELECT COUNT(*), encounter_nr, modify_time, status, care_encounter.pid, care_person.pid, care_person.selian_pid, 
+                            care_person.name_first, care_person.name_last, care_person.date_birth
+								FROM care_encounter_prescription,care_test_request_chemlabor, care_encounter_op, care_encounter_services,
+                    				care_test_request_radio,care_encounter
+                    				INNER JOIN care_person On care_person.pid=care_encounter.pid
 								WHERE encounter_nr=$encounter_nr
 								AND bill_number= 0 $and_in_outpatient
 								AND isnull(is_disabled)
@@ -4412,14 +4411,10 @@ A:visited:hover {color: #cc0033;}
                 $where_encounter
 								ORDER BY modify_date DESC , $encounter_nr ASC";
         } else {
-            $this->sql = "SELECT COUNT(*), encounter_nr, modify_time, status, care_encounter.pid, care_encounter.pid, care_person.pid, care_person.selian_pid, care_person.name_first, care_person.name_last, care_person.date_birth';
-								FROM care_encounter_prescription, " .
-                    "				care_test_request_chemlabor, " .
-                    "				care_encounter_op, " .
-                    "				care_encounter_services, " .
-                    "				care_test_request_radio, " .
-                    "				care_encounter " .
-                    "				INNER JOIN care_person On care_person.pid=care_encounter.pid
+            $this->sql = "SELECT COUNT(*), encounter_nr, modify_time, status, care_encounter.pid, care_encounter.pid, care_person.pid, 
+            care_person.selian_pid, care_person.name_first, care_person.name_last, care_person.date_birth
+								FROM care_encounter_prescription,care_test_request_chemlabor,care_encounter_op,care_encounter_services, 
+                    care_test_request_radio, care_encounter INNER JOIN care_person On care_person.pid=care_encounter.pid
 								WHERE encounter_nr=$encounter_nr
 								AND bill_number= 0 $and_in_outpatient
 								AND isnull(is_disabled)
@@ -5057,7 +5052,7 @@ if ($this->debug) echo $this->sql;
         $anzahl_lab = 'count(*) AS anzahl_lab,';
 
         // $this->sql = "SELECT $anzahl_lab ctr.*, ctr_sub.encounter_nr, cp.pid, cp.selian_pid, cp.name_first,
-		// cp.name_last FROM care_test_request_chemlabor` ctr, care_test_request_chemlabor_sub ctr_sub, care_encounter ce, care_person cp
+		// cp.name_last FROM care_test_request_chemlabor ctr, care_test_request_chemlabor_sub ctr_sub, care_encounter ce, care_person cp
 		// WHERE ctr_sub.encounter_nr = ce.encounter_nr
 		// ctr.batch_nr=ctr_sub.batch_nr
 		// AND ce.pid = cp.pid
@@ -6137,9 +6132,9 @@ if ($this->debug) echo $this->sql;
         $debug = FALSE;
         ($debug) ? $db->debug = FALSE : $db->debug = FALSE;
 
-        $this->sql = "SELECT item_id from $this->tb_drugsandservices where item_description='" . $param_name;
-        $this->request = $db->Execute($this->sql);
-        if ($row = $this->request->FetchRow())
+        $this->sql = "SELECT item_id from $this->tb_drugsandservices where item_description='$param_name'";
+        $request = $db->Execute($this->sql);
+        if ($row = $request->FetchRow())
             return $row['item_id'];
         else
             return "N/A";
@@ -6159,7 +6154,15 @@ if ($this->debug) echo $this->sql;
             $item_id = $this->res['item_id'];
             $item_number = $this->res['item_number'];
             $item_description = $this->res['item_description'];
-            $unit_price =$this->getItemPrice($this->res['partcode'],$priceType); //$this->res['unit_price'];
+            $financialClass=$this->getFinancialClass($encounter);
+            if($financialClass=='-1' || $financialClass=='CASH'){
+                $financialClass = '1';
+            }else{
+                $financialClass = '2';
+            }
+
+            $unit_price=$this->getItemPrice($this->res['partcode'], $financialClass);
+          //  $unit_price =$this->getItemPrice($this->res['partcode'],$priceType); //$this->res['unit_price'];
             $partcode = $this->res['partcode'];
             $dclass = $this->res['purchasing_class'];
 

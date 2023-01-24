@@ -29,7 +29,7 @@ Ext.define('CarePortal.store.InsuranceCompaniesStore', {
         me.callParent([Ext.apply({
             pageSize: 500,
             storeId: 'InsuranceCompaniesStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.InsuranceCompanies',
             proxy: {
                 type: 'ajax',

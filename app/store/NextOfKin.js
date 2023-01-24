@@ -28,7 +28,7 @@ Ext.define('CarePortal.store.NextOfKin', {
         cfg = cfg || {};
         me.callParent([Ext.apply({
             storeId: 'NextOfKin',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.NextOfKin',
             proxy: {
                 type: 'ajax',

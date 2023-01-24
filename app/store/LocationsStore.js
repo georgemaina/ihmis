@@ -29,7 +29,7 @@ Ext.define('CarePortal.store.LocationsStore', {
         me.callParent([Ext.apply({
             pageSize: 100,
             storeId: 'LocationsStore',
-            autoLoad: true,
+            autoLoad: false,
             model: 'CarePortal.model.Locations',
             proxy: {
                 type: 'ajax',

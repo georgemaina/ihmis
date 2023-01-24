@@ -15,5 +15,12 @@
 
 Ext.define('CarePortal.view.ServicesViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.services'
+    alias: 'controller.services',
+
+    onServicesAfterRender: function(component, eOpts) {
+
+        var serviceStore=Ext.data.StoreManager.lookup('ServicesStore');
+        serviceStore.load({});
+    }
+
 });

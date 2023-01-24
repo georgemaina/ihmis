@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.OrdersForm', {
 
     requires: [
         'CarePortal.view.OrdersFormViewModel',
+        'CarePortal.view.OrdersFormViewController',
         'Ext.form.FieldSet',
         'Ext.form.RadioGroup',
         'Ext.form.field.Radio',
@@ -33,6 +34,7 @@ Ext.define('CarePortal.view.OrdersForm', {
         'Ext.button.Button'
     ],
 
+    controller: 'ordersform',
     viewModel: {
         type: 'ordersform'
     },
@@ -156,6 +158,12 @@ Ext.define('CarePortal.view.OrdersForm', {
                     store: 'StoreLocationsStore',
                     typeAhead: true,
                     valueField: 'ID'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 809,
+                    y: 17,
+                    itemId: 'formStatus'
                 }
             ]
         },
@@ -246,6 +254,9 @@ Ext.define('CarePortal.view.OrdersForm', {
                 }
             ]
         }
-    ]
+    ],
+    listeners: {
+        afterrender: 'onFormAfterRender'
+    }
 
 });
