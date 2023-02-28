@@ -1,0 +1,20 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "accountsreports",
+        "designer|userClassName": "AccountsReports"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "MyPanel1",
+    "designerId": "4024effe-f29e-4ca2-8b5d-b8ae22640bb5",
+    "viewControllerInstanceId": "2ae60486-4ce4-4be9-b36f-57db46403c43",
+    "viewModelInstanceId": "7384da08-9ca1-40b8-b29a-19b91a080f48"
+}

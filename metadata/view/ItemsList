@@ -147,7 +147,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Description",
+                "dataIndex": "unit_measure",
                 "text": "Description",
                 "width": 282
             },
@@ -167,7 +167,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Price",
+                "dataIndex": "buying_price",
                 "text": "Price"
             },
             "configAlternates": {

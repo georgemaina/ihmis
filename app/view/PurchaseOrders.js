@@ -21,10 +21,10 @@ Ext.define('CarePortal.view.PurchaseOrders', {
         'CarePortal.view.PurchaseOrdersViewModel',
         'CarePortal.view.PurchaseOrdersViewController',
         'Ext.view.Table',
-        'Ext.toolbar.Paging',
-        'Ext.form.field.Text',
+        'Ext.form.field.ComboBox',
         'Ext.button.Button',
-        'Ext.grid.column.Widget'
+        'Ext.grid.column.Widget',
+        'Ext.toolbar.Paging'
     ],
 
     controller: 'purchaseorders',
@@ -41,19 +41,88 @@ Ext.define('CarePortal.view.PurchaseOrders', {
             rowclick: 'onTableRowClick'
         }
     },
+    dockedItems: [
+        {
+            xtype: 'container',
+            dock: 'top',
+            height: 40,
+            width: 100,
+            layout: 'absolute',
+            items: [
+                {
+                    xtype: 'textfield',
+                    x: 5,
+                    y: 5,
+                    width: 315,
+                    emptyText: 'Search orders by Order No, supplier'
+                },
+                {
+                    xtype: 'combobox',
+                    x: 335,
+                    y: 5,
+                    width: 180,
+                    emptyText: 'Order Status',
+                    store: [
+                        'Pending',
+                        'Authorised',
+                        'Cancelled',
+                        'Rejected',
+                        'Completed'
+                    ]
+                },
+                {
+                    xtype: 'button',
+                    x: 795,
+                    y: 5,
+                    itemId: 'newOrder',
+                    width: 210,
+                    iconCls: 'x-fa fa-pencil-square-o',
+                    text: 'Create New Order'
+                },
+                {
+                    xtype: 'textfield',
+                    x: 1025,
+                    y: 5,
+                    itemId: 'formStatus'
+                }
+            ]
+        },
+        {
+            xtype: 'pagingtoolbar',
+            dock: 'bottom',
+            width: 360,
+            displayInfo: true,
+            store: 'PurchOrdersStore'
+        }
+    ],
     columns: [
         {
+            xtype: 'widgetcolumn',
+            width: 97,
+            text: 'Order No',
+            widget: {
+                xtype: 'button',
+                bind: '{record.OrderNo}',
+                itemId: 'orderDetailsButton',
+                style: 'background-color:maroon; font-weight:bold;',
+                text: 'Order Details',
+                tooltip: 'View Order Details'
+            }
+        },
+        {
             xtype: 'gridcolumn',
+            hidden: true,
             dataIndex: 'OrderNo',
             text: 'Order No'
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'SupplierNo',
+            dataIndex: 'supplierid',
             text: 'Supplier No'
         },
         {
             xtype: 'gridcolumn',
+            width: 259,
             dataIndex: 'Description',
             text: 'Description'
         },
@@ -64,6 +133,13 @@ Ext.define('CarePortal.view.PurchaseOrders', {
         },
         {
             xtype: 'gridcolumn',
+            width: 115,
+            dataIndex: 'DeliveryDate',
+            text: 'Delivery Date'
+        },
+        {
+            xtype: 'gridcolumn',
+            hidden: true,
             dataIndex: 'AllowPrint',
             text: 'Allow Print'
         },
@@ -74,47 +150,30 @@ Ext.define('CarePortal.view.PurchaseOrders', {
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'Initiator',
-            text: 'Initiator'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Status',
-            text: 'Status'
-        },
-        {
-            xtype: 'gridcolumn',
             width: 153,
             dataIndex: 'RequisitionStatus',
             text: 'Requisition Status'
         },
         {
-            xtype: 'widgetcolumn',
-            width: 154,
-            text: 'View Order Items',
-            widget: {
-                xtype: 'button',
-                bind: '{record.OrderNo}',
-                itemId: 'orderDetailsButton',
-                style: 'background-color:maroon; font-weight:bold;',
-                iconCls: 'x-fa fa-arrow-right',
-                text: 'Order Details',
-                tooltip: 'View Order Details'
-            }
+            xtype: 'gridcolumn',
+            width: 155,
+            dataIndex: 'Initiator',
+            text: 'Initiated By'
         },
         {
-            xtype: 'widgetcolumn',
+            xtype: 'gridcolumn',
+            style: 'font-weight:bold;',
+            width: 120,
+            align: 'end',
+            dataIndex: 'Total',
+            formatter: 'round(2)',
+            text: 'Total'
+        },
+        {
+            xtype: 'gridcolumn',
             width: 154,
-            text: 'Authorization Status',
-            widget: {
-                xtype: 'button',
-                bind: '{record.Status}',
-                itemId: 'orderStatusButton',
-                style: 'background-color:maroon; font-weight:bold;',
-                iconCls: 'x-fa fa-arrow-right',
-                text: 'Approve',
-                tooltip: 'View Order Details'
-            }
+            dataIndex: 'Status',
+            text: 'Order Status'
         },
         {
             xtype: 'widgetcolumn',
@@ -144,41 +203,10 @@ Ext.define('CarePortal.view.PurchaseOrders', {
                 iconCls: 'x-fa fa-print',
                 text: 'Receive Order',
                 tooltip: 'Receive Order'
+            },
+            listeners: {
+                afterrender: 'onWidgetcolumnAfterRender'
             }
-        }
-    ],
-    dockedItems: [
-        {
-            xtype: 'pagingtoolbar',
-            dock: 'bottom',
-            width: 360,
-            displayInfo: true,
-            store: 'PurchOrdersStore'
-        },
-        {
-            xtype: 'container',
-            dock: 'top',
-            height: 40,
-            width: 100,
-            layout: 'absolute',
-            items: [
-                {
-                    xtype: 'textfield',
-                    x: 10,
-                    y: 5,
-                    width: 315,
-                    emptyText: 'Search orders by Order No, supplier'
-                },
-                {
-                    xtype: 'button',
-                    x: 795,
-                    y: 5,
-                    itemId: 'newOrder',
-                    width: 210,
-                    iconCls: 'x-fa fa-pencil-square-o',
-                    text: 'Create New Order'
-                }
-            ]
         }
     ]
 

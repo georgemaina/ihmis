@@ -35,7 +35,16 @@ Ext.define('CarePortal.model.ItemsList', {
             name: 'Description'
         },
         {
+            name: 'unit_measure'
+        },
+        {
+            name: 'purchasing_unit'
+        },
+        {
             name: 'Price'
+        },
+        {
+            name: 'buying_price'
         },
         {
             name: 'QtyInStore'

@@ -639,7 +639,7 @@
                     "diagStore.load({",
                     "    params:{",
                     "        dob:dob,",
-                    "        diagType:caller",
+                    "        diagType:'OP'  //caller",
                     "    }",
                     "});",
                     "",

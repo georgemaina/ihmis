@@ -36,7 +36,6 @@ Ext.define('CarePortal.view.RegisterViewController', {
 
         var countiesStore=Ext.data.StoreManager.lookup('CountyStore');
         countiesStore.load({});
-
     }
 
 });

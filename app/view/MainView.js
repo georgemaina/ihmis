@@ -30,9 +30,12 @@ Ext.define('CarePortal.view.MainView', {
 
     items: [
         {
-            xtype: 'container',
+            xtype: 'panel',
+            flex: 1,
             region: 'center',
-            itemId: 'mainDetails'
+            itemId: 'mainDetails',
+            scrollable: 'both',
+            layout: 'fit'
         },
         {
             xtype: 'container',

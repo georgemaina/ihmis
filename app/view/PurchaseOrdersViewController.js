@@ -18,16 +18,18 @@ Ext.define('CarePortal.view.PurchaseOrdersViewController', {
     alias: 'controller.purchaseorders',
 
     onTableRowClick: function(tableview, record, element, rowIndex, e, eOpts) {
-        var column = tableview.up('grid').getColumns()[11];
+        var column = tableview.up('grid').getColumns()[12];
 
-        if (column.isVisible()) {
+        if (column.isVisible() && record.get('AllowPrint')===0) {
             column.hide();
-            //btn.setText('Show Email Column');
-        }
-        else {
+        }else {
             column.show();
-            // btn.setText('Hide Email Column');
         }
+    },
+
+    onWidgetcolumnAfterRender: function(component, eOpts) {
+        var purchOrdersStore=Ext.data.StoreManager.lookup('PurchOrdersStore');
+        purchOrdersStore.load({});
     }
 
 });

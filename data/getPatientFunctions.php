@@ -1347,8 +1347,9 @@ function getItemsList($searchParam,$start,$limit) {
 
     $storeLoc=$_REQUEST['storeLoc'];
 
-    $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`,c.`catID`
-                 ,s.quantity,s.`loccode`
+    $sql = "SELECT d.`partcode`,d.`item_description`,c.`item_Cat`,d.`unit_price`
+                    ,d.buying_price,c.`catID`
+                    ,s.quantity,s.`loccode`,d.unit_measure,d.purchasing_unit
             FROM care_tz_drugsandservices d 
             LEFT JOIN care_tz_itemscat c ON d.`category`=c.`catID` 
             LEFT JOIN care_ke_locstock s ON d.`partcode`=s.stockid
@@ -1372,7 +1373,9 @@ function getItemsList($searchParam,$start,$limit) {
 
         echo '{"PartCode":"' . $row['partcode'] . '","Description":"' . $description
             . '","CatID":"' . $row['catID']. '","Category":"' . $row['item_Cat'] 
-            . '","Price":"' . $row['unit_price'] . '","QtyInStore":"' . $row['quantity']. '"}';
+            . '","Price":"' . $row['unit_price'] . '","QtyInStore":"' . $row['quantity']
+            . '","buying_price":"' . $row['buying_price']. '","unit_measure":"' . $row['unit_measure']
+            . '","purchasing_unit":"' . $row['purchasing_unit']. '"}';
 
         $counter++;
 

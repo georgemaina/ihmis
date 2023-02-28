@@ -30,7 +30,6 @@ switch ($task) {
     case "getAccountSection":
         getAccountSection();
         break;
-    case "getSuppliers"
     default:
         echo "{failure:true}";
         break;

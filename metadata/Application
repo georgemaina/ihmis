@@ -285,7 +285,6 @@
             "StartShift",
             "Home",
             "Shifts",
-            "OrdersFromSuppliers",
             "Suppliers",
             "SupplierForm",
             "PurchaseOrders",
@@ -421,7 +420,8 @@
             "AccountGroups",
             "AccountSection",
             "ReceiptsAdj",
-            "DrugsIssued"
+            "DrugsIssued",
+            "AccountsReports"
         ]
     },
     "configAlternates": {
@@ -455,7 +455,7 @@
                     "        }else{",
                     "             Ext.create(\"CarePortal.view.Login\",{});",
                     "        }",
-                    "        ",
+                    "",
                     "        this.setCompanyDetails();",
                     "    },",
                     "",

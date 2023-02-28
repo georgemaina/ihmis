@@ -374,7 +374,7 @@ class Bill extends Encounter {
         ($this->debug) ? $db->debug = FALSE : $db->debug = FALSE;
         if ($this->debug)
             echo "<br><b>Method class_tz_billing::newBillNo()</b><br>";
-        $this->sql = "select new_bill_nr from care_ke_company";
+        $this->sql = "select max(bill_number)+1 as bill_number from care_ke_billing";
 
         if ($this->debug)
             echo $this->sql;

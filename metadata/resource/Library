@@ -14,13 +14,15 @@
             "calendar",
             "exporter",
             "font-awesome"
-        ]
+        ],
+        "theme": "MyTritonTheme1"
     },
     "configAlternates": {
         "basePath": "uri",
         "debug": "boolean",
         "designer|userClassName": "string",
-        "libraryRequires": "typedarray"
+        "libraryRequires": "typedarray",
+        "theme": "string"
     },
     "designerId": "7d7dafb5-094a-4ac0-80f6-e606c50018d9"
 }

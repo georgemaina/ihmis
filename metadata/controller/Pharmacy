@@ -44,12 +44,12 @@
             "PrescriptionForm",
             "Dosage",
             "PendingPrescriptions",
-            "OrdersFromSuppliers",
             "SupplierForm",
             "PurchaseOrders",
             "IssueDrugs",
             "DosageList",
-            "DrugsList"
+            "DrugsList",
+            "MainView"
         ]
     },
     "configAlternates": {
@@ -454,7 +454,7 @@
                     "var itemsList=Ext.create(\"CarePortal.view.DrugsList\",{});",
                     "var ordersWindow=Ext.create('Ext.window.Window', {",
                     "    title: 'Drugs ans Supplies List',",
-                    "    resizable:false",
+                    "    resizable:true",
                     "});",
                     "",
                     "// var itesmStore=Ext.data.StoreManager.lookup(\"ItemslistStore\");",
@@ -2592,17 +2592,17 @@
                 "fn": "createPurchOrder",
                 "implHandler": [
                     "var purchOrdersForm=Ext.create(\"CarePortal.view.OrdersFromSuppliers\",{});",
-                    "var purchOrdersWindow=Ext.create('Ext.window.Window', {",
-                    "    title: 'Purchase Orders',",
-                    "    resizable:false,",
-                    "    closable:true",
-                    "});",
                     "",
-                    "var ordersStore =Ext.data.StoreManager.lookup('OrderStocksStore');",
-                    "ordersStore.removeAll();",
+                    "var centerContainer=this.getViewport().down(\"#detailsPanel\");",
+                    "centerContainer.removeAll();",
                     "",
-                    "purchOrdersWindow.add(purchOrdersForm);",
-                    "purchOrdersWindow.show();"
+                    "centerContainer.add(purchOrdersForm);",
+                    "centerContainer.setTitle(\"Create Purchase Order\" );",
+                    "",
+                    "",
+                    "var supStore =Ext.data.StoreManager.lookup('SuppliersStore');",
+                    "supStore.load({});",
+                    ""
                 ]
             },
             "configAlternates": {
@@ -2927,12 +2927,16 @@
                 "implHandler": [
                     "var rec = button.lookupViewModel().get('record');",
                     "//  Ext.Msg.alert(\"Button clicked\", \"Hey! \" + rec.get('OrderNo'));",
-                    "var PurchordersForm=Ext.create(\"CarePortal.view.PurchaseOrderDetails\",{});",
-                    "var purchOrdersWindow=Ext.create('Ext.window.Window', {",
-                    "    title: 'Purchase Orders',",
-                    "    resizable:true,",
-                    "    closable:false",
-                    "});",
+                    "var PurchOrderDetails=Ext.create(\"CarePortal.view.PurchaseOrderDetails\",{});",
+                    "var supplierDetailsPanel=PurchOrderDetails.down('#supplierDetails');",
+                    "",
+                    "centerContainer=this.getViewport().down(\"#detailsPanel\");",
+                    "centerContainer.removeAll();",
+                    "",
+                    "centerContainer.add(PurchOrderDetails);",
+                    "centerContainer.setTitle(\"Purchase Order Details\");",
+                    "",
+                    "PurchOrderDetails.down('#formStatus').setValue(\"PurchaseDetails\");",
                     "",
                     "var pendingOrders =Ext.data.StoreManager.lookup('PurchOrderItems');",
                     "pendingOrders.load({",
@@ -2945,8 +2949,36 @@
                     "    scope: this",
                     "});",
                     "",
-                    "purchOrdersWindow.add(PurchordersForm);",
-                    "purchOrdersWindow.show();"
+                    "var data = [];",
+                    "var supplierDetails =Ext.data.StoreManager.lookup('SuppliersStore');",
+                    "supplierDetails.load({",
+                    "    params:{",
+                    "        supplierId:rec.get('supplierid')",
+                    "    },",
+                    "    callback: function(records, operation, success) {",
+                    "           var tpl=new Ext.XTemplate(",
+                    "                    '<Table id=notes>',",
+                    "                    '<tr><td id=titles align=center style=\"font-size:16px;font-weight:bold;\">Vendors Details</td></tr>',",
+                    "                    '<tpl for=\".\">',",
+                    "                    '<tr><td>Supplier: {suppname}</td></tr>',",
+                    "                    '<tr><td>Address: {address}  -  Location: {street}, {city}</td>',",
+                    "                    '<tr><td>Phone:{mobile},{telephone}  ,  Email: {email}</td></tr>',",
+                    "                    '<tr><td>Sales Person: {salesperson}</td></tr>',",
+                    "                    '</tpl>',",
+                    "                    '</table>'",
+                    "                );",
+                    "",
+                    "                supplierDetails.each(function(record) {",
+                    "                    data.push(record.getData());",
+                    "                    //billSum += record.get('Total');",
+                    "                });",
+                    "",
+                    "                tpl.overwrite(supplierDetailsPanel.body,data);",
+                    "    },",
+                    "    scope: this",
+                    "});",
+                    "",
+                    ""
                 ]
             },
             "configAlternates": {
@@ -3019,6 +3051,26 @@
             },
             "name": "drugslist",
             "designerId": "15958587-f9d6-4ff7-8c97-05d5c8166f73"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "viewport",
+                "selector": "viewport",
+                "xtype": "portal"
+            },
+            "configAlternates": {
+                "ref": "string",
+                "selector": "string",
+                "xtype": "string"
+            },
+            "name": "viewport",
+            "designerId": "b7b7c590-5dce-487f-b8da-b342c1d9000c"
         }
     ]
 }

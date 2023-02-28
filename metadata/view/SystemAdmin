@@ -1411,6 +1411,42 @@
                                     "designerId": "998c93db-5063-4c68-aa8c-40b47a35d681"
                                 }
                             ]
+                        },
+                        {
+                            "type": "viewcontrollereventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onGridpanelItemDblClick",
+                                "implHandler": [
+                                    "var menusForm=Ext.create(\"CarePortal.view.MenusForm\",{});",
+                                    "var containterWindows=Ext.create('Ext.window.Window', {",
+                                    "    title: \"Menus Register\",",
+                                    "    resizable:true,",
+                                    "    closable:true,",
+                                    "    layout:'fit'",
+                                    "});",
+                                    "",
+                                    "menusForm.down('#formStatus').setValue('update');",
+                                    "menusForm.getForm().loadRecord(record);",
+                                    "",
+                                    "containterWindows.add(menusForm);",
+                                    "containterWindows.show();"
+                                ],
+                                "name": "itemdblclick",
+                                "scope": "me"
+                            },
+                            "configAlternates": {
+                                "fn": "string",
+                                "implHandler": "code",
+                                "name": "string",
+                                "scope": "string"
+                            },
+                            "name": "onGridpanelItemDblClick",
+                            "designerId": "9dc587cf-54b6-4e6f-9322-3831199efc0b"
                         }
                     ]
                 }

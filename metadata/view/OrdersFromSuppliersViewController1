@@ -1,0 +1,52 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ordersfromsuppliers",
+        "designer|userClassName": "OrdersFromSuppliersViewController1"
+    },
+    "configAlternates": {
+        "designer|userAlias": "string",
+        "designer|userClassName": "string"
+    },
+    "name": "OrdersFromSuppliersViewController1",
+    "designerId": "1b9dbd7f-de52-4489-b231-25b9efd81737",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "incr,button"
+                ],
+                "fn": "doCardNavigation",
+                "implHandler": [
+                    "var me = button.up('form'),",
+                    "    l = me.getLayout(),",
+                    "    i = l.activeItem.itemId.split('card-')[1],",
+                    "    next = parseInt(i, 10) + incr;",
+                    "",
+                    "l.setActiveItem(next);",
+                    "",
+                    "me.down('#card-prev').setDisabled(next === 0);",
+                    "me.down('#card-next').setDisabled(next === 2);"
+                ]
+            },
+            "configAlternates": {
+                "designer|params": "typedarray",
+                "fn": "string",
+                "implHandler": "code"
+            },
+            "name": "doCardNavigation",
+            "designerId": "9d484046-685f-4d73-a01d-e6192b62546e"
+        }
+    ]
+}

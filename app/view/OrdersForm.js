@@ -162,8 +162,7 @@ Ext.define('CarePortal.view.OrdersForm', {
                 {
                     xtype: 'textfield',
                     x: 809,
-                    y: 17,
-                    itemId: 'formStatus'
+                    y: 17
                 }
             ]
         },
@@ -186,18 +185,18 @@ Ext.define('CarePortal.view.OrdersForm', {
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'QtyInStore',
+                    dataIndex: 'purchasing_unit',
                     text: 'Qty In Store'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Price',
+                    dataIndex: 'buying_price',
                     text: 'Price'
                 },
                 {
                     xtype: 'gridcolumn',
                     width: 133,
-                    dataIndex: 'Qty',
+                    dataIndex: 'Total',
                     text: 'Qty To Order',
                     editor: {
                         xtype: 'numberfield',

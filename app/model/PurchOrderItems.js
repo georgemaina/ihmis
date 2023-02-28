@@ -48,6 +48,9 @@ Ext.define('CarePortal.model.PurchOrderItems', {
         },
         {
             name: 'QuantityRecd'
+        },
+        {
+            name: 'Total'
         }
     ]
 });

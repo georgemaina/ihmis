@@ -27,6 +27,8 @@ Ext.define('CarePortal.store.DrugsIssuedStore', {
         var me = this;
         cfg = cfg || {};
         me.callParent([Ext.apply({
+            pageSize: 23,
+            storeId: 'DrugsIssuedStore',
             model: 'CarePortal.model.DrugsIssued',
             proxy: {
                 type: 'ajax',

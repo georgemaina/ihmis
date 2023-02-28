@@ -6,6 +6,7 @@
     },
     "codeClass": null,
     "userConfig": {
+        "columnLines": true,
         "designer|userAlias": "drugsissued",
         "designer|userClassName": "DrugsIssued",
         "itemId": "DrugsIssued",
@@ -15,7 +16,8 @@
         "designer|userAlias": "string",
         "designer|userClassName": "string",
         "itemId": "string",
-        "store": "store"
+        "store": "store",
+        "columnLines": "boolean"
     },
     "name": "MyGridPanel4",
     "designerId": "73fbca17-d5ca-489b-890e-0e56d2e2cb30",
@@ -41,11 +43,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "id",
+                "hidden": true,
                 "text": "ID"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "hidden": "boolean"
             },
             "name": "MyColumn226",
             "designerId": "c1085507-5506-49f5-8236-f95926f3b508"
@@ -59,11 +63,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "presc_nr",
-                "text": "Presc Nr"
+                "text": "Presc Nr",
+                "width": 74
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn227",
             "designerId": "5eb798da-475b-452a-a934-a09e80a9d422"
@@ -131,11 +137,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "adm_no",
-                "text": "Adm No"
+                "text": "Pid",
+                "width": 62
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn233",
             "designerId": "989d2ca7-54a0-43e5-83b4-fa7caa053090"
@@ -149,11 +157,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "patient_name",
-                "text": "Patient Name"
+                "text": "Patient Name",
+                "width": 160
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn234",
             "designerId": "575afe94-de51-470e-99a7-1501ccfadc88"
@@ -167,11 +177,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "item_id",
+                "hidden": true,
                 "text": "Item Id"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "hidden": "boolean"
             },
             "name": "MyColumn235",
             "designerId": "b858062b-8fd8-42aa-a39a-99e7a635be18"
@@ -185,11 +197,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "Item_desc",
-                "text": "Item Desc"
+                "text": "Description",
+                "width": 218
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn236",
             "designerId": "ed583c84-1654-40f9-824d-b7434e93996d"
@@ -203,11 +217,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "qty",
-                "text": "Qty"
+                "text": "Qty",
+                "width": 54
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn237",
             "designerId": "7975e3dc-336c-47f0-8aba-4aef41eed28f"
@@ -221,11 +237,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "price",
-                "text": "Price"
+                "text": "Price",
+                "width": 64
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn238",
             "designerId": "f596c687-7739-41e6-a10d-3c6fbae70edb"
@@ -239,11 +257,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "unit_cost",
+                "hidden": true,
                 "text": "Unit Cost"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "hidden": "boolean"
             },
             "name": "MyColumn239",
             "designerId": "3eb5e04a-8cb5-46ca-b6d2-e18653f0f0d4"
@@ -257,11 +277,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "issued",
-                "text": "Issued"
+                "text": "Issued",
+                "width": 74
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn240",
             "designerId": "d53b15df-aae3-4d60-a542-0079651f856a"

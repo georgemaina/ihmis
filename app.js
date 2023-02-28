@@ -287,7 +287,6 @@ Ext.application({
         'StartShift',
         'Home',
         'Shifts',
-        'OrdersFromSuppliers',
         'Suppliers',
         'SupplierForm',
         'PurchaseOrders',
@@ -423,7 +422,8 @@ Ext.application({
         'AccountGroups',
         'AccountSection',
         'ReceiptsAdj',
-        'DrugsIssued'
+        'DrugsIssued',
+        'AccountsReports'
     ],
     controllers: [
         'Main',

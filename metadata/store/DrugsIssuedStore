@@ -8,12 +8,16 @@
     "userConfig": {
         "designer|userAlias": "drugsissuedstore",
         "designer|userClassName": "DrugsIssuedStore",
-        "model": "DrugsIssued"
+        "model": "DrugsIssued",
+        "pageSize": 23,
+        "storeId": "DrugsIssuedStore"
     },
     "configAlternates": {
         "designer|userAlias": "string",
         "designer|userClassName": "string",
-        "model": "model"
+        "model": "model",
+        "pageSize": "number",
+        "storeId": "string"
     },
     "name": "MyJsonStore1",
     "designerId": "7f5d3f52-67dd-4373-a885-628eb84a8d9d",

@@ -53,7 +53,7 @@ Ext.define('CarePortal.view.Login', {
                     items: [
                         {
                             xtype: 'displayfield',
-                            value: 'WESLEY MISSION HOSPITAL',
+                            value: 'CHAK HOSPITAL MANAGEMENT SYSTEM',
                             fieldStyle: 'color:white;font-weight:bold;font-size:16px;'
                         }
                     ]

@@ -27,7 +27,7 @@ Ext.define('CarePortal.view.DrugsList', {
 
     height: 414,
     itemId: 'drugsList',
-    width: 500,
+    width: 778,
     bodyStyle: 'background-color: #d9f2e6;',
     columnLines: true,
     store: 'DrugsList',
@@ -79,6 +79,23 @@ Ext.define('CarePortal.view.DrugsList', {
             width: 282,
             dataIndex: 'Description',
             text: 'Description'
+        },
+        {
+            xtype: 'gridcolumn',
+            width: 85,
+            dataIndex: 'unit_measure',
+            text: 'Units'
+        },
+        {
+            xtype: 'gridcolumn',
+            width: 121,
+            dataIndex: 'purchasing_unit',
+            text: 'Conversion Factor'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'buying_price',
+            text: 'Buying Price'
         },
         {
             xtype: 'gridcolumn',

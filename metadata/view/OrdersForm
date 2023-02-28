@@ -443,7 +443,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "QtyInStore",
+                        "dataIndex": "purchasing_unit",
                         "text": "Qty In Store"
                     },
                     "configAlternates": {
@@ -461,7 +461,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "Price",
+                        "dataIndex": "buying_price",
                         "text": "Price"
                     },
                     "configAlternates": {
@@ -479,7 +479,7 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "Qty",
+                        "dataIndex": "Total",
                         "text": "Qty To Order",
                         "width": 133
                     },

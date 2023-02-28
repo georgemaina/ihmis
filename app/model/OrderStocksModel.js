@@ -29,13 +29,28 @@ Ext.define('CarePortal.model.OrderStocksModel', {
             name: 'Description'
         },
         {
+            name: 'unit_measure'
+        },
+        {
+            name: 'purchasing_unit'
+        },
+        {
             name: 'QtyInStore'
         },
         {
             name: 'Price'
         },
         {
+            name: 'buying_price'
+        },
+        {
             name: 'Qty'
+        },
+        {
+            name: 'TotalQty'
+        },
+        {
+            name: 'Total'
         }
     ]
 });

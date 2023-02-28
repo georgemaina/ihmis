@@ -9,10 +9,8 @@
         "columnLines": true,
         "designer|userAlias": "suppliers",
         "designer|userClassName": "Suppliers",
-        "height": 253,
         "itemId": "supplierslist",
-        "store": "SuppliersStore",
-        "width": 505
+        "store": "SuppliersStore"
     },
     "configAlternates": {
         "designer|userAlias": "string",
@@ -37,134 +35,6 @@
             "codeClass": null,
             "name": "MyTable8",
             "designerId": "0cfd2f1d-fa53-4550-8dc2-1b5fa7429bd6"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "ID",
-                "text": "ID"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn4",
-            "designerId": "97bf1ad9-7fee-458d-aa4d-c03e0c630dde"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "SupID",
-                "text": "Supplier ID"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn5",
-            "designerId": "ba247c71-93ec-458c-a643-856c06026301"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Description",
-                "text": "Description",
-                "width": 242
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string",
-                "width": "auto"
-            },
-            "name": "MyColumn20",
-            "designerId": "b1227ba3-e45b-49ab-8c41-ab05cbc72c49"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "AmountOwed",
-                "text": "Amount Owed"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn33",
-            "designerId": "46efaf95-63ca-4faf-a63b-fbc04f38cdbf"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "AmountPaid",
-                "text": "Amount Paid"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn34",
-            "designerId": "7c2d28d9-42e6-48a1-8afb-625622042785"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "Amount",
-                "text": "Amount Due"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn35",
-            "designerId": "c61af599-43c0-4c02-94a7-7001f0fce063"
-        },
-        {
-            "type": "Ext.grid.column.Column",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dataIndex": "ledger",
-                "text": "Ledger"
-            },
-            "configAlternates": {
-                "dataIndex": "datafield",
-                "text": "string"
-            },
-            "name": "MyColumn36",
-            "designerId": "c41af6cb-1278-4c81-acea-0c9af2f54fe3"
         },
         {
             "type": "Ext.toolbar.Paging",
@@ -197,6 +67,494 @@
             "codeClass": null,
             "name": "MyRowSelectionModel3",
             "designerId": "ee240208-7d93-4a0f-9852-4d5046f1cb17"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "supplierid",
+                "text": "Supplierid"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn158",
+            "designerId": "a0ce45bb-5ca1-42b1-b7a6-a3535c121fd2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "suppname",
+                "text": "Suppname",
+                "width": 233
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn159",
+            "designerId": "d8f5049d-9539-4e09-857e-164ad265976b"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "address",
+                "text": "Address"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn160",
+            "designerId": "07d33750-81b9-4115-a573-ede6fca3b651"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "postalCode",
+                "text": "Postal Code"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn161",
+            "designerId": "142210b2-d2ed-41cf-983a-77f4af4ead53"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "street",
+                "text": "Street"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn164",
+            "designerId": "58deab76-5dc2-4529-9ab5-4468974fcf86"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "city",
+                "text": "City"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn165",
+            "designerId": "d0c2d058-8b95-441f-a7eb-5cdce89cf84a"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "country",
+                "text": "Country"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn166",
+            "designerId": "f5074820-4a12-4227-ba44-69e9047460af"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "mobile",
+                "text": "Mobile"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn167",
+            "designerId": "d0ea183c-7f67-4a10-b03b-6909d7f643f2"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "telephone",
+                "text": "Telephone"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn168",
+            "designerId": "4ac9aa53-a543-44ab-94af-2fa80a789cfb"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "email",
+                "text": "Email"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn169",
+            "designerId": "4e073f68-c27d-4041-9859-cebfe2377f41"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "supptype",
+                "text": "Supptype"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn170",
+            "designerId": "85f8877a-b73f-45d2-8a08-b72c8757cf24"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "salesperson",
+                "text": "Salesperson"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn171",
+            "designerId": "ec86ddbf-caf2-44dd-ab61-2a4a7f1359f9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "currcode",
+                "text": "Currcode"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn172",
+            "designerId": "37579575-1e22-4f44-be33-8ab005a991d5"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "suppliersince",
+                "text": "Suppliersince"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn173",
+            "designerId": "62c21b9d-48d5-4823-9ea3-3c6264ecb8e8"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "paymentterms",
+                "text": "Paymentterms"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn174",
+            "designerId": "fe2e5af8-66d1-446f-a8ad-64bc5d684577"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "lastpaid",
+                "text": "Lastpaid"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn175",
+            "designerId": "fce99d4d-cef0-473f-9511-7fcf59c7d4f1"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "lastpaiddate",
+                "text": "Lastpaiddate"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn225",
+            "designerId": "b9e8c1fe-92e6-4e8f-9038-9e92313a83af"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bankact",
+                "text": "Bankact"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn226",
+            "designerId": "d3e51426-8f19-49f6-b51c-f2b0873ffee7"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bankref",
+                "text": "Bankref"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn227",
+            "designerId": "b4ce66c8-9cd8-4028-9691-e67bafc1f406"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "bankpartics",
+                "text": "Bankpartics"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn230",
+            "designerId": "ee0c70eb-2630-429a-bd85-0b627b5988d6"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "remittance",
+                "text": "Remittance"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn231",
+            "designerId": "1cf0ae14-b838-4a2f-af51-8840882eec90"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "taxgroupid",
+                "text": "Taxgroupid"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn232",
+            "designerId": "1f762ee0-2dec-400c-8ce9-c05472cd449c"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "taxref",
+                "text": "Taxref"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn233",
+            "designerId": "b3d715ea-5ee8-4b4d-b289-4b73fa482a4f"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "web",
+                "text": "Web"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn234",
+            "designerId": "ed071d5f-f35b-4309-89b2-2560c8f30bb6"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "currBalance",
+                "text": "Curr Balance"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn235",
+            "designerId": "479b2000-6943-4260-9709-f03bb5e32e47"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "accountReceivable",
+                "text": "Account Receivable"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn236",
+            "designerId": "48994f76-4ee6-4a9f-941d-52cdccecf322"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "accountPayable",
+                "text": "Account Payable"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn237",
+            "designerId": "fcc3e241-b401-4cea-b994-a79d5076645f"
         }
     ]
 }

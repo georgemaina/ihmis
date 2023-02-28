@@ -9,10 +9,9 @@
         "columnLines": true,
         "designer|userAlias": "purchaseorderdetails",
         "designer|userClassName": "PurchaseOrderDetails",
-        "height": 552,
+        "height": 800,
         "store": "PurchOrderItems",
-        "style": "color:green;font-size:14px;",
-        "width": 1100
+        "style": "color:green;font-size:14px;"
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -72,7 +71,7 @@
             "userConfig": {
                 "designer|snapToGrid": 5,
                 "dock": "top",
-                "height": 40,
+                "height": 133,
                 "layout": "absolute",
                 "width": 100
             },
@@ -94,9 +93,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-pencil-square-o",
+                        "iconCls": "x-fa fa-edit",
                         "itemId": "newOrder",
-                        "layout|x": 500,
+                        "layout|x": 800,
                         "layout|y": 5,
                         "text": "Update Changes",
                         "width": 150
@@ -120,9 +119,35 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "iconCls": "x-fa fa-close",
+                        "iconCls": "x-fa fa-search",
+                        "itemId": "newOrder1",
+                        "layout|x": 975,
+                        "layout|y": 5,
+                        "text": "Preview LPO",
+                        "width": 150
+                    },
+                    "configAlternates": {
+                        "iconCls": "string",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "text": "string",
+                        "width": "auto"
+                    },
+                    "name": "MyButton12",
+                    "designerId": "53c904f3-8ccd-4f5c-a5b5-0c96f21d139d"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "x-fa fa-times",
                         "itemId": "cmdCloseOders",
-                        "layout|x": 710,
+                        "layout|x": 1155,
                         "layout|y": 5,
                         "text": "Close",
                         "width": 150
@@ -137,6 +162,53 @@
                     },
                     "name": "MyButton37",
                     "designerId": "ea0bf757-d6c5-402a-8554-e7f8dabadd58"
+                },
+                {
+                    "type": "Ext.panel.Panel",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 125,
+                        "itemId": "supplierDetails",
+                        "layout|x": 10,
+                        "layout|y": 5,
+                        "width": 660
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "height": "auto",
+                        "layout|x": "number",
+                        "layout|y": "number",
+                        "width": "auto",
+                        "itemId": "string"
+                    },
+                    "name": "MyPanel1",
+                    "designerId": "01dcc8fc-203b-4eb1-b33c-ef3f733ccf63"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "hidden": true,
+                        "itemId": "formStatus",
+                        "layout|x": 610,
+                        "layout|y": 5
+                    },
+                    "configAlternates": {
+                        "hidden": "boolean",
+                        "itemId": "string",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField14",
+                    "designerId": "477e2e31-44a2-460e-9dbb-f27313d44802"
                 }
             ]
         },
@@ -225,7 +297,7 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "QuantityOrd",
-                "text": "Quantity Ord",
+                "text": "Qty Ordered",
                 "width": 139
             },
             "configAlternates": {
@@ -257,11 +329,13 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "QtyInvoiced",
+                "hidden": true,
                 "text": "Qty Invoiced"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "hidden": "boolean"
             },
             "name": "MyColumn128",
             "designerId": "98aa3642-f3d7-4024-81a7-ef52da8b42f2"
@@ -293,14 +367,38 @@
             "codeClass": null,
             "userConfig": {
                 "dataIndex": "ConversionFactor",
-                "text": "Conversion Factor"
+                "text": "Conversion Factor",
+                "width": 124
             },
             "configAlternates": {
                 "dataIndex": "datafield",
-                "text": "string"
+                "text": "string",
+                "width": "auto"
             },
             "name": "MyColumn130",
             "designerId": "ecadeb56-c766-4836-9d2c-cf6413513b29"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Total",
+                "style": "font-weight:bold;",
+                "text": "Total",
+                "width": 96
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto",
+                "style": "string"
+            },
+            "name": "MyColumn131",
+            "designerId": "18b00444-6056-4a7f-a315-200d600d8f7d"
         },
         {
             "type": "Ext.grid.column.Column",
@@ -319,8 +417,8 @@
                 "text": "string",
                 "width": "auto"
             },
-            "name": "MyColumn131",
-            "designerId": "18b00444-6056-4a7f-a315-200d600d8f7d"
+            "name": "MyColumn161",
+            "designerId": "1cad73be-64c9-4f98-a3ad-3e735225948d"
         },
         {
             "type": "Ext.selection.RowModel",
@@ -341,6 +439,118 @@
             "codeClass": null,
             "name": "MyRowEditingPlugin",
             "designerId": "21410de7-8a1c-49d9-b78d-b3ca66652736"
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|snapToGrid": 5,
+                "dock": "bottom",
+                "height": 143,
+                "layout": "absolute",
+                "width": 100
+            },
+            "configAlternates": {
+                "designer|snapToGrid": "number",
+                "dock": "string",
+                "height": "auto",
+                "layout": "string",
+                "width": "auto"
+            },
+            "name": "MyContainer34",
+            "designerId": "91549c3a-9d80-4e7f-8de3-861ac1fed615",
+            "cn": [
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "SUB-TOTAL COST",
+                        "fieldStyle": "color:red; font-weight:bold;",
+                        "itemId": "subTotal",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "labelWidth": 120,
+                        "layout|x": 715,
+                        "layout|y": 5
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "itemId": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField147",
+                    "designerId": "91f23d5d-6376-4501-825c-b25db1eaa5d5"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "VAT 16%",
+                        "fieldStyle": "color:red; font-weight:bold;",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "labelWidth": 120,
+                        "layout|x": 715,
+                        "layout|y": 40
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField148",
+                    "designerId": "550f2517-0193-44f9-8fc1-11d9ef674580"
+                },
+                {
+                    "type": "Ext.form.field.Text",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fieldLabel": "TOTAL",
+                        "fieldStyle": "color:red; font-weight:bold;",
+                        "labelAlign": "right",
+                        "labelStyle": "color:green; font-weight:bold;",
+                        "labelWidth": 120,
+                        "layout|x": 715,
+                        "layout|y": 75
+                    },
+                    "configAlternates": {
+                        "fieldLabel": "string",
+                        "fieldStyle": "string",
+                        "labelAlign": "string",
+                        "labelStyle": "string",
+                        "labelWidth": "number",
+                        "layout|x": "number",
+                        "layout|y": "number"
+                    },
+                    "name": "MyTextField149",
+                    "designerId": "27b96cdc-eee3-4f8b-95a2-4aae5b182f67"
+                }
+            ]
         }
     ]
 }

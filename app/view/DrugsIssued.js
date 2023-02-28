@@ -29,16 +29,19 @@ Ext.define('CarePortal.view.DrugsIssued', {
         type: 'drugsissued'
     },
     itemId: 'DrugsIssued',
+    columnLines: true,
     store: 'DrugsIssuedStore',
 
     columns: [
         {
             xtype: 'gridcolumn',
+            hidden: true,
             dataIndex: 'id',
             text: 'ID'
         },
         {
             xtype: 'gridcolumn',
+            width: 74,
             dataIndex: 'presc_nr',
             text: 'Presc Nr'
         },
@@ -59,41 +62,49 @@ Ext.define('CarePortal.view.DrugsIssued', {
         },
         {
             xtype: 'gridcolumn',
+            width: 62,
             dataIndex: 'adm_no',
-            text: 'Adm No'
+            text: 'Pid'
         },
         {
             xtype: 'gridcolumn',
+            width: 160,
             dataIndex: 'patient_name',
             text: 'Patient Name'
         },
         {
             xtype: 'gridcolumn',
+            hidden: true,
             dataIndex: 'item_id',
             text: 'Item Id'
         },
         {
             xtype: 'gridcolumn',
+            width: 218,
             dataIndex: 'Item_desc',
-            text: 'Item Desc'
+            text: 'Description'
         },
         {
             xtype: 'gridcolumn',
+            width: 54,
             dataIndex: 'qty',
             text: 'Qty'
         },
         {
             xtype: 'gridcolumn',
+            width: 64,
             dataIndex: 'price',
             text: 'Price'
         },
         {
             xtype: 'gridcolumn',
+            hidden: true,
             dataIndex: 'unit_cost',
             text: 'Unit Cost'
         },
         {
             xtype: 'gridcolumn',
+            width: 74,
             dataIndex: 'issued',
             text: 'Issued'
         },

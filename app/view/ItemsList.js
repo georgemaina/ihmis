@@ -71,12 +71,12 @@ Ext.define('CarePortal.view.ItemsList', {
         {
             xtype: 'gridcolumn',
             width: 282,
-            dataIndex: 'Description',
+            dataIndex: 'unit_measure',
             text: 'Description'
         },
         {
             xtype: 'gridcolumn',
-            dataIndex: 'Price',
+            dataIndex: 'buying_price',
             text: 'Price'
         },
         {

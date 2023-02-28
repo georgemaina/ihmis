@@ -40,7 +40,7 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "SupplierNo"
+                "name": "supplierid"
             },
             "configAlternates": {
                 "name": "string"
@@ -79,6 +79,22 @@
             },
             "name": "MyField59",
             "designerId": "85c3266f-5ccf-4ab5-b398-82e711728214"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "DeliveryDate"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyField259",
+            "designerId": "e91b7bb3-d10c-4130-9b5d-437a59d23b98"
         },
         {
             "type": "Ext.data.field.Field",
@@ -129,6 +145,22 @@
             "designerId": "59657fa6-3996-47e4-a7f1-326a67379042"
         },
         {
+            "type": "Ext.data.field.Number",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "Total"
+            },
+            "configAlternates": {
+                "name": "string"
+            },
+            "name": "MyNumber2",
+            "designerId": "838bb163-efc4-4097-95e3-8fb94282261d"
+        },
+        {
             "type": "Ext.data.field.Field",
             "reference": {
                 "name": "fields",
@@ -141,8 +173,8 @@
             "configAlternates": {
                 "name": "string"
             },
-            "name": "MyField75",
-            "designerId": "838bb163-efc4-4097-95e3-8fb94282261d"
+            "name": "MyField258",
+            "designerId": "1b672b36-98f2-44bf-a8cf-85581f15d201"
         },
         {
             "type": "Ext.data.field.Field",

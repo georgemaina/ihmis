@@ -18,108 +18,532 @@ Ext.define('CarePortal.view.OrdersFromSuppliers', {
     alias: 'widget.ordersfromsuppliers',
 
     requires: [
-        'CarePortal.view.OrdersFormViewModel1',
+        'CarePortal.view.OrdersFromSuppliersViewModel1',
+        'CarePortal.view.OrdersFromSuppliersViewController1',
         'Ext.form.FieldSet',
-        'Ext.form.field.Date',
         'Ext.form.field.ComboBox',
         'Ext.button.Button',
+        'Ext.form.FieldContainer',
+        'Ext.form.field.Display',
+        'Ext.form.field.Date',
         'Ext.grid.Panel',
         'Ext.view.Table',
-        'Ext.grid.column.Column',
+        'Ext.grid.column.RowNumberer',
         'Ext.form.field.Number',
         'Ext.selection.RowModel',
-        'Ext.grid.plugin.CellEditing'
+        'Ext.grid.plugin.CellEditing',
+        'Ext.toolbar.Spacer',
+        'Ext.toolbar.Paging',
+        'Ext.grid.column.Action'
     ],
 
+    controller: 'ordersfromsuppliers',
     viewModel: {
         type: 'ordersfromsuppliers'
     },
-    height: 431,
-    style: 'background-color: #d9f2e6;',
-    width: 835,
-    layout: 'auto',
-    bodyPadding: 10,
-    bodyStyle: 'background-color: #d9f2e6;',
-    url: 'data/getDataFunctions.php?task=saveOrdersFromSuppliers',
     defaultListenerScope: true,
+    style: 'background-color: #d9f2e6;',
+    layout: 'card',
+    bodyPadding: 10,
+    bodyStyle: 'background-color:#d9f2e6;',
+    url: 'data/getDataFunctions.php?task=saveOrdersFromSuppliers',
 
     items: [
         {
             xtype: 'fieldset',
-            height: 99,
+            itemId: 'card-0',
             style: 'background-color: #d9f2e6;',
-            layout: 'absolute',
+            layout: {
+                type: 'vbox',
+                align: 'stretch'
+            },
             items: [
                 {
-                    xtype: 'datefield',
-                    x: 50,
-                    y: 5,
-                    itemId: 'orderDate',
-                    width: 345,
-                    fieldLabel: 'Order Date',
-                    labelAlign: 'right',
-                    labelStyle: 'color:green; font-weight:bold;',
-                    name: 'orderDate',
-                    fieldStyle: 'color:red; font-weight:bold;',
-                    allowBlank: false,
-                    listeners: {
-                        render: 'onOrderDateRender'
-                    }
+                    xtype: 'fieldset',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'combobox',
+                            flex: 0,
+                            itemId: 'Supplier',
+                            width: 470,
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 130,
+                            name: 'Supplier',
+                            fieldStyle: 'color:red; font-weight:bold;',
+                            allowBlank: false,
+                            blankText: 'You must select a supplier',
+                            emptyText: 'Select Supplier',
+                            displayField: 'suppname',
+                            forceSelection: true,
+                            minChars: 2,
+                            queryMode: 'local',
+                            store: 'SuppliersStore',
+                            typeAhead: true,
+                            valueField: 'supplierid',
+                            listeners: {
+                                select: {
+                                    fn: 'onSupplierSelect',
+                                    scope: 'controller'
+                                }
+                            }
+                        },
+                        {
+                            xtype: 'button',
+                            itemId: 'cmdNewSupplier',
+                            margin: '0 0 0 10',
+                            iconCls: 'x-fa fa-plus',
+                            overflowText: '0',
+                            text: 'Create New Supplier'
+                        }
+                    ]
                 },
                 {
-                    xtype: 'combobox',
-                    x: 20,
-                    y: 40,
-                    itemId: 'Supplier',
-                    width: 375,
-                    fieldLabel: 'Supplier',
-                    labelAlign: 'right',
-                    labelStyle: 'color:green; font-weight:bold;',
-                    labelWidth: 130,
-                    name: 'Supplier',
-                    fieldStyle: 'color:red; font-weight:bold;',
-                    allowBlank: false,
-                    blankText: 'You must select a supplier',
-                    emptyText: 'Select Supplier',
-                    displayField: 'Description',
-                    forceSelection: true,
-                    minChars: 2,
-                    queryMode: 'local',
-                    store: 'SuppliersStore',
-                    typeAhead: true,
-                    valueField: 'ID'
+                    xtype: 'fieldcontainer',
+                    height: 31,
+                    width: 400,
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'displayfield',
+                            width: 398,
+                            value: 'Order Initiation Details',
+                            fieldStyle: 'color:maroon; font-weight:bold;'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            width: 398,
+                            value: 'Order Status',
+                            fieldStyle: 'color:maroon; font-weight:bold;'
+                        }
+                    ]
                 },
                 {
-                    xtype: 'textfield',
-                    x: 390,
-                    y: 0,
-                    itemId: 'orderNo',
-                    width: 315,
-                    fieldLabel: 'Order No',
-                    labelAlign: 'right',
-                    labelStyle: 'color:green; font-weight:bold;',
-                    labelWidth: 130,
-                    name: 'orderNo',
-                    fieldStyle: 'color:red; font-weight:bold;',
-                    emptyText: 'Order Number'
+                    xtype: 'container',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch',
+                        pack: 'center'
+                    },
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            flex: 1,
+                            flex: 0,
+                            margin: '0 50 0 0',
+                            padding: 0,
+                            items: [
+                                {
+                                    xtype: 'datefield',
+                                    flex: 1,
+                                    itemId: 'orderDate',
+                                    width: 345,
+                                    fieldLabel: 'Order Date',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    name: 'orderDate',
+                                    value: 'new Date();',
+                                    fieldStyle: 'color:red; font-weight:bold;',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    flex: 0,
+                                    itemId: 'dateRevised',
+                                    margin: 0,
+                                    padding: 0,
+                                    width: 345,
+                                    fieldLabel: 'Revised Date',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    name: 'orderDate',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'datefield',
+                                    flex: 1,
+                                    itemId: 'deliveryDate',
+                                    margin: 0,
+                                    width: 351,
+                                    fieldLabel: 'Delivery Date',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    flex: 0,
+                                    itemId: 'innitiatedBy',
+                                    margin: 0,
+                                    width: 380,
+                                    fieldLabel: 'Initiated By',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'displayfield',
+                                    flex: 0,
+                                    itemId: 'datePrinted',
+                                    margin: 0,
+                                    width: 380,
+                                    fieldLabel: 'Date Printed',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            flex: 1,
+                            height: 120,
+                            margin: '0 0 0 50',
+                            width: 400,
+                            items: [
+                                {
+                                    xtype: 'displayfield',
+                                    width: 398,
+                                    value: 'New Purchase Order',
+                                    fieldStyle: 'color:blue; font-weight:bold;'
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
-                    xtype: 'button',
-                    x: 530,
-                    y: 45,
-                    itemId: 'cmdNewSupplier',
-                    iconCls: 'x-fa fa-ellipsis-h',
-                    text: 'Create New Supplier'
+                    xtype: 'fieldcontainer',
+                    height: 31,
+                    width: 400,
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'displayfield',
+                            margin: '0 50 0 0',
+                            width: 398,
+                            value: 'Facility Info',
+                            fieldStyle: 'color:maroon; font-weight:bold;'
+                        },
+                        {
+                            xtype: 'displayfield',
+                            margin: '0 0 0 50',
+                            width: 398,
+                            value: 'Supplier Info',
+                            fieldStyle: 'color:maroon; font-weight:bold;'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'container',
+                    flex: 1,
+                    style: 'background-color:red:fornt-weight:bold;',
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'fieldcontainer',
+                            flex: 0,
+                            flex: 0,
+                            margin: '0 50 0 0',
+                            padding: 5,
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    itemId: 'Store',
+                                    margin: 2,
+                                    width: 345,
+                                    fieldLabel: 'Store',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderDate',
+                                    fieldStyle: 'color:red; font-weight:bold;',
+                                    allowBlank: false,
+                                    displayField: 'Description',
+                                    minChars: 2,
+                                    typeAhead: true,
+                                    valueField: 'ID'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'UserName',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Delivery Contact',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Address',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Address',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Postal',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Postal Code',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'PhysicalAddress',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Street',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Town',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'City',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Country',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Country',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Mobile',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Mobile',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Phone',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Telephone',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'Email',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Email',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                }
+                            ]
+                        },
+                        {
+                            xtype: 'fieldcontainer',
+                            flex: 1,
+                            flex: 0,
+                            margin: '0 0 0 50',
+                            items: [
+                                {
+                                    xtype: 'combobox',
+                                    itemId: 'suppname',
+                                    margin: 2,
+                                    width: 345,
+                                    fieldLabel: 'Supplier',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderDate',
+                                    fieldStyle: 'color:red; font-weight:bold;',
+                                    allowBlank: false,
+                                    displayField: 'suppname',
+                                    minChars: 2,
+                                    store: 'SuppliersStore',
+                                    typeAhead: true,
+                                    valueField: 'supplierid'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'salesperson',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Sales Person',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'address',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Address',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'postalCode',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Postal Code',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'street',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Street',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'city',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'City',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'country',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Country',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'mobile',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Mobile',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'telephone',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Telephone',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'textfield',
+                                    flex: 0,
+                                    itemId: 'email',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Email',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                },
+                                {
+                                    xtype: 'combobox',
+                                    flex: 0,
+                                    itemId: 'paymentterms',
+                                    margin: 2,
+                                    width: 380,
+                                    fieldLabel: 'Payment Terms',
+                                    labelStyle: 'color:green; font-weight:bold;',
+                                    labelWidth: 130,
+                                    name: 'orderNo',
+                                    fieldStyle: 'color:red; font-weight:bold;'
+                                }
+                            ]
+                        }
+                    ]
                 }
             ]
         },
         {
             xtype: 'gridpanel',
-            height: 264,
-            itemId: 'itemsGrid',
+            itemId: 'card-1',
             columnLines: true,
             store: 'OrderStocksStore',
             columns: [
+                {
+                    xtype: 'rownumberer'
+                },
                 {
                     xtype: 'gridcolumn',
                     dataIndex: 'PartCode',
@@ -133,24 +557,88 @@ Ext.define('CarePortal.view.OrdersFromSuppliers', {
                 },
                 {
                     xtype: 'gridcolumn',
+                    dataIndex: 'buying_price',
+                    text: 'Buying Price',
+                    editor: {
+                        xtype: 'numberfield'
+                    }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    dataIndex: 'unit_measure',
+                    text: 'Units'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    width: 134,
+                    dataIndex: 'purchasing_unit',
+                    text: 'Conversion Factor'
+                },
+                {
+                    xtype: 'gridcolumn',
                     dataIndex: 'QtyInStore',
                     text: 'Qty In Store'
                 },
                 {
                     xtype: 'gridcolumn',
-                    dataIndex: 'Price',
-                    text: 'Price'
-                },
-                {
-                    xtype: 'gridcolumn',
                     width: 133,
                     dataIndex: 'Qty',
-                    text: 'Qty To Order',
+                    text: 'Qty to Order',
                     editor: {
                         xtype: 'numberfield',
                         minLength: 1,
                         minValue: 1
                     }
+                },
+                {
+                    xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var totalQty=record.get('purchasing_unit')*record.get('Qty');
+
+
+                        return totalQty;
+                    },
+                    width: 133,
+                    dataIndex: 'TotalQty',
+                    text: 'Total Qty'
+                },
+                {
+                    xtype: 'gridcolumn',
+                    renderer: function(value, metaData, record, rowIndex, colIndex, store, view) {
+                        var totalCost=record.get('Qty')*record.get('buying_price');
+                        var strSum=0;
+                        var total=0;
+
+                        store.getRange().forEach(function(rec) {
+                            totalAmount=rec.get('Qty')*rec.get('buying_price');
+                            strSum += Math.ceil(totalAmount / 10) * 10;
+                            console.log(rec.get('strSum'));
+                        });
+
+                        view.up('grid').up('panel').down('#subTotal').setValue(strSum);
+                        var tax=view.up('grid').up('panel').down('#Tax').getValue();
+                        total=strSum+tax;
+                        view.up('grid').up('panel').down('#Total').setValue(total);
+
+
+                        return totalCost;
+                    },
+                    width: 133,
+                    dataIndex: 'Total',
+                    text: 'Total Cost'
+                },
+                {
+                    xtype: 'actioncolumn',
+                    align: 'center',
+                    text: 'Remove',
+                    items: [
+                        {
+                            handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                                view.getStore().remove(record);
+                            },
+                            icon: 'icons/delete1.jpg'
+                        }
+                    ]
                 }
             ],
             selModel: {
@@ -161,23 +649,97 @@ Ext.define('CarePortal.view.OrdersFromSuppliers', {
                     ptype: 'cellediting',
                     clicksToEdit: 1
                 }
+            ],
+            dockedItems: [
+                {
+                    xtype: 'container',
+                    dock: 'top',
+                    height: 42,
+                    padding: 5,
+                    width: 100,
+                    layout: {
+                        type: 'hbox',
+                        align: 'stretch'
+                    },
+                    items: [
+                        {
+                            xtype: 'button',
+                            itemId: 'cmdGetItems',
+                            width: 222,
+                            iconCls: 'x-fa fa-search',
+                            text: 'Get Products List'
+                        },
+                        {
+                            xtype: 'tbspacer',
+                            width: 460
+                        },
+                        {
+                            xtype: 'button',
+                            width: 195,
+                            iconCls: 'x-fa fa-sync',
+                            text: 'Process Order'
+                        }
+                    ]
+                },
+                {
+                    xtype: 'pagingtoolbar',
+                    dock: 'bottom',
+                    width: 360,
+                    displayInfo: true,
+                    store: 'OrderStocksStore'
+                },
+                {
+                    xtype: 'container',
+                    dock: 'bottom',
+                    height: 143,
+                    width: 100,
+                    layout: 'absolute',
+                    items: [
+                        {
+                            xtype: 'textfield',
+                            x: 900,
+                            y: 10,
+                            itemId: 'subTotal',
+                            fieldLabel: 'SUB-TOTAL COST',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 120,
+                            fieldStyle: 'color:red; font-weight:bold;'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 900,
+                            y: 45,
+                            itemId: 'Tax',
+                            fieldLabel: 'VAT 16%',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 120,
+                            value: 0,
+                            fieldStyle: 'color:red; font-weight:bold;'
+                        },
+                        {
+                            xtype: 'textfield',
+                            x: 900,
+                            y: 80,
+                            itemId: 'Total',
+                            fieldLabel: 'TOTAL',
+                            labelAlign: 'right',
+                            labelStyle: 'color:green; font-weight:bold;',
+                            labelWidth: 120,
+                            fieldStyle: 'color:red; font-weight:bold;'
+                        }
+                    ]
+                }
             ]
         },
         {
             xtype: 'fieldset',
             height: 50,
+            itemId: 'card-2',
             style: 'background-color: #d9f2e6;',
             layout: 'absolute',
             items: [
-                {
-                    xtype: 'button',
-                    x: 5,
-                    y: 0,
-                    itemId: 'cmdGetItems',
-                    width: 145,
-                    iconCls: 'x-fa fa-search',
-                    text: 'Get Products List'
-                },
                 {
                     xtype: 'button',
                     x: 155,
@@ -216,10 +778,70 @@ Ext.define('CarePortal.view.OrdersFromSuppliers', {
             ]
         }
     ],
+    dockedItems: [
+        {
+            xtype: 'container',
+            dock: 'bottom',
+            height: 40,
+            layout: {
+                type: 'hbox',
+                align: 'stretch',
+                pack: 'end'
+            },
+            items: [
+                {
+                    xtype: 'button',
+                    disabled: true,
+                    itemId: 'card-prev',
+                    style: 'background-color:red;font-weight:bold;',
+                    width: 170,
+                    iconCls: 'x-fa fa-arrow-left',
+                    text: 'Previous',
+                    listeners: {
+                        click: {
+                            fn: 'onCardprevClick',
+                            scope: 'controller'
+                        }
+                    }
+                },
+                {
+                    xtype: 'button',
+                    itemId: 'card-next',
+                    margin: '0 10 0 10',
+                    style: 'background-color:red;font-weight:bold;font-size:16px;',
+                    width: 139,
+                    iconAlign: 'right',
+                    iconCls: 'x-fa fa-arrow-right',
+                    text: 'Next',
+                    listeners: {
+                        click: {
+                            fn: 'onCardnextClick',
+                            scope: 'controller'
+                        }
+                    }
+                }
+            ]
+        }
+    ],
 
-    onOrderDateRender: function(component, eOpts) {
-        var dt=new Date();
-        component.setValue(Ext.Date.format(dt, 'Y-m-d'));
+    showNext: function() {
+        this.doCardNavigation(1);
+    },
+
+    showPrevious: function(btn) {
+        this.doCardNavigation(-1);
+    },
+
+    doCardNavigation: function(incr) {
+        var me = button.up('form'),
+             l =me.getLayout(),
+             i = l.activeItem.itemId.split('card-')[1],
+             next = parseInt(i, 10) + incr;
+
+        l.setActiveItem(next);
+
+        me.down('#card-prev').setDisabled(next === 0);
+        me.down('#card-next').setDisabled(next === 2);
     }
 
 });

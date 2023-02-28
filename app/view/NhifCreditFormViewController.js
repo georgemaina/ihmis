@@ -15,5 +15,11 @@
 
 Ext.define('CarePortal.view.NhifCreditFormViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.nhifcreditform'
+    alias: 'controller.nhifcreditform',
+
+    onFormAfterRender: function(component, eOpts) {
+        var nhifStore=Ext.data.StoreManager.lookup('NhifRatesStore');
+        nhifStore.load({});
+    }
+
 });

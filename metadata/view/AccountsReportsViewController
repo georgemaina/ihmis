@@ -6,13 +6,12 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "ordersfromsuppliers",
-        "designer|userClassName": "OrdersFormViewController1"
+        "designer|userAlias": "accountsreports",
+        "designer|userClassName": "AccountsReportsViewController"
     },
     "configAlternates": {
         "designer|userAlias": "string",
         "designer|userClassName": "string"
     },
-    "name": "OrdersFormViewController1",
-    "designerId": "ca249942-0569-43d3-8030-0362520e75ae"
+    "designerId": "2ae60486-4ce4-4be9-b36f-57db46403c43"
 }

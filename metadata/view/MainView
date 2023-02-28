@@ -22,7 +22,7 @@
     "viewModelInstanceId": "d089c589-9a28-4e6d-94d4-095ee8fa326b",
     "cn": [
         {
-            "type": "Ext.container.Container",
+            "type": "Ext.panel.Panel",
             "reference": {
                 "name": "items",
                 "type": "array"
@@ -30,13 +30,20 @@
             "codeClass": null,
             "userConfig": {
                 "itemId": "mainDetails",
-                "layout|region": "center"
+                "layout": "fit",
+                "layout|flex": 1,
+                "layout|region": "center",
+                "scrollable": "both"
             },
             "configAlternates": {
                 "itemId": "string",
-                "layout|region": "string"
+                "layout|region": "string",
+                "container|align": "string",
+                "layout": "string",
+                "scrollable": "auto",
+                "layout|flex": "number"
             },
-            "name": "MyContainer",
+            "name": "MyPanel11",
             "designerId": "c3ed5ad5-1619-47e7-848f-795121941ad4"
         },
         {

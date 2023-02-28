@@ -13,7 +13,7 @@
         "height": 414,
         "itemId": "drugsList",
         "store": "DrugsList",
-        "width": 500
+        "width": 778
     },
     "configAlternates": {
         "columnLines": "boolean",
@@ -185,8 +185,48 @@
             },
             "codeClass": null,
             "userConfig": {
-                "dataIndex": "Price",
-                "text": "Price"
+                "dataIndex": "unit_measure",
+                "text": "Units",
+                "width": 85
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn240",
+            "designerId": "ec2af4de-a2e6-4575-8700-0496e70c1feb"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "purchasing_unit",
+                "text": "Conversion Factor",
+                "width": 121
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string",
+                "width": "auto"
+            },
+            "name": "MyColumn242",
+            "designerId": "2d89d9a3-3748-4a93-9a99-43b7be918f38"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "buying_price",
+                "text": "Buying Price"
             },
             "configAlternates": {
                 "dataIndex": "datafield",
@@ -194,6 +234,24 @@
             },
             "name": "MyColumn83",
             "designerId": "abca3e06-8eb7-451b-ae8c-72f1bab69507"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "Price",
+                "text": "Price"
+            },
+            "configAlternates": {
+                "dataIndex": "datafield",
+                "text": "string"
+            },
+            "name": "MyColumn241",
+            "designerId": "b2f5a816-6afa-4a4f-81f6-d7f00789f09f"
         },
         {
             "type": "Ext.grid.column.Column",

@@ -45,7 +45,7 @@ Ext.define('CarePortal.view.DiagnosisViewController', {
         diagStore.load({
             params:{
                 dob:dob,
-                diagType:caller
+                diagType:'OP'  //caller
             }
         });
 

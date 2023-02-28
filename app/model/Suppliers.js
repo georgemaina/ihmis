@@ -23,25 +23,85 @@ Ext.define('CarePortal.model.Suppliers', {
 
     fields: [
         {
-            name: 'ID'
+            name: 'supplierid'
         },
         {
-            name: 'SupID'
+            name: 'suppname'
         },
         {
-            name: 'Description'
+            name: 'address'
         },
         {
-            name: 'AmountOwed'
+            name: 'postalCode'
         },
         {
-            name: 'AmountPaid'
+            name: 'street'
         },
         {
-            name: 'Amount'
+            name: 'city'
         },
         {
-            name: 'ledger'
+            name: 'country'
+        },
+        {
+            name: 'mobile'
+        },
+        {
+            name: 'telephone'
+        },
+        {
+            name: 'email'
+        },
+        {
+            name: 'supptype'
+        },
+        {
+            name: 'salesperson'
+        },
+        {
+            name: 'currcode'
+        },
+        {
+            name: 'suppliersince'
+        },
+        {
+            name: 'paymentterms'
+        },
+        {
+            name: 'lastpaid'
+        },
+        {
+            name: 'lastpaiddate'
+        },
+        {
+            name: 'bankact'
+        },
+        {
+            name: 'bankref'
+        },
+        {
+            name: 'bankpartics'
+        },
+        {
+            name: 'remittance'
+        },
+        {
+            name: 'taxgroupid'
+        },
+        {
+            name: 'taxref'
+        },
+        {
+            name: 'web'
+        },
+        {
+            name: 'currBalance'
+        },
+        {
+            name: 'accountReceivable'
+        },
+        {
+            name: 'accountPayable'
         }
     ]
 });

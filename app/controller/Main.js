@@ -1446,7 +1446,7 @@ Ext.define('CarePortal.controller.Main', {
         var names=name_first+' '+name_2+' '+name_last;
         var dob1=button.up('panel').down('#date_birth').getValue();
         var dob=Ext.Date.format(dob1,"d-m-Y");
-        var formStatus=button.up('panel').down('#formStatus').getValue();
+        var formStatus=button.up('form').down('#formStatus').getValue();
 
         if (form.isValid()) { // make sure the form contains valid data before submitting
             form.submit({
@@ -1779,7 +1779,7 @@ Ext.define('CarePortal.controller.Main', {
              services.down('#Dob').setValue(component.up('panel').up('panel').down('#dob').getValue());
 
              var control = Ext.create('CarePortal.controller.Main');
-                control.loadServices(encNr,component);
+                control.loadServices(encNr,'',component);
              //this.loadServices(encNr,component);
          });
     },
@@ -2471,6 +2471,7 @@ Ext.define('CarePortal.controller.Main', {
                // Ext.Msg.alert('Success','Procedure/Service Added Successfully');
 
                 //this.getNotes(encounterNo);
+                //control.loadServices(encounterNo,'',button.up('form'));
 
             },
             scope:this
@@ -2490,7 +2491,7 @@ Ext.define('CarePortal.controller.Main', {
             purchasingClass="Eye";
         }
 
-        this.loadServices(encounterNo,purchasingClass,servicesPanel);
+        this.loadServices(encounterNo,'',servicesPanel);
     },
 
     getDob: function(field, newValue, oldValue, eOpts) {
@@ -3189,7 +3190,7 @@ Ext.define('CarePortal.controller.Main', {
         if (form.isValid()) { // make sure the form contains valid data before submitting
             form.submit({
                 params:{
-                    GroupID:button.up('form').down('#groupID').getRawValue()
+                    GroupName:button.up('form').down('#groupID').getRawValue()
                 },
                 success: function (form, action) {
                     Ext.Msg.alert('Thank you!', 'Saved MCH Request Successfully.');

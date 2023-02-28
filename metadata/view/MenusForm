@@ -9,7 +9,6 @@
         "bodyPadding": 10,
         "designer|userAlias": "menusform",
         "designer|userClassName": "MenusForm",
-        "height": 498,
         "layout": "form",
         "url": "data/getDataFunctions.php?task=saveMenuItem",
         "width": 602
@@ -36,15 +35,41 @@
             },
             "codeClass": null,
             "userConfig": {
+                "editable": false,
+                "fieldLabel": "ID",
+                "name": "Nr",
+                "readOnly": true,
+                "value": [
+                    "0"
+                ]
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "name": "string",
+                "editable": "boolean",
+                "readOnly": "boolean",
+                "value": "object"
+            },
+            "name": "MyTextField60",
+            "designerId": "65e27247-df9d-42fd-835c-e0a0d866f461"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
                 "fieldLabel": "Menu Name",
-                "name": "menuName"
+                "name": "Name"
             },
             "configAlternates": {
                 "fieldLabel": "string",
                 "name": "string"
             },
-            "name": "MyTextField60",
-            "designerId": "65e27247-df9d-42fd-835c-e0a0d866f461"
+            "name": "MyTextField86",
+            "designerId": "85c023eb-6a93-4d6a-8467-a61e96c07a1d"
         },
         {
             "type": "Ext.form.field.ComboBox",
@@ -59,7 +84,7 @@
                 "fieldLabel": "Group Name",
                 "itemId": "groupID",
                 "minChars": 2,
-                "name": "menuGroup",
+                "name": "GroupID",
                 "queryMode": "local",
                 "store": "MenuGroupStore",
                 "typeAhead": true,
@@ -89,7 +114,7 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Menu Url",
-                "name": "menuUrl"
+                "name": "Url"
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -126,7 +151,7 @@
             "userConfig": {
                 "fieldLabel": "Visible",
                 "inputValue": "1",
-                "name": "visible"
+                "name": "IS_Visible"
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -145,7 +170,7 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Status",
-                "name": "menuStatus",
+                "name": "Status",
                 "store": [
                     "['Active','Disabled']"
                 ]
@@ -167,7 +192,7 @@
             "codeClass": null,
             "userConfig": {
                 "fieldLabel": "Menu Image",
-                "name": "menuImage"
+                "name": "S_image"
             },
             "configAlternates": {
                 "fieldLabel": "string",
@@ -187,7 +212,7 @@
                 "displayField": "dispType",
                 "fieldLabel": "Menu Type",
                 "minChars": 2,
-                "name": "menuType",
+                "name": "Type",
                 "queryMode": "local",
                 "store": [
                     "[{dispType:\"Main Menu\",dispvalue:\"1\"},{dispType:\"SubMenu\",dispvalue:\"2\"}]"
@@ -237,7 +262,7 @@
                 "displayField": "dispType",
                 "fieldLabel": "Display Type",
                 "minChars": 2,
-                "name": "DisplayType",
+                "name": "DispType",
                 "queryMode": "local",
                 "store": [
                     "[{dispType:\"Full Screen\",dispValue:\"1\"},{dispType:\"Popup Screen\",dispValue:\"2\"}]"
@@ -257,6 +282,26 @@
             },
             "name": "MyComboBox27",
             "designerId": "5cca8dfa-af1e-495d-8692-8fc8720a5e3e"
+        },
+        {
+            "type": "Ext.form.field.Text",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fieldLabel": "Form Status",
+                "itemId": "formStatus",
+                "name": "formStatus"
+            },
+            "configAlternates": {
+                "fieldLabel": "string",
+                "itemId": "string",
+                "name": "string"
+            },
+            "name": "MyTextField85",
+            "designerId": "bf416330-3337-49c2-8b83-3d1f419d2f93"
         },
         {
             "type": "Ext.form.FieldContainer",

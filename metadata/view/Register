@@ -1497,7 +1497,6 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true,
                         "itemId": "formStatus",
                         "layout|flex": 1,
                         "margin": 3,
@@ -1575,8 +1574,7 @@
                     "kinsStore.load({});",
                     "",
                     "var countiesStore=Ext.data.StoreManager.lookup('CountyStore');",
-                    "countiesStore.load({});",
-                    ""
+                    "countiesStore.load({});"
                 ],
                 "name": "afterrender",
                 "scope": "me"
@@ -1588,7 +1586,7 @@
                 "scope": "string"
             },
             "name": "onFormAfterRender",
-            "designerId": "cb2db54e-6042-4a66-ba67-b738dee7d14d"
+            "designerId": "1dc5ff8e-b617-422f-b789-472695efa58f"
         }
     ]
 }

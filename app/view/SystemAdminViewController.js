@@ -15,5 +15,22 @@
 
 Ext.define('CarePortal.view.SystemAdminViewController', {
     extend: 'Ext.app.ViewController',
-    alias: 'controller.systemadmin'
+    alias: 'controller.systemadmin',
+
+    onGridpanelItemDblClick: function(dataview, record, item, index, e, eOpts) {
+        var menusForm=Ext.create("CarePortal.view.MenusForm",{});
+        var containterWindows=Ext.create('Ext.window.Window', {
+            title: "Menus Register",
+            resizable:true,
+            closable:true,
+            layout:'fit'
+        });
+
+        menusForm.down('#formStatus').setValue('update');
+        menusForm.getForm().loadRecord(record);
+
+        containterWindows.add(menusForm);
+        containterWindows.show();
+    }
+
 });

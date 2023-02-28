@@ -20,58 +20,18 @@ Ext.define('CarePortal.view.Suppliers', {
     requires: [
         'CarePortal.view.SuppliersViewModel',
         'Ext.view.Table',
-        'Ext.grid.column.Column',
         'Ext.toolbar.Paging',
-        'Ext.selection.RowModel'
+        'Ext.selection.RowModel',
+        'Ext.grid.column.Column'
     ],
 
     viewModel: {
         type: 'suppliers'
     },
-    height: 253,
     itemId: 'supplierslist',
-    width: 505,
     columnLines: true,
     store: 'SuppliersStore',
 
-    columns: [
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'ID',
-            text: 'ID'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'SupID',
-            text: 'Supplier ID'
-        },
-        {
-            xtype: 'gridcolumn',
-            width: 242,
-            dataIndex: 'Description',
-            text: 'Description'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'AmountOwed',
-            text: 'Amount Owed'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'AmountPaid',
-            text: 'Amount Paid'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'Amount',
-            text: 'Amount Due'
-        },
-        {
-            xtype: 'gridcolumn',
-            dataIndex: 'ledger',
-            text: 'Ledger'
-        }
-    ],
     dockedItems: [
         {
             xtype: 'pagingtoolbar',
@@ -83,6 +43,144 @@ Ext.define('CarePortal.view.Suppliers', {
     ],
     selModel: {
         selType: 'rowmodel'
-    }
+    },
+    columns: [
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'supplierid',
+            text: 'Supplierid'
+        },
+        {
+            xtype: 'gridcolumn',
+            width: 233,
+            dataIndex: 'suppname',
+            text: 'Suppname'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'address',
+            text: 'Address'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'postalCode',
+            text: 'Postal Code'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'street',
+            text: 'Street'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'city',
+            text: 'City'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'country',
+            text: 'Country'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'mobile',
+            text: 'Mobile'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'telephone',
+            text: 'Telephone'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'email',
+            text: 'Email'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'supptype',
+            text: 'Supptype'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'salesperson',
+            text: 'Salesperson'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'currcode',
+            text: 'Currcode'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'suppliersince',
+            text: 'Suppliersince'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'paymentterms',
+            text: 'Paymentterms'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'lastpaid',
+            text: 'Lastpaid'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'lastpaiddate',
+            text: 'Lastpaiddate'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'bankact',
+            text: 'Bankact'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'bankref',
+            text: 'Bankref'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'bankpartics',
+            text: 'Bankpartics'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'remittance',
+            text: 'Remittance'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'taxgroupid',
+            text: 'Taxgroupid'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'taxref',
+            text: 'Taxref'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'web',
+            text: 'Web'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'currBalance',
+            text: 'Curr Balance'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'accountReceivable',
+            text: 'Account Receivable'
+        },
+        {
+            xtype: 'gridcolumn',
+            dataIndex: 'accountPayable',
+            text: 'Account Payable'
+        }
+    ]
 
 });

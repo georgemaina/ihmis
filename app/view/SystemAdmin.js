@@ -19,6 +19,7 @@ Ext.define('CarePortal.view.SystemAdmin', {
 
     requires: [
         'CarePortal.view.SystemAdminViewModel',
+        'CarePortal.view.SystemAdminViewController',
         'CarePortal.view.UserManagement',
         'Ext.tab.Tab',
         'Ext.grid.Panel',
@@ -35,6 +36,7 @@ Ext.define('CarePortal.view.SystemAdmin', {
         'Ext.form.FieldContainer'
     ],
 
+    controller: 'systemadmin',
     viewModel: {
         type: 'systemadmin'
     },
@@ -478,7 +480,13 @@ Ext.define('CarePortal.view.SystemAdmin', {
                                 }
                             ]
                         }
-                    ]
+                    ],
+                    listeners: {
+                        itemdblclick: {
+                            fn: 'onGridpanelItemDblClick',
+                            scope: 'controller'
+                        }
+                    }
                 }
             ]
         }

@@ -53,12 +53,12 @@ Ext.define('CarePortal.controller.Pharmacy', {
         'PrescriptionForm',
         'Dosage',
         'PendingPrescriptions',
-        'OrdersFromSuppliers',
         'SupplierForm',
         'PurchaseOrders',
         'IssueDrugs',
         'DosageList',
-        'DrugsList'
+        'DrugsList',
+        'MainView'
     ],
 
     refs: {
@@ -154,6 +154,10 @@ Ext.define('CarePortal.controller.Pharmacy', {
         drugslist: {
             selector: 'drugslist',
             xtype: 'drugslist'
+        },
+        viewport: {
+            selector: 'viewport',
+            xtype: 'portal'
         }
     },
 
@@ -371,7 +375,7 @@ Ext.define('CarePortal.controller.Pharmacy', {
         var itemsList=Ext.create("CarePortal.view.DrugsList",{});
         var ordersWindow=Ext.create('Ext.window.Window', {
             title: 'Drugs ans Supplies List',
-            resizable:false
+            resizable:true
         });
 
         // var itesmStore=Ext.data.StoreManager.lookup("ItemslistStore");
@@ -1233,17 +1237,17 @@ Ext.define('CarePortal.controller.Pharmacy', {
 
     createPurchOrder: function(button) {
         var purchOrdersForm=Ext.create("CarePortal.view.OrdersFromSuppliers",{});
-        var purchOrdersWindow=Ext.create('Ext.window.Window', {
-            title: 'Purchase Orders',
-            resizable:false,
-            closable:true
-        });
 
-        var ordersStore =Ext.data.StoreManager.lookup('OrderStocksStore');
-        ordersStore.removeAll();
+        var centerContainer=this.getViewport().down("#detailsPanel");
+        centerContainer.removeAll();
 
-        purchOrdersWindow.add(purchOrdersForm);
-        purchOrdersWindow.show();
+        centerContainer.add(purchOrdersForm);
+        centerContainer.setTitle("Create Purchase Order" );
+
+
+        var supStore =Ext.data.StoreManager.lookup('SuppliersStore');
+        supStore.load({});
+
     },
 
     processOrder: function(button, e, eOpts) {
@@ -1385,12 +1389,16 @@ Ext.define('CarePortal.controller.Pharmacy', {
     onOrderDetailsClick: function(button) {
         var rec = button.lookupViewModel().get('record');
         //  Ext.Msg.alert("Button clicked", "Hey! " + rec.get('OrderNo'));
-        var PurchordersForm=Ext.create("CarePortal.view.PurchaseOrderDetails",{});
-        var purchOrdersWindow=Ext.create('Ext.window.Window', {
-            title: 'Purchase Orders',
-            resizable:true,
-            closable:false
-        });
+        var PurchOrderDetails=Ext.create("CarePortal.view.PurchaseOrderDetails",{});
+        var supplierDetailsPanel=PurchOrderDetails.down('#supplierDetails');
+
+        centerContainer=this.getViewport().down("#detailsPanel");
+        centerContainer.removeAll();
+
+        centerContainer.add(PurchOrderDetails);
+        centerContainer.setTitle("Purchase Order Details");
+
+        PurchOrderDetails.down('#formStatus').setValue("PurchaseDetails");
 
         var pendingOrders =Ext.data.StoreManager.lookup('PurchOrderItems');
         pendingOrders.load({
@@ -1403,8 +1411,36 @@ Ext.define('CarePortal.controller.Pharmacy', {
             scope: this
         });
 
-        purchOrdersWindow.add(PurchordersForm);
-        purchOrdersWindow.show();
+        var data = [];
+        var supplierDetails =Ext.data.StoreManager.lookup('SuppliersStore');
+        supplierDetails.load({
+            params:{
+                supplierId:rec.get('supplierid')
+            },
+            callback: function(records, operation, success) {
+                   var tpl=new Ext.XTemplate(
+                            '<Table id=notes>',
+                            '<tr><td id=titles align=center style="font-size:16px;font-weight:bold;">Vendors Details</td></tr>',
+                            '<tpl for=".">',
+                            '<tr><td>Supplier: {suppname}</td></tr>',
+                            '<tr><td>Address: {address}  -  Location: {street}, {city}</td>',
+                            '<tr><td>Phone:{mobile},{telephone}  ,  Email: {email}</td></tr>',
+                            '<tr><td>Sales Person: {salesperson}</td></tr>',
+                            '</tpl>',
+                            '</table>'
+                        );
+
+                        supplierDetails.each(function(record) {
+                            data.push(record.getData());
+                            //billSum += record.get('Total');
+                        });
+
+                        tpl.overwrite(supplierDetailsPanel.body,data);
+            },
+            scope: this
+        });
+
+
     },
 
     saveItemLocation: function(button) {

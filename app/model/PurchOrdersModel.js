@@ -18,7 +18,7 @@ Ext.define('CarePortal.model.PurchOrdersModel', {
     alias: 'model.purchordersmodel',
 
     requires: [
-        'Ext.data.field.Field'
+        'Ext.data.field.Number'
     ],
 
     fields: [
@@ -26,13 +26,16 @@ Ext.define('CarePortal.model.PurchOrdersModel', {
             name: 'OrderNo'
         },
         {
-            name: 'SupplierNo'
+            name: 'supplierid'
         },
         {
             name: 'Description'
         },
         {
             name: 'OrderDate'
+        },
+        {
+            name: 'DeliveryDate'
         },
         {
             name: 'AllowPrint'
@@ -42,6 +45,10 @@ Ext.define('CarePortal.model.PurchOrdersModel', {
         },
         {
             name: 'Initiator'
+        },
+        {
+            type: 'float',
+            name: 'Total'
         },
         {
             name: 'Status'

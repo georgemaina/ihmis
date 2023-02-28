@@ -600,7 +600,6 @@ Ext.define('CarePortal.view.Register', {
                 {
                     xtype: 'textfield',
                     flex: 1,
-                    hidden: true,
                     itemId: 'formStatus',
                     margin: 3,
                     name: 'formStatus'

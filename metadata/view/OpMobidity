@@ -1216,7 +1216,7 @@
                 "fn": "onDocumentsave",
                 "implHandler": [
                     "gridpanel.unmask();",
-                    "        Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
+                    "Ext.log('export finished; time passed = ' + (Date.now() - this.timeStarted));"
                 ],
                 "name": "documentsave",
                 "scope": "me"

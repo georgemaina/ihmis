@@ -161,6 +161,8 @@ $FieldType=$_POST['FieldType'];
 $purchasingClass=$_REQUEST['purchasingClass'];
 
 $diagType=$_REQUEST['diagType'];
+
+$supplierId = $_REQUEST['supplierId'];
        
 require_once ('updateDataFunctions.php');
 
@@ -610,7 +612,7 @@ switch ($task) {
         getShifts();
         break;
     case "getSuppliers":
-        getSuppliers();
+        getSuppliers($supplierId);
         break;
     case "saveSupplier":
         saveSupplier();
@@ -737,7 +739,11 @@ switch ($task) {
         getMenuGroups();
         break;
     case "saveMenuItem":
-        saveMenuItem();
+        if($formStatus='update'){
+            updateMenuItem();
+        }else{
+            saveMenuItem();
+        }
         break;
     case "saveLabParams":
         if($formStatus=='insert'){
@@ -789,30 +795,31 @@ switch ($task) {
 
 function getDrugsIssued($sParams){
     global $conn;
-    $debug=true;
+    $debug=false;
 
-    $sql= "SELECT `id`,`presc_nr`,`order_date`,`order_time`,`store_loc`,`adm_no`,`patient_name`,`item_id`,`Item_desc`
-    ,`qty`,`price`,`unit_cost`,`issued`,`balance`,`total` FROM `care_ke_internal_orders`";
+    $sql= "SELECT id,presc_nr,order_date,order_time,store_loc,adm_no,patient_name
+    ,item_id,Item_desc ,qty,price,unit_cost,issued,balance,total 
+    FROM care_ke_internal_orders";
 
-                if($sParams){
+                if($sParams<>''){
                 $sql=$sql." where patient_name like '%$sParams%'";
                 }
 
-                $sql=$sql." order by order_date desc ";
+                $sql=$sql." order by order_date desc limit 1000 ";
 
                 if($debug) echo $sql;
-            //     $request=$conn->query($sql);
-            //    if($request->num_rows>0){
-            //        while($row[]=$request->fetch_assoc()){
-            //            $item=$row;
-            //            $json=json_encode($item,JSON_NUMERIC_CHECK);
-            //        }
-            //     }else{
-            //         echo '';
-            //     }
+                $request=$conn->query($sql);
+               if($request->num_rows>0){
+                   while($row[]=$request->fetch_assoc()){
+                       $item=$row;
+                       $json=json_encode($item,JSON_NUMERIC_CHECK);
+                   }
+                }else{
+                    echo '';
+                }
               
-            //    echo $json;
-            //    $conn->close();
+               echo $json;
+               $conn->close();
 }
 
 function getClinicServices($sParams,$purchasingClass){
@@ -865,7 +872,7 @@ function getIcd10Codes($diagType,$start,$limit){
     }else if ($diagType=='OP' && $age>5) {
         $sql = $sql . " where `type`='OP'";
     }else{
-        $sql = $sql . " where `type`=''";
+        $sql = $sql . " where `type`='' limit $start,$limit";
     }
 
     // if($start<>'' && $limit<>''){
@@ -1148,7 +1155,44 @@ function getAppointments($apptDate){
    
     echo $json;
     $conn->close();
+}
 
+function updateMenuItem(){
+    global $conn;
+    $debug=false;
+
+    $Nr=$_REQUEST['Nr'];
+    $menuName=$_REQUEST['Name'];
+    $menuGroup=$_REQUEST['GroupID'];
+    $groupName=$_REQUEST['GroupName'];
+    $menuUrl=trim($_REQUEST['Url']);
+    $sortNr=$_REQUEST['SortNr'];
+    $visible=$_REQUEST['IS_Visible'];
+    $menuStatus=$_REQUEST['Status'];
+    $menuImage=$_REQUEST['S_image'];
+    $menuType=$_REQUEST['Type'];
+    $PageID=$_REQUEST['PageID'];
+    $DisplayType=$_REQUEST['DispType'];
+    $assignedBy=$_SESSION["sess_login_username"];
+    $modifyDate=date("Y-m-d H:i:s");
+
+    
+    $sql="UPDATE `menus` SET `SortNr`='$sortNr',`GroupID`='$menuGroup',`GroupName`='$groupName',
+        `Name`='$menuName',`Url`='$menuUrl',`IS_Visible`='$visible',`Status`='$menuStatus',
+            `modifyID`='$modifyDate',`modify time`='$modifyDate',`S_image`='$menuImage',
+            `Type`='$menuType',`PageID`='$PageID',`DispType`='$DisplayType' 
+            WHERE Nr='$Nr'";
+        
+    if($debug) echo $sql;
+
+    if($conn->query($sql)){
+        $last_id = $conn->insert_id;
+        updateUserRoles($menuName,$groupName,$last_id);
+
+        echo '{"success":true}';
+    }else{
+        echo '{"failure":true,"Error":$sql}';
+    }
 }
 
 function saveMenuItem(){
@@ -1156,16 +1200,16 @@ function saveMenuItem(){
     $debug=false;
 
     $menuName=$_REQUEST['menuName'];
-    $menuGroup=$_REQUEST['menuGroup'];
-    $groupName=$_REQUEST['GroupID'];
-    $menuUrl=$_REQUEST['menuUrl'];
+    $menuGroup=$_REQUEST['GroupID'];
+    $groupName=$_REQUEST['GroupName'];
+    $menuUrl=trim($_REQUEST['Url']);
     $sortNr=$_REQUEST['SortNr'];
-    $visible=$_REQUEST['visible'];
-    $menuStatus=$_REQUEST['menuStatus'];
-    $menuImage=$_REQUEST['menuImage'];
-    $menuType=$_REQUEST['menuType'];
+    $visible=$_REQUEST['IS_Visible'];
+    $menuStatus=$_REQUEST['Status'];
+    $menuImage=$_REQUEST['S_image'];
+    $menuType=$_REQUEST['Type'];
     $PageID=$_REQUEST['PageID'];
-    $DisplayType=$_REQUEST['DisplayType'];
+    $DisplayType=$_REQUEST['DispType'];
     $assignedBy=$_SESSION["sess_login_username"];
     $modifyDate=date("Y-m-d H:i:s");
     
@@ -1964,13 +2008,14 @@ function saveProcedures($encNr,$bill_obj,$enc_obj){
     $history="Created by ".$_SESSION["sess_login_username"]." at ". date('Y-m-d H:i:s');
     $encDetails=$enc_obj->loadEncounterData($encNr);
     $itemDescription=getItemDescription($service);
-    $billTime=date('H:i:s');
+    $billTime = date('H:i:s');
+    $billdate = "Y-m-d";
     $error=0;
 
     $sql="INSERT INTO `care_encounter_procedure` (
                 `encounter_nr`,`inputdate`,`partcode`,`price`,`qty`,`total`,`inputby`,
                 `comment`,`department`,`status`,`history`,`create_id`,  `create_time`,`date`,`batch_nr`)
-            values ( '$encNr',' $inputDate','$service','$price','$qty','$total','$inputUser'
+            values ( '$encNr','$inputDate','$service','$price','$qty','$total','$inputUser'
                 ,'$comments','OP','Pending','$history ','$inputUser','$inputDate','$inputDate','$batch_nr')";
                 if($debug) echo $sql;
                 
@@ -1978,8 +2023,8 @@ function saveProcedures($encNr,$bill_obj,$enc_obj){
         $sql2 = "INSERT INTO care_ke_billing (pid, encounter_nr,bill_date,`ip-op`,bill_number,service_type,
             price,`Description`,notes,prescribe_date,dosage,times_per_day,`days`,input_user,item_number,partcode,`status`
             ,qty,total,rev_code,weberpSync,batch_no,ledger,bill_time,presc_no)
-            VALUES ('$pid','$encNr','$inputDate','$encDetails[encounter_class_nr]','$encDetails[bill_number]'
-            ,'Procedures','$price','$itemDescription','$comments','$inputDate','1','1','$qty'
+            VALUES ('$pid','$encNr','$billdate','$encDetails[encounter_class_nr]','$encDetails[bill_number]'
+            ,'Procedures','$price','$itemDescription','$comments','$billdate','1','1','$qty'
             ,'$inputUser','$service','$service','pending','$qty','$total','$service','0','$batch_nr'
             ,'Service','$billTime','$batch_nr')";
             if($debug) echo $sql2;
@@ -2239,30 +2284,29 @@ function saveSupplier(){
 
 }
 
-function getSuppliers(){
-    global $db;
+function getSuppliers($supplierId){
+    global $conn;
     $debug=FALSE;
 
-    $sql="SELECT  `ID`,`Supid`,`Description`,`AmountOwed`,`AmountPaid`,`AmountDue`, `ledger`
-         FROM `care_ke_suppliers`";
-    if($debug) echo $sql;
-    echo "[";
-    $request=$db->Execute($sql);
-    $total=$request->RecordCount();
-    $counter=0;
-    while($row=$request->FetchRow()){
+    $sql="SELECT  * from suppliers";
 
-            echo '{"ID":"' .  $row['ID'] . '","SupID":"' . $row['Supid']. '","Description":"' . $row['Description']
-            . '","AmountOwed":"' .  $row['AmountOwed'] 
-            . '","AmountPaid":"' .  $row['AmountPaid']. '","AmountDue":"' .  $row['AmountDue'] 
-            . '","ledger":"' .  $row['ledger'] . '"}';
-
-        $counter++;
-        if ($counter <> $total) {
-            echo ",";
-        }
+    if($supplierId<>''){
+        $sql .= " where supplierid='$supplierId'";
     }
-    echo ']';
+    
+    if($debug) echo $sql;
+    $request=$conn->query($sql);
+   if($request->num_rows>0){
+       while($row[]=$request->fetch_assoc()){
+           $item=$row;
+           $json=json_encode($item,JSON_NUMERIC_CHECK);
+       }
+    }else{
+        echo '';
+    }
+  
+   echo $json;
+   $conn->close();
 
 
 }
@@ -2377,7 +2421,7 @@ function getReceipts($cashpoint, $shiftNo, $cashier,$receipt,$searchparams){
     $start=$_REQUEST['start'];
     $limit=$_REQUEST['limit'];
 
-    $sql = "SELECT b.sale_id,b.cash_point,b.Shift_no,b.ref_no,b.`type`,b.input_time,b.patient,
+    $sql = "SELECT b.sale_id,b.cash_point,b.Shift_no,b.ref_no,b.`type`,b.input_time,b.patient,b.name,
     b.rev_code,b.rev_desc,b.proc_code,b.prec_desc,b.payer,b.location,b.pay_mode,b.amount,b.proc_qty,b.total,
     a.start_date,a.start_time,b.currdate,
     b.pay_mode ,b.towards,b.`cash`,b.`mpesa`,a.cashier FROM care_ke_receipts b 
@@ -3364,7 +3408,7 @@ function saveNotes($currUser){
         VALUES  (
             '$enounterNo','$notesType', '$notes', '$currUser','$inputDate', '$inputTime', 
             '$locationNr','$status', '$history',
-            '$currUser',' $create_time','$currUser','$create_time')";
+            '$currUser','$create_time','$currUser','$create_time')";
     if($debug) echo $sql;
     if($db->Execute($sql)){
         echo '{"success":true}';
@@ -4249,8 +4293,11 @@ function getPurchOrders(){
     global $db;
     $debug=false;
 
-    $sql="SELECT orderno,supplierno,s.`Description`, p.`orddate`,p.`allowprint`,p.`initiator`,p.`status` FROM purchorders p 
-            LEFT JOIN `care_ke_suppliers` s ON p.`supplierno`=s.`id`";
+    $sql="SELECT p.orderno,s.`supplierid`,s.suppname as Description, p.`orddate`,p.`deliverydate`,p.`allowprint`,p.`requisitionStatus`,p.`initiator`,p.`status`
+                ,SUM(d.`unitprice` * d.quantityord) AS Total FROM purchorders p 
+                LEFT JOIN `suppliers` s ON p.`supplierno`=s.`supplierid`
+                left join `purchorderdetails` d on p.`orderno`=d.`orderno`
+                where p.`orddate`>'2021-12-31' group by p.`orderno`";
 
     if ($debug) echo $sql;
     $result = $db->Execute($sql);
@@ -4258,9 +4305,10 @@ function getPurchOrders(){
     echo '[';
     $counter = 0;
     while ($row = $result->FetchRow()) {
-        echo '{"OrderNo":"' . $row['orderno'] .'","SupplierNo":"' . $row['supplierno'] .'","Description":"' . $row['Description']
+        echo '{"OrderNo":"' . $row['orderno'] .'","supplierid":"' . $row['supplierid'] .'","Description":"' . $row['Description']
              .'","OrderDate":"' . $row['orddate'] .'","AllowPrint":"' . $row['allowprint'] .'","DatePrinted":"' . $row['dateprinted']
-            .'","Initiator":"' . $row['initiator'].'","Status":"' . $row['status'].'","RequisitionStatus":"' . $row['requisitionStatus'].'"}';
+            .'","Initiator":"' . $row['initiator'].'","Status":"' . $row['status'].'","RequisitionStatus":"' . $row['requisitionStatus']
+            .'","Total":"' . $row['Total'] .'","DeliveryDate":"' . $row['deliverydate'].'"}';
 
         $counter++;
         if ($counter <> $numRows) {
@@ -4275,7 +4323,7 @@ function getPurchOrderDetails($orderNo){
     $debug=false;
 
     $sql="SELECT `podetailitem`,`orderno`,`itemcode`,`deliverydate`,`itemdescription`,`glcode`,`qtyinvoiced`,`unitprice`,
-                `quantityord`, `quantityrecd`,`completed`,`conversionfactor`
+                `quantityord`, `quantityrecd`,`completed`,`conversionfactor`,(unitprice*quantityord) AS Total
             FROM `purchorderdetails`";
 
     if($orderNo<>''){
@@ -4290,7 +4338,7 @@ function getPurchOrderDetails($orderNo){
     while ($row = $result->FetchRow()) {
         echo '{"ID":"' . $row['podetailitem'] .'","OrderNo":"' . $row['orderno'] .'","PartCode":"' . $row['itemcode']
              .'","ItemDescription":"' . $row['itemdescription'] .'","QuantityOrd":"' . $row['quantityord'] .'","QtyInvoiced":"' . $row['qtyinvoiced']
-            .'","UnitPrice":"' . $row['unitprice'].'","ConversionFactor":"' . $row['conversionfactor'].'","QuantityRecd":"' . $row['quantityrecd'].'"}';
+            .'","UnitPrice":"' . $row['unitprice'].'","ConversionFactor":"' . $row['conversionfactor'].'","QuantityRecd":"' . $row['quantityrecd'].'","Total":"' . round($row['Total'],2).'"}';
 
         $counter++;
         if ($counter <> $numRows) {

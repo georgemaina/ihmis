@@ -361,10 +361,7 @@
                                         "animCollapse": true,
                                         "collapsible": true,
                                         "columnLines": true,
-                                        "height": 400,
                                         "itemId": "debtorBalances",
-                                        "maxHeight": 600,
-                                        "minHeight": 500,
                                         "scrollable": true,
                                         "store": "CustomerTrans",
                                         "title": "Balances",
@@ -605,6 +602,28 @@
                                                     "designerId": "64628b0e-3f3a-4a5c-9842-cf74f77d0c92"
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "type": "Ext.toolbar.Paging",
+                                            "reference": {
+                                                "name": "dockedItems",
+                                                "type": "array"
+                                            },
+                                            "codeClass": null,
+                                            "userConfig": {
+                                                "displayInfo": true,
+                                                "dock": "bottom",
+                                                "store": "CustomerTrans",
+                                                "width": 360
+                                            },
+                                            "configAlternates": {
+                                                "displayInfo": "boolean",
+                                                "dock": "string",
+                                                "store": "store",
+                                                "width": "auto"
+                                            },
+                                            "name": "MyPagingToolbar12",
+                                            "designerId": "416c12e3-9c83-4170-833a-f6daa1ee4ffb"
                                         }
                                     ]
                                 }
@@ -948,6 +967,31 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "viewcontrollereventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onPanelAfterRender",
+                "implHandler": [
+                    " var custStore=Ext.data.StoreManager.lookup('CustomerTrans');",
+                    "        custStore.load({});"
+                ],
+                "name": "afterrender",
+                "scope": "me"
+            },
+            "configAlternates": {
+                "fn": "string",
+                "implHandler": "code",
+                "name": "string",
+                "scope": "string"
+            },
+            "name": "onPanelAfterRender",
+            "designerId": "7358f7b3-e260-4b57-b4f2-4bff6fb855bd"
         }
     ]
 }
